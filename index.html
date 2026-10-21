@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>企业出海披露情报台 · CNINFO Watch</title>
+<link rel="stylesheet" href="./assets/style.css"/>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- 深色侧栏 -->
+  <aside class="side" id="side">
+    <div class="side-brand">
+      <div class="side-title">出海披露情报台</div>
+      <div class="side-sub">CNINFO WATCH</div>
+    </div>
+    <nav class="side-nav" id="nav">
+      <div class="nav-group">
+        <div class="nav-glabel">情报台</div>
+        <a href="#/" data-route="home">披露首页</a>
+        <a href="#/batches" data-route="batches">批次简报</a>
+        <a href="#/live" data-route="live">实时抓取</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-glabel">披露与案例</div>
+        <a href="#/archive" data-route="archive">披露档案</a>
+        <a href="#/cases" data-route="cases">连续案例</a>
+        <a href="#/compare" data-route="compare">案例对比</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-glabel">专业分析</div>
+        <a href="#/analysis/invest" data-route="analysis-invest">投资视角</a>
+        <a href="#/analysis/finance" data-route="analysis-finance">财务视角</a>
+        <a href="#/analysis/legal" data-route="analysis-legal">法务视角</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-glabel">系统与来源</div>
+        <a href="#/sources" data-route="sources">数据源</a>
+        <a href="#/scans" data-route="scans">扫描记录</a>
+        <a href="#/rules" data-route="rules">扫描规则</a>
+        <a href="#/exceptions" data-route="exceptions">异常与边界</a>
+      </div>
+    </nav>
+    <div class="side-foot">
+      <div>最近同步 <b id="sideSync">—</b></div>
+      <div class="dim">每交易日 08:00 / 18:00</div>
+    </div>
+  </aside>
+  <div class="side-mask" id="sideMask"></div>
+
+  <!-- 内容区 -->
+  <div class="main">
+    <header class="topline">
+      <button class="burger" id="burger" aria-label="菜单">☰</button>
+      <div class="page-title" id="pageTitle">披露首页</div>
+      <div class="topline-right">
+        <span class="sync-badge">巨潮资讯 · 增量监测</span>
+      </div>
+    </header>
+    <main id="view" class="view"></main>
+  </div>
+</div>
+
+<script src="./assets/data.js"></script>
+<script src="./assets/app.js"></script>
+</body>
+</html>

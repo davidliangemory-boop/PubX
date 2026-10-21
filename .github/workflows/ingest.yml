@@ -1,0 +1,42 @@
+name: ingest-and-publish
+
+# 混合模式（零 API 费用）：分析由外部定时任务（Kimi 订阅额度）完成并推送 data.js，
+# 本工作流只负责在收到推送后自动部署 Pages。GitHub 侧不需要任何 Secrets。
+
+on:
+  repository_dispatch:
+    types: [ingest]
+  workflow_dispatch: {}   # 手动重新部署
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 组装发布目录
+        run: |
+          rm -rf site
+          mkdir -p site
+          cp index.html site/
+          cp -r assets site/assets
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
