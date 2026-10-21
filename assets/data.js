@@ -3095,7 +3095,7 @@ window.DB = {
    {
     "name": "深圳传音控股股份有限公司",
     "code": "688036.SH",
-    "industry": "—",
+    "industry": "消费电子",
     "regions": [
      "中国香港"
     ],
@@ -3118,7 +3118,7 @@ window.DB = {
    {
     "name": "上海剑桥科技股份有限公司",
     "code": "603083.SH",
-    "industry": "—",
+    "industry": "通信设备",
     "regions": [
      "中国香港"
     ],
@@ -3141,7 +3141,7 @@ window.DB = {
    {
     "name": "广州若羽臣科技股份有限公司",
     "code": "003010.SZ",
-    "industry": "—",
+    "industry": "电商服务",
     "regions": [
      "中国香港"
     ],
@@ -3186,7 +3186,7 @@ window.DB = {
    {
     "name": "汉威科技集团股份有限公司",
     "code": "300007.SZ",
-    "industry": "—",
+    "industry": "仪器仪表",
     "regions": [
      "中国香港"
     ],
@@ -3209,7 +3209,7 @@ window.DB = {
    {
     "name": "深圳新宙邦科技股份有限公司",
     "code": "300037.SZ",
-    "industry": "—",
+    "industry": "新材料",
     "regions": [
      "中国香港"
     ],
@@ -3232,7 +3232,7 @@ window.DB = {
    {
     "name": "深圳市绿联科技股份有限公司",
     "code": "301606.SZ",
-    "industry": "—",
+    "industry": "消费电子",
     "regions": [
      "中国香港"
     ],
@@ -3255,7 +3255,7 @@ window.DB = {
    {
     "name": "宁波江丰电子材料股份有限公司",
     "code": "300666.SZ",
-    "industry": "—",
+    "industry": "半导体材料",
     "regions": [
      "中国香港"
     ],
@@ -3275,7 +3275,7 @@ window.DB = {
    {
     "name": "苏州联讯仪器股份有限公司",
     "code": "688808.SH",
-    "industry": "—",
+    "industry": "仪器仪表",
     "regions": [
      "中国香港"
     ],
@@ -3295,7 +3295,7 @@ window.DB = {
    {
     "name": "深圳嘉立创科技集团股份有限公司",
     "code": "001232.SZ",
-    "industry": "—",
+    "industry": "电子制造",
     "regions": [
      "中国香港"
     ],
@@ -3315,7 +3315,7 @@ window.DB = {
    {
     "name": "奥士康科技股份有限公司",
     "code": "002913.SZ",
-    "industry": "—",
+    "industry": "电子制造",
     "regions": [
      "中国香港"
     ],
@@ -4275,12 +4275,12 @@ window.DB = {
    {
     "id": "P34",
     "company": "深圳传音控股股份有限公司",
-    "name": "H股发行上市",
+    "name": "H股上市（2636.HK）",
     "region": "中国香港",
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "消费电子",
     "aids": [
      "1225606076"
     ],
@@ -4303,12 +4303,12 @@ window.DB = {
    {
     "id": "P35",
     "company": "上海剑桥科技股份有限公司",
-    "name": "配售新H股18,446,000股＋发行39.6亿元可转债",
+    "name": "H股配售＋可转债融资",
     "region": "中国香港",
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "通信设备",
     "aids": [
      "1225605853"
     ],
@@ -4336,7 +4336,7 @@ window.DB = {
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "电商服务",
     "aids": [
      "1225589868"
     ],
@@ -4392,7 +4392,7 @@ window.DB = {
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "仪器仪表",
     "aids": [
      "1225598510"
     ],
@@ -4420,7 +4420,7 @@ window.DB = {
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "新材料",
     "aids": [
      "1225599906"
     ],
@@ -4448,7 +4448,7 @@ window.DB = {
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "消费电子",
     "aids": [
      "1225599932"
     ],
@@ -4471,12 +4471,12 @@ window.DB = {
    {
     "id": "P41",
     "company": "宁波江丰电子材料股份有限公司",
-    "name": "筹划H股发行上市",
+    "name": "H股发行上市筹划",
     "region": "中国香港",
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "半导体材料",
     "aids": [
      "1225605784"
     ],
@@ -4499,12 +4499,12 @@ window.DB = {
    {
     "id": "P42",
     "company": "苏州联讯仪器股份有限公司",
-    "name": "筹划H股发行上市",
+    "name": "H股发行上市筹划",
     "region": "中国香港",
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "仪器仪表",
     "aids": [
      "1225609879"
     ],
@@ -4527,12 +4527,12 @@ window.DB = {
    {
     "id": "P43",
     "company": "深圳嘉立创科技集团股份有限公司",
-    "name": "筹划H股发行上市",
+    "name": "H股发行上市筹划",
     "region": "中国香港",
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "电子制造",
     "aids": [
      "1225609307"
     ],
@@ -4555,12 +4555,12 @@ window.DB = {
    {
     "id": "P44",
     "company": "奥士康科技股份有限公司",
-    "name": "筹划H股发行上市",
+    "name": "H股发行上市筹划",
     "region": "中国香港",
     "regions_all": [
      "中国香港"
     ],
-    "industry": "—",
+    "industry": "电子制造",
     "aids": [
      "1225613124"
     ],
@@ -4656,9 +4656,15 @@ window.DB = {
     "company_cnt": 15,
     "industries": [
      "互联网",
+     "仪器仪表",
+     "半导体材料",
+     "新材料",
      "汽车整车",
+     "消费电子",
      "环保公用",
-     "电子制造"
+     "电商服务",
+     "电子制造",
+     "通信设备"
     ],
     "fund_cnt": 10,
     "projects": [
@@ -9923,21 +9929,21 @@ window.DB = {
      "kind": "company",
      "name": "深圳传音控股",
      "code": "688036.SH",
-     "industry": "—"
+     "industry": "消费电子"
     },
     {
      "id": "company:上海剑桥科技股份有限公司",
      "kind": "company",
      "name": "上海剑桥科技",
      "code": "603083.SH",
-     "industry": "—"
+     "industry": "通信设备"
     },
     {
      "id": "company:广州若羽臣科技股份有限公司",
      "kind": "company",
      "name": "广州若羽臣科技",
      "code": "003010.SZ",
-     "industry": "—"
+     "industry": "电商服务"
     },
     {
      "id": "company:广州天赐高新材料股份有限公司",
@@ -9951,49 +9957,49 @@ window.DB = {
      "kind": "company",
      "name": "汉威科技集团",
      "code": "300007.SZ",
-     "industry": "—"
+     "industry": "仪器仪表"
     },
     {
      "id": "company:深圳新宙邦科技股份有限公司",
      "kind": "company",
      "name": "深圳新宙邦科技",
      "code": "300037.SZ",
-     "industry": "—"
+     "industry": "新材料"
     },
     {
      "id": "company:深圳市绿联科技股份有限公司",
      "kind": "company",
      "name": "深圳市绿联科技",
      "code": "301606.SZ",
-     "industry": "—"
+     "industry": "消费电子"
     },
     {
      "id": "company:宁波江丰电子材料股份有限公司",
      "kind": "company",
      "name": "宁波江丰电子材料",
      "code": "300666.SZ",
-     "industry": "—"
+     "industry": "半导体材料"
     },
     {
      "id": "company:苏州联讯仪器股份有限公司",
      "kind": "company",
      "name": "苏州联讯仪器",
      "code": "688808.SH",
-     "industry": "—"
+     "industry": "仪器仪表"
     },
     {
      "id": "company:深圳嘉立创科技集团股份有限公司",
      "kind": "company",
      "name": "深圳嘉立创科技集团",
      "code": "001232.SZ",
-     "industry": "—"
+     "industry": "电子制造"
     },
     {
      "id": "company:奥士康科技股份有限公司",
      "kind": "company",
      "name": "奥士康科技",
      "code": "002913.SZ",
-     "industry": "—"
+     "industry": "电子制造"
     },
     {
      "id": "project:P01",
@@ -10334,14 +10340,14 @@ window.DB = {
     {
      "id": "project:P34",
      "kind": "project",
-     "name": "H股发行上市",
+     "name": "H股上市（2636.HK）",
      "stage": "交割",
      "region": "中国香港"
     },
     {
      "id": "project:P35",
      "kind": "project",
-     "name": "配售新H股18,446,000股＋发行39.6亿元可转债",
+     "name": "H股配售＋可转债融资",
      "stage": "交割",
      "region": "中国香港"
     },
@@ -10383,28 +10389,28 @@ window.DB = {
     {
      "id": "project:P41",
      "kind": "project",
-     "name": "筹划H股发行上市",
+     "name": "H股发行上市筹划",
      "stage": "意向",
      "region": "中国香港"
     },
     {
      "id": "project:P42",
      "kind": "project",
-     "name": "筹划H股发行上市",
+     "name": "H股发行上市筹划",
      "stage": "意向",
      "region": "中国香港"
     },
     {
      "id": "project:P43",
      "kind": "project",
-     "name": "筹划H股发行上市",
+     "name": "H股发行上市筹划",
      "stage": "意向",
      "region": "中国香港"
     },
     {
      "id": "project:P44",
      "kind": "project",
-     "name": "筹划H股发行上市",
+     "name": "H股发行上市筹划",
      "stage": "意向",
      "region": "中国香港"
     },
@@ -12083,3 +12089,3659 @@ window.DB = {
     },
     {
      "id": "file:1225596438",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225596438",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225596438.PDF"
+    },
+    {
+     "id": "file:1225598484",
+     "kind": "file",
+     "name": "披露 2026-10-10",
+     "aid": "1225598484",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-10/1225598484.PDF"
+    },
+    {
+     "id": "file:1225589868",
+     "kind": "file",
+     "name": "披露 2026-10-08",
+     "aid": "1225589868",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-08/1225589868.PDF"
+    },
+    {
+     "id": "file:1225595407",
+     "kind": "file",
+     "name": "披露 2026-10-08",
+     "aid": "1225595407",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-08/1225595407.PDF"
+    },
+    {
+     "id": "file:1225598510",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225598510",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225598510.PDF"
+    },
+    {
+     "id": "file:1225599906",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225599906",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225599906.PDF"
+    },
+    {
+     "id": "file:1225599932",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225599932",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225599932.PDF"
+    },
+    {
+     "id": "file:1225605784",
+     "kind": "file",
+     "name": "披露 2026-10-15",
+     "aid": "1225605784",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-15/1225605784.PDF"
+    },
+    {
+     "id": "file:1225609879",
+     "kind": "file",
+     "name": "披露 2026-10-17",
+     "aid": "1225609879",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-17/1225609879.PDF"
+    },
+    {
+     "id": "file:1225609307",
+     "kind": "file",
+     "name": "披露 2026-10-17",
+     "aid": "1225609307",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-17/1225609307.PDF"
+    },
+    {
+     "id": "file:1225613124",
+     "kind": "file",
+     "name": "披露 2026-10-21",
+     "aid": "1225613124",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613124.PDF"
+    }
+   ],
+   "edges": [
+    {
+     "s": "company:长江精工钢结构（集团）股份有限公司",
+     "t": "project:P01",
+     "type": "投资/运营",
+     "date": "2026-10-20"
+    },
+    {
+     "s": "project:P01",
+     "t": "region:埃塞俄比亚",
+     "type": "位于",
+     "date": "2026-10-20"
+    },
+    {
+     "s": "project:P01",
+     "t": "region:尼日利亚",
+     "type": "位于",
+     "date": "2026-10-20"
+    },
+    {
+     "s": "company:晶科电力科技股份有限公司",
+     "t": "project:P02",
+     "type": "投资/运营",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P02",
+     "t": "region:阿联酋",
+     "type": "位于",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:兖矿能源集团股份有限公司",
+     "t": "project:P03",
+     "type": "投资/运营",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P03",
+     "t": "region:澳大利亚",
+     "type": "位于",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:广电运通集团股份有限公司",
+     "t": "project:P04",
+     "type": "投资/运营",
+     "date": "2026-09-22"
+    },
+    {
+     "s": "project:P04",
+     "t": "region:泰国",
+     "type": "位于",
+     "date": "2026-09-22"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "投资/运营",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P05",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P05",
+     "t": "region:刚果（金）",
+     "type": "位于",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P05",
+     "t": "region:法国",
+     "type": "位于",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:龙佰集团股份有限公司",
+     "t": "project:P06",
+     "type": "投资/运营",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P06",
+     "t": "region:澳大利亚",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "company:宁波三星医疗电气股份有限公司",
+     "t": "project:P07",
+     "type": "投资/运营",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P07",
+     "t": "region:美国",
+     "type": "位于",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "company:山东玲珑轮胎股份有限公司",
+     "t": "project:P08",
+     "type": "投资/运营",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P08",
+     "t": "region:埃及",
+     "type": "位于",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "company:浙江泰林生物技术股份有限公司",
+     "t": "project:P09",
+     "type": "投资/运营",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P09",
+     "t": "region:新加坡",
+     "type": "位于",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "company:三友联众集团股份有限公司",
+     "t": "project:P10",
+     "type": "投资/运营",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P10",
+     "t": "region:越南",
+     "type": "位于",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:行云科技股份有限公司",
+     "t": "project:P11",
+     "type": "投资/运营",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P11",
+     "t": "region:新加坡",
+     "type": "位于",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:品茗科技股份有限公司",
+     "t": "project:P12",
+     "type": "投资/运营",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P12",
+     "t": "region:新加坡",
+     "type": "位于",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:四川汇宇制药股份有限公司",
+     "t": "project:P13",
+     "type": "投资/运营",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "project:P13",
+     "t": "region:塞尔维亚",
+     "type": "位于",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "project:P13",
+     "t": "region:法国",
+     "type": "位于",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "company:赛诺医疗科学技术股份有限公司",
+     "t": "project:P14",
+     "type": "投资/运营",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:印度",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:哥伦比亚",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:墨西哥",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:巴西",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:泰国",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:韩国",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "company:贵州航宇科技发展股份有限公司",
+     "t": "project:P15",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P15",
+     "t": "region:摩洛哥",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:苏州太湖雪丝绸股份有限公司",
+     "t": "project:P16",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P16",
+     "t": "region:英国",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:共达电声股份有限公司",
+     "t": "project:P17",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P17",
+     "t": "region:泰国",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:昆明川金诺化工股份有限公司",
+     "t": "project:P18",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P18",
+     "t": "region:埃及",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:泰晶科技股份有限公司",
+     "t": "project:P19",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P19",
+     "t": "region:越南",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:瀚蓝环境股份有限公司",
+     "t": "project:P20",
+     "type": "投资/运营",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "project:P20",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "company:浙江天成自控股份有限公司",
+     "t": "project:P21",
+     "type": "投资/运营",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "project:P21",
+     "t": "region:泰国",
+     "type": "位于",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "company:安踏体育用品有限公司",
+     "t": "project:P22",
+     "type": "投资/运营",
+     "date": "2026-10-07"
+    },
+    {
+     "s": "project:P22",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-10-07"
+    },
+    {
+     "s": "company:理想汽车（Li Auto Inc.）",
+     "t": "project:P23",
+     "type": "投资/运营",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P23",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:腾讯控股有限公司",
+     "t": "project:P24",
+     "type": "投资/运营",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "project:P24",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "project:P24",
+     "t": "region:美国",
+     "type": "位于",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "company:中国人寿保险股份有限公司",
+     "t": "project:P25",
+     "type": "投资/运营",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P25",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:吉利汽车控股有限公司",
+     "t": "project:P26",
+     "type": "投资/运营",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P26",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:长城汽车股份有限公司",
+     "t": "project:P27",
+     "type": "投资/运营",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P27",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:海尔智家股份有限公司",
+     "t": "project:P28",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P28",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:Li Auto Inc.（理想汽车）",
+     "t": "project:P29",
+     "type": "投资/运营",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P29",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:JinkoSolar Holding Co., Ltd.（晶科能源）",
+     "t": "project:P30",
+     "type": "投资/运营",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P30",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:NIO Inc.（蔚来）",
+     "t": "project:P31",
+     "type": "投资/运营",
+     "date": "2026-10-02"
+    },
+    {
+     "s": "project:P31",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-10-02"
+    },
+    {
+     "s": "company:XPeng Inc.（小鹏汽车）",
+     "t": "project:P32",
+     "type": "投资/运营",
+     "date": "2026-10-02"
+    },
+    {
+     "s": "project:P32",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-02"
+    },
+    {
+     "s": "company:PDD Holdings Inc.（拼多多）",
+     "t": "project:P33",
+     "type": "投资/运营",
+     "date": "2026-08-25"
+    },
+    {
+     "s": "project:P33",
+     "t": "region:未标明",
+     "type": "位于",
+     "date": "2026-08-25"
+    },
+    {
+     "s": "company:深圳传音控股股份有限公司",
+     "t": "project:P34",
+     "type": "投资/运营",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P34",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:上海剑桥科技股份有限公司",
+     "t": "project:P35",
+     "type": "投资/运营",
+     "date": "2026-10-15"
+    },
+    {
+     "s": "project:P35",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-15"
+    },
+    {
+     "s": "company:广州若羽臣科技股份有限公司",
+     "t": "project:P36",
+     "type": "投资/运营",
+     "date": "2026-10-08"
+    },
+    {
+     "s": "project:P36",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-08"
+    },
+    {
+     "s": "company:广州天赐高新材料股份有限公司",
+     "t": "project:P37",
+     "type": "投资/运营",
+     "date": "2026-10-08"
+    },
+    {
+     "s": "project:P37",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-08"
+    },
+    {
+     "s": "company:汉威科技集团股份有限公司",
+     "t": "project:P38",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P38",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:深圳新宙邦科技股份有限公司",
+     "t": "project:P39",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P39",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:深圳市绿联科技股份有限公司",
+     "t": "project:P40",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P40",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:宁波江丰电子材料股份有限公司",
+     "t": "project:P41",
+     "type": "投资/运营",
+     "date": "2026-10-15"
+    },
+    {
+     "s": "project:P41",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-15"
+    },
+    {
+     "s": "company:苏州联讯仪器股份有限公司",
+     "t": "project:P42",
+     "type": "投资/运营",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "project:P42",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "company:深圳嘉立创科技集团股份有限公司",
+     "t": "project:P43",
+     "type": "投资/运营",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "project:P43",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "company:奥士康科技股份有限公司",
+     "t": "project:P44",
+     "type": "投资/运营",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P44",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "partner:无关联关系",
+     "t": "project:P07",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无关联关系",
+     "t": "project:P11",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:香港联交所上市委员会",
+     "t": "project:P39",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:香港联交所上市委员会",
+     "t": "project:P40",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:业主方：DANGOTE PROJECTS FZE（丹格特工业集团旗下",
+     "t": "project:P01",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:非洲最大综合性工业集团",
+     "t": "project:P01",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:分包主体：长江精工（上海）建筑科技有限公司",
+     "t": "project:P01",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:不构成关联交易",
+     "t": "project:P01",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:Ltd 50%",
+     "t": "project:P02",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:合资公司持有Al Dhafrah 2",
+     "t": "project:P02",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:100MW光伏电站项目公司40%股权",
+     "t": "project:P02",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:兖煤澳大利亚有限公司（ASX:YAL / HKEX:03668",
+     "t": "project:P03",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:公司控股子公司",
+     "t": "project:P03",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:终端客户为泰国政府储蓄银行GSB",
+     "t": "project:P04",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:卖方：格派控股（香港",
+     "t": "project:P05",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:自然人黄鸿旋（涉及刚果（金）公民代持安排",
+     "t": "project:P05",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:完成后公司持COP公司73.99%并并表",
+     "t": "project:P05",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:Image Resources NL（ASX:IMA",
+     "t": "project:P06",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:公司经子公司合计持股约17.76%",
+     "t": "project:P06",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:董事长许冉任其董事→构成关联交易",
+     "t": "project:P06",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:标的为其全资子公司Titon Resources持有的两个矿砂项目",
+     "t": "project:P06",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:美国数据中心项目客户（未具名",
+     "t": "project:P07",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（独资建设埃及项目公司",
+     "t": "project:P08",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（全资子公司泰林科学技术100%持有",
+     "t": "project:P09",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（全资子公司越南三友持股100%",
+     "t": "project:P10",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:“VG客户”（以商业秘密豁免披露",
+     "t": "project:P11",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:近三年无类似交易",
+     "t": "project:P11",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:卖方为ZLX原股东（新加坡注册私人有限公司创始人",
+     "t": "project:P12",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:法国ANSM（监管方",
+     "t": "project:P13",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:子公司Seacross (Europe) Pharma Ltd.为持证主体",
+     "t": "project:P13",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:哥伦比亚INVIMA（监管机构",
+     "t": "project:P14",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（独资建设",
+     "t": "project:P15",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（通过全资子公司苏州太湖雪茧丝绸科技持有",
+     "t": "project:P16",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:中非发展基金有限公司（2007年国务院批准设立",
+     "t": "project:P18",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:中国第一只专注对非投资的国家级基金",
+     "t": "project:P18",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（独资",
+     "t": "project:P19",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:卖方：臻达发展有限公司（7.22%股份",
+     "t": "project:P20",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:广东南海上市公司高质量发展股权投资基金（100%财产份额",
+     "t": "project:P20",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:某知名合资汽车企业（保密协议无法披露名称",
+     "t": "project:P21",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:卖方（未于本公告列名",
+     "t": "project:P22",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:标的公司PUMA SE（德国运动品牌",
+     "t": "project:P22",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:法兰克福上市",
+     "t": "project:P22",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:领投：杭州经韬",
+     "t": "project:P23",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:蓝驰创投",
+     "t": "project:P23",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:华业天成",
+     "t": "project:P23",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:参投：奇绩创坛",
+     "t": "project:P23",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:联席全球协调人：摩根大通",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:工银亚洲",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:农业银行",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:中国银行",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:交通银行",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:建设银行",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:中信证券",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:高盛（亚洲",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:摩根士丹利",
+     "t": "project:P24",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:买方：集团公司（控股股东",
+     "t": "project:P25",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:持有约68.37%已发行股本",
+     "t": "project:P25",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:吉利控股",
+     "t": "project:P26",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:星驱科技",
+     "t": "project:P26",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:LEVC汽车",
+     "t": "project:P26",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:亿咖通",
+     "t": "project:P26",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:smart Europe",
+     "t": "project:P26",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:路特斯等20余家体系内主体",
+     "t": "project:P26",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:魏建军先生及其联系人（不包括本集团",
+     "t": "project:P27",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:被担保人：智运天下（重庆）科技有限公司",
+     "t": "project:P28",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:青岛飞升供应链管理有限公司（均为控股子公司",
+     "t": "project:P28",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:Hangzhou Jingtao",
+     "t": "project:P29",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:Lanchi Ventures（蓝驰创投",
+     "t": "project:P29",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:Huaye Tiancheng（华业天成",
+     "t": "project:P29",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:MiraclePlus（奇绩创坛",
+     "t": "project:P29",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:香港公开发售10%＋国际发售90%",
+     "t": "project:P34",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:承销团未于本公告列名",
+     "t": "project:P34",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:不少于六名独立第三方承配人",
+     "t": "project:P35",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:可转债于维也纳证券交易所 Vienna MTF 上市",
+     "t": "project:P35",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:中国证监会（备案",
+     "t": "project:P36",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:香港联交所（待批",
+     "t": "project:P36",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:保荐人未于本公告列名",
+     "t": "project:P37",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:中国证监会（备案审核中",
+     "t": "project:P38",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:香港联交所（已递表",
+     "t": "project:P38",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:保荐人（未列名",
+     "t": "project:P39",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:独家保荐人（未列名",
+     "t": "project:P40",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "company:晶科电力科技股份有限公司",
+     "t": "project:P02",
+     "type": "借款",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:晶科电力科技股份有限公司",
+     "t": "project:P02",
+     "type": "借款",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:三友联众集团股份有限公司",
+     "t": "project:P10",
+     "type": "增资",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:三友联众集团股份有限公司",
+     "t": "project:P10",
+     "type": "增资",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:昆明川金诺化工股份有限公司",
+     "t": "project:P18",
+     "type": "股权",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:昆明川金诺化工股份有限公司",
+     "t": "project:P18",
+     "type": "股权",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:理想汽车（Li Auto Inc.）",
+     "t": "project:P23",
+     "type": "增资",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:理想汽车（Li Auto Inc.）",
+     "t": "project:P23",
+     "type": "增资",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:理想汽车（Li Auto Inc.）",
+     "t": "project:P23",
+     "type": "增资",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:理想汽车（Li Auto Inc.）",
+     "t": "project:P23",
+     "type": "增资",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "company:海尔智家股份有限公司",
+     "t": "project:P28",
+     "type": "担保",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:海尔智家股份有限公司",
+     "t": "project:P28",
+     "type": "担保",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "compliance:C001",
+     "t": "project:P01",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C002",
+     "t": "project:P01",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C003",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C004",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C005",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C006",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C007",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C008",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C009",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C010",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C011",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C012",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C013",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C014",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C015",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C016",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C017",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C018",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C019",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C020",
+     "t": "project:P04",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C021",
+     "t": "project:P04",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C022",
+     "t": "project:P04",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C023",
+     "t": "project:P04",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C024",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C025",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C026",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C027",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C028",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C029",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C030",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C031",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C032",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C033",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C034",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C035",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C036",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C037",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C038",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C039",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C040",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C041",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C042",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C043",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C044",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C045",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C046",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C047",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C048",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C049",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C050",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C051",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C052",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C053",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C054",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C055",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C056",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C057",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C058",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C059",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C060",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C061",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C062",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C063",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C064",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C065",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C066",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C067",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C068",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C069",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C070",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C071",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C072",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C073",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C074",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C075",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C076",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C077",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C078",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C079",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C080",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C081",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C082",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C083",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C084",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C085",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C086",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C087",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C088",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C089",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C090",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C091",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C092",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C093",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C094",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C095",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C096",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C097",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C098",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C099",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C100",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C101",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C102",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C103",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C104",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C105",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C106",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C107",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C108",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C109",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C110",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C111",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C112",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C113",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C114",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C115",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C116",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C117",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C118",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C119",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C120",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C121",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C122",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C123",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C124",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C125",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C126",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C127",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C128",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C129",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C130",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C131",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C132",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C133",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C134",
+     "t": "project:P21",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C135",
+     "t": "project:P21",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C136",
+     "t": "project:P21",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C137",
+     "t": "project:P22",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C138",
+     "t": "project:P22",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C139",
+     "t": "project:P22",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C140",
+     "t": "project:P22",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C141",
+     "t": "project:P23",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C142",
+     "t": "project:P23",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C143",
+     "t": "project:P23",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C144",
+     "t": "project:P23",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C145",
+     "t": "project:P23",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C146",
+     "t": "project:P24",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C147",
+     "t": "project:P25",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C148",
+     "t": "project:P26",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C149",
+     "t": "project:P27",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C150",
+     "t": "project:P28",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C151",
+     "t": "project:P28",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C152",
+     "t": "project:P28",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C153",
+     "t": "project:P28",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C154",
+     "t": "project:P29",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C155",
+     "t": "project:P29",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C156",
+     "t": "project:P30",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C157",
+     "t": "project:P30",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C158",
+     "t": "project:P31",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C159",
+     "t": "project:P32",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C160",
+     "t": "project:P33",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C161",
+     "t": "project:P34",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C162",
+     "t": "project:P35",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C163",
+     "t": "project:P36",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C164",
+     "t": "project:P37",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C165",
+     "t": "project:P38",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C166",
+     "t": "project:P39",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C167",
+     "t": "project:P40",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C168",
+     "t": "project:P41",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C169",
+     "t": "project:P42",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C170",
+     "t": "project:P43",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C171",
+     "t": "project:P44",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "project:P01",
+     "t": "file:1225610572",
+     "type": "披露",
+     "date": "2026-10-20"
+    },
+    {
+     "s": "project:P02",
+     "t": "file:1225612752",
+     "type": "披露",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P03",
+     "t": "file:1225612269",
+     "type": "披露",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P04",
+     "t": "file:1225574483",
+     "type": "披露",
+     "date": "2026-09-22"
+    },
+    {
+     "s": "project:P05",
+     "t": "file:1225579070",
+     "type": "披露",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P06",
+     "t": "file:1225578713",
+     "type": "披露",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P07",
+     "t": "file:1225578867",
+     "type": "披露",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P08",
+     "t": "file:1225578878",
+     "type": "披露",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P09",
+     "t": "file:1225581034",
+     "type": "披露",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P10",
+     "t": "file:1225588646",
+     "type": "披露",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P11",
+     "t": "file:1225588474",
+     "type": "披露",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P12",
+     "t": "file:1225586878",
+     "type": "披露",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P13",
+     "t": "file:1225589861",
+     "type": "披露",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "project:P14",
+     "t": "file:1225600078",
+     "type": "披露",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P15",
+     "t": "file:1225597383",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P16",
+     "t": "file:1225599223",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P17",
+     "t": "file:1225597906",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P18",
+     "t": "file:1225597459",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P19",
+     "t": "file:1225597506",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P20",
+     "t": "file:1225600386",
+     "type": "披露",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "project:P21",
+     "t": "file:1225608735",
+     "type": "披露",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "project:P22",
+     "t": "file:hkex_12365982",
+     "type": "披露",
+     "date": "2026-10-07"
+    },
+    {
+     "s": "project:P03",
+     "t": "file:hkex_12354762",
+     "type": "披露",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "project:P23",
+     "t": "file:hkex_12374838",
+     "type": "披露",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P24",
+     "t": "file:hkex_12369276",
+     "type": "披露",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "project:P25",
+     "t": "file:hkex_12378281",
+     "type": "披露",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P26",
+     "t": "file:hkex_12342390",
+     "type": "披露",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P27",
+     "t": "file:hkex_12375567",
+     "type": "披露",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P28",
+     "t": "file:hkex_12354145",
+     "type": "披露",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P29",
+     "t": "file:sec_000110465926116411",
+     "type": "披露",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P30",
+     "t": "file:sec_000110465926116605",
+     "type": "披露",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P31",
+     "t": "file:sec_000110465926112996",
+     "type": "披露",
+     "date": "2026-10-02"
+    },
+    {
+     "s": "project:P32",
+     "t": "file:sec_000119312526411251",
+     "type": "披露",
+     "date": "2026-10-02"
+    },
+    {
+     "s": "project:P33",
+     "t": "file:sec_000110465926100534",
+     "type": "披露",
+     "date": "2026-08-25"
+    },
+    {
+     "s": "project:P34",
+     "t": "file:1225606076",
+     "type": "披露",
+     "date": "2026-10-16"
+    },
+    {
+     "s": "project:P35",
+     "t": "file:1225605853",
+     "type": "披露",
+     "date": "2026-10-15"
+    },
+    {
+     "s": "project:P28",
+     "t": "file:1225596438",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P06",
+     "t": "file:1225598484",
+     "type": "披露",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P36",
+     "t": "file:1225589868",
+     "type": "披露",
+     "date": "2026-10-08"
+    },
+    {
+     "s": "project:P37",
+     "t": "file:1225595407",
+     "type": "披露",
+     "date": "2026-10-08"
+    },
+    {
+     "s": "project:P38",
+     "t": "file:1225598510",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P39",
+     "t": "file:1225599906",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P40",
+     "t": "file:1225599932",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P41",
+     "t": "file:1225605784",
+     "type": "披露",
+     "date": "2026-10-15"
+    },
+    {
+     "s": "project:P42",
+     "t": "file:1225609879",
+     "type": "披露",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "project:P43",
+     "t": "file:1225609307",
+     "type": "披露",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "project:P44",
+     "t": "file:1225613124",
+     "type": "披露",
+     "date": "2026-10-21"
+    }
+   ]
+  },
+  "changes": [
+   {
+    "company": "兖矿能源集团股份有限公司",
+    "date_b": "2026-10-21",
+    "aid_a": "hkex_12354762",
+    "aid_b": "1225612269",
+    "items": [
+     {
+      "field": "阶段",
+      "before": "完成",
+      "after": "投产/运营",
+      "aid_a": "hkex_12354762",
+      "aid_b": "1225612269"
+     },
+     {
+      "field": "金额/规模",
+      "before": "首付现金对价18.5亿美元（扣除已付4,000万美元定金并作完成调整）＋最高5.5亿美元或有付款",
+      "after": "不适用——本期为运营数据：2026Q3商品煤权益产量940万吨（同比+2%）、权益销量900万吨（同比-16%）、平均实现价格170澳元/吨（同比+21%）；前",
+      "aid_a": "hkex_12354762",
+      "aid_b": "1225612269"
+     },
+     {
+      "field": "风险表述",
+      "before": "煤价周期（或有付款触发线225美元/吨名义值反映卖方对煤价上行分成诉求）；12亿美元银团贷款的利率与期限管理；澳洲矿业审批、环保与原住民权益合规",
+      "after": "煤价周期波动；澳元汇率折算敞口；销量下滑；澳洲资源特许权使用费与环保、原住民遗产合规；中澳关系变化",
+      "aid_a": "hkex_12354762",
+      "aid_b": "1225612269"
+     }
+    ]
+   },
+   {
+    "company": "龙佰集团股份有限公司",
+    "date_b": "2026-10-10",
+    "aid_a": "1225578713",
+    "aid_b": "1225598484",
+    "items": [
+     {
+      "field": "金额/规模",
+      "before": "现金＋设备资产出资合计约1.6亿澳元（约7.66亿元人民币），其中现金约2,000万澳元、机器设备作价约1.4亿澳元",
+      "after": "拟取得项目公司约80%权益（现金＋机器设备作价出资，金额未定）",
+      "aid_a": "1225578713",
+      "aid_b": "1225598484"
+     },
+     {
+      "field": "风险表述",
+      "before": "FIRB（澳外资审查）审批为关键先决条件；关联交易定价公允性；尽调与估值未落定；钛锆价格周期；澳元汇率；最终交易结构（股权收购vs非法人合资UJV）未定；9月2",
+      "after": "最终交易文件能否按期签署（已延长一次）；尽调与估值分歧；澳方外资审查；矿业开发周期",
+      "aid_a": "1225578713",
+      "aid_b": "1225598484"
+     }
+    ]
+   },
+   {
+    "company": "海尔智家股份有限公司",
+    "date_b": "2026-10-09",
+    "aid_a": "hkex_12354145",
+    "aid_b": "1225596438",
+    "items": [
+     {
+      "field": "金额/规模",
+      "before": "本次合计1,500万元；累计对外担保总额697,464.00万元（占最近一期经审计净资产5.9%）",
+      "after": "回购79,392,362股，约占公司总股本0.853%（回购价格未载于本公告）",
+      "aid_a": "hkex_12354145",
+      "aid_b": "1225596438"
+     },
+     {
+      "field": "风险表述",
+      "before": "子公司经营恶化触发代偿的或有风险；累计担保规模监控",
+      "after": "注销程序完成时间；D股剩余持有人结构；德国市场持续披露义务",
+      "aid_a": "hkex_12354145",
+      "aid_b": "1225596438"
+     }
+    ]
+   }
+  ],
+  "judgments": [],
+  "calendar": [
+   {
+    "date": "2026-10-20",
+    "type": "披露",
+    "title": "精工钢构关于签约海外重大项目的公告",
+    "company": "长江精工钢结构（集团）股份有限公司",
+    "project": "P01",
+    "aid": "1225610572"
+   },
+   {
+    "date": "2026-10-21",
+    "type": "披露",
+    "title": "关于为境外合资公司提供财务资助的公告",
+    "company": "晶科电力科技股份有限公司",
+    "project": "P02",
+    "aid": "1225612752"
+   },
+   {
+    "date": "2026-10-01",
+    "type": "披露",
+    "title": "须予披露交易——兖煤澳洲公司成功完成收购红隼煤矿80%权益",
+    "company": "兖矿能源集团股份有限公司",
+    "project": "P03",
+    "aid": "hkex_12354762"
+   },
+   {
+    "date": "2026-10-21",
+    "type": "披露",
+    "title": "兖矿能源集团股份有限公司境外控股子公司发布2026年第三季度产量销量",
+    "company": "兖矿能源集团股份有限公司",
+    "project": "P03",
+    "aid": "1225612269"
+   },
+   {
+    "date": "2026-09-22",
+    "type": "披露",
+    "title": "广电运通关于全资子公司签订海外重要合同的公告",
+    "company": "广电运通集团股份有限公司",
+    "project": "P04",
+    "aid": "1225574483"
+   },
+   {
+    "date": "2026-09-23",
+    "type": "披露",
+    "title": "关于全资子公司拟收购境外公司股权及对外增资的公告",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "project": "P05",
+    "aid": "1225579070"
+   },
+   {
+    "date": "2026-09-24",
+    "type": "披露",
+    "title": "关于签署海外矿砂项目合作意向协议的公告（10-10披露进展：签署条款清单修订协议延长最终文件签署日）",
+    "company": "龙佰集团股份有限公司",
+    "project": "P06",
+    "aid": "1225578713"
+   },
+   {
+    "date": "2026-10-10",
+    "type": "披露",
+    "title": "关于签署海外矿砂项目合作意向协议的进展公告",
+    "company": "龙佰集团股份有限公司",
+    "project": "P06",
+    "aid": "1225598484"
+   },
+   {
+    "date": "2026-09-24",
+    "type": "披露",
+    "title": "三星电气关于子公司签订海外经营合同的公告",
+    "company": "宁波三星医疗电气股份有限公司",
+    "project": "P07",
+    "aid": "1225578867"
+   },
+   {
+    "date": "2026-09-24",
+    "type": "披露",
+    "title": "山东玲珑轮胎股份有限公司境外(埃及)投资建设项目可行性研究报告",
+    "company": "山东玲珑轮胎股份有限公司",
+    "project": "P08",
+    "aid": "1225578878"
+   },
+   {
+    "date": "2026-09-24",
+    "type": "披露",
+    "title": "关于设立新加坡孙公司并完成注册登记及境外投资项目备案的公告",
+    "company": "浙江泰林生物技术股份有限公司",
+    "project": "P09",
+    "aid": "1225581034"
+   },
+   {
+    "date": "2026-09-30",
+    "type": "披露",
+    "title": "关于拟增加境外子公司投资额的公告",
+    "company": "三友联众集团股份有限公司",
+    "project": "P10",
+    "aid": "1225588646"
+   },
+   {
+    "date": "2026-09-30",
+    "type": "披露",
+    "title": "关于全资境外孙公司签订重大销售合同的公告",
+    "company": "行云科技股份有限公司",
+    "project": "P11",
+    "aid": "1225588474"
+   },
+   {
+    "date": "2026-09-30",
+    "type": "披露",
+    "title": "关于全资子公司收购境外公司股权的进展公告",
+    "company": "品茗科技股份有限公司",
+    "project": "P12",
+    "aid": "1225586878"
+   },
+   {
+    "date": "2026-10-01",
+    "type": "披露",
+    "title": "自愿披露公司产品获得境外上市许可的公告",
+    "company": "四川汇宇制药股份有限公司",
+    "project": "P13",
+    "aid": "1225589861"
+   },
+   {
+    "date": "2026-10-10",
+    "type": "披露",
+    "title": "关于公司产品在海外获得注册证的自愿性披露公告",
+    "company": "赛诺医疗科学技术股份有限公司",
+    "project": "P14",
+    "aid": "1225600078"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于变更海外生产基地建设地点的公告",
+    "company": "贵州航宇科技发展股份有限公司",
+    "project": "P15",
+    "aid": "1225597383"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于境外全资孙公司完成注册的公告",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "project": "P16",
+    "aid": "1225599223"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于拟设立境外二级子公司的公告",
+    "company": "共达电声股份有限公司",
+    "project": "P17",
+    "aid": "1225597906"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于境外全资子公司川金诺国际有限公司向中非发展基金发行优先股的公告",
+    "company": "昆明川金诺化工股份有限公司",
+    "project": "P18",
+    "aid": "1225597459"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于对外投资设立境外全资子公司并建设生产基地的公告",
+    "company": "泰晶科技股份有限公司",
+    "project": "P19",
+    "aid": "1225597506"
+   },
+   {
+    "date": "2026-10-12",
+    "type": "披露",
+    "title": "关于并购粤丰环保7.22%股权项目收到广东省发展和改革委员会《境外投资项目备案通知书》的公告",
+    "company": "瀚蓝环境股份有限公司",
+    "project": "P20",
+    "aid": "1225600386"
+   },
+   {
+    "date": "2026-10-17",
+    "type": "披露",
+    "title": "关于海外子公司收到客户项目定点通知的公告",
+    "company": "浙江天成自控股份有限公司",
+    "project": "P21",
+    "aid": "1225608735"
+   },
+   {
+    "date": "2026-10-07",
+    "type": "披露",
+    "title": "主要交易——完成收购PUMA SE的29.06%股权",
+    "company": "安踏体育用品有限公司",
+    "project": "P22",
+    "aid": "hkex_12365982"
+   },
+   {
+    "date": "2026-10-16",
+    "type": "披露",
+    "title": "有关认购事项及采纳马赫激励计划之须予披露交易",
+    "company": "理想汽车（Li Auto Inc.）",
+    "project": "P23",
+    "aid": "hkex_12374838"
+   },
+   {
+    "date": "2026-10-12",
+    "type": "披露",
+    "title": "根据全球中期票据计划建议发行票据及财务资料摘要",
+    "company": "腾讯控股有限公司",
+    "project": "P24",
+    "aid": "hkex_12369276"
+   },
+   {
+    "date": "2026-10-21",
+    "type": "披露",
+    "title": "公告——关连交易：出售养老险公司股权",
+    "company": "中国人寿保险股份有限公司",
+    "project": "P25",
+    "aid": "hkex_12378281"
+   },
+   {
+    "date": "2026-09-23",
+    "type": "披露",
+    "title": "(I)非豁免持续关连交易；及(II)获豁免持续关连交易",
+    "company": "吉利汽车控股有限公司",
+    "project": "P26",
+    "aid": "hkex_12342390"
+   },
+   {
+    "date": "2026-10-16",
+    "type": "披露",
+    "title": "修订持续关连交易之年度上限",
+    "company": "长城汽车股份有限公司",
+    "project": "P27",
+    "aid": "hkex_12375567"
+   },
+   {
+    "date": "2026-09-30",
+    "type": "披露",
+    "title": "海外监管公告——关于为控股子公司提供担保的公告",
+    "company": "海尔智家股份有限公司",
+    "project": "P28",
+    "aid": "hkex_12354145"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于确定自愿公开回购境外上市外资股（D股）数量的提示性公告",
+    "company": "海尔智家股份有限公司",
+    "project": "P28",
+    "aid": "1225596438"
+   },
+   {
+    "date": "2026-10-16",
+    "type": "披露",
+    "title": "6-K：Li Auto Announces Equity Financing for Its Chip Business（芯片业务股权融资16.25亿元）",
+    "company": "Li Auto Inc.（理想汽车）",
+    "project": "P29",
+    "aid": "sec_000110465926116411"
+   },
+   {
+    "date": "2026-10-16",
+    "type": "披露",
+    "title": "6-K：控股子公司晶科能源（江西）2026年前三季度初步未经审计业绩预告（预亏29.76亿-35.76亿元）",
+    "company": "JinkoSolar Holding Co., Ltd.（晶科能源）",
+    "project": "P30",
+    "aid": "sec_000110465926116605"
+   },
+   {
+    "date": "2026-10-02",
+    "type": "披露",
+    "title": "6-K：NIO Provides September and Third Quarter 2026 Delivery Update（9月交付37,408辆，Q3交付109,178辆）",
+    "company": "NIO Inc.（蔚来）",
+    "project": "P31",
+    "aid": "sec_000110465926112996"
+   },
+   {
+    "date": "2026-10-02",
+    "type": "披露",
+    "title": "6-K：XPENG Announces Vehicle Delivery Results for September and Third Quarter 2026（Q3交付118,390辆；香港首座兆瓦级超充站）",
+    "company": "XPeng Inc.（小鹏汽车）",
+    "project": "P32",
+    "aid": "sec_000119312526411251"
+   },
+   {
+    "date": "2026-08-25",
+    "type": "披露",
+    "title": "6-K：PDD Holdings Announces Second Quarter 2026 Unaudited Financial Results（Q2营收1,124亿元+8%，净利-12%）",
+    "company": "PDD Holdings Inc.（拼多多）",
+    "project": "P33",
+    "aid": "sec_000110465926100534"
+   },
+   {
+    "date": "2026-10-16",
+    "type": "披露",
+    "title": "传音控股关于境外上市股份（H股）挂牌并上市交易的公告",
+    "company": "深圳传音控股股份有限公司",
+    "project": "P34",
+    "aid": "1225606076"
+   },
+   {
+    "date": "2026-10-15",
+    "type": "披露",
+    "title": "关于根据一般性授权完成配售新H股及发行可转换债券的公告",
+    "company": "上海剑桥科技股份有限公司",
+    "project": "P35",
+    "aid": "1225605853"
+   },
+   {
+    "date": "2026-10-08",
+    "type": "披露",
+    "title": "关于发行境外上市股份（H股）获得中国证监会备案的公告",
+    "company": "广州若羽臣科技股份有限公司",
+    "project": "P36",
+    "aid": "1225589868"
+   },
+   {
+    "date": "2026-10-08",
+    "type": "披露",
+    "title": "关于刊发境外上市外资股（H股）发行聆讯后资料集的公告",
+    "company": "广州天赐高新材料股份有限公司",
+    "project": "P37",
+    "aid": "1225595407"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于发行境外上市股份（H股）备案申请材料获中国证监会接收的公告",
+    "company": "汉威科技集团股份有限公司",
+    "project": "P38",
+    "aid": "1225598510"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于香港联交所审议公司发行境外上市外资股（H股）的公告",
+    "company": "深圳新宙邦科技股份有限公司",
+    "project": "P39",
+    "aid": "1225599906"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于香港联交所审议公司发行境外上市股份（H股）的公告",
+    "company": "深圳市绿联科技股份有限公司",
+    "project": "P40",
+    "aid": "1225599932"
+   },
+   {
+    "date": "2026-10-15",
+    "type": "披露",
+    "title": "关于筹划发行H股股票并上市相关事项的提示性公告",
+    "company": "宁波江丰电子材料股份有限公司",
+    "project": "P41",
+    "aid": "1225605784"
+   },
+   {
+    "date": "2026-10-17",
+    "type": "披露",
+    "title": "关于筹划发行H股股票并在香港联合交易所有限公司上市的提示性公告",
+    "company": "苏州联讯仪器股份有限公司",
+    "project": "P42",
+    "aid": "1225609879"
+   },
+   {
+    "date": "2026-10-17",
+    "type": "披露",
+    "title": "关于筹划发行H股股票并在香港联合交易所有限公司上市的提示性公告",
+    "company": "深圳嘉立创科技集团股份有限公司",
+    "project": "P43",
+    "aid": "1225609307"
+   },
+   {
+    "date": "2026-10-21",
+    "type": "披露",
+    "title": "关于筹划发行H股股票并在香港联合交易所有限公司上市的提示性公告",
+    "company": "奥士康科技股份有限公司",
+    "project": "P44",
+    "aid": "1225613124"
+   }
+  ],
+  "policies": [
+   {
+    "date": "2014-09",
+    "title": "《境外投资管理办法》施行",
+    "issuer": "商务部",
+    "level": "中国",
+    "summary": "以备案为主、核准为辅的对外投资管理体系确立，企业新设/并购境外企业须报商务部门备案。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2017-08",
+    "title": "国办发〔2017〕74号 引导和规范境外投资方向",
+    "issuer": "国务院办公厅",
+    "level": "中国",
+    "summary": "明确鼓励、限制、禁止三类境外投资方向；房地产酒店、娱乐业等受限。",
+    "industries": [
+     "房地产",
+     "娱乐"
+    ],
+    "regions": []
+   },
+   {
+    "date": "2017-12",
+    "title": "《企业境外投资管理办法》公布",
+    "issuer": "国家发展改革委",
+    "level": "中国",
+    "summary": "发改委11号令：在线平台办理，敏感类项目核准、非敏感类备案，地方企业由省级发改委备案。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2018-03",
+    "title": "《对外投资备案（核准）报告暂行办法》",
+    "issuer": "商务部等七部门",
+    "level": "中国",
+    "summary": "统一备案（核准）报告制度，强化事后报告与重点督查。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2019-03",
+    "title": "汇发〔2015〕13号全面实施，银行直接办理 ODI 外汇登记",
+    "issuer": "外汇局",
+    "level": "中国",
+    "summary": "境外直接投资外汇登记由银行直接办理，资金汇出效率提升。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2020-11",
+    "title": "RCEP 签署",
+    "issuer": "东盟十国及中澳日新韩",
+    "level": "国际",
+    "summary": "区域全面经济伙伴关系协定签署，区域内关税减让与原产地累积规则重塑东亚供应链布局。",
+    "industries": [
+     "制造"
+    ],
+    "regions": [
+     "日本",
+     "韩国",
+     "澳大利亚",
+     "泰国",
+     "越南",
+     "新加坡"
+    ]
+   },
+   {
+    "date": "2022-01",
+    "title": "RCEP 正式生效",
+    "issuer": "各成员国",
+    "level": "国际",
+    "summary": "RCEP 对首批成员国生效，出口关税下降推动部分制造产能向东南亚集聚。",
+    "industries": [
+     "制造"
+    ],
+    "regions": [
+     "泰国",
+     "越南",
+     "新加坡"
+    ]
+   },
+   {
+    "date": "2023-05",
+    "title": "欧盟碳边境调节机制（CBAM）生效",
+    "issuer": "欧盟",
+    "level": "目标国",
+    "summary": "过渡期 2023-10 起报告义务，2026-01 起正式征收；钢铁、铝、水泥、化肥、电力、氢出口欧盟成本上升。",
+    "industries": [
+     "钢铁",
+     "化工",
+     "能源"
+    ],
+    "regions": [
+     "欧盟"
+    ]
+   },
+   {
+    "date": "2024-05",
+    "title": "美国宣布对华 301 关税加征（电动车、光伏、关键矿产等）",
+    "issuer": "美国",
+    "level": "目标国",
+    "summary": "对电动车（100%）、光伏电池（50%）等加征关税，推动中国新能源与电动车产业链加速海外建厂。",
+    "industries": [
+     "新能源",
+     "汽车"
+    ],
+    "regions": [
+     "美国"
+    ]
+   },
+   {
+    "date": "2025-04",
+    "title": "美国「对等关税」及普遍加征",
+    "issuer": "美国",
+    "level": "目标国",
+    "summary": "对进口商品普遍加征关税并多次调整；转口与第三国产能布局成为出海企业核心议题。",
+    "industries": [
+     "制造"
+    ],
+    "regions": [
+     "美国",
+     "墨西哥",
+     "越南",
+     "泰国"
+    ]
+   },
+   {
+    "date": "2025-01",
+    "title": "中国《民营经济促进法》立法推进",
+    "issuer": "全国人大",
+    "level": "中国",
+    "summary": "促进民营经济高质量发展，稳定企业出海预期（后续正式出台以官方发布为准）。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2026-01",
+    "title": "CBAM 进入正式征收阶段",
+    "issuer": "欧盟",
+    "level": "目标国",
+    "summary": "欧盟碳关税正式征收，对欧出口的碳密集行业需核算并购买 CBAM 证书。",
+    "industries": [
+     "钢铁",
+     "化工",
+     "能源"
+    ],
+    "regions": [
+     "欧盟"
+    ]
+   }
+  ],
+  "supplychain": {
+   "capacity": [
+    {
+     "project": "P03",
+     "company": "兖矿能源集团股份有限公司",
+     "region": "澳大利亚",
+     "industry": "能源矿业",
+     "type": "既有产能运营",
+     "date": "2026-10-21",
+     "stage": "运营"
+    },
+    {
+     "project": "P08",
+     "company": "山东玲珑轮胎股份有限公司",
+     "region": "埃及",
+     "industry": "汽车零部件",
+     "type": "新建/扩建产能",
+     "date": "2026-09-24",
+     "stage": "意向"
+    },
+    {
+     "project": "P10",
+     "company": "三友联众集团股份有限公司",
+     "region": "越南",
+     "industry": "电气设备",
+     "type": "新建/扩建产能",
+     "date": "2026-09-30",
+     "stage": "运营"
+    },
+    {
+     "project": "P15",
+     "company": "贵州航宇科技发展股份有限公司",
+     "region": "摩洛哥",
+     "industry": "航空航天",
+     "type": "新建/扩建产能",
+     "date": "2026-10-09",
+     "stage": "意向"
+    },
+    {
+     "project": "P17",
+     "company": "共达电声股份有限公司",
+     "region": "泰国",
+     "industry": "电子制造",
+     "type": "新建/扩建产能",
+     "date": "2026-10-09",
+     "stage": "意向"
+    },
+    {
+     "project": "P19",
+     "company": "泰晶科技股份有限公司",
+     "region": "越南",
+     "industry": "电子制造",
+     "type": "新建/扩建产能",
+     "date": "2026-10-09",
+     "stage": "意向"
+    }
+   ],
+   "clusters": [
+    {
+     "region": "澳大利亚",
+     "industry": "能源矿业",
+     "cnt": 1,
+     "projects": [
+      "P03"
+     ]
+    },
+    {
+     "region": "埃及",
+     "industry": "汽车零部件",
+     "cnt": 1,
+     "projects": [
+      "P08"
+     ]
+    },
+    {
+     "region": "越南",
+     "industry": "电气设备",
+     "cnt": 1,
+     "projects": [
+      "P10"
+     ]
+    },
+    {
+     "region": "摩洛哥",
+     "industry": "航空航天",
+     "cnt": 1,
+     "projects": [
+      "P15"
+     ]
+    },
+    {
+     "region": "泰国",
+     "industry": "电子制造",
+     "cnt": 1,
+     "projects": [
+      "P17"
+     ]
+    },
+    {
+     "region": "越南",
+     "industry": "电子制造",
+     "cnt": 1,
+     "projects": [
+      "P19"
+     ]
+    }
+   ]
+  }
+ },
+ "health": [
+  {
+   "key": "A股·巨潮",
+   "name": "巨潮资讯网（A股）",
+   "status": "正常",
+   "method": "出海关键词组（含同义词）全站检索 → 公告 PDF 正文解析",
+   "cursor": "公告 ID + 标题指纹去重；重叠窗口 + 游标增量",
+   "cadence": "交易日每 2 小时（08–18 点）",
+   "url": "http://www.cninfo.com.cn/new/commonUrl/pageOfSearch?url=disclosure/list/search",
+   "count": 34,
+   "latest": "2026-10-21",
+   "watch": null,
+   "lastBatch": "B-BF-20261021 · 2026-10-22 03:05",
+   "note": "主渠道；排除制度文件、调研记录等噪声类别"
+  },
+  {
+   "key": "港股·披露易",
+   "name": "HKEX 披露易",
+   "status": "正常",
+   "method": "观察名单按股票代码经公开检索接口拉取公告及通告 / 通函 / 财务报告等",
+   "cursor": "NEWS_ID 去重；末次公告时间游标",
+   "cadence": "跟随监测批次（交易日每 2 小时）",
+   "url": "https://www1.hkexnews.hk",
+   "count": 8,
+   "latest": "2026-10-21",
+   "watch": 30,
+   "lastBatch": "B-BF-20261021 · 2026-10-22 03:05",
+   "note": "长期停牌证券接口不返回结果，可手动导入兜底"
+  },
+  {
+   "key": "美股·EDGAR",
+   "name": "SEC EDGAR（中概股名单）",
+   "status": "正常",
+   "method": "中概股观察名单按 CIK 主键拉取 submissions，筛 6-K / 20-F / 10-K / 8-K / F-1 / F-3 / 424B",
+   "cursor": "accessionNumber 去重；filed 日期游标",
+   "cadence": "跟随监测批次（交易日每 2 小时）",
+   "url": "https://www.sec.gov/edgar",
+   "count": 5,
+   "latest": "2026-10-16",
+   "watch": 35,
+   "lastBatch": "B-BF-20261021 · 2026-10-22 03:05",
+   "note": "以公司名单为主键，不用关键词全文检索"
+  },
+  {
+   "key": "其他来源",
+   "name": "发行人官网 / IR 页面",
+   "status": "手动",
+   "method": "观察名单页面内容指纹比对，命中回查正式披露后入库",
+   "cursor": "页面指纹",
+   "cadence": "每日 1 次",
+   "url": "—",
+   "count": 0,
+   "latest": "",
+   "watch": null,
+   "lastBatch": "B-BF-20261021 · 2026-10-22 03:05",
+   "note": "无统一接口，仅作线索来源"
+  },
+  {
+   "key": "OFAC 名单筛查",
+   "name": "OFAC SDN 制裁名单",
+   "status": "正常",
+   "method": "全量名单与在册公司 / 合作方词级匹配",
+   "cursor": "名单版本比对",
+   "cadence": "每日 1 次",
+   "url": "https://www.treasury.gov/ofac/downloads/sdn.csv",
+   "count": 0,
+   "latest": "",
+   "watch": null,
+   "lastBatch": "B-BF-20261021 · 2026-10-22 03:05",
+   "note": "命中记入异常记录并评估对既有案例影响，不产生披露条目"
+  }
+ ],
+ "watch": {
+  "hk": [
+   {
+    "code": "00700",
+    "name": "腾讯控股"
+   },
+   {
+    "code": "09988",
+    "name": "阿里巴巴-W"
+   },
+   {
+    "code": "03690",
+    "name": "美团-W"
+   },
+   {
+    "code": "09618",
+    "name": "京东集团-SW"
+   },
+   {
+    "code": "09888",
+    "name": "百度集团-SW"
+   },
+   {
+    "code": "01810",
+    "name": "小米集团-W"
+   },
+   {
+    "code": "09999",
+    "name": "网易-S"
+   },
+   {
+    "code": "01024",
+    "name": "快手-W"
+   },
+   {
+    "code": "09866",
+    "name": "蔚来-SW"
+   },
+   {
+    "code": "09868",
+    "name": "小鹏汽车-W"
+   },
+   {
+    "code": "02015",
+    "name": "理想汽车-W"
+   },
+   {
+    "code": "01211",
+    "name": "比亚迪股份"
+   },
+   {
+    "code": "00175",
+    "name": "吉利汽车"
+   },
+   {
+    "code": "02333",
+    "name": "长城汽车"
+   },
+   {
+    "code": "00981",
+    "name": "中芯国际"
+   },
+   {
+    "code": "00992",
+    "name": "联想集团"
+   },
+   {
+    "code": "02318",
+    "name": "中国平安"
+   },
+   {
+    "code": "01398",
+    "name": "工商银行"
+   },
+   {
+    "code": "00939",
+    "name": "建设银行"
+   },
+   {
+    "code": "02628",
+    "name": "中国人寿"
+   },
+   {
+    "code": "00857",
+    "name": "中国石油股份"
+   },
+   {
+    "code": "00386",
+    "name": "中国石油化工股份"
+   },
+   {
+    "code": "00883",
+    "name": "中国海洋石油"
+   },
+   {
+    "code": "00941",
+    "name": "中国移动"
+   },
+   {
+    "code": "00762",
+    "name": "中国联通"
+   },
+   {
+    "code": "00728",
+    "name": "中国电信"
+   },
+   {
+    "code": "01171",
+    "name": "兖矿能源",
+    "ah": true
+   },
+   {
+    "code": "02020",
+    "name": "安踏体育"
+   },
+   {
+    "code": "06690",
+    "name": "海尔智家",
+    "ah": true
+   },
+   {
+    "code": "01898",
+    "name": "中煤能源",
+    "ah": true
+   }
+  ],
+  "us": [
+   {
+    "ticker": "BABA",
+    "cik": 1577552,
+    "name": "阿里巴巴"
+   },
+   {
+    "ticker": "JD",
+    "cik": 1549802,
+    "name": "京东"
+   },
+   {
+    "ticker": "PDD",
+    "cik": 1737806,
+    "name": "拼多多"
+   },
+   {
+    "ticker": "BIDU",
+    "cik": 1329099,
+    "name": "百度"
+   },
+   {
+    "ticker": "NTES",
+    "cik": 1110646,
+    "name": "网易"
+   },
+   {
+    "ticker": "TCOM",
+    "cik": 1269238,
+    "name": "携程集团"
+   },
+   {
+    "ticker": "NIO",
+    "cik": 1736541,
+    "name": "蔚来"
+   },
+   {
+    "ticker": "XPEV",
+    "cik": 1810997,
+    "name": "小鹏汽车"
+   },
+   {
+    "ticker": "LI",
+    "cik": 1791706,
+    "name": "理想汽车"
+   },
+   {
+    "ticker": "TME",
+    "cik": 1744676,
+    "name": "腾讯音乐"
+   },
+   {
+    "ticker": "BILI",
+    "cik": 1723690,
+    "name": "哔哩哔哩"
+   },
+   {
+    "ticker": "WB",
+    "cik": 1595761,
+    "name": "微博"
+   },
+   {
+    "ticker": "ZTO",
+    "cik": 1677250,
+    "name": "中通快递"
+   },
+   {
+    "ticker": "YUMC",
+    "cik": 1673358,
+    "name": "百胜中国"
+   },
+   {
+    "ticker": "FUTU",
+    "cik": 1754581,
+    "name": "富途控股"
+   },
+   {
+    "ticker": "TIGR",
+    "cik": 1756699,
+    "name": "老虎证券"
+   },
+   {
+    "ticker": "JKS",
+    "cik": 1481513,
+    "name": "晶科能源"
+   },
+   {
+    "ticker": "DQ",
+    "cik": 1477641,
+    "name": "大全新能源"
+   },
+   {
+    "ticker": "CSIQ",
+    "cik": 1375877,
+    "name": "阿特斯太阳能"
+   },
+   {
+    "ticker": "BZ",
+    "cik": 1842827,
+    "name": "看准网"
+   },
+   {
+    "ticker": "VIPS",
+    "cik": 1529192,
+    "name": "唯品会"
+   },
+   {
+    "ticker": "MNSO",
+    "cik": 1815846,
+    "name": "名创优品"
+   },
+   {
+    "ticker": "QFIN",
+    "cik": 1741530,
+    "name": "奇富科技"
+   },
+   {
+    "ticker": "FINV",
+    "cik": 1691445,
+    "name": "信也科技"
+   },
+   {
+    "ticker": "GDS",
+    "cik": 1526125,
+    "name": "万国数据"
+   },
+   {
+    "ticker": "KC",
+    "cik": 1795589,
+    "name": "金山云"
+   },
+   {
+    "ticker": "ZLAB",
+    "cik": 1704292,
+    "name": "再鼎医药"
+   },
+   {
+    "ticker": "HTHT",
+    "cik": 1483994,
+    "name": "华住集团"
+   },
+   {
+    "ticker": "EH",
+    "cik": 1759783,
+    "name": "亿航智能"
+   },
+   {
+    "ticker": "DAO",
+    "cik": 1781753,
+    "name": "有道"
+   },
+   {
+    "ticker": "GOTU",
+    "cik": 1768259,
+    "name": "高途"
+   },
+   {
+    "ticker": "TAL",
+    "cik": 1499620,
+    "name": "好未来"
+   },
+   {
+    "ticker": "EDU",
+    "cik": 1372920,
+    "name": "新东方"
+   },
+   {
+    "ticker": "HSAI",
+    "cik": 1861737,
+    "name": "禾赛科技"
+   },
+   {
+    "ticker": "ATXG",
+    "cik": 1650101,
+    "name": "Addentax"
+   }
+  ]
+ },
+ "synced": "2026-10-22 02:48"
+};
