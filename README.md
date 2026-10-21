@@ -1,104 +1,43 @@
-# 企业出海披露情报台（cninfo-watch）
+# 企业出海研究工作台（PubX / cninfo-watch）
 
-监测中国企业出海相关披露（巨潮 / SEC EDGAR / 发行人官网IR / HKEX手动导入 / OFAC SDN）：
-定时检索 → 正文与关键附件读取 → 实质筛选 → 25字段结构化 + 单条六段深度分析（①动作与事实
-②商业模式含分类依据 ③投资与经营意义含催化剂与证伪 ④行业对标检验 ⑤商务/财务/法务三要素细分
-⑥原文证据与后续观察）→ 连续案例归并 → 静态网站自动发布。
-**同一链接永久有效，内容随每次批次自动更新，无人工审核关卡。**
+面向商务、投资、财务、法务的企业出海研究工作台：**理解趋势 → 发现企业动作 → 深入项目 →
+分析经营及合规影响 → 跟踪后续变化 → 核验原文**。
 
-数据架构：任务侧 `state/web_db.json` 为唯一准绳 → `scripts/build_data.py` 生成 `assets/data.js`
-→ GitHub Pages 展示。批次带重叠窗口与增量游标，公告ID / accession / 内容哈希 / 事件指纹分层去重，
-重跑同一批资料不会重复入库；旧条目深度字段由回填队列按批次补全（前台如实显示「待回填」）。
+## 功能结构
 
-| | 模式一：GitHub 原生 | 模式二：混合模式（零 API 费用） |
+- **总览**：本期观察（趋势卡 / 关键事件 / 项目变化 / 区域及资金概览）
+- **企业与项目**：企业档案、项目清单、生命周期看板、持股与资金结构、合规事项矩阵（负责人/状态可标注）、项目日历
+- **专题分析**：国家与产业比较、政策时间线、供应链与产能布局、关系图谱（筛选/时间切换/表格）、指标比较（气泡/自选公司对比/基准表）、披露变化、历史判断检验
+- **披露档案**：检索筛选、批次简报、单条六段深度分析（事实→项目进展→意义→商业模式→对标→三要素→证据与后续）、版本比较、CSV/JSON 导出
+- **来源与更新**：数据源接入状态、更新记录、扫描规则
+
+## 数据链路（保留原有自动更新发布）
+
+```
+定时任务（代理平台，每交易日 08:00–18:00 每 2 小时）
+  → 巨潮 / SEC EDGAR / IR / SDN 多源扫描 + 实质筛选 + 25字段 + 六段深度分析
+  → state/web_db.json（唯一准绳，含 backfill 回填队列）
+  → scripts/sync_github.py 推送到本仓库
+  → scripts/build_data.py + scripts/derive.py 生成 assets/data.js（含派生实体）
+  → ingest.yml 部署 GitHub Pages（同一链接自动更新）
+```
+
+- 派生实体（公司/项目/区域/资金/合规/图谱/变化/判断/日历/政策）全部由 21+ 条真实披露
+  与现行法规映射生成（见 `scripts/derive.py`），每条可回溯到披露原文与页码。
+- 合规事项状态分「已识别（有原文证据）/待跟踪（缺口）」，不虚构完成度。
+- 关注、个人备注、合规标注保存在浏览器本机（localStorage），可在「披露档案 → 导出」导出 JSON/CSV。
+- 个人工作标注与公开披露数据分离保存。
+
+## 运行模式（二选一）
+
+| | 模式一：GitHub 原生 | 模式二：混合模式（零 API 费用，当前使用） |
 |---|---|---|
-| 分析在哪里跑 | GitHub Actions 调 Moonshot API | 外部定时任务（Kimi Agent，消耗订阅额度） |
+| 分析在哪里跑 | GitHub Actions 调 Moonshot API | 外部定时任务（订阅额度） |
 | GitHub 需要的配置 | Secrets：`MOONSHOT_API_KEY` | 无 Secrets |
-| 更新频率 | 每2小时 | 每交易日 08:00–18:00 每 2 小时（跟随任务批次） |
-| 适用 | 没有 Kimi 订阅 | 已有 Kimi 订阅（推荐） |
+| 更新频率 | 每 2 小时 | 每交易日每 2 小时 |
 
-## 模式二：混合模式（推荐，零 API 费用）
+模式二部署：仓库根目录即站点；Pages Source 选 GitHub Actions；保留 `.github/workflows/ingest.yml`
+（不要加会响应 repository_dispatch 的第二个 workflow）。任务侧配置 `state/github_repo.txt` 与
+`state/github_token.txt`（classic PAT，repo 范围）。
 
-分析由你现有的 Kimi 定时监测任务完成（走订阅额度，不产生 API 账单），任务每批次把
-`data.js` 推送进本仓库并触发自动部署。GitHub 只是存储和展示层。
-
-部署步骤：
-
-1. **建仓库**：GitHub 新建公开仓库（建议名 `cninfo-watch`），把本文件夹内容推上去
-   （浏览器操作：建库 → uploading an existing file → 拖入文件夹内全部内容，注意仓库
-   根目录直接就是 index.html；`.github` 隐藏文件夹也要在内）。
-2. **只留 ingest**：删除 `.github/workflows/crawl.yml`，保留 `ingest.yml`。
-3. **开 Pages**：Settings → Pages → Source 选 **GitHub Actions**（必须部署前完成）。
-4. **任务侧配两项**（由任务的维护者操作，不在 GitHub 上）：
-   - `state/github_repo.txt` 写入 `owner/repo`
-   - `state/github_token.txt` 写入 fine-grained PAT（仅本仓库；Contents: Read/Write +
-     Pages: Read/Write），用于推送与触发部署
-5. 任务下一批次自动完成首次推送 + 触发部署；也可在 Actions 页手动 Run workflow 验证。
-
-触发链路：任务推送 commit → POST `repository_dispatch(ingest)` → `ingest.yml` 组装站点 →
-Pages 部署，约 1~2 分钟生效。日常运行**不需要你的 PAT 一直人工盯着**，但 token 被吊销后
-推送会停止（网站停在最后状态，不会下线）。
-
-## 模式一：GitHub 原生（需要 Moonshot API Key）
-
-```
-GitHub Actions（每2小时，北京时间 08~22 点）
-  ① scripts/run_once.py 编排单批次：
-      巨潮API检索（14组关键词，2日重叠窗口）→ 公告ID去重
-      → 下载PDF、pdftotext抽正文 → LLM筛选门（排除误匹配/制度文件/资本运作）
-      → LLM 25字段分析（数字逐字来自原文，禁止编造）
-      → 逐字摘录回原文校验并标注PDF页码（对不上就丢弃，不造假页码）
-      → 同一公司新事件触发连续案例判断更新 → state/db.json 入库
-  ② git commit & push 回写数据库
-  ③ GitHub Pages 自动重新部署 → 同一链接立即显示最新内容
-```
-
-部署步骤：
-
-1. 建仓库并推入本文件夹内容（同模式二第1步）。
-2. Settings → Secrets and variables → Actions → New repository secret：
-   名称 `MOONSHOT_API_KEY`，值为 Kimi 开放平台 API Key（platform.kimi.com 注册即送15元额度）。
-3. Settings → Pages → Source 选 **GitHub Actions**。
-4. Actions → crawl-and-publish → Run workflow。绿勾后访问
-   `https://<用户名>.github.io/cninfo-watch/`——此链接永久固定。
-
-成本：Actions 免费额度内；LLM 每份公告约1毛钱，一个月通常几元，赠送额度大概率够用一年。
-
-## 目录结构
-
-| 路径 | 作用 |
-|---|---|
-| `index.html` / `assets/` | 前端（无构建静态站）；`assets/data.js` 为生成物，两种模式都靠它驱动 |
-| `scripts/cninfo.py` | 巨潮检索、PDF下载、正文抽取、摘录页码定位（模式一用） |
-| `scripts/analyze.py` | LLM筛选门 + 25字段分析 + 案例判断更新（模式一用） |
-| `scripts/run_once.py` | 单批次编排（模式一用；`--dry-run` 只检索 / `--rebuild` 只重建） |
-| `scripts/build_data.py` | `state/db.json` → `assets/data.js`（两种模式共用） |
-| `state/db.json` | 主数据库：披露条目、批次、异常、游标、已扫清单 |
-| `state/config.json` | 关键词组、数据源、筛选规则、种子案例 |
-
-模式二下 `scripts/cninfo.py / analyze.py / run_once.py` 不参与运行，留在仓库无害
-（后续想切回模式一可直接用）。
-
-## 已知风险与对策
-
-| 风险 | 对策 |
-|---|---|
-| 巨潮 API 拦截 Actions 境外IP（模式一日志里检索持续报错） | 改走模式二（分析挪到能访问巨潮的环境） |
-| LLM 输出非法JSON（模式一） | 自动重试1次，仍失败记入批次 failed 与异常页，不脏入库 |
-| 摘录与原文对不上 | 丢弃该条摘录（页码只标校验通过的），网站如实呈现 |
-| 无新增公告 | 不制造空更新：模式一直接连提交部署都跳过；模式二提示"数据无变化" |
-
-## 数据口径与诚实边界
-
-- 仅覆盖巨潮资讯全站披露；SEC/HKEX/官网渠道未接入（数据源页明示）。
-- 收录/排除均留痕：批次简报、排除类别统计、误匹配与失败记入「异常与边界」页。
-- 所有金额/比例以公告原文为准；"签约≠收入实现、额度≠已支付、备案≠投产"。
-- AI问答检索、OCR、更细粒度扫描未实现，前端不伪装。
-
-## 本地调试
-
-```bash
-pip install pypdf
-python3 scripts/run_once.py --dry-run   # 只检索+下载+抽正文，不调LLM
-python3 scripts/run_once.py --rebuild   # 不抓取，按db.json重建data.js
-```
+10 轮迭代的实际改动记录见 CHANGELOG.md。

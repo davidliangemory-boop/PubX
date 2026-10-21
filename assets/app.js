@@ -403,6 +403,13 @@
       + F.map(function (f) {
         return "<tr><td class='mono'>" + esc(f.date) + "</td><td>" + esc(shortCo(f.company)) + "</td><td><a href=\"#/project/" + f.project + '">' + esc(projName(f.project)) + "</a></td><td>" + pill(f.ftype, "blue") + "</td><td class='money'>" + esc(f.raw) + " " + esc(f.ccy) + '</td><td>' + esc(f.direction) + "</td><td>" + linkDocAid(f.aid, "原文") + "</td></tr>";
       }).join("") + "</tbody></table></div></div>";
+    /* 合作方集中度（可点进项目核查） */
+    var PART = V.partners || [];
+    h += '<div class="panel"><div class="panel-h"><h2>合作方集中度</h2><span class="note">按关联项目数排序；点击进项目核查</span></div><div class="tbl-wrap"><table class="tbl"><thead>'
+      + tblHead([["合作方", ""], ["关联项目", "width:80px"], ["涉及公司", "width:220px"], ["项目", ""]]) + "</thead><tbody>"
+      + PART.slice(0, 12).map(function (pt) {
+        return '<tr><td><b>' + esc(pt.name) + '</b></td><td class="mono">' + pt.project_cnt + "</td><td class='dim' style='font-size:12px'>" + pt.companies.map(shortCo).join("；") + "</td><td>" + pt.projects.slice(0, 3).map(function (pid) { return '<a href="#/project/' + pid + '">' + esc(projName(pid)) + "</a>"; }).join("；") + "</td></tr>";
+      }).join("") + "</tbody></table></div></div>";
     return h;
   }
   function projName(pid) { var n = pid; (V.projects || []).forEach(function (p) { if (p.id === pid) n = p.name; }); return n; }
@@ -686,6 +693,18 @@
     });
     h += '<div class="panel"><div class="panel-h"><h2>区域气泡：项目数 × 资金事项数 × 公司数</h2></div><div class="chart">'
       + (bub.length ? svgBubble(bub, { xl: "项目数", yl: "资金事项数" }) : '<div class="empty">暂无数据</div>') + "</div></div>";
+    /* 行业比较 */
+    var byI = {};
+    P.forEach(function (p) { byI[p.industry] = (byI[p.industry] || 0) + 1; });
+    h += '<div class="panel"><div class="panel-h"><h2>行业分布</h2></div><div class="chart">'
+      + svgBar(Object.keys(byI).map(function (k) { return { label: k, value: byI[k], href: "#/ana/metrics?i=" + encodeURIComponent(k) }; }))
+      + "</div></div>";
+    /* 公司横向比较（自选两家） */
+    var C = V.companies || [];
+    var optsC = C.map(function (c) { return '<option value="' + esc(c.name) + '">' + esc(shortCo(c.name) + " " + c.code) + "</option>"; }).join("");
+    h += '<div class="panel"><div class="panel-h"><h2>公司横向比较（自选）</h2></div><div class="filterbar">'
+      + '<select class="fsel" id="mca" style="min-width:260px">' + optsC + '</select><select class="fsel" id="mcb" style="min-width:260px">' + optsC + "</select></div>"
+      + '<div id="mco" style="overflow-x:auto"></div></div>';
     /* 基准表：项目 × 关键指标 */
     h += '<div class="panel"><div class="panel-h"><h2>项目基准表</h2></div><div class="tbl-wrap"><table class="tbl"><thead>'
       + tblHead([["项目", ""], ["公司", "width:170px"], ["区域", "width:100px"], ["行业", "width:90px"], ["阶段", "width:70px"], ["资金事项", "width:80px"], ["最新披露", "width:100px"], ["深挖", "width:56px"]]) + "</thead><tbody>"
@@ -693,7 +712,36 @@
         var nf = (V.funds || []).filter(function (f) { return f.project === p.id && f.num; }).length;
         return '<tr class="click" data-href="#/project/' + p.id + '"><td><b>' + esc(p.name) + "</b></td><td>" + esc(shortCo(p.company)) + "</td><td>" + esc(p.region) + "</td><td>" + esc(p.industry) + "</td><td>" + esc(p.current_stage) + '</td><td class="mono">' + nf + '</td><td class="mono">' + esc(p.latest) + '</td><td>' + linkDocAid(p.aids[p.aids.length - 1], "披露") + "</td></tr>";
       }).join("") + "</tbody></table></div></div>";
+    setTimeout(bindMetrics, 0);
     return h;
+  }
+  function bindMetrics() {
+    var a = $("mca"), b = $("mcb"), out = $("mco");
+    if (!a || !b) return;
+    var C = V.companies || [];
+    if (C.length > 1) { a.value = C[0].name; b.value = C[1].name; }
+    function row(k, fa, fb) { return "<tr><th class='rowh'>" + esc(k) + "</th><td style='font-size:12.5px'>" + (fa || "—") + "</td><td style='font-size:12.5px'>" + (fb || "—") + "</td></tr>"; }
+    function cell(c) {
+      if (!c) return "—";
+      return '<b>' + esc(shortCo(c.name)) + '</b><br/><span class="code">' + esc(c.code + " · " + c.industry) + "</span>";
+    }
+    function upd() {
+      var ca = companyOf(a.value), cb = companyOf(b.value);
+      if (!ca || !cb) return;
+      function plist(c) { return c.projects.map(function (pid) { return '<a href="#/project/' + pid + '">' + esc(projName(pid)) + "</a>"; }).join("；") || "—"; }
+      function flist(c) { return c.fund_types.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") || "—"; }
+      function regions(c) { return c.regions.map(function (r) { return '<a class="tag" href="#/ana/regions?r=' + encodeURIComponent(r) + '">' + esc(r) + "</a>"; }).join("") || "—"; }
+      out.innerHTML = '<div class="tbl-wrap"><table class="tbl cmp"><thead><tr><th style="width:120px"></th><th>' + cell(ca) + "</th><th>" + cell(cb) + "</th></tr></thead><tbody>"
+        + row("海外区域", regions(ca), regions(cb))
+        + row("项目", plist(ca), plist(cb))
+        + row("资金类型", flist(ca), flist(cb))
+        + row("合作方", esc(ca.partners.slice(0, 4).join("；")), esc(cb.partners.slice(0, 4).join("；")))
+        + row("披露数", String(ca.count), String(cb.count))
+        + row("最新动态", '<span class="mono">' + esc(ca.latest) + "</span>", '<span class="mono">' + esc(cb.latest) + "</span>")
+        + "</tbody></table></div>";
+    }
+    a.addEventListener("change", upd); b.addEventListener("change", upd);
+    upd();
   }
 
   function vChanges() {
@@ -1016,9 +1064,15 @@
       + "</div>"
       + '<div class="note" style="padding-top:6px">分析版本：' + (av ? esc(av.v || "v2") + " · " + esc(av.model || "") + " · " + esc(av.at || "") : "v1 · " + esc(DB.synced) + " · 口径 v2 新增段待回填")
       + '　|　原文：<a href="' + esc(r["来源链接"]) + '" target="_blank" rel="noopener">' + esc(r["来源链接"]) + "</a></div>"
+      + '<div style="margin-top:12px"><div class="k" style="font-size:12px;color:var(--ink-3);margin-bottom:4px">个人备注（本机保存，随标注导出）</div>'
+      + '<textarea id="pnote" data-note="' + esc(r._aid) + '" style="width:100%;min-height:64px;border:1px solid var(--line-2);border-radius:8px;padding:8px 10px;font-size:13px;font-family:inherit" placeholder="记录你的核验结论、待办或质疑…">' + esc(ANN.notes[r._aid] || "") + "</textarea></div>"
       + "</div></div>";
     return h;
   }
+  document.addEventListener("change", function (e) {
+    var t = e.target;
+    if (t && t.id === "pnote") { ANN.notes[t.getAttribute("data-note")] = t.value; saveAnn(); }
+  });
 
   function vCase(id) {
     var c = null; (DB.cases || []).forEach(function (x) { if (x.id === id) c = x; });

@@ -262,3 +262,4 @@ b,strong{font-weight:650}
   .drawer{width:100vw;max-width:100vw}
   .expgrid{grid-template-columns:1fr}
 }
+@media (max-width:960px){ .synctime{display:none} }
