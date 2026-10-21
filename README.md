@@ -23,9 +23,15 @@
   → 美股·EDGAR：35家中概股名单为主键（CIK/accessionNumber 去重，不用关键词检索）
   → OFAC SDN 筛查
   → state/web_db.json（唯一准绳）
-  → scripts/sync_github.py 推送到本仓库
+  → scripts/sync_github.py 推送到本仓库（按 _aid 与批次 id 双向合并）
   → scripts/build_data.py + scripts/derive.py 生成 assets/data.js（含派生实体与渠道健康度）
   → ingest.yml 部署 GitHub Pages（同一链接自动更新）
+
+历史回溯任务（每日 06:30，每次回补 20 个自然日，目标覆盖 2020-01-01 至今）：
+  游标持久化于本仓库 state/backfill.json（同步进 data.js，来源健康页可见进度）；
+  每运行 = 拉仓库 → 读游标 → 三市场回补 20 天（scripts/backfill_pull.py）→ 分析入库 →
+  更新游标 → 推送部署；游标到 2020-01-01 自动停止。回溯条目与前向收录同一库同一页面，
+  批次以 B-BF- 前缀标识。
 ```
 
 - 派生实体（公司/项目/区域/资金/合规/图谱/变化/判断/日历/政策）全部由 34 条真实披露
