@@ -8,6 +8,7 @@
     缺失时给规则兜底文本，不造假）
 """
 import json, os, datetime
+import derive
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(ROOT, "state", "db.json")
@@ -87,13 +88,17 @@ def main():
         "sources": cfg["sources"],
         "rules": cfg["rules"],
         "exceptions": db["exceptions"],
+        "derived": derive.build_derived(db, cfg),
         "synced": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))
                                         ).strftime("%Y-%m-%d %H:%M"),
     }
     js = "window.DB = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n"
     open(OUT_PATH, "w", encoding="utf-8").write(js)
+    dv = out["derived"]
     print(f"data.js 已生成：{len(disclosures)} 条披露，{len(out['cases'])} 个案例，"
-          f"{len(out['batches'])} 个批次")
+          f"{len(out['batches'])} 个批次；派生：{len(dv['companies'])}公司/"
+          f"{len(dv['projects'])}项目/{len(dv['regions'])}区域/{len(dv['funds'])}资金/"
+          f"{len(dv['compliance'])}合规/{len(dv['graph']['nodes'])}图谱节点")
 
 
 if __name__ == "__main__":

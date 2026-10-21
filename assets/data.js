@@ -1148,5 +1148,8235 @@ window.DB = {
    "result": "数据源页已如实标注。"
   }
  ],
- "synced": "2026-10-22 00:10"
+ "derived": {
+  "companies": [
+   {
+    "name": "长江精工钢结构（集团）股份有限公司",
+    "code": "600496.SH",
+    "industry": "建筑工程",
+    "regions": [
+     "埃塞俄比亚",
+     "尼日利亚"
+    ],
+    "aids": [
+     "1225610572"
+    ],
+    "projects": [
+     "P01"
+    ],
+    "partners": [
+     "不构成关联交易",
+     "业主方：DANGOTE PROJECTS FZE（丹格特工业集团旗下",
+     "分包主体：长江精工（上海）建筑科技有限公司",
+     "非洲最大综合性工业集团"
+    ],
+    "fund_types": [
+     "合同订单"
+    ],
+    "latest": "2026-10-20",
+    "count": 1
+   },
+   {
+    "name": "晶科电力科技股份有限公司",
+    "code": "601778.SH",
+    "industry": "新能源",
+    "regions": [
+     "阿联酋"
+    ],
+    "aids": [
+     "1225612752"
+    ],
+    "projects": [
+     "P02"
+    ],
+    "partners": [
+     "100MW光伏电站项目公司40%股权",
+     "Ltd 50%",
+     "合资公司持有Al Dhafrah 2"
+    ],
+    "fund_types": [
+     "股东借款"
+    ],
+    "latest": "2026-10-21",
+    "count": 1
+   },
+   {
+    "name": "兖矿能源集团股份有限公司",
+    "code": "600188.SH",
+    "industry": "能源矿业",
+    "regions": [
+     "澳大利亚"
+    ],
+    "aids": [
+     "1225612269"
+    ],
+    "projects": [
+     "P03"
+    ],
+    "partners": [
+     "兖煤澳大利亚有限公司（ASX:YAL / HKEX:03668",
+     "公司控股子公司"
+    ],
+    "fund_types": [
+     "经营数据"
+    ],
+    "latest": "2026-10-21",
+    "count": 1
+   },
+   {
+    "name": "广电运通集团股份有限公司",
+    "code": "002152.SZ",
+    "industry": "电子信息",
+    "regions": [
+     "泰国"
+    ],
+    "aids": [
+     "1225574483"
+    ],
+    "projects": [
+     "P04"
+    ],
+    "partners": [
+     "终端客户为泰国政府储蓄银行GSB"
+    ],
+    "fund_types": [
+     "合同订单"
+    ],
+    "latest": "2026-09-22",
+    "count": 1
+   },
+   {
+    "name": "深圳市鸿富瀚科技股份有限公司",
+    "code": "301086.SZ",
+    "industry": "电子制造",
+    "regions": [
+     "中国香港",
+     "刚果（金）",
+     "法国"
+    ],
+    "aids": [
+     "1225579070"
+    ],
+    "projects": [
+     "P05"
+    ],
+    "partners": [
+     "卖方：格派控股（香港",
+     "完成后公司持COP公司73.99%并并表",
+     "自然人黄鸿旋（涉及刚果（金）公民代持安排"
+    ],
+    "fund_types": [
+     "增资"
+    ],
+    "latest": "2026-09-23",
+    "count": 1
+   },
+   {
+    "name": "龙佰集团股份有限公司",
+    "code": "002601.SZ",
+    "industry": "新材料",
+    "regions": [
+     "澳大利亚"
+    ],
+    "aids": [
+     "1225578713"
+    ],
+    "projects": [
+     "P06"
+    ],
+    "partners": [
+     "Image Resources NL（ASX:IMA",
+     "公司经子公司合计持股约17.76%",
+     "标的为其全资子公司Titon Resources持有的两个矿砂项目",
+     "董事长许冉任其董事→构成关联交易"
+    ],
+    "fund_types": [
+     "并购投资"
+    ],
+    "latest": "2026-09-24",
+    "count": 1
+   },
+   {
+    "name": "宁波三星医疗电气股份有限公司",
+    "code": "601567.SH",
+    "industry": "电气设备",
+    "regions": [
+     "美国"
+    ],
+    "aids": [
+     "1225578867"
+    ],
+    "projects": [
+     "P07"
+    ],
+    "partners": [
+     "无关联关系",
+     "美国数据中心项目客户（未具名"
+    ],
+    "fund_types": [
+     "合同订单"
+    ],
+    "latest": "2026-09-24",
+    "count": 1
+   },
+   {
+    "name": "山东玲珑轮胎股份有限公司",
+    "code": "601966.SH",
+    "industry": "汽车零部件",
+    "regions": [
+     "埃及"
+    ],
+    "aids": [
+     "1225578878"
+    ],
+    "projects": [
+     "P08"
+    ],
+    "partners": [
+     "无（独资建设埃及项目公司"
+    ],
+    "fund_types": [
+     "绿地投资"
+    ],
+    "latest": "2026-09-24",
+    "count": 1
+   },
+   {
+    "name": "浙江泰林生物技术股份有限公司",
+    "code": "300813.SZ",
+    "industry": "医药健康",
+    "regions": [
+     "新加坡"
+    ],
+    "aids": [
+     "1225581034"
+    ],
+    "projects": [
+     "P09"
+    ],
+    "partners": [
+     "无（全资子公司泰林科学技术100%持有"
+    ],
+    "fund_types": [
+     "其他"
+    ],
+    "latest": "2026-09-24",
+    "count": 1
+   },
+   {
+    "name": "三友联众集团股份有限公司",
+    "code": "300932.SZ",
+    "industry": "电气设备",
+    "regions": [
+     "越南"
+    ],
+    "aids": [
+     "1225588646"
+    ],
+    "projects": [
+     "P10"
+    ],
+    "partners": [
+     "无（全资子公司越南三友持股100%"
+    ],
+    "fund_types": [
+     "增资"
+    ],
+    "latest": "2026-09-30",
+    "count": 1
+   },
+   {
+    "name": "行云科技股份有限公司",
+    "code": "300209.SZ",
+    "industry": "信息技术",
+    "regions": [
+     "新加坡"
+    ],
+    "aids": [
+     "1225588474"
+    ],
+    "projects": [
+     "P11"
+    ],
+    "partners": [
+     "“VG客户”（以商业秘密豁免披露",
+     "无关联关系",
+     "近三年无类似交易"
+    ],
+    "fund_types": [
+     "合同订单"
+    ],
+    "latest": "2026-09-30",
+    "count": 1
+   },
+   {
+    "name": "品茗科技股份有限公司",
+    "code": "688109.SH",
+    "industry": "软件服务",
+    "regions": [
+     "新加坡"
+    ],
+    "aids": [
+     "1225586878"
+    ],
+    "projects": [
+     "P12"
+    ],
+    "partners": [
+     "卖方为ZLX原股东（新加坡注册私人有限公司创始人"
+    ],
+    "fund_types": [
+     "并购投资"
+    ],
+    "latest": "2026-09-30",
+    "count": 1
+   },
+   {
+    "name": "四川汇宇制药股份有限公司",
+    "code": "688553.SH",
+    "industry": "医药健康",
+    "regions": [
+     "塞尔维亚",
+     "法国"
+    ],
+    "aids": [
+     "1225589861"
+    ],
+    "projects": [
+     "P13"
+    ],
+    "partners": [
+     "子公司Seacross (Europe) Pharma Ltd.为持证主体",
+     "法国ANSM（监管方"
+    ],
+    "fund_types": [
+     "市场准入"
+    ],
+    "latest": "2026-10-01",
+    "count": 1
+   },
+   {
+    "name": "赛诺医疗科学技术股份有限公司",
+    "code": "688108.SH",
+    "industry": "医疗器械",
+    "regions": [
+     "印度",
+     "哥伦比亚",
+     "墨西哥",
+     "巴西",
+     "泰国",
+     "韩国"
+    ],
+    "aids": [
+     "1225600078"
+    ],
+    "projects": [
+     "P14"
+    ],
+    "partners": [
+     "哥伦比亚INVIMA（监管机构"
+    ],
+    "fund_types": [
+     "市场准入"
+    ],
+    "latest": "2026-10-10",
+    "count": 1
+   },
+   {
+    "name": "贵州航宇科技发展股份有限公司",
+    "code": "688239.SH",
+    "industry": "航空航天",
+    "regions": [
+     "摩洛哥"
+    ],
+    "aids": [
+     "1225597383"
+    ],
+    "projects": [
+     "P15"
+    ],
+    "partners": [
+     "无（独资建设"
+    ],
+    "fund_types": [
+     "绿地投资"
+    ],
+    "latest": "2026-10-09",
+    "count": 1
+   },
+   {
+    "name": "苏州太湖雪丝绸股份有限公司",
+    "code": "920262.BJ",
+    "industry": "纺织消费",
+    "regions": [
+     "英国"
+    ],
+    "aids": [
+     "1225599223"
+    ],
+    "projects": [
+     "P16"
+    ],
+    "partners": [
+     "无（通过全资子公司苏州太湖雪茧丝绸科技持有"
+    ],
+    "fund_types": [
+     "其他"
+    ],
+    "latest": "2026-10-09",
+    "count": 1
+   },
+   {
+    "name": "共达电声股份有限公司",
+    "code": "002655.SZ",
+    "industry": "电子制造",
+    "regions": [
+     "泰国"
+    ],
+    "aids": [
+     "1225597906"
+    ],
+    "projects": [
+     "P17"
+    ],
+    "partners": [],
+    "fund_types": [
+     "其他"
+    ],
+    "latest": "2026-10-09",
+    "count": 1
+   },
+   {
+    "name": "昆明川金诺化工股份有限公司",
+    "code": "300505.SZ",
+    "industry": "化工",
+    "regions": [
+     "埃及"
+    ],
+    "aids": [
+     "1225597459"
+    ],
+    "projects": [
+     "P18"
+    ],
+    "partners": [
+     "中国第一只专注对非投资的国家级基金",
+     "中非发展基金有限公司（2007年国务院批准设立"
+    ],
+    "fund_types": [
+     "股权融资"
+    ],
+    "latest": "2026-10-09",
+    "count": 1
+   },
+   {
+    "name": "泰晶科技股份有限公司",
+    "code": "603738.SH",
+    "industry": "电子制造",
+    "regions": [
+     "越南"
+    ],
+    "aids": [
+     "1225597506"
+    ],
+    "projects": [
+     "P19"
+    ],
+    "partners": [
+     "无（独资"
+    ],
+    "fund_types": [
+     "绿地投资"
+    ],
+    "latest": "2026-10-09",
+    "count": 1
+   },
+   {
+    "name": "瀚蓝环境股份有限公司",
+    "code": "600323.SH",
+    "industry": "环保公用",
+    "regions": [
+     "中国香港"
+    ],
+    "aids": [
+     "1225600386"
+    ],
+    "projects": [
+     "P20"
+    ],
+    "partners": [
+     "卖方：臻达发展有限公司（7.22%股份",
+     "广东南海上市公司高质量发展股权投资基金（100%财产份额"
+    ],
+    "fund_types": [
+     "并购投资"
+    ],
+    "latest": "2026-10-12",
+    "count": 1
+   },
+   {
+    "name": "浙江天成自控股份有限公司",
+    "code": "603085.SH",
+    "industry": "汽车零部件",
+    "regions": [
+     "泰国"
+    ],
+    "aids": [
+     "1225608735"
+    ],
+    "projects": [
+     "P21"
+    ],
+    "partners": [
+     "某知名合资汽车企业（保密协议无法披露名称"
+    ],
+    "fund_types": [
+     "合同订单"
+    ],
+    "latest": "2026-10-17",
+    "count": 1
+   }
+  ],
+  "projects": [
+   {
+    "id": "P01",
+    "company": "长江精工钢结构（集团）股份有限公司",
+    "name": "尼日利亚/埃塞钢结构工程分包",
+    "region": "尼日利亚",
+    "regions_all": [
+     "埃塞俄比亚",
+     "尼日利亚"
+    ],
+    "industry": "建筑工程",
+    "aids": [
+     "1225610572"
+    ],
+    "events": [
+     {
+      "date": "2026-10-20",
+      "stage": "签约",
+      "title": "精工钢构关于签约海外重大项目的公告",
+      "aid": "1225610572",
+      "seq": "1"
+     }
+    ],
+    "current_stage": "签约",
+    "stage_pos": 2,
+    "lifecycle_len": 10,
+    "latest": "2026-10-20",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P02",
+    "company": "晶科电力科技股份有限公司",
+    "name": "阿布扎比 Al Dhafrah 2,100MW 光储电站",
+    "region": "阿联酋",
+    "regions_all": [
+     "阿联酋"
+    ],
+    "industry": "新能源",
+    "aids": [
+     "1225612752"
+    ],
+    "events": [
+     {
+      "date": "2026-10-21",
+      "stage": "运营",
+      "title": "关于为境外合资公司提供财务资助的公告",
+      "aid": "1225612752",
+      "seq": "2"
+     }
+    ],
+    "current_stage": "运营",
+    "stage_pos": 8,
+    "lifecycle_len": 10,
+    "latest": "2026-10-21",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "name": "兖煤澳大利亚运营（权益产销量）",
+    "region": "澳大利亚",
+    "regions_all": [
+     "澳大利亚"
+    ],
+    "industry": "能源矿业",
+    "aids": [
+     "1225612269"
+    ],
+    "events": [
+     {
+      "date": "2026-10-21",
+      "stage": "运营",
+      "title": "兖矿能源集团股份有限公司境外控股子公司发布2026年第三季度产量销量",
+      "aid": "1225612269",
+      "seq": "3"
+     }
+    ],
+    "current_stage": "运营",
+    "stage_pos": 8,
+    "lifecycle_len": 10,
+    "latest": "2026-10-21",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P04",
+    "company": "广电运通集团股份有限公司",
+    "name": "泰国金融智能终端供货",
+    "region": "泰国",
+    "regions_all": [
+     "泰国"
+    ],
+    "industry": "电子信息",
+    "aids": [
+     "1225574483"
+    ],
+    "events": [
+     {
+      "date": "2026-09-22",
+      "stage": "签约",
+      "title": "广电运通关于全资子公司签订海外重要合同的公告",
+      "aid": "1225574483",
+      "seq": "4"
+     }
+    ],
+    "current_stage": "签约",
+    "stage_pos": 2,
+    "lifecycle_len": 10,
+    "latest": "2026-09-22",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "name": "刚果（金）科米卡矿区电站并购+增资",
+    "region": "刚果（金）",
+    "regions_all": [
+     "中国香港",
+     "刚果（金）",
+     "法国"
+    ],
+    "industry": "电子制造",
+    "aids": [
+     "1225579070"
+    ],
+    "events": [
+     {
+      "date": "2026-09-23",
+      "stage": "意向",
+      "title": "关于全资子公司拟收购境外公司股权及对外增资的公告",
+      "aid": "1225579070",
+      "seq": "5"
+     }
+    ],
+    "current_stage": "意向",
+    "stage_pos": 1,
+    "lifecycle_len": 10,
+    "latest": "2026-09-23",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P06",
+    "company": "龙佰集团股份有限公司",
+    "name": "西澳 Durack/Yandanooka 钛锆矿砂",
+    "region": "澳大利亚",
+    "regions_all": [
+     "澳大利亚"
+    ],
+    "industry": "新材料",
+    "aids": [
+     "1225578713"
+    ],
+    "events": [
+     {
+      "date": "2026-09-24",
+      "stage": "意向",
+      "title": "关于签署海外矿砂项目合作意向协议的公告（10-10披露进展：签署条款清单修订协议延长最终文件签署日）",
+      "aid": "1225578713",
+      "seq": "6"
+     }
+    ],
+    "current_stage": "意向",
+    "stage_pos": 1,
+    "lifecycle_len": 10,
+    "latest": "2026-09-24",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P07",
+    "company": "宁波三星医疗电气股份有限公司",
+    "name": "美国数据中心油浸式变压器供货",
+    "region": "美国",
+    "regions_all": [
+     "美国"
+    ],
+    "industry": "电气设备",
+    "aids": [
+     "1225578867"
+    ],
+    "events": [
+     {
+      "date": "2026-09-24",
+      "stage": "签约",
+      "title": "三星电气关于子公司签订海外经营合同的公告",
+      "aid": "1225578867",
+      "seq": "7"
+     }
+    ],
+    "current_stage": "签约",
+    "stage_pos": 2,
+    "lifecycle_len": 10,
+    "latest": "2026-09-24",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P08",
+    "company": "山东玲珑轮胎股份有限公司",
+    "name": "埃及亚历山大 PCR 轮胎厂（600万套/年）",
+    "region": "埃及",
+    "regions_all": [
+     "埃及"
+    ],
+    "industry": "汽车零部件",
+    "aids": [
+     "1225578878"
+    ],
+    "events": [
+     {
+      "date": "2026-09-24",
+      "stage": "意向",
+      "title": "山东玲珑轮胎股份有限公司境外(埃及)投资建设项目可行性研究报告",
+      "aid": "1225578878",
+      "seq": "8"
+     }
+    ],
+    "current_stage": "意向",
+    "stage_pos": 1,
+    "lifecycle_len": 10,
+    "latest": "2026-09-24",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "name": "新加坡国际贸易平台",
+    "region": "新加坡",
+    "regions_all": [
+     "新加坡"
+    ],
+    "industry": "医药健康",
+    "aids": [
+     "1225581034"
+    ],
+    "events": [
+     {
+      "date": "2026-09-24",
+      "stage": "登记",
+      "title": "关于设立新加坡孙公司并完成注册登记及境外投资项目备案的公告",
+      "aid": "1225581034",
+      "seq": "9"
+     }
+    ],
+    "current_stage": "登记",
+    "stage_pos": 4,
+    "lifecycle_len": 10,
+    "latest": "2026-09-24",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P10",
+    "company": "三友联众集团股份有限公司",
+    "name": "越南顺化继电器基地增资扩产",
+    "region": "越南",
+    "regions_all": [
+     "越南"
+    ],
+    "industry": "电气设备",
+    "aids": [
+     "1225588646"
+    ],
+    "events": [
+     {
+      "date": "2026-09-30",
+      "stage": "运营",
+      "title": "关于拟增加境外子公司投资额的公告",
+      "aid": "1225588646",
+      "seq": "10"
+     }
+    ],
+    "current_stage": "运营",
+    "stage_pos": 8,
+    "lifecycle_len": 10,
+    "latest": "2026-09-30",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P11",
+    "company": "行云科技股份有限公司",
+    "name": "新加坡算力服务器销售",
+    "region": "新加坡",
+    "regions_all": [
+     "新加坡"
+    ],
+    "industry": "信息技术",
+    "aids": [
+     "1225588474"
+    ],
+    "events": [
+     {
+      "date": "2026-09-30",
+      "stage": "实施",
+      "title": "关于全资境外孙公司签订重大销售合同的公告",
+      "aid": "1225588474",
+      "seq": "11"
+     }
+    ],
+    "current_stage": "意向",
+    "stage_pos": 1,
+    "lifecycle_len": 10,
+    "latest": "2026-09-30",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P12",
+    "company": "品茗科技股份有限公司",
+    "name": "收购新加坡 ZLX ENGINEERING",
+    "region": "新加坡",
+    "regions_all": [
+     "新加坡"
+    ],
+    "industry": "软件服务",
+    "aids": [
+     "1225586878"
+    ],
+    "events": [
+     {
+      "date": "2026-09-30",
+      "stage": "交割",
+      "title": "关于全资子公司收购境外公司股权的进展公告",
+      "aid": "1225586878",
+      "seq": "12"
+     }
+    ],
+    "current_stage": "交割",
+    "stage_pos": 5,
+    "lifecycle_len": 10,
+    "latest": "2026-09-30",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P13",
+    "company": "四川汇宇制药股份有限公司",
+    "name": "药品国际注册（法国等15国）",
+    "region": "法国",
+    "regions_all": [
+     "塞尔维亚",
+     "法国"
+    ],
+    "industry": "医药健康",
+    "aids": [
+     "1225589861"
+    ],
+    "events": [
+     {
+      "date": "2026-10-01",
+      "stage": "登记",
+      "title": "自愿披露公司产品获得境外上市许可的公告",
+      "aid": "1225589861",
+      "seq": "13"
+     }
+    ],
+    "current_stage": "登记",
+    "stage_pos": 4,
+    "lifecycle_len": 10,
+    "latest": "2026-10-01",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P14",
+    "company": "赛诺医疗科学技术股份有限公司",
+    "name": "冠脉介入器械国际注册",
+    "region": "哥伦比亚",
+    "regions_all": [
+     "印度",
+     "哥伦比亚",
+     "墨西哥",
+     "巴西",
+     "泰国",
+     "韩国"
+    ],
+    "industry": "医疗器械",
+    "aids": [
+     "1225600078"
+    ],
+    "events": [
+     {
+      "date": "2026-10-10",
+      "stage": "登记",
+      "title": "关于公司产品在海外获得注册证的自愿性披露公告",
+      "aid": "1225600078",
+      "seq": "14"
+     }
+    ],
+    "current_stage": "登记",
+    "stage_pos": 4,
+    "lifecycle_len": 10,
+    "latest": "2026-10-10",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P15",
+    "company": "贵州航宇科技发展股份有限公司",
+    "name": "摩洛哥锻造生产基地（自斯洛伐克迁址）",
+    "region": "摩洛哥",
+    "regions_all": [
+     "摩洛哥"
+    ],
+    "industry": "航空航天",
+    "aids": [
+     "1225597383"
+    ],
+    "events": [
+     {
+      "date": "2026-10-09",
+      "stage": "变更",
+      "title": "关于变更海外生产基地建设地点的公告",
+      "aid": "1225597383",
+      "seq": "15"
+     }
+    ],
+    "current_stage": "意向",
+    "stage_pos": 1,
+    "lifecycle_len": 10,
+    "latest": "2026-10-09",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "name": "伦敦跨境电商/零售实体",
+    "region": "英国",
+    "regions_all": [
+     "英国"
+    ],
+    "industry": "纺织消费",
+    "aids": [
+     "1225599223"
+    ],
+    "events": [
+     {
+      "date": "2026-10-09",
+      "stage": "登记",
+      "title": "关于境外全资孙公司完成注册的公告",
+      "aid": "1225599223",
+      "seq": "16"
+     }
+    ],
+    "current_stage": "登记",
+    "stage_pos": 4,
+    "lifecycle_len": 10,
+    "latest": "2026-10-09",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P17",
+    "company": "共达电声股份有限公司",
+    "name": "泰国电声元器件研发制造基地",
+    "region": "泰国",
+    "regions_all": [
+     "泰国"
+    ],
+    "industry": "电子制造",
+    "aids": [
+     "1225597906"
+    ],
+    "events": [
+     {
+      "date": "2026-10-09",
+      "stage": "意向",
+      "title": "关于拟设立境外二级子公司的公告",
+      "aid": "1225597906",
+      "seq": "17"
+     }
+    ],
+    "current_stage": "意向",
+    "stage_pos": 1,
+    "lifecycle_len": 10,
+    "latest": "2026-10-09",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P18",
+    "company": "昆明川金诺化工股份有限公司",
+    "name": "埃及苏伊士磷化工项目（优先股募资）",
+    "region": "埃及",
+    "regions_all": [
+     "埃及"
+    ],
+    "industry": "化工",
+    "aids": [
+     "1225597459"
+    ],
+    "events": [
+     {
+      "date": "2026-10-09",
+      "stage": "签约",
+      "title": "关于境外全资子公司川金诺国际有限公司向中非发展基金发行优先股的公告",
+      "aid": "1225597459",
+      "seq": "18"
+     }
+    ],
+    "current_stage": "签约",
+    "stage_pos": 2,
+    "lifecycle_len": 10,
+    "latest": "2026-10-09",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P19",
+    "company": "泰晶科技股份有限公司",
+    "name": "越南晶振/频率元件生产基地",
+    "region": "越南",
+    "regions_all": [
+     "越南"
+    ],
+    "industry": "电子制造",
+    "aids": [
+     "1225597506"
+    ],
+    "events": [
+     {
+      "date": "2026-10-09",
+      "stage": "意向",
+      "title": "关于对外投资设立境外全资子公司并建设生产基地的公告",
+      "aid": "1225597506",
+      "seq": "19"
+     }
+    ],
+    "current_stage": "意向",
+    "stage_pos": 1,
+    "lifecycle_len": 10,
+    "latest": "2026-10-09",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P20",
+    "company": "瀚蓝环境股份有限公司",
+    "name": "分步并购粤丰环保（100%控股）",
+    "region": "中国香港",
+    "regions_all": [
+     "中国香港"
+    ],
+    "industry": "环保公用",
+    "aids": [
+     "1225600386"
+    ],
+    "events": [
+     {
+      "date": "2026-10-12",
+      "stage": "审批",
+      "title": "关于并购粤丰环保7.22%股权项目收到广东省发展和改革委员会《境外投资项目备案通知书》的公告",
+      "aid": "1225600386",
+      "seq": "20"
+     }
+    ],
+    "current_stage": "审批",
+    "stage_pos": 3,
+    "lifecycle_len": 10,
+    "latest": "2026-10-12",
+    "next_nodes": [],
+    "amounts": []
+   },
+   {
+    "id": "P21",
+    "company": "浙江天成自控股份有限公司",
+    "name": "泰国乘用车座椅总成定点",
+    "region": "泰国",
+    "regions_all": [
+     "泰国"
+    ],
+    "industry": "汽车零部件",
+    "aids": [
+     "1225608735"
+    ],
+    "events": [
+     {
+      "date": "2026-10-17",
+      "stage": "意向",
+      "title": "关于海外子公司收到客户项目定点通知的公告",
+      "aid": "1225608735",
+      "seq": "21"
+     }
+    ],
+    "current_stage": "意向",
+    "stage_pos": 1,
+    "lifecycle_len": 10,
+    "latest": "2026-10-17",
+    "next_nodes": [],
+    "amounts": []
+   }
+  ],
+  "regions": [
+   {
+    "region": "埃塞俄比亚",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "建筑工程"
+    ],
+    "fund_cnt": 2,
+    "projects": [
+     "P01"
+    ]
+   },
+   {
+    "region": "尼日利亚",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "建筑工程"
+    ],
+    "fund_cnt": 2,
+    "projects": [
+     "P01"
+    ]
+   },
+   {
+    "region": "阿联酋",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "新能源"
+    ],
+    "fund_cnt": 2,
+    "projects": [
+     "P02"
+    ]
+   },
+   {
+    "region": "澳大利亚",
+    "project_cnt": 2,
+    "company_cnt": 2,
+    "industries": [
+     "新材料",
+     "能源矿业"
+    ],
+    "fund_cnt": 6,
+    "projects": [
+     "P03",
+     "P06"
+    ]
+   },
+   {
+    "region": "泰国",
+    "project_cnt": 4,
+    "company_cnt": 4,
+    "industries": [
+     "医疗器械",
+     "汽车零部件",
+     "电子信息",
+     "电子制造"
+    ],
+    "fund_cnt": 4,
+    "projects": [
+     "P04",
+     "P14",
+     "P17",
+     "P21"
+    ]
+   },
+   {
+    "region": "中国香港",
+    "project_cnt": 2,
+    "company_cnt": 2,
+    "industries": [
+     "环保公用",
+     "电子制造"
+    ],
+    "fund_cnt": 6,
+    "projects": [
+     "P05",
+     "P20"
+    ]
+   },
+   {
+    "region": "刚果（金）",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "电子制造"
+    ],
+    "fund_cnt": 5,
+    "projects": [
+     "P05"
+    ]
+   },
+   {
+    "region": "法国",
+    "project_cnt": 2,
+    "company_cnt": 2,
+    "industries": [
+     "医药健康",
+     "电子制造"
+    ],
+    "fund_cnt": 5,
+    "projects": [
+     "P05",
+     "P13"
+    ]
+   },
+   {
+    "region": "美国",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "电气设备"
+    ],
+    "fund_cnt": 2,
+    "projects": [
+     "P07"
+    ]
+   },
+   {
+    "region": "埃及",
+    "project_cnt": 2,
+    "company_cnt": 2,
+    "industries": [
+     "化工",
+     "汽车零部件"
+    ],
+    "fund_cnt": 4,
+    "projects": [
+     "P08",
+     "P18"
+    ]
+   },
+   {
+    "region": "新加坡",
+    "project_cnt": 3,
+    "company_cnt": 3,
+    "industries": [
+     "信息技术",
+     "医药健康",
+     "软件服务"
+    ],
+    "fund_cnt": 3,
+    "projects": [
+     "P09",
+     "P11",
+     "P12"
+    ]
+   },
+   {
+    "region": "越南",
+    "project_cnt": 2,
+    "company_cnt": 2,
+    "industries": [
+     "电子制造",
+     "电气设备"
+    ],
+    "fund_cnt": 3,
+    "projects": [
+     "P10",
+     "P19"
+    ]
+   },
+   {
+    "region": "塞尔维亚",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "医药健康"
+    ],
+    "fund_cnt": 0,
+    "projects": [
+     "P13"
+    ]
+   },
+   {
+    "region": "印度",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "医疗器械"
+    ],
+    "fund_cnt": 0,
+    "projects": [
+     "P14"
+    ]
+   },
+   {
+    "region": "哥伦比亚",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "医疗器械"
+    ],
+    "fund_cnt": 0,
+    "projects": [
+     "P14"
+    ]
+   },
+   {
+    "region": "墨西哥",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "医疗器械"
+    ],
+    "fund_cnt": 0,
+    "projects": [
+     "P14"
+    ]
+   },
+   {
+    "region": "巴西",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "医疗器械"
+    ],
+    "fund_cnt": 0,
+    "projects": [
+     "P14"
+    ]
+   },
+   {
+    "region": "韩国",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "医疗器械"
+    ],
+    "fund_cnt": 0,
+    "projects": [
+     "P14"
+    ]
+   },
+   {
+    "region": "摩洛哥",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "航空航天"
+    ],
+    "fund_cnt": 2,
+    "projects": [
+     "P15"
+    ]
+   },
+   {
+    "region": "英国",
+    "project_cnt": 1,
+    "company_cnt": 1,
+    "industries": [
+     "纺织消费"
+    ],
+    "fund_cnt": 1,
+    "projects": [
+     "P16"
+    ]
+   }
+  ],
+  "partners": [
+   {
+    "name": "无关联关系",
+    "project_cnt": 2,
+    "companies": [
+     "宁波三星医疗电气股份有限公司",
+     "行云科技股份有限公司"
+    ],
+    "projects": [
+     "P07",
+     "P11"
+    ]
+   },
+   {
+    "name": "业主方：DANGOTE PROJECTS FZE（丹格特工业集团旗下",
+    "project_cnt": 1,
+    "companies": [
+     "长江精工钢结构（集团）股份有限公司"
+    ],
+    "projects": [
+     "P01"
+    ]
+   },
+   {
+    "name": "非洲最大综合性工业集团",
+    "project_cnt": 1,
+    "companies": [
+     "长江精工钢结构（集团）股份有限公司"
+    ],
+    "projects": [
+     "P01"
+    ]
+   },
+   {
+    "name": "分包主体：长江精工（上海）建筑科技有限公司",
+    "project_cnt": 1,
+    "companies": [
+     "长江精工钢结构（集团）股份有限公司"
+    ],
+    "projects": [
+     "P01"
+    ]
+   },
+   {
+    "name": "不构成关联交易",
+    "project_cnt": 1,
+    "companies": [
+     "长江精工钢结构（集团）股份有限公司"
+    ],
+    "projects": [
+     "P01"
+    ]
+   },
+   {
+    "name": "Ltd 50%",
+    "project_cnt": 1,
+    "companies": [
+     "晶科电力科技股份有限公司"
+    ],
+    "projects": [
+     "P02"
+    ]
+   },
+   {
+    "name": "合资公司持有Al Dhafrah 2",
+    "project_cnt": 1,
+    "companies": [
+     "晶科电力科技股份有限公司"
+    ],
+    "projects": [
+     "P02"
+    ]
+   },
+   {
+    "name": "100MW光伏电站项目公司40%股权",
+    "project_cnt": 1,
+    "companies": [
+     "晶科电力科技股份有限公司"
+    ],
+    "projects": [
+     "P02"
+    ]
+   },
+   {
+    "name": "兖煤澳大利亚有限公司（ASX:YAL / HKEX:03668",
+    "project_cnt": 1,
+    "companies": [
+     "兖矿能源集团股份有限公司"
+    ],
+    "projects": [
+     "P03"
+    ]
+   },
+   {
+    "name": "公司控股子公司",
+    "project_cnt": 1,
+    "companies": [
+     "兖矿能源集团股份有限公司"
+    ],
+    "projects": [
+     "P03"
+    ]
+   },
+   {
+    "name": "终端客户为泰国政府储蓄银行GSB",
+    "project_cnt": 1,
+    "companies": [
+     "广电运通集团股份有限公司"
+    ],
+    "projects": [
+     "P04"
+    ]
+   },
+   {
+    "name": "卖方：格派控股（香港",
+    "project_cnt": 1,
+    "companies": [
+     "深圳市鸿富瀚科技股份有限公司"
+    ],
+    "projects": [
+     "P05"
+    ]
+   },
+   {
+    "name": "自然人黄鸿旋（涉及刚果（金）公民代持安排",
+    "project_cnt": 1,
+    "companies": [
+     "深圳市鸿富瀚科技股份有限公司"
+    ],
+    "projects": [
+     "P05"
+    ]
+   },
+   {
+    "name": "完成后公司持COP公司73.99%并并表",
+    "project_cnt": 1,
+    "companies": [
+     "深圳市鸿富瀚科技股份有限公司"
+    ],
+    "projects": [
+     "P05"
+    ]
+   },
+   {
+    "name": "Image Resources NL（ASX:IMA",
+    "project_cnt": 1,
+    "companies": [
+     "龙佰集团股份有限公司"
+    ],
+    "projects": [
+     "P06"
+    ]
+   },
+   {
+    "name": "公司经子公司合计持股约17.76%",
+    "project_cnt": 1,
+    "companies": [
+     "龙佰集团股份有限公司"
+    ],
+    "projects": [
+     "P06"
+    ]
+   },
+   {
+    "name": "董事长许冉任其董事→构成关联交易",
+    "project_cnt": 1,
+    "companies": [
+     "龙佰集团股份有限公司"
+    ],
+    "projects": [
+     "P06"
+    ]
+   },
+   {
+    "name": "标的为其全资子公司Titon Resources持有的两个矿砂项目",
+    "project_cnt": 1,
+    "companies": [
+     "龙佰集团股份有限公司"
+    ],
+    "projects": [
+     "P06"
+    ]
+   },
+   {
+    "name": "美国数据中心项目客户（未具名",
+    "project_cnt": 1,
+    "companies": [
+     "宁波三星医疗电气股份有限公司"
+    ],
+    "projects": [
+     "P07"
+    ]
+   },
+   {
+    "name": "无（独资建设埃及项目公司",
+    "project_cnt": 1,
+    "companies": [
+     "山东玲珑轮胎股份有限公司"
+    ],
+    "projects": [
+     "P08"
+    ]
+   },
+   {
+    "name": "无（全资子公司泰林科学技术100%持有",
+    "project_cnt": 1,
+    "companies": [
+     "浙江泰林生物技术股份有限公司"
+    ],
+    "projects": [
+     "P09"
+    ]
+   },
+   {
+    "name": "无（全资子公司越南三友持股100%",
+    "project_cnt": 1,
+    "companies": [
+     "三友联众集团股份有限公司"
+    ],
+    "projects": [
+     "P10"
+    ]
+   },
+   {
+    "name": "“VG客户”（以商业秘密豁免披露",
+    "project_cnt": 1,
+    "companies": [
+     "行云科技股份有限公司"
+    ],
+    "projects": [
+     "P11"
+    ]
+   },
+   {
+    "name": "近三年无类似交易",
+    "project_cnt": 1,
+    "companies": [
+     "行云科技股份有限公司"
+    ],
+    "projects": [
+     "P11"
+    ]
+   },
+   {
+    "name": "卖方为ZLX原股东（新加坡注册私人有限公司创始人",
+    "project_cnt": 1,
+    "companies": [
+     "品茗科技股份有限公司"
+    ],
+    "projects": [
+     "P12"
+    ]
+   },
+   {
+    "name": "法国ANSM（监管方",
+    "project_cnt": 1,
+    "companies": [
+     "四川汇宇制药股份有限公司"
+    ],
+    "projects": [
+     "P13"
+    ]
+   },
+   {
+    "name": "子公司Seacross (Europe) Pharma Ltd.为持证主体",
+    "project_cnt": 1,
+    "companies": [
+     "四川汇宇制药股份有限公司"
+    ],
+    "projects": [
+     "P13"
+    ]
+   },
+   {
+    "name": "哥伦比亚INVIMA（监管机构",
+    "project_cnt": 1,
+    "companies": [
+     "赛诺医疗科学技术股份有限公司"
+    ],
+    "projects": [
+     "P14"
+    ]
+   },
+   {
+    "name": "无（独资建设",
+    "project_cnt": 1,
+    "companies": [
+     "贵州航宇科技发展股份有限公司"
+    ],
+    "projects": [
+     "P15"
+    ]
+   },
+   {
+    "name": "无（通过全资子公司苏州太湖雪茧丝绸科技持有",
+    "project_cnt": 1,
+    "companies": [
+     "苏州太湖雪丝绸股份有限公司"
+    ],
+    "projects": [
+     "P16"
+    ]
+   },
+   {
+    "name": "中非发展基金有限公司（2007年国务院批准设立",
+    "project_cnt": 1,
+    "companies": [
+     "昆明川金诺化工股份有限公司"
+    ],
+    "projects": [
+     "P18"
+    ]
+   },
+   {
+    "name": "中国第一只专注对非投资的国家级基金",
+    "project_cnt": 1,
+    "companies": [
+     "昆明川金诺化工股份有限公司"
+    ],
+    "projects": [
+     "P18"
+    ]
+   },
+   {
+    "name": "无（独资",
+    "project_cnt": 1,
+    "companies": [
+     "泰晶科技股份有限公司"
+    ],
+    "projects": [
+     "P19"
+    ]
+   },
+   {
+    "name": "卖方：臻达发展有限公司（7.22%股份",
+    "project_cnt": 1,
+    "companies": [
+     "瀚蓝环境股份有限公司"
+    ],
+    "projects": [
+     "P20"
+    ]
+   },
+   {
+    "name": "广东南海上市公司高质量发展股权投资基金（100%财产份额",
+    "project_cnt": 1,
+    "companies": [
+     "瀚蓝环境股份有限公司"
+    ],
+    "projects": [
+     "P20"
+    ]
+   },
+   {
+    "name": "某知名合资汽车企业（保密协议无法披露名称",
+    "project_cnt": 1,
+    "companies": [
+     "浙江天成自控股份有限公司"
+    ],
+    "projects": [
+     "P21"
+    ]
+   }
+  ],
+  "funds": [
+   {
+    "num": 7273.35,
+    "scale": "万",
+    "ccy": "USD",
+    "raw": "7,273.35万美元",
+    "id": "F-1225610572-0",
+    "aid": "1225610572",
+    "date": "2026-10-20",
+    "company": "长江精工钢结构（集团）股份有限公司",
+    "project": "P01",
+    "ftype": "合同订单",
+    "direction": "未来流入",
+    "text": "合同额7,273.35万美元（约合人民币4.86亿元），占最近一期经审计营业收入2.33%"
+   },
+   {
+    "num": 4.86,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "4.86亿元",
+    "id": "F-1225610572-1",
+    "aid": "1225610572",
+    "date": "2026-10-20",
+    "company": "长江精工钢结构（集团）股份有限公司",
+    "project": "P01",
+    "ftype": "合同订单",
+    "direction": "未来流入",
+    "text": "合同额7,273.35万美元（约合人民币4.86亿元），占最近一期经审计营业收入2.33%"
+   },
+   {
+    "num": 7500.0,
+    "scale": "万",
+    "ccy": "USD",
+    "raw": "7,500万美元",
+    "id": "F-1225612752-2",
+    "aid": "1225612752",
+    "date": "2026-10-21",
+    "company": "晶科电力科技股份有限公司",
+    "project": "P02",
+    "ftype": "股东借款",
+    "direction": "内部资金",
+    "text": "全体股东合计不超过7,500万美元；公司全资下属晶科中东按50%持股提供不超过3,750万美元，年利率4.5%，期限至购售电协议终止日前90天"
+   },
+   {
+    "num": 3750.0,
+    "scale": "万",
+    "ccy": "USD",
+    "raw": "3,750万美元",
+    "id": "F-1225612752-3",
+    "aid": "1225612752",
+    "date": "2026-10-21",
+    "company": "晶科电力科技股份有限公司",
+    "project": "P02",
+    "ftype": "股东借款",
+    "direction": "内部资金",
+    "text": "全体股东合计不超过7,500万美元；公司全资下属晶科中东按50%持股提供不超过3,750万美元，年利率4.5%，期限至购售电协议终止日前90天"
+   },
+   {
+    "num": 170.0,
+    "scale": "",
+    "ccy": "AUD",
+    "raw": "170澳元",
+    "id": "F-1225612269-4",
+    "aid": "1225612269",
+    "date": "2026-10-21",
+    "company": "兖矿能源集团股份有限公司",
+    "project": "P03",
+    "ftype": "经营数据",
+    "direction": "—",
+    "text": "不适用——本期为运营数据：2026Q3商品煤权益产量940万吨（同比+2%）、权益销量900万吨（同比-16%）、平均实现价格170澳元/吨（同比+21%）；前三季度权益产量2,920万吨（+4%）、销量2,880万吨（+6%）、均价159"
+   },
+   {
+    "num": 159.0,
+    "scale": "",
+    "ccy": "AUD",
+    "raw": "159澳元",
+    "id": "F-1225612269-5",
+    "aid": "1225612269",
+    "date": "2026-10-21",
+    "company": "兖矿能源集团股份有限公司",
+    "project": "P03",
+    "ftype": "经营数据",
+    "direction": "—",
+    "text": "不适用——本期为运营数据：2026Q3商品煤权益产量940万吨（同比+2%）、权益销量900万吨（同比-16%）、平均实现价格170澳元/吨（同比+21%）；前三季度权益产量2,920万吨（+4%）、销量2,880万吨（+6%）、均价159"
+   },
+   {
+    "num": 1.85,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "1.85亿元",
+    "id": "F-1225574483-6",
+    "aid": "1225574483",
+    "date": "2026-09-22",
+    "company": "广电运通集团股份有限公司",
+    "project": "P04",
+    "ftype": "合同订单",
+    "direction": "未来流入",
+    "text": "合同额合计约1.85亿元人民币（SVOA 7,940.14万元＋DataOne 10,541.81万元），非资本性投资"
+   },
+   {
+    "num": 7940.14,
+    "scale": "万",
+    "ccy": "CNY",
+    "raw": "7,940.14万元",
+    "id": "F-1225574483-7",
+    "aid": "1225574483",
+    "date": "2026-09-22",
+    "company": "广电运通集团股份有限公司",
+    "project": "P04",
+    "ftype": "合同订单",
+    "direction": "未来流入",
+    "text": "合同额合计约1.85亿元人民币（SVOA 7,940.14万元＋DataOne 10,541.81万元），非资本性投资"
+   },
+   {
+    "num": 10541.81,
+    "scale": "万",
+    "ccy": "CNY",
+    "raw": "10,541.81万元",
+    "id": "F-1225574483-8",
+    "aid": "1225574483",
+    "date": "2026-09-22",
+    "company": "广电运通集团股份有限公司",
+    "project": "P04",
+    "ftype": "合同订单",
+    "direction": "未来流入",
+    "text": "合同额合计约1.85亿元人民币（SVOA 7,940.14万元＋DataOne 10,541.81万元），非资本性投资"
+   },
+   {
+    "num": 2050.0,
+    "scale": "万",
+    "ccy": "CNY",
+    "raw": "2,050万元",
+    "id": "F-1225579070-9",
+    "aid": "1225579070",
+    "date": "2026-09-23",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "project": "P05",
+    "ftype": "增资",
+    "direction": "股权资金",
+    "text": "收购格派BVI 100%股权2,050万元＋收购ECOSOLEIL 49%股权1,950万元＋向格派BVI增资5.2亿元用于项目投资，合计约5.6亿元；COP公司股东全部权益收益法评估值仅7,900万元"
+   },
+   {
+    "num": 1950.0,
+    "scale": "万",
+    "ccy": "CNY",
+    "raw": "1,950万元",
+    "id": "F-1225579070-10",
+    "aid": "1225579070",
+    "date": "2026-09-23",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "project": "P05",
+    "ftype": "增资",
+    "direction": "股权资金",
+    "text": "收购格派BVI 100%股权2,050万元＋收购ECOSOLEIL 49%股权1,950万元＋向格派BVI增资5.2亿元用于项目投资，合计约5.6亿元；COP公司股东全部权益收益法评估值仅7,900万元"
+   },
+   {
+    "num": 5.2,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "5.2亿元",
+    "id": "F-1225579070-11",
+    "aid": "1225579070",
+    "date": "2026-09-23",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "project": "P05",
+    "ftype": "增资",
+    "direction": "股权资金",
+    "text": "收购格派BVI 100%股权2,050万元＋收购ECOSOLEIL 49%股权1,950万元＋向格派BVI增资5.2亿元用于项目投资，合计约5.6亿元；COP公司股东全部权益收益法评估值仅7,900万元"
+   },
+   {
+    "num": 5.6,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "5.6亿元",
+    "id": "F-1225579070-12",
+    "aid": "1225579070",
+    "date": "2026-09-23",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "project": "P05",
+    "ftype": "增资",
+    "direction": "股权资金",
+    "text": "收购格派BVI 100%股权2,050万元＋收购ECOSOLEIL 49%股权1,950万元＋向格派BVI增资5.2亿元用于项目投资，合计约5.6亿元；COP公司股东全部权益收益法评估值仅7,900万元"
+   },
+   {
+    "num": 7900.0,
+    "scale": "万",
+    "ccy": "CNY",
+    "raw": "7,900万元",
+    "id": "F-1225579070-13",
+    "aid": "1225579070",
+    "date": "2026-09-23",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "project": "P05",
+    "ftype": "增资",
+    "direction": "股权资金",
+    "text": "收购格派BVI 100%股权2,050万元＋收购ECOSOLEIL 49%股权1,950万元＋向格派BVI增资5.2亿元用于项目投资，合计约5.6亿元；COP公司股东全部权益收益法评估值仅7,900万元"
+   },
+   {
+    "num": 1.6,
+    "scale": "亿",
+    "ccy": "AUD",
+    "raw": "1.6亿澳元",
+    "id": "F-1225578713-14",
+    "aid": "1225578713",
+    "date": "2026-09-24",
+    "company": "龙佰集团股份有限公司",
+    "project": "P06",
+    "ftype": "并购投资",
+    "direction": "对外支付",
+    "text": "现金＋设备资产出资合计约1.6亿澳元（约7.66亿元人民币），其中现金约2,000万澳元、机器设备作价约1.4亿澳元"
+   },
+   {
+    "num": 7.66,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "7.66亿元",
+    "id": "F-1225578713-15",
+    "aid": "1225578713",
+    "date": "2026-09-24",
+    "company": "龙佰集团股份有限公司",
+    "project": "P06",
+    "ftype": "并购投资",
+    "direction": "对外支付",
+    "text": "现金＋设备资产出资合计约1.6亿澳元（约7.66亿元人民币），其中现金约2,000万澳元、机器设备作价约1.4亿澳元"
+   },
+   {
+    "num": 2000.0,
+    "scale": "万",
+    "ccy": "AUD",
+    "raw": "2,000万澳元",
+    "id": "F-1225578713-16",
+    "aid": "1225578713",
+    "date": "2026-09-24",
+    "company": "龙佰集团股份有限公司",
+    "project": "P06",
+    "ftype": "并购投资",
+    "direction": "对外支付",
+    "text": "现金＋设备资产出资合计约1.6亿澳元（约7.66亿元人民币），其中现金约2,000万澳元、机器设备作价约1.4亿澳元"
+   },
+   {
+    "num": 1.4,
+    "scale": "亿",
+    "ccy": "AUD",
+    "raw": "1.4亿澳元",
+    "id": "F-1225578713-17",
+    "aid": "1225578713",
+    "date": "2026-09-24",
+    "company": "龙佰集团股份有限公司",
+    "project": "P06",
+    "ftype": "并购投资",
+    "direction": "对外支付",
+    "text": "现金＋设备资产出资合计约1.6亿澳元（约7.66亿元人民币），其中现金约2,000万澳元、机器设备作价约1.4亿澳元"
+   },
+   {
+    "num": 1.32,
+    "scale": "亿",
+    "ccy": "USD",
+    "raw": "1.32亿美元",
+    "id": "F-1225578867-18",
+    "aid": "1225578867",
+    "date": "2026-09-24",
+    "company": "宁波三星医疗电气股份有限公司",
+    "project": "P07",
+    "ftype": "合同订单",
+    "direction": "未来流入",
+    "text": "1.32亿美元（约8.85亿元人民币），占2025年度经审计营业收入6.16%"
+   },
+   {
+    "num": 8.85,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "8.85亿元",
+    "id": "F-1225578867-19",
+    "aid": "1225578867",
+    "date": "2026-09-24",
+    "company": "宁波三星医疗电气股份有限公司",
+    "project": "P07",
+    "ftype": "合同订单",
+    "direction": "未来流入",
+    "text": "1.32亿美元（约8.85亿元人民币），占2025年度经审计营业收入6.16%"
+   },
+   {
+    "num": 2.7,
+    "scale": "亿",
+    "ccy": "USD",
+    "raw": "2.7亿美元",
+    "id": "F-1225578878-20",
+    "aid": "1225578878",
+    "date": "2026-09-24",
+    "company": "山东玲珑轮胎股份有限公司",
+    "project": "P08",
+    "ftype": "绿地投资",
+    "direction": "对外支付",
+    "text": "项目总投资2.7亿美元（折约18.35亿元人民币）"
+   },
+   {
+    "num": 18.35,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "18.35亿元",
+    "id": "F-1225578878-21",
+    "aid": "1225578878",
+    "date": "2026-09-24",
+    "company": "山东玲珑轮胎股份有限公司",
+    "project": "P08",
+    "ftype": "绿地投资",
+    "direction": "对外支付",
+    "text": "项目总投资2.7亿美元（折约18.35亿元人民币）"
+   },
+   {
+    "num": 55.0,
+    "scale": "万",
+    "ccy": "CNY",
+    "raw": "55万元",
+    "id": "F-1225581034-22",
+    "aid": "1225581034",
+    "date": "2026-09-24",
+    "company": "浙江泰林生物技术股份有限公司",
+    "project": "P09",
+    "ftype": "其他",
+    "direction": "—",
+    "text": "注册资本10万新元（约55万元人民币），自有资金"
+   },
+   {
+    "num": 8000.0,
+    "scale": "万",
+    "ccy": "CNY",
+    "raw": "8,000万元",
+    "id": "F-1225588646-23",
+    "aid": "1225588646",
+    "date": "2026-09-30",
+    "company": "三友联众集团股份有限公司",
+    "project": "P10",
+    "ftype": "增资",
+    "direction": "股权资金",
+    "text": "投资额由8,000万元增至不超过3.2亿元（自有＋自筹＋可转债募集资金）"
+   },
+   {
+    "num": 3.2,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "3.2亿元",
+    "id": "F-1225588646-24",
+    "aid": "1225588646",
+    "date": "2026-09-30",
+    "company": "三友联众集团股份有限公司",
+    "project": "P10",
+    "ftype": "增资",
+    "direction": "股权资金",
+    "text": "投资额由8,000万元增至不超过3.2亿元（自有＋自筹＋可转债募集资金）"
+   },
+   {
+    "num": 5.73,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "5.73亿元",
+    "id": "F-1225588474-25",
+    "aid": "1225588474",
+    "date": "2026-09-30",
+    "company": "行云科技股份有限公司",
+    "project": "P11",
+    "ftype": "合同订单",
+    "direction": "未来流入",
+    "text": "两份销售订单合计约5.73亿元"
+   },
+   {
+    "num": 3431.0,
+    "scale": "万",
+    "ccy": "CNY",
+    "raw": "3,431万元",
+    "id": "F-1225586878-26",
+    "aid": "1225586878",
+    "date": "2026-09-30",
+    "company": "品茗科技股份有限公司",
+    "project": "P12",
+    "ftype": "并购投资",
+    "direction": "对外支付",
+    "text": "总对价640万新元（约3,431万元），自有资金，分期支付"
+   },
+   {
+    "num": 1.05,
+    "scale": "亿",
+    "ccy": "EUR",
+    "raw": "1.05亿欧元",
+    "id": "F-1225597383-27",
+    "aid": "1225597383",
+    "date": "2026-10-09",
+    "company": "贵州航宇科技发展股份有限公司",
+    "project": "P15",
+    "ftype": "绿地投资",
+    "direction": "对外支付",
+    "text": "总投资不超过1.05亿欧元（约8.62亿元人民币），自有/自筹资金"
+   },
+   {
+    "num": 8.62,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "8.62亿元",
+    "id": "F-1225597383-28",
+    "aid": "1225597383",
+    "date": "2026-10-09",
+    "company": "贵州航宇科技发展股份有限公司",
+    "project": "P15",
+    "ftype": "绿地投资",
+    "direction": "对外支付",
+    "text": "总投资不超过1.05亿欧元（约8.62亿元人民币），自有/自筹资金"
+   },
+   {
+    "num": 1.0,
+    "scale": "万",
+    "ccy": "USD",
+    "raw": "1万美元",
+    "id": "F-1225599223-29",
+    "aid": "1225599223",
+    "date": "2026-10-09",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "project": "P16",
+    "ftype": "其他",
+    "direction": "—",
+    "text": "投资金额1万美元，自有资金"
+   },
+   {
+    "num": 3000.0,
+    "scale": "万",
+    "ccy": "USD",
+    "raw": "3,000万美元",
+    "id": "F-1225597906-30",
+    "aid": "1225597906",
+    "date": "2026-10-09",
+    "company": "共达电声股份有限公司",
+    "project": "P17",
+    "ftype": "其他",
+    "direction": "—",
+    "text": "自有资金3,000万美元（经香港共达全资持有）"
+   },
+   {
+    "num": 4.0,
+    "scale": "",
+    "ccy": "USD",
+    "raw": "4美元",
+    "id": "F-1225597459-31",
+    "aid": "1225597459",
+    "date": "2026-10-09",
+    "company": "昆明川金诺化工股份有限公司",
+    "project": "P18",
+    "ftype": "股权融资",
+    "direction": "股权资金",
+    "text": "发行2,000万股优先股×4美元/股＝8,000万美元，专项用于川金诺（埃及）苏伊士磷化工项目开发建设的筹资（公司控制权不变）"
+   },
+   {
+    "num": 8000.0,
+    "scale": "万",
+    "ccy": "USD",
+    "raw": "8,000万美元",
+    "id": "F-1225597459-32",
+    "aid": "1225597459",
+    "date": "2026-10-09",
+    "company": "昆明川金诺化工股份有限公司",
+    "project": "P18",
+    "ftype": "股权融资",
+    "direction": "股权资金",
+    "text": "发行2,000万股优先股×4美元/股＝8,000万美元，专项用于川金诺（埃及）苏伊士磷化工项目开发建设的筹资（公司控制权不变）"
+   },
+   {
+    "num": 4000.0,
+    "scale": "万",
+    "ccy": "USD",
+    "raw": "4,000万美元",
+    "id": "F-1225597506-33",
+    "aid": "1225597506",
+    "date": "2026-10-09",
+    "company": "泰晶科技股份有限公司",
+    "project": "P19",
+    "ftype": "绿地投资",
+    "direction": "对外支付",
+    "text": "投资总额不超过4,000万美元，以境内自有资金出资（含购地建厂、设备采购、流动资金）"
+   },
+   {
+    "num": 12.0,
+    "scale": "亿",
+    "ccy": "CNY",
+    "raw": "12亿元",
+    "id": "F-1225600386-34",
+    "aid": "1225600386",
+    "date": "2026-10-12",
+    "company": "瀚蓝环境股份有限公司",
+    "project": "P20",
+    "ftype": "并购投资",
+    "direction": "对外支付",
+    "text": "配套募资不超过12亿元；本次备案对应现金购买粤丰环保7.22%股份（整体交易为发行股份及支付现金购买基金LP份额＋现金购股）"
+   }
+  ],
+  "compliance": [
+   {
+    "id": "C001",
+    "project": "P01",
+    "company": "长江精工钢结构（集团）股份有限公司",
+    "region": "尼日利亚",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C002",
+    "project": "P01",
+    "company": "长江精工钢结构（集团）股份有限公司",
+    "region": "尼日利亚",
+    "category": "合同与承诺履行",
+    "cond": "签署长期供货、PPA、定点、投资承诺",
+    "req": "跟踪履约节点、投资承诺兑现、违约与终止条款",
+    "basis": "《民法典》合同编；目标国合同法；合同文本",
+    "material": "合同文本、履约凭证、交付验收",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：合同 / 交付凭证"
+   },
+   {
+    "id": "C003",
+    "project": "P02",
+    "company": "晶科电力科技股份有限公司",
+    "region": "阿联酋",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C004",
+    "project": "P02",
+    "company": "晶科电力科技股份有限公司",
+    "region": "阿联酋",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C005",
+    "project": "P02",
+    "company": "晶科电力科技股份有限公司",
+    "region": "阿联酋",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C006",
+    "project": "P02",
+    "company": "晶科电力科技股份有限公司",
+    "region": "阿联酋",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C007",
+    "project": "P02",
+    "company": "晶科电力科技股份有限公司",
+    "region": "阿联酋",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C008",
+    "project": "P02",
+    "company": "晶科电力科技股份有限公司",
+    "region": "阿联酋",
+    "category": "制裁与出口管制",
+    "cond": "涉美元结算、美国技术含量高的产品、敏感地区投资",
+    "req": "筛查交易对手与最终用户（OFAC/EAR/联合国及中国出口管制法），评估二级制裁风险",
+    "basis": "《出口管制法》；OFAC 制裁条例；EAR",
+    "material": "制裁筛查记录、最终用户声明、许可判断",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：筛查记录 / 许可证"
+   },
+   {
+    "id": "C009",
+    "project": "P02",
+    "company": "晶科电力科技股份有限公司",
+    "region": "阿联酋",
+    "category": "合同与承诺履行",
+    "cond": "签署长期供货、PPA、定点、投资承诺",
+    "req": "跟踪履约节点、投资承诺兑现、违约与终止条款",
+    "basis": "《民法典》合同编；目标国合同法；合同文本",
+    "material": "合同文本、履约凭证、交付验收",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：合同 / 交付凭证"
+   },
+   {
+    "id": "C010",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C011",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C012",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C013",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C014",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C015",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C016",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C017",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C018",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "制裁与出口管制",
+    "cond": "涉美元结算、美国技术含量高的产品、敏感地区投资",
+    "req": "筛查交易对手与最终用户（OFAC/EAR/联合国及中国出口管制法），评估二级制裁风险",
+    "basis": "《出口管制法》；OFAC 制裁条例；EAR",
+    "material": "制裁筛查记录、最终用户声明、许可判断",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：筛查记录 / 许可证"
+   },
+   {
+    "id": "C019",
+    "project": "P03",
+    "company": "兖矿能源集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "数据与跨境信息",
+    "cond": "业务涉及个人信息或重要数据跨境传输",
+    "req": "履行告知同意、数据出境安全评估/标准合同；遵守目标国数据法（如 GDPR）",
+    "basis": "《个人信息保护法》《数据安全法》；目标国数据保护法规",
+    "material": "告知同意文本、出境评估/备案材料",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：评估批复 / 备案回执"
+   },
+   {
+    "id": "C020",
+    "project": "P04",
+    "company": "广电运通集团股份有限公司",
+    "region": "泰国",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [
+     {
+      "aid": "1225574483",
+      "text": "合同额总计约为1.85亿元",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C021",
+    "project": "P04",
+    "company": "广电运通集团股份有限公司",
+    "region": "泰国",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [
+     {
+      "aid": "1225574483",
+      "text": "合同额总计约为1.85亿元",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C022",
+    "project": "P04",
+    "company": "广电运通集团股份有限公司",
+    "region": "泰国",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [
+     {
+      "aid": "1225574483",
+      "text": "合同额总计约为1.85亿元",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C023",
+    "project": "P04",
+    "company": "广电运通集团股份有限公司",
+    "region": "泰国",
+    "category": "合同与承诺履行",
+    "cond": "签署长期供货、PPA、定点、投资承诺",
+    "req": "跟踪履约节点、投资承诺兑现、违约与终止条款",
+    "basis": "《民法典》合同编；目标国合同法；合同文本",
+    "material": "合同文本、履约凭证、交付验收",
+    "evidence": [
+     {
+      "aid": "1225574483",
+      "text": "合同额总计约为1.85亿元",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C024",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [
+     {
+      "aid": "1225579070",
+      "text": "2,050.00万元收购",
+      "page": 2
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C025",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [
+     {
+      "aid": "1225579070",
+      "text": "2,050.00万元收购",
+      "page": 2
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C026",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [
+     {
+      "aid": "1225579070",
+      "text": "2,050.00万元收购",
+      "page": 2
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C027",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C028",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C029",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C030",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C031",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C032",
+    "project": "P05",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "region": "刚果（金）",
+    "category": "制裁与出口管制",
+    "cond": "涉美元结算、美国技术含量高的产品、敏感地区投资",
+    "req": "筛查交易对手与最终用户（OFAC/EAR/联合国及中国出口管制法），评估二级制裁风险",
+    "basis": "《出口管制法》；OFAC 制裁条例；EAR",
+    "material": "制裁筛查记录、最终用户声明、许可判断",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：筛查记录 / 许可证"
+   },
+   {
+    "id": "C033",
+    "project": "P06",
+    "company": "龙佰集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C034",
+    "project": "P06",
+    "company": "龙佰集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C035",
+    "project": "P06",
+    "company": "龙佰集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C036",
+    "project": "P06",
+    "company": "龙佰集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C037",
+    "project": "P06",
+    "company": "龙佰集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C038",
+    "project": "P06",
+    "company": "龙佰集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C039",
+    "project": "P06",
+    "company": "龙佰集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C040",
+    "project": "P06",
+    "company": "龙佰集团股份有限公司",
+    "region": "澳大利亚",
+    "category": "制裁与出口管制",
+    "cond": "涉美元结算、美国技术含量高的产品、敏感地区投资",
+    "req": "筛查交易对手与最终用户（OFAC/EAR/联合国及中国出口管制法），评估二级制裁风险",
+    "basis": "《出口管制法》；OFAC 制裁条例；EAR",
+    "material": "制裁筛查记录、最终用户声明、许可判断",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：筛查记录 / 许可证"
+   },
+   {
+    "id": "C041",
+    "project": "P07",
+    "company": "宁波三星医疗电气股份有限公司",
+    "region": "美国",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C042",
+    "project": "P07",
+    "company": "宁波三星医疗电气股份有限公司",
+    "region": "美国",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C043",
+    "project": "P07",
+    "company": "宁波三星医疗电气股份有限公司",
+    "region": "美国",
+    "category": "制裁与出口管制",
+    "cond": "涉美元结算、美国技术含量高的产品、敏感地区投资",
+    "req": "筛查交易对手与最终用户（OFAC/EAR/联合国及中国出口管制法），评估二级制裁风险",
+    "basis": "《出口管制法》；OFAC 制裁条例；EAR",
+    "material": "制裁筛查记录、最终用户声明、许可判断",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：筛查记录 / 许可证"
+   },
+   {
+    "id": "C044",
+    "project": "P07",
+    "company": "宁波三星医疗电气股份有限公司",
+    "region": "美国",
+    "category": "数据与跨境信息",
+    "cond": "业务涉及个人信息或重要数据跨境传输",
+    "req": "履行告知同意、数据出境安全评估/标准合同；遵守目标国数据法（如 GDPR）",
+    "basis": "《个人信息保护法》《数据安全法》；目标国数据保护法规",
+    "material": "告知同意文本、出境评估/备案材料",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：评估批复 / 备案回执"
+   },
+   {
+    "id": "C045",
+    "project": "P07",
+    "company": "宁波三星医疗电气股份有限公司",
+    "region": "美国",
+    "category": "合同与承诺履行",
+    "cond": "签署长期供货、PPA、定点、投资承诺",
+    "req": "跟踪履约节点、投资承诺兑现、违约与终止条款",
+    "basis": "《民法典》合同编；目标国合同法；合同文本",
+    "material": "合同文本、履约凭证、交付验收",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：合同 / 交付凭证"
+   },
+   {
+    "id": "C046",
+    "project": "P08",
+    "company": "山东玲珑轮胎股份有限公司",
+    "region": "埃及",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C047",
+    "project": "P08",
+    "company": "山东玲珑轮胎股份有限公司",
+    "region": "埃及",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C048",
+    "project": "P08",
+    "company": "山东玲珑轮胎股份有限公司",
+    "region": "埃及",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C049",
+    "project": "P08",
+    "company": "山东玲珑轮胎股份有限公司",
+    "region": "埃及",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C050",
+    "project": "P08",
+    "company": "山东玲珑轮胎股份有限公司",
+    "region": "埃及",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C051",
+    "project": "P08",
+    "company": "山东玲珑轮胎股份有限公司",
+    "region": "埃及",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C052",
+    "project": "P08",
+    "company": "山东玲珑轮胎股份有限公司",
+    "region": "埃及",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C053",
+    "project": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "region": "新加坡",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [
+     {
+      "aid": "1225581034",
+      "text": "浙江省发展和改革委员会关于境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C054",
+    "project": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "region": "新加坡",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [
+     {
+      "aid": "1225581034",
+      "text": "浙江省发展和改革委员会关于境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C055",
+    "project": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "region": "新加坡",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [
+     {
+      "aid": "1225581034",
+      "text": "浙江省发展和改革委员会关于境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C056",
+    "project": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "region": "新加坡",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [
+     {
+      "aid": "1225581034",
+      "text": "浙江省发展和改革委员会关于境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C057",
+    "project": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "region": "新加坡",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [
+     {
+      "aid": "1225581034",
+      "text": "浙江省发展和改革委员会关于境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C058",
+    "project": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "region": "新加坡",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [
+     {
+      "aid": "1225581034",
+      "text": "浙江省发展和改革委员会关于境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C059",
+    "project": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "region": "新加坡",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [
+     {
+      "aid": "1225581034",
+      "text": "浙江省发展和改革委员会关于境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C060",
+    "project": "P09",
+    "company": "浙江泰林生物技术股份有限公司",
+    "region": "新加坡",
+    "category": "知识产权",
+    "cond": "品牌、技术进入目标国市场",
+    "req": "通过马德里体系/巴黎公约/PCT 完成商标专利布局，监控侵权",
+    "basis": "《商标法》《专利法》及马德里/巴黎公约、PCT",
+    "material": "商标/专利申请材料、优先权文件",
+    "evidence": [
+     {
+      "aid": "1225581034",
+      "text": "浙江省发展和改革委员会关于境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C061",
+    "project": "P10",
+    "company": "三友联众集团股份有限公司",
+    "region": "越南",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C062",
+    "project": "P10",
+    "company": "三友联众集团股份有限公司",
+    "region": "越南",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C063",
+    "project": "P10",
+    "company": "三友联众集团股份有限公司",
+    "region": "越南",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C064",
+    "project": "P10",
+    "company": "三友联众集团股份有限公司",
+    "region": "越南",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C065",
+    "project": "P10",
+    "company": "三友联众集团股份有限公司",
+    "region": "越南",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C066",
+    "project": "P10",
+    "company": "三友联众集团股份有限公司",
+    "region": "越南",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C067",
+    "project": "P10",
+    "company": "三友联众集团股份有限公司",
+    "region": "越南",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C068",
+    "project": "P10",
+    "company": "三友联众集团股份有限公司",
+    "region": "越南",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C069",
+    "project": "P11",
+    "company": "行云科技股份有限公司",
+    "region": "新加坡",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C070",
+    "project": "P11",
+    "company": "行云科技股份有限公司",
+    "region": "新加坡",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C071",
+    "project": "P11",
+    "company": "行云科技股份有限公司",
+    "region": "新加坡",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C072",
+    "project": "P11",
+    "company": "行云科技股份有限公司",
+    "region": "新加坡",
+    "category": "数据与跨境信息",
+    "cond": "业务涉及个人信息或重要数据跨境传输",
+    "req": "履行告知同意、数据出境安全评估/标准合同；遵守目标国数据法（如 GDPR）",
+    "basis": "《个人信息保护法》《数据安全法》；目标国数据保护法规",
+    "material": "告知同意文本、出境评估/备案材料",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：评估批复 / 备案回执"
+   },
+   {
+    "id": "C073",
+    "project": "P11",
+    "company": "行云科技股份有限公司",
+    "region": "新加坡",
+    "category": "合同与承诺履行",
+    "cond": "签署长期供货、PPA、定点、投资承诺",
+    "req": "跟踪履约节点、投资承诺兑现、违约与终止条款",
+    "basis": "《民法典》合同编；目标国合同法；合同文本",
+    "material": "合同文本、履约凭证、交付验收",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：合同 / 交付凭证"
+   },
+   {
+    "id": "C074",
+    "project": "P12",
+    "company": "品茗科技股份有限公司",
+    "region": "新加坡",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C075",
+    "project": "P12",
+    "company": "品茗科技股份有限公司",
+    "region": "新加坡",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C076",
+    "project": "P12",
+    "company": "品茗科技股份有限公司",
+    "region": "新加坡",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C077",
+    "project": "P12",
+    "company": "品茗科技股份有限公司",
+    "region": "新加坡",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C078",
+    "project": "P12",
+    "company": "品茗科技股份有限公司",
+    "region": "新加坡",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C079",
+    "project": "P12",
+    "company": "品茗科技股份有限公司",
+    "region": "新加坡",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C080",
+    "project": "P12",
+    "company": "品茗科技股份有限公司",
+    "region": "新加坡",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C081",
+    "project": "P13",
+    "company": "四川汇宇制药股份有限公司",
+    "region": "法国",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [
+     {
+      "aid": "1225589861",
+      "text": "15个国家获得上市许可",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C082",
+    "project": "P13",
+    "company": "四川汇宇制药股份有限公司",
+    "region": "法国",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [
+     {
+      "aid": "1225589861",
+      "text": "15个国家获得上市许可",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C083",
+    "project": "P13",
+    "company": "四川汇宇制药股份有限公司",
+    "region": "法国",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [
+     {
+      "aid": "1225589861",
+      "text": "法国国家药品和健康产品安全管理局",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C084",
+    "project": "P13",
+    "company": "四川汇宇制药股份有限公司",
+    "region": "法国",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [
+     {
+      "aid": "1225589861",
+      "text": "15个国家获得上市许可",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C085",
+    "project": "P13",
+    "company": "四川汇宇制药股份有限公司",
+    "region": "法国",
+    "category": "知识产权",
+    "cond": "品牌、技术进入目标国市场",
+    "req": "通过马德里体系/巴黎公约/PCT 完成商标专利布局，监控侵权",
+    "basis": "《商标法》《专利法》及马德里/巴黎公约、PCT",
+    "material": "商标/专利申请材料、优先权文件",
+    "evidence": [
+     {
+      "aid": "1225589861",
+      "text": "法国国家药品和健康产品安全管理局",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C086",
+    "project": "P14",
+    "company": "赛诺医疗科学技术股份有限公司",
+    "region": "哥伦比亚",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C087",
+    "project": "P14",
+    "company": "赛诺医疗科学技术股份有限公司",
+    "region": "哥伦比亚",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C088",
+    "project": "P14",
+    "company": "赛诺医疗科学技术股份有限公司",
+    "region": "哥伦比亚",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C089",
+    "project": "P14",
+    "company": "赛诺医疗科学技术股份有限公司",
+    "region": "哥伦比亚",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C090",
+    "project": "P14",
+    "company": "赛诺医疗科学技术股份有限公司",
+    "region": "哥伦比亚",
+    "category": "知识产权",
+    "cond": "品牌、技术进入目标国市场",
+    "req": "通过马德里体系/巴黎公约/PCT 完成商标专利布局，监控侵权",
+    "basis": "《商标法》《专利法》及马德里/巴黎公约、PCT",
+    "material": "商标/专利申请材料、优先权文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 受理通知"
+   },
+   {
+    "id": "C091",
+    "project": "P15",
+    "company": "贵州航宇科技发展股份有限公司",
+    "region": "摩洛哥",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C092",
+    "project": "P15",
+    "company": "贵州航宇科技发展股份有限公司",
+    "region": "摩洛哥",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C093",
+    "project": "P15",
+    "company": "贵州航宇科技发展股份有限公司",
+    "region": "摩洛哥",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C094",
+    "project": "P15",
+    "company": "贵州航宇科技发展股份有限公司",
+    "region": "摩洛哥",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C095",
+    "project": "P15",
+    "company": "贵州航宇科技发展股份有限公司",
+    "region": "摩洛哥",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C096",
+    "project": "P15",
+    "company": "贵州航宇科技发展股份有限公司",
+    "region": "摩洛哥",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C097",
+    "project": "P15",
+    "company": "贵州航宇科技发展股份有限公司",
+    "region": "摩洛哥",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C098",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C099",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C100",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C101",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C102",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C103",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C104",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C105",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "知识产权",
+    "cond": "品牌、技术进入目标国市场",
+    "req": "通过马德里体系/巴黎公约/PCT 完成商标专利布局，监控侵权",
+    "basis": "《商标法》《专利法》及马德里/巴黎公约、PCT",
+    "material": "商标/专利申请材料、优先权文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 受理通知"
+   },
+   {
+    "id": "C106",
+    "project": "P16",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "region": "英国",
+    "category": "数据与跨境信息",
+    "cond": "业务涉及个人信息或重要数据跨境传输",
+    "req": "履行告知同意、数据出境安全评估/标准合同；遵守目标国数据法（如 GDPR）",
+    "basis": "《个人信息保护法》《数据安全法》；目标国数据保护法规",
+    "material": "告知同意文本、出境评估/备案材料",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：评估批复 / 备案回执"
+   },
+   {
+    "id": "C107",
+    "project": "P17",
+    "company": "共达电声股份有限公司",
+    "region": "泰国",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [
+     {
+      "aid": "1225597906",
+      "text": "泰国投资设立",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C108",
+    "project": "P17",
+    "company": "共达电声股份有限公司",
+    "region": "泰国",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [
+     {
+      "aid": "1225597906",
+      "text": "泰国投资设立",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C109",
+    "project": "P17",
+    "company": "共达电声股份有限公司",
+    "region": "泰国",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [
+     {
+      "aid": "1225597906",
+      "text": "泰国投资设立",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C110",
+    "project": "P17",
+    "company": "共达电声股份有限公司",
+    "region": "泰国",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C111",
+    "project": "P17",
+    "company": "共达电声股份有限公司",
+    "region": "泰国",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [
+     {
+      "aid": "1225597906",
+      "text": "泰国投资设立",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C112",
+    "project": "P17",
+    "company": "共达电声股份有限公司",
+    "region": "泰国",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：许可证 / 注册证"
+   },
+   {
+    "id": "C113",
+    "project": "P17",
+    "company": "共达电声股份有限公司",
+    "region": "泰国",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：税务登记 / 申报回执"
+   },
+   {
+    "id": "C114",
+    "project": "P17",
+    "company": "共达电声股份有限公司",
+    "region": "泰国",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：环评批复 / 用工登记"
+   },
+   {
+    "id": "C115",
+    "project": "P18",
+    "company": "昆明川金诺化工股份有限公司",
+    "region": "埃及",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C116",
+    "project": "P18",
+    "company": "昆明川金诺化工股份有限公司",
+    "region": "埃及",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C117",
+    "project": "P18",
+    "company": "昆明川金诺化工股份有限公司",
+    "region": "埃及",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C118",
+    "project": "P18",
+    "company": "昆明川金诺化工股份有限公司",
+    "region": "埃及",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C119",
+    "project": "P18",
+    "company": "昆明川金诺化工股份有限公司",
+    "region": "埃及",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C120",
+    "project": "P19",
+    "company": "泰晶科技股份有限公司",
+    "region": "越南",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：发改备案通知书 / 在线平台回执"
+   },
+   {
+    "id": "C121",
+    "project": "P19",
+    "company": "泰晶科技股份有限公司",
+    "region": "越南",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：企业境外投资证书"
+   },
+   {
+    "id": "C122",
+    "project": "P19",
+    "company": "泰晶科技股份有限公司",
+    "region": "越南",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：外汇业务登记凭证"
+   },
+   {
+    "id": "C123",
+    "project": "P19",
+    "company": "泰晶科技股份有限公司",
+    "region": "越南",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C124",
+    "project": "P19",
+    "company": "泰晶科技股份有限公司",
+    "region": "越南",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C125",
+    "project": "P19",
+    "company": "泰晶科技股份有限公司",
+    "region": "越南",
+    "category": "行业准入与许可",
+    "cond": "从事受监管行业（采矿、电力、医疗器械、药品、金融设备等）",
+    "req": "取得目标国行业许可证/注册证，注意许可有效期与续期条件",
+    "basis": "目标国行业监管法规；医疗器械/药品另涉 CE/FDA 等注册",
+    "material": "许可申请表、技术文件、质量体系证明",
+    "evidence": [
+     {
+      "aid": "1225597506",
+      "text": "土地和厂房",
+      "page": 2
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C126",
+    "project": "P19",
+    "company": "泰晶科技股份有限公司",
+    "region": "越南",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [
+     {
+      "aid": "1225597506",
+      "text": "土地和厂房",
+      "page": 2
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C127",
+    "project": "P19",
+    "company": "泰晶科技股份有限公司",
+    "region": "越南",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [
+     {
+      "aid": "1225597506",
+      "text": "土地和厂房",
+      "page": 2
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C128",
+    "project": "P20",
+    "company": "瀚蓝环境股份有限公司",
+    "region": "中国香港",
+    "category": "境外投资备案（发改）",
+    "cond": "境内企业直接或通过控制的境外企业开展敏感类/大额非敏感类境外投资",
+    "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
+    "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
+    "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [
+     {
+      "aid": "1225600386",
+      "text": "境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C129",
+    "project": "P20",
+    "company": "瀚蓝环境股份有限公司",
+    "region": "中国香港",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [
+     {
+      "aid": "1225600386",
+      "text": "境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C130",
+    "project": "P20",
+    "company": "瀚蓝环境股份有限公司",
+    "region": "中国香港",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
+    "evidence": [
+     {
+      "aid": "1225600386",
+      "text": "境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C131",
+    "project": "P20",
+    "company": "瀚蓝环境股份有限公司",
+    "region": "中国香港",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [
+     {
+      "aid": "1225600386",
+      "text": "境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C132",
+    "project": "P20",
+    "company": "瀚蓝环境股份有限公司",
+    "region": "中国香港",
+    "category": "税务合规",
+    "cond": "设立实体、取得所得或在目标国构成常设机构",
+    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
+    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
+    "material": "税务登记、转让定价文档、协定待遇备案",
+    "evidence": [
+     {
+      "aid": "1225600386",
+      "text": "境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C133",
+    "project": "P20",
+    "company": "瀚蓝环境股份有限公司",
+    "region": "中国香港",
+    "category": "劳工与环保",
+    "cond": "建厂、运营及并购后雇用当地员工",
+    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
+    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
+    "material": "用工合同、环评批复、安全许可",
+    "evidence": [
+     {
+      "aid": "1225600386",
+      "text": "境外投资项目备案通知书",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C134",
+    "project": "P21",
+    "company": "浙江天成自控股份有限公司",
+    "region": "泰国",
+    "category": "上市公司审议与披露",
+    "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
+    "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
+    "basis": "《上市公司信息披露管理办法》及交易所股票上市规则",
+    "material": "董事会/股东大会决议、临时公告、进展公告",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：公告原文与决议"
+   },
+   {
+    "id": "C135",
+    "project": "P21",
+    "company": "浙江天成自控股份有限公司",
+    "region": "泰国",
+    "category": "目标国公司注册",
+    "cond": "在目标国新设子公司、孙公司或收购后重组主体",
+    "req": "按目标国公司法完成注册、章程备案、股东/董事登记，取得注册证书",
+    "basis": "目标国公司法及投资促进法规（以属地要求为准）",
+    "material": "章程、注册证书、股东名册、董事委任",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：注册证书 / 登记回执"
+   },
+   {
+    "id": "C136",
+    "project": "P21",
+    "company": "浙江天成自控股份有限公司",
+    "region": "泰国",
+    "category": "合同与承诺履行",
+    "cond": "签署长期供货、PPA、定点、投资承诺",
+    "req": "跟踪履约节点、投资承诺兑现、违约与终止条款",
+    "basis": "《民法典》合同编；目标国合同法；合同文本",
+    "material": "合同文本、履约凭证、交付验收",
+    "evidence": [],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "待跟踪",
+    "gap": "待补充证据：合同 / 交付凭证"
+   }
+  ],
+  "graph": {
+   "nodes": [
+    {
+     "id": "company:长江精工钢结构（集团）股份有限公司",
+     "kind": "company",
+     "name": "长江精工钢结构（集团）",
+     "code": "600496.SH",
+     "industry": "建筑工程"
+    },
+    {
+     "id": "company:晶科电力科技股份有限公司",
+     "kind": "company",
+     "name": "晶科电力科技",
+     "code": "601778.SH",
+     "industry": "新能源"
+    },
+    {
+     "id": "company:兖矿能源集团股份有限公司",
+     "kind": "company",
+     "name": "兖矿能源集团",
+     "code": "600188.SH",
+     "industry": "能源矿业"
+    },
+    {
+     "id": "company:广电运通集团股份有限公司",
+     "kind": "company",
+     "name": "广电运通集团",
+     "code": "002152.SZ",
+     "industry": "电子信息"
+    },
+    {
+     "id": "company:深圳市鸿富瀚科技股份有限公司",
+     "kind": "company",
+     "name": "深圳市鸿富瀚科技",
+     "code": "301086.SZ",
+     "industry": "电子制造"
+    },
+    {
+     "id": "company:龙佰集团股份有限公司",
+     "kind": "company",
+     "name": "龙佰集团",
+     "code": "002601.SZ",
+     "industry": "新材料"
+    },
+    {
+     "id": "company:宁波三星医疗电气股份有限公司",
+     "kind": "company",
+     "name": "宁波三星医疗电气",
+     "code": "601567.SH",
+     "industry": "电气设备"
+    },
+    {
+     "id": "company:山东玲珑轮胎股份有限公司",
+     "kind": "company",
+     "name": "山东玲珑轮胎",
+     "code": "601966.SH",
+     "industry": "汽车零部件"
+    },
+    {
+     "id": "company:浙江泰林生物技术股份有限公司",
+     "kind": "company",
+     "name": "浙江泰林生物技术",
+     "code": "300813.SZ",
+     "industry": "医药健康"
+    },
+    {
+     "id": "company:三友联众集团股份有限公司",
+     "kind": "company",
+     "name": "三友联众集团",
+     "code": "300932.SZ",
+     "industry": "电气设备"
+    },
+    {
+     "id": "company:行云科技股份有限公司",
+     "kind": "company",
+     "name": "行云科技",
+     "code": "300209.SZ",
+     "industry": "信息技术"
+    },
+    {
+     "id": "company:品茗科技股份有限公司",
+     "kind": "company",
+     "name": "品茗科技",
+     "code": "688109.SH",
+     "industry": "软件服务"
+    },
+    {
+     "id": "company:四川汇宇制药股份有限公司",
+     "kind": "company",
+     "name": "四川汇宇制药",
+     "code": "688553.SH",
+     "industry": "医药健康"
+    },
+    {
+     "id": "company:赛诺医疗科学技术股份有限公司",
+     "kind": "company",
+     "name": "赛诺医疗科学技术",
+     "code": "688108.SH",
+     "industry": "医疗器械"
+    },
+    {
+     "id": "company:贵州航宇科技发展股份有限公司",
+     "kind": "company",
+     "name": "贵州航宇科技发展",
+     "code": "688239.SH",
+     "industry": "航空航天"
+    },
+    {
+     "id": "company:苏州太湖雪丝绸股份有限公司",
+     "kind": "company",
+     "name": "苏州太湖雪丝绸",
+     "code": "920262.BJ",
+     "industry": "纺织消费"
+    },
+    {
+     "id": "company:共达电声股份有限公司",
+     "kind": "company",
+     "name": "共达电声",
+     "code": "002655.SZ",
+     "industry": "电子制造"
+    },
+    {
+     "id": "company:昆明川金诺化工股份有限公司",
+     "kind": "company",
+     "name": "昆明川金诺化工",
+     "code": "300505.SZ",
+     "industry": "化工"
+    },
+    {
+     "id": "company:泰晶科技股份有限公司",
+     "kind": "company",
+     "name": "泰晶科技",
+     "code": "603738.SH",
+     "industry": "电子制造"
+    },
+    {
+     "id": "company:瀚蓝环境股份有限公司",
+     "kind": "company",
+     "name": "瀚蓝环境",
+     "code": "600323.SH",
+     "industry": "环保公用"
+    },
+    {
+     "id": "company:浙江天成自控股份有限公司",
+     "kind": "company",
+     "name": "浙江天成自控",
+     "code": "603085.SH",
+     "industry": "汽车零部件"
+    },
+    {
+     "id": "project:P01",
+     "kind": "project",
+     "name": "尼日利亚/埃塞钢结构工程分包",
+     "stage": "签约",
+     "region": "尼日利亚"
+    },
+    {
+     "id": "region:埃塞俄比亚",
+     "kind": "region",
+     "name": "埃塞俄比亚"
+    },
+    {
+     "id": "region:尼日利亚",
+     "kind": "region",
+     "name": "尼日利亚"
+    },
+    {
+     "id": "project:P02",
+     "kind": "project",
+     "name": "阿布扎比 Al Dhafrah 2,100MW 光储电站",
+     "stage": "运营",
+     "region": "阿联酋"
+    },
+    {
+     "id": "region:阿联酋",
+     "kind": "region",
+     "name": "阿联酋"
+    },
+    {
+     "id": "project:P03",
+     "kind": "project",
+     "name": "兖煤澳大利亚运营（权益产销量）",
+     "stage": "运营",
+     "region": "澳大利亚"
+    },
+    {
+     "id": "region:澳大利亚",
+     "kind": "region",
+     "name": "澳大利亚"
+    },
+    {
+     "id": "project:P04",
+     "kind": "project",
+     "name": "泰国金融智能终端供货",
+     "stage": "签约",
+     "region": "泰国"
+    },
+    {
+     "id": "region:泰国",
+     "kind": "region",
+     "name": "泰国"
+    },
+    {
+     "id": "project:P05",
+     "kind": "project",
+     "name": "刚果（金）科米卡矿区电站并购+增资",
+     "stage": "意向",
+     "region": "刚果（金）"
+    },
+    {
+     "id": "region:中国香港",
+     "kind": "region",
+     "name": "中国香港"
+    },
+    {
+     "id": "region:刚果（金）",
+     "kind": "region",
+     "name": "刚果（金）"
+    },
+    {
+     "id": "region:法国",
+     "kind": "region",
+     "name": "法国"
+    },
+    {
+     "id": "project:P06",
+     "kind": "project",
+     "name": "西澳 Durack/Yandanooka 钛锆矿砂",
+     "stage": "意向",
+     "region": "澳大利亚"
+    },
+    {
+     "id": "project:P07",
+     "kind": "project",
+     "name": "美国数据中心油浸式变压器供货",
+     "stage": "签约",
+     "region": "美国"
+    },
+    {
+     "id": "region:美国",
+     "kind": "region",
+     "name": "美国"
+    },
+    {
+     "id": "project:P08",
+     "kind": "project",
+     "name": "埃及亚历山大 PCR 轮胎厂（600万套/年）",
+     "stage": "意向",
+     "region": "埃及"
+    },
+    {
+     "id": "region:埃及",
+     "kind": "region",
+     "name": "埃及"
+    },
+    {
+     "id": "project:P09",
+     "kind": "project",
+     "name": "新加坡国际贸易平台",
+     "stage": "登记",
+     "region": "新加坡"
+    },
+    {
+     "id": "region:新加坡",
+     "kind": "region",
+     "name": "新加坡"
+    },
+    {
+     "id": "project:P10",
+     "kind": "project",
+     "name": "越南顺化继电器基地增资扩产",
+     "stage": "运营",
+     "region": "越南"
+    },
+    {
+     "id": "region:越南",
+     "kind": "region",
+     "name": "越南"
+    },
+    {
+     "id": "project:P11",
+     "kind": "project",
+     "name": "新加坡算力服务器销售",
+     "stage": "意向",
+     "region": "新加坡"
+    },
+    {
+     "id": "project:P12",
+     "kind": "project",
+     "name": "收购新加坡 ZLX ENGINEERING",
+     "stage": "交割",
+     "region": "新加坡"
+    },
+    {
+     "id": "project:P13",
+     "kind": "project",
+     "name": "药品国际注册（法国等15国）",
+     "stage": "登记",
+     "region": "法国"
+    },
+    {
+     "id": "region:塞尔维亚",
+     "kind": "region",
+     "name": "塞尔维亚"
+    },
+    {
+     "id": "project:P14",
+     "kind": "project",
+     "name": "冠脉介入器械国际注册",
+     "stage": "登记",
+     "region": "哥伦比亚"
+    },
+    {
+     "id": "region:印度",
+     "kind": "region",
+     "name": "印度"
+    },
+    {
+     "id": "region:哥伦比亚",
+     "kind": "region",
+     "name": "哥伦比亚"
+    },
+    {
+     "id": "region:墨西哥",
+     "kind": "region",
+     "name": "墨西哥"
+    },
+    {
+     "id": "region:巴西",
+     "kind": "region",
+     "name": "巴西"
+    },
+    {
+     "id": "region:韩国",
+     "kind": "region",
+     "name": "韩国"
+    },
+    {
+     "id": "project:P15",
+     "kind": "project",
+     "name": "摩洛哥锻造生产基地（自斯洛伐克迁址）",
+     "stage": "意向",
+     "region": "摩洛哥"
+    },
+    {
+     "id": "region:摩洛哥",
+     "kind": "region",
+     "name": "摩洛哥"
+    },
+    {
+     "id": "project:P16",
+     "kind": "project",
+     "name": "伦敦跨境电商/零售实体",
+     "stage": "登记",
+     "region": "英国"
+    },
+    {
+     "id": "region:英国",
+     "kind": "region",
+     "name": "英国"
+    },
+    {
+     "id": "project:P17",
+     "kind": "project",
+     "name": "泰国电声元器件研发制造基地",
+     "stage": "意向",
+     "region": "泰国"
+    },
+    {
+     "id": "project:P18",
+     "kind": "project",
+     "name": "埃及苏伊士磷化工项目（优先股募资）",
+     "stage": "签约",
+     "region": "埃及"
+    },
+    {
+     "id": "project:P19",
+     "kind": "project",
+     "name": "越南晶振/频率元件生产基地",
+     "stage": "意向",
+     "region": "越南"
+    },
+    {
+     "id": "project:P20",
+     "kind": "project",
+     "name": "分步并购粤丰环保（100%控股）",
+     "stage": "审批",
+     "region": "中国香港"
+    },
+    {
+     "id": "project:P21",
+     "kind": "project",
+     "name": "泰国乘用车座椅总成定点",
+     "stage": "意向",
+     "region": "泰国"
+    },
+    {
+     "id": "partner:无关联关系",
+     "kind": "partner",
+     "name": "无关联关系"
+    },
+    {
+     "id": "partner:业主方：DANGOTE PROJECTS FZE（丹格特工业集团旗下",
+     "kind": "partner",
+     "name": "业主方：DANGOTE PROJEC"
+    },
+    {
+     "id": "partner:非洲最大综合性工业集团",
+     "kind": "partner",
+     "name": "非洲最大综合性工业集团"
+    },
+    {
+     "id": "partner:分包主体：长江精工（上海）建筑科技有限公司",
+     "kind": "partner",
+     "name": "分包主体：长江精工（上海）建筑科技有"
+    },
+    {
+     "id": "partner:不构成关联交易",
+     "kind": "partner",
+     "name": "不构成关联交易"
+    },
+    {
+     "id": "partner:Ltd 50%",
+     "kind": "partner",
+     "name": "Ltd 50%"
+    },
+    {
+     "id": "partner:合资公司持有Al Dhafrah 2",
+     "kind": "partner",
+     "name": "合资公司持有Al Dhafrah 2"
+    },
+    {
+     "id": "partner:100MW光伏电站项目公司40%股权",
+     "kind": "partner",
+     "name": "100MW光伏电站项目公司40%股权"
+    },
+    {
+     "id": "partner:兖煤澳大利亚有限公司（ASX:YAL / HKEX:03668",
+     "kind": "partner",
+     "name": "兖煤澳大利亚有限公司（ASX:YAL"
+    },
+    {
+     "id": "partner:公司控股子公司",
+     "kind": "partner",
+     "name": "公司控股子公司"
+    },
+    {
+     "id": "partner:终端客户为泰国政府储蓄银行GSB",
+     "kind": "partner",
+     "name": "终端客户为泰国政府储蓄银行GSB"
+    },
+    {
+     "id": "partner:卖方：格派控股（香港",
+     "kind": "partner",
+     "name": "卖方：格派控股（香港"
+    },
+    {
+     "id": "partner:自然人黄鸿旋（涉及刚果（金）公民代持安排",
+     "kind": "partner",
+     "name": "自然人黄鸿旋（涉及刚果（金）公民代持"
+    },
+    {
+     "id": "partner:完成后公司持COP公司73.99%并并表",
+     "kind": "partner",
+     "name": "完成后公司持COP公司73.99%并"
+    },
+    {
+     "id": "partner:Image Resources NL（ASX:IMA",
+     "kind": "partner",
+     "name": "Image Resources NL"
+    },
+    {
+     "id": "partner:公司经子公司合计持股约17.76%",
+     "kind": "partner",
+     "name": "公司经子公司合计持股约17.76%"
+    },
+    {
+     "id": "partner:董事长许冉任其董事→构成关联交易",
+     "kind": "partner",
+     "name": "董事长许冉任其董事→构成关联交易"
+    },
+    {
+     "id": "partner:标的为其全资子公司Titon Resources持有的两个矿砂项目",
+     "kind": "partner",
+     "name": "标的为其全资子公司Titon Res"
+    },
+    {
+     "id": "partner:美国数据中心项目客户（未具名",
+     "kind": "partner",
+     "name": "美国数据中心项目客户（未具名"
+    },
+    {
+     "id": "partner:无（独资建设埃及项目公司",
+     "kind": "partner",
+     "name": "无（独资建设埃及项目公司"
+    },
+    {
+     "id": "partner:无（全资子公司泰林科学技术100%持有",
+     "kind": "partner",
+     "name": "无（全资子公司泰林科学技术100%持"
+    },
+    {
+     "id": "partner:无（全资子公司越南三友持股100%",
+     "kind": "partner",
+     "name": "无（全资子公司越南三友持股100%"
+    },
+    {
+     "id": "partner:“VG客户”（以商业秘密豁免披露",
+     "kind": "partner",
+     "name": "“VG客户”（以商业秘密豁免披露"
+    },
+    {
+     "id": "partner:近三年无类似交易",
+     "kind": "partner",
+     "name": "近三年无类似交易"
+    },
+    {
+     "id": "partner:卖方为ZLX原股东（新加坡注册私人有限公司创始人",
+     "kind": "partner",
+     "name": "卖方为ZLX原股东（新加坡注册私人有"
+    },
+    {
+     "id": "partner:法国ANSM（监管方",
+     "kind": "partner",
+     "name": "法国ANSM（监管方"
+    },
+    {
+     "id": "partner:子公司Seacross (Europe) Pharma Ltd.为持证主体",
+     "kind": "partner",
+     "name": "子公司Seacross (Europ"
+    },
+    {
+     "id": "partner:哥伦比亚INVIMA（监管机构",
+     "kind": "partner",
+     "name": "哥伦比亚INVIMA（监管机构"
+    },
+    {
+     "id": "partner:无（独资建设",
+     "kind": "partner",
+     "name": "无（独资建设"
+    },
+    {
+     "id": "partner:无（通过全资子公司苏州太湖雪茧丝绸科技持有",
+     "kind": "partner",
+     "name": "无（通过全资子公司苏州太湖雪茧丝绸科"
+    },
+    {
+     "id": "partner:中非发展基金有限公司（2007年国务院批准设立",
+     "kind": "partner",
+     "name": "中非发展基金有限公司（2007年国务"
+    },
+    {
+     "id": "partner:中国第一只专注对非投资的国家级基金",
+     "kind": "partner",
+     "name": "中国第一只专注对非投资的国家级基金"
+    },
+    {
+     "id": "partner:无（独资",
+     "kind": "partner",
+     "name": "无（独资"
+    },
+    {
+     "id": "partner:卖方：臻达发展有限公司（7.22%股份",
+     "kind": "partner",
+     "name": "卖方：臻达发展有限公司（7.22%股"
+    },
+    {
+     "id": "partner:广东南海上市公司高质量发展股权投资基金（100%财产份额",
+     "kind": "partner",
+     "name": "广东南海上市公司高质量发展股权投资基"
+    },
+    {
+     "id": "partner:某知名合资汽车企业（保密协议无法披露名称",
+     "kind": "partner",
+     "name": "某知名合资汽车企业（保密协议无法披露"
+    },
+    {
+     "id": "compliance:C001",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C002",
+     "kind": "compliance",
+     "name": "合同与承诺履行",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C003",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C004",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C005",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C006",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C007",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C008",
+     "kind": "compliance",
+     "name": "制裁与出口管制",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C009",
+     "kind": "compliance",
+     "name": "合同与承诺履行",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C010",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C011",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C012",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C013",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C014",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C015",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C016",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C017",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C018",
+     "kind": "compliance",
+     "name": "制裁与出口管制",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C019",
+     "kind": "compliance",
+     "name": "数据与跨境信息",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C020",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C021",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C022",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C023",
+     "kind": "compliance",
+     "name": "合同与承诺履行",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C024",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C025",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C026",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C027",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C028",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C029",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C030",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C031",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C032",
+     "kind": "compliance",
+     "name": "制裁与出口管制",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C033",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C034",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C035",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C036",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C037",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C038",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C039",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C040",
+     "kind": "compliance",
+     "name": "制裁与出口管制",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C041",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C042",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C043",
+     "kind": "compliance",
+     "name": "制裁与出口管制",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C044",
+     "kind": "compliance",
+     "name": "数据与跨境信息",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C045",
+     "kind": "compliance",
+     "name": "合同与承诺履行",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C046",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C047",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C048",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C049",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C050",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C051",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C052",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C053",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C054",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C055",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C056",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C057",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C058",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C059",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C060",
+     "kind": "compliance",
+     "name": "知识产权",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C061",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C062",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C063",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C064",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C065",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C066",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C067",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C068",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C069",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C070",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C071",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C072",
+     "kind": "compliance",
+     "name": "数据与跨境信息",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C073",
+     "kind": "compliance",
+     "name": "合同与承诺履行",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C074",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C075",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C076",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C077",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C078",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C079",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C080",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C081",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C082",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C083",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C084",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C085",
+     "kind": "compliance",
+     "name": "知识产权",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C086",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C087",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C088",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C089",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C090",
+     "kind": "compliance",
+     "name": "知识产权",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C091",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C092",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C093",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C094",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C095",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C096",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C097",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C098",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C099",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C100",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C101",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C102",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C103",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C104",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C105",
+     "kind": "compliance",
+     "name": "知识产权",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C106",
+     "kind": "compliance",
+     "name": "数据与跨境信息",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C107",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C108",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C109",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C110",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C111",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C112",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C113",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C114",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C115",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C116",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C117",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C118",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C119",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C120",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C121",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C122",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C123",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C124",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C125",
+     "kind": "compliance",
+     "name": "行业准入与许可",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C126",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C127",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C128",
+     "kind": "compliance",
+     "name": "境外投资备案（发改）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C129",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C130",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C131",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C132",
+     "kind": "compliance",
+     "name": "税务合规",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C133",
+     "kind": "compliance",
+     "name": "劳工与环保",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C134",
+     "kind": "compliance",
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C135",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C136",
+     "kind": "compliance",
+     "name": "合同与承诺履行",
+     "status": "待跟踪"
+    },
+    {
+     "id": "file:1225610572",
+     "kind": "file",
+     "name": "披露 2026-10-20",
+     "aid": "1225610572",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-20/1225610572.PDF"
+    },
+    {
+     "id": "file:1225612752",
+     "kind": "file",
+     "name": "披露 2026-10-21",
+     "aid": "1225612752",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225612752.PDF"
+    },
+    {
+     "id": "file:1225612269",
+     "kind": "file",
+     "name": "披露 2026-10-21",
+     "aid": "1225612269",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225612269.PDF"
+    },
+    {
+     "id": "file:1225574483",
+     "kind": "file",
+     "name": "披露 2026-09-22",
+     "aid": "1225574483",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-22/1225574483.PDF"
+    },
+    {
+     "id": "file:1225579070",
+     "kind": "file",
+     "name": "披露 2026-09-23",
+     "aid": "1225579070",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-23/1225579070.PDF"
+    },
+    {
+     "id": "file:1225578713",
+     "kind": "file",
+     "name": "披露 2026-09-24",
+     "aid": "1225578713",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225578713.PDF"
+    },
+    {
+     "id": "file:1225578867",
+     "kind": "file",
+     "name": "披露 2026-09-24",
+     "aid": "1225578867",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225578867.PDF"
+    },
+    {
+     "id": "file:1225578878",
+     "kind": "file",
+     "name": "披露 2026-09-24",
+     "aid": "1225578878",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225578878.PDF"
+    },
+    {
+     "id": "file:1225581034",
+     "kind": "file",
+     "name": "披露 2026-09-24",
+     "aid": "1225581034",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225581034.PDF"
+    },
+    {
+     "id": "file:1225588646",
+     "kind": "file",
+     "name": "披露 2026-09-30",
+     "aid": "1225588646",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-30/1225588646.PDF"
+    },
+    {
+     "id": "file:1225588474",
+     "kind": "file",
+     "name": "披露 2026-09-30",
+     "aid": "1225588474",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-30/1225588474.PDF"
+    },
+    {
+     "id": "file:1225586878",
+     "kind": "file",
+     "name": "披露 2026-09-30",
+     "aid": "1225586878",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-09-30/1225586878.PDF"
+    },
+    {
+     "id": "file:1225589861",
+     "kind": "file",
+     "name": "披露 2026-10-01",
+     "aid": "1225589861",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-01/1225589861.PDF"
+    },
+    {
+     "id": "file:1225600078",
+     "kind": "file",
+     "name": "披露 2026-10-10",
+     "aid": "1225600078",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-10/1225600078.PDF"
+    },
+    {
+     "id": "file:1225597383",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225597383",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225597383.PDF"
+    },
+    {
+     "id": "file:1225599223",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225599223",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225599223.PDF"
+    },
+    {
+     "id": "file:1225597906",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225597906",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225597906.PDF"
+    },
+    {
+     "id": "file:1225597459",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225597459",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225597459.PDF"
+    },
+    {
+     "id": "file:1225597506",
+     "kind": "file",
+     "name": "披露 2026-10-09",
+     "aid": "1225597506",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225597506.PDF"
+    },
+    {
+     "id": "file:1225600386",
+     "kind": "file",
+     "name": "披露 2026-10-12",
+     "aid": "1225600386",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-12/1225600386.PDF"
+    },
+    {
+     "id": "file:1225608735",
+     "kind": "file",
+     "name": "披露 2026-10-17",
+     "aid": "1225608735",
+     "url": "http://static.cninfo.com.cn/finalpage/2026-10-17/1225608735.PDF"
+    }
+   ],
+   "edges": [
+    {
+     "s": "company:长江精工钢结构（集团）股份有限公司",
+     "t": "project:P01",
+     "type": "投资/运营",
+     "date": "2026-10-20"
+    },
+    {
+     "s": "project:P01",
+     "t": "region:埃塞俄比亚",
+     "type": "位于",
+     "date": "2026-10-20"
+    },
+    {
+     "s": "project:P01",
+     "t": "region:尼日利亚",
+     "type": "位于",
+     "date": "2026-10-20"
+    },
+    {
+     "s": "company:晶科电力科技股份有限公司",
+     "t": "project:P02",
+     "type": "投资/运营",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P02",
+     "t": "region:阿联酋",
+     "type": "位于",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:兖矿能源集团股份有限公司",
+     "t": "project:P03",
+     "type": "投资/运营",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P03",
+     "t": "region:澳大利亚",
+     "type": "位于",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:广电运通集团股份有限公司",
+     "t": "project:P04",
+     "type": "投资/运营",
+     "date": "2026-09-22"
+    },
+    {
+     "s": "project:P04",
+     "t": "region:泰国",
+     "type": "位于",
+     "date": "2026-09-22"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "投资/运营",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P05",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P05",
+     "t": "region:刚果（金）",
+     "type": "位于",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P05",
+     "t": "region:法国",
+     "type": "位于",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:龙佰集团股份有限公司",
+     "t": "project:P06",
+     "type": "投资/运营",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P06",
+     "t": "region:澳大利亚",
+     "type": "位于",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "company:宁波三星医疗电气股份有限公司",
+     "t": "project:P07",
+     "type": "投资/运营",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P07",
+     "t": "region:美国",
+     "type": "位于",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "company:山东玲珑轮胎股份有限公司",
+     "t": "project:P08",
+     "type": "投资/运营",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P08",
+     "t": "region:埃及",
+     "type": "位于",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "company:浙江泰林生物技术股份有限公司",
+     "t": "project:P09",
+     "type": "投资/运营",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P09",
+     "t": "region:新加坡",
+     "type": "位于",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "company:三友联众集团股份有限公司",
+     "t": "project:P10",
+     "type": "投资/运营",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P10",
+     "t": "region:越南",
+     "type": "位于",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:行云科技股份有限公司",
+     "t": "project:P11",
+     "type": "投资/运营",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P11",
+     "t": "region:新加坡",
+     "type": "位于",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:品茗科技股份有限公司",
+     "t": "project:P12",
+     "type": "投资/运营",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P12",
+     "t": "region:新加坡",
+     "type": "位于",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:四川汇宇制药股份有限公司",
+     "t": "project:P13",
+     "type": "投资/运营",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "project:P13",
+     "t": "region:塞尔维亚",
+     "type": "位于",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "project:P13",
+     "t": "region:法国",
+     "type": "位于",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "company:赛诺医疗科学技术股份有限公司",
+     "t": "project:P14",
+     "type": "投资/运营",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:印度",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:哥伦比亚",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:墨西哥",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:巴西",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:泰国",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P14",
+     "t": "region:韩国",
+     "type": "位于",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "company:贵州航宇科技发展股份有限公司",
+     "t": "project:P15",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P15",
+     "t": "region:摩洛哥",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:苏州太湖雪丝绸股份有限公司",
+     "t": "project:P16",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P16",
+     "t": "region:英国",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:共达电声股份有限公司",
+     "t": "project:P17",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P17",
+     "t": "region:泰国",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:昆明川金诺化工股份有限公司",
+     "t": "project:P18",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P18",
+     "t": "region:埃及",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:泰晶科技股份有限公司",
+     "t": "project:P19",
+     "type": "投资/运营",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P19",
+     "t": "region:越南",
+     "type": "位于",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:瀚蓝环境股份有限公司",
+     "t": "project:P20",
+     "type": "投资/运营",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "project:P20",
+     "t": "region:中国香港",
+     "type": "位于",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "company:浙江天成自控股份有限公司",
+     "t": "project:P21",
+     "type": "投资/运营",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "project:P21",
+     "t": "region:泰国",
+     "type": "位于",
+     "date": "2026-10-17"
+    },
+    {
+     "s": "partner:无关联关系",
+     "t": "project:P07",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无关联关系",
+     "t": "project:P11",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:业主方：DANGOTE PROJECTS FZE（丹格特工业集团旗下",
+     "t": "project:P01",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:非洲最大综合性工业集团",
+     "t": "project:P01",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:分包主体：长江精工（上海）建筑科技有限公司",
+     "t": "project:P01",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:不构成关联交易",
+     "t": "project:P01",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:Ltd 50%",
+     "t": "project:P02",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:合资公司持有Al Dhafrah 2",
+     "t": "project:P02",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:100MW光伏电站项目公司40%股权",
+     "t": "project:P02",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:兖煤澳大利亚有限公司（ASX:YAL / HKEX:03668",
+     "t": "project:P03",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:公司控股子公司",
+     "t": "project:P03",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:终端客户为泰国政府储蓄银行GSB",
+     "t": "project:P04",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:卖方：格派控股（香港",
+     "t": "project:P05",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:自然人黄鸿旋（涉及刚果（金）公民代持安排",
+     "t": "project:P05",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:完成后公司持COP公司73.99%并并表",
+     "t": "project:P05",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:Image Resources NL（ASX:IMA",
+     "t": "project:P06",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:公司经子公司合计持股约17.76%",
+     "t": "project:P06",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:董事长许冉任其董事→构成关联交易",
+     "t": "project:P06",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:标的为其全资子公司Titon Resources持有的两个矿砂项目",
+     "t": "project:P06",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:美国数据中心项目客户（未具名",
+     "t": "project:P07",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（独资建设埃及项目公司",
+     "t": "project:P08",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（全资子公司泰林科学技术100%持有",
+     "t": "project:P09",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（全资子公司越南三友持股100%",
+     "t": "project:P10",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:“VG客户”（以商业秘密豁免披露",
+     "t": "project:P11",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:近三年无类似交易",
+     "t": "project:P11",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:卖方为ZLX原股东（新加坡注册私人有限公司创始人",
+     "t": "project:P12",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:法国ANSM（监管方",
+     "t": "project:P13",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:子公司Seacross (Europe) Pharma Ltd.为持证主体",
+     "t": "project:P13",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:哥伦比亚INVIMA（监管机构",
+     "t": "project:P14",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（独资建设",
+     "t": "project:P15",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（通过全资子公司苏州太湖雪茧丝绸科技持有",
+     "t": "project:P16",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:中非发展基金有限公司（2007年国务院批准设立",
+     "t": "project:P18",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:中国第一只专注对非投资的国家级基金",
+     "t": "project:P18",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:无（独资",
+     "t": "project:P19",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:卖方：臻达发展有限公司（7.22%股份",
+     "t": "project:P20",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:广东南海上市公司高质量发展股权投资基金（100%财产份额",
+     "t": "project:P20",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:某知名合资汽车企业（保密协议无法披露名称",
+     "t": "project:P21",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "company:晶科电力科技股份有限公司",
+     "t": "project:P02",
+     "type": "借款",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:晶科电力科技股份有限公司",
+     "t": "project:P02",
+     "type": "借款",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:深圳市鸿富瀚科技股份有限公司",
+     "t": "project:P05",
+     "type": "增资",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "company:三友联众集团股份有限公司",
+     "t": "project:P10",
+     "type": "增资",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:三友联众集团股份有限公司",
+     "t": "project:P10",
+     "type": "增资",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "company:昆明川金诺化工股份有限公司",
+     "t": "project:P18",
+     "type": "股权",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "company:昆明川金诺化工股份有限公司",
+     "t": "project:P18",
+     "type": "股权",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "compliance:C001",
+     "t": "project:P01",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C002",
+     "t": "project:P01",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C003",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C004",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C005",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C006",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C007",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C008",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C009",
+     "t": "project:P02",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C010",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C011",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C012",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C013",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C014",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C015",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C016",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C017",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C018",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C019",
+     "t": "project:P03",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C020",
+     "t": "project:P04",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C021",
+     "t": "project:P04",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C022",
+     "t": "project:P04",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C023",
+     "t": "project:P04",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C024",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C025",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C026",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C027",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C028",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C029",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C030",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C031",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C032",
+     "t": "project:P05",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C033",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C034",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C035",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C036",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C037",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C038",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C039",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C040",
+     "t": "project:P06",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C041",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C042",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C043",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C044",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C045",
+     "t": "project:P07",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C046",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C047",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C048",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C049",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C050",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C051",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C052",
+     "t": "project:P08",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C053",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C054",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C055",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C056",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C057",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C058",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C059",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C060",
+     "t": "project:P09",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C061",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C062",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C063",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C064",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C065",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C066",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C067",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C068",
+     "t": "project:P10",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C069",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C070",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C071",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C072",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C073",
+     "t": "project:P11",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C074",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C075",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C076",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C077",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C078",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C079",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C080",
+     "t": "project:P12",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C081",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C082",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C083",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C084",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C085",
+     "t": "project:P13",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C086",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C087",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C088",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C089",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C090",
+     "t": "project:P14",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C091",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C092",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C093",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C094",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C095",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C096",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C097",
+     "t": "project:P15",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C098",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C099",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C100",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C101",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C102",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C103",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C104",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C105",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C106",
+     "t": "project:P16",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C107",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C108",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C109",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C110",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C111",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C112",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C113",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C114",
+     "t": "project:P17",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C115",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C116",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C117",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C118",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C119",
+     "t": "project:P18",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C120",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C121",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C122",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C123",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C124",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C125",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C126",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C127",
+     "t": "project:P19",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C128",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C129",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C130",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C131",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C132",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C133",
+     "t": "project:P20",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C134",
+     "t": "project:P21",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C135",
+     "t": "project:P21",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C136",
+     "t": "project:P21",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "project:P01",
+     "t": "file:1225610572",
+     "type": "披露",
+     "date": "2026-10-20"
+    },
+    {
+     "s": "project:P02",
+     "t": "file:1225612752",
+     "type": "披露",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P03",
+     "t": "file:1225612269",
+     "type": "披露",
+     "date": "2026-10-21"
+    },
+    {
+     "s": "project:P04",
+     "t": "file:1225574483",
+     "type": "披露",
+     "date": "2026-09-22"
+    },
+    {
+     "s": "project:P05",
+     "t": "file:1225579070",
+     "type": "披露",
+     "date": "2026-09-23"
+    },
+    {
+     "s": "project:P06",
+     "t": "file:1225578713",
+     "type": "披露",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P07",
+     "t": "file:1225578867",
+     "type": "披露",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P08",
+     "t": "file:1225578878",
+     "type": "披露",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P09",
+     "t": "file:1225581034",
+     "type": "披露",
+     "date": "2026-09-24"
+    },
+    {
+     "s": "project:P10",
+     "t": "file:1225588646",
+     "type": "披露",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P11",
+     "t": "file:1225588474",
+     "type": "披露",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P12",
+     "t": "file:1225586878",
+     "type": "披露",
+     "date": "2026-09-30"
+    },
+    {
+     "s": "project:P13",
+     "t": "file:1225589861",
+     "type": "披露",
+     "date": "2026-10-01"
+    },
+    {
+     "s": "project:P14",
+     "t": "file:1225600078",
+     "type": "披露",
+     "date": "2026-10-10"
+    },
+    {
+     "s": "project:P15",
+     "t": "file:1225597383",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P16",
+     "t": "file:1225599223",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P17",
+     "t": "file:1225597906",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P18",
+     "t": "file:1225597459",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P19",
+     "t": "file:1225597506",
+     "type": "披露",
+     "date": "2026-10-09"
+    },
+    {
+     "s": "project:P20",
+     "t": "file:1225600386",
+     "type": "披露",
+     "date": "2026-10-12"
+    },
+    {
+     "s": "project:P21",
+     "t": "file:1225608735",
+     "type": "披露",
+     "date": "2026-10-17"
+    }
+   ]
+  },
+  "changes": [],
+  "judgments": [],
+  "calendar": [
+   {
+    "date": "2026-10-20",
+    "type": "披露",
+    "title": "精工钢构关于签约海外重大项目的公告",
+    "company": "长江精工钢结构（集团）股份有限公司",
+    "project": "P01",
+    "aid": "1225610572"
+   },
+   {
+    "date": "2026-10-21",
+    "type": "披露",
+    "title": "关于为境外合资公司提供财务资助的公告",
+    "company": "晶科电力科技股份有限公司",
+    "project": "P02",
+    "aid": "1225612752"
+   },
+   {
+    "date": "2026-10-21",
+    "type": "披露",
+    "title": "兖矿能源集团股份有限公司境外控股子公司发布2026年第三季度产量销量",
+    "company": "兖矿能源集团股份有限公司",
+    "project": "P03",
+    "aid": "1225612269"
+   },
+   {
+    "date": "2026-09-22",
+    "type": "披露",
+    "title": "广电运通关于全资子公司签订海外重要合同的公告",
+    "company": "广电运通集团股份有限公司",
+    "project": "P04",
+    "aid": "1225574483"
+   },
+   {
+    "date": "2026-09-23",
+    "type": "披露",
+    "title": "关于全资子公司拟收购境外公司股权及对外增资的公告",
+    "company": "深圳市鸿富瀚科技股份有限公司",
+    "project": "P05",
+    "aid": "1225579070"
+   },
+   {
+    "date": "2026-09-24",
+    "type": "披露",
+    "title": "关于签署海外矿砂项目合作意向协议的公告（10-10披露进展：签署条款清单修订协议延长最终文件签署日）",
+    "company": "龙佰集团股份有限公司",
+    "project": "P06",
+    "aid": "1225578713"
+   },
+   {
+    "date": "2026-09-24",
+    "type": "披露",
+    "title": "三星电气关于子公司签订海外经营合同的公告",
+    "company": "宁波三星医疗电气股份有限公司",
+    "project": "P07",
+    "aid": "1225578867"
+   },
+   {
+    "date": "2026-09-24",
+    "type": "披露",
+    "title": "山东玲珑轮胎股份有限公司境外(埃及)投资建设项目可行性研究报告",
+    "company": "山东玲珑轮胎股份有限公司",
+    "project": "P08",
+    "aid": "1225578878"
+   },
+   {
+    "date": "2026-09-24",
+    "type": "披露",
+    "title": "关于设立新加坡孙公司并完成注册登记及境外投资项目备案的公告",
+    "company": "浙江泰林生物技术股份有限公司",
+    "project": "P09",
+    "aid": "1225581034"
+   },
+   {
+    "date": "2026-09-30",
+    "type": "披露",
+    "title": "关于拟增加境外子公司投资额的公告",
+    "company": "三友联众集团股份有限公司",
+    "project": "P10",
+    "aid": "1225588646"
+   },
+   {
+    "date": "2026-09-30",
+    "type": "披露",
+    "title": "关于全资境外孙公司签订重大销售合同的公告",
+    "company": "行云科技股份有限公司",
+    "project": "P11",
+    "aid": "1225588474"
+   },
+   {
+    "date": "2026-09-30",
+    "type": "披露",
+    "title": "关于全资子公司收购境外公司股权的进展公告",
+    "company": "品茗科技股份有限公司",
+    "project": "P12",
+    "aid": "1225586878"
+   },
+   {
+    "date": "2026-10-01",
+    "type": "披露",
+    "title": "自愿披露公司产品获得境外上市许可的公告",
+    "company": "四川汇宇制药股份有限公司",
+    "project": "P13",
+    "aid": "1225589861"
+   },
+   {
+    "date": "2026-10-10",
+    "type": "披露",
+    "title": "关于公司产品在海外获得注册证的自愿性披露公告",
+    "company": "赛诺医疗科学技术股份有限公司",
+    "project": "P14",
+    "aid": "1225600078"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于变更海外生产基地建设地点的公告",
+    "company": "贵州航宇科技发展股份有限公司",
+    "project": "P15",
+    "aid": "1225597383"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于境外全资孙公司完成注册的公告",
+    "company": "苏州太湖雪丝绸股份有限公司",
+    "project": "P16",
+    "aid": "1225599223"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于拟设立境外二级子公司的公告",
+    "company": "共达电声股份有限公司",
+    "project": "P17",
+    "aid": "1225597906"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于境外全资子公司川金诺国际有限公司向中非发展基金发行优先股的公告",
+    "company": "昆明川金诺化工股份有限公司",
+    "project": "P18",
+    "aid": "1225597459"
+   },
+   {
+    "date": "2026-10-09",
+    "type": "披露",
+    "title": "关于对外投资设立境外全资子公司并建设生产基地的公告",
+    "company": "泰晶科技股份有限公司",
+    "project": "P19",
+    "aid": "1225597506"
+   },
+   {
+    "date": "2026-10-12",
+    "type": "披露",
+    "title": "关于并购粤丰环保7.22%股权项目收到广东省发展和改革委员会《境外投资项目备案通知书》的公告",
+    "company": "瀚蓝环境股份有限公司",
+    "project": "P20",
+    "aid": "1225600386"
+   },
+   {
+    "date": "2026-10-17",
+    "type": "披露",
+    "title": "关于海外子公司收到客户项目定点通知的公告",
+    "company": "浙江天成自控股份有限公司",
+    "project": "P21",
+    "aid": "1225608735"
+   }
+  ],
+  "policies": [
+   {
+    "date": "2014-09",
+    "title": "《境外投资管理办法》施行",
+    "issuer": "商务部",
+    "level": "中国",
+    "summary": "以备案为主、核准为辅的对外投资管理体系确立，企业新设/并购境外企业须报商务部门备案。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2017-08",
+    "title": "国办发〔2017〕74号 引导和规范境外投资方向",
+    "issuer": "国务院办公厅",
+    "level": "中国",
+    "summary": "明确鼓励、限制、禁止三类境外投资方向；房地产酒店、娱乐业等受限。",
+    "industries": [
+     "房地产",
+     "娱乐"
+    ],
+    "regions": []
+   },
+   {
+    "date": "2017-12",
+    "title": "《企业境外投资管理办法》公布",
+    "issuer": "国家发展改革委",
+    "level": "中国",
+    "summary": "发改委11号令：在线平台办理，敏感类项目核准、非敏感类备案，地方企业由省级发改委备案。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2018-03",
+    "title": "《对外投资备案（核准）报告暂行办法》",
+    "issuer": "商务部等七部门",
+    "level": "中国",
+    "summary": "统一备案（核准）报告制度，强化事后报告与重点督查。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2019-03",
+    "title": "汇发〔2015〕13号全面实施，银行直接办理 ODI 外汇登记",
+    "issuer": "外汇局",
+    "level": "中国",
+    "summary": "境外直接投资外汇登记由银行直接办理，资金汇出效率提升。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2020-11",
+    "title": "RCEP 签署",
+    "issuer": "东盟十国及中澳日新韩",
+    "level": "国际",
+    "summary": "区域全面经济伙伴关系协定签署，区域内关税减让与原产地累积规则重塑东亚供应链布局。",
+    "industries": [
+     "制造"
+    ],
+    "regions": [
+     "日本",
+     "韩国",
+     "澳大利亚",
+     "泰国",
+     "越南",
+     "新加坡"
+    ]
+   },
+   {
+    "date": "2022-01",
+    "title": "RCEP 正式生效",
+    "issuer": "各成员国",
+    "level": "国际",
+    "summary": "RCEP 对首批成员国生效，出口关税下降推动部分制造产能向东南亚集聚。",
+    "industries": [
+     "制造"
+    ],
+    "regions": [
+     "泰国",
+     "越南",
+     "新加坡"
+    ]
+   },
+   {
+    "date": "2023-05",
+    "title": "欧盟碳边境调节机制（CBAM）生效",
+    "issuer": "欧盟",
+    "level": "目标国",
+    "summary": "过渡期 2023-10 起报告义务，2026-01 起正式征收；钢铁、铝、水泥、化肥、电力、氢出口欧盟成本上升。",
+    "industries": [
+     "钢铁",
+     "化工",
+     "能源"
+    ],
+    "regions": [
+     "欧盟"
+    ]
+   },
+   {
+    "date": "2024-05",
+    "title": "美国宣布对华 301 关税加征（电动车、光伏、关键矿产等）",
+    "issuer": "美国",
+    "level": "目标国",
+    "summary": "对电动车（100%）、光伏电池（50%）等加征关税，推动中国新能源与电动车产业链加速海外建厂。",
+    "industries": [
+     "新能源",
+     "汽车"
+    ],
+    "regions": [
+     "美国"
+    ]
+   },
+   {
+    "date": "2025-04",
+    "title": "美国「对等关税」及普遍加征",
+    "issuer": "美国",
+    "level": "目标国",
+    "summary": "对进口商品普遍加征关税并多次调整；转口与第三国产能布局成为出海企业核心议题。",
+    "industries": [
+     "制造"
+    ],
+    "regions": [
+     "美国",
+     "墨西哥",
+     "越南",
+     "泰国"
+    ]
+   },
+   {
+    "date": "2025-01",
+    "title": "中国《民营经济促进法》立法推进",
+    "issuer": "全国人大",
+    "level": "中国",
+    "summary": "促进民营经济高质量发展，稳定企业出海预期（后续正式出台以官方发布为准）。",
+    "industries": [],
+    "regions": []
+   },
+   {
+    "date": "2026-01",
+    "title": "CBAM 进入正式征收阶段",
+    "issuer": "欧盟",
+    "level": "目标国",
+    "summary": "欧盟碳关税正式征收，对欧出口的碳密集行业需核算并购买 CBAM 证书。",
+    "industries": [
+     "钢铁",
+     "化工",
+     "能源"
+    ],
+    "regions": [
+     "欧盟"
+    ]
+   }
+  ],
+  "supplychain": {
+   "capacity": [
+    {
+     "project": "P03",
+     "company": "兖矿能源集团股份有限公司",
+     "region": "澳大利亚",
+     "industry": "能源矿业",
+     "type": "既有产能运营",
+     "date": "2026-10-21",
+     "stage": "运营"
+    },
+    {
+     "project": "P08",
+     "company": "山东玲珑轮胎股份有限公司",
+     "region": "埃及",
+     "industry": "汽车零部件",
+     "type": "新建/扩建产能",
+     "date": "2026-09-24",
+     "stage": "意向"
+    },
+    {
+     "project": "P10",
+     "company": "三友联众集团股份有限公司",
+     "region": "越南",
+     "industry": "电气设备",
+     "type": "新建/扩建产能",
+     "date": "2026-09-30",
+     "stage": "运营"
+    },
+    {
+     "project": "P15",
+     "company": "贵州航宇科技发展股份有限公司",
+     "region": "摩洛哥",
+     "industry": "航空航天",
+     "type": "新建/扩建产能",
+     "date": "2026-10-09",
+     "stage": "意向"
+    },
+    {
+     "project": "P17",
+     "company": "共达电声股份有限公司",
+     "region": "泰国",
+     "industry": "电子制造",
+     "type": "新建/扩建产能",
+     "date": "2026-10-09",
+     "stage": "意向"
+    },
+    {
+     "project": "P19",
+     "company": "泰晶科技股份有限公司",
+     "region": "越南",
+     "industry": "电子制造",
+     "type": "新建/扩建产能",
+     "date": "2026-10-09",
+     "stage": "意向"
+    }
+   ],
+   "clusters": [
+    {
+     "region": "澳大利亚",
+     "industry": "能源矿业",
+     "cnt": 1,
+     "projects": [
+      "P03"
+     ]
+    },
+    {
+     "region": "埃及",
+     "industry": "汽车零部件",
+     "cnt": 1,
+     "projects": [
+      "P08"
+     ]
+    },
+    {
+     "region": "越南",
+     "industry": "电气设备",
+     "cnt": 1,
+     "projects": [
+      "P10"
+     ]
+    },
+    {
+     "region": "摩洛哥",
+     "industry": "航空航天",
+     "cnt": 1,
+     "projects": [
+      "P15"
+     ]
+    },
+    {
+     "region": "泰国",
+     "industry": "电子制造",
+     "cnt": 1,
+     "projects": [
+      "P17"
+     ]
+    },
+    {
+     "region": "越南",
+     "industry": "电子制造",
+     "cnt": 1,
+     "projects": [
+      "P19"
+     ]
+    }
+   ]
+  }
+ },
+ "synced": "2026-10-22 00:41"
 };
