@@ -1206,6 +1206,13 @@
   function vSrc() {
     var H = DB.health || [];
     var h = '<div class="ph"><h1>来源健康</h1><span class="sub">各渠道接入方式 / 游标与去重 / 最近运行 / 收录与失败</span></div>';
+    var bf = DB.backfill;
+    if (bf && bf.cursor) {
+      var done = bf.done || bf.cursor <= "2020-01-01";
+      h += '<div class="lede" style="margin-bottom:14px"><div class="lede-t">历史回溯进度 · 每日 06:30 运行 · 每次回补 20 个自然日</div><p>'
+        + (done ? "回溯完成（已覆盖至 2020-01-01）" : "当前已回补至 <b>" + esc(bf.cursor) + "</b>（目标 2020-01-01，游标持久化于仓库 state/backfill.json，按 _aid 与前向收录去重合并）")
+        + "</p></div>";
+    }
     h += '<div class="hgrid">'
       + H.map(function (s) {
         var badge = s.status === "正常" ? '<span class="st ok">正常</span>'

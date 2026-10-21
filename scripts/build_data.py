@@ -142,6 +142,7 @@ def main():
         "derived": derive.build_derived(db, cfg),
         "health": build_health(db, cfg, disclosures),
         "watch": {"hk": load_watch("watchlist_hk.json"), "us": load_watch("watchlist_us.json")},
+        "backfill": db.get("backfill") or None,
         "synced": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))
                                         ).strftime("%Y-%m-%d %H:%M"),
     }
