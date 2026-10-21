@@ -73,6 +73,9 @@ def main():
     for d in db["disclosures"]:
         d = dict(d)
         d["阶段组"] = stage_group(d.get("动作阶段", ""))
+        # 处理状态机：发现/读取中/已读/分析中/已发布/已排除/读取失败/分析失败
+        # 库内条目均为走完流程的已发布；中间态只存在于批次记录与异常页
+        d.setdefault("处理状态", "已发布")
         disclosures.append(d)
     disclosures.sort(key=lambda d: d["披露日期与时间"], reverse=True)
     for i, d in enumerate(disclosures, 1):

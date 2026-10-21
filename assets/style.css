@@ -202,3 +202,22 @@ table.tbl{width:100%;border-collapse:collapse;font-size:13px}
   .view{padding:16px 14px 48px}
   .topline{padding:0 14px}
 }
+
+/* ── v2 深度分析组件 ── */
+.pill.ok{background:#e7f4ec;color:#1d7a3e;border-color:#bfe3cc}
+.sech{display:flex;align-items:baseline;gap:10px;padding:14px 20px 4px}
+.sech .sno{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:700;flex:none}
+.sech h2{font-size:16px;margin:0}
+.sech .note{margin-left:auto}
+.na{color:#b3620e;background:#fdf3e3;border:1px dashed #ecd3a8;border-radius:6px;padding:1px 8px;font-size:12px;white-space:normal}
+.casebar{margin:10px 20px 0;padding:9px 12px;background:#f2f6fc;border:1px solid #d7e3f4;border-radius:8px;font-size:12.5px;color:var(--ink-2)}
+.casebar a{color:var(--blue);font-weight:600}
+.aitem.sub{padding-left:56px}
+.aitem.sub .sk{background:#eef1f6;color:var(--ink-2)}
+.casemini{border:1px solid var(--line-2);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fcfcfd}
+.cmh{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.cmr{display:flex;gap:10px;padding:4px 0;font-size:13px;line-height:1.75}
+.cmr .sk{flex:none}
+.obsv{margin:4px 0 0;padding-left:20px;font-size:13px;line-height:1.9}
+.obsv li{margin:2px 0}
+.bitem .no{display:inline-flex;width:20px;height:20px;border-radius:6px;background:#eef1f6;color:var(--ink-2);font-size:11.5px;align-items:center;justify-content:center;margin-right:8px;flex:none}
