@@ -16,7 +16,7 @@ CFG_PATH = os.path.join(ROOT, "state", "config.json")
 OUT_PATH = os.path.join(ROOT, "assets", "data.js")
 
 STATUS_MAP = {"意向": "谈判中", "协议": "签约推进", "实施": "实施中",
-              "变更": "推进中", "投产/运营": "运营期"}
+              "变更": "推进中", "投产/运营": "运营期", "完成": "已完成"}
 
 
 def stage_group(s):
@@ -29,6 +29,8 @@ def stage_group(s):
         return "实施"
     if s.startswith(("协议", "签约")):
         return "协议"
+    if s.startswith(("完成", "交割完成")):
+        return "完成"
     return "意向"
 
 
@@ -67,6 +69,58 @@ def build_cases(db, cfg):
     return cases
 
 
+def channel_of(d):
+    ch = d.get("渠道")
+    if ch in ("A股·巨潮", "港股·披露易", "美股·EDGAR"):
+        return ch
+    code = (d.get("股票代码") or "").upper()
+    if code.endswith(".HK"):
+        return "港股·披露易"
+    if code.endswith((".SH", ".SZ", ".BJ")):
+        return "A股·巨潮"
+    if d.get("SEC表格") or d.get("CIK"):
+        return "美股·EDGAR"
+    return "其他来源"
+
+
+def load_watch(name):
+    p = os.path.join(ROOT, "state", name)
+    if os.path.exists(p):
+        try:
+            return json.load(open(p, encoding="utf-8"))
+        except Exception:
+            return []
+    return []
+
+
+def build_health(db, cfg, disclosures):
+    """各渠道健康度：接入方式/去重主键来自 config.channels（静态配置），
+    收录数与最新日期来自实际库内数据，失败从批次记录汇总。无数据如实为 0。"""
+    out = []
+    last_batch = db["batches"][0] if db["batches"] else None
+    exc_n = len(db.get("exceptions", []))
+    for c in cfg.get("channels", []):
+        key = c["key"]
+        docs = [d for d in disclosures if channel_of(d) == key]
+        latest = max([d["披露日期与时间"] for d in docs], default="")
+        status = c.get("status", "正常")
+        if status != "手动" and c.get("kind") != "screen":
+            if last_batch and last_batch.get("failed", 0) > 0 and key == "A股·巨潮":
+                status = "降级"
+            elif not docs and not c.get("watch"):
+                status = "待收录"
+        out.append({
+            "key": key, "name": c["name"], "status": status,
+            "method": c.get("method", ""), "cursor": c.get("cursor", ""),
+            "cadence": c.get("cadence", ""), "url": c.get("url", "—"),
+            "count": len(docs), "latest": latest,
+            "watch": c.get("watch") or None,
+            "lastBatch": last_batch["id"] + " · " + last_batch["time"] if last_batch else "—",
+            "note": c.get("note", ""),
+        })
+    return out
+
+
 def main():
     db = json.load(open(DB_PATH, encoding="utf-8"))
     cfg = json.load(open(CFG_PATH, encoding="utf-8"))
@@ -74,9 +128,8 @@ def main():
     for d in db["disclosures"]:
         d = dict(d)
         d["阶段组"] = stage_group(d.get("动作阶段", ""))
-        # 处理状态机：发现/读取中/已读/分析中/已发布/已排除/读取失败/分析失败
-        # 库内条目均为走完流程的已发布；中间态只存在于批次记录与异常页
         d.setdefault("处理状态", "已发布")
+        d["渠道"] = channel_of(d)
         disclosures.append(d)
     disclosures.sort(key=lambda d: d["披露日期与时间"], reverse=True)
     for i, d in enumerate(disclosures, 1):
@@ -85,10 +138,10 @@ def main():
         "disclosures": disclosures,
         "batches": db["batches"],
         "cases": build_cases(db, cfg),
-        "sources": cfg["sources"],
-        "rules": cfg["rules"],
         "exceptions": db["exceptions"],
         "derived": derive.build_derived(db, cfg),
+        "health": build_health(db, cfg, disclosures),
+        "watch": {"hk": load_watch("watchlist_hk.json"), "us": load_watch("watchlist_us.json")},
         "synced": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))
                                         ).strftime("%Y-%m-%d %H:%M"),
     }

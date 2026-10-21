@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>企业出海研究工作台 · PubX</title>
+<title>企业出海情报台 · PubX</title>
 <link rel="stylesheet" href="./assets/style.css"/>
 </head>
 <body>
@@ -11,28 +11,45 @@
 <header class="topbar">
   <div class="wrap topbar-in">
     <a class="brand" href="#/">
-      <span class="brand-t">出海研究工作台</span>
+      <span class="brand-t">出海情报台</span>
       <span class="brand-s">OUTBOUND INTELLIGENCE · PubX</span>
     </a>
-    <nav class="mainnav" id="mainnav">
-      <a href="#/" data-r="home">总览</a>
-      <a href="#/cos" data-r="cos">企业与项目</a>
-      <a href="#/ana" data-r="ana">专题分析</a>
-      <a href="#/arc" data-r="arc">披露档案</a>
-    </nav>
+    <div class="gsearch" id="gsearch">
+      <span class="gs-ico">⌕</span>
+      <input id="gsq" type="text" autocomplete="off" placeholder="搜索公司 / 项目 / 公告 / 证据，或直接提问…"/>
+      <span class="gs-kbd">/</span>
+    </div>
     <div class="topbar-r">
-      <a class="auxlink" href="#/src">来源与更新</a>
-      <span class="synctime" id="sideSync">—</span>
+      <button class="densbtn" id="dens" title="切换信息密度">紧凑</button>
       <button class="burger" id="burger" aria-label="菜单">☰</button>
     </div>
+  </div>
+  <div class="wrap mainnav-row">
+    <nav class="mainnav" id="mainnav">
+      <a href="#/" data-r="home">总览</a>
+      <a href="#/feed" data-r="feed">信息流</a>
+      <a href="#/cos" data-r="cos">企业与项目</a>
+      <a href="#/ana" data-r="ana">专题分析</a>
+      <a href="#/hk" data-r="hk">港股跟踪</a>
+      <a href="#/arc" data-r="arc">披露档案</a>
+      <a href="#/src" data-r="src">来源健康</a>
+    </nav>
+    <span class="synctime" id="sideSync">—</span>
   </div>
   <nav class="subnav wrap" id="subnav"></nav>
 </header>
 
+<div class="searchov" id="searchov">
+  <div class="so-panel">
+    <div class="so-in"><span class="gs-ico">⌕</span><input id="soq" type="text" autocomplete="off" placeholder="公司 / 代码 / 国家 / 公告关键词 / 问题…"/></div>
+    <div class="so-res" id="sores"></div>
+  </div>
+</div>
+
 <main class="wrap view" id="view"></main>
 
 <footer class="foot wrap">
-  <span>企业出海研究工作台 · 数据来自巨潮资讯、SEC EDGAR、发行人官网、HKEX 披露易（手动导入）、OFAC SDN 等公开来源</span>
+  <span>数据来自巨潮资讯、HKEX 披露易、SEC EDGAR、发行人官网 IR、OFAC SDN 等公开来源；金额保留原文币种口径</span>
   <span id="footSync"></span>
 </footer>
 

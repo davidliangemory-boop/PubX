@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""HKEX 披露易观察名单拉取（公开接口，无需密钥）。
+主键：股票代码（观察名单 state/watchlist_hk.json）
+接口：titleSearchServlet.do（公告检索）+ prefix.do（代码→内部 stockId 解析）
+去重：NEWS_ID（state/hkex_seen.json）
+游标：每代码记录最新公告日期；默认回看 --days 天兜底重叠
+用法：python3 hkex_pull.py --days 30 --out ../state/raw_hkex_YYYYMMDD.json
+"""
+import json, os, sys, time, urllib.request, urllib.parse, datetime, argparse, html, re
+
+UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
+      "Accept": "application/json, text/javascript, */*; q=0.01",
+      "Referer": "https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh"}
+BASE = os.path.dirname(os.path.abspath(__file__))
+STATE = os.path.normpath(os.path.join(BASE, "..", "state"))
+SERVLET = "https://www1.hkexnews.hk/search/titleSearchServlet.do"
+PREFIX = "https://www1.hkexnews.hk/search/prefix.do"
+
+
+def fetch(url, retries=2):
+    for i in range(retries + 1):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.read().decode("utf-8", "ignore")
+        except Exception:
+            if i == retries:
+                raise
+            time.sleep(2 * (i + 1))
+
+
+def resolve_id(code):
+    for lang in ("EN", "ZH"):
+        q = urllib.parse.urlencode({"callback": "cb", "lang": lang, "type": "A", "name": code, "market": "SEHK", "_": "1"})
+        txt = fetch(PREFIX + "?" + q)
+        m = re.search(r'\w+\((.*)\);?\s*$', txt, re.S)
+        if not m:
+            continue
+        data = json.loads(m.group(1))
+        for s in data.get("stockInfo", []):
+            if s.get("code") == code:
+                return s.get("stockId")
+        if data.get("stockInfo"):
+            return data["stockInfo"][0].get("stockId")
+    return None
+
+
+def clean(s):
+    s = html.unescape(s or "")
+    s = re.sub(r"<[^>]+>", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def cat_of(long_text):
+    t = (long_text or "").split(" - ")[0].strip()
+    return t or "公告及通告"
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--days", type=int, default=30)
+    ap.add_argument("--out", default="")
+    a = ap.parse_args()
+
+    watch = json.load(open(os.path.join(STATE, "watchlist_hk.json"), encoding="utf-8"))
+    ids_p = os.path.join(STATE, "hkex_ids.json")
+    seen_p = os.path.join(STATE, "hkex_seen.json")
+    ids = json.load(open(ids_p, encoding="utf-8")) if os.path.exists(ids_p) else {}
+    seen = json.load(open(seen_p, encoding="utf-8")) if os.path.exists(seen_p) else {"news": [], "cursor": {}}
+    seen_ids = set(seen.get("news", []))
+    cursor = seen.get("cursor", {})
+
+    today = datetime.date.today()
+    since_global = today - datetime.timedelta(days=a.days)
+    out, errors = [], []
+    for w in watch:
+        code = w["code"]
+        if code not in ids:
+            try:
+                sid = resolve_id(code)
+                if sid:
+                    ids[code] = sid
+                else:
+                    errors.append({"code": code, "error": "resolve: stockId not found"})
+                    continue
+                time.sleep(0.3)
+            except Exception as e:
+                errors.append({"code": code, "error": "resolve: " + str(e)[:150]})
+                continue
+        sid = ids.get(code)
+        if not sid:
+            continue
+        frm = cursor.get(code) or since_global.strftime("%Y%m%d")
+        frm = min(frm, since_global.strftime("%Y%m%d"))
+        q = {"sortDir": "0", "sortByOptions": "DateTime", "category": "0", "market": "SEHK",
+             "stockId": sid, "documentType": "-1", "fromDate": frm,
+             "toDate": today.strftime("%Y%m%d"), "title": "", "rowRange": "100", "lang": "zh"}
+        try:
+            data = json.loads(fetch(SERVLET + "?" + urllib.parse.urlencode(q)))
+            recs = json.loads(data.get("result") or "[]")
+        except Exception as e:
+            errors.append({"code": code, "error": str(e)[:200]})
+            continue
+        time.sleep(0.4)
+        latest = cursor.get(code, "")
+        for r in recs:
+            nid = r.get("NEWS_ID")
+            if not nid or nid in seen_ids:
+                continue
+            seen_ids.add(nid)
+            dtc = r.get("DATE_TIME", "")  # DD/MM/YYYY HH:MM
+            try:
+                dt = datetime.datetime.strptime(dtc, "%d/%m/%Y %H:%M")
+                day = dt.strftime("%Y-%m-%d")
+            except Exception:
+                day = dtc
+            latest = max(latest, day)
+            out.append({
+                "code": code, "name": w["name"], "news_id": nid,
+                "title": clean(r.get("TITLE")), "category": cat_of(clean(r.get("LONG_TEXT"))),
+                "sub": clean(r.get("LONG_TEXT")),
+                "date": day, "time": dtc,
+                "size": r.get("FILE_INFO", ""),
+                "url": "https://www1.hkexnews.hk" + (r.get("FILE_LINK") or ""),
+            })
+        if latest:
+            cursor[code] = latest
+
+    out.sort(key=lambda x: x["date"], reverse=True)
+    out_p = a.out or os.path.join(STATE, "raw_hkex_%s.json" % today.strftime("%Y%m%d"))
+    json.dump({"pulled_at": datetime.datetime.now().isoformat(timespec="seconds"),
+               "from": since_global.strftime("%Y%m%d"), "count": len(out), "items": out, "errors": errors},
+              open(out_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(ids, open(ids_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump({"news": sorted(seen_ids), "cursor": cursor}, open(seen_p, "w", encoding="utf-8"),
+              ensure_ascii=False, indent=1)
+    print("[hkex] 命中 %d 条新公告（%d 家观察），错误 %d 个 → %s" % (len(out), len(watch), len(errors), out_p))
+
+
+if __name__ == "__main__":
+    main()

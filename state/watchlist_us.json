@@ -1,0 +1,177 @@
+[
+ {
+  "ticker": "BABA",
+  "cik": 1577552,
+  "name": "阿里巴巴"
+ },
+ {
+  "ticker": "JD",
+  "cik": 1549802,
+  "name": "京东"
+ },
+ {
+  "ticker": "PDD",
+  "cik": 1737806,
+  "name": "拼多多"
+ },
+ {
+  "ticker": "BIDU",
+  "cik": 1329099,
+  "name": "百度"
+ },
+ {
+  "ticker": "NTES",
+  "cik": 1110646,
+  "name": "网易"
+ },
+ {
+  "ticker": "TCOM",
+  "cik": 1269238,
+  "name": "携程集团"
+ },
+ {
+  "ticker": "NIO",
+  "cik": 1736541,
+  "name": "蔚来"
+ },
+ {
+  "ticker": "XPEV",
+  "cik": 1810997,
+  "name": "小鹏汽车"
+ },
+ {
+  "ticker": "LI",
+  "cik": 1791706,
+  "name": "理想汽车"
+ },
+ {
+  "ticker": "TME",
+  "cik": 1744676,
+  "name": "腾讯音乐"
+ },
+ {
+  "ticker": "BILI",
+  "cik": 1723690,
+  "name": "哔哩哔哩"
+ },
+ {
+  "ticker": "WB",
+  "cik": 1595761,
+  "name": "微博"
+ },
+ {
+  "ticker": "ZTO",
+  "cik": 1677250,
+  "name": "中通快递"
+ },
+ {
+  "ticker": "YUMC",
+  "cik": 1673358,
+  "name": "百胜中国"
+ },
+ {
+  "ticker": "FUTU",
+  "cik": 1754581,
+  "name": "富途控股"
+ },
+ {
+  "ticker": "TIGR",
+  "cik": 1756699,
+  "name": "老虎证券"
+ },
+ {
+  "ticker": "JKS",
+  "cik": 1481513,
+  "name": "晶科能源"
+ },
+ {
+  "ticker": "DQ",
+  "cik": 1477641,
+  "name": "大全新能源"
+ },
+ {
+  "ticker": "CSIQ",
+  "cik": 1375877,
+  "name": "阿特斯太阳能"
+ },
+ {
+  "ticker": "BZ",
+  "cik": 1842827,
+  "name": "看准网"
+ },
+ {
+  "ticker": "VIPS",
+  "cik": 1529192,
+  "name": "唯品会"
+ },
+ {
+  "ticker": "MNSO",
+  "cik": 1815846,
+  "name": "名创优品"
+ },
+ {
+  "ticker": "QFIN",
+  "cik": 1741530,
+  "name": "奇富科技"
+ },
+ {
+  "ticker": "FINV",
+  "cik": 1691445,
+  "name": "信也科技"
+ },
+ {
+  "ticker": "GDS",
+  "cik": 1526125,
+  "name": "万国数据"
+ },
+ {
+  "ticker": "KC",
+  "cik": 1795589,
+  "name": "金山云"
+ },
+ {
+  "ticker": "ZLAB",
+  "cik": 1704292,
+  "name": "再鼎医药"
+ },
+ {
+  "ticker": "HTHT",
+  "cik": 1483994,
+  "name": "华住集团"
+ },
+ {
+  "ticker": "EH",
+  "cik": 1759783,
+  "name": "亿航智能"
+ },
+ {
+  "ticker": "DAO",
+  "cik": 1781753,
+  "name": "有道"
+ },
+ {
+  "ticker": "GOTU",
+  "cik": 1768259,
+  "name": "高途"
+ },
+ {
+  "ticker": "TAL",
+  "cik": 1499620,
+  "name": "好未来"
+ },
+ {
+  "ticker": "EDU",
+  "cik": 1372920,
+  "name": "新东方"
+ },
+ {
+  "ticker": "HSAI",
+  "cik": 1861737,
+  "name": "禾赛科技"
+ },
+ {
+  "ticker": "ATXG",
+  "cik": 1650101,
+  "name": "Addentax"
+ }
+]
