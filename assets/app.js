@@ -308,7 +308,7 @@
     return '<div class="panel"><div class="panel-h"><h2>数据源与接入状态</h2><span class="note">免费公开来源优先；不绕过访问限制</span></div>'
       + '<table class="tbl sys-table"><thead>' + tblHead([["来源", "width:170px"], ["接入状态", "width:96px"], ["更新安排"], ["说明"], ["入口", "width:56px"]]) + "</thead><tbody>"
       + DB.sources.map(function (s) {
-          var st = s.status === "已接入" ? '<span class="st ok">已接入</span>' : s.status === "手动导入入口" ? '<span class="st manual">手动导入</span>' : '<span class="st plan">规划接入</span>';
+          var st = s.status.indexOf("已接入") === 0 ? '<span class="st ok">' + esc(s.status) + '</span>' : s.status.indexOf("手动") === 0 ? '<span class="st manual">' + esc(s.status) + '</span>' : '<span class="st plan">' + esc(s.status) + '</span>';
           return "<tr><td><b>" + esc(s.name) + "</b></td><td>" + st + "</td><td>" + esc(s.freq) + "</td><td>" + esc(s.note) + '</td><td>' + (s.url && s.url !== "—" ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">链接</a>' : "—") + "</td></tr>";
         }).join("") + "</tbody></table></div>";
   }
