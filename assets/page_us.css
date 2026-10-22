@@ -1,0 +1,18 @@
+/* PubX 美股（SEC）分页面局部样式 —— 独立文件，避免与并行分支冲突 */
+.us-fbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12.5px; }
+.us-fbar label { display: flex; align-items: center; gap: 6px; color: var(--ink-3); }
+.us-fbar input[type="date"], .us-fbar input[type="search"] {
+  border: 1px solid var(--line-2); border-radius: 7px; padding: 5px 9px;
+  font-size: 12.5px; font-family: inherit; background: var(--card); color: var(--ink);
+}
+.us-fbar input[type="search"] { min-width: 200px; flex: 1; max-width: 320px; }
+.us-fbar .btn { margin-left: auto; }
+.us-tbl .us-sum { max-width: 380px; font-size: 12.5px; line-height: 1.55; color: var(--ink-2); }
+.us-tbl td .pill { margin: 1px 2px 1px 0; }
+.us-pager { display: flex; align-items: center; gap: 14px; }
+.us-pager .densbtn[disabled] { opacity: 0.4; cursor: default; }
+@media (max-width: 640px) {
+  .us-fbar .btn { margin-left: 0; }
+  .us-fbar input[type="search"] { max-width: none; }
+  .us-tbl .us-sum { max-width: 240px; }
+}
