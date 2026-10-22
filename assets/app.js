@@ -482,6 +482,24 @@
           + '<div class="d" style="color:var(--ink-3);margin-top:4px;line-height:1.6">' + esc(MKT_MAP[mod][c]) + "</div></div>";
       }).join("") + "</div>"
       + '<div class="note" style="margin-top:-8px;margin-bottom:20px">' + esc(MKT_MAP[mod]._note) + "</div>";
+    // 采集设计：实测来源（外部事实，依据 2026-10-23 标杆调研实测，见 REF_us / REF_hk）
+    var SRC_DESIGN = {
+      us: [
+        ["efts.sec.gov 全文检索 API", "按 forms=8-K 过滤＋关键词检索；size 固定 100 条/页、from 翻页、from+size>10000 报错；sort=date 实测不生效——须本地排序"],
+        ["data.sec.gov/submissions/CIK##########.json", "公司全量申报历史；8-K 的 items 字段（如 \"1.01,9.01\"）免正文解析即可分栏目；6-K 无 Item 编号须正文/附件分析"],
+        ["daily-index/master.YYYYMMDD.idx", "每日全量申报索引（CIK|公司|表格|日期|路径），当晚约 22:00 ET 后发布，当日缺失返回 403"],
+        ["访问纪律", "User-Agent 必填（缺失即 403）；当前上限 10 次/秒（SEC 官方 Accessing EDGAR Data 页）"]
+      ],
+      hk: [
+        ["titleSearchServlet 标题检索", "t1/t2G/t2 三级类别码共 293 个明细码；NEWS_ID 主键去重；仅返回交易活跃证券，长期停牌标的不返回"],
+        ["全文核读", "标题检索无正文，实质判断须逐份下载 PDF 核读；中英文公告为独立 NEWS_ID"],
+        ["访问纪律", "公开接口无需密钥；按代码逐个拉取并限速"]
+      ]
+    };
+    h += '<div class="panel"><div class="panel-h"><h2>采集设计 · 实测来源</h2><span class="note">外部事实 · 依据 2026-10-23 标杆调研对官方接口的实测</span></div>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:280px">来源 / 接口</th><th>实测要点（决定口径与字段）</th></tr></thead><tbody>'
+      + SRC_DESIGN[mod].map(function (r) { return '<tr><td class="mono" style="font-size:12px">' + esc(r[0]) + '</td><td style="font-size:12.5px">' + esc(r[1]) + "</td></tr>"; }).join("")
+      + "</tbody></table></div></div>";
     return h;
   }
 
@@ -507,8 +525,8 @@
       var src = { enforcement: "BIS 执法行动 / OFAC 执法案例 / UFLPA 执法", lists: "实体清单 / SDN / 未经核实清单 / UFLPA 实体清单", rules: "EAR 规则修订 / OFAC 法规与通用许可 / UFLPA 指引" }[EXC.col];
       var plan = {
         enforcement: "采集设计：OFAC recent-actions/enforcement-actions 列表与和解详情（金额/违规笔数/VSD/egregious）＋ BIS bis.gov/enforcement 和解文书与新闻稿；案例级字段含 statutory max / base penalty / 加重与减轻因素，缺失照【未披露】。",
-        lists: "采集设计：trade.gov 合并筛查清单（CSL，13 个清单）快照 diff 产生 added/removed/revised；Federal Register API 取 BIS 实体清单规则与 UFLPA 列入通知回填依据；removed 条目保留历史卡片。注意：CSL 官方 API 只含当前在列条目，历史须靠本站自启动日起累积快照。",
-        rules: "采集设计：Federal Register API（免费无 key）按机构 industry-and-security-bureau + 类型 RULE/PRORULE 增量；term 全文匹配有噪声，须经标题二次过滤；批次号 W-YYYYWW（周批）。"
+        lists: "采集设计：trade.gov 合并筛查清单（CSL，13 个清单）快照 diff 产生 added/removed/revised；Federal Register API 取 BIS 实体清单规则与 UFLPA 列入通知回填依据；removed 条目保留历史卡片。注意：CSL 官方 API 只含当前在列条目，历史须靠本站自启动日起累积快照；且 UFLPA 实体清单不在 CSL 内（归国土安全部单列），须单独来源，不能仅靠 CSL 覆盖本页全部清单（2026-10-23 实测）。",
+        rules: "采集设计：Federal Register API（免费无 key）按机构 industry-and-security-bureau（id=241，实测含 \"Entity List\" 的 RULE 全历史 679 条）＋ 类型 RULE/PRORULE 增量；term 全文匹配有噪声，须经标题二次过滤；批次号 W-YYYYWW（周批）。"
       }[EXC.col];
       box.innerHTML = '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
         + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">' + nm + " · 数据采集尚未上线</div>"
@@ -516,26 +534,40 @@
         + '<div class="note" style="max-width:620px;margin:14px auto 0;line-height:1.9;text-align:left;border-top:1px dashed var(--line);padding-top:12px">' + plan + "</div></div></div>";
       return;
     }
-    // 观察名单比对（真实数据：监测批次中的 OFAC·SDN 比对记录）
+    // 观察名单比对（真实数据：监测批次中的 OFAC·SDN 比对记录；按日批次聚合展示，逐轮原始记录见方法与来源）
+    var BD2 = DB.batches_daily || [];
+    var sdnD = BD2.filter(function (g) { return g.per_source && g.per_source["OFAC·SDN"]; });
     var sdnB = B.filter(function (b) { return b.per_source && b.per_source["OFAC·SDN"]; });
     var subjects = unique(EVX.map(function (x) { return x.subject; }));
     var watchN = ((DB.watch && DB.watch.hk) || []).length + ((DB.watch && DB.watch.us) || []).length;
-    var hits = sdnB.reduce(function (a, b) { return a + (b.per_source["OFAC·SDN"].kept || 0); }, 0);
+    var hits = (sdnD.length ? sdnD : sdnB).reduce(function (a, b) { return a + (b.per_source["OFAC·SDN"].kept || 0); }, 0);
+    // 名单版本指纹与名单变化：从逐轮批次说明中提取（外部事实，依据批次记录原文）
+    var sha = null, chg = null;
+    for (var bi = 0; bi < sdnB.length; bi++) {
+      var nt = sdnB[bi].note || "";
+      if (!sha) { var m = nt.match(/sha[=（(]?([0-9a-f]{4,})[…\.]{1,3}([0-9a-f]{4,})/i); if (m) sha = m[1] + "…" + m[2]; }
+      if (!chg) { var c = nt.match(/SDN[^；。]*?变化[^；。]*?(新增\s*\d+\s*条[^；。]*)/); if (c) chg = { batch: sdnB[bi].id, text: c[1] }; }
+    }
+    var latestSdn = sdnD.length ? sdnD[0] : sdnB[0];
     box.innerHTML = '<div class="statstrip">'
-      + statCard(sdnB.length ? sdnB[0].per_source["OFAC·SDN"].scanned : "—", "最近批次比对条目", "OFAC SDN 全量名单 · " + (sdnB[0] ? esc(sdnB[0].id) : "—"))
+      + statCard(sdnB.length ? sdnB[0].per_source["OFAC·SDN"].scanned : "—", "名单条目（单轮全量）", "OFAC SDN · 最近轮次 " + (sdnB[0] ? esc(sdnB[0].id) : "—"))
+      + statCard(sha ? esc(sha) : "—", "名单版本指纹 sha", "逐轮下载比对，变化即记录")
       + statCard(subjects.length + watchN, "受检主体", "事件主体 " + subjects.length + " + 观察名单 " + watchN)
-      + statCard(hits, "命中（近 " + sdnB.length + " 批）", "kept=0 即无疑似命中记录")
+      + statCard(hits, "命中（近 " + (sdnD.length || sdnB.length) + " 批）", "kept=0 即无疑似命中记录")
       + "</div>"
+      + (chg ? '<div class="panel"><div class="panel-b" style="font-size:13px;line-height:1.8"><span class="st manual">名单变化</span> '
+        + esc(chg.batch) + "：" + esc(chg.text) + "（名单侧新增条目均经受检主体比对，0 命中；样本详见该批次说明）</div></div>" : "")
       + '<div class="panel"><div class="panel-h"><h2>比对方法</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
-      + "OFAC SDN 全量名单与在册公司 / 合作方<b>词级匹配</b>，每交易日比对。"
+      + "OFAC SDN 全量名单与在册公司 / 合作方<b>词级匹配</b>，随监测日批次比对。"
       + "<b>同名≠命中</b>：仅名称相同而无地址 / 证件号 / 国籍等佐证时只记「名称相似 · 待人工核验」，不写「命中」。"
       + "比对不产生披露条目；命中将记入异常记录并在相关主体档案标注。</div></div>"
-      + '<div class="panel"><div class="panel-h"><h2>各批次比对记录</h2><span class="note">来自监测批次真实记录</span></div>'
-      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>批次</th><th>时间</th><th>比对条目</th><th>命中</th></tr></thead><tbody>'
-      + sdnB.map(function (b) {
-        var p = b.per_source["OFAC·SDN"];
-        return '<tr><td class="mono">' + esc(b.id) + '</td><td class="mono">' + esc(b.time) + '</td><td class="mono">' + p.scanned + '</td><td class="mono">' + (p.kept || 0) + "</td></tr>";
-      }).join("") + "</tbody></table></div></div>";
+      + '<div class="panel"><div class="panel-h"><h2>各日比对记录</h2><span class="note">按日批次 D-YYYYMMDD 聚合；同一日多轮合并（扫=各轮累加）</span></div>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>日批次</th><th>时间</th><th>轮次</th><th>比对条目</th><th>命中</th></tr></thead><tbody>'
+      + (sdnD.length ? sdnD : sdnB).map(function (g) {
+        var p = g.per_source["OFAC·SDN"];
+        return '<tr><td class="mono">' + esc(g.id) + '</td><td class="mono">' + esc(g.time) + '</td><td class="mono">' + (g.runs || 1) + '</td><td class="mono">' + p.scanned + '</td><td class="mono">' + (p.kept || 0) + "</td></tr>";
+      }).join("") + "</tbody></table></div>"
+      + '<div class="secnote">逐轮原始记录（B-YYYYMMDD-HHMM）见「方法与来源 → 更新记录」。</div></div>';
   }
 
   /* ═════════ 企业档案：只列事件链条目，不复制摘要 ═════════ */
