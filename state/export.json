@@ -1,0 +1,4674 @@
+{
+ "meta": {
+  "updated": "2026-10-23 02:13",
+  "cadence": "周更（周批 W-YYYYWW）",
+  "last_window_lte": "2026-10-23",
+  "sources": [
+   {
+    "name": "Federal Register API",
+    "url": "https://www.federalregister.gov/api/v1/",
+    "note": "BIS/OFAC 规则与实体清单通知，免费无 key"
+   },
+   {
+    "name": "OFAC recent-actions",
+    "url": "https://ofac.treasury.gov/recent-actions",
+    "note": "执法/清单/通用许可/指南，HTML 列表"
+   },
+   {
+    "name": "BIS news-updates",
+    "url": "https://www.bis.gov/news-updates",
+    "note": "BIS 执法与规则新闻稿"
+   },
+   {
+    "name": "DHS UFLPA Entity List",
+    "url": "https://www.dhs.gov/uflpa-entity-list",
+    "note": "批次式更新，含生效日期与列入依据小节"
+   }
+  ],
+  "caliber": "本模块数据与其他分页面互不混用；仅收官方公开文件；要点=external（附来源），合规影响=analysis（写依据）；原文未载显示【未披露】。"
+ },
+ "batches": [
+  {
+   "batch_id": "W-202643",
+   "kind": "backfill",
+   "time": "2026-10-23 02:13",
+   "window": {
+    "gte": "2026-07-25",
+    "lte": "2026-10-23",
+    "note": "按来源发布日过滤"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 6,
+     "kept": 6,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 2,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 29,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 30,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 50,
+     "kept": 44,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 2,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 4,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 1,
+     "failed": 0
+    }
+   },
+   "new_items": 84,
+   "total_items": 84
+  }
+ ],
+ "items": [
+  {
+   "id": "ofac-20261021",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-21",
+   "agency": "OFAC",
+   "doc_no": "20261021",
+   "title": "Iran-related Designations; Belarus and North Korea Designations Removals; Issuance of Iran-related and Russia-related General Licenses and Amended Frequently Asked Questions",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261021",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261019",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-19",
+   "agency": "OFAC",
+   "doc_no": "20261019",
+   "title": "Protecting American Intellectual Property Act of 2022 (PAIPA) Designations; Issuance of Associated General Licenses",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261019",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261016",
+   "column": "rules",
+   "action": "",
+   "date": "2026-10-16",
+   "agency": "OFAC",
+   "doc_no": "20261016",
+   "title": "Issuance of Amended Venezuela-related General License and Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：General Licenses（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261016",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261015",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-15",
+   "agency": "OFAC",
+   "doc_no": "20261015",
+   "title": "Iran-related Designations; Cuba Designation; Issuance of New and Amended General Licenses and Frequently Asked Questions",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261015",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261014",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-14",
+   "agency": "OFAC",
+   "doc_no": "20261014",
+   "title": "Venezuela-related Designation Removal",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261014",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261013_33",
+   "column": "enforcement",
+   "action": "",
+   "date": "2026-10-13",
+   "agency": "OFAC",
+   "doc_no": "20261013_33",
+   "title": "Settlement Agreement between the U.S. Department of the Treasury's Office of Foreign Assets Control and Bank of America, N.A.",
+   "parties": [
+    "Bank of America, N.A"
+   ],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Enforcement Actions（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    },
+    {
+     "text": "和解/罚款金额：$11,662,930（详情页正文首个金额数字，口径以原文 PDF 为准）。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
+    },
+    {
+     "text": "违规笔数（apparent violations）：475。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
+    },
+    {
+     "text": "原文提及自愿披露（voluntarily self-disclosed）情节，是否构成 VSD 及程度以执法文书为准。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
+    },
+    {
+     "text": "定性：non-egregious。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
+    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261013_33",
+   "pdf_url": "https://ofac.treasury.gov/media/937231/download?inline",
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261013",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-13",
+   "agency": "OFAC",
+   "doc_no": "20261013",
+   "title": "Counter Narcotics and Counter Terrorism Designations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261013",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20839",
+   "column": "rules",
+   "action": "",
+   "date": "2026-10-13",
+   "agency": "OFAC",
+   "doc_no": "2026-20839 / 91 FR 64758",
+   "title": "Publication of an Iran-Related Determination",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a sector determination pursuant to a January 10, 2020 Executive Order. The determination was previously issued on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 64758；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/10/13/2026-20839/publication-of-an-iran-related-determination",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-13/pdf/2026-20839.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20831",
+   "column": "rules",
+   "action": "",
+   "date": "2026-10-13",
+   "agency": "OFAC",
+   "doc_no": "2026-20831 / 91 FR 64758",
+   "title": "Publication of Venezuela Sanctions Regulations Web General License 60",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a general license (GL) issued pursuant to the Venezuela Sanctions Regulations: GL 60, which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 64758；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/10/13/2026-20831/publication-of-venezuela-sanctions-regulations-web-general-license-60",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-13/pdf/2026-20831.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261009_33",
+   "column": "rules",
+   "action": "",
+   "date": "2026-10-09",
+   "agency": "OFAC",
+   "doc_no": "20261009_33",
+   "title": "Issuance of Russia-related General License",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：General Licenses（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261009_33",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261009",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-09",
+   "agency": "OFAC",
+   "doc_no": "20261009",
+   "title": "Settlement Agreement between the U.S. Department of the Treasury's Office of Foreign Assets Control and Pegasus Worldwide Logistics; International Criminal Court Designation and General Licenses; Burma-related Designation Removal",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261009",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261008",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-08",
+   "agency": "OFAC",
+   "doc_no": "20261008",
+   "title": "Iran-related Designations; Issuance of Iran-related General License; Issuance of Amended Russia-related General License",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261008",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261005",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-05",
+   "agency": "OFAC",
+   "doc_no": "20261005",
+   "title": "Designations Removals; Designations Updates; Publication of Iran-related OFAC Alert; Publication of Amended Iran-related Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261005",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261002",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-02",
+   "agency": "OFAC",
+   "doc_no": "20261002",
+   "title": "Counter Terrorism Designations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261002",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "bis-press-release-bis-reaches-administrative-enforcement-settlement-lambda-research-",
+   "column": "enforcement",
+   "action": "",
+   "date": "2026-10-02",
+   "agency": "BIS",
+   "doc_no": "",
+   "title": "BIS Reaches Administrative Enforcement Settlement with Lambda Research Corporation",
+   "parties": [
+    "Lambda Research Corporation"
+   ],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "栏目标签：Enforcement, Export Violations（BIS 新闻页）。",
+     "layer": "external",
+     "source": "BIS news-updates"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
+    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+   },
+   "url": "https://www.bis.gov/press-release/bis-reaches-administrative-enforcement-settlement-lambda-research-corporation",
+   "pdf_url": null,
+   "source": {
+    "channel": "BIS news-updates",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20261001",
+   "column": "lists",
+   "action": "",
+   "date": "2026-10-01",
+   "agency": "OFAC",
+   "doc_no": "20261001",
+   "title": "Iran-related Designations and Designations Updates; Transnational Criminal Organizations Designation; Publication of Iran-related Determination; Publication of Amended Iran-related Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20261001",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260930",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "20260930",
+   "title": "Counter Terrorism and Transnational Criminal Organizations Designations; Belarus, Counter Narcotics, and Libya Designations Removals",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260930",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20014",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-20014 / 91 FR 61762",
+   "title": "Publication of Russian Harmful Foreign Activities Sanctions Regulations Web General Licenses 131E, 131F, and 131G",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing three general licenses (GLs) issued pursuant to the Russian Harmful Foreign Activities Sanctions Regulations: GLs 131E, 131F, and 131G, each of which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61762；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20014/publication-of-russian-harmful-foreign-activities-sanctions-regulations-web-general-licenses-131e",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20014.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20012",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-20012 / 91 FR 61771",
+   "title": "Publication of Venezuela Sanctions Regulations Web General License 5W",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a general license (GL) issued pursuant to the Venezuela Sanctions Regulations: GL 5W, which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61771；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20012/publication-of-venezuela-sanctions-regulations-web-general-license-5w",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20012.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20011",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-20011 / 91 FR 61763",
+   "title": "Publication of Transnational Criminal Organizations Sanctions Regulations Web General License 2",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a general license (GL) issued pursuant to the Transnational Criminal Organizations Sanctions Regulations: GL 2. This GL was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61763；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20011/publication-of-transnational-criminal-organizations-sanctions-regulations-web-general-license-2",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20011.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20010",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-20010 / 91 FR 61758",
+   "title": "Publication of Iran-Related Web General Licenses X and X1",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing two Iran-related general licenses (GLs): GL X and GL X1. These GLs were previously made available on OFAC's website. GL X was revoked and superseded by GL X1. GL X1 has expired.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61758；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20010/publication-of-iran-related-web-general-licenses-x-and-x1",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20010.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20009",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-20009 / 91 FR 61764",
+   "title": "Publication of Venezuela Sanctions Regulations Web General Licenses 46D, 47B, 48C, 50C, 51C, 52B, 54B, and 61A",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing eight general licenses (GLs) issued pursuant to the Venezuela Sanctions Regulations: GLs 46D, 47B, 48C, 50C, 51C, 52B, 54B, and 61A, each of which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61764；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20009/publication-of-venezuela-sanctions-regulations-web-general-licenses-46d-47b-48c-50c-51c-52b-54b-and",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20009.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20008",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-20008 / 91 FR 61771",
+   "title": "Publication of Venezuela Sanctions Regulations Web General Licenses 52, 53, 54, 55, 56, 57, and 58",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing seven general licenses (GLs) issued pursuant to the Venezuela Sanctions Regulations: GLs 52, 53, 54, 55, 56, 57, and 58, each of which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61771；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20008/publication-of-venezuela-sanctions-regulations-web-general-licenses-52-53-54-55-56-57-and-58",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20008.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20007",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-20007 / 91 FR 61727",
+   "title": "Removing Duplicative Penalties Information and Reorganizing Certain Parts",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is removing duplicative regulatory provisions, and adding a provision to those parts directing readers to the Sanctions Penalties Regulations where the information is located. OFAC is also moving to an expanded subpart at the beginning of each part information regarding delegations of authority, recordkeeping and reporting requirements, and the Paperwork Reduction Act within multiple parts of the Office of Foreign Assets Control chapter of the CFR.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61727；生效 2026-09-30。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20007/removing-duplicative-penalties-information-and-reorganizing-certain-parts",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20007.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-20006",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-20006 / 91 FR 61775",
+   "title": "Publication of Venezuela Sanctions Regulations Web General Licenses 46C, 47A, 48B, 50B, 51B, 52A, and 54A",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing seven general licenses (GLs) issued pursuant to the Venezuela Sanctions Regulations: GLs 46C, 47A, 48B, 50B, 51B, 52A, and 54A, each of which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61775；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20006/publication-of-venezuela-sanctions-regulations-web-general-licenses-46c-47a-48b-50b-51b-52a-and-54a",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20006.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19978",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-19978 / 91 FR 61759",
+   "title": "Iranian Transactions and Sanctions Regulations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is adopting a final rule amending the Iranian Transactions and Sanctions Regulations to implement certain provisions of a January 10, 2020 Iran-related Executive order. This amendment also revises an existing definition and an existing exemption, and incorporates two exemptions from the January 10, 2020 Iran-related Executive order.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61759；生效 2026-09-30。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-19978/iranian-transactions-and-sanctions-regulations",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19978.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19977",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-19977 / 91 FR 61748",
+   "title": "Cuba Sanctions Regulations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is adding regulations to implement a May 1, 2026 Cuba- related Executive order. OFAC intends to supplement these regulations with a more comprehensive set of regulations, which may include additional interpretive guidance and definitions, general licenses, and other regulatory provisions.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61748；生效 2026-09-30。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-19977/cuba-sanctions-regulations",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19977.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19973",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-30",
+   "agency": "OFAC",
+   "doc_no": "2026-19973 / 91 FR 61741",
+   "title": "Cuban Assets Control Regulations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is amending the Cuban Assets Control Regulations to implement portions of the President's foreign policy toward Cuba, including as directed by National Security Presidential Memorandum-5, \"Reissuance of and Amendments to National Security Presidential Memorandum 5 on Strengthening the Policy of the United States Toward Cuba\" (2025 NSPM-5), signed by the President on June 30, 2025. Among other things, this rule adds a prohibition on indirect financial transactions with entities or subentities on the Cuba Restricted List; amends other authorizations related to financial transactions, including removing an authorization for \"U-Turn\" transactions; and amends authorizations related to travel and related transactions, including removing authorizations for group people-to-people travel and professional meetings in Cuba.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 61741；生效 2026-09-30。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/30/2026-19973/cuban-assets-control-regulations",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19973.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260929_33",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-29",
+   "agency": "OFAC",
+   "doc_no": "20260929_33",
+   "title": "Publication of Regulatory Amendments; Publication of Cuba Sanctions Regulations; Issuance of New and Amended Cuba-related Frequently Asked Questions; Publication of Cuba-related OFAC Alert",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Regulations and Guidance（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260929_33",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260929",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-29",
+   "agency": "OFAC",
+   "doc_no": "20260929",
+   "title": "Counter Narcotics, Counter Terrorism, Iran-related, and Non-Proliferation Designations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260929",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260928",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-28",
+   "agency": "OFAC",
+   "doc_no": "20260928",
+   "title": "Issuance of Amended Venezuela General Licenses",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：General Licenses（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260928",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19678",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-25",
+   "agency": "OFAC",
+   "doc_no": "2026-19678 / 91 FR 60821",
+   "title": "Sanctions Penalties Regulations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is adding the Sanctions Penalties Regulations. These new regulations consolidate previously existing information regarding penalties applicable to multiple sanctions programs implemented by OFAC.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 60821；生效 2026-09-25。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19678/sanctions-penalties-regulations",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19678.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19657",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-25",
+   "agency": "OFAC",
+   "doc_no": "2026-19657 / 91 FR 60825",
+   "title": "Terrorism List Governments Sanctions Regulations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is amending the Terrorism List Governments Sanctions Regulations to implement changes resulting from the rescission of the designation of Syria as a State Sponsor of Terrorism. Specifically, OFAC is removing and reserving a Syria-specific general license because the authorization is no longer necessary following the rescission.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 60825；生效 2026-09-25。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19657/terrorism-list-governments-sanctions-regulations",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19657.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260924",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-24",
+   "agency": "OFAC",
+   "doc_no": "20260924",
+   "title": "Publication of Regulatory Amendments; Publication of Report for Licensing Activities Undertaken Pursuant to the Trade Sanctions Reform and Export Enhancement Act (TSRA)",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Regulations and Guidance（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260924",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19537",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-24",
+   "agency": "BIS",
+   "doc_no": "2026-19537 / 91 FR 60505",
+   "title": "Measures To Restrict Stockpiling of Polysilicon and Polysilicon Derivatives Under Proclamation 11052",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "On August 6, 2026, the President issued Proclamation 11052, \"Adjusting Imports of Polysilicon and Its Derivatives Into the United States\" (Proclamation 11052), ordering the Secretary of Commerce (Secretary) to take action to restrict imports by a company if he determines the company is stockpiling polysilicon or polysilicon derivatives (Polysilicon Products) in advance of import adjustments that will be effective on December 4, 2026. The Bureau of Industry and Security (BIS), in this temporary final rule (TFR), announces the criteria and process it will use to monitor existing companies for evidence of stockpiling, limit a newly established importer's ability to stockpile, and subject companies that are stockpiling to an import prohibition if necessary. This TFR also establishes the process for such companies to obtain a waiver from any import prohibitions imposed pursuant to this rule, and imposes certain import limitations on new importers that register with U.S. Customs and Border Protection (CBP) on or after August 6, 2026.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 60505；生效 2026-09-22。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/24/2026-19537/measures-to-restrict-stockpiling-of-polysilicon-and-polysilicon-derivatives-under-proclamation-11052",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-24/pdf/2026-19537.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260923",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-23",
+   "agency": "OFAC",
+   "doc_no": "20260923",
+   "title": "Democratic Republic of the Congo-related Designations Removals",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260923",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19424",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-23",
+   "agency": "OFAC",
+   "doc_no": "2026-19424 / 91 FR 60304",
+   "title": "Publication of Iran-Related Web General Licenses Y and Z",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing two Iran-related general licenses (GLs): GLs Y and Z. These GLs were previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 60304；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/23/2026-19424/publication-of-iran-related-web-general-licenses-y-and-z",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19424.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19423",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-23",
+   "agency": "OFAC",
+   "doc_no": "2026-19423 / 91 FR 60303",
+   "title": "Publication of the Democratic Republic of the Congo Sanctions Regulations Web General License 2",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a general license (GL) issued pursuant to the Democratic Republic of the Congo Sanctions Regulations: GL 2. This GL was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 60303；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/23/2026-19423/publication-of-the-democratic-republic-of-the-congo-sanctions-regulations-web-general-license-2",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19423.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19422",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-23",
+   "agency": "OFAC",
+   "doc_no": "2026-19422 / 91 FR 60304",
+   "title": "Publication of Venezuela Sanctions Regulations Web General Licenses 5X and 5Y",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing two general licenses (GLs) issued pursuant to the Venezuela Sanctions Regulations: GL 5X and 5Y, each of which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 60304；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/23/2026-19422/publication-of-venezuela-sanctions-regulations-web-general-licenses-5x-and-5y",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19422.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-19421",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-23",
+   "agency": "OFAC",
+   "doc_no": "2026-19421 / 91 FR 60303",
+   "title": "Publication of International Criminal Court-Related Sanctions Regulations Web General License 12",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a general license (GL) issued pursuant to the International Criminal Court-Related Sanctions Regulations: GL 12. This GL was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 60303；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/23/2026-19421/publication-of-international-criminal-court-related-sanctions-regulations-web-general-license-12",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19421.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260918",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-18",
+   "agency": "OFAC",
+   "doc_no": "20260918",
+   "title": "Expiration of Emergency With Respect to the Situation in Ethiopia; Ethiopia-related Designations Removals; Issuance of Amended Russia-related General License and Associated Frequently Asked Questions",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260918",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260917",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-17",
+   "agency": "OFAC",
+   "doc_no": "20260917",
+   "title": "Iran-related Designations; Cuba Designations; Belarus-related Designations Removals",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260917",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260916",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-16",
+   "agency": "OFAC",
+   "doc_no": "20260916",
+   "title": "Russia-related Designations Removals; Counter Narcotics Designation Removal; Issuance of Amended Venezuela General License and Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260916",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260914",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-14",
+   "agency": "OFAC",
+   "doc_no": "20260914",
+   "title": "Iran-related Designation; Issuance of Amended Venezuela-related General License and Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260914",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-18576",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-11",
+   "agency": "OFAC",
+   "doc_no": "2026-18576 / 91 FR 57795",
+   "title": "Publication of Iran-Related Web General Licenses CC and DD.",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing two Iran-related general licenses (GLs): GLs CC and DD, which were previously made available on OFAC's website upon issuance.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 57795；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18576/publication-of-iran-related-web-general-licenses-cc-and-dd",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18576.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-18572",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-11",
+   "agency": "OFAC",
+   "doc_no": "2026-18572 / 91 FR 57791",
+   "title": "Publication of Venezuela Sanctions Regulations Web General Licenses 50A and 51A",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing two general licenses (GLs) issued pursuant to the Venezuela Sanctions Regulations: GLs 50A and 51A, each of which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 57791；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18572/publication-of-venezuela-sanctions-regulations-web-general-licenses-50a-and-51a",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18572.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-18569",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-11",
+   "agency": "OFAC",
+   "doc_no": "2026-18569 / 91 FR 57793",
+   "title": "Publication of Venezuela Sanctions Regulations Web General Licenses 30B and 51.",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing two general licenses (GLs) issued pursuant to the Venezuela Sanctions Regulations: GLs 30B and 51, each of which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 57793；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18569/publication-of-venezuela-sanctions-regulations-web-general-licenses-30b-and-51",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18569.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-18565",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-11",
+   "agency": "OFAC",
+   "doc_no": "2026-18565 / 91 FR 57791",
+   "title": "Publication of Nicaragua Sanctions Regulations Web General License 5",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a general license (GL) issued pursuant to the Nicaragua Sanctions Regulations: GL 5, which was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 57791；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18565/publication-of-nicaragua-sanctions-regulations-web-general-license-5",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18565.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-18563",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-11",
+   "agency": "OFAC",
+   "doc_no": "2026-18563 / 91 FR 57794",
+   "title": "Publication of Global Terrorism Sanctions Regulations and Illicit Drug Trade Sanctions Regulations Web General License 35",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a general license (GL) issued pursuant to the Global Terrorism Sanctions Regulations and the Illicit Drug Trade Sanctions Regulations: GL 35. This GL was previously made available on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 57794；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18563/publication-of-global-terrorism-sanctions-regulations-and-illicit-drug-trade-sanctions-regulations",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18563.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260910",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-10",
+   "agency": "OFAC",
+   "doc_no": "20260910",
+   "title": "Iran-related and Counter Terrorism Designations; Licensing Policy Update under Operation Economic Outcast; Settlement Agreement between OFAC and an Individual",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260910",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-18461",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-10",
+   "agency": "OFAC",
+   "doc_no": "2026-18461 / 91 FR 57511",
+   "title": "Iranian Transactions and Sanctions Regulations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is indefinitely suspending three general licenses and one licensing policy issued pursuant to the Iranian Transactions and Sanctions Regulations to align with changes in the foreign policy of the United States towards Iran.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 57511；生效 2026-09-08。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18461/iranian-transactions-and-sanctions-regulations",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-10/pdf/2026-18461.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260909",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-09",
+   "agency": "OFAC",
+   "doc_no": "20260909",
+   "title": "Transnational Criminal Organizations Designations; Counter Terrorism Designation; Issuance of New and Amended Frequently Asked Questions",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260909",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260908",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-08",
+   "agency": "OFAC",
+   "doc_no": "20260908",
+   "title": "Iran-related Designations; Counter Terrorism Designations; Updates to Iran-related General Licenses; Issuance of Counter Terrorism General License",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260908",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260904",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-04",
+   "agency": "OFAC",
+   "doc_no": "20260904",
+   "title": "Iran-related Designations; Issuance of Iran-related General License",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260904",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260903",
+   "column": "lists",
+   "action": "",
+   "date": "2026-09-03",
+   "agency": "OFAC",
+   "doc_no": "20260903",
+   "title": "Cuba Designations; Russia-related Designation Removal; Issuance of Amended Cuba General License",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260903",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260902",
+   "column": "rules",
+   "action": "",
+   "date": "2026-09-02",
+   "agency": "OFAC",
+   "doc_no": "20260902",
+   "title": "Reminder to file the 2026 Annual Report of Blocked Property; Issuance of Amended Venezuela-related General Licenses and Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：General Licenses（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260902",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260828",
+   "column": "lists",
+   "action": "",
+   "date": "2026-08-28",
+   "agency": "OFAC",
+   "doc_no": "20260828",
+   "title": "Iran-related and Counter Terrorism Designations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260828",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-C1-2026-16628",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-28",
+   "agency": "BIS",
+   "doc_no": "C1-2026-16628 / 91 FR 55457",
+   "title": "Streamlining Export Controls for Drone Exports",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "文档类型 Rule；引文 91 FR 55457；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/28/C1-2026-16628/streamlining-export-controls-for-drone-exports",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-28/pdf/C1-2026-16628.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260827",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-27",
+   "agency": "OFAC",
+   "doc_no": "20260827",
+   "title": "Issuance of Amended Venezuela-related General Licenses and Associated Frequently Asked Questions",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：General Licenses（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260827",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-17491",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-27",
+   "agency": "OFAC",
+   "doc_no": "2026-17491 / 91 FR 55265",
+   "title": "Publication of Iran-Related Web General Licenses AA and BB",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing two Iran-related general licenses (GLs): GLs AA and BB, which were previously made available on OFAC's website upon issuance.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 55265；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/27/2026-17491/publication-of-iran-related-web-general-licenses-aa-and-bb",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-27/pdf/2026-17491.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-17487",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-27",
+   "agency": "OFAC",
+   "doc_no": "2026-17487 / 91 FR 55265",
+   "title": "Publication of a Determination Issued Pursuant to Executive Order 13902.",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is publishing a sector determination pursuant to a January 10, 2020 Executive Order. The determination was previously issued on OFAC's website.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 55265；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/27/2026-17487/publication-of-a-determination-issued-pursuant-to-executive-order-13902",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-27/pdf/2026-17487.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260826",
+   "column": "lists",
+   "action": "",
+   "date": "2026-08-26",
+   "agency": "OFAC",
+   "doc_no": "20260826",
+   "title": "Counter Terrorism Designations; Issuance of Counter Terrorism General License; Issuance of Amended Russia-related General License",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260826",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-17426",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-26",
+   "agency": "OFAC",
+   "doc_no": "2026-17426 / 91 FR 54957",
+   "title": "Iranian Transactions and Sanctions Regulations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is indefinitely suspending five general licenses issued pursuant to the Iranian Transactions and Sanctions Regulations to align with changes in the foreign policy of the United States towards Iran.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 54957；生效 2026-08-24。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/26/2026-17426/iranian-transactions-and-sanctions-regulations",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-26/pdf/2026-17426.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260824",
+   "column": "lists",
+   "action": "",
+   "date": "2026-08-24",
+   "agency": "OFAC",
+   "doc_no": "20260824",
+   "title": "Removal of Syria's designation as a State Sponsor of Terrorism and Associated Sanctions List Updates; Iran-related Designations; Updates to Iran-related General Licenses",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260824",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-17231",
+   "column": "lists",
+   "action": "revised",
+   "date": "2026-08-24",
+   "agency": "BIS",
+   "doc_no": "2026-17231 / 91 FR 54658",
+   "title": "Revisions to the Entity List",
+   "parties": [
+    "Arrow China Electronics Trading Co., Ltd"
+   ],
+   "china_link": {
+    "value": "是",
+    "layer": "external",
+    "basis": "原文命中关键词「Hong Kong」（全文检索）"
+   },
+   "points": [
+    {
+     "text": "In this rule, the Bureau of Industry and Security (BIS) revises the Export Administration Regulations (EAR) by removing two addresses associated with Arrow Electronics (Hong Kong) Co., Ltd. from the Entity List under the destination of China, People's Republic of (China). This determination follows the removal from the Entity List of Arrow China Electronics Trading Co., Ltd., and the removal of six aliases for Arrow Electronics (Hong Kong) Co., Ltd. in November 2025.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 54658；生效 2026-08-21。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "实体清单变动直接影响涉美出口/再出口/境内转让：清单主体交易须按该规则所载许可要求与许可政策申请 BIS 许可（多数为推定拒绝）。相关中企及其供应链应核对清单条目、更新筛查。",
+    "basis": "EAR §744.16（实体清单许可要求）+ 本规则原文的许可政策列"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/24/2026-17231/revisions-to-the-entity-list",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-24/pdf/2026-17231.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-17230",
+   "column": "lists",
+   "action": "removed",
+   "date": "2026-08-24",
+   "agency": "BIS",
+   "doc_no": "2026-17230 / 91 FR 54657",
+   "title": "Removal From the Entity List",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "In this rule, the Bureau of Industry and Security (BIS) amends the Export Administration Regulations (EAR) by removing one entity from the Entity List under the destination of Turkey.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 54657；生效 2026-08-21。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "实体清单变动直接影响涉美出口/再出口/境内转让：清单主体交易须按该规则所载许可要求与许可政策申请 BIS 许可（多数为推定拒绝）。相关中企及其供应链应核对清单条目、更新筛查。",
+    "basis": "EAR §744.16（实体清单许可要求）+ 本规则原文的许可政策列"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/24/2026-17230/removal-from-the-entity-list",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-24/pdf/2026-17230.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "bis-press-release-bis-reaches-administrative-enforcement-settlement-container-manufa",
+   "column": "enforcement",
+   "action": "",
+   "date": "2026-08-24",
+   "agency": "BIS",
+   "doc_no": "",
+   "title": "BIS Reaches Administrative Enforcement Settlement with Container Manufacturing Ltd.",
+   "parties": [
+    "Container Manufacturing Ltd"
+   ],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "栏目标签：Enforcement（BIS 新闻页）。",
+     "layer": "external",
+     "source": "BIS news-updates"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
+    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+   },
+   "url": "https://www.bis.gov/press-release/bis-reaches-administrative-enforcement-settlement-container-manufacturing-ltd.",
+   "pdf_url": null,
+   "source": {
+    "channel": "BIS news-updates",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260821",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-21",
+   "agency": "OFAC",
+   "doc_no": "20260821",
+   "title": "Issuance of Venezuela-related General Licenses and Associated Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：General Licenses（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260821",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260820",
+   "column": "lists",
+   "action": "",
+   "date": "2026-08-20",
+   "agency": "OFAC",
+   "doc_no": "20260820",
+   "title": "Counter Narcotics, Counter Terrorism, Cuba-related, and Iran-related Designations; Issuance of Russia-related General License; Issuance of Associated Frequently Asked Questions",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260820",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260818",
+   "column": "lists",
+   "action": "",
+   "date": "2026-08-18",
+   "agency": "OFAC",
+   "doc_no": "20260818",
+   "title": "International Criminal Court-related Designations; Venezuela-related Designation; Issuance of International Criminal Court-related General License",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260818",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-16628",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-14",
+   "agency": "BIS",
+   "doc_no": "2026-16628 / 91 FR 52501",
+   "title": "Streamlining Export Controls for Drone Exports",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Bureau of Industry and Security (BIS) is easing export controls on certain Unmanned Aerial Vehicles (UAVs or drones) and related parts, components, accessories, attachments, technology, and software under the Export Administration Regulations (EAR). Specifically, this rule: eliminates wind gust tolerance as a parameter for determining UAV controls under the EAR; increases the threshold for national security controls on certain UAVs from an endurance of 30 minutes to an endurance of 3 hours; makes conforming changes to remove national security controls on software and technology associated with UAVs with an endurance less than 3 hours; maintains military end-use and end-user controls on those lower endurance drones and associated software and technology; clarifies Commerce Control List (CCL) controls for certain UAVs specially designed for military use; and removes national security controls on certain specially designed parts, components, accessories, and attachments for such UAVs as they do not provide any significant military or intelligence capabilities.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 52501；生效 2026-08-13。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/14/2026-16628/streamlining-export-controls-for-drone-exports",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-14/pdf/2026-16628.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "bis-press-release-bis-reaches-administrative-enforcement-settlement-plexon-inc",
+   "column": "enforcement",
+   "action": "",
+   "date": "2026-08-14",
+   "agency": "BIS",
+   "doc_no": "",
+   "title": "BIS Reaches Administrative Enforcement Settlement with Plexon, Inc.",
+   "parties": [
+    "Plexon, Inc"
+   ],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "栏目标签：Enforcement（BIS 新闻页）。",
+     "layer": "external",
+     "source": "BIS news-updates"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
+    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+   },
+   "url": "https://www.bis.gov/press-release/bis-reaches-administrative-enforcement-settlement-plexon-inc.",
+   "pdf_url": null,
+   "source": {
+    "channel": "BIS news-updates",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260812",
+   "column": "enforcement",
+   "action": "",
+   "date": "2026-08-12",
+   "agency": "OFAC",
+   "doc_no": "20260812",
+   "title": "Settlement Agreement between the U.S. Department of the Treasury's Office of Foreign Assets Control and Rice Lake Weighing Systems, Inc.",
+   "parties": [
+    "Rice Lake Weighing Systems, Inc"
+   ],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Enforcement Actions（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    },
+    {
+     "text": "和解/罚款金额：$60,764（详情页正文首个金额数字，口径以原文 PDF 为准）。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260812"
+    },
+    {
+     "text": "原文提及自愿披露（voluntarily self-disclosed）情节，是否构成 VSD 及程度以执法文书为准。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260812"
+    },
+    {
+     "text": "定性：non-egregious。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260812"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
+    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260812",
+   "pdf_url": "https://ofac.treasury.gov/media/936706/download?inline",
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260807",
+   "column": "lists",
+   "action": "",
+   "date": "2026-08-07",
+   "agency": "OFAC",
+   "doc_no": "20260807",
+   "title": "Counter Terrorism and Iran-related Designations; Counter Narcotics Designations Removals; Issuance of Amended Iran-related Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260807",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260806",
+   "column": "lists",
+   "action": "",
+   "date": "2026-08-06",
+   "agency": "OFAC",
+   "doc_no": "20260806",
+   "title": "Cuba-related Designations; Issuance of Cuba-related Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260806",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-16078",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-06",
+   "agency": "BIS",
+   "doc_no": "2026-16078 / 91 FR 50701",
+   "title": "DPAS Directive Allocation Order and Additional Requirements for Recoverable Critical Minerals and Materials",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Bureau of Industry and Security (\"BIS\") is publishing this temporary final rule to restrict the exportation of black mass and tungsten waste and scrap without a license. Specifically, as of August 27, 2026, U.S. persons engaged in the sale of black mass and tungsten waste and scrap must allocate 100 percent of monthly sales to U.S. persons, unless an adjustment or exception is obtained in advance from BIS. This action is taken pursuant to section 101 of the Defense Production Act of 1950, as amended (\"DPA\" or the \"Act\"), the Defense Priorities and Allocations System (15 CFR part 700) and Presidential Determination Pursuant to Section 101 of the Defense Production Act of 1950, as Amended, on Recoverable Critical Minerals and Materials, dated July 30, 2026 (\"DPA Determination on Recoverable CMMs\"), in which the President authorized the Department of Commerce (\"Commerce\") to address the scarcity of recoverable critical minerals and materials (\"CMMs\"). BIS invites the public to submit comments on whether any additional sales requirements are necessary or appropriate to promote the national defense.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 50701；生效 2026-08-27。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/06/2026-16078/dpas-directive-allocation-order-and-additional-requirements-for-recoverable-critical-minerals-and",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-06/pdf/2026-16078.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260805",
+   "column": "lists",
+   "action": "",
+   "date": "2026-08-05",
+   "agency": "OFAC",
+   "doc_no": "20260805",
+   "title": "Counter Terrorism Designations Removals and Update",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260805",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260803",
+   "column": "rules",
+   "action": "",
+   "date": "2026-08-03",
+   "agency": "OFAC",
+   "doc_no": "20260803",
+   "title": "Issuance of Amended Venezuela-related General License and Frequently Asked Question",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：General Licenses（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260803",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-15628",
+   "column": "lists",
+   "action": "added",
+   "date": "2026-08-03",
+   "agency": "DHS/FLETF",
+   "doc_no": "2026-15628 / 91 FR 48913",
+   "title": "Notice Regarding the Uyghur Forced Labor Prevention Act Entity List",
+   "parties": [
+    "Xinjiang Tianhongji Silicon Industry Co., Ltd.)",
+    "Baiyin Nonferrous Group Co., Ltd",
+    "Chacha Food Company, Limited",
+    "Construction Corps and is headquartered in the XUAR. Chalkis engages",
+    "Fujian Septwolves Industry Co., Ltd",
+    "Henan Guorong Electronic Technology Co., Ltd",
+    "Hunan Aihua Group Co., Ltd",
+    "Aihua Group",
+    "Shandong Gold Mining Co., Ltd",
+    "Shandong Weiqiao Pioneering Group Co., Ltd",
+    "Tefeng Pharmaceutical Co., Ltd",
+    "Nuziline'') and Xinjiang Tefeng Pharmaceutical Industry Co., Ltd",
+    "Technology Co., Ltd",
+    "Aluminum'') and Jiangyin Xinren Aluminum Foil Technology Co., Ltd",
+    "Yili Chuanning Biotechnology Co., Ltd",
+    "Xinjiang Tianyun Organic Agriculture Co., Ltd",
+    "Xinjiang Zhonghe Co., Ltd",
+    "Xinjiang Zhongtai Chemical Co., Ltd",
+    "Xinjiang Zhongtai Group Co., Ltd",
+    "Xinjiang Zijin Zinc Industry Co., Ltd",
+    "Zhengzhou Synear Food Co., Ltd",
+    "Zhuhai Apex Microelectronics Co., Ltd",
+    "Zhuhai G&G Digital Technology Co., Ltd",
+    "Zhuhai Ninestar Information Technology Co., Ltd",
+    "Zhuhai Ninestar Management Co., Ltd",
+    "Zhuhai Pantum Electronics Co., Ltd",
+    "Zhuhai Pu-Tech Industrial Co., Ltd",
+    "Zhuhai Seine Printing Technology Co., Ltd",
+    "Alar Nanjiang Carbon New Material Co., Ltd",
+    "Anhui Yaozhiyuan Biotechnology Development Co., Ltd"
+   ],
+   "china_link": {
+    "value": "是",
+    "layer": "external",
+    "basis": "UFLPA 列入通知，法律依据为涉疆强迫劳动条款"
+   },
+   "points": [
+    {
+     "text": "The U.S. Department of Homeland Security (DHS), as the Chair of the Forced Labor Enforcement Task Force (FLETF), announces the publication and availability of the updated Uyghur Forced Labor Prevention Act (UFLPA) Entity List, a consolidated register of the four lists required to be developed and maintained pursuant to the UFLPA, on the DHS UFLPA website. The updated UFLPA Entity List is also published as an appendix to this notice. This update adds forty-three new entities to the UFLPA Entity List, two of which appear on two separate sub-lists. In addition, this update includes technical corrections to two existing entities on the UFLPA Entity List. Details related to the process for revising the UFLPA Entity List are included in this Federal Register notice.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Notice；引文 91 FR 48913；生效 见原文。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    },
+    {
+     "text": "DHS UFLPA 实体清单页同步收录该批 47 个实体（含别名与生效日期，生效 2026-08-03）。",
+     "layer": "external",
+     "source": "https://www.dhs.gov/uflpa-entity-list"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "UFLPA 实体清单主体涉疆产品适用“可反驳推定”禁止进口；进口商须准备清晰且令人信服的供应链证据。相关出口/采购企业应更新供应商筛查并留存溯源文件。",
+    "basis": "UFLPA §3 可反驳推定 + DHS/CBP 进口商指引"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/08/03/2026-15628/notice-regarding-the-uyghur-forced-labor-prevention-act-entity-list",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-03/pdf/2026-15628.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260730",
+   "column": "lists",
+   "action": "",
+   "date": "2026-07-30",
+   "agency": "OFAC",
+   "doc_no": "20260730",
+   "title": "Counter Terrorism Designations; Non-Proliferation Designation Update",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260730",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260729",
+   "column": "lists",
+   "action": "",
+   "date": "2026-07-29",
+   "agency": "OFAC",
+   "doc_no": "20260729",
+   "title": "Iran-related Designations",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260729",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "ofac-20260727",
+   "column": "lists",
+   "action": "",
+   "date": "2026-07-27",
+   "agency": "OFAC",
+   "doc_no": "20260727",
+   "title": "Sanctions List Removals; Sanctions List Updates",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "类型标签：Sanctions List Updates（OFAC recent-actions 列表）。",
+     "layer": "external",
+     "source": "OFAC recent-actions"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
+    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+   },
+   "url": "https://ofac.treasury.gov/recent-actions/20260727",
+   "pdf_url": null,
+   "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "fr-2026-15112",
+   "column": "rules",
+   "action": "",
+   "date": "2026-07-27",
+   "agency": "OFAC",
+   "doc_no": "2026-15112 / 91 FR 46836",
+   "title": "Updating Website and Contact Information, and Authorizations for Payments for Legal Services",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "The Department of the Treasury's Office of Foreign Assets Control (OFAC) is adopting a final rule to update website and contact information in certain parts of the Code of Federal Regulations (CFR). Additionally, OFAC is amending one CFR Part to update general licenses authorizing payments for legal services from funds originating outside the United States to replace the reporting requirement in the general license with a recordkeeping requirement and correcting typographical errors in two CFR Parts. OFAC is also updating its regulations to correct an erroneous cross-reference.",
+     "layer": "external",
+     "source": "Federal Register 摘要"
+    },
+    {
+     "text": "文档类型 Rule；引文 91 FR 46836；生效 2026-07-27。",
+     "layer": "external",
+     "source": "Federal Register 文档元数据"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.federalregister.gov/documents/2026/07/27/2026-15112/updating-website-and-contact-information-and-authorizations-for-payments-for-legal-services",
+   "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-07-27/pdf/2026-15112.pdf",
+   "source": {
+    "channel": "Federal Register API",
+    "retrieved_at": "2026-10-23 02:12"
+   },
+   "first_seen": "2026-10-23 02:13"
+  },
+  {
+   "id": "bis-press-release-department-commerce-streamlines-export-controls-sound-suppressors",
+   "column": "rules",
+   "action": "",
+   "date": "2026-07-27",
+   "agency": "BIS",
+   "doc_no": "",
+   "title": "Department of Commerce Streamlines Export Controls for Sound Suppressors",
+   "parties": [],
+   "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+   },
+   "points": [
+    {
+     "text": "栏目标签：Regulations（BIS 新闻页）。",
+     "layer": "external",
+     "source": "BIS news-updates"
+    }
+   ],
+   "impact": {
+    "layer": "analysis",
+    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
+    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+   },
+   "url": "https://www.bis.gov/press-release/department-commerce-streamlines-export-controls-sound-suppressors",
+   "pdf_url": null,
+   "source": {
+    "channel": "BIS news-updates",
+    "retrieved_at": "2026-10-23 02:13"
+   },
+   "first_seen": "2026-10-23 02:13"
+  }
+ ],
+ "uflpa_snapshot": {
+  "retrieved_at": "2026-10-23 02:13",
+  "sha256": "4dc5e0b2b4f7e39be98c513d33b008b86c65293af3ccaa34a30a52944272d4d4",
+  "count": 205,
+  "entries": [
+   {
+    "name": "Baoding LYSZD Trade and Business Co., Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Hetian Haolin Hair Accessories Co. Ltd.",
+    "aliases": [
+     "Hotan Haolin Hair Accessories",
+     "Hollin Hair Accessories"
+    ],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Hetian Taida Apparel Co., Ltd",
+    "aliases": [
+     "one alias: Hetian TEDA Garment"
+    ],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Hoshine Silicon Industry (Shanshan) Co., Ltd (including one alias: Hesheng Silicon Industry (Shanshan) Co.) and subsidiaries",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Xinjiang Daqo New Energy, Co. Ltd",
+    "aliases": [
+     "Xinjiang Great New Energy Co., Ltd",
+     "Xinjiang Daxin Energy Co., Ltd",
+     "Xinjiang Daqin Energy Co., Ltd"
+    ],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Xinjiang East Hope Nonferrous Metals Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Xinjiang Goens Energy Technology Co., Ltd.",
+    "aliases": [
+     "Xinjiang GCL New Energy Material Technology Co., Ltd",
+     "Xinjiang GCL New Energy Materials Technology Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Xinjiang Junggar Cotton and Linen Co., Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Xinjiang Production and Construction Corps (including three aliases: XPCC; Xinjiang Corps; and Bingtuan) and its subordinate and affiliated entities",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(i)"
+   },
+   {
+    "name": "Aksu Huafu Color Spinning Co., Ltd.",
+    "aliases": [
+     "Aksu Huafu Textiles Co., Ltd",
+     "Akesu Huafu",
+     "Aksu Huafu Dyed Melange Yarn",
+     "Akesu Huafu Melange Yarn Co., Ltd"
+    ],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Anhui Xinya New Materials Co., Ltd.",
+    "aliases": [
+     "Chaohu Youngor Color Spinning Technology Co., Ltd",
+     "Chaohu Xinya Color Spinning Technology Co., Ltd"
+    ],
+    "effective": "2023-12-11",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Baowu Group Xinjiang Bayi Iron and Steel Co., Ltd.",
+    "aliases": [
+     "Xinjiang Bayi Iron",
+     "Steel Co. Ltd",
+     "Baosteel Group Xinjiang Bayi Iron",
+     "Steel Co., Ltd",
+     "Bayi Iron",
+     "Steel"
+    ],
+    "effective": "2024-10-03",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Camel Group Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-08-02",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Changhong Meiling Co., Ltd.",
+    "aliases": [
+     "Hefei Meiling Co., Ltd",
+     "Hefei Meiling Group Holdings Limited"
+    ],
+    "effective": "2024-10-03",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "COFCO Sugar Holdings Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-12-11",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Dongguan Oasis Shoes Co., Ltd.",
+    "aliases": [
+     "Dongguan Oasis Shoe Industry Co. Ltd",
+     "Dongguan Luzhou Shoes Co., Ltd",
+     "Dongguan Lvzhou Shoes Co., Ltd"
+    ],
+    "effective": "2024-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Geehy Semiconductor Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Hefei Bitland Information Technology Co., Ltd.",
+    "aliases": [
+     "Anhui Hefei Baolongda Information Technology",
+     "Hefei Baolongda Information Technology Co., Ltd",
+     "Hefei Bitland Optoelectronic Technology Co., Ltd"
+    ],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Kashgar Construction Engineering (Group) Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-08-09",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "KTK Group",
+    "aliases": [
+     "Jiangsu Jinchuang Group",
+     "Jiangsu Jinchuang Holding Group",
+     "KTK Holding"
+    ],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Lop County Hair Product Industrial Park",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Lop County Meixin Hair Products Co., Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Nanjing Synergy Textiles Co., Ltd.",
+    "aliases": [
+     "Nanjing Xinyi Cotton Textile Printing",
+     "Dyeing",
+     "Nanjing Xinyi Cotton Textile"
+    ],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Ninestar Corporation",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "No. 4 Vocation Skills Education Training Center (VSETC)",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Shandong Meijia Group Co., Ltd.",
+    "aliases": [
+     "Rizhao Meijia Group"
+    ],
+    "effective": "2024-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Sichuan Jingweida Technology Group Co., Ltd.",
+    "aliases": [
+     "Sichuan Mianyang Jingweida Technology Co., Ltd",
+     "JWD Technology",
+     "formerly known as Mianyang High-tech Zone Jingweida Technology Co., Ltd"
+    ],
+    "effective": "2023-12-11",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Tanyuan Technology Co. Ltd.",
+    "aliases": [
+     "Carbon Yuan Technology",
+     "Changzhou Carbon Yuan Technology Development",
+     "Carbon Element Technology",
+     "Jiangsu Carbon Element Technology",
+     "Tanyuan Technology Development"
+    ],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Western Gold Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Western Gold Hami Gold Mine Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Western Gold Karamay Hatu Gold Mine Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Communications Construction Group Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Energy (Group) Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Energy (Group) Real Estate Co., Ltd",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Habahe Ashele Copper Co., Ltd.",
+    "aliases": [
+     "Ashele Copper"
+    ],
+    "effective": "2024-08-09",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Jinbao Mining Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Nonferrous Metals Industry Group Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Nuziline Bio-Pharmaceutical Co., Ltd.",
+    "aliases": [
+     "Xinjiang Xinziyuan Biopharmaceutical Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Production and Construction Corps (XPCC) and its subordinate and affiliated entities",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Shenhuo Coal and Electricity Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Tengxiang Magnesium Products Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-08-09",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Kuitun Yadasi Textile Co., Ltd.",
+    "aliases": [
+     "Kuitun Yadaxi Textile Co., Ltd",
+     "formerly known as Xinjiang Tianmian Foundation Textile Co., Ltd",
+     "Xinjiang Tianhong Jiye Textile Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Tianshan Wool Textile Co. Ltd.",
+    "aliases": [],
+    "effective": "2023-09-27",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Tianyun Organic Agriculture Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Zhonghe Co., Ltd.",
+    "aliases": [
+     "Xinjiang Joinworld Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Zhongtai Chemical Co. Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Zhongtai Group Co. Ltd",
+    "aliases": [],
+    "effective": "2023-09-27",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Xinjiang Zijin Zinc Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Zhengzhou Synear Food Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Zhuhai Apex Microelectronics Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Zhuhai G&G Digital Technology Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Zhuhai Ninestar Information Technology Co. Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Zhuhai Ninestar Management Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Zhuhai Pantum Electronics Co. Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Zhuhai Pu-Tech Industrial Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Zhuhai Seine Printing Technology Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-06-12",
+    "section": "§2(d)(2)(B)(ii)"
+   },
+   {
+    "name": "Aksu Aodu Sugar Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Aksu Biaoxin Fiber Co., Ltd.",
+    "aliases": [
+     "Aksu Shangheng Fiber Co., Ltd"
+    ],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Aksu Huafu Color Spinning Co., Ltd.",
+    "aliases": [
+     "Aksu Huafu Textiles Co., Ltd",
+     "Akesu Huafu",
+     "Aksu Huafu Dyed Melange Yarn",
+     "Akesu Huafu Melange Yarn Co., Ltd"
+    ],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Alar Nanjiang Carbon New Material Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Anhui Yaozhiyuan Biotechnology Development Co., Ltd.",
+    "aliases": [
+     "Anhui Yaozhiyuan Chinese Herbal Medicine Co., Ltd",
+     "Anhui Yaozhiyuan Chinese Medicinal Materials Co., Ltd",
+     "Anhui Yaozhiyuan Biological Technology Development Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Annan Canned Food Co., Ltd.",
+    "aliases": [
+     "Nanling County Annan Canned Food Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Awati Huafu Textile Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Baiyin Nonferrous Group Co., Ltd.",
+    "aliases": [
+     "Baiyin Nonferrous",
+     "BNMC",
+     "formerly known as Baiyin Nonferrous Metals Company"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Baoding LYSZD Trade and Business Co., Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Baoji Jucheng Titanium Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Baotou Meike Silicon Energy Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Binzhou Chinatex Yintai Industrial Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Century Sunshine Group Holdings, Ltd.",
+    "aliases": [],
+    "effective": "2024-08-09",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Chacha Food Company, Limited",
+    "aliases": [
+     "Chacha Food Co., Ltd",
+     "Qia Qia Food",
+     "Chia Chia Food Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Chalkis Health Industry Co., Ltd.",
+    "aliases": [
+     "Xinjiang Chalkis Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Changji Esquel Textile Co., Ltd.",
+    "aliases": [
+     "Changji Yida Textile Co., Ltd"
+    ],
+    "effective": "2024-11-01",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Changzhou Guanghui Food Ingredients Co., Ltd.",
+    "aliases": [
+     "GSweet",
+     "Changzhou Guanghui Food Additive Co., Ltd",
+     "Changzhou Guanghui Food Technology Co., Ltd",
+     "formerly known as Changzhou Guanghui Biotechnology Co., Ltd"
+    ],
+    "effective": "2024-10-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Chenguang Biotech Group Co., Ltd.",
+    "aliases": [],
+    "effective": "2023-08-02",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Chenguang Biotechnology Group Yanqi Co. Ltd.",
+    "aliases": [],
+    "effective": "2023-08-02",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "China Cotton Group Henan Logistics Park Co., Ltd., Xinye Branch",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "China Cotton Group Nangong Hongtai Cotton Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "China Cotton Group Shandong Logistics Park Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "China Cotton Group Xinjiang Cotton Co.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Dalian Sunspeed Foods Co., Ltd.",
+    "aliases": [
+     "Dalian Shengchi International Trade Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Donghai JA Solar Technology Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Esquel Group",
+    "aliases": [
+     "Esquel China Holdings Limited"
+    ],
+    "effective": "2024-11-01",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Fujian Minlong Warehousing Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Fujian Septwolves Industry Co., Ltd.",
+    "aliases": [
+     "Septwolves"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Gansu Yasheng International Trading Co., Ltd.",
+    "aliases": [
+     "Gansu Yasheng International Trade Co., Ltd",
+     "Yasheng International Trade",
+     "formerly known as Gansu Yasheng International Trade Group Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Guangdong Esquel Textile Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-01",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Guangxi Kelun Pharmaceutical Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hangzhou Union Biotechnology Co., Ltd.",
+    "aliases": [
+     "Hangzhou Youer Biotechnology Co., Ltd",
+     "Youer Biotech",
+     "Union Biotech"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hebei Suguo International Trade Co., Ltd.",
+    "aliases": [
+     "Suguo International"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hebei Tomato Industry Co., Ltd.",
+    "aliases": [
+     "Hebei Temeite Industrial Group Co., Ltd",
+     "formerly known as Hebei Temeite International Trade Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hefei Bitland Information Technology Co. Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Henan Guorong Electronic Technology Co., Ltd.",
+    "aliases": [
+     "Goroe",
+     "Guorong Shares"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Henan Tongzhou Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Henan Yumian Group Industrial Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Henan Yumian Logistics Co., Ltd.",
+    "aliases": [
+     "841 Cotton Transfer Warehouse"
+    ],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hengshui Cotton and Linen Corporation Reserve Library",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hetian Haolin Hair Accessories Co. Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hetian Taida Apparel Co., Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Heze Cotton and Linen Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Heze Cotton and Linen Economic and Trade Development Corporation",
+    "aliases": [
+     "Heze Cotton",
+     "Linen Trading Development General Company"
+    ],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hongyuan Green Energy Co., Ltd.",
+    "aliases": [
+     "HY Solar",
+     "Hoyuan Green Energy Co. Ltd",
+     "formerly known as Wuxi Shangji CNC Co., Ltd",
+     "Wuxi Shangji Automation Co., Ltd",
+     "Wuxi Shangji Grinding Machine Co., Ltd"
+    ],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hongyuan New Materials (Baotou) Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hoshine Silicon Industry (Shanshan) Co., Ltd., and Subsidiaries",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Huafu Fashion Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hunan Aihua Group Co., Ltd.",
+    "aliases": [
+     "Aihua Group",
+     "AiSHi"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Huangmei Xiaochi Yinfeng Cotton",
+    "aliases": [
+     "Hubei Provincial Cotton Corporation's Xiaochi Transfer Reserve"
+    ],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hubei Jingtian Cotton Industry Group Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hubei Qirun Investment Development Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hubei Yinfeng Cotton Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hubei Yinfeng Warehousing and Logistics Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Hunan Nanmo Biotechnology Co., Ltd.",
+    "aliases": [
+     "Hunan Nanmomo Technology Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Huyanghe Huafu Hongsheng Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Inner Mongolia Qileyuan Food Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Inner Mongolia Xuanda Food Co., Ltd.",
+    "aliases": [
+     "Xuanda Food",
+     "formerly known as Wuyuan County Xuanda Cereals, Oils",
+     "Foods Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jiangsu Meike Solar Technology Co., Ltd.",
+    "aliases": [
+     "Meike Co",
+     "formerly known as Jiangsu Gaozhao New Energy Development Co., Ltd"
+    ],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jiangsu Tiangong Technology Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jiangsu Yinhai Nongjiale Storage Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jiangsu Yinlong Warehousing and Logistics Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jiangyin Lianyun Co. Ltd.",
+    "aliases": [
+     "Jiangyin Intermodal Transport Co",
+     "Jiangyin United Transport Co"
+    ],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jiangyin Xiefeng Cotton and Linen Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jiangyin Xinren Aluminum Foil Technology Co., Ltd.",
+    "aliases": [
+     "Xinren Aluminum Foil"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jiangyin Xinren Aluminum Technology Co., Ltd.",
+    "aliases": [
+     "Xinren Aluminum"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jinan Haihong International Trade Co., Ltd.",
+    "aliases": [
+     "Jinan Haifang Trading Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Jining Pengjie Trading Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Junan Jinsheng Import & Export Co., Ltd.",
+    "aliases": [
+     "Junan County Jinsheng Import",
+     "Export Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Juye Cotton and Linen Station of the Heze Cotton and Linen Corporation",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Kashgar Aodu Sugar Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Kashgar Jiangguoguo Agricultural Technology Co., Ltd.",
+    "aliases": [
+     "Jiangguoguo"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Kingherbs Limited",
+    "aliases": [
+     "Changsha Jincao Biotechnology Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Kuche Zongheng Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Kuitun Jinfu Textile Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Lanxi Huachu Logistics Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Linxi County Fangpei Cotton Buying and Selling Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Lop County Hair Product Industrial Park",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Lop County Meixin Hair Products Co., Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Nanjing Lilai Pharmaceutical Technology Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Nanyang Hongmian Logistics Co., Ltd.",
+    "aliases": [
+     "Nanyang Red Cotton Logistics Co., Ltd"
+    ],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Ningbo Huafu Donghao Industrial Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Ninghai Huafu Textile Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "No. 4 Vocation Skills Education Training Center (VSETC)",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Qingdao Vital Nutraceutical Ingredients BioScience Co., Ltd.",
+    "aliases": [
+     "Qingdao Weiyikang Biotechnology Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Rare Earth Magnesium Technology Group Holdings, Ltd.",
+    "aliases": [],
+    "effective": "2024-08-09",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "SDIC Xinjiang Lithium Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "SDIC Xinjiang Luobupo Potash Co., Ltd.",
+    "aliases": [
+     "SDIC Xinjiang Lop Nur Potash Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shandong Gold Mining Co., Ltd.",
+    "aliases": [
+     "Shandong Gold"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shandong Gold Smelting Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shandong Weiqiao Pioneering Group Co., Ltd.",
+    "aliases": [
+     "Shandong Weiqiao Chuangye Group Co., Ltd",
+     "Shandong Weiqiao Venture Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shandong Weiqiao Textile Technology Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shanghai JUMP Machinery & Technology Co., Ltd.",
+    "aliases": [
+     "Shanghai Jiapai Machinery Technology Co., Ltd",
+     "formerly known as Shanghai Chituma Food Machinery Technology Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shaya Yinhua Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shihezi Huafu Hongfeng Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shihezi Huafu Hongsheng Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shihezi Standard Fiber Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shihezi Xinren Battery Aluminum Foil Technology Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Shuangliang Silicon Materials (Baotou) Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Sichuan Yuan’an Pharmaceutical Co., Ltd.",
+    "aliases": [
+     "Sichuan Yuanan Pharmaceutical Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Taiyuan Weishan International Economic Business Co., Ltd.",
+    "aliases": [
+     "Taiyuan Weishan International Trade Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "TBEA Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Tefeng Pharmaceutical Co., Ltd.",
+    "aliases": [
+     "Tefeng Pharmaceutical",
+     "formerly known as Tefeng Health Technology Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "The TNN Development Limited",
+    "aliases": [
+     "Dehui (Dalian) International Trade Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Tianjin Dunhe International Trade Co., Ltd.",
+    "aliases": [
+     "Dunhe Foods"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Tianjin Kunyu International Co., Ltd.",
+    "aliases": [
+     "China Kunyu Industrial Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Tianjin Tianwei Food Co., Ltd.",
+    "aliases": [
+     "Tianjin Sanhe Fruit",
+     "Vegetable Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Tianshan Aluminum Group Co., Ltd.",
+    "aliases": [
+     "Shimge Pump Industry Group Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Turpan Esquel Textile Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-01",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Weifang Alice Food Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Wugang Zhongchang Logistics Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Baiyin Mining Development Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Biochemical Pharmaceutical Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Cotton Industry Group Jiashi Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Cotton Industry Group Yuepu Lake Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Daqo New Energy Co., Ltd.",
+    "aliases": [
+     "Xinjiang Great New Energy Co., Ltd",
+     "Xinjiang Daxin Energy Co., Ltd",
+     "Xinjiang Daqin Energy Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Habahe Ashele Copper Co., Ltd.",
+    "aliases": [
+     "Ashele Copper"
+    ],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Huafu Color Spinning Group Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Huafu Cotton Industry Group Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Huafu Hengfeng Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Huafu Hongfeng Agricultural Development Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Huafu Textile Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Huashidan Pharmaceutical Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Jinchuan Mining Industry Co., Ltd.",
+    "aliases": [
+     "Xinjiang Jinchuan Company"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Junggar Cotton and Linen Co., Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Liufu Textile Industrial Park Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Nuziline Bio-Pharmaceutical Co., Ltd.",
+    "aliases": [
+     "Xinjiang Xinziyuan Biopharmaceutical Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Production and Construction Corps (XPCC) and its subordinate and affiliated entities",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Production and Construction Corps Eighth Division Tianshan Aluminum Co., Ltd.",
+    "aliases": [
+     "Tian Aluminum Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Shengfu Cotton Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tefeng Pharmaceutical Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tengxiang Magnesium Products Co., Ltd.",
+    "aliases": [],
+    "effective": "2024-08-09",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tianchi Energy Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tianfu Cotton Supply Chain Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tianhong Xinba Cotton Industry Co., Ltd.",
+    "aliases": [
+     "Xinjiang Tianhong New Eight Cotton Industry Co., Ltd"
+    ],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tianhongji Technology Co., Ltd.",
+    "aliases": [
+     "Xinjiang Tianhongji Silicon Industry Co., Ltd"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tianshan Snow Lotus Pharmaceutical Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tianshan Yingda Carbon Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tianyun Organic Agriculture Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Tianzhan New Material Technology Co., Ltd.",
+    "aliases": [],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Yinlong Agricultural International Cooperation Co.",
+    "aliases": [],
+    "effective": "2024-05-17",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Zefu Cotton Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Zijin Nonferrous Metals Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Xinjiang Zijin Zinc Industry Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Yili Chuanning Biotechnology Co., Ltd.",
+    "aliases": [
+     "Twinings Bio",
+     "CN BIO"
+    ],
+    "effective": "2026-08-03",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Yili Zhuowan Garment Manufacturing Co., Ltd.",
+    "aliases": [],
+    "effective": "2022-06-21",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Zhangzhou Hang Fat Import & Export Co., Ltd.",
+    "aliases": [
+     "Zhangzhou Hengfa Import",
+     "Export Co., Ltd"
+    ],
+    "effective": "2024-11-25",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Zhejiang Weixin Trading Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   },
+   {
+    "name": "Zijin Mining Group Co., Ltd.",
+    "aliases": [],
+    "effective": "2025-01-15",
+    "section": "§2(d)(2)(B)(v)"
+   }
+  ]
+ },
+ "watch": {
+  "list": "OFAC SDN",
+  "list_version": "2026-10-20",
+  "retrieved_at": "2026-10-23 02:33",
+  "sha256": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
+  "entry_count": 19471,
+  "subject_count": 171,
+  "results": {
+   "no_hit": 171,
+   "name_match_only": 0,
+   "confirmed": 0
+  },
+  "matches": [],
+  "method": "名称归一（大小写/标点/法律后缀/括号注记）+ 别名表精确匹配；confirmed 需名称+独立标识（地址/证件/国别）一致，脚本数据侧无独立标识，confirmed 只能由人工核验置位。"
+ }
+}

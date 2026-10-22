@@ -433,51 +433,14 @@
     return h;
   }
 
-  /* ═════════ 出口管制：执法案例 / 清单 / 规则 三栏目 + 观察名单比对（原 SDN 筛查并入） ═════════ */
+  /* ═════════ 出口管制：页面体在 assets/page_ex.js（window.render_ex / window.bind_ex），此处仅做路由分发与兜底 ═════════ */
   var EXC = { col: "enforcement" };
   var EX_COLS = [["enforcement", "执法案例更新"], ["lists", "清单更新"], ["rules", "规则更新"], ["watch", "观察名单比对"]];
-  function vExport() {
-    var h = '<div class="ph"><h1>出口管制</h1><span class="sub">本页回答：BIS / OFAC / UFLPA 最近有哪些执法案例、清单与规则更新；观察名单主体与制裁名单比对是否有命中</span></div>';
-    h += '<div class="panel"><div class="panel-h"><h2>口径说明</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
-      + "来源：美国 BIS（出口管制执法与实体清单）、OFAC（制裁名单与执法）、UFLPA 相关公开文件；分「执法案例更新 / 清单更新 / 规则更新」三栏目。"
-      + "原 SDN 筛查并入本页为「观察名单比对」子视图：<b>同名≠命中</b>，仅名称相同而无地址/证件/国籍等佐证时只记「名称相似」。"
-      + "本页与其他分页面的数据文件、统计口径<b>互不混用</b>。</div></div>";
-    h += '<div class="subnav wrap" style="padding:0;margin-bottom:16px">'
-      + EX_COLS.map(function (x) {
-        return '<a href="javascript:;" data-exc="' + x[0] + '"' + (EXC.col === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
-      }).join("") + "</div><div id=\"exbody\"></div>";
-    return h;
-  }
-  function exBody() {
-    var box = $("exbody"); if (!box) return;
-    if (EXC.col !== "watch") {
-      var nm = { enforcement: "执法案例更新", lists: "清单更新", rules: "规则更新" }[EXC.col];
-      var src = { enforcement: "BIS 执法行动 / OFAC 执法案例 / UFLPA 执法", lists: "实体清单 / SDN / 未经核实清单 / UFLPA 实体清单", rules: "EAR 规则修订 / OFAC 法规与通用许可 / UFLPA 指引" }[EXC.col];
-      box.innerHTML = '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
-        + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">' + nm + " · 数据采集尚未上线</div>"
-        + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">覆盖范围：' + src + "。<br/>该栏目采集尚未接入，本栏暂无任何数据，不展示推测或占位内容。</div></div></div>";
-      return;
-    }
-    // 观察名单比对（真实数据：监测批次中的 OFAC·SDN 比对记录）
-    var sdnB = B.filter(function (b) { return b.per_source && b.per_source["OFAC·SDN"]; });
-    var subjects = unique(EVX.map(function (x) { return x.subject; }));
-    var watchN = ((DB.watch && DB.watch.hk) || []).length + ((DB.watch && DB.watch.us) || []).length;
-    var hits = sdnB.reduce(function (a, b) { return a + (b.per_source["OFAC·SDN"].kept || 0); }, 0);
-    box.innerHTML = '<div class="statstrip">'
-      + statCard(sdnB.length ? sdnB[0].per_source["OFAC·SDN"].scanned : "—", "最近批次比对条目", "OFAC SDN 全量名单 · " + (sdnB[0] ? esc(sdnB[0].id) : "—"))
-      + statCard(subjects.length + watchN, "受检主体", "事件主体 " + subjects.length + " + 观察名单 " + watchN)
-      + statCard(hits, "命中（近 " + sdnB.length + " 批）", "kept=0 即无疑似命中记录")
-      + "</div>"
-      + '<div class="panel"><div class="panel-h"><h2>比对方法</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
-      + "OFAC SDN 全量名单与在册公司 / 合作方<b>词级匹配</b>，每交易日比对。"
-      + "<b>同名≠命中</b>：仅名称相同而无地址 / 证件号 / 国籍等佐证时只记「名称相似 · 待人工核验」，不写「命中」。"
-      + "比对不产生披露条目；命中将记入异常记录并在相关主体档案标注。</div></div>"
-      + '<div class="panel"><div class="panel-h"><h2>各批次比对记录</h2><span class="note">来自监测批次真实记录</span></div>'
-      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>批次</th><th>时间</th><th>比对条目</th><th>命中</th></tr></thead><tbody>'
-      + sdnB.map(function (b) {
-        var p = b.per_source["OFAC·SDN"];
-        return '<tr><td class="mono">' + esc(b.id) + '</td><td class="mono">' + esc(b.time) + '</td><td class="mono">' + p.scanned + '</td><td class="mono">' + (p.kept || 0) + "</td></tr>";
-      }).join("") + "</tbody></table></div></div>";
+  function vExportFallback() {
+    return '<div class="ph"><h1>出口管制</h1><span class="sub">BIS / OFAC / UFLPA 执法、清单与规则更新；观察名单比对</span></div>'
+      + '<div class="panel"><div class="panel-b" style="padding:30px;text-align:center">'
+      + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">页面模块未加载</div>'
+      + '<div class="note">assets/page_ex.js 未就绪，请检查构建。</div></div></div>';
   }
 
   /* ═════════ 企业档案：只列事件链条目，不复制摘要 ═════════ */
@@ -736,7 +699,8 @@
     else if (name === "hk-market") { section = "hk"; sub = ""; html = vMarket("hk"); }
     else if (name === "export") {
       section = "export"; EXC.col = qs.get("col") || "enforcement";
-      sub = "#/export?col=" + EXC.col; html = vExport();
+      sub = "#/export?col=" + EXC.col;
+      html = window.render_ex ? window.render_ex(EXC.col, qs) : vExportFallback();
     }
     /* ── 旧路由 301 式重定向 ── */
     else if (name === "market") { redirectTo("#/us"); return; }
@@ -779,7 +743,7 @@
     window.scrollTo(0, 0);
     // 绑定
     if (name === "events") { bindEvents(); evRows(); }
-    if (name === "export") { bindExc(); exBody(); }
+    if (name === "export" && window.bind_ex) { window.bind_ex(view, EXC.col, qs); }
     if (name === "cos") { cosRows(""); var ci = $("coq"); if (ci) ci.addEventListener("input", function (e) { cosRows(e.target.value); }); }
     if (name === "topics") { document.querySelectorAll("[data-tpv]").forEach(function (a) { a.addEventListener("click", function () { TPV.v = a.getAttribute("data-tpv"); view.innerHTML = vTopics(); routeBindTopics(); tpBody(); }); }); tpBody(); }
     if (name === "about") { document.querySelectorAll("[data-abt]").forEach(function (a) { a.addEventListener("click", function () { AB.tab = a.getAttribute("data-abt"); view.innerHTML = vAbout(); routeBindAbout(); abBody(); bindExport(); }); }); abBody(); bindExport(); }
@@ -787,16 +751,6 @@
       var ta = $("pnote");
       if (ta) ta.addEventListener("change", function () { ANN.notes[ta.getAttribute("data-note")] = ta.value; saveAnn(); });
     }
-  }
-  function bindExc() {
-    document.querySelectorAll("[data-exc]").forEach(function (a) {
-      a.addEventListener("click", function () {
-        EXC.col = a.getAttribute("data-exc");
-        history.replaceState(null, "", "#/export?col=" + EXC.col);
-        setSub("export", "#/export?col=" + EXC.col);
-        view.innerHTML = vExport(); bindExc(); exBody();
-      });
-    });
   }
   function routeBindTopics() {
     document.querySelectorAll("[data-tpv]").forEach(function (a) {
