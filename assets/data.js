@@ -2772,6 +2772,45 @@ window.DB = {
  ],
  "batches": [
   {
+   "id": "B-20261022-1600",
+   "time": "2026-10-22 16:00",
+   "window": "巨潮2026-10-22当日 / HKEX增量（NEWS_ID去重）/ SEC增量（accession去重）/ SDN全量",
+   "source": "三渠道＋OFAC（巨潮·披露易·EDGAR·SDN）",
+   "scanned": 19543,
+   "kept": 0,
+   "excluded": 7,
+   "failed": 0,
+   "per_source": {
+    "A股·巨潮": {
+     "scanned": 7,
+     "kept": 0,
+     "excluded": 7,
+     "failed": 0
+    },
+    "港股·披露易": {
+     "scanned": 30,
+     "kept": 0,
+     "excluded": 0,
+     "failed": 0
+    },
+    "美股·EDGAR": {
+     "scanned": 35,
+     "kept": 0,
+     "excluded": 0,
+     "failed": 0
+    },
+    "OFAC·SDN": {
+     "scanned": 19471,
+     "kept": 0,
+     "excluded": 0,
+     "failed": 0
+    }
+   },
+   "items": [],
+   "trend": "本时段无新增。16:00盘中批次三渠道增量扫描：巨潮当日窗口34关键词命中7条，与collected清单比对全部为已处理条目（贵州轮胎摩洛哥子公司注册登记公告08:00已收录；中材国际银行间发债误匹配、中创智领翌日披露报表、工商银行/农业银行H股公告、海信家电H股认购理财、华泰证券董事会日期通告6条已于08:00/10:00批次剔除），无新披露进入窗口；港股披露易30家观察名单NEWS_ID去重后0新增、0错误；SEC以35家中概股CIK主键拉取submissions，accessionNumber去重后0新增、0错误；OFAC SDN 19,471条sha与上批一致无更新，观察名单词级比对0命中。",
+   "note": "16:00盘中批次，start=当日（10-22）。检索机制：巨潮按web_config.json的34个关键词全量扫描当日窗口，命中7条全部为collected清单已处理条目，本批不重复记账；HKEX经titleSearchServlet逐一代码拉取30家观察名单，NEWS_ID主键去重后0新增；SEC经data.sec.gov submissions API按35家CIK主键拉取6-K/20-F/10-K/10-Q/8-K/F-1/F-3/424B等表格，accessionNumber主键去重后0新增（美东凌晨时段，非披露高峰）；OFAC SDN全量下载19,471条，sha=071ffb…e58d与上批一致无更新，与在册公司全称/简称及主要境外合作方词级比对0命中。网络无失败、无重试。"
+  },
+  {
    "id": "B-20261022-1400",
    "time": "2026-10-22 14:00",
    "window": "巨潮2026-10-22当日 / HKEX增量（NEWS_ID去重）/ SEC增量（accession去重）/ SDN全量",
@@ -19914,7 +19953,7 @@ window.DB = {
    "count": 49,
    "latest": "2026-10-22",
    "watch": null,
-   "lastBatch": "B-20261022-1400 · 2026-10-22 14:00",
+   "lastBatch": "B-20261022-1600 · 2026-10-22 16:00",
    "note": "主渠道；排除制度文件、调研记录等噪声类别"
   },
   {
@@ -19928,7 +19967,7 @@ window.DB = {
    "count": 9,
    "latest": "2026-10-21",
    "watch": 30,
-   "lastBatch": "B-20261022-1400 · 2026-10-22 14:00",
+   "lastBatch": "B-20261022-1600 · 2026-10-22 16:00",
    "note": "长期停牌证券接口不返回结果，可手动导入兜底"
   },
   {
@@ -19942,7 +19981,7 @@ window.DB = {
    "count": 5,
    "latest": "2026-10-16",
    "watch": 35,
-   "lastBatch": "B-20261022-1400 · 2026-10-22 14:00",
+   "lastBatch": "B-20261022-1600 · 2026-10-22 16:00",
    "note": "以公司名单为主键，不用关键词全文检索"
   },
   {
@@ -19956,7 +19995,7 @@ window.DB = {
    "count": 0,
    "latest": "",
    "watch": null,
-   "lastBatch": "B-20261022-1400 · 2026-10-22 14:00",
+   "lastBatch": "B-20261022-1600 · 2026-10-22 16:00",
    "note": "无统一接口，仅作线索来源"
   },
   {
@@ -19970,7 +20009,7 @@ window.DB = {
    "count": 0,
    "latest": "",
    "watch": null,
-   "lastBatch": "B-20261022-1400 · 2026-10-22 14:00",
+   "lastBatch": "B-20261022-1600 · 2026-10-22 16:00",
    "note": "命中记入异常记录并评估对既有案例影响，不产生披露条目"
   }
  ],
@@ -20282,5 +20321,5 @@ window.DB = {
   "cursor": "2026-10-02",
   "done": false
  },
- "synced": "2026-10-22 14:12"
+ "synced": "2026-10-22 16:14"
 };
