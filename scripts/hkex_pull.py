@@ -5,7 +5,9 @@
 接口：titleSearchServlet.do（公告检索）+ prefix.do（代码→内部 stockId 解析）
 去重：NEWS_ID（state/hkex_seen.json）
 游标：每代码记录最新公告日期；默认回看 --days 天兜底重叠
-用法：python3 hkex_pull.py --days 30 --out ../state/raw_hkex_YYYYMMDD.json
+用法：python3 hkex_pull.py [--date YYYY-MM-DD] [--backfill-days N] [--days 30] [--out PATH]
+  --date           只扫该日（北京时间当日披露，fromDate=toDate=该日）
+  --backfill-days  回溯重叠窗口天数（默认 20；--days 为旧别名，仍可单独使用）
 """
 import json, os, sys, time, urllib.request, urllib.parse, datetime, argparse, html, re
 
@@ -59,9 +61,12 @@ def cat_of(long_text):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--days", type=int, default=30)
+    ap.add_argument("--date", default="", help="只扫该日 YYYY-MM-DD（北京时间）")
+    ap.add_argument("--backfill-days", type=int, default=20, help="回溯重叠窗口天数")
+    ap.add_argument("--days", type=int, default=0, help="旧别名；>0 时覆盖 --backfill-days")
     ap.add_argument("--out", default="")
     a = ap.parse_args()
+    days = a.days if a.days > 0 else a.backfill_days
 
     watch = json.load(open(os.path.join(STATE, "watchlist_hk.json"), encoding="utf-8"))
     ids_p = os.path.join(STATE, "hkex_ids.json")
@@ -72,7 +77,11 @@ def main():
     cursor = seen.get("cursor", {})
 
     today = datetime.date.today()
-    since_global = today - datetime.timedelta(days=a.days)
+    if a.date:
+        run_date = datetime.date.fromisoformat(a.date)
+    else:
+        run_date = today
+    since_global = run_date - datetime.timedelta(days=0 if a.date else days)
     out, errors = [], []
     for w in watch:
         code = w["code"]
@@ -91,11 +100,15 @@ def main():
         sid = ids.get(code)
         if not sid:
             continue
-        frm = cursor.get(code) or since_global.strftime("%Y%m%d")
-        frm = min(frm, since_global.strftime("%Y%m%d"))
+        if a.date:
+            frm = to = run_date.strftime("%Y%m%d")  # 只扫该日北京时间 00:00–24:00
+        else:
+            frm = cursor.get(code) or since_global.strftime("%Y%m%d")
+            frm = min(frm, since_global.strftime("%Y%m%d"))
+            to = today.strftime("%Y%m%d")
         q = {"sortDir": "0", "sortByOptions": "DateTime", "category": "0", "market": "SEHK",
              "stockId": sid, "documentType": "-1", "fromDate": frm,
-             "toDate": today.strftime("%Y%m%d"), "title": "", "rowRange": "100", "lang": "zh"}
+             "toDate": to, "title": "", "rowRange": "100", "lang": "zh"}
         try:
             data = json.loads(fetch(SERVLET + "?" + urllib.parse.urlencode(q)))
             recs = json.loads(data.get("result") or "[]")

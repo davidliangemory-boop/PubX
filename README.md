@@ -23,7 +23,7 @@ external（外部事实，附来源）/ analysis（系统分析，写依据）�
 ## 数据链路（保留原有自动更新发布）
 
 ```
-定时任务（代理平台，每交易日 08:00–18:00 每 2 小时）
+定时任务（代理平台，每交易日 1 个日批次，批次号 D-YYYYMMDD；同日多轮合并展示）
   → A股·巨潮：34个出海关键词+10项排除词，PDF 正文解析
   → 港股·披露易：30只观察名单按股拉取（NEWS_ID 去重，无需密钥）
   → 美股·EDGAR：35家中概股名单为主键（CIK/accessionNumber 去重，不用关键词检索）
@@ -39,6 +39,16 @@ external（外部事实，附来源）/ analysis（系统分析，写依据）�
   更新游标 → 推送部署；游标到 2020-01-01 自动停止。回溯条目与前向收录同一库同一页面，
   批次以 B-BF- 前缀标识。
 ```
+
+**批次命名**（docs/schema.md §6）：日批次 `D-YYYYMMDD`（同一自然日多轮运行合并进同一批次）；
+回溯批次 `B-YYYYMMDD`（存量旧记录 `B-BF-*` 在展示层归并为 B- 系列）；出口管制周批 `W-YYYYWW`。
+首页「本次更新带」与批次简报按日批次展示，回溯补入单列；存量 `B-YYYYMMDD-HHMM` 旧批次
+不改原始记录，由 `scripts/build_data.py` 聚合为日批次视图（`batches_daily`）。
+采集脚本统一支持 `--date YYYY-MM-DD`（扫描该日北京时间 00:00–24:00）与
+`--backfill-days N`（默认 20）：`run_once.py` / `hkex_pull.py` / `sec_pull.py` /
+`backfill_pull.py`（后者用 `--end + --backfill-days`）。
+巨潮 PDF 原文链接在构建层升级为 https（`http://static.cninfo.com.cn` 在部分网络被断；
+仅改写 assets/data.js 展示层，state/ 原始记录不动）。
 
 - 派生实体（公司/项目/区域/资金/合规/图谱/变化/判断/日历/政策）全部由 34 条真实披露
   与现行法规映射生成（见 `scripts/derive.py`），每条可回溯到披露原文与页码。
@@ -71,7 +81,7 @@ git diff --name-only | python3 scripts/sync_guard.py -         # 校验一次提
 |---|---|---|
 | 分析在哪里跑 | GitHub Actions 调 Moonshot API | 外部定时任务（订阅额度） |
 | GitHub 需要的配置 | Secrets：`MOONSHOT_API_KEY` | 无 Secrets |
-| 更新频率 | 每 2 小时 | 每交易日每 2 小时 |
+| 更新频率 | 日批次（D-YYYYMMDD） | 每交易日日批次（D-YYYYMMDD），回溯补入单列（B-YYYYMMDD） |
 
 模式二部署：仓库根目录即站点；Pages Source 选 GitHub Actions；保留 `.github/workflows/ingest.yml`
 （不要加会响应 repository_dispatch 的第二个 workflow）。任务侧配置 `state/github_repo.txt` 与

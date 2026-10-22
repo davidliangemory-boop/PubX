@@ -95,7 +95,10 @@
     var d7 = "";
     if (maxDate) { var dt = new Date(maxDate.replace(/-/g, "/")); dt.setDate(dt.getDate() - 7); d7 = dt.toISOString().slice(0, 10); }
     var recent7 = EVX.filter(function (x) { return x.date >= d7; }).length;
-    var lb = B[0] || {};
+    var BD = DB.batches_daily || [];
+    var lb = null;
+    for (var bi = 0; bi < BD.length; bi++) if (BD[bi].kind === "daily") { lb = BD[bi]; break; }
+    if (!lb) lb = B[0] || {};
 
     // 头条：优先"进展"事件，否则最近的活跃事件
     var lead = null;
@@ -131,9 +134,9 @@
       + statCard(EV.length, "事件", "多源/多公告合并后")
       + statCard(EVX.length ? unique(EVX.map(function (x) { return x.subject; })).length : 0, "跟踪主体", "有出海实质动作披露")
       + statCard(recent7, "近7日新增事件", "窗口 " + (d7 || "—") + " ~ " + maxDate)
-      + statCard(lb.kept != null ? lb.kept : "—", "本批收录", esc(lb.id || "—"))
+      + statCard(lb.kept != null ? lb.kept : "—", "最新日批次收录", esc(lb.id || "—") + (lb.runs > 1 ? "（" + lb.runs + " 轮合并）" : ""))
       + "</div>";
-    h += '<div class="note" style="margin:-10px 0 20px">口径：本批扫描漏斗（' + esc(lb.id || "—") + " · " + esc(lb.time || "—") + "）：" + esc(funnel) + "；金额保留原文币种，未做汇率换算。</div>";
+    h += '<div class="note" style="margin:-10px 0 20px">口径：最新日批次扫描漏斗（' + esc(lb.id || "—") + " · " + esc(lb.time || "—") + "）：" + esc(funnel) + "；金额保留原文币种，未做汇率换算。</div>";
 
     // 近期变化 / 观察线索（标题级，不含摘要）
     h += '<div class="panel"><div class="panel-h"><h2>近期变化 · 观察线索</h2><span class="note">近 7 日有更新的活跃事件，按日期倒序</span><a class="more" href="#/events">事件库 →</a></div>'
@@ -152,19 +155,34 @@
         return '<div class="ev"><span class="pg">' + esc(x.date) + '</span><span><a href="#/event/' + x.id + '">' + esc(x.title) + "</a></span><span class='dim' style='margin-left:auto'>" + esc(x.mt || "") + " · " + esc(x.stage || "") + "</span></div>";
       }).join("") : '<div class="empty">当前无活跃事件</div>') + "</div></div>";
 
-    // 本次更新一览（新增/进展/重复/修正）
+    // 本次更新带：按日批次展示（回溯补入单列）
+    var todayB = null;
+    for (var ti = 0; ti < BD.length; ti++) if (BD[ti].kind === "daily") { todayB = BD[ti]; break; }
+    var bdDate = todayB ? todayB.day.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3") : "";
     var upd = { "新增": [], "进展": [], "重复": 0, "修正": 0 };
     EV.forEach(function (e) {
       (e.changelog || []).forEach(function (c) {
-        if (upd[c.type] instanceof Array && c.date >= d7) upd[c.type].push({ e: e, c: c });
+        var inWin = bdDate ? c.date === bdDate : c.date >= d7;
+        if (upd[c.type] instanceof Array && inWin) upd[c.type].push({ e: e, c: c });
       });
     });
-    h += '<div class="panel"><div class="panel-h"><h2>本次更新一览</h2><span class="note">窗口 ' + esc(d7 || "—") + " ~ " + esc(maxDate) + '；计数来自事件层 changelog</span></div><div class="panel-b">'
+    h += '<div class="panel"><div class="panel-h"><h2>本次更新带</h2><span class="note">'
+      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "）；计数来自事件层 changelog"
+                : "窗口 " + esc(d7 || "—") + " ~ " + esc(maxDate) + "；计数来自事件层 changelog") + '</span></div><div class="panel-b">'
       + '<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px">'
       + statCard(upd["新增"].length, "新增", "") + statCard(upd["进展"].length, "进展", "") + statCard(upd["重复"], "重复", "主键去重，不入库") + statCard(upd["修正"], "修正", "改记旧值留痕") + "</div>"
       + (upd["新增"].concat(upd["进展"]).slice(0, 10).map(function (u) {
         return '<div class="ev"><span class="pg">' + esc(u.c.date) + '</span><span>' + pill(u.c.type, u.c.type === "进展" ? "blue" : "") + ' <a href="#/event/' + u.e.event_id + '">' + esc(u.e.title_fact ? u.e.title_fact.text : "") + "</a></span></div>";
-      }).join("") || '<div class="empty">窗口内无更新</div>') + "</div></div>";
+      }).join("") || '<div class="empty">该批次无新增 / 进展记录</div>') + "</div>";
+    // 回溯补入单列
+    var bf = BD.filter(function (g) { return g.kind === "backfill"; });
+    if (bf.length) {
+      h += '<div style="border-top:1px dashed var(--line);padding:12px 24px 16px"><div class="sec" style="border:none;padding:0 0 6px"><span class="sk">回溯补入（历史区间补采，不计入日批次口径）</span></div>'
+        + bf.map(function (g) {
+          return '<div class="ev"><span class="pg mono">' + esc(g.id) + '</span><span>' + esc((g.source || "回溯").slice(0, 30)) + '</span><span class="dim" style="margin-left:auto">扫 ' + g.scanned + " / 收 " + g.kept + " / 剔 " + g.excluded + "</span></div>";
+        }).join("") + "</div>";
+    }
+    h += "</div>";
 
     // 入口
     h += '<div class="feedch"><h2>进入各库</h2></div><div class="cards4">'
@@ -207,18 +225,25 @@
       history.replaceState(null, "", h2);
     }
   }
-  function optList(arr, cur) { return arr.map(function (o) { return '<option' + (o === cur ? " selected" : "") + ">" + esc(o) + "</option>"; }).join(""); }
+  function optList(arr, cur, counts) {
+    // counts 提供时选项带计数（借鉴李成工作站列表页「北交所(57)」）；value 保持原值
+    return arr.map(function (o) {
+      var c = counts && o !== "全部" ? "（" + (counts[o] || 0) + "）" : "";
+      return '<option value="' + esc(o) + '"' + (o === cur ? " selected" : "") + ">" + esc(o) + c + "</option>";
+    }).join("");
+  }
+  function countBy(fn) { var m = {}; EVX.forEach(function (x) { var k = fn(x); if (k) m[k] = (m[k] || 0) + 1; }); return m; }
   function vEvents() {
     var h = '<div class="ph"><h1>事件库</h1><span class="sub">本页回答：最近有哪些出海实质动作，按渠道/类型/阶段/国家/更新类型/状态筛选</span>'
       + '<span class="right">' + pill("合并自：信息流 / 披露总表 / 港股跟踪 / 项目·生命周期·日历", "") + "</span></div>";
     h += '<div class="panel"><div class="filterbar">'
       + '<input class="finput" id="evq" placeholder="搜索主体 / 事件 / 国家…" value="' + esc(F.q) + '"/>'
-      + '<select class="fsel" id="evch">' + optList(["全部", "A股·巨潮", "港股·披露易", "美股·EDGAR"], F.ch) + "</select>"
-      + '<select class="fsel" id="evmt">' + optList(["全部", "设厂", "并购", "合资", "销售", "融资", "退出", "诉讼", "监管"], F.mt) + "</select>"
-      + '<select class="fsel" id="evstage">' + optList(unique(["全部"].concat(EV.map(function (e) { return e.stage_current; }))), F.stage) + "</select>"
+      + '<select class="fsel" id="evch">' + optList(["全部", "A股·巨潮", "港股·披露易", "美股·EDGAR"], F.ch, (function () { var m = {}; EVX.forEach(function (x) { x.chans.forEach(function (c) { m[c] = (m[c] || 0) + 1; }); }); return m; })()) + "</select>"
+      + '<select class="fsel" id="evmt">' + optList(["全部", "设厂", "并购", "合资", "销售", "融资", "退出", "诉讼", "监管"], F.mt, countBy(function (x) { return x.mt; })) + "</select>"
+      + '<select class="fsel" id="evstage">' + optList(unique(["全部"].concat(EV.map(function (e) { return e.stage_current; }))), F.stage, countBy(function (x) { return x.stage; })) + "</select>"
       + '<select class="fsel" id="evgeo">' + optList(["全部"].concat(unique(EVX.map(function (x) { return x.geo; })).slice(0, 40)), F.geo) + "</select>"
-      + '<select class="fsel" id="evut">' + optList(["全部", "新增", "进展", "修正"], F.ut) + "</select>"
-      + '<select class="fsel" id="evst">' + optList(["全部", "活跃", "完成", "终止"], F.status) + "</select>"
+      + '<select class="fsel" id="evut">' + optList(["全部", "新增", "进展", "修正"], F.ut, countBy(function (x) { return x.ut; })) + "</select>"
+      + '<select class="fsel" id="evst">' + optList(["全部", "活跃", "完成", "终止"], F.status, countBy(function (x) { return x.status; })) + "</select>"
       + '<button class="btn" id="evreset">清空</button>'
       + '<span class="note" id="evcount" style="margin-left:auto"></span></div>';
     h += '<div class="subnav wrap" style="padding:8px 24px 0;border-bottom:1px solid var(--line)">'
@@ -330,6 +355,10 @@
       + pill("阶段：" + (e.stage_current || "unknown"), "blue")
       + pill(e.status) + pill("更新：" + e.update_type_latest, e.update_type_latest === "进展" ? "blue" : "")
       + (e.geo && e.geo.text ? pill(e.geo.text) : "") + favBtn("event", e.event_id) + "</div>"
+      + '<div style="margin-top:8px;font-size:12.5px;display:flex;gap:16px;flex-wrap:wrap">'
+      + '<span class="dim">更新日期 ' + esc((e.changelog && e.changelog.length ? e.changelog[e.changelog.length - 1].date : (latest ? latest.date : "—"))) + "</span>"
+      + (latest ? '<a href="' + esc(latest.url) + '" target="_blank" rel="noopener">查看原文（' + esc(latest.channel || "") + " " + esc(latest.date) + "）↗</a>" : "")
+      + "</div>"
       + '<div class="note" style="margin-top:10px">' + layerBadge(e.title_fact ? e.title_fact.layer : "analysis")
       + (e.title_fact && e.title_fact.basis ? " 依据：" + esc(e.title_fact.basis) : "") + "</div></div>";
 
@@ -410,6 +439,27 @@
 
   /* ═════════ 美股（SEC）/ 港股（HKEX）骨架页：全量口径，采集未上线如实留白 ═════════ */
   var MKT_CATS = ["交易类", "融资类", "运营", "法律（诉讼/监管处罚）", "对外投资", "经营战略重大事项"];
+  // 栏目 → 源表单/类别映射（口径设计说明，依据标杆调研；采集上线后生效，非数据）
+  var MKT_MAP = {
+    us: {
+      "交易类": "8-K Item 1.01/1.02/2.01（签订/终止重大协议、完成收购处置）；6-K 交易公告",
+      "融资类": "8-K Item 2.03/3.02（直接财务义务/未注册增发）、424B 定价文件、Form D 私募",
+      "运营": "8-K Item 2.02/7.01/8.01（业绩/Reg FD/其他）、6-K 经营类公告",
+      "法律（诉讼/监管处罚）": "8-K Item 8.01 披露的诉讼与监管行动、10-K/20-F Legal Proceedings 章节",
+      "对外投资": "8-K Item 1.01/2.01 中的境外投资安排、6-K 对外投资公告",
+      "经营战略重大事项": "8-K Item 3.01（退市/转板）/4.01/4.02（审计师变更/财报不可依赖）/5.01/5.02（控制权/董监高）",
+      "_note": "双轨口径：8-K 按 Item 免解析分类；6-K（外国私人发行人，含中概股）无 Item 编号，只能正文/附件分析分类，分类结果标 layer=analysis，两类不混算「重大事项数」。依据：SEC Form 8-K（SEC 873 02-25 版）Item 表与 EDGAR 实测。"
+    },
+    hk: {
+      "交易类": "須予公布的交易（标题类别 t2G=6）、關連交易（t2G=1）",
+      "融资类": "證券股本（t2G=8，含配售/供股/可转债）、債券及結構性產品（t1=70000）",
+      "运营": "海外監管公告-營運業績（t2=19860）、自願公告中的经营数据",
+      "法律（诉讼/监管处罚）": "監管者發出的公告（t1=90000）、诉讼/仲裁类公告及通告",
+      "对外投资": "須予公布的交易中的境外收购/合资、海外監管公告-業務發展（t2=19820）",
+      "经营战略重大事项": "公司狀況變動（t2G=2）、重組股權變動（t2G=7）、於海外交易所上市（t2=17550）",
+      "_note": "分类依据披露易标题类别三级体系（t1/t2G/t2，共 293 个明细码），原始类别码保留为 raw_category 供溯源；中英文公告为独立 NEWS_ID，不以后缀互推。依据：HKEXnews titleSearchServlet 实测。"
+    }
+  };
   function vMarket(mod) {
     var isUS = mod === "us";
     var name = isUS ? "美股（SEC）" : "港股（HKEX）";
@@ -426,10 +476,12 @@
       + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">' + src + " 全量采集（不分中外企）尚未接入，本页暂无任何数据，不展示推测或占位内容。<br/>"
       + "中企出海相关的" + (isUS ? "美股" : "港股") + "披露已收录于「出海信批归纳」模块（当前 " + n + " 条，中企口径，与本页全量口径不混用）。</div>"
       + '<div style="margin-top:16px"><a class="btn primary" href="#/events?ch=' + encodeURIComponent(ch) + '">去「出海信批归纳」查看' + (isUS ? "美股" : "港股") + "披露</a></div></div></div>";
-    h += '<div class="feedch"><h2>栏目（上线后按此六类组织）</h2></div><div class="cards3">'
+    h += '<div class="feedch"><h2>栏目（上线后按此六类组织）</h2><span class="note">栏目 → 源表单/类别映射为口径设计说明，采集上线后生效</span></div><div class="cards3">'
       + MKT_CATS.map(function (c) {
-        return '<div class="stat"><div class="n" style="font-size:15px">' + esc(c) + '</div><div class="d">数据采集尚未上线</div></div>';
-      }).join("") + "</div>";
+        return '<div class="stat"><div class="n" style="font-size:15px">' + esc(c) + '</div><div class="d" style="color:var(--ink-3)">数据采集尚未上线</div>'
+          + '<div class="d" style="color:var(--ink-3);margin-top:4px;line-height:1.6">' + esc(MKT_MAP[mod][c]) + "</div></div>";
+      }).join("") + "</div>"
+      + '<div class="note" style="margin-top:-8px;margin-bottom:20px">' + esc(MKT_MAP[mod]._note) + "</div>";
     return h;
   }
 
@@ -453,9 +505,15 @@
     if (EXC.col !== "watch") {
       var nm = { enforcement: "执法案例更新", lists: "清单更新", rules: "规则更新" }[EXC.col];
       var src = { enforcement: "BIS 执法行动 / OFAC 执法案例 / UFLPA 执法", lists: "实体清单 / SDN / 未经核实清单 / UFLPA 实体清单", rules: "EAR 规则修订 / OFAC 法规与通用许可 / UFLPA 指引" }[EXC.col];
+      var plan = {
+        enforcement: "采集设计：OFAC recent-actions/enforcement-actions 列表与和解详情（金额/违规笔数/VSD/egregious）＋ BIS bis.gov/enforcement 和解文书与新闻稿；案例级字段含 statutory max / base penalty / 加重与减轻因素，缺失照【未披露】。",
+        lists: "采集设计：trade.gov 合并筛查清单（CSL，13 个清单）快照 diff 产生 added/removed/revised；Federal Register API 取 BIS 实体清单规则与 UFLPA 列入通知回填依据；removed 条目保留历史卡片。注意：CSL 官方 API 只含当前在列条目，历史须靠本站自启动日起累积快照。",
+        rules: "采集设计：Federal Register API（免费无 key）按机构 industry-and-security-bureau + 类型 RULE/PRORULE 增量；term 全文匹配有噪声，须经标题二次过滤；批次号 W-YYYYWW（周批）。"
+      }[EXC.col];
       box.innerHTML = '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
         + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">' + nm + " · 数据采集尚未上线</div>"
-        + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">覆盖范围：' + src + "。<br/>该栏目采集尚未接入，本栏暂无任何数据，不展示推测或占位内容。</div></div></div>";
+        + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">覆盖范围：' + src + "。<br/>该栏目采集尚未接入，本栏暂无任何数据，不展示推测或占位内容。</div>"
+        + '<div class="note" style="max-width:620px;margin:14px auto 0;line-height:1.9;text-align:left;border-top:1px dashed var(--line);padding-top:12px">' + plan + "</div></div></div>";
       return;
     }
     // 观察名单比对（真实数据：监测批次中的 OFAC·SDN 比对记录）
@@ -600,14 +658,28 @@
       return;
     }
     if (AB.tab === "batches") {
-      box.innerHTML = B.map(function (b) {
+      var BD = DB.batches_daily || [];
+      var list = BD.length ? BD : B;
+      box.innerHTML = (BD.length ? '<div class="note" style="margin-bottom:12px">日批次视图：同一自然日多轮运行合并为 D-YYYYMMDD（runs 记轮数）；回溯补入单列 B-YYYYMMDD。逐轮原始记录见「更新记录」。</div>' : "")
+        + list.map(function (b) {
         var ps = Object.keys(b.per_source || {}).map(function (k) {
           var p = b.per_source[k]; return esc(k) + "：扫 " + p.scanned + " / 收 " + p.kept + " / 剔 " + p.excluded + (p.failed ? " / 败 " + p.failed : "");
         }).join("<br/>");
-        return '<div class="panel"><div class="panel-h"><h2>' + esc(b.id) + '</h2><span class="note mono">' + esc(b.time) + " · " + esc(b.window) + "</span></div>"
-          + '<div class="panel-b"><div class="sec"><span class="sk">本期结论</span>' + esc(b.trend || "—") + '</div>'
-          + '<div class="sec"><span class="sk">检索机制说明</span>' + esc(b.note || "—") + "</div>"
-          + '<div class="sec" style="border:none"><span class="sk">分项统计</span>' + ps + "</div></div></div>";
+        var note;
+        if (b.notes) {
+          var uniqN = b.notes.filter(function (x, i, a) { return a.indexOf(x) === i; });
+          note = esc(uniqN[0] || "—") + (uniqN.length > 1 ? '<div class="dim" style="margin-top:4px">（同日另有 ' + (uniqN.length - 1) + " 轮说明，见「更新记录」逐轮原始记录）</div>" : "");
+        } else {
+          note = esc(b.trend || b.note || "—");
+        }
+        return '<div class="panel"><div class="panel-h"><h2>' + esc(b.id) + '</h2>'
+          + (b.kind === "backfill" ? '<span class="st manual">回溯补入</span>' : "")
+          + (b.runs > 1 ? '<span class="st plan">' + b.runs + ' 轮合并</span>' : "")
+          + '<span class="note mono">' + esc(b.time) + (b.window ? " · " + esc(b.window) : "") + "</span></div>"
+          + '<div class="panel-b"><div class="sec"><span class="sk">本期结论</span>' + note + '</div>'
+          + (b.notes ? "" : '<div class="sec"><span class="sk">检索机制说明</span>' + esc(b.note || "—") + "</div>")
+          + '<div class="sec" style="border:none"><span class="sk">分项统计（扫/收/剔/败）</span>' + ps + "</div>"
+          + (b.runs_ids && b.runs_ids.length > 1 ? '<div class="secnote">合并批次：' + esc(b.runs_ids.join("、")) + "</div>" : "") + "</div></div>";
       }).join("") || '<div class="empty">无</div>';
       return;
     }

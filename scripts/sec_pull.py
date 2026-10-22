@@ -30,9 +30,13 @@ def fetch(url, retries=2):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--days", type=int, default=45)
+    ap.add_argument("--date", default="", help="只扫该日 YYYY-MM-DD（按 filed 日期过滤）")
+    ap.add_argument("--backfill-days", type=int, default=20, help="回溯重叠窗口天数")
+    ap.add_argument("--days", type=int, default=0, help="旧别名；>0 时覆盖 --backfill-days")
     ap.add_argument("--out", default="")
     a = ap.parse_args()
+    days = a.days if a.days > 0 else a.backfill_days
+    run_date = datetime.date.fromisoformat(a.date) if a.date else datetime.date.today()
 
     watch = json.load(open(os.path.join(STATE, "watchlist_us.json"), encoding="utf-8"))
     seen_p = os.path.join(STATE, "sec_seen.json")
@@ -40,7 +44,7 @@ def main():
     seen_acc = set(seen.get("acc", []))
     cursor = seen.get("cursor", {})
 
-    since_global = (datetime.date.today() - datetime.timedelta(days=a.days)).isoformat()
+    since_global = run_date.isoformat() if a.date else (run_date - datetime.timedelta(days=days)).isoformat()
     out, errors = [], []
     for w in watch:
         cik = str(w["cik"]).zfill(10)
@@ -58,6 +62,8 @@ def main():
             acc = rec["accessionNumber"][i]
             if form not in FORMS or filed < since or acc in seen_acc:
                 continue
+            if a.date and filed != run_date.isoformat():
+                continue  # --date：只收该日 filed 的申报
             doc = rec["primaryDocument"][i]
             acc_nodash = acc.replace("-", "")
             out.append({

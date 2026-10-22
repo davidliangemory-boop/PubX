@@ -4,9 +4,15 @@
 退出码：0=有更新已入库；10=本时段无更新（工作流据此跳过提交与部署）；
 1=硬错误（工作流判失败并保留现场）。
 用法：
-  python3 scripts/run_once.py            # 正常批次
+  python3 scripts/run_once.py            # 当日日批次（北京时间）
+  python3 scripts/run_once.py --date 2026-10-22        # 扫描该日北京时间 00:00-24:00
+  python3 scripts/run_once.py --backfill-days 20       # 回溯重叠窗口天数（默认 20）
   python3 scripts/run_once.py --dry-run  # 只检索+下载+抽取，不调LLM（本地验证用）
   python3 scripts/run_once.py --rebuild  # 不抓取，仅按 db.json 重建 data.js
+
+批次命名（docs/schema.md §6）：日批次 D-YYYYMMDD；同一自然日多次运行合并进同一
+日批次（累加计数、追加说明），不再按 HHMM 另立新批次；回溯批次 B-YYYYMMDD 由
+backfill_pull.py 链路产生；出口管制周批 W-YYYYWW。
 """
 import json, os, sys, datetime, subprocess
 
@@ -50,9 +56,20 @@ def main():
     if "--rebuild" in sys.argv:
         return rebuild()
 
+    def argval(flag, default=None):
+        if flag in sys.argv:
+            i = sys.argv.index(flag)
+            if i + 1 < len(sys.argv):
+                return sys.argv[i + 1]
+        return default
+
     today = datetime.datetime.now(TZ).date()
-    sdate = (today - datetime.timedelta(days=2)).isoformat()
-    edate = today.isoformat()
+    run_date = today
+    if argval("--date"):
+        run_date = datetime.date.fromisoformat(argval("--date"))
+    backfill_days = int(argval("--backfill-days", "20"))
+    edate = run_date.isoformat()
+    sdate = (run_date - datetime.timedelta(days=backfill_days)).isoformat()
     scanned_before = set(db["collected"]["scanned"])
     cands = [c for c in cninfo.search(sdate, edate, cfg["keywords"])
              if c["announcementId"] not in scanned_before]
@@ -65,7 +82,7 @@ def main():
             print(" [候选]", c["announcementId"], c["secName"], c["title"])
         return 10
 
-    batch_id = "B-" + datetime.datetime.now(TZ).strftime("%Y%m%d-%H%M")
+    batch_id = "D-" + run_date.strftime("%Y%m%d")
     kept, excluded_ids, failed = [], [], []
     exceptions = []
     tracked_new = []
@@ -159,12 +176,29 @@ def main():
         note += f"；排除：{exc_note}"
     if failed:
         note += f"；失败待重试：{len(failed)}条"
-    db["batches"].insert(0, {
-        "id": batch_id, "time": now_str(), "window": f"{sdate} ~ {edate}（2日重叠窗口）",
-        "source": "巨潮资讯", "scanned": len(cands), "kept": len(kept),
-        "excluded": len(excluded_ids), "failed": len(failed),
-        "items": kept, "note": note + "。",
-    })
+    window = f"{edate}（北京时间当日 00:00–24:00；回溯重叠窗口 {sdate} ~ {edate}）"
+    existing = next((b for b in db["batches"] if b.get("id") == batch_id), None)
+    if existing:
+        # 同一自然日多轮运行合并进同一日批次：累加计数、追加说明，不另立批次
+        existing["time"] = now_str()
+        existing["scanned"] = existing.get("scanned", 0) + len(cands)
+        existing["kept"] = existing.get("kept", 0) + len(kept)
+        existing["excluded"] = existing.get("excluded", 0) + len(excluded_ids)
+        existing["failed"] = existing.get("failed", 0) + len(failed)
+        existing["items"] = sorted(set(existing.get("items", [])) | set(kept))
+        existing["note"] = (existing.get("note", "").rstrip("。") + f"；{now_str()[11:]} 轮：" + note + "。")
+        existing["window"] = window
+        if "runs" in existing:
+            existing["runs"] += 1
+        else:
+            existing["runs"] = 2
+    else:
+        db["batches"].insert(0, {
+            "id": batch_id, "time": now_str(), "window": window,
+            "source": "巨潮资讯", "scanned": len(cands), "kept": len(kept),
+            "excluded": len(excluded_ids), "failed": len(failed),
+            "items": kept, "note": note + "。", "runs": 1,
+        })
     save(db)
     print(f"批次 {batch_id}：收录{len(kept)} 排除{len(excluded_ids)} 失败{len(failed)}")
     return rebuild()

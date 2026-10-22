@@ -114,6 +114,26 @@ def check_quotes(evj):
     add("引文回原文", "OK" if n_bad == 0 else "ERROR", f"比对 {n_ok + n_bad} 条，命中 {n_ok}")
 
 
+def check_batches():
+    """批次命名约定（docs/schema.md §6）：新批次 D-YYYYMMDD（日）/ B-YYYYMMDD（回溯）/
+    W-YYYYWW（出口管制周批）。存量旧命名 B-YYYYMMDD-HHMM / B-BF-* 记 WARN 汇总，不算错误。"""
+    db = load_json(os.path.join(ROOT, "state", "db.json"))
+    if db is None:
+        return
+    new_ok, legacy = 0, 0
+    for b in db.get("batches", []):
+        bid = b.get("id", "")
+        if re.match(r"^D-\d{8}$", bid) or re.match(r"^B-\d{8}$", bid) or re.match(r"^W-\d{6}$", bid):
+            new_ok += 1
+        else:
+            legacy += 1
+    if legacy:
+        add("批次命名", "WARN",
+            f"{legacy} 条存量批次为旧命名（B-YYYYMMDD-HHMM / B-BF-* 等）；原始记录保留，"
+            f"构建层 build_data.py 已聚合为日批次视图 batches_daily")
+    add("批次命名", "OK", f"新命名批次 {new_ok} 条（D-/B-/W- 规范）")
+
+
 def check_frontend():
     """index.html 引用的静态资源存在；data.js 可解析；app.js 语法检查（有 node 时）。"""
     idx = os.path.join(ROOT, "index.html")
@@ -156,6 +176,7 @@ def main():
     evj = check_events()
     check_disclosures(evj)
     check_quotes(evj)
+    check_batches()
     check_frontend()
 
     n_err = sum(1 for _, lv, _ in ISSUES if lv == "ERROR")

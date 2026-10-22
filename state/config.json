@@ -181,7 +181,7 @@
    "url": "http://www.cninfo.com.cn/new/commonUrl/pageOfSearch?url=disclosure/list/search",
    "method": "出海关键词组（含同义词）全站检索 → 公告 PDF 正文解析",
    "cursor": "公告 ID + 标题指纹去重；重叠窗口 + 游标增量",
-   "cadence": "交易日每 2 小时（08–18 点）",
+   "cadence": "日批次（每交易日 1 批，批次号 D-YYYYMMDD；同日多轮合并展示）",
    "status": "正常",
    "note": "主渠道；排除制度文件、调研记录等噪声类别"
   },
@@ -191,7 +191,7 @@
    "url": "https://www1.hkexnews.hk",
    "method": "观察名单按股票代码经公开检索接口拉取公告及通告 / 通函 / 财务报告等",
    "cursor": "NEWS_ID 去重；末次公告时间游标",
-   "cadence": "跟随监测批次（交易日每 2 小时）",
+   "cadence": "跟随日批次（每交易日 1 批，D-YYYYMMDD）",
    "status": "正常",
    "watch": 30,
    "note": "长期停牌证券接口不返回结果，可手动导入兜底"
@@ -202,7 +202,7 @@
    "url": "https://www.sec.gov/edgar",
    "method": "中概股观察名单按 CIK 主键拉取 submissions，筛 6-K / 20-F / 10-K / 8-K / F-1 / F-3 / 424B",
    "cursor": "accessionNumber 去重；filed 日期游标",
-   "cadence": "跟随监测批次（交易日每 2 小时）",
+   "cadence": "跟随日批次（每交易日 1 批，D-YYYYMMDD）",
    "status": "正常",
    "watch": 35,
    "note": "以公司名单为主键，不用关键词全文检索"

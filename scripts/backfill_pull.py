@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """三市场历史信批回溯拉取（公开接口，零密钥）。
 用法：python3 backfill_pull.py <start> <end>     # YYYY-MM-DD，含首尾
+  或：python3 backfill_pull.py --end YYYY-MM-DD --backfill-days N   # 默认 N=20；回溯批次号 B-<end>
 - A股巨潮：state/config.json 关键词组全文检索（exclude_words 仅打标不拦截，交由分析环节剔除）
 - 港股披露易：state/watchlist_hk.json 按股拉 titleSearchServlet；NEWS_ID 去重（state/hkex_seen.json）
 - 美股SEC：state/watchlist_us.json 按 CIK 拉 submissions；超出 recent 自动翻 filings.files 历史分页；
@@ -246,10 +247,23 @@ def pull_sec(start, end):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("usage: backfill_pull.py <start YYYY-MM-DD> <end YYYY-MM-DD>")
+    # 用法一（区间）：backfill_pull.py <start YYYY-MM-DD> <end YYYY-MM-DD>
+    # 用法二（回溯窗口）：backfill_pull.py --end YYYY-MM-DD --backfill-days N（默认 20）
+    # 回溯批次入库时批次号为 B-YYYYMMDD（取 end 日，docs/schema.md §6）
+    args = sys.argv[1:]
+    if "--end" in args:
+        i = args.index("--end")
+        e = args[i + 1]
+        n = 20
+        if "--backfill-days" in args:
+            n = int(args[args.index("--backfill-days") + 1])
+        s = (datetime.date.fromisoformat(e) - datetime.timedelta(days=n - 1)).isoformat()
+    elif len(args) == 2:
+        s, e = args
+    else:
+        print("usage: backfill_pull.py <start YYYY-MM-DD> <end YYYY-MM-DD>\n"
+              "   or: backfill_pull.py --end YYYY-MM-DD [--backfill-days N]")
         sys.exit(1)
-    s, e = sys.argv[1], sys.argv[2]
     datetime.date.fromisoformat(s); datetime.date.fromisoformat(e)
     pull_cninfo(s, e)
     pull_hkex(s, e)

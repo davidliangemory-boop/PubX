@@ -7,7 +7,7 @@
     自动生成案例（summary/check 由 analyze.case_update 在入库时写入 db.case_state；
     缺失时给规则兜底文本，不造假）
 """
-import json, os, datetime
+import json, os, re, datetime
 import derive
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -121,6 +121,61 @@ def build_health(db, cfg, disclosures):
     return out
 
 
+def batch_day(b):
+    """批次 → (kind, day)：回溯批次（B-BF-* 或来源含「回溯」）kind=backfill，其余为日批次。
+    旧命名 B-YYYYMMDD-HHMM / B-YYYYMMDD-SEC 等按自然日聚合为 D-YYYYMMDD（不改原始记录）。"""
+    bid = b.get("id", "")
+    if bid.startswith("B-BF-") or "回溯" in (b.get("source") or ""):
+        day = bid.replace("B-BF-", "")[:8]
+        return "backfill", day
+    m = re.match(r"[BD]-(\d{8})", bid)
+    if m:
+        return "daily", m.group(1)
+    t = (b.get("time") or "")[:10].replace("-", "")
+    return "daily", t or "unknown"
+
+
+def build_batches_daily(batches):
+    """展示层日批次聚合：日批次 D-YYYYMMDD（同日多轮合并，runs 记轮数）；
+    回溯补入单列（B-YYYYMMDD）。原始批次记录原样保留在 batches。"""
+    groups, order = {}, []
+    for b in batches:
+        kind, day = batch_day(b)
+        bid = ("B-" if kind == "backfill" else "D-") + day
+        if bid not in groups:
+            groups[bid] = {"id": bid, "kind": kind, "day": day, "time": b.get("time", ""),
+                           "source": b.get("source", ""), "scanned": 0, "kept": 0,
+                           "excluded": 0, "failed": 0, "runs": 0, "items": [],
+                           "notes": [], "per_source": {}, "runs_ids": []}
+            order.append(bid)
+        g = groups[bid]
+        g["time"] = max(g["time"], b.get("time", ""))
+        for k in ("scanned", "kept", "excluded", "failed"):
+            g[k] += b.get(k, 0) or 0
+        g["runs"] += b.get("runs", 1)
+        g["runs_ids"].append(b.get("id", ""))
+        g["items"] = sorted(set(g["items"]) | set(b.get("items") or []))
+        if b.get("note"):
+            g["notes"].append(b["note"])
+        if b.get("trend"):
+            g["notes"].append(b["trend"])
+        for sk, sp in (b.get("per_source") or {}).items():
+            tgt = g["per_source"].setdefault(sk, {"scanned": 0, "kept": 0, "excluded": 0, "failed": 0})
+            for k in tgt:
+                tgt[k] += sp.get(k, 0) or 0
+    out = [groups[bid] for bid in order]
+    out.sort(key=lambda g: (g["day"], g["kind"] == "daily"), reverse=True)
+    return out
+
+
+def https_link(u):
+    """巨潮 PDF 链接 http→https（静态服务器支持 https；部分网络环境 http 被断）。
+    仅展示层改写，state/ 原始记录不动。"""
+    if isinstance(u, str) and u.startswith("http://static.cninfo.com.cn"):
+        return "https://" + u[len("http://"):]
+    return u
+
+
 def main():
     db = json.load(open(DB_PATH, encoding="utf-8"))
     cfg = json.load(open(CFG_PATH, encoding="utf-8"))
@@ -130,6 +185,7 @@ def main():
         d["阶段组"] = stage_group(d.get("动作阶段", ""))
         d.setdefault("处理状态", "已发布")
         d["渠道"] = channel_of(d)
+        d["来源链接"] = https_link(d.get("来源链接"))
         disclosures.append(d)
     disclosures.sort(key=lambda d: d["披露日期与时间"], reverse=True)
     for i, d in enumerate(disclosures, 1):
@@ -137,6 +193,7 @@ def main():
     out = {
         "disclosures": disclosures,
         "batches": db["batches"],
+        "batches_daily": build_batches_daily(db["batches"]),
         "cases": build_cases(db, cfg),
         "exceptions": db["exceptions"],
         "derived": derive.build_derived(db, cfg),
@@ -151,7 +208,11 @@ def main():
     if os.path.exists(ev_path):
         try:
             evj = json.load(open(ev_path, encoding="utf-8"))
-            out["events"] = evj.get("events", [])
+            evs = evj.get("events", [])
+            for ev in evs:
+                for s in ev.get("sources", []):
+                    s["url"] = https_link(s.get("url"))
+            out["events"] = evs
             out["event_docs"] = evj.get("docs", {})
         except Exception as e:
             print(f"[build] events.json 读取失败（跳过事件层）：{e}")
@@ -159,9 +220,10 @@ def main():
     vr = load_watch("validate_report.json")
     if isinstance(vr, dict) and vr.get("summary"):
         out["validate"] = vr
+    daily = [g for g in out["batches_daily"] if g["kind"] == "daily"]
     out["build"] = {
         "time": out["synced"],
-        "batch": db["batches"][0]["id"] if db.get("batches") else "—",
+        "batch": daily[0]["id"] if daily else (db["batches"][0]["id"] if db.get("batches") else "—"),
     }
     if "events" in out:
         out["build"]["events"] = len(out["events"])
