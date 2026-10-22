@@ -207,6 +207,29 @@ def guess_outbound(title):
     return bool(re.search(r"對外投資|对外投资|合資|合营|合營|聯營|联营|海外投資|境外投資", title or ""))
 
 
+# 摘录剥离：披露易免责声明各变体、通函套话、公司注册头部、落款套话
+EXC_DROP_RE = re.compile(
+    r"概不負責|概不负责|承擔任何責任|承担任何责任|此乃要件|請即處理|请即处理|應諮詢閣下|应咨询阁下|"
+    r"持牌證券|持牌证券|銀行經理|银行经理|專業會計師|专业会计师|註冊成立|注册成立|"
+    r"股份代號|股份代号|Stock Code|香港聯合交易所|香港联合交易所|香港交易及結算|香港交易及结算|"
+    r"務請垂注|务请垂注|敬請垂注|敬请垂注|承董事會命|承董事会命|交予買主|交予买主|股票經紀|股票经纪")
+
+
+def clean_excerpt(txt):
+    """首页正文摘录：剔除免责声明/通函套话/公司注册头部，保留公告标题与正文首句（繁体原文）。"""
+    flat = re.sub(r"\s+", " ", txt)
+    # 部分 PDF 逐字空格分隔（"香 港 交 易 …"），压缩中文字间空格使规则可匹配
+    flat = re.sub(r"(?<=[一-鿿]) (?=[一-鿿])", "", flat)
+    flat = re.sub(r"[（(][^（）()]{0,60}註冊成立[^（）()]{0,60}[)）]", " ", flat)
+    flat = re.sub(r"[（(]\s*(?:股份代號|Stock Code)\s*[：:][^（）()]{0,20}[)）]", " ", flat)
+    segs = [s for s in re.split(r"(?<=[。；;])", flat) if s.strip()]
+    segs = [s for s in segs if not EXC_DROP_RE.search(s)]
+    body = "".join(segs).strip()
+    # 去掉行首英文公司名（ASCII 段后接中文）
+    body = re.sub(r"^\s*[A-Za-z0-9 &,\.\-'()]{6,80}\s*(?=[一-鿿])", "", body)
+    return body.strip()[:160]
+
+
 def extract_amount_excerpt(pdf_path):
     """pdftotext 取首页，抽取金额原文表述与首页摘录（剔除披露易标准免责段）。
     金额须带量级词（億/萬/百萬…）或千分位数字，滤掉每股价格类小数噪音。"""
@@ -228,11 +251,7 @@ def extract_amount_excerpt(pdf_path):
             amts.append(a)
         if len(amts) >= 3:
             break
-    # 摘录：去掉披露易标准免责声明，取其后的正文开头
-    body = re.sub(r"香港交易及結算所有限公司及香港聯合交易所有限公司.*?任何損失承擔任何責任。", "", flat)
-    body = re.sub(r"^\s*(於.*?註冊成立之有限公司)?\s*(股份代號|Stock Code)[：:].*?(?:\d{3,5})\s*", "", body)
-    excerpt = body.strip()[:160]
-    return amts, excerpt, txt
+    return amts, clean_excerpt(txt), txt
 
 
 def pull_sfc(d_from, d_to, seen_ids):
@@ -437,14 +456,51 @@ def backfill_pdf(docs_by_id, max_pdf, pdf_state):
 
 def build_hk_data_js(db):
     docs = sorted(db["docs"].values(), key=lambda x: (x.get("pub_datetime") or ""), reverse=True)
+    keep = ("doc_id", "channel", "layer", "stock_code", "stock_name", "pub_date", "pub_datetime",
+            "title", "headline_raw", "cat6", "cat6_sub", "amount", "cn_related",
+            "url", "url_en", "excerpt", "pdf_status")
+    slim = [{k: d.get(k) for k in keep} for d in docs]
     out = {
-        "build": {"time": now_hkt(), "docs": len(docs), "batches": len(db["batches"])},
+        "build": {"time": now_hkt(), "docs": len(slim), "batches": len(db["batches"])},
         "meta": db["meta"],
         "batches": db["batches"][-40:],
-        "docs": docs,
+        "docs": slim,
     }
     payload = json.dumps(out, ensure_ascii=False, separators=(",", ":"))
     open(HK_DATA_JS, "w", encoding="utf-8").write("window.HKDB=" + payload + ";\n")
+
+
+def redo_excerpt(docs_by_id, pdf_state):
+    """按现行 clean_excerpt 规则重抓并重建摘录（仅针对命中旧 boilerplate 残留的条目）。"""
+    bad = re.compile(r"^(香港交易及結算所|香港联合交易|此乃要件|IMPORTANT|Hong Kong Exchanges)|"
+                     r"註冊成立|注册成立|Stock Code|股份代號|股份代号|承擔任何責任|承担任何责任|應諮詢閣下|"
+                     r"香\s*港\s*交\s*易\s*及\s*結\s*算|承\s*擔\s*任\s*何\s*責\s*任|"
+                     r"註\s*冊\s*成\s*立|股\s*份\s*代\s*號|S\s*t\s*o\s*c\s*k\s*C\s*o\s*d\s*e|"
+                     r"此\s*乃\s*要\s*件|請\s*即\s*處\s*理|交\s*予\s*買\s*主|股\s*票\s*經\s*紀")
+    n = 0
+    for doc in docs_by_id.values():
+        if doc.get("pdf_status") != "done" or not bad.search(doc.get("excerpt") or ""):
+            continue
+        m = re.search(r"(/listedco/[^\s]+\.pdf)$", doc.get("url") or "")
+        if not m:
+            continue
+        try:
+            raw = fetch("https://www1.hkexnews.hk" + m.group(1), binary=True)
+            os.makedirs(RAWDIR, exist_ok=True)
+            pp = os.path.join(RAWDIR, doc["doc_id"] + ".pdf")
+            open(pp, "wb").write(raw)
+            amts, excerpt, _ = extract_amount_excerpt(pp)
+            os.remove(pp)
+            doc["amounts"] = amts
+            doc["amount"] = "；".join(amts[:2]) if amts else "【未披露】"
+            doc["excerpt"] = excerpt
+            if excerpt:
+                doc["quotes"] = [{"page": 1, "text": excerpt[:100]}]
+            n += 1
+        except Exception:
+            pass
+        time.sleep(0.3)
+    return n
 
 
 def now_hkt():
@@ -457,7 +513,19 @@ def main():
     ap.add_argument("--backfill-days", type=int, default=0, help="回溯最近 N 天，逐日批次 B-YYYYMMDD")
     ap.add_argument("--max-pdf", type=int, default=800, help="本次运行最多抓取的 PDF 数（剩余 pending 下轮补）")
     ap.add_argument("--no-sfc", action="store_true", help="跳过 SFC 执法新闻源")
+    ap.add_argument("--redo-excerpt", action="store_true",
+                    help="重抓摘录命中 boilerplate 残留的存量条目并重建 hk_data.js（不扫描新公告）")
     a = ap.parse_args()
+
+    if a.redo_excerpt:
+        db = load_json(DB_P, {"meta": {}, "batches": [], "docs": {}})
+        if isinstance(db.get("docs"), list):
+            db["docs"] = {d["doc_id"]: d for d in db["docs"]}
+        n = redo_excerpt(db["docs"], {"count": 0})
+        save_json(DB_P, db)
+        build_hk_data_js(db)
+        print("[hk-market] redo-excerpt 完成：重建摘录 %d 条" % n)
+        return
 
     if not a.date and not a.backfill_days:
         a.backfill_days = 20  # 默认回溯 20 天
@@ -498,7 +566,8 @@ def main():
             st["errors"] += sfc_err
         all_stats.append(st)
         # 每天落盘一次（断点续跑安全）
-        db["batches"] = [b for b in db["batches"] if b.get("batch_id") != bid] + [st]
+        db["batches"] = [b for b in db["batches"]
+                         if b.get("batch_id") != bid and b.get("date") != day] + [st]
         db["batches"].sort(key=lambda b: b["batch_id"])
         db["meta"] = {
             "scope": "HKEX 披露易全市场标题检索（stockId=-1，不分中外企）+ SFC 执法新闻；"

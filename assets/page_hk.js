@@ -21,6 +21,14 @@
   }
   function docs() { return (window.HKDB && HKDB.docs) || []; }
   function batches() { return (window.HKDB && HKDB.batches) || []; }
+  function isSfc(d) { return d.doc_id.indexOf("sfc_") === 0; }
+  /* 中国关联：仅标签（名称/标题弱启发式），表格内短显，依据放 title */
+  function cnCell(d) {
+    if ((d.cn_related || "").indexOf("是") === 0) {
+      return '<span title="' + esc(d.cn_related) + '（仅标签，不作筛选前提）">是·弱启发</span>';
+    }
+    return '<span class="dim" title="名称/标题未检出中资关联线索（弱启发式，仅标签，不作筛选前提）">未检出</span>';
+  }
 
   function filtered() {
     var q = HKF.q.trim().toLowerCase();
@@ -53,28 +61,39 @@
     history.replaceState(null, "", "#/hk-market" + (s ? "?" + s : ""));
   }
 
-  /* ── 本次更新带（日批次） ── */
+  /* ── 本次更新带（日批次；最新批次无新增时指向最近有新增的批次） ── */
   function bandHtml() {
     var bs = batches();
     if (!bs.length) return "";
-    var b = bs[bs.length - 1];
+    var latest = bs[bs.length - 1];
+    var b = latest;
+    if (!(b.new > 0 || b.sfc_new > 0)) {
+      for (var i = bs.length - 1; i >= 0; i--) {
+        if (bs[i].new > 0 || bs[i].sfc_new > 0) { b = bs[i]; break; }
+      }
+    }
     var kind = b.batch_id.charAt(0) === "D" ? "日批次" : "回溯批次";
     var newDocs = b.new_ids
       ? b.new_ids.map(function (id) { return docs().find(function (d) { return d.doc_id === id; }); }).filter(Boolean)
-      : docs().filter(function (d) { return d.pub_date === b.date && d.layer === "disclosed"; });
+      : docs().filter(function (d) { return d.pub_date === b.date; });
     var h = '<div class="panel"><div class="panel-h"><h2>本次更新带</h2><span class="dim" style="font-size:12px">'
       + esc(b.batch_id) + "（" + kind + " · 扫描日 " + esc(b.date) + "，香港时间=北京时间）— 口径：白名单类别，扫描 "
       + b.scanned + " / 收录 " + b.kept + " / 新增 " + b.new + " / 已见重复 " + b.dup + " / 排除程序性 " + b.excluded
       + (b.sfc_new ? " / SFC执法 +" + b.sfc_new : "") + (b.errors && b.errors.length ? " / 错误 " + b.errors.length : "")
       + '</span></div><div class="panel-b">';
+    if (b !== latest) {
+      h += '<div class="note" style="margin-bottom:8px">最新批次 ' + esc(latest.batch_id) + "（扫描日 " + esc(latest.date)
+        + "）无新增收录（如实留白，可能为周末/盘前）；以下为最近有新增的批次。</div>";
+    }
     if (!newDocs.length) {
       h += '<div class="empty">本批次无新增收录（如实留白）。</div>';
     } else {
       var show = HKF.band ? newDocs : newDocs.slice(0, 8);
       h += show.map(function (d) {
+        var layerPill = isSfc(d) ? '<span class="pill warn">external</span> ' : '<span class="pill blue">disclosed</span> ';
         return '<div style="padding:6px 0;border-bottom:1px solid var(--line);font-size:13px">'
           + '<span class="dim">' + esc((d.pub_datetime || "").slice(5)) + "</span> "
-          + '<span class="pill">' + esc(d.cat6) + '</span> '
+          + '<span class="pill">' + esc(d.cat6) + '</span> ' + layerPill
           + "<b>" + esc(d.stock_name || "—") + "</b> <span class=\"dim\">" + esc(d.stock_code) + "</span> "
           + '<a href="' + esc(d.url) + '" target="_blank" rel="noopener">' + esc(d.title) + "</a>"
           + ' <span class="dim">' + esc(d.amount) + "</span></div>";
@@ -90,6 +109,32 @@
     return h;
   }
 
+  /* ── 本期重要交易速览（主体→事项→金额→出处，逐条可核对） ── */
+  function spotlightHtml() {
+    var meta = (window.HKDB && HKDB.meta) || {};
+    var dr = meta.date_range || ["—", "—"];
+    var big = docs().filter(function (d) {
+      return !isSfc(d) && d.amount !== "【未披露】"
+        && /非常重大|主要交易|須予披露的交易|關連交易/.test(d.headline_raw || "");
+    }).slice(0, 8);
+    if (!big.length) return "";
+    var h = '<div class="panel"><div class="panel-h"><h2>本期重要交易速览</h2>'
+      + '<span class="dim" style="font-size:12px">口径：窗口 ' + esc(dr[0]) + " ~ " + esc(dr[1])
+      + ' 内港交所分类为须予披露/主要/非常重大/关连交易、且 PDF 首页抽取到金额的条目，按时间倒序取前 8</span></div>'
+      + '<div class="panel-b"><div class="tbl-wrap"><table class="tbl" style="table-layout:fixed;min-width:820px"><colgroup>'
+      + '<col style="width:96px"/><col style="width:170px"/><col/><col style="width:200px"/><col style="width:96px"/>'
+      + "</colgroup><thead><tr><th>日期</th><th>主体</th><th>事项（公告标题原文）</th><th>金额（原文口径）</th><th>来源</th></tr></thead><tbody>";
+    h += big.map(function (d) {
+      return "<tr><td>" + esc(d.pub_date) + "</td>"
+        + "<td style=\"word-break:break-word\"><b>" + esc(d.stock_name || "—") + "</b> <span class=\"dim\">" + esc(d.stock_code) + "</span></td>"
+        + "<td style=\"word-break:break-word\">" + esc(d.title) + "</td>"
+        + "<td style=\"word-break:break-word\"><b>" + esc(d.amount) + "</b></td>"
+        + '<td><a href="' + esc(d.url) + '" target="_blank" rel="noopener">中</a>'
+        + (d.url_en ? ' · <a href="' + esc(d.url_en) + '" target="_blank" rel="noopener">英</a>' : "") + "</td></tr>";
+    }).join("");
+    return h + "</tbody></table></div></div></div>";
+  }
+
   /* ── KPI（每个数字带口径） ── */
   function kpiHtml() {
     var ds = docs(), meta = (window.HKDB && HKDB.meta) || {};
@@ -97,7 +142,7 @@
     var cos = {}, sfc = 0, pdfDone = 0, hkN = 0;
     ds.forEach(function (d) {
       if (d.stock_code) cos[d.stock_code] = 1;
-      if (d.doc_id.indexOf("sfc_") === 0) sfc++; else hkN++;
+      if (isSfc(d)) sfc++; else hkN++;
       if (d.pdf_status === "done") pdfDone++;
     });
     var latest = ds.length ? (ds[0].pub_datetime || "—") : "—";
@@ -108,6 +153,21 @@
       + statCard(pdfDone, "PDF 首页已抽取", "金额/摘录来自公告原文第 1 页")
       + statCard(latest, "最新公告时间", "披露易 DATE_TIME 原文")
       + "</div>";
+  }
+
+  /* ── 六类分布（点击穿透到筛选） ── */
+  function chipsHtml() {
+    var cnt = {};
+    docs().forEach(function (d) { cnt[d.cat6] = (cnt[d.cat6] || 0) + 1; });
+    var h = '<div style="display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 14px;align-items:center">'
+      + '<span class="dim" style="font-size:12px">六类分布（库内全窗口，点击筛选）：</span>';
+    h += '<a href="javascript:;" class="pill" data-hkcat="全部" style="text-decoration:none'
+      + (HKF.cat6 === "全部" ? ";background:var(--blue-bg)" : "") + '">全部 ' + docs().length + "</a>";
+    h += CAT6.map(function (c) {
+      return '<a href="javascript:;" class="pill" data-hkcat="' + esc(c) + '" style="text-decoration:none'
+        + (HKF.cat6 === c ? ";background:var(--blue-bg)" : "") + '">' + esc(c) + " " + (cnt[c] || 0) + "</a>";
+    }).join("");
+    return h + "</div>";
   }
 
   /* ── 筛选行 ── */
@@ -130,19 +190,19 @@
       + "</div>";
   }
 
-  /* ── 表格 ── */
+  /* ── 表格（窄屏横滚，不压缩列） ── */
   function tableHtml(rows) {
     if (!rows.length) return '<div class="empty">当前筛选无收录条目（如实留白，不展示推测内容）。</div>';
-    var h = '<div class="tbl-wrap"><table class="tbl" style="table-layout:fixed"><colgroup>'
+    var h = '<div class="tbl-wrap"><table class="tbl" style="table-layout:fixed;min-width:1020px"><colgroup>'
       + '<col style="width:118px"/><col style="width:150px"/><col style="width:180px"/><col/>'
-      + '<col style="width:150px"/><col style="width:120px"/><col style="width:104px"/><col style="width:92px"/>'
+      + '<col style="width:150px"/><col style="width:120px"/><col style="width:96px"/><col style="width:92px"/>'
       + "</colgroup><thead><tr>"
       + "<th>发布时间</th><th>代码·简称</th><th>港交所原文分类</th><th>事项（公告标题原文）</th>"
       + "<th>金额（原文口径）</th><th>类别</th><th>中国关联</th><th>来源</th></tr></thead><tbody>";
     h += rows.map(function (d) {
-      var isSfc = d.doc_id.indexOf("sfc_") === 0;
-      var layerPill = isSfc ? '<span class="pill warn">external</span> ' : '<span class="pill blue">disclosed</span> ';
-      var links = isSfc
+      var sfc = isSfc(d);
+      var layerPill = sfc ? '<span class="pill warn">external</span> ' : '<span class="pill blue">disclosed</span> ';
+      var links = sfc
         ? '<a href="' + esc(d.url) + '" target="_blank" rel="noopener">SFC 原文</a>'
         : '<a href="' + esc(d.url) + '" target="_blank" rel="noopener">中</a>'
         + (d.url_en ? ' · <a href="' + esc(d.url_en) + '" target="_blank" rel="noopener">英</a>' : "");
@@ -155,7 +215,7 @@
         + "<td style=\"word-break:break-word\">" + layerPill + esc(d.title) + excerpt + "</td>"
         + "<td style=\"word-break:break-word;font-size:12.5px\">" + esc(d.amount) + "</td>"
         + "<td><span class=\"pill\">" + esc(d.cat6) + "</span></td>"
-        + "<td style=\"font-size:12px\">" + esc(d.cn_related) + "</td>"
+        + "<td style=\"font-size:12px\">" + cnCell(d) + "</td>"
         + "<td>" + links + "</td>"
         + "</tr>";
     }).join("");
@@ -218,7 +278,9 @@
       + "本页与「出海信批归纳」（仅中企）及美股、出口管制分页面的数据文件、统计口径<b>互不混用</b>；"
       + "中国关联仅为标签（名称/标题弱启发式），不作筛选前提。</div></div>";
     h += bandHtml();
+    h += spotlightHtml();
     h += kpiHtml();
+    h += chipsHtml();
     h += filterHtml();
     h += '<div id="hkBody"></div>';
     h += methodHtml();
@@ -267,6 +329,16 @@
     [["hkCat6", "cat6"], ["hkCh", "ch"], ["hkCn", "cn"], ["hkFrom", "from"], ["hkTo", "to"]].forEach(function (x) {
       var el = $(x[0]);
       if (el) el.addEventListener("change", function (e) { HKF[x[1]] = e.target.value; HKF.page = 1; syncHash(); bodyRender(); });
+    });
+    document.querySelectorAll("[data-hkcat]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        HKF.cat6 = a.getAttribute("data-hkcat"); HKF.page = 1;
+        var sel = $("hkCat6"); if (sel) sel.value = HKF.cat6;
+        syncHash(); bodyRender();
+        document.querySelectorAll("[data-hkcat]").forEach(function (x) {
+          x.style.background = x.getAttribute("data-hkcat") === HKF.cat6 ? "var(--blue-bg)" : "";
+        });
+      });
     });
     var csv = $("hkCsv");
     if (csv) csv.addEventListener("click", exportCsv);
