@@ -155,6 +155,10 @@ def main():
             out["event_docs"] = evj.get("docs", {})
         except Exception as e:
             print(f"[build] events.json 读取失败（跳过事件层）：{e}")
+    # 质检报告（scripts/validate.py 产出，#/about 展示）
+    vr = load_watch("validate_report.json")
+    if isinstance(vr, dict) and vr.get("summary"):
+        out["validate"] = vr
     out["build"] = {
         "time": out["synced"],
         "batch": db["batches"][0]["id"] if db.get("batches") else "—",

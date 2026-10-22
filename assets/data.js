@@ -20360,7 +20360,7 @@ window.DB = {
   "cursor": "2026-10-02",
   "done": false
  },
- "synced": "2026-10-22 23:53",
+ "synced": "2026-10-23 00:40",
  "events": [
   {
    "event_id": "E-001",
@@ -27529,8 +27529,23 @@ window.DB = {
    "date": "2026-10-22"
   }
  },
+ "validate": {
+  "generated": "2026-10-23 00:35",
+  "summary": {
+   "ERROR": 0,
+   "WARN": 0,
+   "SKIP": 1
+  },
+  "issues": [
+   {
+    "check": "引文回原文",
+    "level": "SKIP",
+    "detail": "无 raw/ 原文缓存目录，跳过子串比对（采集脚本落地原文后自动启用）"
+   }
+  ]
+ },
  "build": {
-  "time": "2026-10-22 23:53",
+  "time": "2026-10-23 00:40",
   "batch": "B-20261022-1800",
   "events": 60
  }

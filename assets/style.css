@@ -71,7 +71,7 @@ a:hover { text-decoration: underline; }
 /* ── 页面骨架 ── */
 .view { padding: 26px 26px 60px; min-height: 60vh; }
 .ph { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
-.ph h1 { font-size: 23px; letter-spacing: 0.3px; }
+.ph h1, .ph .phl { font-size: 23px; letter-spacing: 0.3px; font-weight: 700; }
 .ph .sub { color: var(--ink-3); font-size: 13px; }
 .ph .right { margin-left: auto; display: flex; gap: 8px; }
 .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); margin-bottom: 20px; overflow: hidden; }
@@ -90,6 +90,8 @@ a:hover { text-decoration: underline; }
 .stat .d { font-size: 11.5px; color: var(--green); margin-top: 2px; }
 .cards4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
 .cards4 .stat { border: 1px solid var(--line); border-radius: var(--r); }
+.cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+.cards3 .stat { border: 1px solid var(--line); border-radius: var(--r); }
 
 /* ── 结论与重点 ── */
 .lede { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: var(--r); padding: 18px 24px; margin-bottom: 22px; }
@@ -291,8 +293,8 @@ a:hover { text-decoration: underline; }
 /* ── 抽屉 ── */
 .mask { display: none; position: fixed; inset: 0; background: rgba(29,28,26,0.32); z-index: 70; }
 .mask.show { display: block; }
-.drawer { position: fixed; top: 0; right: -460px; width: 440px; max-width: 92vw; height: 100vh; background: var(--card); z-index: 80; transition: right 0.22s ease; overflow-y: auto; box-shadow: -8px 0 30px rgba(0,0,0,0.12); padding: 18px 20px 40px; }
-.drawer.show { right: 0; }
+.drawer { position: fixed; top: 0; right: -460px; width: 440px; max-width: 92vw; height: 100vh; background: var(--card); z-index: 80; transition: right 0.22s ease, visibility 0.22s; overflow-y: auto; box-shadow: -8px 0 30px rgba(0,0,0,0.12); padding: 18px 20px 40px; visibility: hidden; }
+.drawer.show { right: 0; visibility: visible; }
 .dh { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
 .dh h3 { font-size: 15.5px; line-height: 1.6; flex: 1; }
 .dx { border: 1px solid var(--line-2); background: var(--card); border-radius: 6px; width: 26px; height: 26px; cursor: pointer; flex-shrink: 0; }
@@ -321,7 +323,8 @@ body.compact .trendgrid, body.compact .evgrid, body.compact .projgrid { padding:
 @media (max-width: 960px) {
   .wrap { padding: 0 14px; }
   .topbar-in { gap: 10px; }
-  .gsearch { max-width: none; }
+  .gsearch { max-width: none; min-width: 0; flex: 1 1 0; }
+  .gsearch input { min-width: 0; width: 100%; }
   .gs-kbd { display: none; }
   .burger { display: block; }
   .mainnav { display: none; flex-direction: column; width: 100%; padding: 6px 0; }

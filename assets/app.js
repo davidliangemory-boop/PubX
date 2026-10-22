@@ -1,6 +1,7 @@
-/* 出海情报台 · PubX — R03 重构版：6+2 页信息架构
-   #/ 首页 · #/events 事件库 · #/event/:id 事件详情 · #/issues 法律议题(R06)
-   #/cos 企业档案 · #/company/:name · #/topics 专题研究 · #/board 项目看板(R07) · #/about 方法与来源
+/* 出海情报台 · PubX — P1 版：一级导航四分页面
+   出海信批归纳（#/，仅中企；二级：总览/事件库/事件详情/法律议题/企业档案/专题研究/项目看板/方法与来源）
+   美股SEC #/us · 港股HKEX #/hk-market（全量不分中外企，骨架）· 出口管制 #/export（BIS/OFAC/UFLPA + 观察名单比对）
+   四分页面数据文件、统计口径互不混用。
    纪律：原文未载 → null 显示【未披露】；未核查 → unknown；叙事字段分层 disclosed/external/analysis。 */
 (function () {
   "use strict";
@@ -166,11 +167,17 @@
       }).join("") || '<div class="empty">窗口内无更新</div>') + "</div></div>";
 
     // 入口
-    h += '<div class="feedch"><h2>进入各库</h2></div><div class="cards4" style="grid-template-columns:repeat(4,1fr)">'
+    h += '<div class="feedch"><h2>进入各库</h2></div><div class="cards4">'
       + '<a class="stat" style="text-decoration:none" href="#/events"><div class="n">' + EV.length + '</div><div class="c">事件库</div><div class="d">筛选 / 表格 / 时间线 / 港股名单</div></a>'
       + '<a class="stat" style="text-decoration:none" href="#/cos"><div class="n">' + unique(EVX.map(function (x) { return x.subject; })).length + '</div><div class="c">企业档案</div><div class="d">主体事件链与筛查记录</div></a>'
       + '<a class="stat" style="text-decoration:none" href="#/topics"><div class="n">3</div><div class="c">专题研究</div><div class="d">国家产业 / 供应链 / 政策</div></a>'
       + '<a class="stat" style="text-decoration:none" href="#/about"><div class="n">' + (DB.health || []).length + '</div><div class="c">方法与来源</div><div class="d">渠道健康 / 批次 / 导出</div></a>'
+      + "</div>";
+    // 其余三个分页面入口
+    h += '<div class="feedch"><h2>其他分页面</h2><span class="note">数据文件与统计口径与本模块互不混用</span></div><div class="cards3">'
+      + '<a class="stat" style="text-decoration:none" href="#/us"><div class="n">SEC</div><div class="c">美股</div><div class="d">EDGAR 全量 · 不分中外企</div></a>'
+      + '<a class="stat" style="text-decoration:none" href="#/hk-market"><div class="n">HKEX</div><div class="c">港股</div><div class="d">披露易全量 · 不分中外企</div></a>'
+      + '<a class="stat" style="text-decoration:none" href="#/export"><div class="n">BIS·OFAC</div><div class="c">出口管制</div><div class="d">执法 / 清单 / 规则 · 观察名单比对</div></a>'
       + "</div>";
     return h;
   }
@@ -315,7 +322,7 @@
     var e = evById(id);
     if (!e) return '<div class="panel"><div class="empty">事件不存在</div></div>';
     var latest = e.sources[e.sources.length - 1];
-    var h = '<div class="ph"><h1>事件详情</h1><span class="sub">本页回答：这件事的事实、规模、条件、风险与证据分别是什么，哪些还没披露</span></div>';
+    var h = '<div class="ph"><span class="phl">事件详情</span><span class="sub">本页回答：这件事的事实、规模、条件、风险与证据分别是什么，哪些还没披露</span></div>';
     h += '<div class="panel dhead"><div class="crumbs"><a href="#/events">事件库</a> / ' + esc(e.event_id) + "</div>"
       + "<h1>" + esc(e.title_fact ? e.title_fact.text : e.event_id) + "</h1>"
       + '<div class="dtags">'
@@ -401,6 +408,78 @@
       + '<div style="margin-top:16px"><a class="btn primary" href="#/events?view=timeline&mode=stage">按阶段看时间线</a></div></div></div>';
   }
 
+  /* ═════════ 美股（SEC）/ 港股（HKEX）骨架页：全量口径，采集未上线如实留白 ═════════ */
+  var MKT_CATS = ["交易类", "融资类", "运营", "法律（诉讼/监管处罚）", "对外投资", "经营战略重大事项"];
+  function vMarket(mod) {
+    var isUS = mod === "us";
+    var name = isUS ? "美股（SEC）" : "港股（HKEX）";
+    var src = isUS ? "SEC EDGAR" : "HKEX 披露易";
+    var ch = isUS ? "美股·EDGAR" : "港股·披露易";
+    // 「出海信批归纳」模块内该渠道的存量（中企口径），仅作指引，不并入本页统计
+    var n = D.filter(function (r) { return chOf(r) === ch; }).length;
+    var h = '<div class="ph"><h1>' + name + '</h1><span class="sub">本页回答：' + src + " 全量披露中，最近有哪些交易、融资、运营、法律与战略重大事项</span></div>";
+    h += '<div class="panel"><div class="panel-h"><h2>口径说明</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
+      + "本页口径：<b>" + src + " 全量披露，不分中企外企</b>；事项分六类：" + MKT_CATS.join("、") + "。"
+      + "本页与「出海信批归纳」（仅中企）及其他分页面的数据文件、统计口径<b>互不混用</b>。</div></div>";
+    h += '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
+      + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">数据采集尚未上线</div>'
+      + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">' + src + " 全量采集（不分中外企）尚未接入，本页暂无任何数据，不展示推测或占位内容。<br/>"
+      + "中企出海相关的" + (isUS ? "美股" : "港股") + "披露已收录于「出海信批归纳」模块（当前 " + n + " 条，中企口径，与本页全量口径不混用）。</div>"
+      + '<div style="margin-top:16px"><a class="btn primary" href="#/events?ch=' + encodeURIComponent(ch) + '">去「出海信批归纳」查看' + (isUS ? "美股" : "港股") + "披露</a></div></div></div>";
+    h += '<div class="feedch"><h2>栏目（上线后按此六类组织）</h2></div><div class="cards3">'
+      + MKT_CATS.map(function (c) {
+        return '<div class="stat"><div class="n" style="font-size:15px">' + esc(c) + '</div><div class="d">数据采集尚未上线</div></div>';
+      }).join("") + "</div>";
+    return h;
+  }
+
+  /* ═════════ 出口管制：执法案例 / 清单 / 规则 三栏目 + 观察名单比对（原 SDN 筛查并入） ═════════ */
+  var EXC = { col: "enforcement" };
+  var EX_COLS = [["enforcement", "执法案例更新"], ["lists", "清单更新"], ["rules", "规则更新"], ["watch", "观察名单比对"]];
+  function vExport() {
+    var h = '<div class="ph"><h1>出口管制</h1><span class="sub">本页回答：BIS / OFAC / UFLPA 最近有哪些执法案例、清单与规则更新；观察名单主体与制裁名单比对是否有命中</span></div>';
+    h += '<div class="panel"><div class="panel-h"><h2>口径说明</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
+      + "来源：美国 BIS（出口管制执法与实体清单）、OFAC（制裁名单与执法）、UFLPA 相关公开文件；分「执法案例更新 / 清单更新 / 规则更新」三栏目。"
+      + "原 SDN 筛查并入本页为「观察名单比对」子视图：<b>同名≠命中</b>，仅名称相同而无地址/证件/国籍等佐证时只记「名称相似」。"
+      + "本页与其他分页面的数据文件、统计口径<b>互不混用</b>。</div></div>";
+    h += '<div class="subnav wrap" style="padding:0;margin-bottom:16px">'
+      + EX_COLS.map(function (x) {
+        return '<a href="javascript:;" data-exc="' + x[0] + '"' + (EXC.col === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
+      }).join("") + "</div><div id=\"exbody\"></div>";
+    return h;
+  }
+  function exBody() {
+    var box = $("exbody"); if (!box) return;
+    if (EXC.col !== "watch") {
+      var nm = { enforcement: "执法案例更新", lists: "清单更新", rules: "规则更新" }[EXC.col];
+      var src = { enforcement: "BIS 执法行动 / OFAC 执法案例 / UFLPA 执法", lists: "实体清单 / SDN / 未经核实清单 / UFLPA 实体清单", rules: "EAR 规则修订 / OFAC 法规与通用许可 / UFLPA 指引" }[EXC.col];
+      box.innerHTML = '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
+        + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">' + nm + " · 数据采集尚未上线</div>"
+        + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">覆盖范围：' + src + "。<br/>该栏目采集尚未接入，本栏暂无任何数据，不展示推测或占位内容。</div></div></div>";
+      return;
+    }
+    // 观察名单比对（真实数据：监测批次中的 OFAC·SDN 比对记录）
+    var sdnB = B.filter(function (b) { return b.per_source && b.per_source["OFAC·SDN"]; });
+    var subjects = unique(EVX.map(function (x) { return x.subject; }));
+    var watchN = ((DB.watch && DB.watch.hk) || []).length + ((DB.watch && DB.watch.us) || []).length;
+    var hits = sdnB.reduce(function (a, b) { return a + (b.per_source["OFAC·SDN"].kept || 0); }, 0);
+    box.innerHTML = '<div class="statstrip">'
+      + statCard(sdnB.length ? sdnB[0].per_source["OFAC·SDN"].scanned : "—", "最近批次比对条目", "OFAC SDN 全量名单 · " + (sdnB[0] ? esc(sdnB[0].id) : "—"))
+      + statCard(subjects.length + watchN, "受检主体", "事件主体 " + subjects.length + " + 观察名单 " + watchN)
+      + statCard(hits, "命中（近 " + sdnB.length + " 批）", "kept=0 即无疑似命中记录")
+      + "</div>"
+      + '<div class="panel"><div class="panel-h"><h2>比对方法</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
+      + "OFAC SDN 全量名单与在册公司 / 合作方<b>词级匹配</b>，每交易日比对。"
+      + "<b>同名≠命中</b>：仅名称相同而无地址 / 证件号 / 国籍等佐证时只记「名称相似 · 待人工核验」，不写「命中」。"
+      + "比对不产生披露条目；命中将记入异常记录并在相关主体档案标注。</div></div>"
+      + '<div class="panel"><div class="panel-h"><h2>各批次比对记录</h2><span class="note">来自监测批次真实记录</span></div>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>批次</th><th>时间</th><th>比对条目</th><th>命中</th></tr></thead><tbody>'
+      + sdnB.map(function (b) {
+        var p = b.per_source["OFAC·SDN"];
+        return '<tr><td class="mono">' + esc(b.id) + '</td><td class="mono">' + esc(b.time) + '</td><td class="mono">' + p.scanned + '</td><td class="mono">' + (p.kept || 0) + "</td></tr>";
+      }).join("") + "</tbody></table></div></div>";
+  }
+
   /* ═════════ 企业档案：只列事件链条目，不复制摘要 ═════════ */
   function companyEvents(name) {
     return EVX.filter(function (x) { return x.subject === name; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
@@ -416,7 +495,7 @@
     var box = $("corows"); if (!box) return;
     q = (q || "").trim();
     var names = unique(EVX.map(function (x) { return x.subject; })).filter(function (n) { return !q || n.indexOf(q) >= 0; });
-    box.innerHTML = '<div class="projgrid" style="grid-template-columns:repeat(3,1fr)">' + names.map(function (n) {
+    box.innerHTML = '<div class="projgrid">' + names.map(function (n) {
       var evs = companyEvents(n);
       var geos = unique(evs.map(function (x) { return x.geo; })).filter(Boolean).slice(0, 3);
       var mts = unique(evs.map(function (x) { return x.mt; })).filter(Boolean);
@@ -434,7 +513,7 @@
       + "<h1>" + esc(shortCo(name)) + "</h1>"
       + '<div class="dtags">' + pill(evs.length + " 个事件", "solid") + pill("最新 " + evs[0].date, "blue")
       + unique(evs.map(function (x) { return x.mt; })).filter(Boolean).map(function (m) { return pill(m); }).join("") + "</div></div>";
-    h += '<div class="ph" style="margin-top:18px"><h1 style="font-size:18px">事件链</h1><span class="sub">本页回答：该主体的出海事件按时间如何推进、当前状态</span></div>';
+    h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">事件链</span><span class="sub">本页回答：该主体的出海事件按时间如何推进、当前状态</span></div>';
     h += '<div class="panel"><div class="panel-b">' + evs.map(function (x) {
       return '<div class="ev"><span class="pg">' + esc(x.date) + '</span><span>' + pill(x.mt || "—") + pill(x.ut === "进展" ? "进展" : "", x.ut === "进展" ? "blue" : "") + ' <a href="#/event/' + x.id + '"><b>' + esc(x.title) + "</b></a></span>"
         + '<span class="dim" style="margin-left:auto;white-space:nowrap">' + esc(x.stage || "") + " · " + esc(x.status) + (x.amt ? " · " + esc(x.amt) : "") + "</span></div>";
@@ -498,7 +577,7 @@
   function vAbout() {
     var h = '<div class="ph"><h1>方法与来源</h1><span class="sub">本页回答：数据怎么来、多久更新一次、质量如何、怎样取用</span></div>';
     h += '<div class="subnav wrap" style="margin-bottom:16px">'
-      + [["health", "来源健康"], ["batches", "批次简报"], ["records", "更新记录"], ["diff", "版本比较"], ["export", "导出"]].map(function (x) {
+      + [["health", "来源健康"], ["batches", "批次简报"], ["records", "更新记录"], ["diff", "版本比较"], ["validate", "质检报告"], ["export", "导出"]].map(function (x) {
         return '<a href="javascript:;" data-abt="' + x[0] + '"' + (AB.tab === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
       }).join("") + "</div><div id=\"abbody\"></div>";
     return h;
@@ -561,6 +640,26 @@
       $("dfA").addEventListener("change", run); $("dfB").addEventListener("change", run); run();
       return;
     }
+    if (AB.tab === "validate") {
+      var VR = DB.validate;
+      if (!VR || !VR.summary) {
+        box.innerHTML = '<div class="panel"><div class="empty">尚无质检报告（由 scripts/validate.py 生成 state/validate_report.json 后随构建发布）</div></div>';
+        return;
+      }
+      var sm = VR.summary;
+      box.innerHTML = '<div class="statstrip">'
+        + statCard(sm.ERROR, "ERROR", sm.ERROR === 0 ? "结构错误须为 0" : "须修复")
+        + statCard(sm.WARN, "WARN", "数据质量提示")
+        + statCard(sm.SKIP, "SKIP", "条件未满足而跳过（如原文缓存缺失）")
+        + statCard(esc(VR.generated || "—"), "最近质检时间", "scripts/validate.py")
+        + "</div>"
+        + '<div class="panel"><div class="panel-h"><h2>检查项明细</h2><span class="note">JSON 可解析 · id 唯一 · 必填字段 · 三分层 basis · 金额口径 · 引文回原文 · 前端资源</span></div><div class="panel-b">'
+        + ((VR.issues || []).length ? (VR.issues || []).map(function (i) {
+          return '<div class="ev"><span class="pg">' + esc(i.level) + '</span><span><b>' + esc(i.check) + "</b> " + esc(i.detail) + "</span></div>";
+        }).join("") : '<div class="empty">无 ERROR / WARN / SKIP 项——全部检查通过</div>')
+        + "</div></div>";
+      return;
+    }
     box.innerHTML = '<div class="panel"><div class="panel-h"><h2>导出</h2><span class="note">公开数据与个人标注分别导出（本机生成，不经服务器）</span></div>'
       + '<div class="panel-b" style="display:flex;gap:10px;flex-wrap:wrap">'
       + '<button class="btn primary" data-exp="disclosures">披露条目 JSON（' + D.length + "）</button>"
@@ -588,12 +687,13 @@
     out.querySelectorAll("[data-close]").forEach(function (a) { a.addEventListener("click", closeSearch); });
   }
 
-  /* ═════════ 路由（6+2 页 + 旧路由 301 式重定向） ═════════ */
+  /* ═════════ 路由（一级四分页面 + 出海信批归纳 7 个二级页 + 旧路由 301 式重定向） ═════════ */
   function setSub(section, cur) {
     var SUBS = {
-      "": [], events: [["#/events?view=cards", "卡片"], ["#/events?view=table", "表格"], ["#/events?view=timeline", "时间线"], ["#/events?view=hk", "港股名单"]],
-      issues: [], cos: [], topics: [["#/topics", "国家与产业"], ["#/topics?view=supply", "供应链与产能"], ["#/topics?view=policy", "政策影响"]],
-      board: [], about: [["#/about", "来源健康"], ["#/about?tab=batches", "批次简报"], ["#/about?tab=records", "更新记录"], ["#/about?tab=diff", "版本比较"], ["#/about?tab=export", "导出"]]
+      cn: [["#/", "总览"], ["#/events", "事件库"], ["#/issues", "法律议题"], ["#/cos", "企业档案"],
+           ["#/topics", "专题研究"], ["#/board", "项目看板"], ["#/about", "方法与来源"]],
+      us: [], hk: [],
+      export: EX_COLS.map(function (x) { return ["#/export?col=" + x[0], x[1]]; })
     };
     subnav.innerHTML = (SUBS[section] || []).map(function (x) {
       return '<a href="' + x[0] + '"' + (x[0] === cur ? ' class="on"' : "") + ">" + esc(x[1]) + "</a>";
@@ -607,34 +707,40 @@
     var parts = hpath.split("/").filter(Boolean);
     var name = parts[0] || "home", param = parts[1] ? decodeURIComponent(parts[1]) : null;
     closeSearch();
-    var html, section = "", sub = "";
+    var html, section = "cn", sub = "#/";
     if (name === "events") {
-      section = "events";
+      section = "cn"; sub = "#/events";
       F.q = qs.get("q") || ""; F.ch = qs.get("ch") || "全部"; F.mt = qs.get("mt") || "全部";
       F.stage = qs.get("stage") || "全部"; F.geo = qs.get("geo") || "全部"; F.ut = qs.get("ut") || "全部";
       F.status = qs.get("status") || "全部"; F.view = qs.get("view") || "cards"; F.mode = qs.get("mode") || "month";
-      sub = "#/events" + (F.view !== "cards" ? "?view=" + F.view : "");
       html = vEvents();
     }
-    else if (name === "event") { section = "events"; sub = "#/events"; html = vEvent(param || ""); }
-    else if (name === "issues") { section = "issues"; html = vIssues(); }
-    else if (name === "board") { section = "board"; html = vBoard(); }
+    else if (name === "event") { section = "cn"; sub = "#/events"; html = vEvent(param || ""); }
+    else if (name === "issues") { section = "cn"; sub = "#/issues"; html = vIssues(); }
+    else if (name === "board") { section = "cn"; sub = "#/board"; html = vBoard(); }
     else if (name === "cos") {
       if (param) { redirectTo("#/events"); return; }  // 旧子路由 projects/lifecycle/calendar/funds/compliance
-      section = "cos"; html = vCos();
+      section = "cn"; sub = "#/cos"; html = vCos();
     }
-    else if (name === "company") { section = "cos"; html = vCompany(param || ""); }
+    else if (name === "company") { section = "cn"; sub = "#/cos"; html = vCompany(param || ""); }
     else if (name === "topics") {
-      section = "topics"; TPV.v = qs.get("view") || "regions";
-      sub = "#/topics" + (TPV.v !== "regions" ? "?view=" + TPV.v : "");
+      section = "cn"; sub = "#/topics"; TPV.v = qs.get("view") || "regions";
       html = vTopics();
     }
     else if (name === "about") {
-      section = "about"; AB.tab = qs.get("tab") || "health";
-      sub = "#/about" + (AB.tab !== "health" ? "?tab=" + AB.tab : "");
+      section = "cn"; sub = "#/about"; AB.tab = qs.get("tab") || "health";
       html = vAbout();
     }
+    /* ── 一级分页面：美股 / 港股 / 出口管制 ── */
+    else if (name === "us") { section = "us"; sub = ""; html = vMarket("us"); }
+    else if (name === "hk-market") { section = "hk"; sub = ""; html = vMarket("hk"); }
+    else if (name === "export") {
+      section = "export"; EXC.col = qs.get("col") || "enforcement";
+      sub = "#/export?col=" + EXC.col; html = vExport();
+    }
     /* ── 旧路由 301 式重定向 ── */
+    else if (name === "market") { redirectTo("#/us"); return; }
+    else if (name === "sanctions") { redirectTo("#/export?col=watch"); return; }
     else if (name === "feed") { redirectTo("#/events" + (qs.get("ch") ? "?ch=" + encodeURIComponent(qs.get("ch")) : "")); return; }
     else if (name === "hk") { redirectTo("#/events?view=hk"); return; }
     else if (name === "arc" && !param) { redirectTo("#/events?view=table"); return; }
@@ -663,16 +769,17 @@
     else if (name === "ana") { redirectTo("#/topics" + (param && param !== "regions" ? "?view=" + encodeURIComponent(param === "policy" ? "policy" : param === "supply" ? "supply" : "regions") : "")); return; }
     else if (name === "ask") { redirectTo("#/"); setTimeout(function () { openSearch(qs.get("q") || ""); }, 60); return; }
     else if (name === "company2") { redirectTo("#/cos"); return; }
-    else { section = ""; html = vHome(); }
+    else { section = "cn"; sub = "#/"; html = vHome(); }
 
     view.innerHTML = html;
     setSub(section, sub);
     document.querySelectorAll(".mainnav a").forEach(function (a) {
-      a.classList.toggle("on", (a.getAttribute("data-r") || "home") === (section || "home"));
+      a.classList.toggle("on", (a.getAttribute("data-r") || "cn") === section);
     });
     window.scrollTo(0, 0);
     // 绑定
     if (name === "events") { bindEvents(); evRows(); }
+    if (name === "export") { bindExc(); exBody(); }
     if (name === "cos") { cosRows(""); var ci = $("coq"); if (ci) ci.addEventListener("input", function (e) { cosRows(e.target.value); }); }
     if (name === "topics") { document.querySelectorAll("[data-tpv]").forEach(function (a) { a.addEventListener("click", function () { TPV.v = a.getAttribute("data-tpv"); view.innerHTML = vTopics(); routeBindTopics(); tpBody(); }); }); tpBody(); }
     if (name === "about") { document.querySelectorAll("[data-abt]").forEach(function (a) { a.addEventListener("click", function () { AB.tab = a.getAttribute("data-abt"); view.innerHTML = vAbout(); routeBindAbout(); abBody(); bindExport(); }); }); abBody(); bindExport(); }
@@ -680,6 +787,16 @@
       var ta = $("pnote");
       if (ta) ta.addEventListener("change", function () { ANN.notes[ta.getAttribute("data-note")] = ta.value; saveAnn(); });
     }
+  }
+  function bindExc() {
+    document.querySelectorAll("[data-exc]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        EXC.col = a.getAttribute("data-exc");
+        history.replaceState(null, "", "#/export?col=" + EXC.col);
+        setSub("export", "#/export?col=" + EXC.col);
+        view.innerHTML = vExport(); bindExc(); exBody();
+      });
+    });
   }
   function routeBindTopics() {
     document.querySelectorAll("[data-tpv]").forEach(function (a) {

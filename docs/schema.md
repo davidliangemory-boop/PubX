@@ -1,0 +1,83 @@
+# PubX 统一事件 Schema（event schema v1，四模块共用骨架）
+
+> 版本：2026-10-23 ｜ 代码实现：`scripts/schema.py` ｜ 校验：`scripts/validate.py`
+> 纪律：`null` = 已核原文但未披露（页面显示【未披露】）；`"unknown"` = 尚未核查；禁止虚构。
+
+## 1. 模块（module）与数据文件
+
+四个分页面数据文件、统计口径**互不混用**。每条记录的 `module` 决定它进入哪个分页面：
+
+| module | 分页面 | 数据文件 | 口径 |
+|---|---|---|---|
+| `cn_outbound` | 出海信批归纳（#/ 及 7 个二级页） | `state/events.json` + `state/db.json` | 仅中企出海相关披露（巨潮 / 披露易 / EDGAR 中概名单） |
+| `us_market` | 美股 SEC（#/us） | `state/events_us.json`（采集未上线） | SEC EDGAR 全量，不分中外企 |
+| `hk_market` | 港股 HKEX（#/hk-market） | `state/events_hk.json`（采集未上线） | HKEX 披露易全量，不分中外企 |
+| `export_control` | 出口管制（#/export） | `state/events_export.json`（采集未上线） | BIS / OFAC / UFLPA：执法案例、清单、规则更新 |
+
+`us_market` / `hk_market` 的事项类型分类：交易类、融资类、运营、法律（诉讼/监管处罚）、对外投资、经营战略重大事项。
+`export_control` 的栏目（`column` 扩展字段）：`enforcement` 执法案例更新、`lists` 清单更新、`rules` 规则更新；原 SDN 筛查并入为「观察名单比对」子视图（同名≠命中）。
+
+## 2. 共用记录骨架
+
+```jsonc
+{
+  "event_id": "E-001",              // 稳定 ID，跨批次不变，全局唯一
+  "module": "cn_outbound",          // 见上表；缺省兼容映射：存量 events.json 全部视为 cn_outbound
+  "title_fact": { "text": "标题=具体事实", "layer": "disclosed", "basis": "出处说明" },
+  "status": "活跃",                  // 生命周期：活跃 | 完成 | 终止
+  "update_type_latest": "新增",      // 见 §4 状态枚举映射
+  "parties": [ { "name": "", "role": "披露主体|收购方|标的|卖方|对手方|…",
+                 "layer": "disclosed", "basis": "" } ],   // 主体及关系
+  "geo": { "text": "国家/地区", "layer": "disclosed", "basis": "" },   // null = 未披露
+  "matter_type": { "value": "设厂|并购|合资|销售|融资|退出|诉讼|监管|…", "layer": "analysis", "basis": "归类依据" },
+  "stage_current": "意向|协议|实施|变更|投产/运营|完成",
+  "stage_chain": [ { "date": "2026-10-01", "stage": "完成", "doc_id": "", "note": "", "layer": "disclosed" } ],
+  "scale": { "text": "金额+币种+口径", "layer": "disclosed", "basis": "" },   // 规模：金额/币种/持股/产能；null = 未披露
+  "terms": [ { "text": "关键条件（审批/先决条件/义务/时间节点）", "layer": "", "basis": "" } ],   // null = 未披露
+  "impact": [ { "text": "", "layer": "" } ],        // 影响（可选扩展）
+  "watch_points": [ { "text": "", "layer": "analysis", "basis": "" } ],   // 跟踪点
+  "legal_triggers": [ { "text": "", "layer": "analysis", "basis": "" } ], // 法律合规触发点，仅写实际触发
+  "gaps": [ { "text": "原文未披露的事项", "layer": "analysis", "basis": "" } ],
+  "practice_notes": [ { "text": "", "layer": "analysis", "basis": "" } ],
+  "sources": [ { "doc_id": "", "channel": "", "file": "文件名", "date": "发布日期",
+                 "url": "", "quotes": [ { "text": "短引文（原文逐字）", "page": 1 } ] } ],
+  "source_diff": null,              // 多来源口径差异；null = 无
+  "changelog": [ { "date": "", "type": "新增|进展|修正", "doc_id": "", "note": "" } ]
+}
+```
+
+### 字段规则
+- **id**：`event_id` 必填、全局唯一（跨模块也不得重复）。
+- **发布日期**：以 `sources[].date`（披露日期）与 `stage_chain[].date` 为准，格式 `YYYY-MM-DD`。
+- **三分层（layer）**：`disclosed` 公司披露（必须有 sources 支撑）/ `external` 外部事实（必须附外部来源）/ `analysis` 系统分析（必须写 `basis` 依据）。所有叙事字段（`text` + `layer` + `basis`）都遵守此约定。
+- **sources[]**：每份来源必须有 `file`（文件名）、`date`（日期）、`url`；引文 `quotes[].text` 必须是原文逐字子串（有原文缓存时由 validate.py 回原文比对），`page` 给页码或章节定位。
+- **scale**：金额必须带币种（美元/港元/人民币/澳元/欧元/…），保留原文口径，不做汇率换算；`null` 显示【未披露】。
+- **gaps**：信息缺口，即「原文未披露但影响判断」的事项清单。
+- 各模块可在骨架之外扩展字段（如 export_control 的 `column`、list_version；us/hk 的 `form_type`、`ticker`），扩展字段不得与骨架字段同名异义。
+
+## 3. 状态枚举映射（status / update_type）
+
+规格英文枚举 ↔ 库内中文枚举（兼容映射，不丢数据）：
+
+| 规格 | 库内 | 含义 |
+|---|---|---|
+| new | 新增 | 无匹配事件，新建 |
+| progress | 进展 | 同事件阶段前移或补充披露（追加 stage_chain/sources） |
+| duplicate | 重复 | 渠道主键或同标题同日已收，不入库不建卡 |
+| corrected | 修正 | 新披露与已记录字段矛盾，改字段并留痕 changelog |
+| invalid | 失效 | 终止/撤回，事件 status 置「终止」 |
+
+生命周期 `status`：活跃 | 完成 | 终止。
+
+## 4. 存量兼容映射（state/events.json）
+
+现有 `state/events.json`（60 事件 / 63 文档）已符合本骨架，仅做以下映射，不丢数据：
+- 缺 `module` → 视为 `cn_outbound`；
+- `matter_type` 使用 `value` 键（视为 `text` 别名），其余叙事字段用 `text`；
+- `update_type_latest ∈ {新增,进展,修正}` → 见 §3 映射；
+- `terms/scale/geo/source_diff = null` → 【未披露】；`scale.text` 以 "—/未披露/未载" 开头视为未披露说明；
+- 披露条目层仍在 `state/db.json`，经 `docs` 映射（doc_id → event_id）挂到事件。
+
+## 5. 校验
+
+`python3 scripts/validate.py`：JSON 可解析、id 唯一、必填字段、layer/basis 约定、金额带币种、quote 回原文子串（有原文缓存时）、前端静态资源完整。输出 `state/validate_report.json`，并在 #/about「质检报告」展示。
