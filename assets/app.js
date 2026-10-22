@@ -155,29 +155,34 @@
         return '<div class="ev"><span class="pg">' + esc(x.date) + '</span><span><a href="#/event/' + x.id + '">' + esc(x.title) + "</a></span><span class='dim' style='margin-left:auto'>" + esc(x.mt || "") + " · " + esc(x.stage || "") + "</span></div>";
       }).join("") : '<div class="empty">当前无活跃事件</div>') + "</div></div>";
 
-    // 本次更新带：按日批次展示（回溯补入单列）
+    // 本次更新带：按日批次展示（回溯补入单列）；五类计数（新增/进展/重复/修正/失效），每类可展开到事件
     var todayB = null;
     for (var ti = 0; ti < BD.length; ti++) if (BD[ti].kind === "daily") { todayB = BD[ti]; break; }
     var bdDate = todayB ? todayB.day.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3") : "";
-    var upd = { "新增": [], "进展": [], "修正": [] };
-    var dupN = 0;
+    var upd = { "新增": [], "进展": [], "重复": [], "修正": [], "失效": [] };
     EV.forEach(function (e) {
       (e.changelog || []).forEach(function (c) {
         var inWin = bdDate ? c.date >= bdDate : c.date >= d7;
-        if (!inWin) return;
-        if (upd[c.type] instanceof Array) upd[c.type].push({ e: e, c: c });
-        else if (c.type === "重复") dupN++;
+        if (inWin && upd[c.type]) upd[c.type].push({ e: e, c: c });
       });
     });
+    var updTypes = ["新增", "进展", "重复", "修正", "失效"];
+    var updTotal = updTypes.reduce(function (a, k) { return a + upd[k].length; }, 0);
     h += '<div class="panel"><div class="panel-h"><h2>本次更新带</h2><span class="note">'
-      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "，含批次日后的人工修正记录）；计数来自事件层 changelog"
+      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "，含批次日后的人工修正记录）；计数来自事件层 changelog；点击分类可展开到事件"
                 : "窗口 " + esc(d7 || "—") + " ~ " + esc(maxDate) + "；计数来自事件层 changelog") + '</span></div><div class="panel-b">'
       + '<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px">'
-      + statCard(upd["新增"].length, "新增", "") + statCard(upd["进展"].length, "进展", "") + statCard(dupN, "重复", "主键去重，不入库") + statCard(upd["修正"].length, "修正", "改记旧值留痕") + "</div>"
-      + (upd["新增"].concat(upd["进展"]).concat(upd["修正"]).slice(0, 12).map(function (u) {
-        return '<div class="ev"><span class="pg">' + esc(u.c.date) + '</span><span>' + pill(u.c.type, u.c.type === "进展" ? "blue" : u.c.type === "修正" ? "warn" : "") + ' <a href="#/event/' + u.e.event_id + '">' + esc(u.e.title_fact ? u.e.title_fact.text : "") + "</a>"
-          + (u.c.note ? '<br/><span class="dim" style="font-size:12px">' + esc(u.c.note) + "</span>" : "") + "</span></div>";
-      }).join("") || '<div class="empty">该批次无新增 / 进展 / 修正记录</div>') + "</div>";
+      + statCard(upd["新增"].length, "新增", "") + statCard(upd["进展"].length, "进展", "") + statCard(upd["重复"].length, "重复", "主键去重，不入库") + statCard(upd["修正"].length, "修正", "改记旧值留痕") + statCard(upd["失效"].length, "失效", "误收 / 作废，改记留痕") + "</div>"
+      + (updTotal ? updTypes.map(function (k) {
+          if (!upd[k].length) return "";
+          return '<details class="updcat"' + (k === "新增" || k === "进展" ? " open" : "") + '><summary>' + pill(k, k === "进展" ? "blue" : k === "修正" || k === "失效" ? "warn" : "") + '<span class="dim" style="font-size:12px;margin-left:6px">' + upd[k].length + " 条</span></summary>"
+            + upd[k].map(function (u) {
+              return '<div class="ev"><span class="pg">' + esc(u.c.date) + '</span><span><a href="#/event/' + u.e.event_id + '">' + esc(u.e.title_fact ? u.e.title_fact.text : "") + "</a>"
+                + (u.c.note ? '<br/><span class="dim" style="font-size:12px">' + esc(u.c.note) + "</span>" : "") + "</span></div>";
+            }).join("") + "</details>";
+        }).join("")
+        : '<div class="empty">本批（' + esc(bdDate || (d7 + " ~ " + maxDate)) + "）扫描 " + (todayB && todayB.scanned != null ? todayB.scanned : "—") + " 条，未发现新增出海事件</div>")
+      + "</div>";
     // 回溯补入单列
     var bf = BD.filter(function (g) { return g.kind === "backfill"; });
     if (bf.length) {
@@ -375,6 +380,14 @@
     main += '<div class="panel"><div class="sech"><span class="sno">②</span><h2>地点</h2></div><div class="kv">'
       + '<div class="dl"><span class="k">国家 / 地区</span><span class="v">' + na(e.geo && e.geo.text) + (e.geo ? " " + layerBadge(e.geo.layer || "disclosed") : "") + "</span></div></div></div>";
 
+    // 双层分类（Vault 做法）：原文类别逐源保留（disclosed），归一事项类型仅作分析产物
+    var rawCats = [];
+    e.sources.forEach(function (s) {
+      for (var di = 0; di < D.length; di++) {
+        if (D[di]._aid === s.doc_id) { var rc = D[di]["公告类型"]; if (rc && rawCats.indexOf(rc) < 0) rawCats.push(rc); break; }
+      }
+    });
+
     main += '<div class="panel"><div class="sech"><span class="sno">③</span><h2>事项与阶段链</h2><span class="note">'
       + (e.matter_type ? esc(e.matter_type.value) + " " : "") + '当前阶段：' + esc(e.stage_current || "unknown") + '</span></div><div class="tl">'
       + e.stage_chain.map(function (c) {
@@ -383,7 +396,9 @@
         return '<div class="tl-item"><div class="tld">' + esc(c.date) + "<br/>" + pill(c.stage || "—", "blue") + '</div><div class="tlt">'
           + (doc ? '<a href="' + esc(doc.url) + '" target="_blank" rel="noopener">' + esc((doc.file || "").slice(0, 52)) + " ↗</a>" : esc(c.doc_id))
           + '<br/><span class="dim" style="font-size:12px">' + esc(c.note || "") + " " + layerBadge(c.layer || "disclosed") + "</span></div></div>";
-      }).join("") + "</div></div>";
+      }).join("") + "</div>"
+      + '<div class="secnote" style="border-top:1px dashed var(--line)">原文类别 ' + layerBadge("disclosed") + "：" + (rawCats.length ? rawCats.map(function (r) { return esc(r); }).join("；") : "—（披露表未留原文分类）")
+      + "<br/>归一事项类型 " + layerBadge("analysis") + "：" + (e.matter_type ? esc(e.matter_type.value) + (e.matter_type.basis ? '（依据：' + esc(e.matter_type.basis) + "）" : "") : "未归类") + "；归一映射只作分析产物，不回写原文分类</div></div>";
 
     main += '<div class="panel"><div class="sech"><span class="sno">④</span><h2>规模与资金</h2></div><div style="padding:4px 24px 16px">'
       + '<div class="sec" style="border:none"><span class="sk">金额 / 规模 ' + (e.scale ? layerBadge(e.scale.layer || "disclosed") : "") + (e.scale && e.scale.basis ? ' <span class="dim">' + esc(e.scale.basis) + "</span>" : "") + '</span>'
@@ -613,20 +628,43 @@
       + "来源：美国 BIS（出口管制执法与实体清单）、OFAC（制裁名单与执法）、UFLPA 相关公开文件；分「执法案例更新 / 清单更新 / 规则更新」三栏目。"
       + "原 SDN 筛查并入本页为「观察名单比对」子视图：<b>同名≠命中</b>，仅名称相同而无地址/证件/国籍等佐证时只记「名称相似」。"
       + "本页与其他分页面的数据文件、统计口径<b>互不混用</b>。</div></div>";
-    h += '<div class="subnav wrap" style="padding:0;margin-bottom:16px">'
-      + EX_COLS.map(function (x) {
-        return '<a href="javascript:;" data-exc="' + x[0] + '"' + (EXC.col === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
-      }).join("") + "</div><div id=\"exbody\"></div>";
+    h += '<div id="exbody"></div>';
     return h;
+  }
+  // SDN 名单版本指纹与变化：从逐轮批次说明中提取（外部事实，依据批次记录原文）；清单更新与观察名单比对两栏共用
+  function sdnMeta() {
+    var sdnB = B.filter(function (b) { return b.per_source && b.per_source["OFAC·SDN"]; });
+    var sha = null, chg = null;
+    for (var bi = 0; bi < sdnB.length; bi++) {
+      var nt = sdnB[bi].note || "";
+      if (!sha) { var m = nt.match(/sha[=（(]?([0-9a-f]{4,})[…\.]{1,3}([0-9a-f]{4,})/i); if (m) sha = m[1] + "…" + m[2]; }
+      if (!chg) { var c = nt.match(/SDN[^；。]*?变化[^；。]*?(新增\s*\d+\s*条[^；。]*)/); if (c) chg = { batch: sdnB[bi].id, text: c[1] }; }
+    }
+    return { rows: sdnB, sha: sha, chg: chg,
+      scanned: sdnB.length ? sdnB[0].per_source["OFAC·SDN"].scanned : null,
+      batch: sdnB.length ? sdnB[0].id : null };
   }
   function exBody() {
     var box = $("exbody"); if (!box) return;
+    if (EXC.col === "lists") {
+      // SDN 快照 diff 已随监测批次上线（OpenSanctions delta 思路：added/removed 留痕）；其余清单如实标注未上线
+      var sm = sdnMeta();
+      box.innerHTML = (sm.rows.length ? '<div class="panel"><div class="panel-h"><h2>OFAC SDN 清单 · 版本比对</h2><span class="note">已上线 · 口径：仅 SDN 一个清单的快照 diff，随监测批次比对；不等于全部清单更新</span></div><div class="panel-b" style="font-size:13px;line-height:1.9">'
+        + "名单条目（单轮全量）<b>" + esc(String(sm.scanned)) + '</b> · 版本指纹 <span class="mono">' + esc(sm.sha || "—") + '</span> · 最近轮次 <span class="mono">' + esc(sm.batch) + "</span>"
+        + (sm.chg ? '<br/><span class="st manual">名单变化</span> ' + esc(sm.chg.batch) + "：" + esc(sm.chg.text) + "（名单侧新增条目均经受检主体比对，0 命中；样本详见该批次说明）" : "<br/>近批名单版本无变化")
+        + '<br/><a href="#/export?col=watch">受检主体逐项比对记录见「观察名单比对」→</a></div></div>' : "")
+        + '<div class="panel"><div class="panel-b" style="padding:30px 24px;text-align:center">'
+        + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">其余清单 · 数据采集尚未上线</div>'
+        + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">覆盖范围：实体清单 / SDN / 未经核实清单 / UFLPA 实体清单。其中 SDN 版本比对已上线（见上）；BIS 实体清单、UVL、UFLPA 实体清单采集尚未接入，不展示推测或占位内容。</div>'
+        + '<div class="note" style="max-width:620px;margin:14px auto 0;line-height:1.9;text-align:left;border-top:1px dashed var(--line);padding-top:12px">'
+        + "采集设计：trade.gov 合并筛查清单（CSL，13 个清单）快照 diff 产生 added/removed/revised；Federal Register API 取 BIS 实体清单规则与 UFLPA 列入通知回填依据；removed 条目保留历史卡片。注意：CSL 官方 API 只含当前在列条目，历史须靠本站自启动日起累积快照；且 UFLPA 实体清单不在 CSL 内（归国土安全部单列），须单独来源，不能仅靠 CSL 覆盖本页全部清单（2026-10-23 实测）。</div></div></div>";
+      return;
+    }
     if (EXC.col !== "watch") {
-      var nm = { enforcement: "执法案例更新", lists: "清单更新", rules: "规则更新" }[EXC.col];
-      var src = { enforcement: "BIS 执法行动 / OFAC 执法案例 / UFLPA 执法", lists: "实体清单 / SDN / 未经核实清单 / UFLPA 实体清单", rules: "EAR 规则修订 / OFAC 法规与通用许可 / UFLPA 指引" }[EXC.col];
+      var nm = { enforcement: "执法案例更新", rules: "规则更新" }[EXC.col];
+      var src = { enforcement: "BIS 执法行动 / OFAC 执法案例 / UFLPA 执法", rules: "EAR 规则修订 / OFAC 法规与通用许可 / UFLPA 指引" }[EXC.col];
       var plan = {
         enforcement: "采集设计：OFAC recent-actions/enforcement-actions 列表与和解详情（金额/违规笔数/VSD/egregious）＋ BIS bis.gov/enforcement 和解文书与新闻稿；案例级字段含 statutory max / base penalty / 加重与减轻因素，缺失照【未披露】。",
-        lists: "采集设计：trade.gov 合并筛查清单（CSL，13 个清单）快照 diff 产生 added/removed/revised；Federal Register API 取 BIS 实体清单规则与 UFLPA 列入通知回填依据；removed 条目保留历史卡片。注意：CSL 官方 API 只含当前在列条目，历史须靠本站自启动日起累积快照；且 UFLPA 实体清单不在 CSL 内（归国土安全部单列），须单独来源，不能仅靠 CSL 覆盖本页全部清单（2026-10-23 实测）。",
         rules: "采集设计：Federal Register API（免费无 key）按机构 industry-and-security-bureau（id=241，实测含 \"Entity List\" 的 RULE 全历史 679 条）＋ 类型 RULE/PRORULE 增量；term 全文匹配有噪声，须经标题二次过滤；批次号 W-YYYYWW（周批）。"
       }[EXC.col];
       box.innerHTML = '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
@@ -642,13 +680,9 @@
     var subjects = unique(EVX.map(function (x) { return x.subject; }));
     var watchN = ((DB.watch && DB.watch.hk) || []).length + ((DB.watch && DB.watch.us) || []).length;
     var hits = (sdnD.length ? sdnD : sdnB).reduce(function (a, b) { return a + (b.per_source["OFAC·SDN"].kept || 0); }, 0);
-    // 名单版本指纹与名单变化：从逐轮批次说明中提取（外部事实，依据批次记录原文）
-    var sha = null, chg = null;
-    for (var bi = 0; bi < sdnB.length; bi++) {
-      var nt = sdnB[bi].note || "";
-      if (!sha) { var m = nt.match(/sha[=（(]?([0-9a-f]{4,})[…\.]{1,3}([0-9a-f]{4,})/i); if (m) sha = m[1] + "…" + m[2]; }
-      if (!chg) { var c = nt.match(/SDN[^；。]*?变化[^；。]*?(新增\s*\d+\s*条[^；。]*)/); if (c) chg = { batch: sdnB[bi].id, text: c[1] }; }
-    }
+    // 名单版本指纹与名单变化（两栏共用的提取逻辑）
+    var sm2 = sdnMeta();
+    var sha = sm2.sha, chg = sm2.chg;
     var latestSdn = sdnD.length ? sdnD[0] : sdnB[0];
     box.innerHTML = '<div class="statstrip">'
       + statCard(sdnB.length ? sdnB[0].per_source["OFAC·SDN"].scanned : "—", "名单条目（单轮全量）", "OFAC SDN · 最近轮次 " + (sdnB[0] ? esc(sdnB[0].id) : "—"))
@@ -984,7 +1018,7 @@
     window.scrollTo(0, 0);
     // 绑定
     if (name === "events") { bindEvents(); evRows(); }
-    if (name === "export") { bindExc(); exBody(); }
+    if (name === "export") { exBody(); }
     if (name === "cos") { cosRows(""); var ci = $("coq"); if (ci) ci.addEventListener("input", function (e) { cosRows(e.target.value); }); }
     if (name === "topics") { document.querySelectorAll("[data-tpv]").forEach(function (a) { a.addEventListener("click", function () { TPV.v = a.getAttribute("data-tpv"); view.innerHTML = vTopics(); routeBindTopics(); tpBody(); }); }); tpBody(); }
     if (name === "about") { document.querySelectorAll("[data-abt]").forEach(function (a) { a.addEventListener("click", function () { AB.tab = a.getAttribute("data-abt"); view.innerHTML = vAbout(); routeBindAbout(); abBody(); bindExport(); }); }); abBody(); bindExport(); }
@@ -992,16 +1026,6 @@
       var ta = $("pnote");
       if (ta) ta.addEventListener("change", function () { ANN.notes[ta.getAttribute("data-note")] = ta.value; saveAnn(); });
     }
-  }
-  function bindExc() {
-    document.querySelectorAll("[data-exc]").forEach(function (a) {
-      a.addEventListener("click", function () {
-        EXC.col = a.getAttribute("data-exc");
-        history.replaceState(null, "", "#/export?col=" + EXC.col);
-        setSub("export", "#/export?col=" + EXC.col);
-        view.innerHTML = vExport(); bindExc(); exBody();
-      });
-    });
   }
   function routeBindTopics() {
     document.querySelectorAll("[data-tpv]").forEach(function (a) {

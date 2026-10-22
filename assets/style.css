@@ -81,6 +81,11 @@ a:hover { text-decoration: underline; }
 .panel-h .more { margin-left: auto; font-size: 12.5px; }
 .panel-b { padding: 14px 24px 18px; }
 .secnote { padding: 10px 24px 14px; border-top: 1px dashed var(--line); font-size: 12px; color: var(--ink-3); line-height: 1.7; }
+.updcat { border-top: 1px dashed var(--line); padding: 6px 0 2px; }
+.updcat > summary { cursor: pointer; padding: 4px 0 8px; list-style: none; }
+.updcat > summary::-webkit-details-marker { display: none; }
+.updcat > summary::after { content: "▸"; float: right; color: var(--ink-3); font-size: 12px; }
+.updcat[open] > summary::after { content: "▾"; }
 
 /* ── 统计条 ── */
 .statstrip { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-bottom: 22px; }
