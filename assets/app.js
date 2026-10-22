@@ -733,7 +733,7 @@
     }
     /* ── 一级分页面：美股 / 港股 / 出口管制 ── */
     else if (name === "us") { section = "us"; sub = ""; html = vMarket("us"); }
-    else if (name === "hk-market") { section = "hk"; sub = ""; html = vMarket("hk"); }
+    else if (name === "hk-market") { section = "hk"; sub = ""; html = window.render_hk ? window.render_hk(qs) : vMarket("hk"); }
     else if (name === "export") {
       section = "export"; EXC.col = qs.get("col") || "enforcement";
       sub = "#/export?col=" + EXC.col; html = vExport();
@@ -779,6 +779,7 @@
     window.scrollTo(0, 0);
     // 绑定
     if (name === "events") { bindEvents(); evRows(); }
+    if (name === "hk-market" && window.bind_hk) window.bind_hk();
     if (name === "export") { bindExc(); exBody(); }
     if (name === "cos") { cosRows(""); var ci = $("coq"); if (ci) ci.addEventListener("input", function (e) { cosRows(e.target.value); }); }
     if (name === "topics") { document.querySelectorAll("[data-tpv]").forEach(function (a) { a.addEventListener("click", function () { TPV.v = a.getAttribute("data-tpv"); view.innerHTML = vTopics(); routeBindTopics(); tpBody(); }); }); tpBody(); }
