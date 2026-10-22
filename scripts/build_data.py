@@ -146,6 +146,21 @@ def main():
         "synced": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))
                                         ).strftime("%Y-%m-%d %H:%M"),
     }
+    # 事件层：一事件一记录（state/events.json，由 migrate_events.py / 批次流程维护）
+    ev_path = os.path.join(ROOT, "state", "events.json")
+    if os.path.exists(ev_path):
+        try:
+            evj = json.load(open(ev_path, encoding="utf-8"))
+            out["events"] = evj.get("events", [])
+            out["event_docs"] = evj.get("docs", {})
+        except Exception as e:
+            print(f"[build] events.json 读取失败（跳过事件层）：{e}")
+    out["build"] = {
+        "time": out["synced"],
+        "batch": db["batches"][0]["id"] if db.get("batches") else "—",
+    }
+    if "events" in out:
+        out["build"]["events"] = len(out["events"])
     js = "window.DB = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n"
     open(OUT_PATH, "w", encoding="utf-8").write(js)
     dv = out["derived"]

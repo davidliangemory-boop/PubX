@@ -1538,6 +1538,9 @@
   /* ── 初始化 ── */
   $("sideSync").textContent = "同步 " + (DB.synced || "—");
   var fs = $("footSync"); if (fs) fs.textContent = "最近同步 " + (DB.synced || "—");
+  var fb = $("footBuild"); if (fb) fb.textContent = DB.build
+    ? ("构建 " + (DB.build.time || "—") + " · 批次 " + (DB.build.batch || "—") + (DB.build.events ? (" · 事件 " + DB.build.events) : ""))
+    : "";
   $("burger").addEventListener("click", function () { $("mainnav").classList.toggle("open"); });
   document.addEventListener("click", function (e) {
     if (!e.target.closest(".mainnav") && !e.target.closest("#burger")) $("mainnav").classList.remove("open");
