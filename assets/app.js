@@ -159,21 +159,25 @@
     var todayB = null;
     for (var ti = 0; ti < BD.length; ti++) if (BD[ti].kind === "daily") { todayB = BD[ti]; break; }
     var bdDate = todayB ? todayB.day.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3") : "";
-    var upd = { "新增": [], "进展": [], "重复": 0, "修正": 0 };
+    var upd = { "新增": [], "进展": [], "修正": [] };
+    var dupN = 0;
     EV.forEach(function (e) {
       (e.changelog || []).forEach(function (c) {
-        var inWin = bdDate ? c.date === bdDate : c.date >= d7;
-        if (upd[c.type] instanceof Array && inWin) upd[c.type].push({ e: e, c: c });
+        var inWin = bdDate ? c.date >= bdDate : c.date >= d7;
+        if (!inWin) return;
+        if (upd[c.type] instanceof Array) upd[c.type].push({ e: e, c: c });
+        else if (c.type === "重复") dupN++;
       });
     });
     h += '<div class="panel"><div class="panel-h"><h2>本次更新带</h2><span class="note">'
-      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "）；计数来自事件层 changelog"
+      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "，含批次日后的人工修正记录）；计数来自事件层 changelog"
                 : "窗口 " + esc(d7 || "—") + " ~ " + esc(maxDate) + "；计数来自事件层 changelog") + '</span></div><div class="panel-b">'
       + '<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px">'
-      + statCard(upd["新增"].length, "新增", "") + statCard(upd["进展"].length, "进展", "") + statCard(upd["重复"], "重复", "主键去重，不入库") + statCard(upd["修正"], "修正", "改记旧值留痕") + "</div>"
-      + (upd["新增"].concat(upd["进展"]).slice(0, 10).map(function (u) {
-        return '<div class="ev"><span class="pg">' + esc(u.c.date) + '</span><span>' + pill(u.c.type, u.c.type === "进展" ? "blue" : "") + ' <a href="#/event/' + u.e.event_id + '">' + esc(u.e.title_fact ? u.e.title_fact.text : "") + "</a></span></div>";
-      }).join("") || '<div class="empty">该批次无新增 / 进展记录</div>') + "</div>";
+      + statCard(upd["新增"].length, "新增", "") + statCard(upd["进展"].length, "进展", "") + statCard(dupN, "重复", "主键去重，不入库") + statCard(upd["修正"].length, "修正", "改记旧值留痕") + "</div>"
+      + (upd["新增"].concat(upd["进展"]).concat(upd["修正"]).slice(0, 12).map(function (u) {
+        return '<div class="ev"><span class="pg">' + esc(u.c.date) + '</span><span>' + pill(u.c.type, u.c.type === "进展" ? "blue" : u.c.type === "修正" ? "warn" : "") + ' <a href="#/event/' + u.e.event_id + '">' + esc(u.e.title_fact ? u.e.title_fact.text : "") + "</a>"
+          + (u.c.note ? '<br/><span class="dim" style="font-size:12px">' + esc(u.c.note) + "</span>" : "") + "</span></div>";
+      }).join("") || '<div class="empty">该批次无新增 / 进展 / 修正记录</div>') + "</div>";
     // 回溯补入单列
     var bf = BD.filter(function (g) { return g.kind === "backfill"; });
     if (bf.length) {
@@ -362,7 +366,17 @@
       + '<div class="note" style="margin-top:10px">' + layerBadge(e.title_fact ? e.title_fact.layer : "analysis")
       + (e.title_fact && e.title_fact.basis ? " 依据：" + esc(e.title_fact.basis) : "") + "</div></div>";
 
-    var main = '<div class="panel">' + '<div class="sech"><span class="sno">①</span><h2>阶段链</h2></div><div class="tl">'
+    /* 11 节结构对齐 docs/schema.md §(b)（借鉴李成工作站单案页：逐题拆解+总表+待核验清单） */
+    var main = '<div class="panel"><div class="sech"><span class="sno">①</span><h2>主体及关系</h2></div><div style="padding:4px 24px 16px">'
+      + e.parties.map(function (p) {
+        return '<div class="sec"><span class="sk">' + esc(p.role) + " " + layerBadge(p.layer || "disclosed") + '</span>' + esc(p.name) + (p.basis ? ' <span class="dim">（' + esc(p.basis) + "）</span>" : "") + "</div>";
+      }).join("") + "</div></div>";
+
+    main += '<div class="panel"><div class="sech"><span class="sno">②</span><h2>地点</h2></div><div class="kv">'
+      + '<div class="dl"><span class="k">国家 / 地区</span><span class="v">' + na(e.geo && e.geo.text) + (e.geo ? " " + layerBadge(e.geo.layer || "disclosed") : "") + "</span></div></div></div>";
+
+    main += '<div class="panel"><div class="sech"><span class="sno">③</span><h2>事项与阶段链</h2><span class="note">'
+      + (e.matter_type ? esc(e.matter_type.value) + " " : "") + '当前阶段：' + esc(e.stage_current || "unknown") + '</span></div><div class="tl">'
       + e.stage_chain.map(function (c) {
         var doc = null;
         for (var i = 0; i < e.sources.length; i++) if (e.sources[i].doc_id === c.doc_id) doc = e.sources[i];
@@ -371,27 +385,28 @@
           + '<br/><span class="dim" style="font-size:12px">' + esc(c.note || "") + " " + layerBadge(c.layer || "disclosed") + "</span></div></div>";
       }).join("") + "</div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">②</span><h2>主体、规模与关键条件</h2></div><div class="kv">'
-      + '<div class="dl"><span class="k">主体及关系</span><span class="v">' + e.parties.map(function (p) { return esc(p.name) + "（" + esc(p.role) + "）"; }).join("；") + "</span></div>"
-      + '<div class="dl"><span class="k">国家 / 地区</span><span class="v">' + na(e.geo && e.geo.text) + "</span></div>"
-      + '<div class="dl"><span class="k">事项类型</span><span class="v">' + (e.matter_type ? esc(e.matter_type.value) + " " + layerBadge("analysis") : '<span class="na">【未披露】</span>') + "</span></div>"
-      + '<div class="dl"><span class="k">金额 / 规模</span><span class="v">' + na(e.scale && e.scale.text) + (e.scale ? " " + layerBadge("disclosed") : "") + "</span></div>"
-      + '<div class="dl"><span class="k">最新披露</span><span class="v">' + (latest ? esc(latest.date) + " · " + esc(latest.file) : "—") + "</span></div></div>"
-      + '<div style="padding:4px 24px 16px"><div class="sec"><span class="sk">关键条件（审批 / 先决条件 / 义务 / 时间节点）</span>'
-      + (e.terms ? e.terms.map(function (t) { return '<div style="padding:3px 0">' + layerBadge(t.layer) + " " + esc(t.text) + (t.basis ? ' <span class="dim">（' + esc(t.basis) + "）</span>" : "") + "</div>"; }).join("") : '<span class="na">【未披露】</span>') + "</div></div></div>";
+    main += '<div class="panel"><div class="sech"><span class="sno">④</span><h2>规模与资金</h2></div><div style="padding:4px 24px 16px">'
+      + '<div class="sec" style="border:none"><span class="sk">金额 / 规模 ' + (e.scale ? layerBadge(e.scale.layer || "disclosed") : "") + (e.scale && e.scale.basis ? ' <span class="dim">' + esc(e.scale.basis) + "</span>" : "") + '</span>'
+      + (e.scale && e.scale.text ? esc(e.scale.text) : '<span class="na">【未披露】</span>') + "</div></div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">③</span><h2>影响、风险与跟踪点</h2></div><div style="padding:4px 24px 16px">'
-      + '<div class="sec"><span class="sk">后续跟踪点（analysis）</span></div>' + anaBlock(e.watch_points, "入库分析未标注跟踪点")
-      + '<div class="sec"><span class="sk">信息缺口（原文未披露）</span></div>' + anaBlock(e.gaps, "无记录")
-      + "</div></div>";
+    main += '<div class="panel"><div class="sech"><span class="sno">⑤</span><h2>交易条款（审批 / 先决条件 / 义务 / 时间节点）</h2></div><div style="padding:4px 24px 16px">'
+      + (e.terms && e.terms.length ? e.terms.map(function (t) { return '<div class="sec">' + layerBadge(t.layer) + " " + esc(t.text) + (t.basis ? ' <span class="dim">（' + esc(t.basis) + "）</span>" : "") + "</div>"; }).join("") : '<div class="na">【未披露】</div>') + "</div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">④</span><h2>法律合规触发点</h2><span class="note">仅列实际触发事项，非模板清单</span></div>'
-      + '<div style="padding:4px 24px 16px">' + anaBlock(e.legal_triggers, "入库分析未识别到具体触发点；不代表无合规义务") + "</div></div>";
+    main += '<div class="panel"><div class="sech"><span class="sno">⑥</span><h2>法律合规触发点</h2><span class="note">仅列实际触发事项，逐条挂议题码（docs/schema.md §c），非模板清单</span></div>'
+      + '<div style="padding:4px 24px 16px">' + (e.legal_triggers && e.legal_triggers.length ? e.legal_triggers.map(function (a) {
+        return '<div class="sec"><span class="sk">' + (a.code ? pill(a.code, "blue") + " " : "") + layerBadge(a.layer) + (a.basis ? ' <span class="dim">' + esc(a.basis) + "</span>" : "") + "</span>" + esc(a.text) + "</div>";
+      }).join("") : '<div class="na">入库分析未识别到具体触发点；不代表无合规义务</div>') + "</div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑤</span><h2>商务与财务视角</h2></div><div style="padding:4px 24px 16px">'
+    main += '<div class="panel"><div class="sech"><span class="sno">⑦</span><h2>影响与跟踪点</h2></div><div style="padding:4px 24px 16px">'
+      + anaBlock(e.watch_points, "入库分析未标注跟踪点") + "</div></div>";
+
+    main += '<div class="panel"><div class="sech"><span class="sno">⑧</span><h2>信息缺口（原文未披露，待核验）</h2></div><div style="padding:4px 24px 16px">'
+      + anaBlock(e.gaps, "无记录") + "</div></div>";
+
+    main += '<div class="panel"><div class="sech"><span class="sno">⑨</span><h2>执业提示（写给办同类项目的法务 / 投资人）</h2></div><div style="padding:4px 24px 16px">'
       + anaBlock(e.practice_notes, "入库分析未填写") + "</div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑥</span><h2>来源与口径</h2><span class="note">' + e.sources.length + " 份披露文件</span></div>"
+    main += '<div class="panel"><div class="sech"><span class="sno">⑩</span><h2>来源与口径</h2><span class="note">' + e.sources.length + " 份披露文件</span></div>"
       + '<div class="evlist">' + e.sources.map(function (s) {
         return '<div class="ev"><span class="pg">' + esc(s.date) + '</span><span class="qt">'
           + chTag({ "渠道": s.channel }) + " <b>" + esc(s.file) + '</b><br/><a href="' + esc(s.url) + '" target="_blank" rel="noopener">原文 ↗</a>'
@@ -402,7 +417,7 @@
       + (e.source_diff ? '<div class="secnote" style="border-top:1px solid var(--line)">跨来源口径差异 ' + layerBadge(e.source_diff.layer) + "：" + esc(e.source_diff.text) + (e.source_diff.basis ? '（依据：' + esc(e.source_diff.basis) + "）" : "") + "</div>" : "")
       + "</div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑦</span><h2>更新记录</h2></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>类型</th><th>来源文件</th><th>说明</th></tr></thead><tbody>'
+    main += '<div class="panel"><div class="sech"><span class="sno">⑪</span><h2>更新记录</h2></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>类型</th><th>来源文件</th><th>说明</th></tr></thead><tbody>'
       + e.changelog.map(function (c) {
         return '<tr><td class="mono">' + esc(c.date) + '</td><td>' + pill(c.type, c.type === "进展" ? "blue" : c.type === "修正" ? "warn" : "") + '</td>'
           + '<td style="font-size:12px">' + esc(c.doc_id) + '</td><td style="font-size:12.5px">' + esc(c.note || "") + "</td></tr>";
@@ -419,22 +434,108 @@
     return h + '<div class="split"><div>' + main + "</div>" + rail + "</div>";
   }
 
-  /* ═════════ 法律议题库（占位 → R06） ═════════ */
+  /* ═════════ 法律议题库：议题 → 公司 → 事件 → 出处（借鉴 Vault 问题级组织 + 双口径计数） ═════════ */
+  var ISSUE_TAX = [
+    ["I4", "出口管制", ["出口管制", "实体清单", "EAR", "FDPR", "两用物项"]],
+    ["I5", "制裁", ["制裁", "SDN", "OFAC", "UFLPA", "强迫劳动"]],
+    ["I2", "东道国投资准入", ["外资审查", "FIRB", "CFIUS", "投资准入", "矿权", "采矿权", "特许", "准入", "审批", "东道国"]],
+    ["I1", "中国境内出境监管", ["ODI", "境外投资备案", "发改", "商务部", "外汇", "国资", "出境"]],
+    ["I9", "劳动与ESG", ["环保", "劳工", "原住民", "工会", "ESG", "社区"]],
+    ["I7", "贸易与海关", ["关税", "海关", "退税", "认证", "原产地", "反倾销"]],
+    ["I6", "数据与网络", ["数据", "个人信息", "网络安全", "GDPR"]],
+    ["I8", "税务", ["税务", "预提税", "常设机构", "转让定价", "税法"]],
+    ["I11", "知识产权", ["知识产权", "专利", "商标", "337"]],
+    ["I12", "争议与处罚", ["诉讼", "仲裁", "处罚", "整改", "争议解决"]],
+    ["I3", "竞争法与交易分类", ["竞争", "经营者集中", "关联交易", "关连", "须予披露"]],
+    ["I10", "交易与合同", ["或有", "对价", "先决条件", "担保", "融资", "银团", "贷款", "交割", "合同", "价款", "定金"]],
+    ["I13", "信息披露与资本市场", ["披露同步", "H股", "H 股", "GDR", "两地上市", "上市规则"]]
+  ];
+  function issueOf(t) {
+    if (t.code) { for (var i = 0; i < ISSUE_TAX.length; i++) if (ISSUE_TAX[i][0] === t.code) return ISSUE_TAX[i]; }
+    for (var j = 0; j < ISSUE_TAX.length; j++) {
+      var kws = ISSUE_TAX[j][2];
+      for (var k = 0; k < kws.length; k++) if ((t.text || "").indexOf(kws[k]) >= 0) return ISSUE_TAX[j];
+    }
+    return ["I0", "其他 / 未归类", []];
+  }
   function vIssues() {
-    return '<div class="ph"><h1>法律议题库</h1><span class="sub">本页回答：跨事件的法律议题（投资审查/出口管制/制裁/数据/IP/劳动/税务）有哪些，各事件如何落入议题</span></div>'
-      + '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
-      + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">R06 上线</div>'
-      + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">本库将由事件层 legal_triggers 字段按议题维度聚合（投资审查、出口管制、制裁、数据、知识产权、劳动、税务），<br/>并展示议题 → 事件 → 原文证据的落入路径。当前合规触发点已在各事件详情页可查。</div>'
-      + '<div style="margin-top:16px"><a class="btn primary" href="#/events">先去事件库查看合规触发点</a></div></div></div>';
+    // 聚合：事件 legal_triggers → 议题桶；事件数 / 议题条数双口径（Vault 做法）
+    var buckets = {}, unCls = 0, total = 0, evWith = 0;
+    EV.forEach(function (e) {
+      var trs = e.legal_triggers || [];
+      if (trs.length) evWith++;
+      var latest = e.sources[e.sources.length - 1] || {};
+      trs.forEach(function (t) {
+        total++;
+        var tax = issueOf(t);
+        if (tax[0] === "I0") unCls++;
+        (buckets[tax[0]] = buckets[tax[0]] || { name: tax[1], items: [] }).items.push({ e: e, t: t, src: latest });
+      });
+    });
+    var h = '<div class="ph"><h1>法律议题库</h1><span class="sub">本页回答：跨事件的法律议题有哪些，各事件如何落入议题、证据在哪份原文</span></div>';
+    h += '<div class="statstrip">'
+      + statCard(total, "议题条数", "全部事件的法律合规触发点合计")
+      + statCard(evWith, "涉及事件", "至少识别到 1 条触发点")
+      + statCard(Object.keys(buckets).length, "覆盖议题（一级）", "编码表见 docs/schema.md §c")
+      + statCard(unCls, "未归类条数", "关键词未命中，待人工核定")
+      + "</div>";
+    h += '<div class="note" style="margin:-10px 0 16px">归组口径 ' + layerBadge("analysis")
+      + '：trigger 自带议题码（code 字段）优先；其余按触发点文本关键词映射至议题编码表，系统归组、未经逐条人工核定；早期入库的一条触发点可能混合多个议题（以「；」分隔），按首个命中关键词归组。</div>';
+    var keys = Object.keys(buckets).sort();
+    h += keys.map(function (k) {
+      var b = buckets[k];
+      var evN = unique(b.items.map(function (x) { return x.e.event_id; })).length;
+      return '<div class="panel"><div class="panel-h"><h2>' + esc(k) + " " + esc(b.name) + '</h2>'
+        + '<span class="note">事件 ' + evN + " · 议题条数 " + b.items.length + "</span></div><div class='panel-b'>"
+        + b.items.map(function (x) {
+          return '<div class="ev"><span class="pg">' + esc(x.src.date || "") + '</span><span>'
+            + '<a href="#/company/' + encodeURIComponent(x.e.parties[0].name) + '">' + esc(shortCo(x.e.parties[0].name)) + "</a> → "
+            + '<a href="#/event/' + x.e.event_id + '"><b>' + esc(x.e.event_id) + "</b></a> "
+            + layerBadge(x.t.layer) + " " + esc((x.t.text || "").slice(0, 90)) + ((x.t.text || "").length > 90 ? "…" : "")
+            + '<br/><span class="dim" style="font-size:12px">出处：' + esc((x.src.file || "").slice(0, 44)) + (x.src.url ? ' <a href="' + esc(x.src.url) + '" target="_blank" rel="noopener">原文 ↗</a>' : "") + "</span></span></div>";
+        }).join("") + "</div></div>";
+    }).join("") || '<div class="panel"><div class="empty">尚无触发点数据</div></div>';
+    return h;
   }
 
-  /* ═════════ 项目看板（占位 → R07） ═════════ */
+  /* ═════════ 项目看板：阶段 × 事项矩阵（借鉴投行天下看板：含合计行列、点击穿透到事件库、KPI 注口径） ═════════ */
   function vBoard() {
-    return '<div class="ph"><h1>项目看板</h1><span class="sub">本页回答：各项目推进到哪个阶段、卡在什么条件、下一步节点是什么</span></div>'
-      + '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
-      + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">R07 上线</div>'
-      + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">看板将按项目聚合事件链，呈现阶段进度、关键条件兑现状态与待跟踪节点。<br/>项目维度信息暂请在事件库时间线视图（按阶段分组）查看。</div>'
-      + '<div style="margin-top:16px"><a class="btn primary" href="#/events?view=timeline&mode=stage">按阶段看时间线</a></div></div></div>';
+    var stages = unique(EV.map(function (e) { return e.stage_current; }).filter(Boolean));
+    var mts = unique(EVX.map(function (x) { return x.mt; }).filter(Boolean));
+    var cell = {}, rowSum = {}, colSum = {};
+    EVX.forEach(function (x) {
+      var s = x.stage || "未定", m = x.mt || "未归类";
+      var k = s + "|" + m;
+      cell[k] = (cell[k] || 0) + 1;
+      rowSum[s] = (rowSum[s] || 0) + 1;
+      colSum[m] = (colSum[m] || 0) + 1;
+    });
+    if (stages.indexOf("未定") < 0 && Object.keys(rowSum).some(function (s) { return s === "未定"; })) stages.push("未定");
+    var h = '<div class="ph"><h1>项目看板</h1><span class="sub">本页回答：在途事件处于什么阶段、按事项类型如何分布；点击格子穿透到事件库对应筛选</span></div>';
+    h += '<div class="panel"><div class="panel-h"><h2>阶段 × 事项类型矩阵</h2><span class="note">口径：当前事件层 ' + EV.length + ' 个事件（多源合并后），按 stage_current × matter_type 计数；合计行列与事件库筛选结果一致</span></div>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>阶段 ＼ 事项</th>'
+      + mts.map(function (m) { return "<th>" + esc(m) + "</th>"; }).join("") + "<th>合计</th></tr></thead><tbody>"
+      + stages.map(function (s) {
+        return "<tr><th class='rowh'>" + esc(s) + "</th>"
+          + mts.map(function (m) {
+            var n = cell[s + "|" + m] || 0;
+            return '<td class="mono">' + (n ? '<a href="#/events?stage=' + encodeURIComponent(s) + "&mt=" + encodeURIComponent(m) + '"><b>' + n + "</b></a>" : '<span class="dim">·</span>') + "</td>";
+          }).join("")
+          + '<td class="mono"><b>' + (rowSum[s] || 0) + "</b></td></tr>";
+      }).join("")
+      + "<tr><th class='rowh'>合计</th>" + mts.map(function (m) { return '<td class="mono"><b>' + (colSum[m] || 0) + "</b></td>"; }).join("")
+      + '<td class="mono"><b>' + EVX.length + "</b></td></tr></tbody></table></div>"
+      + '<div class="secnote">样本口径：仅覆盖已收录披露合并成的事件（三渠道关键词/名单制采样，非全市场）；未入库主体不在样本内，不作全市场结论。</div></div>';
+    // 临近节点表：活跃事件的跟踪点（按事件最新日期排序）
+    var act = EVX.filter(function (x) { return x.status === "活跃"; });
+    var nodes = [];
+    act.forEach(function (x) { (x.e.watch_points || []).forEach(function (w) { nodes.push({ x: x, w: w }); }); });
+    h += '<div class="panel"><div class="panel-h"><h2>待跟踪节点</h2><span class="note">活跃事件 ' + act.length + " 个的跟踪点，按事件最新披露日期倒序；节点为系统分析（依据见事件详情）</span></div><div class='panel-b'>"
+      + (nodes.length ? nodes.map(function (n) {
+        return '<div class="ev"><span class="pg">' + esc(n.x.date) + '</span><span><a href="#/event/' + n.x.id + '">' + esc(n.x.title) + "</a></span>"
+          + '<span class="dim" style="font-size:12px">' + esc((n.w.text || "").slice(0, 72)) + ((n.w.text || "").length > 72 ? "…" : "") + "</span></div>";
+      }).join("") : '<div class="empty">当前无活跃事件</div>') + "</div></div>";
+    return h;
   }
 
   /* ═════════ 美股（SEC）/ 港股（HKEX）骨架页：全量口径，采集未上线如实留白 ═════════ */

@@ -182,6 +182,7 @@ a:hover { text-decoration: underline; }
 .dtags { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
 .casebar { margin-top: 12px; font-size: 12.5px; background: var(--blue-bg); border-radius: 7px; padding: 7px 13px; }
 .split { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
+.split > * { min-width: 0; }
 .rail { position: sticky; top: 128px; }
 .rail .panel { margin-bottom: 14px; }
 .rail-h { font-size: 12px; color: var(--ink-3); letter-spacing: 1px; padding: 13px 18px 0; }

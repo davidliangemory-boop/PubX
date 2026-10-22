@@ -36,7 +36,8 @@
   "terms": [ { "text": "关键条件（审批/先决条件/义务/时间节点）", "layer": "", "basis": "" } ],   // null = 未披露
   "impact": [ { "text": "", "layer": "" } ],        // 影响（可选扩展）
   "watch_points": [ { "text": "", "layer": "analysis", "basis": "" } ],   // 跟踪点
-  "legal_triggers": [ { "text": "", "layer": "analysis", "basis": "" } ], // 法律合规触发点，仅写实际触发
+  "legal_triggers": [ { "code": "I2.1", "text": "", "status": "disclosed|disclosed_pending|not_disclosed|not_applicable",
+                        "layer": "analysis", "basis": "" } ], // 法律合规触发点，仅写实际触发；code = 议题码（I1–I13 二级），无码时前端按关键词归组（标 analysis）
   "gaps": [ { "text": "原文未披露的事项", "layer": "analysis", "basis": "" } ],
   "practice_notes": [ { "text": "", "layer": "analysis", "basis": "" } ],
   "sources": [ { "doc_id": "", "channel": "", "file": "文件名", "date": "发布日期",
