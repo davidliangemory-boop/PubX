@@ -30,14 +30,23 @@
   function data() { return window.EXDATA || null; }
 
   /* ── 筛选（状态进 URL，可分享） ── */
+  var PAGE_SIZE = 12;
   function filtersFromQs(qs) {
     return {
       agency: qs.get("agency") || "全部",
       from: qs.get("from") || "",
       to: qs.get("to") || "",
       cn: qs.get("cn") || "全部",
-      q: (qs.get("q") || "").trim()
+      q: (qs.get("q") || "").trim(),
+      pg: Math.max(1, parseInt(qs.get("pg") || "1", 10) || 1)
     };
+  }
+  function money(n) {
+    if (n == null) return "";
+    if (n >= 1e9) return "$" + (n / 1e9).toFixed(2) + "B";
+    if (n >= 1e6) return "$" + (n / 1e6).toFixed(1) + "M";
+    if (n >= 1e3) return "$" + (n / 1e3).toFixed(0) + "K";
+    return "$" + n;
   }
   function applyFilters(items, f) {
     return items.filter(function (it) {
@@ -65,6 +74,7 @@
     var h = '<div class="ex-item">'
       + '<div class="ex-item-h"><span class="pg mono">' + esc(it.date || "—") + "</span>"
       + pill(it.agency, "blue") + (it.action ? pill({ added: "新增", removed: "移除", revised: "修订" }[it.action] || it.action, it.action === "removed" ? "" : "solid") : "")
+      + (it.penalty && it.penalty.amount_usd != null ? '<span class="pill solid" title="' + esc(it.penalty.suspended ? "缓期执行（suspended），违约即激活" : "和解/罚款金额") + '">' + esc(money(it.penalty.amount_usd)) + (it.penalty.suspended ? " 缓期" : "") + "</span>" : "")
       + (cn.value === "是" ? '<span class="st ex-cn" title="' + esc(cn.basis || "") + '">中国关联</span>' : "")
       + (it.doc_no ? '<span class="mono dim" style="font-size:11.5px">' + esc(it.doc_no) + "</span>" : "")
       + "</div>"
@@ -90,17 +100,18 @@
   }
 
   /* ── 筛选条 ── */
+  function qsFor(col, f, extra) {
+    var p = ["col=" + col];
+    var v = Object.assign({}, f, extra);
+    if (v.agency !== "全部") p.push("agency=" + encodeURIComponent(v.agency));
+    if (v.from) p.push("from=" + v.from);
+    if (v.to) p.push("to=" + v.to);
+    if (v.cn !== "全部") p.push("cn=" + encodeURIComponent(v.cn));
+    if (v.q) p.push("q=" + encodeURIComponent(v.q));
+    if (v.pg && v.pg > 1) p.push("pg=" + v.pg);
+    return "#/export?" + p.join("&");
+  }
   function filterBar(col, f, agencies) {
-    function qs(extra) {
-      var p = ["col=" + col];
-      var v = Object.assign({}, f, extra);
-      if (v.agency !== "全部") p.push("agency=" + encodeURIComponent(v.agency));
-      if (v.from) p.push("from=" + v.from);
-      if (v.to) p.push("to=" + v.to);
-      if (v.cn !== "全部") p.push("cn=" + encodeURIComponent(v.cn));
-      if (v.q) p.push("q=" + encodeURIComponent(v.q));
-      return "#/export?" + p.join("&");
-    }
     var h = '<div class="ex-fbar">'
       + '<label>机构 <select id="exf-agency"><option>全部</option>'
       + agencies.map(function (a) { return '<option' + (f.agency === a ? " selected" : "") + ">" + esc(a) + "</option>"; }).join("")
@@ -111,18 +122,62 @@
       + '</select></label>'
       + '<label>关键词 <input type="text" id="exf-q" value="' + esc(f.q) + '" placeholder="标题 / 主体 / 要点"/></label>'
       + '<button class="btn" id="exf-go">筛选</button>'
-      + ' <a class="btn" href="' + qs({ agency: "全部", from: "", to: "", cn: "全部", q: "" }) + '">重置</a>'
+      + ' <a class="btn" href="' + qsFor(col, f, { agency: "全部", from: "", to: "", cn: "全部", q: "", pg: 1 }) + '">重置</a>'
       + '<button class="btn primary" id="exf-csv" style="margin-left:auto">导出当前筛选 CSV</button>'
       + "</div>";
     return h;
   }
 
+  /* ── 分页器 ── */
+  function pager(col, f, total) {
+    var pages = Math.ceil(total / PAGE_SIZE);
+    if (pages <= 1) return "";
+    var h = '<div class="ex-pager">'
+      + (f.pg > 1 ? '<a class="btn" href="' + qsFor(col, f, { pg: f.pg - 1 }) + '">‹ 上一页</a>' : '<span class="btn" style="opacity:.4">‹ 上一页</span>');
+    var lo = Math.max(1, f.pg - 3), hi = Math.min(pages, f.pg + 3);
+    for (var i = lo; i <= hi; i++) {
+      h += i === f.pg ? '<span class="btn primary">' + i + "</span>"
+        : '<a class="btn" href="' + qsFor(col, f, { pg: i }) + '">' + i + "</a>";
+    }
+    h += (f.pg < pages ? '<a class="btn" href="' + qsFor(col, f, { pg: f.pg + 1 }) + '">下一页 ›</a>' : '<span class="btn" style="opacity:.4">下一页 ›</span>')
+      + '<span class="dim" style="font-size:12px;margin-left:8px">共 ' + total + " 条 / " + pages + " 页</span></div>";
+    return h;
+  }
+
+  /* ── 栏目汇总带（每个数字注口径） ── */
+  function colSummary(col, colItems) {
+    if (col === "enforcement") {
+      var withPen = colItems.filter(function (x) { return x.penalty && x.penalty.amount_usd != null; });
+      var total = withPen.reduce(function (a, x) { return a + x.penalty.amount_usd; }, 0);
+      var max = withPen.slice().sort(function (a, b) { return b.penalty.amount_usd - a.penalty.amount_usd; })[0];
+      return '<div class="statstrip">'
+        + statCard(colItems.length, "窗口内执法案件", "BIS 行政执法/和解 + OFAC 执法公告")
+        + statCard(withPen.length ? money(total) : "—", "罚款合计（USD）", "口径：仅详情页/文书可解析金额，" + withPen.length + "/" + colItems.length + " 条；含缓期执行金额")
+        + statCard(max ? money(max.penalty.amount_usd) : "—", "最大单笔", max ? esc((max.parties[0] || max.title).slice(0, 40)) : "")
+        + "</div>";
+    }
+    if (col === "lists") {
+      var cnt = { added: 0, removed: 0, revised: 0, other: 0 };
+      colItems.forEach(function (x) { cnt[x.action || "other"] = (cnt[x.action || "other"] || 0) + 1; });
+      return '<div class="statstrip">'
+        + statCard("+" + cnt.added, "新增类条目", "按标题/文书动作归类（added）")
+        + statCard("-" + cnt.removed, "移除类条目", "按标题/文书动作归类（removed）")
+        + statCard("~" + cnt.revised, "修订/增删并存", "revised 或同日增删并存")
+        + statCard(cnt.other, "未细分动作", "官方未在标题标明动作类型")
+        + "</div>";
+    }
+    return "";
+  }
+
   function toCSV(items) {
-    var head = ["发布日期", "栏目", "机构", "文件号", "标题", "涉及主体", "中国关联", "中国关联依据", "合规影响(analysis)", "依据", "原文链接"];
+    var head = ["发布日期", "栏目", "机构", "文件号", "标题", "涉及主体", "罚款(USD)", "罚款备注", "中国关联", "中国关联依据", "合规影响(analysis)", "依据", "原文链接"];
     function cell(v) { return '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"'; }
     var rows = items.map(function (it) {
       return [it.date, (COL_META[it.column] || {}).name || it.column, it.agency, it.doc_no, it.title,
-        (it.parties || []).join("；"), (it.china_link || {}).value, (it.china_link || {}).basis,
+        (it.parties || []).join("；"),
+        it.penalty && it.penalty.amount_usd != null ? it.penalty.amount_usd : "",
+        it.penalty ? (it.penalty.text + (it.penalty.suspended ? "（缓期执行）" : "")) : "",
+        (it.china_link || {}).value, (it.china_link || {}).basis,
         it.impact ? it.impact.text : "", it.impact ? it.impact.basis : "", it.url].map(cell).join(",");
     });
     return "﻿" + head.map(cell).join(",") + "\n" + rows.join("\n");
@@ -214,16 +269,24 @@
     h += '<div class="statstrip">'
       + statCard(colItems.length, COL_META[col].name + " · 累计条目", "窗口内采集并留存；去重按文件号/链接")
       + statCard(shown.length, "当前筛选结果", "筛选条件进 URL 可分享")
-      + statCard(cnN, "中国关联条目", "external 层：原文关键词命中，附依据")
+      + statCard(cnN, "中国关联条目", "external 层：原文/文书全文关键词命中，附依据")
       + statCard(esc(newest || "—"), "最新发布日期", "按来源发布日排序")
       + "</div>";
+
+    h += colSummary(col, colItems);
+
+    var pages = Math.ceil(shown.length / PAGE_SIZE) || 1;
+    if (f.pg > pages) f.pg = pages;
+    var pageItems = shown.slice((f.pg - 1) * PAGE_SIZE, f.pg * PAGE_SIZE);
 
     h += '<div class="panel"><div class="panel-h"><h2>' + COL_META[col].name + '</h2><span class="note">覆盖：' + esc(COL_META[col].src) + "</span></div>"
       + '<div class="panel-b">' + filterBar(col, f, agencies);
     if (!shown.length) {
       h += '<div class="empty">当前筛选无结果' + (colItems.length ? "（本栏目累计 " + colItems.length + " 条，请放宽筛选）" : "（该栏目窗口内无官方更新，如实留白）") + "</div>";
     } else {
-      h += shown.map(itemCard).join("");
+      h += pager(col, f, shown.length)
+        + pageItems.map(itemCard).join("")
+        + pager(col, f, shown.length);
     }
     return h + "</div></div>";
   };

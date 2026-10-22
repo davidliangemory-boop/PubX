@@ -22,7 +22,10 @@ import html as htmlmod
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 import time
 import urllib.parse
 import urllib.request
@@ -38,6 +41,24 @@ LAST_REQ = [0.0]
 CN_RE = re.compile(r"china|chinese|hong\s*kong|xinjiang|macau|beijing|shanghai|shenzhen|guangdong", re.I)
 ENTITY_NAME_RE = re.compile(
     r"^([A-Z][A-Za-z0-9 ,.&'()\-/]{2,90}?(?:Co\.|Company|Corp\.?|Corporation|Inc\.?|Ltd\.?|Limited|LLC|LLP|GmbH|S\.A\.|PLC|Technologies|Technology|Electronics|Semiconductor|Industries|Group|Holdings|Bank|University|Institute|Laborator\w+|Logistics|Shipping|Airlines?|Trading|International)[A-Za-z0-9 ,.&'()\-/]*)\s*$")
+
+NUM_WORDS = {w: i for i, w in enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen "
+    "fifteen sixteen seventeen eighteen nineteen twenty".split())}
+_singles = [(w, i) for w, i in NUM_WORDS.items() if 0 < i < 10]
+for tens, base in (("thirty", 30), ("forty", 40), ("fifty", 50), ("sixty", 60), ("seventy", 70),
+                   ("eighty", 80), ("ninety", 90)):
+    NUM_WORDS[tens] = base
+    for w, i in _singles:
+        NUM_WORDS["%s-%s" % (tens, w)] = base + i
+
+
+def num_of(tok):
+    """'forty-three' / '43' → int；解析不了返回 None。"""
+    tok = tok.lower().strip()
+    if tok.isdigit():
+        return int(tok)
+    return NUM_WORDS.get(tok)
 
 
 def http_get(url, binary=False):
@@ -146,14 +167,52 @@ def clean_entity_name(nm):
     nm = re.split(r"\s+(?:under|has|have|was|were|located|pursuant)\b", nm)[0]
     nm = re.sub(r",?\s+and\s+[A-Za-z]{0,4}$", "", nm)  # 截窗残片（如 ", and t"）
     nm = nm.replace("\xa0", " ")
-    nm = nm.strip(" ,;.")
+    nm = nm.strip(" ,;.)")
     if not nm or re.search(r"\b(removal|addition|production bases|following|entity list|presumption|denial|subject to|for all items)\b|\b\d+\s*FR\b", nm, re.I):
         return ""
     if re.match(r"^(Co\.?|Ltd\.?|Inc\.?|Corp\.?|LLC|Limited|Company)\b[\s,.]", nm):
         return ""  # 后缀残片（如 "Co., Ltd. from the Entity List"）
-    if not re.search(r"Co\.?|Ltd|Limited|Inc\.?|Corp|LLC|GmbH|S\.A\.|PLC|Company|Group|Holdings|Bank|University|Institute|Technolog|Electronics|Semiconductor|Industries|Logistics|Shipping|Airline|Trading|International|Laborator", nm):
-        return ""  # 无公司形态词（地址残片等）
+    if re.search(r"\b(is|are|engages|headquartered|corps and)\b", nm, re.I):
+        return ""  # 句子残片（含动词/兵团的叙述文本）
+    if not re.search(r"\bCo\.?\b|\bLtd\b|\bLimited\b|\bInc\.?\b|\bCorp\.?\b|\bLLC\b|\bGmbH\b|\bS\.A\.\b|\bPLC\b|\bCompany\b|\bGroup\b|\bHoldings\b|\bBank\b|\bUniversity\b|\bInstitute\b|Technolog|Electronics|Semiconductor|Industries|Logistics|Shipping|Airline|Trading|International|Laborator", nm):
+        return ""  # 无公司形态词（地址残片等；Corp 带词边界避免误中 Corps）
     return nm
+
+
+def parse_bullet_entities(txt):
+    """FR 附录/正文的 <bullet> 列表即官方逐条实体名单，优先于启发式抽取。"""
+    names = []
+    for m in re.finditer(r"<bullet>\s*([^\n<]+)", txt or ""):
+        line = m.group(1).strip()
+        line = re.split(r"\s*\((?:also known|formerly known|f\.k\.a\.|a\.k\.a\.)", line)[0]
+        nm = clean_entity_name(line)
+        if nm and 3 < len(nm) < 110 and nm not in names:
+            names.append(nm)
+    return names
+
+
+def extract_count_phrases(txt):
+    """抽取数量句：'adds forty-three new entities' / 'removing two addresses' 等。
+    返回 (句子原文片段, 动作, 数量, 对象) 列表；external 层直接引用原文。"""
+    out = []
+    for m in re.finditer(
+            r"(adds?|adding|removes?|removing|revises?|revising|modif\w+)\s+([a-z0-9\-]+)\s+"
+            r"(new\s+)?(entities|entity|entries|addresses|address|aliases|alias|persons)\b",
+            txt or "", re.I):
+        n = num_of(m.group(2))
+        if n is None:
+            continue
+        s = max(0, m.start() - 60)
+        frag = re.sub(r"\s+", " ", txt[s:m.end() + 40]).strip()
+        out.append({"quote": frag, "action_word": m.group(1).lower(),
+                    "count": n, "object": m.group(4).lower()})
+    seen, dedup = set(), []
+    for c in out:
+        key = (c["action_word"][:5], c["count"], c["object"])
+        if key not in seen:
+            seen.add(key)
+            dedup.append(c)
+    return dedup[:8]
 
 
 def extract_entities_from_text(txt):
@@ -249,12 +308,14 @@ def pull_fr(gte, lte, stats):
         abstract = (d.get("abstract") or "").strip()
         basis_text = title + " " + abstract
         parties = []
-        # 清单类规则：取全文尝试抽取实体名与中国关联
+        # 清单类规则：取全文，优先解析 <bullet> 官方名单，其次启发式；另抽数量句
         raw_url = d.get("raw_text_url")
+        counts = []
         if column == "lists" and raw_url:
             try:
                 txt, _ = http_get(raw_url)
-                parties = extract_entities_from_text(txt)
+                parties = parse_bullet_entities(txt) or extract_entities_from_text(txt)
+                counts = extract_count_phrases(txt)
                 basis_text += " " + txt[:200000]
             except Exception as e:
                 print("  [FR] 全文获取失败 %s: %s" % (dn, e))
@@ -262,6 +323,13 @@ def pull_fr(gte, lte, stats):
         pts = []
         if abstract:
             pts.append({"text": abstract, "layer": "external", "source": "Federal Register 摘要"})
+        for c in counts:
+            aw = c["action_word"]
+            act_zh = "新增" if aw.startswith("add") else (
+                "移除" if aw.startswith("remov") else "修订")
+            pts.append({"text": "数量（原文句摘录）：…%s… → %s %d 个%s。" % (
+                c["quote"], act_zh, c["count"], c["object"]),
+                "layer": "external", "source": raw_url or d.get("html_url")})
         pts.append({"text": "文档类型 %s；引文 %s；生效 %s。" % (
             d.get("type") or "—", d.get("citation") or "【未披露】", d.get("effective_on") or "见原文"),
             "layer": "external", "source": "Federal Register 文档元数据"})
@@ -304,6 +372,37 @@ def ofac_date(s):
     return datetime.datetime.strptime(s.strip(), "%B %d, %Y").strftime("%Y-%m-%d")
 
 
+def ofac_action(title, type_label):
+    """从 OFAC 标题推断清单动作（external 层线索）：Designation→新增，Removal→移除。"""
+    tl = (title or "").lower()
+    if type_label.strip() != "Sanctions List Updates":
+        return ""
+    has_add = bool(re.search(r"designation", tl))
+    has_rm = bool(re.search(r"removal|delisting|revocation", tl))
+    if has_add and has_rm:
+        return "revised"  # 同日增删并存
+    if has_rm:
+        return "removed"
+    if has_add:
+        return "added"
+    return ""
+
+
+def ofac_summary(h):
+    """OFAC recent-action 详情页正文摘要（Recent Actions Body 段落，external 层）。"""
+    m = re.search(r'Recent Actions Body(.*?)<footer|Recent Actions Body(.*?)(?:Related (?:Information|Links)|<div class="block)', h, re.S)
+    body = m.group(1) or m.group(2) if m else ""
+    if not body:
+        # 退化：取 <main> 之后首个长段落
+        paras = re.findall(r"<p[^>]*>(.*?)</p>", h, re.S)
+        paras = [re.sub(r"<[^>]+>", "", p) for p in paras]
+        paras = [htmlmod.unescape(re.sub(r"\s+", " ", p)).strip() for p in paras]
+        paras = [p for p in paras if len(p) > 80]
+        return paras[0] if paras else ""
+    txt = htmlmod.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body))).strip()
+    return txt
+
+
 def pull_ofac(gte, lte, stats):
     items, page = [], 0
     tag = "OFAC-RA"
@@ -328,26 +427,119 @@ def pull_ofac(gte, lte, stats):
             if d > lte:
                 continue
             title = htmlmod.unescape(re.sub(r"<[^>]+>", "", title_html)).strip()
-            column, action = OFAC_TYPE_COL.get(type_label.strip(), ("rules", ""))
+            column, _ = OFAC_TYPE_COL.get(type_label.strip(), ("rules", ""))
             item = {
-                "id": "ofac-" + slug, "column": column, "action": action,
+                "id": "ofac-" + slug, "column": column,
+                "action": ofac_action(title, type_label),
                 "date": d, "agency": "OFAC", "doc_no": slug,
                 "title": title, "parties": [],
                 "china_link": china_link(title),
                 "points": [{"text": "类型标签：%s（OFAC recent-actions 列表）。" % type_label.strip(),
                             "layer": "external", "source": "OFAC recent-actions"}],
-                "impact": impact_for(column, "OFAC", action, title),
+                "impact": impact_for(column, "OFAC", "", title),
                 "url": "https://ofac.treasury.gov" + path, "pdf_url": None,
                 "source": {"channel": "OFAC recent-actions", "retrieved_at": now_cn()},
             }
             if column == "enforcement":
                 enrich_ofac_enforcement(item, stats)
+            else:
+                enrich_ofac_detail(item, stats)
             items.append(item)
             stats[tag]["kept"] += 1
         if stop:
             break
         page += 1
     return items
+
+
+def ofac_sdn_changes(text):
+    """解析 OFAC recent-action 正文的 SDN 增删明细（'The following … have been added…' 段）。
+    external 层：条数与名称均逐条来自原文；删除段常含 a.k.a. 重复列示，如实注明。"""
+    marks = list(re.finditer(r"The following ([^:]{5,120}?):", text))
+    out = []
+    for i, m in enumerate(marks):
+        head = m.group(1).strip()
+        if "SDN" not in head and "List" not in head:
+            continue
+        end = marks[i + 1].start() if i + 1 < len(marks) else len(text)
+        block = text[m.end():end]
+        parts = re.split(r"\[[A-Z][A-Z0-9\- ]*\](?:\s*\(Linked To:[^)]*\))?\s*\.", block)
+        entries = [p.strip() for p in parts if len(p.strip()) > 5]
+        names = []
+        for e in entries:
+            if "vessel" in head.lower():
+                nm = re.split(r"\s+\(| flag;", e)[0]
+            elif "individual" in head.lower():
+                nm = ",".join(e.split(",")[:2])
+            else:
+                nm = e.split(",")[0]
+            nm = re.sub(r"\s*\(a\.k\.a\..*$", "", nm, flags=re.S).strip(" .;")
+            if 3 < len(nm) < 90 and nm not in names:
+                names.append(nm)
+        cn_names = []
+        for e in entries:
+            if CN_RE.search(e):
+                if "individual" in head.lower():
+                    nm = ",".join(e.split(",")[:2])
+                elif "vessel" in head.lower():
+                    nm = re.split(r"\s+\(| flag;", e)[0]
+                else:
+                    nm = e.split(",")[0]
+                nm = re.sub(r"\s*\(a\.k\.a\..*$", "", nm, flags=re.S).strip(" .;")
+                if nm and 3 < len(nm) < 90 and nm not in cn_names:
+                    cn_names.append(nm)
+        out.append({"head": head, "count": len(entries), "names": names, "cn_names": cn_names})
+    return out
+
+
+def enrich_ofac_detail(item, stats):
+    """清单/规则类 OFAC 条目：抓详情页，取正文摘要并复核中国关联（external 层）。"""
+    stats["OFAC-detail"]["scanned"] += 1
+    try:
+        h, _ = http_get(item["url"])
+    except Exception as e:
+        stats["OFAC-detail"]["failed"] += 1
+        print("  [OFAC] 详情页失败 %s: %s" % (item["id"], e))
+        return
+    summ = ofac_summary(h)
+    if summ and not any(p["text"].startswith("摘要：") for p in item["points"]):
+        item["points"].append({"text": "摘要：%s" % (summ[:600] + ("…" if len(summ) > 600 else "")),
+                               "layer": "external", "source": item["url"]})
+    pdfs = re.findall(r'href="([^"]*(?:\.pdf|/media/\d+/download)[^"]*)"', h)
+    if pdfs:
+        item["pdf_url"] = urllib.parse.urljoin(item["url"], pdfs[-1])
+    text = htmlmod.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h)))
+    item["china_link"] = china_link(item["title"] + " " + text[:60000])
+    if item["column"] == "lists":
+        item["points"] = [p for p in item["points"]
+                          if not p["text"].startswith(("SDN 变动明细", "其中地址"))]
+        changes = ofac_sdn_changes(text)
+        if changes:
+            seg = []
+            parties = []
+            for c in changes:
+                kind = "删除" if re.search(r"deletion|removal", c["head"], re.I) else "新增"
+                seg.append("%s %d 条（%s）" % (kind, c["count"], c["head"][:60]))
+                parties.extend(c["names"])
+            item["points"].append({
+                "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：%s。" % "；".join(seg),
+                "layer": "external", "source": item["url"]})
+            cn_all = []
+            for c in changes:
+                kind = "删除" if re.search(r"deletion|removal", c["head"], re.I) else "新增"
+                for nm in c["cn_names"]:
+                    cn_all.append("%s（%s）" % (nm, kind))
+            if cn_all:
+                item["points"].append({
+                    "text": "其中地址/注册地涉中国的条目：%s。" % "、".join(cn_all[:10]),
+                    "layer": "external", "source": item["url"]})
+            if parties:
+                seen_p, item["parties"] = set(), []
+                for nm in parties:
+                    if nm not in seen_p:
+                        seen_p.add(nm)
+                        item["parties"].append(nm)
+                item["parties"] = item["parties"][:20]
 
 
 def party_from_title(title):
@@ -380,6 +572,9 @@ def enrich_ofac_enforcement(item, stats):
         amt = "$" + m.group(1) + (" " + m.group(2) if m.group(2) else "")
         item["points"].append({"text": "和解/罚款金额：%s（详情页正文首个金额数字，口径以原文 PDF 为准）。" % amt,
                                "layer": "external", "source": item["url"]})
+        mult = {"million": 1e6, "billion": 1e9}.get((m.group(2) or "").lower(), 1)
+        item["penalty"] = {"amount_usd": float(m.group(1).replace(",", "")) * mult,
+                           "text": amt, "suspended": False}
     m = re.search(r"([0-9,]+)\s+apparent violations?", text, re.I)
     if m:
         item["points"].append({"text": "违规笔数（apparent violations）：%s。" % m.group(1),
@@ -413,6 +608,84 @@ BIS_ITEM_RE = re.compile(
     r'<ul class="list-disc[^"]*">(.*?)</ul>', re.S)
 BIS_MONTH = {m: i + 1 for i, m in enumerate(
     ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])}
+
+
+def enrich_bis_enforcement(item, stats):
+    """BIS 执法稿：抓详情页找和解/ORDER PDF，pdftotext 提取罚款、违规条款与笔数、
+    VSD 情节，并以 PDF 全文复核中国关联（external 层，附 PDF 链接）。
+    无 pdftotext 或 PDF 时退化为仅页面文本。"""
+    stats["BIS-detail"]["scanned"] += 1
+    try:
+        h, _ = http_get(item["url"])
+    except Exception as e:
+        stats["BIS-detail"]["failed"] += 1
+        print("  [BIS] 详情页失败 %s: %s" % (item["id"], e))
+        return
+    pdfs = [u for u in re.findall(r'href="([^"]+\.pdf[^"]*)"', h)
+            if re.search(r"order|settlement|agreement|\d{4}-\d{1,2}-\d{1,2}|\d{1,2}-\d{1,2}-\d{4}", u, re.I)
+            and "sorn" not in u.lower() and "qualityguidelines" not in u.lower()]
+    text_page = htmlmod.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h)))
+    if not pdfs or not shutil.which("pdftotext"):
+        item["china_link"] = china_link(item["title"] + " " + text_page[:40000])
+        if not shutil.which("pdftotext"):
+            item["points"].append({"text": "本机无 pdftotext，执法文书 PDF 未解析；金额与条款以原文为准。",
+                                   "layer": "external", "source": item["url"]})
+        return
+    pdf_url = urllib.parse.urljoin(item["url"], pdfs[0])
+    item["pdf_url"] = pdf_url
+    try:
+        data, _ = http_get(pdf_url, binary=True)
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as fp:
+            fp.write(data)
+            tmp = fp.name
+        try:
+            txt = subprocess.run(["pdftotext", tmp, "-"], capture_output=True,
+                                 text=True, timeout=60).stdout
+        finally:
+            os.unlink(tmp)
+    except Exception as e:
+        stats["BIS-detail"]["failed"] += 1
+        print("  [BIS] PDF 解析失败 %s: %s" % (item["id"], e))
+        return
+    flat = re.sub(r"\s+", " ", txt)
+    m = re.search(r"civil penalty(?: in the amount)? of \$?([0-9][0-9,]*(?:\.\d+)?)", flat, re.I)
+    if m:
+        amt_txt = m.group(1).rstrip(",")
+        amount = float(amt_txt.replace(",", ""))
+        sent = flat[max(0, m.start() - 80):m.end() + 220]
+        suspended = bool(re.search(r"suspend", sent, re.I))
+        item["penalty"] = {"amount_usd": amount, "text": "$" + amt_txt, "suspended": suspended}
+        item["points"].append({"text": "民事罚款：$%s%s（和解命令原文）。" % (
+            amt_txt, "，全额/部分缓期执行（suspended），违约即激活" if suspended else ""),
+            "layer": "external", "source": pdf_url})
+    provs = []
+    seen_prov = set()
+    for vm in re.finditer(
+            r"(\w+(?:-\w+)?)\s*\((\d+)\)\s*violations?\s+(?:of|under)\s+(?:the\s+)?(?:15\s*C\.F\.R\.\s*)?§?\s*(?:Section\s+)?([\d.]+(?:\(\w\))?)", flat, re.I):
+        key = (vm.group(2), vm.group(3))
+        if key not in seen_prov:
+            seen_prov.add(key)
+            provs.append("%s 笔 × 15 C.F.R. § %s" % (vm.group(2), vm.group(3)))
+    if not provs:
+        for vm in re.finditer(
+                r"(\d+)\s+violations?\s+(?:of|under)\s+(?:the\s+)?(?:15\s*C\.F\.R\.\s*)?§?\s*(?:Section\s+)?([\d.]+(?:\(\w\))?)", flat, re.I):
+            key = vm.groups()
+            if key not in seen_prov:
+                seen_prov.add(key)
+                provs.append("%s 笔 × § %s" % key)
+    if not provs:
+        gm = re.search(r"committed\s+([a-z\-]+|\d+)\s+violations?\s+of\s+the\s+([A-Z][A-Za-z ]{3,60}?)(?:\.|,|\()", flat)
+        if gm:
+            n = num_of(gm.group(1))
+            if n:
+                provs.append("%d 笔 × %s（指控文书口径）" % (n, gm.group(2).strip()))
+    if provs:
+        item["points"].append({"text": "违规笔数与条款：%s。" % "；".join(provs[:6]),
+                               "layer": "external", "source": pdf_url})
+    if re.search(r"voluntary self-disclosure|voluntarily disclosed", flat, re.I):
+        item["points"].append({"text": "原文载有自愿披露（VSD）情节。",
+                               "layer": "external", "source": pdf_url})
+    item["china_link"] = china_link(item["title"] + " " + flat[:80000])
 
 
 def pull_bis(gte, lte, stats):
@@ -450,6 +723,8 @@ def pull_bis(gte, lte, stats):
             "url": url, "pdf_url": None,
             "source": {"channel": "BIS news-updates", "retrieved_at": now_cn()},
         })
+        if column == "enforcement":
+            enrich_bis_enforcement(items[-1], stats)
         stats[tag]["kept"] += 1
     return items
 
@@ -526,7 +801,7 @@ def pull_uflpa(gte, lte, stats, prev_snapshot):
 def new_stats():
     s = {}
     for k in ("FR-BIS", "FR-UFLPA", "FR-OFAC", "FR-fulltext", "FR-other",
-              "OFAC-RA", "OFAC-detail", "BIS-news", "DHS-UFLPA"):
+              "OFAC-RA", "OFAC-detail", "BIS-news", "BIS-detail", "DHS-UFLPA"):
         s[k] = {"scanned": 0, "kept": 0, "failed": 0}
     return s
 
@@ -655,10 +930,12 @@ def main():
         "sources": [
             {"name": "Federal Register API", "url": "https://www.federalregister.gov/api/v1/", "note": "BIS/OFAC 规则与实体清单通知，免费无 key"},
             {"name": "OFAC recent-actions", "url": OFAC_RA, "note": "执法/清单/通用许可/指南，HTML 列表"},
-            {"name": "BIS news-updates", "url": BIS_NEWS, "note": "BIS 执法与规则新闻稿"},
+            {"name": "BIS news-updates", "url": BIS_NEWS, "note": "BIS 执法与规则新闻稿；执法条目的罚款/条款解析自和解命令 PDF"},
             {"name": "DHS UFLPA Entity List", "url": DHS_UFLPA, "note": "批次式更新，含生效日期与列入依据小节"},
+            {"name": "CBP UFLPA 统计仪表盘", "url": "https://www.cbp.gov/newsroom/stats/trade/uyghur-forced-labor-prevention-act-statistics", "note": "JS 渲染的实时仪表盘，静态抓取取不到数字；本页不转录其数字，仅作来源指引"},
         ],
-        "caliber": "本模块数据与其他分页面互不混用；仅收官方公开文件；要点=external（附来源），合规影响=analysis（写依据）；原文未载显示【未披露】。",
+        "caliber": "本模块数据与其他分页面互不混用；仅收官方公开文件；要点=external（附来源），合规影响=analysis（写依据）；原文未载显示【未披露】。"
+                   "「执法案例更新」栏的 CBP/UFLPA 执法统计由 CBP 实时仪表盘发布（JS 渲染），本页不抓取其数字、不转录，避免口径失真；UFLPA 清单批次见「清单更新」栏。",
     }
     os.makedirs(os.path.dirname(STATE_PATH), exist_ok=True)
     with open(STATE_PATH, "w", encoding="utf-8") as f:

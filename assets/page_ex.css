@@ -23,6 +23,9 @@
 .ex-links { font-size: 12.5px; margin-top: 7px; display: flex; gap: 14px; flex-wrap: wrap; }
 .ex-cn { color: #b23b3b; border-color: #b23b3b; }
 
+.ex-pager { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin: 10px 0 14px; }
+.ex-pager .btn { padding: 4px 10px; font-size: 12.5px; }
+
 @media (max-width: 640px) {
   .ex-fbar label { width: 100%; }
   .ex-fbar input[type="text"] { flex: 1; }
