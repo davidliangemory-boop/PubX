@@ -245,13 +245,42 @@ def extract_amount_excerpt(pdf_path):
         a = m.group(0).strip()
         num = re.search(r"[\d][\d,\.]*", a)
         has_unit = re.search(r"億|亿|萬|万|百萬|百万|千|million|billion", a)
-        if not num or (not has_unit and "," not in num.group(0)):
+        if not num:
             continue
+        if not has_unit:
+            # 无量级词的千分位数字：仅保留紧跟「元」的金额表述，
+            # 排除「每平方米/每股/均价」等单价语境（非交易金额）
+            if "," not in num.group(0):
+                continue
+            after = flat[m.end():m.end() + 1]
+            before = flat[max(0, m.start() - 14):m.start()]
+            if after != "元" or re.search(r"每平方米|每股|每單位|每单位|均價|均价|銷售價格|销售价格", before):
+                continue
         if a not in amts:
             amts.append(a)
         if len(amts) >= 3:
             break
     return amts, clean_excerpt(txt), txt
+
+
+def stage_of(doc):
+    """披露阶段（系统规则推断=analysis：类别码 + 标题关键词；非港交所原文字段）。
+    依据：16600 終止交易 / 16100 交易延誤 / 16700 條款上的更改 等二级类别码语义。"""
+    if (doc.get("channel") or "").startswith("SFC"):
+        return "—"
+    codes = set(doc.get("cat_codes") or [])
+    t = doc.get("title") or ""
+    if "16600" in codes or re.search(r"(?<!職務)(?<!职务)終止|(?<!職務)(?<!职务)终止|不再進行|不會進行|失效", t):
+        return "终止"
+    if "16100" in codes or re.search(r"延遲|延期|延後|押後", t):
+        return "延迟"
+    if "16700" in codes or re.search(r"條款.{0,4}更改|修訂.{0,4}條款|補充協議", t):
+        return "条款变更"
+    if re.search(r"完成|交割|落實|已成為|生效", t):
+        return "完成"
+    if re.search(r"進展|進一步資料|進一步公告|更新|最新情況|補充公告", t):
+        return "进展"
+    return "首次披露"
 
 
 def pull_sfc(d_from, d_to, seen_ids):
@@ -377,6 +406,7 @@ def scan_day(day, name2codes, seen_ids, docs_by_id, max_pdf, pdf_state):
                 "headline_top": top, "cat_codes": keep_codes,
                 "cat_names": names,
                 "cat6": cat6, "cat6_sub": " / ".join(names[:3]) if names else top,
+                "stage": "—",
                 "matter": title,
                 "amount": "【未披露】", "amounts": [],
                 "cn_related": cn_tag(title, clean(r.get("STOCK_NAME"))),
@@ -457,9 +487,12 @@ def backfill_pdf(docs_by_id, max_pdf, pdf_state):
 def build_hk_data_js(db):
     docs = sorted(db["docs"].values(), key=lambda x: (x.get("pub_datetime") or ""), reverse=True)
     keep = ("doc_id", "channel", "layer", "stock_code", "stock_name", "pub_date", "pub_datetime",
-            "title", "headline_raw", "cat6", "cat6_sub", "amount", "cn_related",
+            "title", "headline_raw", "cat6", "cat6_sub", "stage", "amount", "cn_related",
             "url", "url_en", "excerpt", "pdf_status")
-    slim = [{k: d.get(k) for k in keep} for d in docs]
+    slim = []
+    for d in docs:
+        d["stage"] = stage_of(d)  # 构建时按现行规则重算，规则更新可全量传播
+        slim.append({k: d.get(k) for k in keep})
     out = {
         "build": {"time": now_hkt(), "docs": len(slim), "batches": len(db["batches"])},
         "meta": db["meta"],
@@ -503,6 +536,37 @@ def redo_excerpt(docs_by_id, pdf_state):
     return n
 
 
+def fix_amounts(docs_by_id):
+    """按现行金额过滤规则重抽：仅针对 amounts 含无量级词条目的存量文档（单价/截断噪音修正）。"""
+    def has_no_unit(doc):
+        for a in doc.get("amounts") or []:
+            if not re.search(r"億|亿|萬|万|百萬|百万|千|million|billion", a):
+                return True
+        return False
+    n = 0
+    for doc in docs_by_id.values():
+        if doc.get("pdf_status") != "done" or not has_no_unit(doc):
+            continue
+        m = re.search(r"(/listedco/[^\s]+\.pdf)$", doc.get("url") or "")
+        if not m:
+            continue
+        try:
+            raw = fetch("https://www1.hkexnews.hk" + m.group(1), binary=True)
+            os.makedirs(RAWDIR, exist_ok=True)
+            pp = os.path.join(RAWDIR, doc["doc_id"] + ".pdf")
+            open(pp, "wb").write(raw)
+            amts, excerpt, _ = extract_amount_excerpt(pp)
+            os.remove(pp)
+            doc["amounts"] = amts
+            doc["amount"] = "；".join(amts[:2]) if amts else "【未披露】"
+            doc["excerpt"] = excerpt
+            n += 1
+        except Exception:
+            pass
+        time.sleep(0.35)
+    return n
+
+
 def now_hkt():
     return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
 
@@ -515,7 +579,19 @@ def main():
     ap.add_argument("--no-sfc", action="store_true", help="跳过 SFC 执法新闻源")
     ap.add_argument("--redo-excerpt", action="store_true",
                     help="重抓摘录命中 boilerplate 残留的存量条目并重建 hk_data.js（不扫描新公告）")
+    ap.add_argument("--fix-amounts", action="store_true",
+                    help="按现行金额规则重抽存量含无量级词条目的文档并重建 hk_data.js（不扫描新公告）")
     a = ap.parse_args()
+
+    if a.fix_amounts:
+        db = load_json(DB_P, {"meta": {}, "batches": [], "docs": {}})
+        if isinstance(db.get("docs"), list):
+            db["docs"] = {d["doc_id"]: d for d in db["docs"]}
+        n = fix_amounts(db["docs"])
+        save_json(DB_P, db)
+        build_hk_data_js(db)
+        print("[hk-market] fix-amounts 完成：重抽 %d 条" % n)
+        return
 
     if a.redo_excerpt:
         db = load_json(DB_P, {"meta": {}, "batches": [], "docs": {}})
