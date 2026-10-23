@@ -98,17 +98,32 @@
     var yi = unit === "亿" ? v : unit === "万" ? v / 10000 : v / 1e8;
     return { val: yi, cur: cur };
   }
-  // 跟踪点期限解析：取文本中首个 20xx(-mm(-dd)) / 20xx年；无日期返回 null（列后，不猜）
+  // 跟踪点期限解析：取文本中首个 20xx(-mm(-dd)) / 20xx年；无日期返回 null（列后，不猜）。
+  // 「2025年度」为会计期间而非期限，年粒度匹配须排除「年度」；早于数据同步日的日期视为已过节点。
   function parseDeadline(text) {
     if (!text) return null;
     var m = String(text).match(/(20\d{2})[-年.\/](\d{1,2})[-月.\/](\d{1,2})日?/);
-    if (m) return m[1] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[3]).slice(-2);
-    m = String(text).match(/(20\d{2})[-年.\/](\d{1,2})/);
-    if (m) return m[1] + "-" + ("0" + m[2]).slice(-2);
-    m = String(text).match(/(20\d{2})年?/);
-    if (m) return m[1];
+    // 「2026年1-6月」为会计期间区间而非期限，不取
+    if (m && !/^20\d{2}[-年.\/]\d{1,2}[-–~—]\d{1,2}月/.test(String(text).slice(m.index)))
+      return m[1] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[3]).slice(-2);
+    m = String(text).match(/(20\d{2})[-年.\/](\d{1,2})(?!度)/);
+    if (m && !/^20\d{2}[-年.\/]\d{1,2}[-–~—]\d{1,2}月/.test(String(text).slice(m.index)))
+      return m[1] + "-" + ("0" + m[2]).slice(-2);
+    var re = /(20\d{2})年?/g;
+    while ((m = re.exec(String(text)))) {
+      // 「2025年度 / 2026上半年 / 2026年报 / 2026年1-6月」等为会计期间引用，不是期限，跳过往后找
+      if (/^(度|报|上半年|下半年|中报|季报|一季|三季)/.test(String(text).slice(re.lastIndex, re.lastIndex + 3))) continue;
+      if (/^20\d{2}年\d{1,2}[-–~—]\d{1,2}月/.test(String(text).slice(m.index))) continue;
+      return m[1];
+    }
     return null;
   }
+  // 日期加减（UTC 计算，避免本地时区经 toISOString 产生一天偏移）
+  function addDaysISO(iso, n) {
+    var p = String(iso).split("-");
+    return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2] + n)).toISOString().slice(0, 10);
+  }
+  function syncDate() { return (DB.synced || "").slice(0, 10); }
   var EVX = EV.map(function (e) {
     var latest = e.sources[e.sources.length - 1];
     var first = e.sources[0];
@@ -144,8 +159,7 @@
   /* ═════════ 首页（R04）：本次更新带 → 头条 → 重点观察 → 关键数据 → 持续跟踪 → 入口 ═════════ */
   function vHome() {
     var maxDate = EVX.length ? EVX[0].date : "";
-    var d7 = "";
-    if (maxDate) { var dt = new Date(maxDate.replace(/-/g, "/")); dt.setDate(dt.getDate() - 7); d7 = dt.toISOString().slice(0, 10); }
+    var d7 = maxDate ? addDaysISO(maxDate, -6) : "";
     var recent7 = EVX.filter(function (x) { return x.date >= d7; }).length;
     var BD = DB.batches_daily || [];
     var lb = null;
@@ -261,12 +275,17 @@
     /* ── ③ 重点观察（判断 + 证据链接 + 适用范围；同方向 <3 件标「观察线索」） ── */
     var obs = [];
     var scopeAll = "样本：全库 " + EV.length + " 事件（三渠道关键词/名单制采样合并，非全市场）；归一与判断均为系统分析层";
-    var prog = leadCands.map(function (c) { return c.x; });
-    if (prog.length) {
+    // 注：「近 N 日本批更新清单」由上方「本次更新带」承担，此处不重复同一列表（R04 版面分工）
+    var hkEvs = EVX.filter(function (x) { return /H\s*股/.test(x.title); });
+    if (hkEvs.length >= 3) {
+      var hkSt = {};
+      hkEvs.forEach(function (x) { hkSt[x.status] = (hkSt[x.status] || 0) + 1; });
       obs.push({
-        judgment: "近 7 日 " + prog.length + " 件事件出现实质更新（进展/修正）：" + prog.map(function (x) { return shortCo(x.subject); }).join("、") + "。",
-        basis: "按事件 changelog 变更日统计，窗口 " + d7 + " 起；含批次日后的人工修正",
-        ev: prog, scope: scopeAll, clue: prog.length < 3
+        judgment: "H 股发行上市相关事件 " + hkEvs.length + " 件，占全库 " + EV.length + " 件的 " + Math.round(hkEvs.length / EV.length * 100)
+          + "%（活跃推进 " + (hkSt["活跃"] || 0) + " · 已完成 " + (hkSt["完成"] || 0) + " · 已终止 " + (hkSt["终止"] || 0)
+          + "）——A 股公司赴港上市是本样本期最密集的出海资本动作通道，且多数处于意向/协议早期阶段，后续进展披露密度高。",
+        basis: "按事件事实标题含「H股」归并统计（分析层归并，含配售/可转债等 H 股融资形态）；状态按 status 计",
+        ev: hkEvs.slice(0, 4), scope: scopeAll + "；本条的 " + hkEvs.length + " 件", clue: hkEvs.length < 3
       });
     }
     var mtCnt = countBy(function (x) { return x.mt; });
@@ -316,26 +335,33 @@
       + statCard(D.length, "收录披露", "三渠道累计入库，截至最新批次")
       + statCard(EV.length, "事件", "多源/多公告合并后，截至最新批次")
       + statCard(EVX.length ? unique(EVX.map(function (x) { return x.subject; })).length : 0, "跟踪主体", "有出海实质动作披露的主体数")
-      + statCard(recent7, "近7日有更新事件", "窗口 " + (d7 || "—") + " ~ " + maxDate + "，按事件最新来源日期")
-      + statCard(lb.kept != null ? lb.kept : "—", "最新日批次收录", esc(lb.id || "—") + (lb.runs > 1 ? "（" + lb.runs + " 轮合并）" : ""))
+      + statCard(recent7, "近7日有更新事件", "窗口 " + (d7 || "—") + " ~ " + maxDate + "（含两端共 7 日），按事件最新来源日期")
+      + statCard(lb.kept != null ? lb.kept : "—", "最新日批次收录（披露条数）", esc(lb.id || "—") + (lb.runs > 1 ? "（" + lb.runs + " 轮合并）" : "") + "；事件层去重后新增见上方更新带")
       + "</div>";
     h += '<div class="note" style="margin:-10px 0 20px">口径：最新日批次扫描漏斗（' + esc(lb.id || "—") + " · " + esc(lb.time || "—") + "）：" + esc(funnel) + "；金额保留原文币种，未做汇率换算。</div>";
 
     /* ── ⑤ 持续跟踪（跟踪点按临近期限排序；与更新带/观察不重复同一列表） ── */
+    var refD = syncDate();
     var nodes = [];
     EVX.forEach(function (x) {
       if (x.status !== "活跃") return;
-      (x.e.watch_points || []).forEach(function (w) { nodes.push({ x: x, w: w, dl: parseDeadline(w.text) }); });
+      (x.e.watch_points || []).forEach(function (w) {
+        var dl = parseDeadline(w.text);
+        nodes.push({ x: x, w: w, dl: dl, past: !!(dl && refD && dl < refD) });
+      });
     });
     nodes.sort(function (a, b) {
-      if (a.dl && b.dl) return a.dl < b.dl ? -1 : 1;
-      if (a.dl) return -1;
-      if (b.dl) return 1;
+      var ra = a.dl ? (a.past ? 1 : 0) : 2, rb = b.dl ? (b.past ? 1 : 0) : 2;
+      if (ra !== rb) return ra - rb;
+      if (a.dl && b.dl) return a.past ? (a.dl > b.dl ? -1 : 1) : (a.dl < b.dl ? -1 : 1);
       return a.x.date < b.x.date ? 1 : -1;
     });
-    h += '<div class="panel"><div class="panel-h"><h2>持续跟踪</h2><span class="note">活跃事件跟踪点 ' + nodes.length + " 条；期限自跟踪点文本解析（无明确日期的列后），按临近排序；节点为系统分析</span></div><div class='panel-b'>"
+    var pastN = nodes.filter(function (n) { return n.past; }).length;
+    h += '<div class="panel"><div class="panel-h"><h2>持续跟踪</h2><span class="note">活跃事件跟踪点 ' + nodes.length + " 条；期限自跟踪点文本解析（「2025年度」等会计期间不作期限；无明确日期的列后），按临近排序"
+      + (pastN ? "；早于数据日 " + refD + " 的 " + pastN + " 条标「已过」列于临近节点之后" : "")
+      + "；节点为系统分析</span></div><div class='panel-b'>"
       + (nodes.length ? nodes.slice(0, 10).map(function (n) {
-        return '<div class="ev"><span class="pg">' + esc(n.dl || "无期限") + '</span><span><a href="#/event/' + n.x.id + '">' + esc(n.x.title) + "</a>"
+        return '<div class="ev"><span class="pg">' + (n.past ? "已过 " : "") + esc(n.dl || "无期限") + '</span><span><a href="#/event/' + n.x.id + '">' + esc(n.x.title) + "</a>"
           + '<br/><span class="dim" style="font-size:12px">' + esc((n.w.text || "").slice(0, 76)) + ((n.w.text || "").length > 76 ? "…" : "") + "</span></span></div>";
       }).join("") : '<div class="empty">当前无活跃事件跟踪点</div>') + "</div></div>";
 
@@ -833,21 +859,28 @@
       + matrix(mts, function (x) { return x.mt; }, "mt",
         "未归类事项类型的事件不计入本矩阵；矩阵合计 = 事件库对应筛选数，可逐格点击核验。") + "</div>";
 
-    // 节点临近表：跟踪点中有日期的按日期升序（最近的在前），无日期的列后并注明
+    // 节点临近表：跟踪点中有日期的按日期升序（最近的在前），早于数据日的标「已过」列后，无日期的列最后并注明
+    var refD2 = syncDate();
     var nodes = [];
     EVX.forEach(function (x) {
-      (x.e.watch_points || []).forEach(function (w) { nodes.push({ x: x, w: w, dl: parseDeadline(w.text) }); });
+      (x.e.watch_points || []).forEach(function (w) {
+        var dl = parseDeadline(w.text);
+        nodes.push({ x: x, w: w, dl: dl, past: !!(dl && refD2 && dl < refD2) });
+      });
     });
     nodes.sort(function (a, b) {
-      if (a.dl && b.dl) return a.dl < b.dl ? -1 : 1;
-      if (a.dl) return -1;
-      if (b.dl) return 1;
+      var ra = a.dl ? (a.past ? 1 : 0) : 2, rb = b.dl ? (b.past ? 1 : 0) : 2;
+      if (ra !== rb) return ra - rb;
+      if (a.dl && b.dl) return a.past ? (a.dl > b.dl ? -1 : 1) : (a.dl < b.dl ? -1 : 1);
       return a.x.date < b.x.date ? 1 : -1;
     });
-    h += '<div class="panel"><div class="panel-h"><h2>节点临近表</h2><span class="note">全部事件跟踪点 ' + nodes.length + " 条；日期自跟踪点文本解析（无明确日期列后）；节点为系统分析，依据见事件详情 §⑦</span></div><div class='panel-b'>"
+    var pastN2 = nodes.filter(function (n) { return n.past; }).length;
+    h += '<div class="panel"><div class="panel-h"><h2>节点临近表</h2><span class="note">全部事件跟踪点 ' + nodes.length + " 条；日期自跟踪点文本解析（「2025年度」等会计期间不作期限；无明确日期列后）"
+      + (pastN2 ? "；早于数据日 " + refD2 + " 的 " + pastN2 + " 条标「已过」" : "")
+      + "；节点为系统分析，依据见事件详情 §⑦</span></div><div class='panel-b'>"
       + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>期限</th><th>事件</th><th>节点</th><th>来源</th></tr></thead><tbody>'
       + (nodes.length ? nodes.map(function (n) {
-        return '<tr><td class="mono">' + esc(n.dl || "无明确日期") + '</td>'
+        return '<tr><td class="mono">' + (n.past ? "已过 " : "") + esc(n.dl || "无明确日期") + '</td>'
           + '<td style="font-size:12.5px"><a href="#/event/' + n.x.id + '">' + esc(n.x.title.slice(0, 40)) + (n.x.title.length > 40 ? "…" : "") + "</a></td>"
           + '<td style="font-size:12.5px">' + esc((n.w.text || "").slice(0, 60)) + ((n.w.text || "").length > 60 ? "…" : "") + "</td>"
           + '<td><a href="#/event/' + n.x.id + '">详情 §⑦</a></td></tr>';
@@ -1234,7 +1267,7 @@
           + ((VR.pages.dead_links || []).length ? '<div class="secnote">站内死链：' + VR.pages.dead_links.map(function (l) { return esc(l); }).join(" · ") + "</div>"
             : '<div class="secnote">站内死链：0 条（' + (VR.pages.links_checked || 0) + " 条去重链接全部可渲染）</div>") + "</div>"
           : '<div class="panel"><div class="panel-b"><div class="empty">本次质检未含页面检查（无 playwright 环境时跳过，详见下方 SKIP 项）</div></div></div>')
-        + '<div class="panel"><div class="panel-h"><h2>检查项明细</h2><span class="note">JSON 可解析 · id 唯一 · 必填字段 · 三分层 basis · external 来源 · 阶段链/changelog 一致 · doc 唯一归属 · 审批表述依据 · 金额口径 · 引文回原文 · 来源链接抽样 · 批次命名 · 前端资源</span></div><div class="panel-b">'
+        + '<div class="panel"><div class="panel-h"><h2>检查项明细</h2><span class="note">JSON 可解析 · id 唯一 · 必填字段 · 三分层 basis · external 来源 · 阶段链/changelog 一致 · doc 唯一归属 · 审批表述依据 · 金额口径 · 引文回原文 · 来源链接抽样 · 批次命名 · 依据引用可解析 · 前端资源</span></div><div class="panel-b">'
         + ((VR.issues || []).length ? (VR.issues || []).map(function (i) {
           return '<div class="ev"><span class="pg">' + esc(i.level) + '</span><span><b>' + esc(i.check) + "</b> " + esc(i.detail) + "</span></div>";
         }).join("") : '<div class="empty">无 ERROR / WARN / SKIP 项——全部检查通过</div>')

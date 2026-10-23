@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import schema  # noqa: E402
 
 REPORT_PATH = os.path.join(ROOT, "state", "validate_report.json")
+DB_PATH = os.path.join(ROOT, "state", "db.json")
 
 ISSUES = []  # (check, level, detail)
 
@@ -461,6 +462,43 @@ def check_frontend():
         add("前端语法", "SKIP", "无 node，跳过 app.js 语法检查")
 
 
+INTERNAL_REF = re.compile(r"条目#(\d+)")
+
+
+def check_internal_refs(evj):
+    """依据文本不得残留内部编号引用「条目#N」（对读者不可溯源，且构建层会重排序号使其错位）；
+    若出现则须能解析到 db.json 披露序号，否则 WARN。"""
+    if not evj:
+        return
+    db = load_json(DB_PATH, "JSON 可解析")
+    seqs = {str(r.get("序号")) for r in db.get("disclosures", [])}
+    n_raw = n_bad = 0
+    def scan(text, where):
+        nonlocal n_raw, n_bad
+        for m in INTERNAL_REF.finditer(text or ""):
+            n_raw += 1
+            if m.group(1) not in seqs:
+                n_bad += 1
+                add("依据引用可解析", "WARN", f"{where}: 条目#{m.group(1)} 在披露表中不存在")
+    def walk(o, where):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                walk(v, where)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v, where)
+        elif isinstance(o, str):
+            scan(o, where)
+    for e in evj.get("events", []):
+        walk(e, e.get("event_id"))
+    if n_raw == 0:
+        add("依据引用可解析", "OK", "无「条目#N」内部编号引用（依据均已改写为 公司+日期+标题 可溯源形式）")
+    elif not n_bad:
+        add("依据引用可解析", "WARN", f"{n_raw} 处「条目#N」引用可解析但属内部编号，建议改写为 公司+日期+标题 形式")
+    else:
+        add("依据引用可解析", "WARN", f"{n_raw} 处引用中 {n_bad} 处无法解析到披露序号")
+
+
 def main():
     check_state_jsons()
     evj = check_events()
@@ -468,6 +506,7 @@ def main():
     check_quotes(evj)
     check_batches()
     check_event_consistency(evj)
+    check_internal_refs(evj)
     check_links(evj)
     check_frontend()
 
