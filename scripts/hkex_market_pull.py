@@ -57,7 +57,7 @@ HK_DATA_JS = os.path.join(ROOT, "assets", "hk_data.js")
 GROUPS = [("10000", "1"), ("10000", "2"), ("10000", "3"), ("10000", "5"),
           ("10000", "6"), ("10000", "7"), ("10000", "8"), ("10000", "9"),
           ("20000", "-2"), ("30000", "-2"), ("55000", "-2"), ("90000", "-2")]
-KEEP_ALL_T1 = {"30000", "55000", "90000"}
+KEEP_ALL_T1 = {"55000", "90000"}
 
 # ── 事件流白名单：t2code → (六类, 子类沿用港交所原文名) ──
 # 六类：融资类 / 投并购 / 运营 / 法律（诉讼/监管处罚） / 对外投资 / 经营战略重大事项
@@ -66,6 +66,7 @@ W = {
     "11200": "投并购", "11300": "投并购", "11500": "投并购", "11100": "法律（诉讼/监管处罚）",
     # 组2 公司狀況變動
     "12150": "经营战略重大事项", "12350": "经营战略重大事项", "12951": "经营战略重大事项",
+    "12700": "经营战略重大事项",
     "12850": "法律（诉讼/监管处罚）",
     # 组3 財務資料
     "13100": "融资类", "13350": "融资类", "13500": "运营", "13550": "运营",
@@ -95,11 +96,19 @@ W = {
     "24300": "投并购", "24400": "投并购", "24500": "投并购",
     "25100": "投并购", "25200": "投并购", "25300": "经营战略重大事项",
     "25400": "经营战略重大事项", "25600": "经营战略重大事项",
-    "26100": "融资类", "26150": "融资类", "26200": "融资类", "26300": "融资类",
+    "26100": "融资类", "26150": "融资类", "26200": "融资类",
     "26400": "融资类", "26450": "融资类", "26500": "融资类", "26550": "融资类",
     "26600": "融资类", "26650": "融资类", "26700": "融资类", "26800": "融资类",
     "26900": "融资类",
+    # 上市文件 30000：公司上市/再融资文件 = 融资类（R03b：IPO/上市属融资类）；
+    # 30100 認可集體投資計劃（ETF/杠杆产品文件）与 30900 其他（供股表格等程序件）不入六类
+    "30200": "融资类", "30300": "融资类", "30400": "融资类", "30500": "融资类",
+    "30600": "融资类", "30700": "融资类", "30800": "融资类", "31000": "融资类",
+    "31100": "融资类", "31200": "融资类",
 }
+# 不入事件流白名单、但保留入库并单列「常规程序」的类别：
+#   26300 回購股份的說明函件（股东周年大会例行授权说明，非交易）等
+ROUTINE_CODES = {"26300", "30100", "30900"}
 # 中国关联标签（仅标签，不作筛选前提；基于名称/标题的弱启发式）
 CN_RE = re.compile(r"中國|中国|內地|内地|大灣區|大湾区|深圳|上海|北京|廣州|广州|浙江|江蘇|江苏|國資|国资")
 # 金额原文表述抽取（PDF 首页）
@@ -212,7 +221,11 @@ EXC_DROP_RE = re.compile(
     r"概不負責|概不负责|承擔任何責任|承担任何责任|此乃要件|請即處理|请即处理|應諮詢閣下|应咨询阁下|"
     r"持牌證券|持牌证券|銀行經理|银行经理|專業會計師|专业会计师|註冊成立|注册成立|"
     r"股份代號|股份代号|Stock Code|香港聯合交易所|香港联合交易所|香港交易及結算|香港交易及结算|"
-    r"務請垂注|务请垂注|敬請垂注|敬请垂注|承董事會命|承董事会命|交予買主|交予买主|股票經紀|股票经纪")
+    r"務請垂注|务请垂注|敬請垂注|敬请垂注|承董事會命|承董事会命|交予買主|交予买主|股票經紀|股票经纪|"
+    r"僅作參考|仅供参考|僅供參考|不構成|不构成|邀請或要約|邀请或要约|要約邀請|要约邀请|"
+    r"招攬|招揽|提呈發售|提呈发售|出售任何證券|出售任何证券|"
+    r"司法管轄區|司法管辖区|受到法律限制|尚未根據|任何證券法律|任何证券法律|登記或獲准|登记或获准|"
+    r"1933年|美國證券法|美国证券法|登記聲明|登记声明|不得在美國|不得在美国|適用州證券|适用州证券")
 
 
 def clean_excerpt(txt):
@@ -364,12 +377,17 @@ def scan_day(day, name2codes, seen_ids, docs_by_id, max_pdf, pdf_state):
                 codes += name2codes.get(nm, [])
             codes = sorted(set(codes))
             keep_codes = [c for c in codes if c in W]
+            routine = False
             if t1 in KEEP_ALL_T1:
                 keep = True
                 if not keep_codes:
                     keep_codes = codes  # 整类保留但六类映射按名称关键词
+            elif keep_codes:
+                keep = True
+            elif any(c in ROUTINE_CODES for c in codes):
+                keep, routine = True, True  # 例行授权/基金文件：入库但单列「常规程序」
             else:
-                keep = bool(keep_codes)
+                keep = False
             if not keep:
                 day_excluded.add(nid)
                 stats["excluded"] += 1
@@ -386,16 +404,19 @@ def scan_day(day, name2codes, seen_ids, docs_by_id, max_pdf, pdf_state):
             url_zh = "https://www1.hkexnews.hk" + link if link else ""
             url_en = re.sub(r"_c\.(pdf|htm)$", r"_e.\1", url_zh) if url_zh else ""
             # 六类归类
-            cat6 = None
-            for c in keep_codes:
-                if c in W:
-                    cat6 = W[c]
-                    break
-            if not cat6:
-                cat6 = {"30000": "经营战略重大事项", "55000": "投并购",
-                        "90000": "法律（诉讼/监管处罚）"}.get(t1, "经营战略重大事项")
-            if guess_outbound(title):
-                cat6 = "对外投资"
+            if routine:
+                cat6 = "常规程序"
+            else:
+                cat6 = None
+                for c in keep_codes:
+                    if c in W:
+                        cat6 = W[c]
+                        break
+                if not cat6:
+                    cat6 = {"55000": "投并购",
+                            "90000": "法律（诉讼/监管处罚）"}.get(t1, "经营战略重大事项")
+                if guess_outbound(title):
+                    cat6 = "对外投资"
             ftype = (r.get("FILE_TYPE") or "").upper()
             doc = {
                 "doc_id": "hkex_" + nid, "channel": "HKEX·披露易（全市场）", "layer": "disclosed",
@@ -484,6 +505,28 @@ def backfill_pdf(docs_by_id, max_pdf, pdf_state):
     return n
 
 
+def cat6_of(doc):
+    """六类归类（构建时按现行白名单重算，规则更新可全量传播；与 stage 同理为 analysis）。
+    无白名单码但属例行授权/基金文件（ROUTINE_CODES）→「常规程序」，单列不入六类。"""
+    if (doc.get("channel") or "").startswith("SFC"):
+        return doc.get("cat6") or "法律（诉讼/监管处罚）"
+    codes = doc.get("cat_codes") or []
+    cat6 = None
+    for c in codes:
+        if c in W:
+            cat6 = W[c]
+            break
+    if not cat6 and doc.get("t1") in KEEP_ALL_T1:
+        cat6 = {"55000": "投并购", "90000": "法律（诉讼/监管处罚）"}.get(doc.get("t1"))
+    if not cat6:
+        if any(c in ROUTINE_CODES for c in codes) or doc.get("t1") == "30000":
+            return "常规程序"
+        return doc.get("cat6") or "常规程序"
+    if guess_outbound(doc.get("title")):
+        return "对外投资"
+    return cat6
+
+
 def build_hk_data_js(db):
     docs = sorted(db["docs"].values(), key=lambda x: (x.get("pub_datetime") or ""), reverse=True)
     keep = ("doc_id", "channel", "layer", "stock_code", "stock_name", "pub_date", "pub_datetime",
@@ -491,6 +534,7 @@ def build_hk_data_js(db):
             "url", "url_en", "excerpt", "pdf_status")
     slim = []
     for d in docs:
+        d["cat6"] = cat6_of(d)
         d["stage"] = stage_of(d)  # 构建时按现行规则重算，规则更新可全量传播
         slim.append({k: d.get(k) for k in keep})
     out = {
@@ -509,7 +553,11 @@ def redo_excerpt(docs_by_id, pdf_state):
                      r"註冊成立|注册成立|Stock Code|股份代號|股份代号|承擔任何責任|承担任何责任|應諮詢閣下|"
                      r"香\s*港\s*交\s*易\s*及\s*結\s*算|承\s*擔\s*任\s*何\s*責\s*任|"
                      r"註\s*冊\s*成\s*立|股\s*份\s*代\s*號|S\s*t\s*o\s*c\s*k\s*C\s*o\s*d\s*e|"
-                     r"此\s*乃\s*要\s*件|請\s*即\s*處\s*理|交\s*予\s*買\s*主|股\s*票\s*經\s*紀")
+                     r"此\s*乃\s*要\s*件|請\s*即\s*處\s*理|交\s*予\s*買\s*主|股\s*票\s*經\s*紀|"
+                     r"僅\s*作\s*參\s*考|僅\s*供\s*參\s*考|不\s*構\s*成|邀\s*請\s*或\s*要\s*約|"
+                     r"提\s*呈\s*發\s*售|"
+                     r"司\s*法\s*管\s*轄\s*區|受\s*到\s*法\s*律\s*限\s*制|尚\s*未\s*根\s*據|"
+                     r"美\s*國\s*證\s*券\s*法|1\s*9\s*3\s*3\s*年|不\s*得\s*在\s*美\s*國")
     n = 0
     for doc in docs_by_id.values():
         if doc.get("pdf_status") != "done" or not bad.search(doc.get("excerpt") or ""):
@@ -588,8 +636,8 @@ def main():
         if isinstance(db.get("docs"), list):
             db["docs"] = {d["doc_id"]: d for d in db["docs"]}
         n = fix_amounts(db["docs"])
-        save_json(DB_P, db)
         build_hk_data_js(db)
+        save_json(DB_P, db)
         print("[hk-market] fix-amounts 完成：重抽 %d 条" % n)
         return
 
@@ -598,8 +646,8 @@ def main():
         if isinstance(db.get("docs"), list):
             db["docs"] = {d["doc_id"]: d for d in db["docs"]}
         n = redo_excerpt(db["docs"], {"count": 0})
-        save_json(DB_P, db)
         build_hk_data_js(db)
+        save_json(DB_P, db)
         print("[hk-market] redo-excerpt 完成：重建摘录 %d 条" % n)
         return
 
@@ -648,8 +696,10 @@ def main():
         db["meta"] = {
             "scope": "HKEX 披露易全市场标题检索（stockId=-1，不分中外企）+ SFC 执法新闻；"
                      "事件流白名单=須予披露/主要/非常重大/關連/配售/供股/發行證券債券/收購守則/私有化/"
-                     "上市文件/業務更新/更換董事或行政總裁/訴訟/監管公告等二级类别；"
-                     "程序性类别（翌日披露報表/月報表/委任代表表格等）不计入。",
+                     "上市文件（公司上市与再融资文件）/業務更新/更換董事或行政總裁/更改公司名稱/訴訟/監管公告等二级类别；"
+                     "程序性类别（翌日披露報表/月報表/委任代表表格等）不计入；"
+                     "例行授权文件（回購股份說明函件/一般性授權）与认可集体投资计划文件（ETF/杠杆产品）"
+                     "入库但单列「常规程序」，不入六类统计。",
             "tier2_dict_version": t2ver,
             "updated": now_hkt(),
             "date_range": [min(b["date"] for b in db["batches"]), max(b["date"] for b in db["batches"])],
@@ -664,8 +714,8 @@ def main():
     filled = backfill_pdf(docs_by_id, a.max_pdf, pdf_state)
     if filled:
         print("[hk-market] 补抓历史 pending PDF %d 份" % filled)
-        save_json(DB_P, db)
     build_hk_data_js(db)
+    save_json(DB_P, db)  # cat6/stage 构建时重算结果一并落盘
     n_docs = len(docs_by_id)
     n_pending = sum(1 for d in docs_by_id.values() if d.get("pdf_status") == "pending")
     print("[hk-market] 完成：总收录 %d 条（PDF 待补 %d），批次 %d 个 → %s + %s"

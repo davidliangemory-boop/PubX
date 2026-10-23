@@ -123,7 +123,7 @@
     var meta = (window.HKDB && HKDB.meta) || {};
     var dr = meta.date_range || ["—", "—"];
     var big = docs().filter(function (d) {
-      return !isSfc(d) && d.amount !== "【未披露】"
+      return !isSfc(d) && d.cat6 !== "常规程序" && d.amount !== "【未披露】"
         && /非常重大|主要交易|須予披露的交易|關連交易/.test(d.headline_raw || "");
     }).slice(0, 8);
     if (!big.length) return "";
@@ -150,8 +150,10 @@
     var dr = meta.date_range || ["—", "—"];
     var byCo = {};
     docs().forEach(function (d) {
-      // 剔除「海外監管公告」转登（A+H 公司日常 A 股公告转登，程序性、无事项链意义）
-      if (isSfc(d) || !d.stock_code || /海外監管公告/.test(d.headline_raw || "")) return;
+      // 剔除「海外監管公告」转登、例行程序文件与自愿性业务更新（A+H 转登/自愿公告非单一事项连续披露，串链无意义）
+      if (isSfc(d) || !d.stock_code || d.cat6 === "常规程序") return;
+      if (/海外監管公告/.test(d.headline_raw || "")) return;
+      if (/業務發展最新情況/.test(d.cat6_sub || "") && /^自願/.test(d.title || "")) return;
       (byCo[d.stock_code] = byCo[d.stock_code] || []).push(d);
     });
     var chains = Object.keys(byCo).map(function (k) {
@@ -164,7 +166,7 @@
     if (!chains.length) return "";
     var h = '<div class="panel"><div class="panel-h"><h2>在途事项链</h2>'
       + '<span class="dim" style="font-size:12px">口径：窗口 ' + esc(dr[0]) + " ~ " + esc(dr[1])
-      + ' 内同一发行人 ≥2 条收录（不含「海外監管公告」转登类），按时间排列（共 ' + chains.length + ' 链，取前 10）；阶段为系统规则推断（analysis：类别码+标题关键词），点击公司名穿透到该发行人全部收录</span></div>'
+      + ' 内同一发行人 ≥2 条收录（剔除「海外監管公告」转登、常规程序文件与自愿性业务更新），按时间排列（共 ' + chains.length + ' 链，取前 10）；阶段为系统规则推断（analysis：类别码+标题关键词），点击公司名穿透到该发行人全部收录</span></div>'
       + '<div class="panel-b">';
     h += chains.slice(0, 10).map(function (arr) {
       var d0 = arr[0];
@@ -206,7 +208,7 @@
     });
     var h = '<div class="panel"><div class="panel-h"><h2>阶段 × 类别分布</h2>'
       + '<span class="dim" style="font-size:12px">口径：窗口 ' + esc(dr[0]) + " ~ " + esc(dr[1])
-      + ' 库内全部披露易收录（不含 SFC external）；阶段为系统规则推断；点击格子穿透到对应筛选</span></div>'
+      + ' 库内披露易收录中属六类者（不含 SFC external 与常规程序）；阶段为系统规则推断；点击格子穿透到对应筛选</span></div>'
       + '<div class="panel-b"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>类别</th>'
       + STAGES.map(function (s) { return "<th>" + esc(s) + "</th>"; }).join("") + "<th>合计</th></tr></thead><tbody>";
     CAT6.forEach(function (c) {
@@ -221,19 +223,48 @@
     return h + "</tbody></table></div></div></div>";
   }
 
+  /* ── 风险与异常信号（负面/异常进展单列：终止·延迟·条款变更·停复牌·清盘·盈警·非标报告） ── */
+  function riskHtml() {
+    var meta = (window.HKDB && HKDB.meta) || {};
+    var dr = meta.date_range || ["—", "—"];
+    var rows = docs().filter(function (d) {
+      if (isSfc(d) || d.cat6 === "常规程序") return false;
+      if (["终止", "延迟", "条款变更"].indexOf(d.stage) >= 0) return true;
+      return /停牌|復牌|除牌|清盤|盈利警告|非標準報告/.test((d.title || "") + " " + (d.headline_raw || ""));
+    });
+    if (!rows.length) return "";
+    var h = '<div class="panel"><div class="panel-h"><h2>风险与异常信号</h2>'
+      + '<span class="dim" style="font-size:12px">口径：窗口 ' + esc(dr[0]) + " ~ " + esc(dr[1])
+      + ' 内阶段（系统推断）为终止/延迟/条款变更，或标题/分类含停牌·复牌·除牌·清盘·盈利警告·非标报告的披露易收录（不含 SFC 与常规程序），共 '
+      + rows.length + ' 条，按时间倒序取前 12；判断依据=港交所类别码+标题关键词（analysis），事实以原文为准</span></div>'
+      + '<div class="panel-b">';
+    h += rows.slice(0, 12).map(function (d) {
+      return '<div style="padding:6px 0;border-bottom:1px solid var(--line);font-size:13px">'
+        + '<span class="dim">' + esc(d.pub_date) + "</span> " + stagePill(d) + " "
+        + '<span class="pill">' + esc(d.cat6) + '</span> '
+        + "<b>" + esc(d.stock_name || "—") + "</b> <span class=\"dim\">" + esc(d.stock_code) + "</span> "
+        + '<a href="' + esc(d.url) + '" target="_blank" rel="noopener" title="' + esc(d.headline_raw || "") + '">'
+        + esc(d.title) + "</a>"
+        + (d.amount !== "【未披露】" ? ' <span class="dim">' + esc(d.amount) + "</span>" : "")
+        + "</div>";
+    }).join("");
+    return h + "</div></div>";
+  }
+
   /* ── KPI（每个数字带口径） ── */
   function kpiHtml() {
     var ds = docs(), meta = (window.HKDB && HKDB.meta) || {};
     var dr = meta.date_range || ["—", "—"];
-    var cos = {}, sfc = 0, pdfDone = 0, hkN = 0;
+    var cos = {}, sfc = 0, pdfDone = 0, hkN = 0, routine = 0;
     ds.forEach(function (d) {
       if (d.stock_code) cos[d.stock_code] = 1;
       if (isSfc(d)) sfc++; else hkN++;
+      if (d.cat6 === "常规程序") routine++;
       if (d.pdf_status === "done") pdfDone++;
     });
     var latest = ds.length ? (ds[0].pub_datetime || "—") : "—";
     return '<div class="statstrip">'
-      + statCard(hkN, "披露易收录（条）", "窗口 " + dr[0] + " ~ " + dr[1] + " · 白名单类别口径")
+      + statCard(hkN, "披露易收录（条）", "窗口 " + dr[0] + " ~ " + dr[1] + " · 白名单口径；其中常规程序 " + routine + " 条单列")
       + statCard(Object.keys(cos).length, "涉及发行人（家）", "按股票代码去重 · 同上窗口")
       + statCard(sfc, "SFC 执法新闻（条）", "external 外部事实 · newsType=EF · 同窗口")
       + statCard(pdfDone, "PDF 首页已抽取", "金额/摘录来自公告原文第 1 页")
@@ -249,11 +280,11 @@
       + '<span class="dim" style="font-size:12px">六类分布（库内全窗口，点击筛选）：</span>';
     h += '<a href="javascript:;" class="pill" data-hkcat="全部" style="text-decoration:none'
       + (HKF.cat6 === "全部" ? ";background:var(--blue-bg)" : "") + '">全部 ' + docs().length + "</a>";
-    h += CAT6.map(function (c) {
+    h += CAT6.concat(["常规程序"]).map(function (c) {
       return '<a href="javascript:;" class="pill" data-hkcat="' + esc(c) + '" style="text-decoration:none'
         + (HKF.cat6 === c ? ";background:var(--blue-bg)" : "") + '">' + esc(c) + " " + (cnt[c] || 0) + "</a>";
     }).join("");
-    return h + "</div>";
+    return h + '<span class="dim" style="font-size:11.5px">「常规程序」=例行授权说明函件/集体投资计划文件等，单列不入六类</span></div>';
   }
 
   /* ── 筛选行 ── */
@@ -261,7 +292,7 @@
     return '<div class="filterbar">'
       + '<input class="finput" id="hkQ" type="text" placeholder="搜索 标题/公司/代码/金额…" value="' + esc(HKF.q) + '"/>'
       + '<select class="fsel" id="hkCat6"><option>全部</option>'
-      + CAT6.map(function (c) { return '<option' + (HKF.cat6 === c ? " selected" : "") + ">" + c + "</option>"; }).join("")
+      + CAT6.concat(["常规程序"]).map(function (c) { return '<option' + (HKF.cat6 === c ? " selected" : "") + ">" + c + "</option>"; }).join("")
       + "</select>"
       + '<select class="fsel" id="hkStage" title="披露阶段为系统规则推断（analysis）"><option>全部</option>'
       + STAGES.map(function (c) { return '<option' + (HKF.stage === c ? " selected" : "") + ">" + c + "</option>"; }).join("")
@@ -364,6 +395,7 @@
     qs = qs || new URLSearchParams();
     HKF.q = qs.get("q") || HKF.q || "";
     HKF.cat6 = qs.get("cat6") || HKF.cat6;
+    HKF.stage = qs.get("stage") || HKF.stage;
     HKF.ch = qs.get("ch") || HKF.ch;
     HKF.cn = qs.get("cn") || HKF.cn;
     HKF.from = qs.get("from") || HKF.from;
@@ -380,11 +412,12 @@
       + '（本页数据构建：' + esc((window.HKDB.build && HKDB.build.time) || "—") + ' HKT，与全站构建时间分开计）</span></div>';
     h += '<div class="panel"><div class="panel-h"><h2>口径说明</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
       + "本页口径：<b>披露易全市场标题检索（stockId=-1，不分中企外企）</b>＋ SFC 执法新闻（external）；"
-      + "事项分六类：" + CAT6.join("、") + "（由港交所二级类别码规则映射）。"
+      + "事项分六类：" + CAT6.join("、") + "（由港交所二级类别码规则映射）；例行授权说明函件、认可集体投资计划（ETF/杠杆产品）文件等入库但单列<b>「常规程序」</b>，不进六类统计。"
       + "本页与「出海信批归纳」（仅中企）及美股、出口管制分页面的数据文件、统计口径<b>互不混用</b>；"
       + "中国关联仅为标签（名称/标题弱启发式），不作筛选前提；披露阶段为系统规则推断（analysis，依据类别码与标题关键词），非港交所原文表述。</div></div>";
     h += bandHtml();
     h += spotlightHtml();
+    h += riskHtml();
     h += chainsHtml();
     h += matrixHtml();
     h += kpiHtml();
