@@ -650,7 +650,7 @@ def enrich_ofac_enforcement(item, stats):
                                "layer": "external", "source": item["url"]})
     # 涉及制裁项目（原文 "apparent violations of …" 子句）
     prog_txt = None
-    pm = re.search(r"apparent violations? of ((?:OFAC sanctions programs? targeting |the )?.+?)\.\s+(?:The apparent violations|The settlement|OFAC|For more)", text)
+    pm = re.search(r"apparent violations? of ((?:OFAC sanctions programs? targeting |the )?.+?)\.\s+(?=[A-Z])", text)
     if pm:
         prog_txt = pm.group(1).strip()
         # 截到项目名为止：去掉后续事实从句（"…that occurred when …"）
@@ -1106,10 +1106,20 @@ def main():
                    "note": "按来源发布日（美东日期）过滤，与北京时间当日近似对齐" if args.date else "按来源发布日过滤"},
         "stats": stats, "new_items": n_new, "total_items": len(merged),
     }
-    state.setdefault("batches", []).append(batch)
+    # 批次去重：同 batch_id+kind+窗口 的运行只保留最新一条（重跑不膨胀）；
+    # enrich 补解析批次无窗口，按 note 区分不同补解析步骤
+    def _bkey(b):
+        w = b.get("window") or {}
+        return (b.get("batch_id"), b.get("kind"), w.get("gte"), w.get("lte"),
+                w.get("note", "") if b.get("kind") == "enrich" else "")
+    blist = [b for b in state.setdefault("batches", []) if _bkey(b) != _bkey(batch)]
+    blist.append(batch)
+    state["batches"] = blist
+    # 增量游标只前进不回拨（--date 单日运行不污染游标）
+    prev_lte = state.get("meta", {}).get("last_window_lte") or ""
     state["meta"] = {
         "updated": now_cn(), "cadence": "周更（周批 W-YYYYWW）",
-        "last_window_lte": lte,
+        "last_window_lte": max(prev_lte, lte),
         "sources": [
             {"name": "Federal Register API", "url": "https://www.federalregister.gov/api/v1/", "note": "BIS/OFAC 规则与实体清单通知，免费无 key"},
             {"name": "OFAC recent-actions", "url": OFAC_RA, "note": "执法/清单/通用许可/指南，HTML 列表"},

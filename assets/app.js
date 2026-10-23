@@ -435,7 +435,6 @@
 
   /* ═════════ 出口管制：页面体在 assets/page_ex.js（window.render_ex / window.bind_ex），此处仅做路由分发与兜底 ═════════ */
   var EXC = { col: "enforcement" };
-  var EX_COLS = [["enforcement", "执法案例更新"], ["lists", "清单更新"], ["rules", "规则更新"], ["watch", "观察名单比对"]];
   function vExportFallback() {
     return '<div class="ph"><h1>出口管制</h1><span class="sub">BIS / OFAC / UFLPA 执法、清单与规则更新；观察名单比对</span></div>'
       + '<div class="panel"><div class="panel-b" style="padding:30px;text-align:center">'
@@ -656,7 +655,8 @@
       cn: [["#/", "总览"], ["#/events", "事件库"], ["#/issues", "法律议题"], ["#/cos", "企业档案"],
            ["#/topics", "专题研究"], ["#/board", "项目看板"], ["#/about", "方法与来源"]],
       us: [], hk: [],
-      export: EX_COLS.map(function (x) { return ["#/export?col=" + x[0], x[1]]; })
+      /* 出口管制二级导航由 assets/page_ex.js 页内栏目切换（带条目计数）承担，避免重复 */
+      export: []
     };
     subnav.innerHTML = (SUBS[section] || []).map(function (x) {
       return '<a href="' + x[0] + '"' + (x[0] === cur ? ' class="on"' : "") + ">" + esc(x[1]) + "</a>";

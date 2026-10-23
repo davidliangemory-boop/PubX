@@ -80,8 +80,16 @@
       + '<div class="ex-item-h"><span class="pg mono">' + esc(it.date || "—") + "</span>"
       + pill(it.agency, "blue") + (it.action ? pill({ added: "新增", removed: "移除", revised: "修订" }[it.action] || it.action, it.action === "removed" ? "" : "solid") : "")
       + (it.also_enforcement ? '<span class="pill" title="本条同时含清单更新内容，亦收录于清单更新栏">混合行动</span>' : "")
-      + (it.penalty && it.penalty.amount_usd != null ? '<span class="pill solid" title="' + esc(it.penalty.suspended ? "缓期执行（suspended），违约即激活" : "和解/罚款金额") + '">' + esc(money(it.penalty.amount_usd)) + (it.penalty.suspended ? " 缓期" : "") + "</span>" : "")
-      + (cn.value === "是" ? '<span class="st ex-cn" title="' + esc(cn.basis || "") + '">中国关联</span>' : "")
+      + (it.penalty && it.penalty.amount_usd != null ? '<span class="pill solid" title="' + esc(it.penalty.suspended ? "缓期执行（suspended），违约即激活" : "和解/罚款金额") + '">' + esc(money(it.penalty.amount_usd)) + (it.penalty.suspended ? " 缓期" : "") + "</span>" : "");
+    /* 执法条目：从 external 要点提取定性/VSD 徽章（文本均出自下方要点，呈现层归并） */
+    if (it.column === "enforcement" || it.also_enforcement) {
+      var pts = (it.points || []).map(function (p) { return p.text; }).join(" ");
+      var em = pts.match(/定性：([\w-]+)/);
+      if (em) h += pill(em[1] === "egregious" ? "定性 egregious" : "定性 non-egregious", em[1] === "egregious" ? "solid" : "");
+      if (/未经自愿披露/.test(pts)) h += pill("未经自愿披露", "solid");
+      else if (/自愿披露/.test(pts)) h += pill("涉自愿披露情节", "");
+    }
+    h += (cn.value === "是" ? '<span class="st ex-cn" title="' + esc(cn.basis || "") + '">中国关联</span>' : "")
       + (it.doc_no ? '<span class="mono dim" style="font-size:11.5px">' + esc(it.doc_no) + "</span>" : "")
       + "</div>"
       + '<div class="ex-item-t"><a href="' + esc(it.url || "#") + '" target="_blank" rel="noopener">' + esc(it.title) + "</a></div>";
@@ -171,7 +179,7 @@
         ["委内瑞拉", /venezuela/i], ["伊朗", /iran/i], ["古巴", /cuba/i],
         ["俄罗斯/白俄", /russia|belarus|ukraine/i], ["反恐/毒品", /terror|narcotic|illicit drug/i],
         ["EAR 出口管制", /export administration|entity list|unverified list|drone|export control/i],
-        ["UFLPA/涉疆", /uflpa|uyghur|polysilicon/i]
+        ["UFLPA/涉疆", /uflpa|uyghur/i]
       ];
       var tc = {}, other = 0;
       colItems.forEach(function (x) {
@@ -300,10 +308,15 @@
         + '<div class="note">运行 <span class="mono">python3 scripts/sdn_screen.py</span> 后此处展示名单版本、条目数、sha、受检主体与各态数量。本页不展示推测内容。</div></div></div>';
     }
     var r = w.results || {};
+    var subs = w.subjects || [];
+    /* 受检主体来源构成（external：本站点观察名单与事件库 parties） */
+    var srcCnt = {};
+    subs.forEach(function (s) { var k = (s.source || "").split("·")[0]; srcCnt[k] = (srcCnt[k] || 0) + 1; });
+    var srcNote = Object.keys(srcCnt).map(function (k) { return k + " " + srcCnt[k]; }).join(" · ");
     var h = '<div class="statstrip">'
       + statCard(esc(w.list_version || "—"), "名单版本", w.list + " · 抓取 " + esc(w.retrieved_at || "—"))
       + statCard(w.entry_count, "名单条目数", "sha256 " + esc((w.sha256 || "").slice(0, 16)) + "…")
-      + statCard(w.subject_count, "受检主体数", "观察名单（港股/美股）+ 事件 parties")
+      + statCard(w.subject_count, "受检主体数", srcNote || "观察名单（港股/美股）+ 事件 parties")
       + statCard(r.no_hit != null ? r.no_hit : "—", "无命中 no_hit", "")
       + statCard(r.name_match_only != null ? r.name_match_only : "—", "仅名称相似", "同名≠命中 · 需人工核验")
       + statCard(r.confirmed != null ? r.confirmed : "—", "确认命中 confirmed", "名称+独立标识一致；脚本不自动置位")
@@ -325,6 +338,15 @@
     } else {
       h += '<div class="panel"><div class="panel-b empty">本次比对 0 条名称相似记录，0 命中（如实记录，不为展示造例）。</div></div>';
     }
+    /* 受检主体名册（主体 → 出处，可筛选；三态结果按上表计数，未逐名列示 no_hit 以外的结论） */
+    if (subs.length) {
+      h += '<div class="panel"><div class="panel-h"><h2>受检主体名册（' + subs.length + '）</h2>'
+        + '<span class="note">external 层：主体来自本站观察名单（港股/美股）与事件库 parties；逐个与 SDN 名单归一比对，结果计入上方三态</span></div>'
+        + '<div class="panel-b"><input type="text" id="ex-watch-q" placeholder="筛选主体 / 出处…" style="border:1px solid var(--line-2);border-radius:6px;padding:4px 8px;font-size:12.5px;width:240px;margin-bottom:8px"/>'
+        + '<div class="tbl-wrap" style="max-height:420px;overflow:auto"><table class="tbl"><thead><tr><th>受检主体</th><th>出处</th></tr></thead><tbody id="ex-watch-tb">'
+        + subs.map(function (s) { return "<tr><td><b>" + esc(s.name) + "</b></td><td class='dim'>" + esc(s.source) + "</td></tr>"; }).join("")
+        + "</tbody></table></div></div></div>";
+    }
     return h;
   }
 
@@ -337,12 +359,14 @@
 
     var h = '<div class="ph"><h1>出口管制</h1><span class="sub">本页回答：BIS / OFAC / UFLPA 最近有哪些执法案例、清单与规则更新；观察名单主体与制裁名单比对是否有命中</span></div>';
 
-    /* 口径说明（周更）；enrich 补解析批次无窗口，回溯取最近一个带窗口的批次 */
+    /* 口径说明（周更）；最近批次 = 窗口截止日最大者（并列取运行时间最新），避免被单日补扫/补解析批次误导 */
     var batches = (d && d.batches) || [];
     var lastBatch = null;
-    for (var bi = batches.length - 1; bi >= 0; bi--) {
-      if (batches[bi].window && batches[bi].window.gte) { lastBatch = batches[bi]; break; }
-    }
+    batches.forEach(function (b) {
+      if (!(b.window && b.window.lte)) return;
+      if (!lastBatch || b.window.lte > lastBatch.window.lte
+          || (b.window.lte === lastBatch.window.lte && (b.time || "") > (lastBatch.time || ""))) lastBatch = b;
+    });
     if (!lastBatch && batches.length) lastBatch = batches[batches.length - 1];
     var KIND_ZH = { weekly: "周批", backfill: "回溯补入", enrich: "补解析" };
     h += '<div class="panel"><div class="panel-h"><h2>口径说明</h2>'
@@ -418,16 +442,18 @@
 
   /* ── 绑定（由 app.js 路由后调用） ── */
   window.bind_ex = function (view, col, qs) {
-    var ufq = view.querySelector("#ex-uflpa-q");
-    if (ufq) {
-      ufq.addEventListener("input", function () {
-        var kw = ufq.value.trim().toLowerCase();
-        var rows = view.querySelectorAll("#ex-uflpa-tb tr");
+    ["#ex-uflpa-q", "#ex-watch-q"].forEach(function (sel) {
+      var inp = view.querySelector(sel);
+      if (!inp) return;
+      var tb = sel === "#ex-uflpa-q" ? "#ex-uflpa-tb tr" : "#ex-watch-tb tr";
+      inp.addEventListener("input", function () {
+        var kw = inp.value.trim().toLowerCase();
+        var rows = view.querySelectorAll(tb);
         for (var i = 0; i < rows.length; i++) {
           rows[i].style.display = !kw || rows[i].textContent.toLowerCase().indexOf(kw) >= 0 ? "" : "none";
         }
       });
-    }
+    });
     var go = view.querySelector("#exf-go");
     if (!go) return;
     function cur() {
@@ -456,7 +482,7 @@
     view.querySelector("#exf-q").addEventListener("keydown", function (e) { if (e.key === "Enter") nav(); });
     view.querySelector("#exf-csv").addEventListener("click", function () {
       var d = data(); if (!d) return;
-      var colItems = (d.items || []).filter(function (x) { return x.column === col; });
+      var colItems = (d.items || []).filter(function (x) { return x.column === col || (col === "enforcement" && x.also_enforcement); });
       var shown = applyFilters(colItems, cur());
       var blob = new Blob([toCSV(shown)], { type: "text/csv;charset=utf-8" });
       var a = document.createElement("a");

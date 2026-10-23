@@ -188,6 +188,7 @@ def main():
         "retrieved_at": now_cn(), "sha256": meta["sha256"],
         "entry_count": meta["entry_count"], "subject_count": len(subjects),
         "results": results, "matches": matches,
+        "subjects": subjects,
         "method": "名称归一（大小写/标点/法律后缀/括号注记）+ 别名表精确匹配；confirmed 需名称+独立标识（地址/证件/国别）一致，脚本数据侧无独立标识，confirmed 只能由人工核验置位。",
     }
     with open(EXPORT_PATH, "w", encoding="utf-8") as f:

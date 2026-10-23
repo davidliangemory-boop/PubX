@@ -2,7 +2,7 @@ window.EXDATA = {
  "meta": {
   "updated": "2026-10-23 11:09",
   "cadence": "周更（周批 W-YYYYWW）",
-  "last_window_lte": "2026-08-12",
+  "last_window_lte": "2026-10-23",
   "sources": [
    {
     "name": "Federal Register API",
@@ -36,66 +36,7 @@ window.EXDATA = {
   {
    "batch_id": "W-202643",
    "kind": "backfill",
-   "time": "2026-10-23 02:13",
-   "window": {
-    "gte": "2026-07-25",
-    "lte": "2026-10-23",
-    "note": "按来源发布日过滤"
-   },
-   "stats": {
-    "FR-BIS": {
-     "scanned": 6,
-     "kept": 6,
-     "failed": 0
-    },
-    "FR-UFLPA": {
-     "scanned": 2,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-OFAC": {
-     "scanned": 29,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-fulltext": {
-     "scanned": 0,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-other": {
-     "scanned": 0,
-     "kept": 30,
-     "failed": 0
-    },
-    "OFAC-RA": {
-     "scanned": 50,
-     "kept": 44,
-     "failed": 0
-    },
-    "OFAC-detail": {
-     "scanned": 2,
-     "kept": 0,
-     "failed": 0
-    },
-    "BIS-news": {
-     "scanned": 50,
-     "kept": 4,
-     "failed": 0
-    },
-    "DHS-UFLPA": {
-     "scanned": 205,
-     "kept": 1,
-     "failed": 0
-    }
-   },
-   "new_items": 84,
-   "total_items": 84
-  },
-  {
-   "batch_id": "W-202643",
-   "kind": "backfill",
-   "time": "2026-10-23 04:05",
+   "time": "2026-10-23 10:38",
    "window": {
     "gte": "2026-07-25",
     "lte": "2026-10-23",
@@ -350,134 +291,6 @@ window.EXDATA = {
   },
   {
    "batch_id": "W-202643",
-   "kind": "backfill",
-   "time": "2026-10-23 07:31",
-   "window": {
-    "gte": "2026-07-25",
-    "lte": "2026-10-23",
-    "note": "按来源发布日过滤"
-   },
-   "stats": {
-    "FR-BIS": {
-     "scanned": 6,
-     "kept": 6,
-     "failed": 0
-    },
-    "FR-UFLPA": {
-     "scanned": 2,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-OFAC": {
-     "scanned": 29,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-fulltext": {
-     "scanned": 0,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-other": {
-     "scanned": 0,
-     "kept": 30,
-     "failed": 0
-    },
-    "OFAC-RA": {
-     "scanned": 50,
-     "kept": 44,
-     "failed": 0
-    },
-    "OFAC-detail": {
-     "scanned": 44,
-     "kept": 0,
-     "failed": 0
-    },
-    "BIS-news": {
-     "scanned": 50,
-     "kept": 4,
-     "failed": 0
-    },
-    "BIS-detail": {
-     "scanned": 3,
-     "kept": 0,
-     "failed": 0
-    },
-    "DHS-UFLPA": {
-     "scanned": 205,
-     "kept": 1,
-     "failed": 0
-    }
-   },
-   "new_items": 0,
-   "total_items": 84
-  },
-  {
-   "batch_id": "W-202643",
-   "kind": "backfill",
-   "time": "2026-10-23 08:42",
-   "window": {
-    "gte": "2026-07-25",
-    "lte": "2026-10-23",
-    "note": "按来源发布日过滤"
-   },
-   "stats": {
-    "FR-BIS": {
-     "scanned": 6,
-     "kept": 6,
-     "failed": 0
-    },
-    "FR-UFLPA": {
-     "scanned": 2,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-OFAC": {
-     "scanned": 29,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-fulltext": {
-     "scanned": 0,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-other": {
-     "scanned": 0,
-     "kept": 30,
-     "failed": 0
-    },
-    "OFAC-RA": {
-     "scanned": 50,
-     "kept": 44,
-     "failed": 0
-    },
-    "OFAC-detail": {
-     "scanned": 44,
-     "kept": 0,
-     "failed": 0
-    },
-    "BIS-news": {
-     "scanned": 50,
-     "kept": 4,
-     "failed": 0
-    },
-    "BIS-detail": {
-     "scanned": 3,
-     "kept": 0,
-     "failed": 0
-    },
-    "DHS-UFLPA": {
-     "scanned": 205,
-     "kept": 1,
-     "failed": 0
-    }
-   },
-   "new_items": 0,
-   "total_items": 84
-  },
-  {
-   "batch_id": "W-202643",
    "kind": "enrich",
    "time": "2026-10-23 08:54",
    "window": {
@@ -534,70 +347,6 @@ window.EXDATA = {
     "DHS-UFLPA": {
      "scanned": 0,
      "kept": 0,
-     "failed": 0
-    }
-   },
-   "new_items": 0,
-   "total_items": 84
-  },
-  {
-   "batch_id": "W-202643",
-   "kind": "backfill",
-   "time": "2026-10-23 10:38",
-   "window": {
-    "gte": "2026-07-25",
-    "lte": "2026-10-23",
-    "note": "按来源发布日过滤"
-   },
-   "stats": {
-    "FR-BIS": {
-     "scanned": 6,
-     "kept": 6,
-     "failed": 0
-    },
-    "FR-UFLPA": {
-     "scanned": 2,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-OFAC": {
-     "scanned": 29,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-fulltext": {
-     "scanned": 0,
-     "kept": 0,
-     "failed": 0
-    },
-    "FR-other": {
-     "scanned": 0,
-     "kept": 30,
-     "failed": 0
-    },
-    "OFAC-RA": {
-     "scanned": 50,
-     "kept": 44,
-     "failed": 0
-    },
-    "OFAC-detail": {
-     "scanned": 44,
-     "kept": 0,
-     "failed": 0
-    },
-    "BIS-news": {
-     "scanned": 50,
-     "kept": 4,
-     "failed": 0
-    },
-    "BIS-detail": {
-     "scanned": 3,
-     "kept": 0,
-     "failed": 0
-    },
-    "DHS-UFLPA": {
-     "scanned": 205,
-     "kept": 1,
      "failed": 0
     }
    },
@@ -1424,7 +1173,7 @@ window.EXDATA = {
      "source": "https://ofac.treasury.gov/recent-actions/20261009"
     },
     {
-     "text": "涉及制裁项目（原文）：the Illicit Drug Trafficking Sanctions Regulations and six apparent violations of the Reporting, Procedures and Penalties Regulations. Between September 2023 and February 2024, Pegasus dealt in blocked property by facilitating the importation of a machine supplied by a designated company. Pegasus also failed to respond fully for six months to an OFAC subpoena。",
+     "text": "涉及制裁项目（原文）：the Illicit Drug Trafficking Sanctions Regulations and six apparent violations of the Reporting, Procedures and Penalties Regulations。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261009"
     },
@@ -1443,7 +1192,7 @@ window.EXDATA = {
    "pdf_url": "https://ofac.treasury.gov/media/937206/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 11:06"
+    "retrieved_at": "2026-10-23 11:24"
    },
    "also_enforcement": true,
    "penalty": {
@@ -6988,6 +6737,692 @@ window.EXDATA = {
    "confirmed": 0
   },
   "matches": [],
-  "method": "名称归一（大小写/标点/法律后缀/括号注记）+ 别名表精确匹配；confirmed 需名称+独立标识（地址/证件/国别）一致，脚本数据侧无独立标识，confirmed 只能由人工核验置位。"
+  "method": "名称归一（大小写/标点/法律后缀/括号注记）+ 别名表精确匹配；confirmed 需名称+独立标识（地址/证件/国别）一致，脚本数据侧无独立标识，confirmed 只能由人工核验置位。",
+  "subjects": [
+   {
+    "name": "腾讯控股",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "阿里巴巴-W",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "美团-W",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "京东集团-SW",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "百度集团-SW",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "小米集团-W",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "网易-S",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "快手-W",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "蔚来-SW",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "小鹏汽车-W",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "理想汽车-W",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "比亚迪股份",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "吉利汽车",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "长城汽车",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中芯国际",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "联想集团",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中国平安",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "工商银行",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "建设银行",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中国人寿",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中国石油股份",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中国石油化工股份",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中国海洋石油",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中国移动",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中国联通",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中国电信",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "兖矿能源",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "安踏体育",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "海尔智家",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "中煤能源",
+    "source": "观察名单·港股"
+   },
+   {
+    "name": "阿里巴巴",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "京东",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "拼多多",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "百度",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "网易",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "携程集团",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "蔚来",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "小鹏汽车",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "理想汽车",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "腾讯音乐",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "哔哩哔哩",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "微博",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "中通快递",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "百胜中国",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "富途控股",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "老虎证券",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "晶科能源",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "大全新能源",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "阿特斯太阳能",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "看准网",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "唯品会",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "名创优品",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "奇富科技",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "信也科技",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "万国数据",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "金山云",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "再鼎医药",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "华住集团",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "亿航智能",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "有道",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "高途",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "好未来",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "新东方",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "禾赛科技",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "Addentax",
+    "source": "观察名单·美股"
+   },
+   {
+    "name": "PDD Holdings Inc.（拼多多）",
+    "source": "事件主体·E-001"
+   },
+   {
+    "name": "翱捷科技股份有限公司",
+    "source": "事件主体·E-002"
+   },
+   {
+    "name": "湖南军信环保股份有限公司",
+    "source": "事件主体·E-003"
+   },
+   {
+    "name": "联想集团有限公司",
+    "source": "事件主体·E-004"
+   },
+   {
+    "name": "债券持有人（未列名）",
+    "source": "事件主体·E-004"
+   },
+   {
+    "name": "山东联科科技股份有限公司",
+    "source": "事件主体·E-005"
+   },
+   {
+    "name": "无外部合作方（全资子公司架构）",
+    "source": "事件主体·E-005"
+   },
+   {
+    "name": "浙江华海药业股份有限公司",
+    "source": "事件主体·E-006"
+   },
+   {
+    "name": "—（原研为Bristol-Myers Squibb与Pfizer联合开发的阿哌沙班，本品为仿制）",
+    "source": "事件主体·E-006"
+   },
+   {
+    "name": "青岛酷特智能股份有限公司",
+    "source": "事件主体·E-007"
+   },
+   {
+    "name": "交易对方SEOK JOO HYUNG、SONG SEE YONG（韩国apM集团）",
+    "source": "事件主体·E-007"
+   },
+   {
+    "name": "深圳中富电路股份有限公司",
+    "source": "事件主体·E-008"
+   },
+   {
+    "name": "无（经三家全资持股主体间接持股100%）",
+    "source": "事件主体·E-008"
+   },
+   {
+    "name": "广电运通集团股份有限公司",
+    "source": "事件主体·E-009"
+   },
+   {
+    "name": "代理商SVOA Public Company Limited（泰国IT分销与系统集成上市公司）及其子公司DataOne Asia（ICT服务商）；终端客户为泰国政府储蓄银行GSB",
+    "source": "事件主体·E-009"
+   },
+   {
+    "name": "星环信息科技（上海）股份有限公司",
+    "source": "事件主体·E-010"
+   },
+   {
+    "name": "香港公开发售20%＋国际发售80%；实控人孙元浩及一致行动人持股由22.42%摊薄至20.10%",
+    "source": "事件主体·E-010"
+   },
+   {
+    "name": "深圳市鸿富瀚科技股份有限公司",
+    "source": "事件主体·E-011"
+   },
+   {
+    "name": "卖方：格派控股（香港）、自然人黄鸿旋（涉及刚果（金）公民代持安排）；完成后公司持COP公司73.99%并并表",
+    "source": "事件主体·E-011"
+   },
+   {
+    "name": "吉利汽车控股有限公司",
+    "source": "事件主体·E-012"
+   },
+   {
+    "name": "吉利控股、威睿、星驱科技、LEVC汽车、亿咖通、smart Europe、路特斯等20余家体系内主体",
+    "source": "事件主体·E-012"
+   },
+   {
+    "name": "龙佰集团股份有限公司",
+    "source": "事件主体·E-013"
+   },
+   {
+    "name": "Image Resources NL（ASX:IMA，公司经子公司合计持股约17.76%，董事长许冉任其董事→构成关联交易）；标的为其全资子公司Titon Resources持有的两个矿砂项目",
+    "source": "事件主体·E-013"
+   },
+   {
+    "name": "宁波三星医疗电气股份有限公司",
+    "source": "事件主体·E-014"
+   },
+   {
+    "name": "美国数据中心项目客户（未具名，无关联关系）",
+    "source": "事件主体·E-014"
+   },
+   {
+    "name": "山东玲珑轮胎股份有限公司",
+    "source": "事件主体·E-015"
+   },
+   {
+    "name": "无（独资建设埃及项目公司）",
+    "source": "事件主体·E-015"
+   },
+   {
+    "name": "浙江泰林生物技术股份有限公司",
+    "source": "事件主体·E-016"
+   },
+   {
+    "name": "无（全资子公司泰林科学技术100%持有）",
+    "source": "事件主体·E-016"
+   },
+   {
+    "name": "中源家居股份有限公司",
+    "source": "事件主体·E-017"
+   },
+   {
+    "name": "美国海关与边境保护局（CBP）",
+    "source": "事件主体·E-017"
+   },
+   {
+    "name": "深圳传音控股股份有限公司",
+    "source": "事件主体·E-018"
+   },
+   {
+    "name": "罗博特科智能科技股份有限公司",
+    "source": "事件主体·E-019"
+   },
+   {
+    "name": "香港公开发售10%＋国际发售90%",
+    "source": "事件主体·E-019"
+   },
+   {
+    "name": "山东墨龙石油机械股份有限公司",
+    "source": "事件主体·E-020"
+   },
+   {
+    "name": "不少于六名独立第三方承配人",
+    "source": "事件主体·E-020"
+   },
+   {
+    "name": "三友联众集团股份有限公司",
+    "source": "事件主体·E-021"
+   },
+   {
+    "name": "无（全资子公司越南三友持股100%）",
+    "source": "事件主体·E-021"
+   },
+   {
+    "name": "行云科技股份有限公司",
+    "source": "事件主体·E-022"
+   },
+   {
+    "name": "“VG客户”（以商业秘密豁免披露，无关联关系；近三年无类似交易）",
+    "source": "事件主体·E-022"
+   },
+   {
+    "name": "品茗科技股份有限公司",
+    "source": "事件主体·E-023"
+   },
+   {
+    "name": "卖方为ZLX原股东（新加坡注册私人有限公司创始人）",
+    "source": "事件主体·E-023"
+   },
+   {
+    "name": "海尔智家股份有限公司",
+    "source": "事件主体·E-024"
+   },
+   {
+    "name": "被担保人：智运天下（重庆）科技有限公司、青岛飞升供应链管理有限公司（均为控股子公司）",
+    "source": "事件主体·E-024"
+   },
+   {
+    "name": "彤程新材料集团股份有限公司",
+    "source": "事件主体·E-025"
+   },
+   {
+    "name": "香港公开发售10%＋国际发售90%；控股股东RED AVENUE INVESTMENT GROUP LIMITED持股摊薄至43.05%",
+    "source": "事件主体·E-025"
+   },
+   {
+    "name": "深圳市景旺电子股份有限公司",
+    "source": "事件主体·E-026"
+   },
+   {
+    "name": "香港公开发售10%＋国际发售90%；控股股东及一致行动人持股由55.95%摊薄至52.16%",
+    "source": "事件主体·E-026"
+   },
+   {
+    "name": "四川汇宇制药股份有限公司",
+    "source": "事件主体·E-027"
+   },
+   {
+    "name": "法国ANSM（监管方）；子公司Seacross (Europe) Pharma Ltd.为持证主体",
+    "source": "事件主体·E-027"
+   },
+   {
+    "name": "兖矿能源集团股份有限公司",
+    "source": "事件主体·E-028"
+   },
+   {
+    "name": "卖方：EMR Capital Advisors Pty Ltd、Kestrel Coal (EMR) Limited、Adaro Capital Limited及EMR Capital Management Limited",
+    "source": "事件主体·E-028"
+   },
+   {
+    "name": "博瑞生物医药（苏州）股份有限公司",
+    "source": "事件主体·E-029"
+   },
+   {
+    "name": "NIO Inc.（蔚来）",
+    "source": "事件主体·E-030"
+   },
+   {
+    "name": "XPeng Inc.（小鹏汽车）",
+    "source": "事件主体·E-031"
+   },
+   {
+    "name": "安踏体育用品有限公司",
+    "source": "事件主体·E-032"
+   },
+   {
+    "name": "卖方（未于本公告列名）；标的公司PUMA SE（德国运动品牌，法兰克福上市）",
+    "source": "事件主体·E-032"
+   },
+   {
+    "name": "广州若羽臣科技股份有限公司",
+    "source": "事件主体·E-033"
+   },
+   {
+    "name": "中国证监会（备案）；香港联交所（待批）",
+    "source": "事件主体·E-033"
+   },
+   {
+    "name": "广州天赐高新材料股份有限公司",
+    "source": "事件主体·E-034"
+   },
+   {
+    "name": "保荐人未于本公告列名",
+    "source": "事件主体·E-034"
+   },
+   {
+    "name": "贵州航宇科技发展股份有限公司",
+    "source": "事件主体·E-035"
+   },
+   {
+    "name": "无（独资建设）",
+    "source": "事件主体·E-035"
+   },
+   {
+    "name": "苏州太湖雪丝绸股份有限公司",
+    "source": "事件主体·E-036"
+   },
+   {
+    "name": "无（通过全资子公司苏州太湖雪茧丝绸科技持有）",
+    "source": "事件主体·E-036"
+   },
+   {
+    "name": "共达电声股份有限公司",
+    "source": "事件主体·E-037"
+   },
+   {
+    "name": "无",
+    "source": "事件主体·E-037"
+   },
+   {
+    "name": "昆明川金诺化工股份有限公司",
+    "source": "事件主体·E-038"
+   },
+   {
+    "name": "中非发展基金有限公司（2007年国务院批准设立、中国第一只专注对非投资的国家级基金）",
+    "source": "事件主体·E-038"
+   },
+   {
+    "name": "泰晶科技股份有限公司",
+    "source": "事件主体·E-039"
+   },
+   {
+    "name": "无（独资）",
+    "source": "事件主体·E-039"
+   },
+   {
+    "name": "D股股东（要约对象）；结果已刊载于公司网站及德国联邦公报",
+    "source": "事件主体·E-040"
+   },
+   {
+    "name": "汉威科技集团股份有限公司",
+    "source": "事件主体·E-041"
+   },
+   {
+    "name": "中国证监会（备案审核中）；香港联交所（已递表）",
+    "source": "事件主体·E-041"
+   },
+   {
+    "name": "深圳新宙邦科技股份有限公司",
+    "source": "事件主体·E-042"
+   },
+   {
+    "name": "香港联交所上市委员会；保荐人（未列名）",
+    "source": "事件主体·E-042"
+   },
+   {
+    "name": "深圳市绿联科技股份有限公司",
+    "source": "事件主体·E-043"
+   },
+   {
+    "name": "香港联交所上市委员会；独家保荐人（未列名）",
+    "source": "事件主体·E-043"
+   },
+   {
+    "name": "赛诺医疗科学技术股份有限公司",
+    "source": "事件主体·E-044"
+   },
+   {
+    "name": "哥伦比亚INVIMA（监管机构）",
+    "source": "事件主体·E-044"
+   },
+   {
+    "name": "瀚蓝环境股份有限公司",
+    "source": "事件主体·E-045"
+   },
+   {
+    "name": "卖方：臻达发展有限公司（7.22%股份）、广东南海上市公司高质量发展股权投资基金（100%财产份额）",
+    "source": "事件主体·E-045"
+   },
+   {
+    "name": "腾讯控股有限公司",
+    "source": "事件主体·E-046"
+   },
+   {
+    "name": "联席全球协调人：摩根大通、工银亚洲、农业银行、中国银行、交通银行、建设银行、中信证券、高盛（亚洲）、汇丰、摩根士丹利",
+    "source": "事件主体·E-046"
+   },
+   {
+    "name": "上海剑桥科技股份有限公司",
+    "source": "事件主体·E-047"
+   },
+   {
+    "name": "不少于六名独立第三方承配人；可转债于维也纳证券交易所 Vienna MTF 上市",
+    "source": "事件主体·E-047"
+   },
+   {
+    "name": "宁波江丰电子材料股份有限公司",
+    "source": "事件主体·E-048"
+   },
+   {
+    "name": "Li Auto Inc.（理想汽车）",
+    "source": "事件主体·E-049"
+   },
+   {
+    "name": "Hangzhou Jingtao、Lanchi Ventures（蓝驰创投）、Huaye Tiancheng（华业天成）、MiraclePlus（奇绩创坛）",
+    "source": "事件主体·E-049"
+   },
+   {
+    "name": "长城汽车股份有限公司",
+    "source": "事件主体·E-050"
+   },
+   {
+    "name": "魏建军先生及其联系人（不包括本集团）",
+    "source": "事件主体·E-050"
+   },
+   {
+    "name": "JinkoSolar Holding Co., Ltd.（晶科能源）",
+    "source": "事件主体·E-051"
+   },
+   {
+    "name": "浙江天成自控股份有限公司",
+    "source": "事件主体·E-052"
+   },
+   {
+    "name": "某知名合资汽车企业（保密协议无法披露名称）",
+    "source": "事件主体·E-052"
+   },
+   {
+    "name": "苏州联讯仪器股份有限公司",
+    "source": "事件主体·E-053"
+   },
+   {
+    "name": "深圳嘉立创科技集团股份有限公司",
+    "source": "事件主体·E-054"
+   },
+   {
+    "name": "长江精工钢结构（集团）股份有限公司",
+    "source": "事件主体·E-055"
+   },
+   {
+    "name": "业主方：DANGOTE PROJECTS FZE（丹格特工业集团旗下，非洲最大综合性工业集团）；分包主体：长江精工（上海）建筑科技有限公司；不构成关联交易",
+    "source": "事件主体·E-055"
+   },
+   {
+    "name": "晶科电力科技股份有限公司",
+    "source": "事件主体·E-056"
+   },
+   {
+    "name": "法国电力公司下属EDF Power Solutions ME FZCO（与晶科中东各持合资公司EDFR and Jinko Holding Co., Ltd 50%）；合资公司持有Al Dhafrah 2,100MW光伏电站项目公司40%股权",
+    "source": "事件主体·E-056"
+   },
+   {
+    "name": "兖煤澳大利亚有限公司（ASX:YAL / HKEX:03668，公司控股子公司）",
+    "source": "事件主体·E-057"
+   },
+   {
+    "name": "中国人寿保险股份有限公司",
+    "source": "事件主体·E-058"
+   },
+   {
+    "name": "买方：集团公司（控股股东，持有约68.37%已发行股本）",
+    "source": "事件主体·E-058"
+   },
+   {
+    "name": "奥士康科技股份有限公司",
+    "source": "事件主体·E-059"
+   },
+   {
+    "name": "贵州轮胎股份有限公司",
+    "source": "事件主体·E-060"
+   },
+   {
+    "name": "无（经全资子公司贵州前进轮胎投资有限责任公司100%持股，无外部合作方；不构成关联交易）",
+    "source": "事件主体·E-060"
+   }
+  ]
  }
 };
