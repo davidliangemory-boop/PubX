@@ -93,26 +93,47 @@ def check_disclosures(evj):
 
 
 def check_quotes(evj):
-    """有原文缓存（raw/<doc_id>.txt）时，quote 必须是原文子串；无缓存如实记 SKIP。"""
+    """有原文缓存（raw/<doc_id>.txt，页间 \f 分隔）时：
+    ①页码须在文件页数范围内；②quote 规范化空白后必须是该页子串；
+    ③若落在其它页，报错并给出实际页码。无缓存如实记 SKIP。"""
     rawdir = os.path.join(ROOT, "raw")
     if not os.path.isdir(rawdir):
         add("引文回原文", "SKIP", "无 raw/ 原文缓存目录，跳过子串比对（采集脚本落地原文后自动启用）")
         return
-    n_ok = n_bad = 0
+    n_ok = n_bad = n_pg = n_nocache = 0
     for e in (evj or {}).get("events", []):
         for s in e.get("sources", []):
             p = os.path.join(rawdir, f"{s.get('doc_id')}.txt")
             if not os.path.exists(p):
+                if s.get("quotes"):
+                    n_nocache += 1
                 continue
-            raw = re.sub(r"\s+", "", open(p, encoding="utf-8", errors="replace").read())
+            pages = open(p, encoding="utf-8", errors="replace").read().split("\f")
+            norm_pages = [re.sub(r"\s+", "", pg) for pg in pages]
             for q in s.get("quotes") or []:
-                if re.sub(r"\s+", "", q.get("text", "")) in raw:
+                qt = re.sub(r"\s+", "", q.get("text", ""))
+                pn = q.get("page")
+                loc = f"{e.get('event_id')}/{s.get('doc_id')}"
+                if not isinstance(pn, int) or not (1 <= pn <= len(pages)):
+                    n_pg += 1
+                    add("引文页码", "ERROR",
+                        f"{loc}: 页码 {pn} 超出原文页数范围 1–{len(pages)}")
+                    continue
+                if qt and qt in norm_pages[pn - 1]:
                     n_ok += 1
-                else:
-                    n_bad += 1
+                    continue
+                hits = [i + 1 for i, pg in enumerate(norm_pages) if qt and qt in pg]
+                n_bad += 1
+                if hits:
                     add("引文回原文", "ERROR",
-                        f"{e.get('event_id')}/{s.get('doc_id')}: 引文非原文子串「{q.get('text', '')[:30]}…」")
-    add("引文回原文", "OK" if n_bad == 0 else "ERROR", f"比对 {n_ok + n_bad} 条，命中 {n_ok}")
+                        f"{loc}: 引文标注 P{pn}，实际位于 P{hits}「{q.get('text', '')[:30]}…」")
+                else:
+                    add("引文回原文", "ERROR",
+                        f"{loc}: 引文非原文子串「{q.get('text', '')[:30]}…」")
+    if n_nocache:
+        add("引文回原文", "WARN", f"{n_nocache} 份带引文来源无原文缓存（抓取失败/未抓），未比对")
+    add("引文回原文", "OK" if n_bad == 0 and n_pg == 0 else "ERROR",
+        f"按页比对 {n_ok + n_bad + n_pg} 条：页内命中 {n_ok} / 错位或非子串 {n_bad} / 页码越界 {n_pg}")
 
 
 def check_batches():

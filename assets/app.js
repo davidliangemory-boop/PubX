@@ -68,14 +68,19 @@
   }
 
   /* ── 事件派生索引 ── */
-  // 国家归一（看板矩阵/筛选用）：取 geo 文本「（」前第一段的首个国家/地区；
-  // 多国事项计入首列国，口径在矩阵下注明，保证合计=事件数
-  var GEO_SKIP = { "全球": "多国/全球", "海外": "多国/全球", "境外": "多国/全球" };
+  // 国家归一（看板矩阵/筛选用）：取 geo 文本「（」前第一段、按全半角分隔符拆分后
+  // 首个非「中国」的国家/地区（出海语境下中国为来源地）；多国事项计入首列国，口径在矩阵下注明
+  var GEO_SKIP = { "全球": "多国/全球", "海外": "多国/全球", "境外": "多国/全球", "国际市场": "多国/全球" };
   function countryOf(geoText) {
     if (!geoText) return "未披露";
     var t = String(geoText).split(/[（(]/)[0].trim();
-    var parts = t.split(/[、，,·\/；;]/).map(function (s) { return s.trim(); }).filter(Boolean);
-    var c = parts[0] || "未披露";
+    var parts = t.split(/[、，,·\/；;＋／]/).map(function (s) { return s.trim(); }).filter(Boolean);
+    if (!parts.length) return "未披露";
+    var c = parts[0];
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i] !== "中国" && parts[i] !== "中国大陆") { c = parts[i]; break; }
+    }
+    if (c.indexOf("澳大利亚") === 0 && c !== "澳大利亚") c = "澳大利亚";
     if (GEO_SKIP[c]) return GEO_SKIP[c];
     if (c === "香港" || c === "中国香港") return "中国香港";
     return c;
@@ -153,26 +158,36 @@
     var todayB = null;
     for (var ti = 0; ti < BD.length; ti++) if (BD[ti].kind === "daily") { todayB = BD[ti]; break; }
     var bdDate = todayB ? todayB.day.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3") : "";
-    var upd = { "新增": [], "进展": [], "重复": [], "修正": [], "失效": [] };
+    // 计数按事件去重：同一事件同类的多条 changelog 合并为一条（日期取最新，说明合并）
+    var upd = { "新增": {}, "进展": {}, "重复": {}, "修正": {}, "失效": {} };
     EV.forEach(function (e) {
       (e.changelog || []).forEach(function (c) {
         var inWin = bdDate ? c.date >= bdDate : c.date >= d7;
-        if (inWin && upd[c.type]) upd[c.type].push({ e: e, c: c });
+        if (inWin && upd[c.type]) {
+          var slot = upd[c.type][e.event_id];
+          if (!slot) slot = upd[c.type][e.event_id] = { e: e, date: c.date, notes: [] };
+          if (c.date > slot.date) slot.date = c.date;
+          if (c.note && slot.notes.indexOf(c.note) < 0) slot.notes.push(c.note);
+        }
       });
     });
     var updTypes = ["新增", "进展", "重复", "修正", "失效"];
-    var updTotal = updTypes.reduce(function (a, k) { return a + upd[k].length; }, 0);
+    var updN = {};
+    updTypes.forEach(function (k) { updN[k] = Object.keys(upd[k]).length; });
+    var updTotal = updTypes.reduce(function (a, k) { return a + updN[k]; }, 0);
     h += '<div class="panel"><div class="panel-h"><h2>本次更新带</h2><span class="note">'
-      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "，含批次日后的人工修正记录）；计数来自事件层 changelog；点击分类可展开到事件"
-                : "窗口 " + esc(d7 || "—") + " ~ " + esc(maxDate) + "；计数来自事件层 changelog") + '</span></div><div class="panel-b">'
+      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "，含批次日后的人工修正记录）；计数来自事件层 changelog，按事件去重（同一事件同类多条合并）；点击分类可展开到事件"
+                : "窗口 " + esc(d7 || "—") + " ~ " + esc(maxDate) + "；计数来自事件层 changelog，按事件去重") + '</span></div><div class="panel-b">'
       + '<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px">'
-      + statCard(upd["新增"].length, "新增", "本批新入库事件") + statCard(upd["进展"].length, "进展", "阶段前移或新字段") + statCard(upd["重复"].length, "重复", "主键去重，不入库") + statCard(upd["修正"].length, "修正", "改记旧值留痕") + statCard(upd["失效"].length, "失效", "误收 / 作废，改记留痕") + "</div>"
+      + statCard(updN["新增"], "新增", "本批新入库事件") + statCard(updN["进展"], "进展", "阶段前移或新字段") + statCard(updN["重复"], "重复", "主键去重，不入库") + statCard(updN["修正"], "修正", "改记旧值留痕") + statCard(updN["失效"], "失效", "误收 / 作废，改记留痕") + "</div>"
       + (updTotal ? updTypes.map(function (k) {
-          if (!upd[k].length) return "";
-          return '<details class="updcat"' + (k === "新增" || k === "进展" ? " open" : "") + '><summary>' + pill(k, k === "进展" ? "blue" : k === "修正" || k === "失效" ? "warn" : "") + '<span class="dim" style="font-size:12px;margin-left:6px">' + upd[k].length + " 条</span></summary>"
-            + upd[k].map(function (u) {
-              return '<div class="ev"><span class="pg">' + esc(u.c.date) + '</span><span><a href="#/event/' + u.e.event_id + '">' + esc(u.e.title_fact ? u.e.title_fact.text : "") + "</a>"
-                + (u.c.note ? '<br/><span class="dim" style="font-size:12px">' + esc(u.c.note) + "</span>" : "") + "</span></div>";
+          if (!updN[k]) return "";
+          var items = Object.keys(upd[k]).map(function (id) { return upd[k][id]; })
+            .sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+          return '<details class="updcat"' + (k === "新增" || k === "进展" ? " open" : "") + '><summary>' + pill(k, k === "进展" ? "blue" : k === "修正" || k === "失效" ? "warn" : "") + '<span class="dim" style="font-size:12px;margin-left:6px">' + updN[k] + " 条</span></summary>"
+            + items.map(function (u) {
+              return '<div class="ev"><span class="pg">' + esc(u.date) + '</span><span><a href="#/event/' + u.e.event_id + '">' + esc(u.e.title_fact ? u.e.title_fact.text : "") + "</a>"
+                + (u.notes.length ? '<br/><span class="dim" style="font-size:12px">' + esc(u.notes.join("；")) + "</span>" : "") + "</span></div>";
             }).join("") + "</details>";
         }).join("")
         : '<div class="empty">本批（' + esc(bdDate || (d7 + " ~ " + maxDate)) + "）扫描 " + (todayB && todayB.scanned != null ? todayB.scanned : "—") + " 条，未发现新增出海事件</div>")
@@ -187,9 +202,26 @@
     }
     h += "</div>";
 
-    /* ── ② 头条事件（近 7 日有实质更新者优先；关注理由标 analysis 并写依据） ── */
+    /* ── ② 头条事件（R04：近 7 日有实质更新且重要性 A 者优先；窗口按 changelog 变更日而非来源日） ── */
+    var leadCands = [];
+    EVX.forEach(function (x) {
+      var last = "";
+      (x.e.changelog || []).forEach(function (c) {
+        if ((c.type === "进展" || c.type === "修正") && c.date >= d7 && c.date > last) last = c.date;
+      });
+      if (last) leadCands.push({ x: x, last: last });
+    });
+    leadCands.sort(function (a, b) { return a.last < b.last ? 1 : -1; });
     var lead = null, leadWhy = "";
-    for (var i = 0; i < EVX.length; i++) if ((EVX[i].ut === "进展" || EVX[i].ut === "修正") && EVX[i].date >= d7) { lead = EVX[i]; leadWhy = "近 7 日有实质更新（" + lead.ut + "）"; break; }
+    for (var i = 0; i < leadCands.length; i++) {
+      var imp = leadCands[i].x.e.importance;
+      if (imp && imp.level === "A") {
+        lead = leadCands[i].x;
+        leadWhy = "重要性 A（" + (imp.reason || "") + "），近 7 日有实质更新（" + leadCands[i].last + " · " + lead.ut + "）";
+        break;
+      }
+    }
+    if (!lead && leadCands.length) { lead = leadCands[0].x; leadWhy = "近 7 日有实质更新（" + leadCands[0].last + " · " + lead.ut + "）"; }
     if (!lead) for (var j = 0; j < EVX.length; j++) if (EVX[j].status === "活跃") { lead = EVX[j]; leadWhy = "最新活跃事件"; break; }
     if (!lead && EVX.length) { lead = EVX[0]; leadWhy = "最新收录事件"; }
     if (lead) {
@@ -229,11 +261,11 @@
     /* ── ③ 重点观察（判断 + 证据链接 + 适用范围；同方向 <3 件标「观察线索」） ── */
     var obs = [];
     var scopeAll = "样本：全库 " + EV.length + " 事件（三渠道关键词/名单制采样合并，非全市场）；归一与判断均为系统分析层";
-    var prog = EVX.filter(function (x) { return x.date >= d7 && (x.ut === "进展" || x.ut === "修正"); });
+    var prog = leadCands.map(function (c) { return c.x; });
     if (prog.length) {
       obs.push({
         judgment: "近 7 日 " + prog.length + " 件事件出现实质更新（进展/修正）：" + prog.map(function (x) { return shortCo(x.subject); }).join("、") + "。",
-        basis: "按事件 changelog 类型统计，窗口 " + d7 + " ~ " + maxDate,
+        basis: "按事件 changelog 变更日统计，窗口 " + d7 + " 起；含批次日后的人工修正",
         ev: prog, scope: scopeAll, clue: prog.length < 3
       });
     }
@@ -253,7 +285,7 @@
     if (ctyTop) {
       obs.push({
         judgment: "目的地集中于「" + ctyTop + "」（" + ctyCnt[ctyTop] + " / " + EV.length + " 事件）。",
-        basis: "按 geo 文本首个国家/地区归一计数；多国事项计入首列国",
+        basis: "取 geo 文本首个非「中国」的国家/地区归一计数；多国事项计入首列国",
         ev: EVX.filter(function (x) { return x.country === ctyTop; }).slice(0, 4), scope: scopeAll, clue: ctyCnt[ctyTop] < 3
       });
     }
@@ -471,7 +503,7 @@
   }
   function evRows() {
     var rows = evFiltered();
-    var cnt = $("evcount"); if (cnt) cnt.textContent = "显示 " + rows.length + " / " + EVX.length;
+    var cnt = $("evcount"); if (cnt) cnt.textContent = "显示 " + rows.length + " / " + EVX.length + (F.geo !== "全部" ? " · 地区文本筛选「" + F.geo + "」（跨页链接带入，清空可解除）" : "");
     var box = $("evrows"); if (!box) return;
     if (F.view === "table") {
       box.innerHTML = '<div class="tbl-wrap"><table class="tbl"><thead><tr>'
@@ -793,7 +825,7 @@
         + '<div class="secnote">' + caliber + "</div>";
     }
 
-    h += '<div class="panel"><div class="panel-h"><h2>阶段 × 国家/地区矩阵</h2><span class="note">口径：当前事件层 ' + EV.length + ' 个事件按 stage_current × 国家归一计数；国家取 geo 文本首个国家/地区，多国事项计入首列国；合计行列与事件库筛选结果一致</span></div>'
+    h += '<div class="panel"><div class="panel-h"><h2>阶段 × 国家/地区矩阵</h2><span class="note">口径：当前事件层 ' + EV.length + ' 个事件按 stage_current × 国家归一计数；国家取 geo 文本首个非「中国」的国家/地区（中国为来源地），多国事项计入首列国；合计行列与事件库筛选结果一致</span></div>'
       + matrix(ctys, function (x) { return x.country === "未披露" ? null : x.country; }, "country",
         "样本口径：仅覆盖已收录披露合并成的事件（三渠道关键词/名单制采样，非全市场）；未披露国家 " + noGeo + " 个事件不计入矩阵；不作全市场结论。") + "</div>";
 

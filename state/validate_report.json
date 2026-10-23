@@ -1,65 +1,20 @@
 {
- "generated": "2026-10-23 08:48",
+ "generated": "2026-10-23 11:18",
  "summary": {
   "ERROR": 0,
-  "WARN": 9,
-  "SKIP": 2
+  "WARN": 2,
+  "SKIP": 0
  },
  "issues": [
   {
    "check": "引文回原文",
-   "level": "SKIP",
-   "detail": "无 raw/ 原文缓存目录，跳过子串比对（采集脚本落地原文后自动启用）"
+   "level": "WARN",
+   "detail": "5 份带引文来源无原文缓存（抓取失败/未抓），未比对"
   },
   {
    "check": "批次命名",
    "level": "WARN",
    "detail": "14 条存量批次为旧命名（B-YYYYMMDD-HHMM / B-BF-* 等）；原始记录保留，构建层 build_data.py 已聚合为日批次视图 batches_daily"
-  },
-  {
-   "check": "审批表述依据",
-   "level": "WARN",
-   "detail": "E-010: 含「审批/备案完成」类表述但来源无审批类引文支撑"
-  },
-  {
-   "check": "审批表述依据",
-   "level": "WARN",
-   "detail": "E-023: 含「审批/备案完成」类表述但来源无审批类引文支撑"
-  },
-  {
-   "check": "审批表述依据",
-   "level": "WARN",
-   "detail": "E-025: 含「审批/备案完成」类表述但来源无审批类引文支撑"
-  },
-  {
-   "check": "审批表述依据",
-   "level": "WARN",
-   "detail": "E-026: 含「审批/备案完成」类表述但来源无审批类引文支撑"
-  },
-  {
-   "check": "changelog 一致",
-   "level": "WARN",
-   "detail": "E-028: changelog 末条 修正 ≠ update_type_latest 新增"
-  },
-  {
-   "check": "changelog 一致",
-   "level": "WARN",
-   "detail": "E-055: changelog 末条 修正 ≠ update_type_latest 新增"
-  },
-  {
-   "check": "changelog 一致",
-   "level": "WARN",
-   "detail": "2 条不一致"
-  },
-  {
-   "check": "审批表述依据",
-   "level": "WARN",
-   "detail": "4 条待补引文"
-  },
-  {
-   "check": "来源链接可达",
-   "level": "SKIP",
-   "detail": "抽样 8 条全部网络不可达（离线或外网受限），本次跳过"
   }
  ],
  "pages": {
