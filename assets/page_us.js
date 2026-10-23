@@ -9,14 +9,16 @@
   var CATS = ["全部", "交易类", "融资类", "运营", "法律（诉讼/监管处罚）", "对外投资", "经营战略重大事项"];
   var AMT_B = ["全部", "【未披露】", "<100万美元", "100万–1亿美元", "1亿–10亿美元", "≥10亿美元", "非美元/其他"];
   var CN_B = ["全部", "是", "未知"];
-  var ITEM_ZH = { "1.01": "签订重大协议", "1.02": "终止重大协议", "1.05": "网络安全事件",
-    "2.01": "完成收购/处置", "2.03": "产生财务义务", "2.05": "重组退出成本", "2.06": "重大减值",
-    "3.01": "退市/上市标准", "3.02": "未注册增发", "5.01": "控制权变更", "5.02": "董监高变动",
-    "8.01": "其他重大事项" };
+  var ITEM_ZH = { "1.01": "签订重大协议", "1.02": "终止重大协议", "1.03": "破产/接管",
+    "1.05": "网络安全事件", "2.01": "完成收购/处置", "2.02": "经营业绩", "2.03": "产生财务义务",
+    "2.04": "财务义务加速", "2.05": "重组退出成本", "2.06": "重大减值",
+    "3.01": "退市/上市标准", "3.02": "未注册增发", "3.03": "股东权利修改",
+    "4.01": "审计师变更", "4.02": "财报不可依赖", "5.01": "控制权变更", "5.02": "董监高变动",
+    "5.03": "章程修订", "5.06": "壳公司状态", "5.07": "股东大会表决", "5.08": "股东提名",
+    "7.01": "Reg FD 披露", "8.01": "其他重大事项", "9.01": "财报与附件" };
   var UF = { from: "", to: "", cat: "全部", sub: "全部", form: "全部", amt: "全部", cn: "全部",
-             item: "全部", q: "", page: 1 };
+             item: "全部", q: "", h424: "0", page: 1 };
   var expanded = {};
-  var bound = false;
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -46,6 +48,7 @@
     UF.cat = qs.get("cat") || "全部"; UF.sub = qs.get("sub") || "全部";
     UF.form = qs.get("form") || "全部"; UF.amt = qs.get("amt") || "全部";
     UF.cn = qs.get("cn") || "全部"; UF.item = qs.get("item") || "全部"; UF.q = qs.get("q") || "";
+    UF.h424 = qs.get("h424") || "0";
     UF.page = parseInt(qs.get("page") || "1", 10) || 1;
   }
   function syncQS() {
@@ -55,6 +58,7 @@
     ["cat", "sub", "form", "amt", "cn", "item", "q"].forEach(function (k) {
       if (UF[k] && UF[k] !== "全部") p.push(k + "=" + encodeURIComponent(UF[k]));
     });
+    if (UF.h424 === "1") p.push("h424=1");
     if (UF.page > 1) p.push("page=" + UF.page);
     history.replaceState(null, "", "#/us" + (p.length ? "?" + p.join("&") : ""));
   }
@@ -65,6 +69,7 @@
   function filtered() {
     var q = UF.q.trim().toLowerCase();
     return entries().filter(function (e) {
+      if (UF.h424 === "1" && (e.form || "").indexOf("424B") === 0) return false;
       if (UF.from && e.date < UF.from) return false;
       if (UF.to && e.date > UF.to) return false;
       if (UF.cat !== "全部" && e.category !== UF.cat) return false;
@@ -144,16 +149,19 @@
     }).length;
     var byCat = {};
     all.forEach(function (e) { byCat[e.category] = (byCat[e.category] || 0) + 1; });
+    var n424 = M.n_424b != null ? M.n_424b
+      : all.filter(function (e) { return (e.form || "").indexOf("424B") === 0; }).length;
+    var pct424 = all.length ? Math.round(n424 * 1000 / all.length) / 10 : 0;
 
     var h = '<div class="ph"><h1>美股（SEC）· 全量重大事项</h1>'
       + '<span class="sub">本页回答：SEC EDGAR 全量披露（不分中企外企）中，最近有哪些交易、融资、运营、法律与战略重大事项</span></div>';
 
     h += '<div class="statstrip">'
       + statCard(all.length, "收录条目（筛选后 " + rows.length + "）",
-                 "窗口 " + (dr[0] || "—") + " ~ " + (dr[1] || "—") + " · 白名单口径")
+                 "窗口 " + (dr[0] || "—") + " ~ " + (dr[1] || "—") + " · 其中 424B* 定价补充 " + n424 + " 条（" + pct424 + "%）")
       + statCard(lastB.batch_id || "—", "最近批次",
                  (lastB.new_entries != null ? "新增 " + lastB.new_entries + " 条 · " : "") + "索引可用 " + nDays + " 天")
-      + statCard(dr[1] || "—", "数据至（EDGAR T+1）", "当日索引未发布属正常")
+      + statCard(dr[1] || "—", "数据至（EDGAR T+1）", "按美东申报日切片 · 当日索引未发布属正常")
       + statCard((byCat["交易类"] || 0) + " / " + (byCat["融资类"] || 0), "交易类 / 融资类", "全窗口计数")
       + "</div>";
 
@@ -167,6 +175,8 @@
       + '<select class="fsel" id="ufcn">' + opts(CN_B, UF.cn) + "</select>"
       + '<input type="search" id="ufq" placeholder="关键词：公司/代码/事项/对方…" value="' + esc(UF.q) + '"/>'
       + '<select class="fsel" id="ufitem"></select>'
+      + '<label class="us-chk"><input type="checkbox" id="ufh424"' + (UF.h424 === "1" ? " checked" : "")
+      + '/> 隐藏 424B 定价补充</label>'
       + '<button class="btn primary" id="ufcsv">导出 CSV（筛选后全部 ' + rows.length + ' 行）</button>'
       + "</div></div>";
 
@@ -237,17 +247,26 @@
         + '<a href="' + esc(e.index_url) + '" target="_blank" rel="noopener">索引</a></td>'
         + "</tr>";
       if (expanded[e.id]) {
+        var qkeys = Object.keys(e.item_quotes || {});
+        var quotesHtml = "";
+        if (qkeys.length) {
+          quotesHtml = '<div class="us-quotes"><b>Item 证据句（原文摘录，disclosed）</b>'
+            + qkeys.map(function (k) {
+                return '<div class="us-quote"><span class="pill">' + esc(k) + "</span> "
+                  + esc(e.item_quotes[k]) + "</div>";
+              }).join("") + "</div>";
+        }
         h += '<tr class="us-detail"><td colspan="10"><div class="us-dgrid">'
           + "<div><b>Accession</b><br/><span class=\"code\">" + esc(e.accession) + "</span></div>"
           + "<div><b>收录批次</b><br/>" + esc(e.batch || "—") + "</div>"
           + "<div><b>Item 全名</b><br/>" + esc(((e.items || []).map(function (it, i) {
               return it + " " + ((e.item_names || [])[i] || ""); }).join("；")) || "—（非 8-K 无 Item 编号）") + "</div>"
           + "<div><b>中国关联依据</b><br/>" + esc(e.china_basis || "—") + "</div>"
-          + "<div><b>字段分层</b><br/>一句话事项/金额/对方=原文抽取（disclosed"
+          + "<div><b>字段分层</b><br/>一句话事项/金额/对方/证据句=原文抽取（disclosed"
             + (e.amount === "【未披露】" ? "，金额原文未披露" : "") + "）；类别/子类/中国关联=系统规则推断（analysis，依据=表格+Item+关键词）</div>"
           + '<div><b>出处定位</b><br/><a href="' + esc(e.url) + '" target="_blank" rel="noopener">主文档（一句话事项抽取处）</a> · '
           + '<a href="' + esc(e.index_url) + '" target="_blank" rel="noopener">EDGAR Filing Detail 索引页</a></div>'
-          + "</div></td></tr>";
+          + "</div>" + quotesHtml + "</td></tr>";
       }
     });
     h += "</tbody></table></div>"
@@ -260,7 +279,9 @@
     h += '<div class="panel"><div class="panel-h"><h2>口径说明</h2></div>'
       + '<div class="panel-b" style="line-height:1.9;font-size:13px">'
       + esc(M.caliber || "")
-      + "<br/><b>分层</b>：一句话事项/金额为原文正则抽取（disclosed）；类别/子类/中国关联为系统规则推断（analysis，依据=表格类型+Item 编号+关键词）。"
+      + "<br/><b>构成提示</b>：本窗口 424B* 定价/招股补充 " + n424 + " 条，占收录 " + pct424
+      + "%（高频低信号，多为结构化票据定价，可用筛选栏「隐藏 424B 定价补充」剔除；属任务白名单口径，默认保留）。"
+      + "<br/><b>分层</b>：一句话事项/金额/证据句为原文正则抽取（disclosed）；类别/子类/中国关联为系统规则推断（analysis，依据=表格类型+Item 编号+关键词）。"
       + "中国关联仅作标签：<b>是</b>=CIK 命中出海观察名单或公司名含中国地名/中概关键词；<b>未知</b>=未进一步核查，不代表「否」。"
       + "本页与「出海信批归纳」（仅中企）及港股、出口管制分页面的数据文件、统计口径<b>互不混用</b>。"
       + "<br/><b>批次记录</b>（日批次 D-=按日采集 / 回溯 B-=历史补入）："
@@ -303,6 +324,9 @@
      ["ufform", "form"], ["ufamt", "amt"], ["ufcn", "cn"], ["ufitem", "item"]].forEach(function (x) {
       $(x[0]).addEventListener("change", function (e) { UF[x[1]] = e.target.value; re(true); });
     });
+    $("ufh424").addEventListener("change", function (e) {
+      UF.h424 = e.target.checked ? "1" : "0"; re(true);
+    });
     document.querySelectorAll(".us-brkrow").forEach(function (el) {
       el.addEventListener("click", function () {
         var c = el.getAttribute("data-cat");
@@ -331,7 +355,6 @@
     $("ufcsv").addEventListener("click", function () { exportCSV(filtered()); });
     $("uprev").addEventListener("click", function () { if (UF.page > 1) { UF.page--; syncQS(); render(); } });
     $("unext").addEventListener("click", function () { if (UF.page < totalPages) { UF.page++; syncQS(); render(); } });
-    bound = true;
   }
 
   window.render_us = function (root) {

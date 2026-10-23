@@ -6,6 +6,9 @@
   font-size: 12.5px; font-family: inherit; background: var(--card); color: var(--ink);
 }
 .us-fbar input[type="search"] { min-width: 200px; flex: 1; max-width: 320px; }
+.us-fbar .us-chk { white-space: nowrap; cursor: pointer; }
+.us-quotes { margin-top: 10px; border-top: 1px dashed var(--line-2); padding-top: 8px; }
+.us-quote { padding: 3px 0; color: var(--ink-2); }
 .us-fbar .btn { margin-left: auto; }
 .us-tbl .us-sum { max-width: 380px; font-size: 12.5px; line-height: 1.55; color: var(--ink-2); }
 .us-tbl td .pill { margin: 1px 2px 1px 0; }

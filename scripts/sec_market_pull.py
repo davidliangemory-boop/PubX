@@ -10,17 +10,23 @@
 表格白名单：8-K/8-K/A（Item 1.01/1.02/1.05/2.01/2.03/2.05/2.06/3.01/3.02/5.01/5.02/8.01）、
 6-K/6-K/A、S-1/F-1/S-4/F-4（含/A）、424B*、SC TO-T/14D9/13E3（含/A）、DEFM14A、425。
 
+口径说明：--date D 扫描 EDGAR「D 日」日索引（按美东申报日切片）；EDGAR 无北京时间维度索引，
+美东申报日 D 覆盖北京时间 D 12:00 至 D+1 12:00 的大部分申报，页面口径以此为准并如实注明。
+
 去重：accessionNumber（state/sec_market_seen.json）；数据追加不覆盖历史。
 分片：state/us_market/YYYY-MM-DD.json；汇总 state/us_market.json；前端 assets/us_data.js。
 
 用法：
   python3 sec_market_pull.py --date 2026-10-21        # 单日（日批次 D-YYYYMMDD）
   python3 sec_market_pull.py --backfill-days 20       # 回溯 N 天（回溯批次 B-YYYYMMDD，默认 20）
+  python3 sec_market_pull.py --reextract-dates 2026-10-20,2026-10-21 --backfill-days 23
+      # 丢弃指定日期的既有条目与游标后随本次运行重新采集（用于抽取逻辑升级后的修复）
   python3 sec_market_pull.py --build-only             # 仅由 state/us_market.json 重建 us_data.js
-限流：自适应 0.6–5s/请求（官方上限 10/s，共享出口实测极易触发封禁）；403 触发全局静默 60–600s。
+限流：自适应 0.35–5s/请求（官方上限 10/s，共享出口实测易触发封禁）；403 触发全局静默 60–600s。
 """
 import argparse
 import concurrent.futures as cf
+import copy
 import datetime
 import html as htmlmod
 import json
@@ -41,8 +47,8 @@ MASTER_P = os.path.join(STATE, "us_market.json")
 SEEN_P = os.path.join(STATE, "sec_market_seen.json")
 OUT_JS = os.path.join(ROOT, "assets", "us_data.js")
 
-MAX_DOC_BYTES = 700000  # 主文档只读前 700KB，够取 Items 与首段事实
-THREADS = 4
+MAX_DOC_BYTES = 700000  # full-submission .txt 只读前 700KB，够取 Items 与首段事实
+THREADS = 6
 
 FORM_WHITELIST = {
     "8-K", "8-K/A", "6-K", "6-K/A",
@@ -85,16 +91,24 @@ CPTY_RES = [
     re.compile(r"(?:agreement|merger agreement|business combination agreement|transaction)\s+(?:with|by and between|by and among|among)\s+([A-Z][\w&.,'()\[\]\- ]{2,70}?)(?:,|\.| pursuant| under| dated| relating| providing)", re.I),
     re.compile(r"(?:acquisition|purchase) of\s+([A-Z][\w&.,'()\[\]\- ]{2,60}?)(?:,|\.| from| for| pursuant)", re.I),
     re.compile(r"merger with\s+([A-Z][\w&.,'()\[\]\- ]{2,60}?)(?:,|\.| and )", re.I),
+    re.compile(r"agreement\s+among\s+([A-Z][\w&.'\- ]{2,60}?)(?:,| as | and )", re.I),
 ]
 CN_NAME_RE = re.compile(r"china|hong\s?kong|beijing|shanghai|shenzhen|guangzhou|hangzhou|suzhou|nanjing|"
                         r"chengdu|wuhan|xiamen|tianjin|chongqing|alibaba|tencent|baidu|jd\.com|pinduoduo|"
-                        r"netease|weibo|bilibili|xpeng|jinko|daqo|trip\.com|iqiyi|huya|douyu", re.I)
+                        r"netease|weibo|bilibili|xpeng|jinko|daqo|trip\.com|iqiyi|huya|douyu|zhihu|"
+                        r"\bnio\b|li auto|zeekr|luckin|yum china|beike|ke holdings|kanzhun|full truck|"
+                        r"tencent music|hello group|new oriental|\btal\b|gaotu|gds holdings|vnet|"
+                        r"kingsoft cloud|uxin|qfin|lufax|lexin|futu|up fintech|tiger brokers|"
+                        r"baozun|51job|51talk|qutoutiao|sohu|sogou|momo|himalaya|missfresh|"
+                        r"dingdong|waterdrop|roott|agora|borqs|cool link|mingteng|mangoceuticals", re.I)
 VALID_ITEM_RE = re.compile(r"Item\s+([1-9]\.\d\d)\b")
 TAG_RE = re.compile(r"<[^>]+>")
+FILLER_RE = re.compile(r"attached hereto as exhibit|incorporated (?:herein )?by reference|"
+                       r"issued a press release|furnished as exhibit|copy of which is attached", re.I)
 
 _lock = threading.Lock()
 _last_req = [0.0]
-_interval = [1.2]   # 自适应请求间隔（秒）：成功缓慢衰减、403 上调，0.6–5
+_interval = [0.8]   # 自适应请求间隔（秒）：成功缓慢衰减、403 上调，0.35–5
 _ban_until = [0.0]  # 全局封禁静默期：任何 403 触发，期间所有线程不发请求
 _ban_len = [60.0]   # 静默期长度，连续 403 指数拉长（60→…→600），成功后复位
 _stats = {"fetches": 0, "errors": 0, "bans": 0}
@@ -113,7 +127,7 @@ def throttle():
 def _adapt(ok):
     with _lock:
         if ok:
-            _interval[0] = max(0.6, _interval[0] * 0.97)
+            _interval[0] = max(0.35, _interval[0] * 0.97)
             _ban_len[0] = 60.0
         else:
             _stats["bans"] += 1
@@ -192,7 +206,7 @@ def efts_items(datestr):
     try:
         while True:
             url = ("https://efts.sec.gov/LATEST/search-index?q=%22%22&forms=8-K"
-                   "&startdt=%s&enddt=%s&from=%d" % (datestr, datestr, frm))
+                   "&startdt=" + datestr + "&enddt=" + datestr + "&from=%d" % frm)
             d = None
             for _try in range(3):
                 raw = fetch(url, retries=3, retry_403=True)
@@ -223,6 +237,7 @@ def efts_items(datestr):
                 break
             if frm > 9900:
                 break
+        print("[EFTS] %s 8-K 索引 %d 份" % (datestr, len(out)), flush=True)
         return out
     except Exception:
         return None
@@ -235,25 +250,33 @@ def strip_html(x):
 
 
 def parse_primary(txt_raw, form):
-    """从 full-submission .txt 取主文档纯文本（第一个 <TYPE> 与表单一的 <DOCUMENT>）。"""
+    """从 full-submission .txt 取主文档纯文本与首个 EX-99.x 附件文本。
+    返回 (main_text, ex99_text)。6-K 的实质内容在 EX-99.1，封面只是套话。"""
     blocks = re.split(r"<DOCUMENT>", txt_raw)
     want = form.replace(" ", "")
     first_text = None
+    main = None
+    ex99 = None
     for b in blocks[1:]:
         m = re.match(r"\s*<TYPE>([^\n<]+)", b)
         if not m:
             continue
-        btype = m.group(1).strip()
+        btype = m.group(1).strip().replace(" ", "").upper()
         t = re.search(r"<TEXT>(.*)", b, re.S)
         if not t:
             continue
-        body = t.group(1)
-        body = body.split("</TEXT>")[0]
+        body = t.group(1).split("</TEXT>")[0]
         if first_text is None:
             first_text = body
-        if btype.replace(" ", "").upper() == want.upper():
-            return strip_html(body)
-    return strip_html(first_text) if first_text else ""
+        if ex99 is None and btype.startswith("EX-99"):
+            ex99 = strip_html(body)
+        if main is None and btype == want.upper():
+            main = strip_html(body)
+        if main is not None and ex99 is not None:
+            break
+    if main is None:
+        main = strip_html(first_text) if first_text else ""
+    return main, (ex99 or "")
 
 
 def parse_items(text):
@@ -267,41 +290,83 @@ def parse_items(text):
     return sorted(found)
 
 
+# Item 标题常见词：用于从 "Item 8.01 Other Events. On October 20..." 中剥掉标题段，
+# 只保留正文（标题段特征：无数字、≤60 字符、含标题词）
+TITLE_WORDS = ("agreement", "events", "acquisition", "disposition", "financial statements",
+               "exhibits", "obligation", "costs", "impairment", "notice", "delisting",
+               "failure to satisfy", "listing rule", "transfer of listing", "unregistered sales",
+               "equity securities", "modification", "rights of security", "changes in control",
+               "departure of directors", "election of directors", "appointment of",
+               "compensatory arrangements", "cybersecurity", "termination of a material",
+               "entry into a material", "results of operations", "regulation fd",
+               "amendments to articles", "code of ethics", "shell company", "submission of matters",
+               "vote", "bankruptcy", "receivership", "mine safety", "other events",
+               "completion of acquisition", "creation of a direct", "triggering events",
+               "change in", "non-reliance")
+
+
 def item_context(text, item):
-    """取某 Item 标题之后的首段文字（跳过目录点线）。"""
+    """取某 Item 标题之后的正文段（跳过目录点线与 Item 标题本身）。"""
     best = ""
-    for m in re.finditer(r"Item\s+%s[^\n]{0,120}" % re.escape(item), text):
-        seg = text[m.end():m.end() + 700]
-        if "...." in seg[:80]:
+    for m in re.finditer(r"Item\s+%s\b" % re.escape(item), text):
+        rest = text[m.end():m.end() + 900]
+        if "...." in rest[:80]:
             continue
-        seg = re.sub(r"\s+", " ", seg).strip()
-        if len(seg) > len(best):
-            best = seg
-        if len(best) > 120:
+        rest = re.sub(r"^[\s.:]+", "", rest)
+        for _ in range(2):
+            t = re.match(r"^([A-Z][A-Za-z ,/&'();\-]{2,110}?)\.\s+", rest)
+            if t and not re.search(r"\d", t.group(1)) and \
+                    any(w in t.group(1).lower() for w in TITLE_WORDS):
+                rest = rest[t.end():]
+            else:
+                break
+        rest = re.sub(r"\s+", " ", rest).strip()
+        if len(rest) > len(best):
+            best = rest
+        if len(best) > 150:
             break
-    return best
+    return best[:700]
 
 
 BOILER_RE = re.compile(
     r"^(indicate by check mark|for the month of|commission file number|pursuant to (?:the )?section|"
     r"check the appropriate box|if (?:any of )?the following|table of contents|this report on form|"
-    r"the information (?:contained|furnished)|the securities and exchange commission)", re.I)
+    r"the information (?:contained|furnished)|the securities and exchange commission|"
+    r"united states|securities and exchange commission|washington[\s,]+d\.?c\.?|"
+    r"form\s+\d|report of foreign private issuer|date of report|signatures?\b|"
+    r"exhibit\s+\d|cautionary statement|forward[\s-]looking statements|"
+    r"item\s+\d|other events\.?$|press release$)", re.I)
 
 
-def first_sentences(text, n=2, cap=260):
-    parts = re.split(r"(?<=[.!?])\s+(?=[A-Z(])", text.strip())
+def clean_excerpt(out):
+    out = re.sub(r"^[\s,;:)\]—–\-…]+", "", out or "")
+    if out and (out[0].islower() or out[0] == "("):
+        out = "…" + out
+    return out.strip()
+
+
+def first_sentences(text, n=2, cap=280):
+    parts = re.split(r"(?<=[.!?])\s+(?=[A-Z(“\"'])", (text or "").strip())
     out = ""
     skipped = 0
     for s in parts:
+        s = s.strip()
         if not s:
             continue
-        if BOILER_RE.match(s.strip()) and skipped < 6:
+        if (BOILER_RE.match(s) or len(s) < 25) and skipped < 8:
             skipped += 1
             continue
-        out = (out + " " + s).strip()
-        if len(out) >= cap or out.count(".") + out.count("!") + out.count("?") >= n:
+        cand = (out + " " + s).strip()
+        if len(cand) > cap:
+            room = cap - len(out) - 1
+            if room > 60:
+                cut = s[:room].rsplit(" ", 1)[0]
+                out = (out + " " + cut + " …").strip()
             break
-    return out[:cap].strip()
+        out = cand
+        if out.count(".") + out.count("!") + out.count("?") >= n and len(out) > 100:
+            break
+    return clean_excerpt(out)
 
 
 def extract_amount(text):
@@ -310,11 +375,11 @@ def extract_amount(text):
     best = None
     for m in AMT_RE.finditer(text):
         ctx = text[max(0, m.start() - 90):m.end() + 30]
+        cand = m.group(1).strip().rstrip(" ,.;")
         if AMT_KEY_RE.search(ctx):
-            best = m.group(1).strip()
-            break
+            return cand
         if best is None:
-            best = m.group(1).strip()
+            best = cand
     return best if best else "【未披露】"
 
 
@@ -371,18 +436,18 @@ def classify_8k(items, text):
 
 
 def classify_form(form, text):
-    f = form.upper()
+    f = form.upper().replace(" ", "")
     low = (text or "")[:4000].lower()
     if f.startswith("424B"):
         if f == "424B4":
             return "融资类", "IPO 招股说明书（定价，424B4）"
-        return "融资类", "证券发行定价/招股补充（%s）" % f
+        return "融资类", "证券发行定价/招股补充（%s）" % form.upper()
     if f in ("S-1", "S-1/A"):
-        return "融资类", "IPO/发行注册说明书（%s）" % f
+        return "融资类", "IPO/发行注册说明书（%s）" % form.upper()
     if f in ("F-1", "F-1/A"):
-        return "融资类", "外国发行人 IPO/发行注册（%s）" % f
+        return "融资类", "外国发行人 IPO/发行注册（%s）" % form.upper()
     if f in ("S-4", "S-4/A", "F-4", "F-4/A"):
-        return "交易类", "并购/换股合并注册（%s）" % f
+        return "交易类", "并购/换股合并注册（%s）" % form.upper()
     if f.startswith("SCTO-T"):
         return "交易类", "要约收购（SC TO-T）"
     if f.startswith("SC14D9"):
@@ -425,6 +490,25 @@ def load_json(p, default):
     return default
 
 
+def fix_entry(e, watch_ciks):
+    """存量条目迁移：重算纯表单决定的分类（修 SC TO-T 空格 bug）、重打中国关联标签、
+    清洗摘要/金额边缘、对齐 item_names 长度。幂等，可在每次载入时安全执行。"""
+    fn = (e.get("form") or "").upper().replace(" ", "")
+    if (e.get("subtype") or "").startswith("其他（") and not fn.startswith(("6-K", "8-K")):
+        cat, sub = classify_form(e["form"], "")
+        if not sub.startswith("其他（"):
+            e["category"], e["subtype"] = cat, sub
+    c, b = china_tag(e.get("cik", ""), e.get("company", ""), watch_ciks)
+    if c != e.get("china"):
+        e["china"], e["china_basis"] = c, b
+    e["summary"] = clean_excerpt(e.get("summary") or "") or e.get("summary") or ""
+    a = e.get("amount") or ""
+    if a != "【未披露】":
+        e["amount"] = a.rstrip(" ,.;")
+    e["item_names"] = [ITEM_NAME_ZH.get(i, "") for i in (e.get("items") or [])]
+    return e
+
+
 def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     """单个命中 filing → entry；失败返回 (None, 错误串)。"""
     acc = os.path.basename(row["path"]).replace(".txt", "")
@@ -437,14 +521,26 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     base = "https://www.sec.gov/Archives/edgar/data/%s/%s" % (cik_i, acc_nodash)
     index_url = "%s/%s-index.htm" % (base, acc)
     info = (efts_map or {}).get(acc) if form.startswith("8-K") else None
-    fup = form.upper()
-    maxb = 220000 if fup.startswith("424B") else (500000 if fup[:2] in ("S-", "F-") or fup.startswith("SC") else MAX_DOC_BYTES)
+    fup = form.upper().replace(" ", "")
+    maxb = 120000 if fup.startswith("424B") else (500000 if fup[:2] in ("S-", "F-") or fup.startswith("SC") else MAX_DOC_BYTES)
+    text = ""
+    ex99 = ""
     try:
-        raw = fetch("https://www.sec.gov/Archives/" + row["path"],
-                    max_bytes=maxb, retries=4, retry_403=True)
-        text = parse_primary(raw, form)
+        # 8-K 快路径：EFTS 已知主文档名时直接抓主文档（比 full-submission.txt 小得多）
+        pdoc = (info or {}).get("doc") or ""
+        if pdoc:
+            try:
+                text = strip_html(fetch("%s/%s" % (base, pdoc),
+                                        max_bytes=400000, retries=2, retry_403=True))
+            except Exception:
+                text = ""
+        if not text:
+            raw = fetch("https://www.sec.gov/Archives/" + row["path"],
+                        max_bytes=maxb, retries=4, retry_403=True)
+            text, ex99 = parse_primary(raw, form)
     except Exception as e:
         return None, "%s %s: %s" % (acc, form, str(e)[:120])
+    quotes = {}
     if form.startswith("8-K"):
         items = sorted(info["items"]) if info and info["items"] else parse_items(text)
         keep = [i for i in items if i in ITEM_WHITELIST]
@@ -454,11 +550,33 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
         picked = [i for i in ITEM_PRIORITY if i in keep]
         primary = picked[0] if picked else keep[0]
         seg = item_context(text, primary)
-        summary = first_sentences(seg) if seg else first_sentences(text)
+        summary = first_sentences(seg) if seg else first_sentences(ex99 or text)
+        # 快路径只抓了主文档：若摘要仍是「新闻稿见附件 99.1」式套话，补抓完整提交取 EX-99.1
+        if FILLER_RE.search(summary or "") and not ex99:
+            try:
+                raw = fetch("https://www.sec.gov/Archives/" + row["path"],
+                            max_bytes=MAX_DOC_BYTES, retries=2, retry_403=True)
+                _m, ex99b = parse_primary(raw, form)
+                if len(ex99b) > 300:
+                    ex99 = ex99b
+                    alt = first_sentences(ex99)
+                    if alt:
+                        summary = alt
+            except Exception:
+                pass
+        for it in keep:
+            q = first_sentences(item_context(text, it), n=1, cap=240)
+            if q and not (FILLER_RE.search(q) and ex99):
+                quotes[it] = q
+        if ex99 and not quotes.get(primary):
+            quotes[primary] = first_sentences(ex99, n=1, cap=240)
     else:
         items = []
-        cat, sub = classify_form(form, text)
-        summary = first_sentences(text)
+        body = ex99 if len(ex99) > 300 else text  # 6-K 实质内容在 EX-99.1
+        cat, sub = classify_form(form, body)
+        summary = first_sentences(body)
+        if summary and summary != "【正文未能抽取，见原文】":
+            quotes["正文首段"] = summary[:240]
     if not summary:
         summary = "【正文未能抽取，见原文】"
     primary_doc = (info or {}).get("doc") or ""
@@ -468,7 +586,7 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     if form.startswith("8-K") and keep:
         amt_ctx = item_context(text, primary) or text[:6000]
     else:
-        amt_ctx = text[:6000]
+        amt_ctx = (ex99 or text)[:6000]
     entry = {
         "id": "usm_" + acc_nodash,
         "accession": acc,
@@ -478,7 +596,8 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
         "ticker": tickers.get(cik_i),
         "form": form,
         "items": items,
-        "item_names": [ITEM_NAME_ZH.get(i, i) for i in items if i in ITEM_NAME_ZH],
+        "item_names": [ITEM_NAME_ZH.get(i, "") for i in items],
+        "item_quotes": quotes,
         "category": cat,
         "subtype": sub,
         "summary": summary,
@@ -489,13 +608,13 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
         "china": china,
         "china_basis": china_basis,
         "layer": {"category": "analysis", "china": "analysis",
-                  "summary": "disclosed", "amount": "disclosed"},
+                  "summary": "disclosed", "amount": "disclosed", "item_quotes": "disclosed"},
         "batch": batch_id,
     }
     return entry, None
 
 
-def collect_dates(dates, batch_id, max_docs=None, max_minutes=None):
+def collect_dates(dates, batch_id, max_docs=None, max_minutes=None, reextract=None):
     deadline = time.monotonic() + max_minutes * 60 if max_minutes else None
     tickers_raw = load_json(os.path.join(STATE, "sec_tickers_cache.json"), None)
     if not tickers_raw:
@@ -514,11 +633,31 @@ def collect_dates(dates, batch_id, max_docs=None, max_minutes=None):
     seen = load_json(SEEN_P, {"acc": []})
     seen_acc = set(seen.get("acc", []))
     master = load_json(MASTER_P, {"meta": {"batches": []}, "entries": []})
+
+    if reextract:
+        drop = set(reextract)
+        dropped = [e for e in master["entries"] if e["date"] in drop]
+        for e in dropped:
+            seen_acc.discard(e["accession"])
+        master["entries"] = [e for e in master["entries"] if e["date"] not in drop]
+        print("[reextract] 丢弃 %s 既有条目 %d 条，随本次重新采集" % (sorted(drop), len(dropped)),
+              flush=True)
+
+    master["entries"] = [fix_entry(e, watch_ciks) for e in master["entries"]]
     have_ids = {e["id"] for e in master["entries"]}
 
     bstat = {"batch_id": batch_id, "ran_at": datetime.datetime.now().isoformat(timespec="seconds"),
              "dates": {}, "new_entries": 0, "errors": []}
     fetched_docs = 0
+
+    def save_progress():
+        bstat["new_entries"] = sum(v.get("kept", 0) for v in bstat["dates"].values())
+        master["meta"]["batches"] = [b for b in master["meta"].get("batches", [])
+                                     if b.get("batch_id") != batch_id] + [copy.deepcopy(bstat)]
+        json.dump({"acc": sorted(seen_acc),
+                   "last_run": datetime.datetime.now().isoformat(timespec="seconds")},
+                  open(SEEN_P, "w", encoding="utf-8"), ensure_ascii=False)
+        save_master(master)
 
     for dstr in dates:
         if deadline and time.monotonic() > deadline:
@@ -531,6 +670,7 @@ def collect_dates(dates, batch_id, max_docs=None, max_minutes=None):
             continue
         if rows is None:
             bstat["dates"][dstr] = {"status": "索引未发布（403/404，T+1 正常态）"}
+            save_progress()
             continue
         hits = [r for r in rows if r["form"].replace(" ", "").upper() in
                 {f.replace(" ", "") for f in FORM_WHITELIST}]
@@ -574,12 +714,9 @@ def collect_dates(dates, batch_id, max_docs=None, max_minutes=None):
                     fetched_docs += 1
                 elif err:
                     bstat["errors"].append(err)
-                # 日内部署细粒度断点：每 150 份落盘，封禁中断不丢整天进度
+                # 细粒度断点：每 150 份落盘（含批次记录），中断不丢整天进度
                 if (len(results) + len(bstat["errors"])) % 150 == 0:
-                    json.dump({"acc": sorted(seen_acc),
-                               "last_run": datetime.datetime.now().isoformat(timespec="seconds")},
-                              open(SEEN_P, "w", encoding="utf-8"), ensure_ascii=False)
-                    save_master(master)
+                    save_progress()
         results.sort(key=lambda e: (e["company"], e["accession"]))
         bstat["dates"][dstr] = {
             "status": "ok", "scanned": len(rows), "whitelist_hits": len(hits),
@@ -587,19 +724,12 @@ def collect_dates(dates, batch_id, max_docs=None, max_minutes=None):
         }
         print("[%s] 扫描 %d · 白名单 %d · 新 %d · 抓文档 %d · 收录 %d" %
               (dstr, len(rows), len(hits), len(todo), len(pre), len(results)), flush=True)
-        # 每日落一次游标与汇总，防长任务中断丢进度
-        json.dump({"acc": sorted(seen_acc),
-                   "last_run": datetime.datetime.now().isoformat(timespec="seconds")},
-                  open(SEEN_P, "w", encoding="utf-8"), ensure_ascii=False)
-        save_master(master)
+        save_progress()
         if max_docs is not None and fetched_docs >= max_docs:
             print("[--max-docs %d 达到，停止]" % max_docs)
             break
 
-    bstat["new_entries"] = sum(v.get("kept", 0) for v in bstat["dates"].values())
-    master["meta"]["batches"] = [b for b in master["meta"].get("batches", [])
-                                 if b.get("batch_id") != batch_id] + [bstat]
-    save_master(master)
+    save_progress()
     return bstat
 
 
@@ -609,14 +739,17 @@ def save_master(master):
     cats = {}
     for e in master["entries"]:
         cats[e["category"]] = cats.get(e["category"], 0) + 1
+    n424 = sum(1 for e in master["entries"] if (e.get("form") or "").startswith("424B"))
     master["meta"].update({
         "generated_at": datetime.datetime.now(
             datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M"),
         "date_range": [dates[0], dates[-1]] if dates else [],
         "total": len(master["entries"]),
         "by_category": cats,
-        "caliber": ("数据源 SEC EDGAR 每日索引 master.idx（T+1）；表格白名单 8-K/6-K/S-1/F-1/S-4/F-4/"
-                    "424B*/SC TO-T/14D9/13E3/DEFM14A/425；8-K 按 Item 白名单过滤；"
+        "n_424b": n424,
+        "caliber": ("数据源 SEC EDGAR 每日索引 master.idx（T+1，按美东申报日切片；--date D 对应 EDGAR D 日索引，"
+                    "无北京时间维度索引，美东申报日 D 约覆盖北京时间 D 中午至次日中午）；表格白名单 "
+                    "8-K/6-K/S-1/F-1/S-4/F-4/424B*/SC TO-T/14D9/13E3/DEFM14A/425；8-K 按 Item 白名单过滤；"
                     "分类、中国关联为系统规则推断（analysis 层）；一句话事项/金额/交易对方为原文正则抽取，"
                     "抽不到写【未披露】；全量口径不分中企外企，与出海信批归纳互不混用。"),
     })
@@ -647,6 +780,8 @@ def main():
     ap.add_argument("--date", help="YYYY-MM-DD，扫该日 EDGAR 日索引（日批次 D-YYYYMMDD）")
     ap.add_argument("--backfill-days", type=int, default=20,
                     help="回溯最近 N 个自然日（回溯批次 B-YYYYMMDD，默认 20）")
+    ap.add_argument("--reextract-dates", default="",
+                    help="逗号分隔日期：丢弃这些日期的既有条目与游标，随本次运行重新采集")
     ap.add_argument("--max-docs", type=int, default=None, help="调试用：最多抓主文档份数")
     ap.add_argument("--max-minutes", type=float, default=None, help="总时长上限（分钟），到达后保存进度收尾")
     ap.add_argument("--build-only", action="store_true", help="仅由 us_market.json 重建 us_data.js")
@@ -657,6 +792,9 @@ def main():
         if not master:
             print("state/us_market.json 不存在")
             return 1
+        watch = load_json(os.path.join(STATE, "watchlist_us.json"), [])
+        watch_ciks = {str(int(w["cik"])) for w in watch if w.get("cik")}
+        master["entries"] = [fix_entry(e, watch_ciks) for e in master["entries"]]
         save_master(master)
         return 0
 
@@ -668,7 +806,9 @@ def main():
         dates = [(today - datetime.timedelta(days=i)).isoformat()
                  for i in range(1, a.backfill_days + 1)]
         batch_id = "B-" + today.strftime("%Y%m%d")
-    bstat = collect_dates(dates, batch_id, max_docs=a.max_docs, max_minutes=a.max_minutes)
+    reextract = [d.strip() for d in a.reextract_dates.split(",") if d.strip()]
+    bstat = collect_dates(dates, batch_id, max_docs=a.max_docs,
+                          max_minutes=a.max_minutes, reextract=reextract or None)
     ok = sum(1 for v in bstat["dates"].values() if v.get("status") == "ok")
     print("批次 %s：索引可用 %d 天 · 新增收录 %d 条 · 错误 %d 个（抓取 %d 次，失败 %d 次，封禁静默 %d 次）"
           % (batch_id, ok, bstat["new_entries"], len(bstat["errors"]),
