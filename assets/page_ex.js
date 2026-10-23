@@ -79,6 +79,7 @@
     var h = '<div class="ex-item">'
       + '<div class="ex-item-h"><span class="pg mono">' + esc(it.date || "—") + "</span>"
       + pill(it.agency, "blue") + (it.action ? pill({ added: "新增", removed: "移除", revised: "修订" }[it.action] || it.action, it.action === "removed" ? "" : "solid") : "")
+      + (it.also_enforcement ? '<span class="pill" title="本条同时含清单更新内容，亦收录于清单更新栏">混合行动</span>' : "")
       + (it.penalty && it.penalty.amount_usd != null ? '<span class="pill solid" title="' + esc(it.penalty.suspended ? "缓期执行（suspended），违约即激活" : "和解/罚款金额") + '">' + esc(money(it.penalty.amount_usd)) + (it.penalty.suspended ? " 缓期" : "") + "</span>" : "")
       + (cn.value === "是" ? '<span class="st ex-cn" title="' + esc(cn.basis || "") + '">中国关联</span>' : "")
       + (it.doc_no ? '<span class="mono dim" style="font-size:11.5px">' + esc(it.doc_no) + "</span>" : "")
@@ -156,11 +157,35 @@
       var withPen = colItems.filter(function (x) { return x.penalty && x.penalty.amount_usd != null; });
       var total = withPen.reduce(function (a, x) { return a + x.penalty.amount_usd; }, 0);
       var max = withPen.slice().sort(function (a, b) { return b.penalty.amount_usd - a.penalty.amount_usd; })[0];
+      var latest = colItems.slice().sort(function (a, b) { return (a.date || "") < (b.date || "") ? 1 : -1; })[0];
       return '<div class="statstrip">'
-        + statCard(colItems.length, "窗口内执法案件", "BIS 行政执法/和解 + OFAC 执法公告")
+        + statCard(colItems.length, "窗口内执法案件", "BIS 行政执法/和解 + OFAC 执法公告；含混合行动中的和解内容（条内已标注）")
         + statCard(withPen.length ? money(total) : "—", "罚款合计（USD）", "口径：仅详情页/文书可解析金额，" + withPen.length + "/" + colItems.length + " 条；含缓期执行金额")
-        + statCard(max ? money(max.penalty.amount_usd) : "—", "最大单笔", max ? esc((max.parties[0] || max.title).slice(0, 40)) : "")
+        + statCard(max ? money(max.penalty.amount_usd) : "—", "最大单笔", max ? esc(((max.parties || [])[0] || max.title).slice(0, 40)) : "")
+        + statCard(latest ? esc(latest.date) : "—", "最新案件", latest ? esc(((latest.parties || [])[0] || latest.title).slice(0, 40)) : "")
         + "</div>";
+    }
+    if (col === "rules") {
+      /* 主题分布带（按标题关键词归类；点击穿透到关键词筛选） */
+      var TOPICS = [
+        ["委内瑞拉", /venezuela/i], ["伊朗", /iran/i], ["古巴", /cuba/i],
+        ["俄罗斯/白俄", /russia|belarus|ukraine/i], ["反恐/毒品", /terror|narcotic|illicit drug/i],
+        ["EAR 出口管制", /export administration|entity list|unverified list|drone|export control/i],
+        ["UFLPA/涉疆", /uflpa|uyghur|polysilicon/i]
+      ];
+      var tc = {}, other = 0;
+      colItems.forEach(function (x) {
+        var hit = null;
+        for (var i = 0; i < TOPICS.length; i++) { if (TOPICS[i][1].test(x.title || "")) { hit = TOPICS[i][0]; break; } }
+        if (hit) tc[hit] = (tc[hit] || 0) + 1; else other++;
+      });
+      var pillsHtml = TOPICS.filter(function (t) { return tc[t[0]]; }).map(function (t) {
+        var kw = t[1].source.split("|")[0];
+        return '<a class="pill" style="text-decoration:none" href="' + qsFor(col, f, { q: kw, pg: 1 }) + '" title="点击筛选该主题">' + esc(t[0]) + " " + tc[t[0]] + "</a>";
+      }).join("") + (other ? '<span class="pill">其他 ' + other + "</span>" : "");
+      return '<div class="panel"><div class="panel-h"><h2>主题分布</h2>'
+        + '<span class="note">按标题关键词归类（external 层线索），点击穿透到关键词筛选；同一文档只归一类</span></div>'
+        + '<div class="panel-b" style="display:flex;gap:8px;flex-wrap:wrap">' + (pillsHtml || '<span class="dim">窗口内无条目</span>') + "</div></div>";
     }
     if (col === "lists") {
       var cnt = { added: 0, removed: 0, revised: 0, other: 0 };
@@ -186,19 +211,69 @@
     });
     if (!rows.length) return "";
     rows.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-    var shown = rows.slice(0, 40);
+    var CAP = 10;
+    var shown = rows.slice(0, CAP);
+    function rowHtml(r) {
+      return "<tr><td><a href=\"" + qsFor(col, {}, { q: r.name, cn: "全部", act: "", pg: 1 }) + "\"><b>" + esc(r.name) + "</b></a></td>"
+        + "<td>" + pill(r.kind, r.kind === "新增" ? "solid" : "") + "</td>"
+        + '<td class="mono">' + esc(r.date) + "</td><td>" + esc(r.agency) + "</td>"
+        + '<td><a class="ex-src" href="' + esc(r.url) + '" target="_blank" rel="noopener" title="' + esc(r.title) + '">原文 ↗</a></td></tr>';
+    }
     return '<div class="panel"><div class="panel-h"><h2>涉中主体速览</h2>'
       + '<span class="note">清单栏「中国关联=是」条目的涉中主体聚合（external 层，逐名动作与别名以原文为准）；点击主体名穿透到该主体筛选</span></div>'
       + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>主体</th><th>变动</th><th>日期</th><th>机构</th><th>出处条目</th></tr></thead><tbody>'
-      + shown.map(function (r) {
-        return "<tr><td><a href=\"" + qsFor(col, {}, { q: r.name, cn: "全部", act: "", pg: 1 }) + "\"><b>" + esc(r.name) + "</b></a></td>"
-          + "<td>" + pill(r.kind, r.kind === "新增" ? "solid" : "") + "</td>"
-          + '<td class="mono">' + esc(r.date) + "</td><td>" + esc(r.agency) + "</td>"
-          + '<td><a class="ex-src" href="' + esc(r.url) + '" target="_blank" rel="noopener" title="' + esc(r.title) + '">原文 ↗</a></td></tr>';
-      }).join("")
+      + shown.map(rowHtml).join("")
       + "</tbody></table></div>"
-      + (rows.length > shown.length ? '<div class="panel-b dim" style="font-size:12px">仅示前 40 条，共 ' + rows.length + " 条；用关键词筛选查全量。</div>" : "")
+      + (rows.length > shown.length
+        ? '<details class="ex-more"><summary>展开其余 ' + (rows.length - shown.length) + " 条（共 " + rows.length + " 条）</summary>"
+          + '<div class="tbl-wrap"><table class="tbl"><tbody>' + rows.slice(CAP).map(rowHtml).join("") + "</tbody></table></div></details>"
+        : "")
       + "</div>";
+  }
+
+  /* ── UFLPA 实体清单在列快照（清单栏子视图；DHS 页解析，含依据小节与生效批次） ── */
+  function uflpaView() {
+    var d = data();
+    var u = d && d.uflpa;
+    if (!u || !u.entries || !u.entries.length) return "";
+    var entries = u.entries;
+    /* 按列入依据小节分布 */
+    var secCnt = {};
+    entries.forEach(function (e) { secCnt[e.section || "【未披露】"] = (secCnt[e.section || "【未披露】"] || 0) + 1; });
+    /* 按生效日聚合批次时间线 */
+    var byDate = {};
+    entries.forEach(function (e) { if (e.effective) byDate[e.effective] = (byDate[e.effective] || 0) + 1; });
+    var dates = Object.keys(byDate).sort().reverse();
+    var batchRows = dates.map(function (dt) {
+      return "<tr><td class='mono'>" + esc(dt) + "</td><td>" + byDate[dt] + "</td></tr>";
+    });
+    var BATCH_CAP = 8;
+    var rowHtml = function (e) {
+      return "<tr class='ex-uf-row'><td><b>" + esc(e.name) + "</b>"
+        + (e.aliases && e.aliases.length ? '<div class="dim" style="font-size:11.5px">别名：' + esc(e.aliases.join("；")) + "</div>" : "")
+        + "</td><td class='mono'>" + esc(e.effective || "—") + "</td><td class='mono'>" + esc(e.section || "【未披露】") + "</td></tr>";
+    };
+    return '<div class="panel"><div class="panel-h"><h2>UFLPA 实体清单 · 在列快照</h2>'
+      + '<span class="note">DHS 页整页解析（external 层）；快照 sha256 ' + esc((u.sha256 || "").slice(0, 16)) + "… · 抓取 " + esc(u.retrieved_at || "—") + "</span></div>"
+      + '<div class="panel-b">'
+      + '<div class="statstrip">'
+      + statCard(u.count != null ? u.count : entries.length, "在列实体总数", "当前快照口径；历史变动以 FR 通知与上方条目为准")
+      + statCard(Object.keys(secCnt).map(function (k) { return secCnt[k]; }).join(" / "), "按列入依据小节分布", Object.keys(secCnt).join(" · "))
+      + statCard(dates.length ? dates[0] : "—", "最近生效批次", dates.length ? "该批 " + byDate[dates[0]] + " 个实体" : "")
+      + "</div>"
+      + '<h3 style="margin:10px 0 6px">批次时间线（按生效日期聚合）</h3>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>生效日期</th><th>本批实体数</th></tr></thead><tbody>'
+      + batchRows.slice(0, BATCH_CAP).join("") + "</tbody></table></div>"
+      + (batchRows.length > BATCH_CAP
+        ? '<details class="ex-more"><summary>展开全部 ' + batchRows.length + " 个批次</summary>"
+          + '<div class="tbl-wrap"><table class="tbl"><tbody>' + batchRows.slice(BATCH_CAP).join("") + "</tbody></table></div></details>"
+        : "")
+      + '<h3 style="margin:14px 0 6px">在列实体（' + entries.length + '）<input type="text" id="ex-uflpa-q" placeholder="筛选名称/别名…" style="margin-left:10px;border:1px solid var(--line-2);border-radius:6px;padding:4px 8px;font-size:12.5px;width:200px"/></h3>'
+      + '<div class="dim" style="font-size:12px;margin-bottom:6px">名单条目为 external 层事实（DHS 原文）；列入依据小节来自 DHS 页分节标题，地址等细节以对应 Federal Register 通知为准。</div>'
+      + '<div class="tbl-wrap" style="max-height:420px;overflow:auto"><table class="tbl"><thead><tr><th>实体（含别名）</th><th>生效日期</th><th>列入依据</th></tr></thead><tbody id="ex-uflpa-tb">'
+      + entries.map(rowHtml).join("")
+      + "</tbody></table></div>"
+      + "</div></div>";
   }
 
   function toCSV(items) {
@@ -287,18 +362,19 @@
         + '<div class="note">缺少 assets/export_data.js。运行 <span class="mono">python3 scripts/export_pull.py --backfill-days 90</span> 生成。</div></div></div>';
     }
 
-    /* 栏目切换（hash 链接，筛选参数保留在 URL） */
+    /* 栏目切换（hash 链接，筛选参数保留在 URL）；执法栏计数含混合行动（also_enforcement） */
     h += '<div class="ex-cols">'
       + Object.keys(COL_META).map(function (k) {
+        var n = items.filter(function (x) { return x.column === k || (k === "enforcement" && x.also_enforcement); }).length;
         return '<a href="#/export?col=' + k + '"' + (col === k ? ' class="on"' : "") + ">"
-          + COL_META[k].name + (k !== "watch" ? ' <span class="dim">' + items.filter(function (x) { return x.column === k; }).length + "</span>" : "") + "</a>";
+          + COL_META[k].name + (k !== "watch" ? ' <span class="dim">' + n + "</span>" : "") + "</a>";
       }).join("") + "</div>";
 
     if (col === "watch") {
       return h + watchView();
     }
 
-    var colItems = items.filter(function (x) { return x.column === col; });
+    var colItems = items.filter(function (x) { return x.column === col || (col === "enforcement" && x.also_enforcement); });
     var agencies = agenciesOf(colItems);
     var shown = applyFilters(colItems, f);
 
@@ -315,6 +391,7 @@
 
     h += colSummary(col, colItems, f);
     h += cnPartyBoard(col, colItems);
+    if (col === "lists") h += uflpaView();
 
     /* 动作筛选生效提示（由汇总带穿透而来） */
     if (f.act) {
@@ -341,6 +418,16 @@
 
   /* ── 绑定（由 app.js 路由后调用） ── */
   window.bind_ex = function (view, col, qs) {
+    var ufq = view.querySelector("#ex-uflpa-q");
+    if (ufq) {
+      ufq.addEventListener("input", function () {
+        var kw = ufq.value.trim().toLowerCase();
+        var rows = view.querySelectorAll("#ex-uflpa-tb tr");
+        for (var i = 0; i < rows.length; i++) {
+          rows[i].style.display = !kw || rows[i].textContent.toLowerCase().indexOf(kw) >= 0 ? "" : "none";
+        }
+      });
+    }
     var go = view.querySelector("#exf-go");
     if (!go) return;
     function cur() {

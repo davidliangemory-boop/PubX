@@ -279,9 +279,29 @@ def impact_for(column, agency, action, title):
                 "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
                 "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"}
     if column == "rules":
+        # 按文档标题特异化：抽取制裁项目名与通用许可编号（标题原文信息）
+        prog = None
+        pm = re.search(r"\b([A-Za-z]+)-related\b.{0,30}?General Licen", title or "")
+        if pm:
+            prog = pm.group(1)
+        else:
+            pm = re.search(r"(?:of the|of|to the)\s+([A-Z][A-Za-z]+(?: [A-Z][A-Za-z]+)*?) Sanctions Regulations", title or "")
+            if pm:
+                prog = pm.group(1)
+        gls = []
+        for g in re.findall(r"General Licen[cs]es?\s+([0-9]+[A-Z]?(?:\s*(?:,|and)\s*[0-9]+[A-Z]?)*)", title or ""):
+            gls.extend([x.strip() for x in re.split(r",|\s+and\s+", g) if x.strip()])
+        spec = []
+        if prog:
+            spec.append("「%s」项目" % prog)
+        if gls:
+            spec.append("通用许可 %s" % "、".join(gls[:6]))
+        what = ("；".join(spec)) if spec else "本文"
         return {"layer": "analysis",
-                "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-                "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"}
+                "text": "%s 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；"
+                        "存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。"
+                        % what,
+                "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"}
     return {"layer": "analysis",
             "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
             "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"}
@@ -442,6 +462,9 @@ def pull_ofac(gte, lte, stats):
                 continue
             title = htmlmod.unescape(re.sub(r"<[^>]+>", "", title_html)).strip()
             column, _ = OFAC_TYPE_COL.get(type_label.strip(), ("rules", ""))
+            # 混合行动：列表标签非执法但标题含和解/处罚表述 → 双属，执法视图亦收录
+            mixed = column != "enforcement" and bool(re.search(
+                r"settlement|settles with|civil penalty|finding[s]? of violation|assess", title, re.I))
             item = {
                 "id": "ofac-" + slug, "column": column,
                 "action": ofac_action(title, type_label),
@@ -454,10 +477,18 @@ def pull_ofac(gte, lte, stats):
                 "url": "https://ofac.treasury.gov" + path, "pdf_url": None,
                 "source": {"channel": "OFAC recent-actions", "retrieved_at": now_cn()},
             }
+            if mixed:
+                item["also_enforcement"] = True
             if column == "enforcement":
                 enrich_ofac_enforcement(item, stats)
             else:
                 enrich_ofac_detail(item, stats)
+                if mixed:
+                    enrich_ofac_enforcement(item, stats)
+                    item["points"].insert(1, {
+                        "text": "本条为混合行动：OFAC 列表标签为「%s」，但标题含和解/处罚表述（Settlement/Penalty 类），故同时收录于「执法案例更新」视图；清单变动部分见本栏要点。"
+                                % type_label.strip(),
+                        "layer": "external", "source": item["url"]})
             items.append(item)
             stats[tag]["kept"] += 1
         if stop:
@@ -478,8 +509,14 @@ def ofac_sdn_changes(text):
             continue
         end = marks[i + 1].start() if i + 1 < len(marks) else len(text)
         block = text[m.end():end]
+        # 页尾样板（列表筛选导航 / 行政变动说明）截掉，不混入条目与计数
+        block = re.split(r"\s*(?:Filter by Category|Search All Recent Actions|Unrelated Administrative List Changes)\b", block)[0]
         parts = re.split(r"\[[A-Z][A-Z0-9\- ]*\](?:\s*\(Linked To:[^)]*\))?\s*\.", block)
-        entries = [re.sub(r"^\s*-to-\s*", "", p.strip()) for p in parts if len(p.strip()) > 5]
+        entries = []
+        for p in parts:
+            p = re.sub(r"^\s*-to-\s*", "", p.strip())
+            if len(p) > 5 and not re.search(r"Administrative List Changes|Filter by Category", p):
+                entries.append(p)
         def _nm(e, head_l):
             if "vessel" in head_l:
                 nm = re.split(r"\s+\(| flag;", e)[0]
@@ -490,17 +527,19 @@ def ofac_sdn_changes(text):
                 # 通用段混列个人/实体：单词名（个人姓氏残片）补到第二段
                 if len(nm.split()) == 1 and "," in e:
                     nm = ",".join(e.split(",")[:2])
-            return re.sub(r"\s*\(a\.k\.a\..*$", "", nm, flags=re.S).strip(" .;")
+            nm = re.sub(r"\s*\(a\.k\.a\..*$", "", nm, flags=re.S).strip(" .;")
+            # 语种标注（(Chinese Simplified: …) 等）保留——其为原文识别信息
+            return nm
         names = []
         for e in entries:
             nm = _nm(e, head.lower())
-            if 3 < len(nm) < 90 and nm not in names:
+            if 3 < len(nm) < 150 and nm not in names:
                 names.append(nm)
         cn_names = []
         for e in entries:
             if CN_RE.search(e):
                 nm = _nm(e, head.lower())
-                if nm and 3 < len(nm) < 90 and nm not in cn_names:
+                if nm and 3 < len(nm) < 150 and nm not in cn_names:
                     cn_names.append(nm)
         out.append({"head": head, "count": len(entries), "names": names, "cn_names": cn_names})
     return out
@@ -568,15 +607,19 @@ def enrich_ofac_detail(item, stats):
 
 def party_from_title(title):
     """从执法标题抽取当事方（external 层，标题直取）。"""
-    m = re.search(r"Office of Foreign Assets Control and (.+?)(?:\s+for|\s+over|\s+Related|$)", title)
+    def _clean(s):
+        s = s.strip(" ,")
+        # 去尾点但保留缩写尾点（N.A. / U.S. / Inc. 等）
+        return re.sub(r"(?<![A-Z])\.+$", "", s).strip()
+    m = re.search(r"Office of Foreign Assets Control and (.+?)(?:\s+for|\s+over|\s+Related|\s*;|$)", title)
     if m:
-        return m.group(1).strip(" .,")
+        return _clean(m.group(1))
     m = re.search(r"(?:Settlement|Settlement Agreement|Penalty|Action)\s+(?:with|against)\s+(.+?)(?:\s+for|\s+to Pay|\s+over|\s+Related|\s+Order|$)", title)
     if m:
-        return m.group(1).strip(" .,")
+        return _clean(m.group(1))
     m = re.search(r"\bwith\s+([A-Z][A-Za-z0-9 ,.&'()\-]{3,80}?)(?:\s+for|\s+to Pay|\s+Order|$)", title)
     if m:
-        return m.group(1).strip(" .,")
+        return _clean(m.group(1))
     return ""
 
 
@@ -600,18 +643,42 @@ def enrich_ofac_enforcement(item, stats):
         item["penalty"] = {"amount_usd": float(m.group(1).replace(",", "")) * mult,
                            "text": amt, "suspended": False}
     m = re.search(r"([0-9,]+)\s+apparent violations?", text, re.I)
+    viol_n = None
     if m:
-        item["points"].append({"text": "违规笔数（apparent violations）：%s。" % m.group(1),
+        viol_n = m.group(1)
+        item["points"].append({"text": "违规笔数（apparent violations）：%s。" % viol_n,
+                               "layer": "external", "source": item["url"]})
+    # 涉及制裁项目（原文 "apparent violations of …" 子句）
+    prog_txt = None
+    pm = re.search(r"apparent violations? of ((?:OFAC sanctions programs? targeting |the )?.+?)\.\s+(?:The apparent violations|The settlement|OFAC|For more)", text)
+    if pm:
+        prog_txt = pm.group(1).strip()
+        # 截到项目名为止：去掉后续事实从句（"…that occurred when …"）
+        prog_txt = re.split(r"\s+that occurred|\s+when\s|\s+between\s", prog_txt)[0].strip(" ,;")
+        item["points"].append({"text": "涉及制裁项目（原文）：%s。" % prog_txt,
+                               "layer": "external", "source": item["url"]})
+    # 违规事实概述（原文 "The apparent violations occurred when …" 句）
+    fact_txt = None
+    fm = re.search(r"The apparent violations? occurred when (.+?)\.\s+(?:The settlement|OFAC|For more)", text)
+    if fm:
+        fact_txt = re.sub(r"\s+", " ", fm.group(1)).strip()
+        item["points"].append({"text": "违规事实（原文概述）：%s。" % (fact_txt[:500] + ("…" if len(fact_txt) > 500 else "")),
                                "layer": "external", "source": item["url"]})
     if re.search(r"\bnot voluntarily self-disclosed", text, re.I):
+        vsd_note = "未经自愿披露（含 largely not 等限定以原文为准）"
         item["points"].append({"text": "原文载：违规「未经自愿披露」（not voluntarily self-disclosed，含 largely not 等限定以原文为准）。",
                                "layer": "external", "source": item["url"]})
     elif re.search(r"voluntarily self-disclosed", text, re.I):
+        vsd_note = "原文提及自愿披露情节，程度以执法文书为准"
         item["points"].append({"text": "原文提及自愿披露（voluntarily self-disclosed）情节，是否构成 VSD 及程度以执法文书为准。",
                                "layer": "external", "source": item["url"]})
+    else:
+        vsd_note = None
+    egr = None
     m = re.search(r"(non-egregious|egregious)", text, re.I)
     if m:
-        item["points"].append({"text": "定性：%s。" % m.group(1).lower(),
+        egr = m.group(1).lower()
+        item["points"].append({"text": "定性：%s。" % egr,
                                "layer": "external", "source": item["url"]})
     pdfs = re.findall(r'href="([^"]*(?:\.pdf|/media/\d+/download)[^"]*)"', h)
     if pdfs:
@@ -622,9 +689,35 @@ def enrich_ofac_enforcement(item, stats):
                 pick = pm.group(1)
         item["pdf_url"] = urllib.parse.urljoin(item["url"], pick)
     party = party_from_title(item["title"])
-    if party:
-        item["parties"] = [party]
+    if party and party not in item.get("parties", []):
+        item["parties"] = [party] + item.get("parties", [])
     item["china_link"] = china_link(item["title"] + " " + text[:60000])
+    # 案件特异合规影响（analysis）：仅引用本案已解析事实，不写通用套话
+    frag = []
+    if item.get("penalty"):
+        frag.append("和解金额 %s" % item["penalty"]["text"])
+    if viol_n:
+        frag.append("违规 %s 笔" % viol_n)
+    if prog_txt:
+        frag.append("涉及 %s" % prog_txt[:120])
+    if egr:
+        frag.append("定性 %s" % egr)
+    if vsd_note:
+        frag.append(vsd_note)
+    if fact_txt:
+        item["impact"] = {
+            "layer": "analysis",
+            "text": "本案（%s）的违规事实指向具体内控失效点：%s。同类机构应逐项对照自查名单筛查命中后的警报处置、名单更新时效与账户管理控制。"
+                    % ("；".join(frag) if frag else item["title"][:60], fact_txt[:200]),
+            "basis": "本案执法公告正文（违规事实段/定性段）+ OFAC 执法指南（Economic Sanctions Enforcement Guidelines）裁量因素框架",
+        }
+    elif frag:
+        item["impact"] = {
+            "layer": "analysis",
+            "text": "本案要点：%s。执法公告所示金额、笔数与定性/VSD 情节可作为同类业务和解区间与披露策略的对照样本；具体裁量以执法文书为准。"
+                    % "；".join(frag),
+            "basis": "本案执法公告正文已解析字段 + OFAC 执法指南裁量因素框架",
+        }
 
 
 # ───────────────────────── BIS 新闻/执法稿 ─────────────────────────
@@ -676,30 +769,48 @@ def enrich_bis_enforcement(item, stats):
         return
     flat = re.sub(r"\s+", " ", txt)
     m = re.search(r"civil penalty(?: in the amount)? of \$?([0-9][0-9,]*(?:\.\d+)?)", flat, re.I)
+    pen_note = ""
     if m:
         amt_txt = m.group(1).rstrip(",")
         amount = float(amt_txt.replace(",", ""))
         sent = flat[max(0, m.start() - 80):m.end() + 220]
         suspended = bool(re.search(r"suspend", sent, re.I))
+        if suspended:
+            if re.search(r"fully suspended", sent, re.I):
+                pen_note = "，全额缓期执行（fully suspended），违约即激活"
+            elif re.search(r"partially suspended|\$[0-9,]+ of (?:the|which)", sent, re.I):
+                pen_note = "，部分缓期执行（suspended），违约即激活"
+            else:
+                pen_note = "，缓期执行（suspended），违约即激活"
         item["penalty"] = {"amount_usd": amount, "text": "$" + amt_txt, "suspended": suspended}
-        item["points"].append({"text": "民事罚款：$%s%s（和解命令原文）。" % (
-            amt_txt, "，全额/部分缓期执行（suspended），违约即激活" if suspended else ""),
-            "layer": "external", "source": pdf_url})
+        item["points"].append({"text": "民事罚款：$%s%s（和解命令原文）。" % (amt_txt, pen_note),
+                               "layer": "external", "source": pdf_url})
     provs = []
     seen_prov = set()
     # 违规总数句：「committed sixty-six (66) violations of the Regulations」
     tm = re.search(r"committed\s+([a-z\-]+|\d+)\s*\((\d+)\)\s*violations?\s+of\s+the\s+(?:Regulations|EAR)\b", flat, re.I)
+    total_v = None
     if tm:
+        total_v = tm.group(2)
         item["points"].append({"text": "违规总数：%s 笔（和解命令原文：committed %s (%s) violations）。" % (
-            tm.group(2), tm.group(1), tm.group(2)), "layer": "external", "source": pdf_url})
+            total_v, tm.group(1), tm.group(2)), "layer": "external", "source": pdf_url})
     for vm in re.finditer(
             r"(\w+(?:-\w+)?)\s*\((\d+)\)\s*violations?\s+(?:of|under)\s+(?:the\s+)?(?:15\s*C\.F\.R\.\s*)?§?\s*(?:Section\s+)?([\d.]+(?:\(\w\))?)", flat, re.I):
         if re.search(r"\bin\s+total\b", flat[max(0, vm.start() - 60):vm.start()], re.I):
             continue  # 「In total, …」为小计句，不单列以免误读为额外笔数
-        key = (vm.group(2), vm.group(3))
-        if key not in seen_prov:
-            seen_prov.add(key)
-            provs.append("%s 笔 × 15 C.F.R. § %s" % (vm.group(2), vm.group(3)))
+        # 行为语境：取该组笔数句之前的最近一句（如 "exports of automatic updates of TracePro to SiCarrier … resulted in"）
+        ctx = flat[max(0, vm.start() - 220):vm.start()].strip()
+        sent_m = re.search(r"([^.]{25,200}?)\s*$", ctx)
+        ctx_note = ""
+        if sent_m:
+            ctx_s = sent_m.group(1).strip()
+            ctx_s = re.sub(r"\s*(?:committed|resulted in)\s*$", "", ctx_s, flags=re.I).strip()
+            if ctx_s and not re.search(r"violations?|C\.F\.R|§", ctx_s):
+                ctx_note = "（原文语境：…%s）" % ctx_s[-110:]
+        key = (vm.group(2), vm.group(3), ctx_note)
+        if (vm.group(2), vm.group(3)) not in seen_prov:
+            seen_prov.add((vm.group(2), vm.group(3)))
+            provs.append("%s 笔 × 15 C.F.R. § %s%s" % (vm.group(2), vm.group(3), ctx_note))
     if not provs:
         for vm in re.finditer(
                 r"(\d+)\s+violations?\s+(?:of|under)\s+(?:the\s+)?(?:15\s*C\.F\.R\.\s*)?§?\s*(?:Section\s+)?([\d.]+(?:\(\w\))?)", flat, re.I):
@@ -718,10 +829,43 @@ def enrich_bis_enforcement(item, stats):
     if provs:
         item["points"].append({"text": "违规笔数与条款：%s。" % "；".join(provs[:6]),
                                "layer": "external", "source": pdf_url})
-    if re.search(r"voluntary self-disclosure|voluntarily disclosed", flat, re.I):
+    vsd = bool(re.search(r"voluntary self-disclosure|voluntarily disclosed|initial disclosure", flat, re.I))
+    if vsd:
         item["points"].append({"text": "原文载有自愿披露（VSD）情节。",
                                "layer": "external", "source": pdf_url})
+    # 涉案清单对手方：在每个 “on the Entity List / Unverified List” 表述前 200 字符窗口内取全部引号简称
+    cps = []
+    BLACK = {"Parties", "Regulations", "Agreement", "Order", "EAR", "BIS", "OFAC"}
+    for em in re.finditer(r"(Entity List|Unverified List)", flat):
+        win = flat[max(0, em.start() - 200):em.start()]
+        for qm in re.finditer(r"[“\"]([A-Za-z][^”\"]{2,60}?)[”\"]", win):
+            nm = qm.group(1).strip()
+            if nm in BLACK or nm.lower().startswith("the "):
+                continue
+            cp = "%s（%s）" % (nm, em.group(1))
+            if cp not in cps and len(cps) < 8:
+                cps.append(cp)
+    if cps:
+        item["points"].append({"text": "涉案清单对手方（原文）：%s。" % "、".join(cps),
+                               "layer": "external", "source": pdf_url})
     item["china_link"] = china_link(item["title"] + " " + flat[:80000])
+    # 案件特异合规影响（analysis）：仅引用本案已解析事实
+    frag = []
+    if item.get("penalty"):
+        frag.append("罚款 %s%s" % (item["penalty"]["text"], pen_note.replace("，", "，") if pen_note else ""))
+    if total_v:
+        frag.append("违规 %s 笔" % total_v)
+    if cps:
+        frag.append("对手方 %s" % "、".join(cps[:4]))
+    frag.append("VSD 情节" if vsd else "未见自愿披露表述")
+    if item.get("penalty") or provs:
+        item["impact"] = {
+            "layer": "analysis",
+            "text": "本案（%s）显示执法按「行为类型 × 条款」分组累计笔数，持续性的后续传输/服务可逐笔计为独立违规；"
+                    "VSD 与缓期执行（suspended）安排直接影响实际缴付金额，和解区间与披露策略可据本案对照。"
+                    % "；".join(frag),
+            "basis": "本案和解命令 Statement of Charges 分组与罚款/缓期条款（PDF 原文）+ EAR §764.2、§766.18 和解框架",
+        }
 
 
 def pull_bis(gte, lte, stats):
@@ -852,12 +996,13 @@ def load_state():
 
 
 def emit_js(state):
+    snap = state.get("uflpa_snapshot") or {}
     payload = {
         "meta": state.get("meta", {}),
         "batches": state.get("batches", [])[-12:],
         "items": state.get("items", []),
-        "uflpa": {k: v for k, v in (state.get("uflpa_snapshot") or {}).items() if k != "entries"},
-        "uflpa_count": (state.get("uflpa_snapshot") or {}).get("count"),
+        "uflpa": snap,
+        "uflpa_count": snap.get("count"),
         "watch": state.get("watch"),
     }
     os.makedirs(os.path.dirname(JS_PATH), exist_ok=True)

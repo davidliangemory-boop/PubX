@@ -26,6 +26,9 @@
 .ex-pager { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin: 10px 0 14px; }
 .ex-pager .btn { padding: 4px 10px; font-size: 12.5px; }
 
+.ex-more { margin: 6px 0 4px; }
+.ex-more summary { cursor: pointer; font-size: 12.5px; color: var(--blue); padding: 4px 0; }
+
 @media (max-width: 640px) {
   .ex-fbar label { width: 100%; }
   .ex-fbar input[type="text"] { flex: 1; }

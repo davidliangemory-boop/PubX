@@ -1,8 +1,8 @@
 {
  "meta": {
-  "updated": "2026-10-23 08:54",
+  "updated": "2026-10-23 11:09",
   "cadence": "周更（周批 W-YYYYWW）",
-  "last_window_lte": "2026-10-23",
+  "last_window_lte": "2026-08-12",
   "sources": [
    {
     "name": "Federal Register API",
@@ -539,6 +539,262 @@
    },
    "new_items": 0,
    "total_items": 84
+  },
+  {
+   "batch_id": "W-202643",
+   "kind": "backfill",
+   "time": "2026-10-23 10:38",
+   "window": {
+    "gte": "2026-07-25",
+    "lte": "2026-10-23",
+    "note": "按来源发布日过滤"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 6,
+     "kept": 6,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 2,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 29,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 30,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 50,
+     "kept": 44,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 44,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 4,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 3,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 1,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84
+  },
+  {
+   "batch_id": "W-202643",
+   "kind": "weekly",
+   "time": "2026-10-23 11:07",
+   "window": {
+    "gte": "2026-10-09",
+    "lte": "2026-10-09",
+    "note": "按来源发布日（美东日期）过滤，与北京时间当日近似对齐"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 10,
+     "kept": 2,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 3,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 0,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84
+  },
+  {
+   "batch_id": "W-202643",
+   "kind": "weekly",
+   "time": "2026-10-23 11:07",
+   "window": {
+    "gte": "2026-09-10",
+    "lte": "2026-09-10",
+    "note": "按来源发布日（美东日期）过滤，与北京时间当日近似对齐"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 1,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 1,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 30,
+     "kept": 1,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 2,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 0,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84
+  },
+  {
+   "batch_id": "W-202643",
+   "kind": "weekly",
+   "time": "2026-10-23 11:09",
+   "window": {
+    "gte": "2026-08-12",
+    "lte": "2026-08-12",
+    "note": "按来源发布日（美东日期）过滤，与北京时间当日近似对齐"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 40,
+     "kept": 1,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 1,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 0,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84
   }
  ],
  "items": [
@@ -589,7 +845,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261021"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 5 条（individuals have been added to OFAC's SDN List）；新增 4 条（entities have been added to OFAC's SDN List）；新增 9 条（vessels have been added to OFAC's SDN List）；删除 9 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 5 条（individuals have been added to OFAC's SDN List）；新增 4 条（entities have been added to OFAC's SDN List）；新增 9 条（vessels have been added to OFAC's SDN List）；删除 8 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261021"
     },
@@ -608,7 +864,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937276/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:47"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "cn_parties": [
     {
@@ -643,6 +899,10 @@
    "doc_no": "20261019",
    "title": "Protecting American Intellectual Property Act of 2022 (PAIPA) Designations; Issuance of Associated General Licenses",
    "parties": [
+    "BEIJING QIJI CHUANGTAN PHASE I VENTURE CAPITAL CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛一期创业投资中心 有限合伙)",
+    "BEIJING QIJI CHUANGTAN PHASE II VENTURE CAPITAL CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛二期创业投资中心 有限合伙)",
+    "BEIJING QIJI CHUANGTAN ZHIYUAN ENTERPRISE MANAGEMENT CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛致远企业管理中心 有限合伙)",
+    "QIJI CHUANGTAN BEIJING INVESTMENT MANAGEMENT CO LTD (Chinese Simplified: 奇绩创坛 北京 投资管理有限责任公司)",
     "SHANGHAI ZHISUAN TECHNOLOGY CO LTD (Chinese Simplified: 上海至算科技有限公司)"
    ],
    "china_link": {
@@ -662,12 +922,12 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261019"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（entities have been added to OFAC's Non-SDN Menu-Based Sancti）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 5 条（entities have been added to OFAC's Non-SDN Menu-Based Sancti）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261019"
     },
     {
-     "text": "其中地址/注册地涉中国的条目：SHANGHAI ZHISUAN TECHNOLOGY CO LTD (Chinese Simplified: 上海至算科技有限公司)（新增）。",
+     "text": "其中地址/注册地涉中国的条目：BEIJING QIJI CHUANGTAN PHASE I VENTURE CAPITAL CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛一期创业投资中心 有限合伙)（新增）、BEIJING QIJI CHUANGTAN PHASE II VENTURE CAPITAL CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛二期创业投资中心 有限合伙)（新增）、BEIJING QIJI CHUANGTAN ZHIYUAN ENTERPRISE MANAGEMENT CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛致远企业管理中心 有限合伙)（新增）、QIJI CHUANGTAN BEIJING INVESTMENT MANAGEMENT CO LTD (Chinese Simplified: 奇绩创坛 北京 投资管理有限责任公司)（新增）、SHANGHAI ZHISUAN TECHNOLOGY CO LTD (Chinese Simplified: 上海至算科技有限公司)（新增）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261019"
     }
@@ -681,9 +941,25 @@
    "pdf_url": "https://ofac.treasury.gov/media/937261/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:47"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "cn_parties": [
+    {
+     "name": "BEIJING QIJI CHUANGTAN PHASE I VENTURE CAPITAL CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛一期创业投资中心 有限合伙)",
+     "kind": "新增"
+    },
+    {
+     "name": "BEIJING QIJI CHUANGTAN PHASE II VENTURE CAPITAL CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛二期创业投资中心 有限合伙)",
+     "kind": "新增"
+    },
+    {
+     "name": "BEIJING QIJI CHUANGTAN ZHIYUAN ENTERPRISE MANAGEMENT CENTER LIMITED PARTNERSHIP (Chinese Simplified: 北京奇绩创坛致远企业管理中心 有限合伙)",
+     "kind": "新增"
+    },
+    {
+     "name": "QIJI CHUANGTAN BEIJING INVESTMENT MANAGEMENT CO LTD (Chinese Simplified: 奇绩创坛 北京 投资管理有限责任公司)",
+     "kind": "新增"
+    },
     {
      "name": "SHANGHAI ZHISUAN TECHNOLOGY CO LTD (Chinese Simplified: 上海至算科技有限公司)",
      "kind": "新增"
@@ -719,14 +995,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20261016",
    "pdf_url": "https://ofac.treasury.gov/media/937251/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:47"
+    "retrieved_at": "2026-10-23 09:44"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -758,7 +1034,7 @@
     "ABOLHASAN JALALI AND PARTNERS EXCHANGE COMPANY (Arabic: شرکت صرافی ابوالحسن جلالی و شرکا)",
     "BANCO INTERNACIONAL DE COMERCIO S.A",
     "BAVI AND PARTNERS EXCHANGE COMPANY (Arabic: شرکت صرافی باوی و شرکاء)",
-    "ELITESPHERE TRADING CO"
+    "CHABAHAR INTERNATIONAL BANK OVERSEAS COMPANY (Arabic: شرکت بانک بین المللی چابهار برون مرزی)"
    ],
    "china_link": {
     "value": "是",
@@ -777,7 +1053,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261015"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 16 条（individuals have been added to OFAC's SDN List）；新增 12 条（entities have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 16 条（individuals have been added to OFAC's SDN List）；新增 11 条（entities have been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261015"
     },
@@ -796,7 +1072,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937246/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:47"
+    "retrieved_at": "2026-10-23 10:05"
    },
    "cn_parties": [
     {
@@ -837,7 +1113,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261014"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 6 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 5 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261014"
     }
@@ -851,7 +1127,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:47"
+    "retrieved_at": "2026-10-23 10:05"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -864,7 +1140,7 @@
    "doc_no": "20261013_33",
    "title": "Settlement Agreement between the U.S. Department of the Treasury's Office of Foreign Assets Control and Bank of America, N.A.",
    "parties": [
-    "Bank of America, N.A"
+    "Bank of America, N.A."
    ],
    "china_link": {
     "value": "否",
@@ -888,6 +1164,16 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
     },
     {
+     "text": "涉及制裁项目（原文）：OFAC sanctions programs targeting Russia, Belarus, Iran, Burma, Somalia, narcotics, and global terrorism。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
+    },
+    {
+     "text": "违规事实（原文概述）：Bank of America processed payments involving blocked banks, failed to appropriately prioritize alerts for customers who were exact name- and date of birth-matches to blocked persons, failed to promptly update watchlists following OFAC designations, and mishandled two business accounts associated with blocked persons due to human error。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
+    },
+    {
      "text": "原文载：违规「未经自愿披露」（not voluntarily self-disclosed，含 largely not 等限定以原文为准）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
@@ -900,14 +1186,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
-    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+    "text": "本案（和解金额 $11,662,930；违规 475 笔；涉及 OFAC sanctions programs targeting Russia, Belarus, Iran, Burma, Somalia, narcotics, and global terrorism；定性 non-egregious；未经自愿披露（含 largely not 等限定以原文为准））的违规事实指向具体内控失效点：Bank of America processed payments involving blocked banks, failed to appropriately prioritize alerts for customers who were exact name- and date of birth-matches to blocked persons, failed to promptl。同类机构应逐项对照自查名单筛查命中后的警报处置、名单更新时效与账户管理控制。",
+    "basis": "本案执法公告正文（违规事实段/定性段）+ OFAC 执法指南（Economic Sanctions Enforcement Guidelines）裁量因素框架"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20261013_33",
    "pdf_url": "https://ofac.treasury.gov/media/937231/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:48"
+    "retrieved_at": "2026-10-23 10:05"
    },
    "penalty": {
     "amount_usd": 11662930.0,
@@ -958,7 +1244,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261013"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 4 条（individuals have been added to OFAC's SDN List）；新增 12 条（entities have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 4 条（individuals have been added to OFAC's SDN List）；新增 11 条（entities have been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261013"
     }
@@ -972,7 +1258,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937211/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:47"
+    "retrieved_at": "2026-10-23 10:05"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1004,14 +1290,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/10/13/2026-20839/publication-of-an-iran-related-determination",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-13/pdf/2026-20839.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1043,14 +1329,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目；通用许可 60 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/10/13/2026-20831/publication-of-venezuela-sanctions-regulations-web-general-license-60",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-13/pdf/2026-20831.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1082,14 +1368,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Russia」项目 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20261009_33",
    "pdf_url": "https://ofac.treasury.gov/media/937216/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:48"
+    "retrieved_at": "2026-10-23 11:06"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1102,6 +1388,7 @@
    "doc_no": "20261009",
    "title": "Settlement Agreement between the U.S. Department of the Treasury's Office of Foreign Assets Control and Pegasus Worldwide Logistics; International Criminal Court Designation and General Licenses; Burma-related Designation Removal",
    "parties": [
+    "Pegasus Worldwide Logistics",
     "INTERNATIONAL CRIMINAL COURT",
     "HTET, Theint Win"
    ],
@@ -1117,26 +1404,52 @@
      "source": "OFAC recent-actions"
     },
     {
+     "text": "本条为混合行动：OFAC 列表标签为「Sanctions List Updates」，但标题含和解/处罚表述（Settlement/Penalty 类），故同时收录于「执法案例更新」视图；清单变动部分见本栏要点。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261009"
+    },
+    {
      "text": "摘要：The U.S. Department of the Treasury's Office of Foreign Assets Control (OFAC) today announced a settlement with Pegasus Worldwide Logistics, a freight forwarding firm involved in cross-border shipments. Pegasus has agreed to remit $175,015 to settle its potential civil liability for four apparent violations of the Illicit Drug Trafficking Sanctions Regulations and six apparent violations of the Reporting, Procedures and Penalties Regulations. Between September 2023 and February 2024, Pegasus dealt in blocked property by facilitating the importation of a machine supplied by a designated company…",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261009"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（entity has been added to OFAC's SDN List）；删除 2 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（entity has been added to OFAC's SDN List）；删除 1 条（deletions have been made to OFAC's SDN List）。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261009"
+    },
+    {
+     "text": "和解/罚款金额：$175,015（详情页正文首个金额数字，口径以原文 PDF 为准）。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261009"
+    },
+    {
+     "text": "涉及制裁项目（原文）：the Illicit Drug Trafficking Sanctions Regulations and six apparent violations of the Reporting, Procedures and Penalties Regulations. Between September 2023 and February 2024, Pegasus dealt in blocked property by facilitating the importation of a machine supplied by a designated company. Pegasus also failed to respond fully for six months to an OFAC subpoena。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20261009"
+    },
+    {
+     "text": "定性：non-egregious。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261009"
     }
    ],
    "impact": {
     "layer": "analysis",
-    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
-    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+    "text": "本案要点：和解金额 $175,015；涉及 the Illicit Drug Trafficking Sanctions Regulations and six apparent violations of the Reporting, Procedures and Penaltie；定性 non-egregious。执法公告所示金额、笔数与定性/VSD 情节可作为同类业务和解区间与披露策略的对照样本；具体裁量以执法文书为准。",
+    "basis": "本案执法公告正文已解析字段 + OFAC 执法指南裁量因素框架"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20261009",
-   "pdf_url": "https://ofac.treasury.gov/media/937201/download?inline",
+   "pdf_url": "https://ofac.treasury.gov/media/937206/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:48"
+    "retrieved_at": "2026-10-23 11:06"
+   },
+   "also_enforcement": true,
+   "penalty": {
+    "amount_usd": 175015.0,
+    "text": "$175,015",
+    "suspended": false
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1167,8 +1480,8 @@
     "JLS DRAGON COMPANY LIMITED",
     "KANHA SHIPPING INC",
     "MAKARUA SHIPPING LTD",
-    "NORTHPORT NAVIGATION INC",
-    "NOSTALGIA CO"
+    "NOORZAD PETROKIMYA URUNLERI NAKLIYE SANAYI VE TICARET LIMITED SIRKETI (Latin: NOORZAD PETROKİMYA ÜRÜNLERİ NAKLİYE SANAYİ VE TİCARET LİMİTED ŞİRKETİ)",
+    "NORTHPORT NAVIGATION INC"
    ],
    "china_link": {
     "value": "是",
@@ -1187,7 +1500,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261008"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（individuals have been added to OFAC's SDN List）；新增 27 条（entities have been added to OFAC's SDN List）；新增 22 条（vessels have been added to OFAC's SDN List）；删除 3 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（individuals have been added to OFAC's SDN List）；新增 27 条（entities have been added to OFAC's SDN List）；新增 22 条（vessels have been added to OFAC's SDN List）；删除 2 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261008"
     },
@@ -1206,7 +1519,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937101/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:48"
+    "retrieved_at": "2026-10-23 10:06"
    },
    "cn_parties": [
     {
@@ -1287,7 +1600,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261005"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 181 条（deletions have been made to OFAC's SDN List）；修订 45 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 181 条（deletions have been made to OFAC's SDN List）；修订 44 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261005"
     },
@@ -1306,7 +1619,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937091/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:48"
+    "retrieved_at": "2026-10-23 10:06"
    },
    "cn_parties": [
     {
@@ -1360,7 +1673,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261002"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 3 条（individuals have been added to OFAC's SDN List）；新增 3 条（entities have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 3 条（individuals have been added to OFAC's SDN List）；新增 2 条（entities have been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261002"
     }
@@ -1374,7 +1687,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:49"
+    "retrieved_at": "2026-10-23 10:06"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1401,7 +1714,7 @@
      "source": "BIS news-updates"
     },
     {
-     "text": "民事罚款：$2,000,000，全额/部分缓期执行（suspended），违约即激活（和解命令原文）。",
+     "text": "民事罚款：$2,000,000，全额缓期执行（fully suspended），违约即激活（和解命令原文）。",
      "layer": "external",
      "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
     },
@@ -1411,7 +1724,7 @@
      "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
     },
     {
-     "text": "违规笔数与条款：11 笔 × 15 C.F.R. § 764.2(e)；47 笔 × 15 C.F.R. § 764.2(a)；7 笔 × 15 C.F.R. § 764.2(a)；1 笔 × 15 C.F.R. § 764.2(a)。",
+     "text": "违规笔数与条款：11 笔 × 15 C.F.R. § 764.2(e)（原文语境：…By engaging in the above-described conduct, Lambda）；47 笔 × 15 C.F.R. § 764.2(a)（原文语境：…Lambda’s exports of automatic updates of TracePro and OSLO to Huawei Japan without a BIS license）；7 笔 × 15 C.F.R. § 764.2(a)（原文语境：…Lambda’s exports of automatic updates of TracePro to SiCarrier without a BIS license）；1 笔 × 15 C.F.R. § 764.2(a)（原文语境：…By engaging in the above conduct, Lambda）。",
      "layer": "external",
      "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
     },
@@ -1419,18 +1732,23 @@
      "text": "原文载有自愿披露（VSD）情节。",
      "layer": "external",
      "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
+    },
+    {
+     "text": "涉案清单对手方（原文）：SiCarrier（Entity List）、SMSEL（Unverified List）。",
+     "layer": "external",
+     "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
     }
    ],
    "impact": {
     "layer": "analysis",
-    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
-    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+    "text": "本案（罚款 $2,000,000，全额缓期执行（fully suspended），违约即激活；违规 66 笔；对手方 SiCarrier（Entity List）、SMSEL（Unverified List）；VSD 情节）显示执法按「行为类型 × 条款」分组累计笔数，持续性的后续传输/服务可逐笔计为独立违规；VSD 与缓期执行（suspended）安排直接影响实际缴付金额，和解区间与披露策略可据本案对照。",
+    "basis": "本案和解命令 Statement of Charges 分组与罚款/缓期条款（PDF 原文）+ EAR §764.2、§766.18 和解框架"
    },
    "url": "https://www.bis.gov/press-release/bis-reaches-administrative-enforcement-settlement-lambda-research-corporation",
    "pdf_url": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf",
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 08:41"
+    "retrieved_at": "2026-10-23 10:38"
    },
    "penalty": {
     "amount_usd": 2000000.0,
@@ -1461,13 +1779,13 @@
     "INTEGRATED AUTO PARTS LLC (Arabic: انتجريتد لقطع غيار السيارات ذ م م)",
     "IRAN KHODRO COMPANY (Arabic: شرکت ایران خودرو سهامی علم)",
     "IRAN KHODRO DIESEL COMPANY (Arabic: شرکت ایران خودرو دیزل سهامی علم)",
+    "ISLAMIC REPUBLIC OF IRAN RAILWAY COMPANY (Arabic: شرکت راه آهن جمهوري اسلامي ايران سهامي خاص)",
     "KGT TRADING LIMITED",
     "M AND R STEEL CO",
     "MEIZI CO",
     "NIROO MOTOR DAMAVAND COMPANY (Arabic: شرکت نیرو موتور دماوند)",
-    "PARS KHODRO COMPANY (Arabic: شرکت پارس خودرو سهامی علم)",
-    "PT GOLDEN MOTORCYCLE INTERNATIONAL",
-    "RAJA PASSENGER TRAINS COMPANY (Arabic: شرکت قطارهای مسافری رجاء)"
+    "NIROO MOTOR SHIRAZ INDUSTRIAL AND MANUFACTURING COMPANY (Arabic: شرکت تولیدی و صنعتی نیرو موتور شیراز)",
+    "PARS KHODRO COMPANY (Arabic: شرکت پارس خودرو سهامی علم)"
    ],
    "china_link": {
     "value": "是",
@@ -1486,7 +1804,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261001"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 2 条（individuals have been added to OFAC's SDN List）；新增 29 条（entities have been added to OFAC's SDN List）；修订 5 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 2 条（individuals have been added to OFAC's SDN List）；新增 29 条（entities have been added to OFAC's SDN List）；修订 4 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261001"
     },
@@ -1505,7 +1823,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937086/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:49"
+    "retrieved_at": "2026-10-23 10:06"
    },
    "cn_parties": [
     {
@@ -1589,6 +1907,7 @@
     "SOLUCIONES INTEGRALES TOLUCA",
     "PATRACA, S.A. DE C.V",
     "BOUTIQUE PATRACA",
+    "MARAYA (f.k.a. MED PATRON) Palletized Cargo Ship Samoa flag; Vessel Registration Identification IMO 7514517 (vessel)",
     "MED PATRON",
     "PROTOPOVICH, Tatyana",
     "PROTOPOVICH, Tayuana"
@@ -1610,7 +1929,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260930"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 9 条（individuals have been added to OFAC's SDN List）；新增 2 条（entities have been added to OFAC's SDN List）；删除 7 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 9 条（individuals have been added to OFAC's SDN List）；新增 2 条（entities have been added to OFAC's SDN List）；删除 6 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260930"
     }
@@ -1624,7 +1943,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:49"
+    "retrieved_at": "2026-10-23 10:07"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1656,14 +1975,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Russian Harmful Foreign Activities」项目；通用许可 131E、131F 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20014/publication-of-russian-harmful-foreign-activities-sanctions-regulations-web-general-licenses-131e",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20014.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1695,14 +2014,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目；通用许可 5W 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20012/publication-of-venezuela-sanctions-regulations-web-general-license-5w",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20012.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1734,14 +2053,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Transnational Criminal Organizations」项目；通用许可 2 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20011/publication-of-transnational-criminal-organizations-sanctions-regulations-web-general-license-2",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20011.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1773,14 +2092,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20010/publication-of-iran-related-web-general-licenses-x-and-x1",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20010.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1812,14 +2131,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目；通用许可 46D、47B、48C、50C、51C、52B 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20009/publication-of-venezuela-sanctions-regulations-web-general-licenses-46d-47b-48c-50c-51c-52b-54b-and",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20009.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1851,14 +2170,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目；通用许可 52、53、54、55、56、57 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20008/publication-of-venezuela-sanctions-regulations-web-general-licenses-52-53-54-55-56-57-and-58",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20008.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1890,14 +2209,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20007/removing-duplicative-penalties-information-and-reorganizing-certain-parts",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20007.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1929,14 +2248,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目；通用许可 46C、47A、48B、50B、51B、52A 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-20006/publication-of-venezuela-sanctions-regulations-web-general-licenses-46c-47a-48b-50b-51b-52a-and-54a",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20006.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1968,14 +2287,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-19978/iranian-transactions-and-sanctions-regulations",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19978.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2007,14 +2326,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-19977/cuba-sanctions-regulations",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19977.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2046,14 +2365,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/30/2026-19973/cuban-assets-control-regulations",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19973.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2085,14 +2404,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Cuba」项目 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260929_33",
    "pdf_url": "https://ofac.treasury.gov/media/937026/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:49"
+    "retrieved_at": "2026-10-23 10:07"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2143,7 +2462,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260929"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（individuals have been added to OFAC's SDN List）；新增 30 条（entities have been added to OFAC's SDN List）；修订 13 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（individuals have been added to OFAC's SDN List）；新增 30 条（entities have been added to OFAC's SDN List）；修订 12 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260929"
     },
@@ -2162,7 +2481,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937021/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:49"
+    "retrieved_at": "2026-10-23 10:07"
    },
    "cn_parties": [
     {
@@ -2208,14 +2527,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260928",
    "pdf_url": "https://ofac.treasury.gov/media/937006/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:49"
+    "retrieved_at": "2026-10-23 10:07"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2247,14 +2566,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19678/sanctions-penalties-regulations",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19678.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2286,14 +2605,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19657/terrorism-list-governments-sanctions-regulations",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19657.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2325,14 +2644,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260924",
    "pdf_url": "https://ofac.treasury.gov/media/936981/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:49"
+    "retrieved_at": "2026-10-23 10:07"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2364,14 +2683,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/24/2026-19537/measures-to-restrict-stockpiling-of-polysilicon-and-polysilicon-derivatives-under-proclamation-11052",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-24/pdf/2026-19537.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2391,8 +2710,7 @@
     "OTSHUNDI, Francois (Latin: OTSHUNDI",
     "SAFARI CLUB",
     "CENTRE DE LOISIR SAFARI CLUB",
-    "\"SAFARI BEACH\"",
-    "CENTRO DE INVESTIGACION Y DESARROLLO DE ARMAMENTO DE INFANTERIA"
+    "\"SAFARI BEACH\""
    ],
    "china_link": {
     "value": "否",
@@ -2411,7 +2729,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260923"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 11 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 8 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260923"
     }
@@ -2425,7 +2743,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:50"
+    "retrieved_at": "2026-10-23 10:07"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2457,14 +2775,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/23/2026-19424/publication-of-iran-related-web-general-licenses-y-and-z",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19424.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2496,14 +2814,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Congo」项目；通用许可 2 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/23/2026-19423/publication-of-the-democratic-republic-of-the-congo-sanctions-regulations-web-general-license-2",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19423.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2535,14 +2853,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目；通用许可 5X、5Y 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/23/2026-19422/publication-of-venezuela-sanctions-regulations-web-general-licenses-5x-and-5y",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19422.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2574,14 +2892,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "通用许可 12 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/23/2026-19421/publication-of-international-criminal-court-related-sanctions-regulations-web-general-license-12",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19421.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2623,7 +2941,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260918"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 12 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 11 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260918"
     }
@@ -2637,7 +2955,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936951/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:50"
+    "retrieved_at": "2026-10-23 10:07"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2687,7 +3005,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260917"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（individuals have been added to OFAC's SDN List）；新增 10 条（entities have been added to OFAC's SDN List）；删除 6 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（individuals have been added to OFAC's SDN List）；新增 10 条（entities have been added to OFAC's SDN List）；删除 5 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260917"
     }
@@ -2701,7 +3019,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:50"
+    "retrieved_at": "2026-10-23 10:08"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2735,7 +3053,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260916"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 4 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 3 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260916"
     }
@@ -2749,7 +3067,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936946/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:50"
+    "retrieved_at": "2026-10-23 10:08"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2782,7 +3100,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260914"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：修订 3 条（changes have been made to OFAC's SDN List）；修订 3 条（changes have been made to OFAC's Sectoral Sanctions Identifi）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：修订 3 条（changes have been made to OFAC's SDN List）；修订 2 条（changes have been made to OFAC's Sectoral Sanctions Identifi）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260914"
     },
@@ -2801,7 +3119,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936926/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:50"
+    "retrieved_at": "2026-10-23 10:08"
    },
    "cn_parties": [
     {
@@ -2843,14 +3161,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18576/publication-of-iran-related-web-general-licenses-cc-and-dd",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18576.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2882,14 +3200,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目；通用许可 50A、51A 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18572/publication-of-venezuela-sanctions-regulations-web-general-licenses-50a-and-51a",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18572.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2921,14 +3239,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目；通用许可 30B、51 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18569/publication-of-venezuela-sanctions-regulations-web-general-licenses-30b-and-51",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18569.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2960,14 +3278,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Nicaragua」项目；通用许可 5 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18565/publication-of-nicaragua-sanctions-regulations-web-general-license-5",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18565.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2999,14 +3317,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Global Terrorism」项目；通用许可 35 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18563/publication-of-global-terrorism-sanctions-regulations-and-illicit-drug-trade-sanctions-regulations",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18563.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3034,8 +3352,10 @@
     "WEHBE, Ghaith Hussein",
     "ZAHRELDINE, Mervat Jamil (Arabic: ميرفت جميل زهر الدين)",
     "AIN AL IRAQ FOR PROTECTION SYSTEMS TECHNOLOGY AND AUDIO",
+    "AL BROUJ FOR GENERAL CONTRACTING COMPANY (Arabic: شركة البروج للمقاولات العامة محدود المسؤولية)",
     "GOLD PRO SARL",
-    "SHAMS AND BAHR TRADING COMPANY L.L.C. (Arabic: شركة شمس وبحر للتجارة ذ م م)"
+    "SHAMS AND BAHR TRADING COMPANY L.L.C. (Arabic: شركة شمس وبحر للتجارة ذ م م)",
+    "YOUSEF IBRAHIM MANSOUR AND PARTNER FOR EXCHANGE (Arabic: شركة یوسف ابراھیم منصور وشریكھ للصیرفة)"
    ],
    "china_link": {
     "value": "否",
@@ -3049,26 +3369,52 @@
      "source": "OFAC recent-actions"
     },
     {
+     "text": "本条为混合行动：OFAC 列表标签为「Sanctions List Updates」，但标题含和解/处罚表述（Settlement/Penalty 类），故同时收录于「执法案例更新」视图；清单变动部分见本栏要点。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260910"
+    },
+    {
      "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing a licensing policy update, an enforcement action, and updates to the list of Specially Designated Nationals and Blocked Persons (SDN List). Licensing Policy Update under Operation Economic Outcast OFAC's Iran-related specific licensing policy has been modified in furtherance of the U.S. Department of the Treasury-led Operation Economic Outcast . Effective immediately, OFAC is considering Iran-related specific license applications with a presumption of denial except as required by law or in certain circumstances…",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260910"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 14 条（individuals have been added to OFAC's SDN List）；新增 6 条（entities have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 14 条（individuals have been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260910"
+    },
+    {
+     "text": "和解/罚款金额：$1,427,230（详情页正文首个金额数字，口径以原文 PDF 为准）。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260910"
+    },
+    {
+     "text": "原文载：违规「未经自愿披露」（not voluntarily self-disclosed，含 largely not 等限定以原文为准）。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260910"
+    },
+    {
+     "text": "定性：egregious。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260910"
     }
    ],
    "impact": {
     "layer": "analysis",
-    "text": "清单变动主体及其（OFAC 项下）持股≥50% 的实体均受相应限制；企业筛查口径应覆盖别名与股权穿透。",
-    "basis": "OFAC 50% 规则指南（2014-08-13）/ BIS 相应清单条款，以原文为准"
+    "text": "本案要点：和解金额 $1,427,230；定性 egregious；未经自愿披露（含 largely not 等限定以原文为准）。执法公告所示金额、笔数与定性/VSD 情节可作为同类业务和解区间与披露策略的对照样本；具体裁量以执法文书为准。",
+    "basis": "本案执法公告正文已解析字段 + OFAC 执法指南裁量因素框架"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260910",
    "pdf_url": "https://ofac.treasury.gov/media/936911/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:50"
+    "retrieved_at": "2026-10-23 11:07"
+   },
+   "also_enforcement": true,
+   "penalty": {
+    "amount_usd": 1427230.0,
+    "text": "$1,427,230",
+    "suspended": false
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3100,14 +3446,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18461/iranian-transactions-and-sanctions-regulations",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-10/pdf/2026-18461.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 11:07"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3123,16 +3469,7 @@
     "ANWEN TECHNOLOGY CO",
     "LOS TIGUERONES",
     "SAFEW TECHNOLOGY CO",
-    "XINBI GUARANTEE (Chinese Simplified: 新币担保)",
-    "BOUKICH, Abdelhakim",
-    "CELESTINO HERRERA",
-    "DOT ONE VALUE CREATION GROUP (Arabic: گروه بین‌ المللی توسعه مالی و اقتصادی آوان)",
-    "ISIL KHORASAN",
-    "MAKLED GARCIA",
-    "NETHERLANDS CARIBBEAN BANK N.V",
-    "O, In Chun (Korean: 오인준)",
-    "SUDANESE MUSLIM BROTHERHOOD (Arabic: الحركة الاسلامية السودانية)",
-    "SUDANESE MUSLIM BROTHERHOOD"
+    "XINBI GUARANTEE (Chinese Simplified: 新币担保)"
    ],
    "china_link": {
     "value": "是",
@@ -3151,7 +3488,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260909"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（entities have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 4 条（entities have been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260909"
     },
@@ -3170,7 +3507,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:51"
+    "retrieved_at": "2026-10-23 10:08"
    },
    "cn_parties": [
     {
@@ -3231,7 +3568,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260908"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 36 条（entities have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 35 条（entities have been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260908"
     }
@@ -3245,7 +3582,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936901/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:51"
+    "retrieved_at": "2026-10-23 10:09"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3257,7 +3594,11 @@
    "agency": "OFAC",
    "doc_no": "20260904",
    "title": "Iran-related Designations; Issuance of Iran-related General License",
-   "parties": [],
+   "parties": [
+    "GOLDEN GLOBAL PORTFOY YONETIMI ANONIM SIRKETI (Latin: GOLDEN GLOBAL PORTFÖY YÖNETİMİ ANONİM ŞİRKETİ)",
+    "GOLDEN GLOBAL VARLIK KIRALAMA ANONIM SIRKETI (Latin: GOLDEN GLOBAL VARLIK KİRALAMA ANONİM ŞİRKETİ)",
+    "GOLDEN GLOBAL YATIRIM BANKASI ANONIM SIRKETI (Latin: GOLDEN GLOBAL YATIRIM BANKASI ANONİM ŞİRKETİ)"
+   ],
    "china_link": {
     "value": "否",
     "layer": "external",
@@ -3275,7 +3616,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260904"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 4 条（entities have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 3 条（entities have been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260904"
     }
@@ -3289,7 +3630,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936881/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:51"
+    "retrieved_at": "2026-10-23 10:09"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3309,6 +3650,7 @@
     "EMPRESA IMPORTADORA DE ABASTECIMIENTO PARA EL PETROLEO",
     "EMPRESA IMPORTADORA Y ABASTECEDORA DEL NIQUEL",
     "DULAC CAPITAL LTD",
+    "PREDSTAVITELSTVO AKTSIONERNOGO OBSHCHESTVA DYULAK KEPITAL LTD SHVEITSARIYA V G SANKT PETERBURGE",
     "PREDSTAVITELSTVO AKTSIONERNOGO OBSHCHESTVA DYULAK KEPITAL LTD SHVEITSARIYA V G MOSCOW",
     "AK DYULAK KEPITAL LTD PREDSTAVITELSTVO"
    ],
@@ -3329,7 +3671,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260903"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；删除 5 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；删除 4 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260903"
     }
@@ -3343,7 +3685,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936871/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:51"
+    "retrieved_at": "2026-10-23 10:09"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3375,14 +3717,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260902",
    "pdf_url": "https://ofac.treasury.gov/media/936866/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:51"
+    "retrieved_at": "2026-10-23 10:09"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3415,7 +3757,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260828"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 2 条（entity has been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 1 条（entity has been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260828"
     },
@@ -3434,7 +3776,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:51"
+    "retrieved_at": "2026-10-23 10:35"
    },
    "cn_parties": [
     {
@@ -3467,14 +3809,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/08/28/C1-2026-16628/streamlining-export-controls-for-drone-exports",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-28/pdf/C1-2026-16628.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3506,14 +3848,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260827",
    "pdf_url": "https://ofac.treasury.gov/media/936841/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:52"
+    "retrieved_at": "2026-10-23 10:35"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3545,14 +3887,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/08/27/2026-17491/publication-of-iran-related-web-general-licenses-aa-and-bb",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-27/pdf/2026-17491.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3584,14 +3926,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/08/27/2026-17487/publication-of-a-determination-issued-pursuant-to-executive-order-13902",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-27/pdf/2026-17487.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3627,7 +3969,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260826"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 2 条（individuals have been added to OFAC's SDN List）；新增 4 条（entities have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 2 条（individuals have been added to OFAC's SDN List）；新增 3 条（entities have been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260826"
     }
@@ -3641,7 +3983,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936796/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:52"
+    "retrieved_at": "2026-10-23 10:35"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3673,14 +4015,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/08/26/2026-17426/iranian-transactions-and-sanctions-regulations",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-26/pdf/2026-17426.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3731,7 +4073,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260824"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（individuals have been added to OFAC's SDN List）；新增 48 条（entities have been added to OFAC's SDN List）；新增 6 条（vessels have been added to OFAC's SDN List）；修订 22 条（changes have been made to OFAC's SDN List）；删除 110 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（individuals have been added to OFAC's SDN List）；新增 48 条（entities have been added to OFAC's SDN List）；新增 6 条（vessels have been added to OFAC's SDN List）；修订 22 条（changes have been made to OFAC's SDN List）；删除 109 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260824"
     },
@@ -3750,7 +4092,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936751/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:52"
+    "retrieved_at": "2026-10-23 10:36"
    },
    "cn_parties": [
     {
@@ -3830,6 +4172,10 @@
      "kind": "新增"
     },
     {
+     "name": "SHENZHEN HUAMEI LIANYUN INTERNATIONAL LOGISTICS CO LTD (Chinese Simplified: 深圳市华美联运国际物流有限公司)",
+     "kind": "新增"
+    },
+    {
      "name": "SHENZHEN SWEET OCEAN TECHNOLOGY LIMITED (Chinese Simplified: 深圳市晨涛科技有限公司)",
      "kind": "新增"
     },
@@ -3898,7 +4244,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-24/pdf/2026-17231.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "cn_parties": [
     {
@@ -3948,7 +4294,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-24/pdf/2026-17230.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3987,14 +4333,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
-    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+    "text": "本案（罚款 $1,000,000；违规 10 笔；未见自愿披露表述）显示执法按「行为类型 × 条款」分组累计笔数，持续性的后续传输/服务可逐笔计为独立违规；VSD 与缓期执行（suspended）安排直接影响实际缴付金额，和解区间与披露策略可据本案对照。",
+    "basis": "本案和解命令 Statement of Charges 分组与罚款/缓期条款（PDF 原文）+ EAR §764.2、§766.18 和解框架"
    },
    "url": "https://www.bis.gov/press-release/bis-reaches-administrative-enforcement-settlement-container-manufacturing-ltd.",
    "pdf_url": "https://www.bis.gov/media/documents/container-manufacturing-ltd-8-24-2026.pdf",
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 08:42"
+    "retrieved_at": "2026-10-23 10:38"
    },
    "penalty": {
     "amount_usd": 1000000.0,
@@ -4031,14 +4377,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260821",
    "pdf_url": "https://ofac.treasury.gov/media/936741/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:52"
+    "retrieved_at": "2026-10-23 10:36"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4103,7 +4449,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936731/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:52"
+    "retrieved_at": "2026-10-23 10:36"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4137,7 +4483,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260818"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 2 条（individuals have been added to OFAC's SDN List）；新增 2 条（entity has been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 2 条（individuals have been added to OFAC's SDN List）；新增 1 条（entity has been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260818"
     }
@@ -4151,7 +4497,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936716/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:53"
+    "retrieved_at": "2026-10-23 10:36"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4183,14 +4529,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/08/14/2026-16628/streamlining-export-controls-for-drone-exports",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-14/pdf/2026-16628.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4220,18 +4566,23 @@
      "text": "违规笔数与条款：8 笔 × Export Administration Regulations（指控文书口径）。",
      "layer": "external",
      "source": "https://www.bis.gov/media/documents/plexon-inc.-8-14-2026.pdf"
+    },
+    {
+     "text": "涉案清单对手方（原文）：Omniplex systems（Entity List）。",
+     "layer": "external",
+     "source": "https://www.bis.gov/media/documents/plexon-inc.-8-14-2026.pdf"
     }
    ],
    "impact": {
     "layer": "analysis",
-    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
-    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+    "text": "本案（对手方 Omniplex systems（Entity List）；未见自愿披露表述）显示执法按「行为类型 × 条款」分组累计笔数，持续性的后续传输/服务可逐笔计为独立违规；VSD 与缓期执行（suspended）安排直接影响实际缴付金额，和解区间与披露策略可据本案对照。",
+    "basis": "本案和解命令 Statement of Charges 分组与罚款/缓期条款（PDF 原文）+ EAR §764.2、§766.18 和解框架"
    },
    "url": "https://www.bis.gov/press-release/bis-reaches-administrative-enforcement-settlement-plexon-inc.",
    "pdf_url": "https://www.bis.gov/media/documents/plexon-inc.-8-14-2026.pdf",
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 08:42"
+    "retrieved_at": "2026-10-23 10:38"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4263,6 +4614,11 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260812"
     },
     {
+     "text": "涉及制裁项目（原文）：OFAC sanctions on Iran。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260812"
+    },
+    {
      "text": "原文提及自愿披露（voluntarily self-disclosed）情节，是否构成 VSD 及程度以执法文书为准。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260812"
@@ -4275,14 +4631,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "执法案例显示执法重点与裁量因素（VSD 自愿披露、egregious 定性、合规承诺），可作为同类业务风险评估与合规体系改进的对照样本。",
-    "basis": "本案执法文书 + BIS/OFAC 执法指南的一般裁量框架"
+    "text": "本案要点：和解金额 $60,764；涉及 OFAC sanctions on Iran；定性 non-egregious；原文提及自愿披露情节，程度以执法文书为准。执法公告所示金额、笔数与定性/VSD 情节可作为同类业务和解区间与披露策略的对照样本；具体裁量以执法文书为准。",
+    "basis": "本案执法公告正文已解析字段 + OFAC 执法指南裁量因素框架"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260812",
    "pdf_url": "https://ofac.treasury.gov/media/936706/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:53"
+    "retrieved_at": "2026-10-23 11:09"
    },
    "penalty": {
     "amount_usd": 60764.0,
@@ -4338,7 +4694,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260807"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 5 条（individuals have been added to OFAC's SDN List）；新增 13 条（entities have been added to OFAC's SDN List）；删除 12 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 5 条（individuals have been added to OFAC's SDN List）；新增 13 条（entities have been added to OFAC's SDN List）；删除 11 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260807"
     },
@@ -4357,7 +4713,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:53"
+    "retrieved_at": "2026-10-23 10:36"
    },
    "cn_parties": [
     {
@@ -4415,7 +4771,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260806"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（individuals have been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；修订 5 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（individuals have been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；修订 4 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260806"
     },
@@ -4434,7 +4790,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:53"
+    "retrieved_at": "2026-10-23 10:37"
    },
    "cn_parties": [
     {
@@ -4472,14 +4828,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/08/06/2026-16078/dpas-directive-allocation-order-and-additional-requirements-for-recoverable-critical-minerals-and",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-06/pdf/2026-16078.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4526,7 +4882,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:53"
+    "retrieved_at": "2026-10-23 10:37"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4558,14 +4914,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "「Venezuela」项目 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://ofac.treasury.gov/recent-actions/20260803",
    "pdf_url": "https://ofac.treasury.gov/media/936651/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:53"
+    "retrieved_at": "2026-10-23 10:37"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4675,7 +5031,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-03/pdf/2026-15628.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "cn_parties": [
     {
@@ -4896,7 +5252,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260730"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；修订 3 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；修订 2 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260730"
     },
@@ -4915,7 +5271,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:54"
+    "retrieved_at": "2026-10-23 10:37"
    },
    "cn_parties": [
     {
@@ -4978,7 +5334,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260729"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 10 条（entities have been added to OFAC's SDN List）；新增 9 条（vessels have been added to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 10 条（entities have been added to OFAC's SDN List）；新增 8 条（vessels have been added to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260729"
     },
@@ -4997,7 +5353,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:54"
+    "retrieved_at": "2026-10-23 10:37"
    },
    "cn_parties": [
     {
@@ -5074,7 +5430,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260727"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 286 条（deletions have been made to OFAC's SDN List）；修订 74 条（changes have been made to OFAC's SDN List）；新增 4 条（entities have been added to OFAC's Sectoral Sanctions Identi）；删除 20 条（deletions have been made to OFAC's Sectoral Sanctions Identi）；新增 1 条（individual has been added to OFAC's Non-SDN Palestinian Legi）；删除 4 条（deletions have been made to OFAC's Non-SDN Palestinian Legis）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 286 条（deletions have been made to OFAC's SDN List）；修订 74 条（changes have been made to OFAC's SDN List）；新增 4 条（entities have been added to OFAC's Sectoral Sanctions Identi）；删除 20 条（deletions have been made to OFAC's Sectoral Sanctions Identi）；新增 1 条（individual has been added to OFAC's Non-SDN Palestinian Legi）；删除 3 条（deletions have been made to OFAC's Non-SDN Palestinian Legis）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260727"
     }
@@ -5088,7 +5444,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 08:54"
+    "retrieved_at": "2026-10-23 10:37"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -5120,14 +5476,14 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.federalregister.gov/documents/2026/07/27/2026-15112/updating-website-and-contact-information-and-authorizations-for-payments-for-legal-services",
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-07-27/pdf/2026-15112.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 08:11"
+    "retrieved_at": "2026-10-23 09:43"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -5154,21 +5510,21 @@
    ],
    "impact": {
     "layer": "analysis",
-    "text": "规则/通用许可/指南变动改变许可要求或合规义务边界；须核对生效日期、CFR 修订条款与过渡安排，评估对存量交易与许可策略的影响。",
-    "basis": "本文档 dates/CFR 引用所载生效条款，以原文为准"
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
    },
    "url": "https://www.bis.gov/press-release/department-commerce-streamlines-export-controls-sound-suppressors",
    "pdf_url": null,
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 08:42"
+    "retrieved_at": "2026-10-23 10:38"
    },
    "first_seen": "2026-10-23 02:13"
   }
  ],
  "uflpa_snapshot": {
-  "retrieved_at": "2026-10-23 08:42",
-  "sha256": "d9e98d6635c5d1f7861ad6e882cf4125a39093fdc98af09c2913131025a546ad",
+  "retrieved_at": "2026-10-23 11:09",
+  "sha256": "c1d2be544109b27f3efee9131620df92b75d5ce97a938dd3eb6df184dc8fd6ed",
   "count": 205,
   "entries": [
    {
