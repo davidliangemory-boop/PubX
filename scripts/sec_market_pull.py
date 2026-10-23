@@ -79,7 +79,8 @@ FIN_RE = re.compile(r"\b(offering|private placement|pipe\b|registered direct|con
                     r"at[\s-]the[\s-]market|equity line|prepaid forward| IPO\b|initial public offering)\b", re.I)
 MA_RE = re.compile(r"\b(acqui[rs][ei]|merger|merg(?:e|ed) with|business combination|takeover|tender offer|"
                    r"privatiz|going private|spin[\s-]?off|divest|dispos(?:al|ition)|sale of (?:assets|the company)|"
-                   r"purchase of|joint venture|strategic investment|minority (?:stake|investment))\b", re.I)
+                   r"purchase of|joint venture|strategic investment|minority (?:stake|investment)|"
+                   r"subscription of|major transaction)\b", re.I)
 STRAT_RE = re.compile(r"\b(strategic (?:alternatives|review|transformation|shift|pivot)|restructur|"
                       r"new business (?:line|segment)|change of (?:control|ceo|cfo|chief)|appoint(?:ment|ed)? (?:of )?(?:a )?(?:new )?(?:chief|ceo|cfo)|"
                       r"resign(?:ation|ed)?|wind[\s-]?down|liquidat|bankrupt|chapter 11|delisting|reverse split)\b", re.I)
@@ -100,7 +101,7 @@ CN_NAME_RE = re.compile(r"china|hong\s?kong|beijing|shanghai|shenzhen|guangzhou|
                         r"tencent music|hello group|new oriental|\btal\b|gaotu|gds holdings|vnet|"
                         r"kingsoft cloud|uxin|qfin|lufax|lexin|futu|up fintech|tiger brokers|"
                         r"baozun|51job|51talk|qutoutiao|sohu|sogou|momo|himalaya|missfresh|"
-                        r"dingdong|waterdrop|roott|agora|borqs|cool link|mingteng|mangoceuticals", re.I)
+                        r"dingdong|waterdrop|roott|agora|borqs|cool link|mingteng", re.I)
 VALID_ITEM_RE = re.compile(r"Item\s+([1-9]\.\d\d)\b")
 TAG_RE = re.compile(r"<[^>]+>")
 FILLER_RE = re.compile(r"attached hereto as exhibit|incorporated (?:herein )?by reference|"
@@ -335,11 +336,27 @@ BOILER_RE = re.compile(
     r"united states|securities and exchange commission|washington[\s,]+d\.?c\.?|"
     r"form\s+\d|report of foreign private issuer|date of report|signatures?\b|"
     r"exhibit\s+\d|cautionary statement|forward[\s-]looking statements|"
+    # 注册说明书封面套话（S-1/F-1 封面块）
+    r"registration statement|registration no|as filed with the|securities act of 19|"
+    r"approximate date of commencement|proposed maximum aggregate|"
+    r"exact name of registrant|state or other jurisdiction|primary standard industrial|"
+    r"i\.r\.s\. employer|address of principal executive|registrant.s telephone|"
+    r"accelerated filer|smaller reporting company|emerging growth company|"
+    r"check whether the registrant|if securities are registered|subject to completion|"
+    # 港股公告套话（中概 6-K 的 EX-99.1 多为 HKEX 公告）
+    r"hong kong exchanges and clearing|take no responsibility for the contents|"
+    r"a company controlled through|incorporated in the cayman islands|"
+    # 附件头碎片（EX-99.1 2 tm26….htm）
+    r"ex[\s-]?\d{2}\b|"
     r"item\s+\d|other events\.?$|press release$)", re.I)
 
 
 def clean_excerpt(out):
     out = re.sub(r"^[\s,;:)\]—–\-…]+", "", out or "")
+    # 剥掉句首残留的发行人括注（港股 WVR 声明 / 美股代码括注）
+    out = re.sub(r"^\((?:a company controlled|incorporated|nyse|nasdaq|hkex)[^)]{0,140}\)\s*", "", out,
+                 flags=re.I)
+    out = re.sub(r"^\((?:nyse|nasdaq|hkex)[^)]{0,80}\)\s*", "", out, flags=re.I)
     if out and (out[0].islower() or out[0] == "("):
         out = "…" + out
     return out.strip()
@@ -353,8 +370,15 @@ def first_sentences(text, n=2, cap=280):
         s = s.strip()
         if not s:
             continue
-        if (BOILER_RE.match(s) or len(s) < 25) and skipped < 8:
+        if BOILER_RE.match(s):
             skipped += 1
+            if skipped > 60:  # 防死循环兜底：整段皆套话时放手
+                break
+            continue
+        if len(s) < 25:
+            skipped += 1
+            if skipped > 60:
+                break
             continue
         cand = (out + " " + s).strip()
         if len(cand) > cap:
@@ -464,7 +488,7 @@ def classify_form(form, text):
         if FIN_RE.search(low):
             return "融资类", "融资/证券发行（6-K，关键词判定）"
         if MA_RE.search(low):
-            if re.search(r"acqui|joint venture|strategic investment|minority", low):
+            if re.search(r"acqui|joint venture|strategic investment|minority|subscription of", low):
                 return "对外投资", "对外投资/并购（6-K，关键词判定）"
             return "交易类", "并购/出售（6-K，关键词判定）"
         if STRAT_RE.search(low):
@@ -509,6 +533,24 @@ def fix_entry(e, watch_ciks):
     return e
 
 
+OFFERING_RE = re.compile(r"(We are offering[^.]{20,420}\.)", re.I)
+
+
+def fetch_ex99_targeted(base):
+    """经目录 index.json 定位首个 EX-99.x 文件并直接抓取（避免 full-submission.txt
+    700KB 截断导致 EX-99.1 在大 exhibits 之后被切掉）。失败返回 ''。"""
+    try:
+        idx = json.loads(fetch(base + "/index.json", retries=2, retry_403=True))
+        names = [it.get("name", "") for it in idx.get("directory", {}).get("item", [])]
+        cands = [n for n in names if re.search(r"ex[-_]?99[-_.]?\d*.*\.htm[l]?$", n, re.I)]
+        if not cands:
+            return ""
+        return strip_html(fetch(base + "/" + cands[0], max_bytes=400000,
+                                retries=2, retry_403=True))
+    except Exception:
+        return ""
+
+
 def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     """单个命中 filing → entry；失败返回 (None, 错误串)。"""
     acc = os.path.basename(row["path"]).replace(".txt", "")
@@ -551,19 +593,24 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
         primary = picked[0] if picked else keep[0]
         seg = item_context(text, primary)
         summary = first_sentences(seg) if seg else first_sentences(ex99 or text)
-        # 快路径只抓了主文档：若摘要仍是「新闻稿见附件 99.1」式套话，补抓完整提交取 EX-99.1
-        if FILLER_RE.search(summary or "") and not ex99:
-            try:
-                raw = fetch("https://www.sec.gov/Archives/" + row["path"],
-                            max_bytes=MAX_DOC_BYTES, retries=2, retry_403=True)
-                _m, ex99b = parse_primary(raw, form)
-                if len(ex99b) > 300:
-                    ex99 = ex99b
-                    alt = first_sentences(ex99)
-                    if alt:
-                        summary = alt
-            except Exception:
-                pass
+        # 摘要为「纳入引用/见附件」式套话时改用 EX-99.1 新闻稿：
+        # 快路径未抓 ex99 时先经目录 index.json 定向补抓，仍无再回退完整提交
+        if FILLER_RE.search(summary or ""):
+            if not ex99:
+                ex99 = fetch_ex99_targeted(base)
+            if not ex99:
+                try:
+                    raw = fetch("https://www.sec.gov/Archives/" + row["path"],
+                                max_bytes=MAX_DOC_BYTES, retries=2, retry_403=True)
+                    _m, ex99b = parse_primary(raw, form)
+                    if len(ex99b) > 300:
+                        ex99 = ex99b
+                except Exception:
+                    pass
+            if ex99:
+                alt = first_sentences(ex99)
+                if alt and not FILLER_RE.search(alt):
+                    summary = alt
         for it in keep:
             q = first_sentences(item_context(text, it), n=1, cap=240)
             if q and not (FILLER_RE.search(q) and ex99):
@@ -574,7 +621,24 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
         items = []
         body = ex99 if len(ex99) > 300 else text  # 6-K 实质内容在 EX-99.1
         cat, sub = classify_form(form, body)
-        summary = first_sentences(body)
+        summary = ""
+        # 注册/定价类表格：优先取发行句「We are offering …」（封面其余为模板套话）
+        if fup.startswith("424B") or fup[:2] in ("S-", "F-"):
+            moff = OFFERING_RE.search(body[:20000])
+            if moff:
+                summary = clean_excerpt(moff.group(1))
+        if not summary:
+            summary = first_sentences(body)
+        # 6-K 主文档仅封面时定向补抓 EX-99.1（大附件场景 full-submission 截断会漏）
+        if (not summary or FILLER_RE.search(summary)) and fup.startswith("6-K") and not ex99:
+            ex99b = fetch_ex99_targeted(base)
+            if len(ex99b) > 300:
+                ex99 = ex99b
+                body = ex99
+                cat, sub = classify_form(form, body)
+                alt = first_sentences(body)
+                if alt and not FILLER_RE.search(alt):
+                    summary = alt
         if summary and summary != "【正文未能抽取，见原文】":
             quotes["正文首段"] = summary[:240]
     if not summary:
@@ -669,7 +733,11 @@ def collect_dates(dates, batch_id, max_docs=None, max_minutes=None, reextract=No
             bstat["errors"].append("%s master.idx: %s" % (dstr, str(e)[:120]))
             continue
         if rows is None:
-            bstat["dates"][dstr] = {"status": "索引未发布（403/404，T+1 正常态）"}
+            wd = datetime.date(int(dstr[:4]), int(dstr[5:7]), int(dstr[8:10])).weekday()
+            if wd >= 5:
+                bstat["dates"][dstr] = {"status": "周末（EDGAR 无日索引）"}
+            else:
+                bstat["dates"][dstr] = {"status": "索引未发布（403/404，T+1 正常态）"}
             save_progress()
             continue
         hits = [r for r in rows if r["form"].replace(" ", "").upper() in
@@ -765,14 +833,38 @@ def save_master(master):
     build_js(master)
 
 
+RECENT_JS_DATES = 7  # us_data.js 默认只内嵌最近 7 个有数据的日期，更早日期按分片懒加载
+
+
 def build_js(master):
-    payload = {"meta": master["meta"], "entries": master["entries"]}
+    entries = master["entries"]
+    dates = sorted({e["date"] for e in entries}, reverse=True)
+    loaded = set(dates[:RECENT_JS_DATES])
+    recent, older = [], 0
+    for e in entries:
+        if e["date"] in loaded:
+            recent.append(e)
+        else:
+            older += 1
+    meta = dict(master["meta"])
+    meta["loaded_dates"] = sorted(loaded)
+    meta["available_dates"] = sorted(dates)
+    meta["older_count"] = older
+    # 424B* 定价补充的证据句与摘要同源，JS 载荷中剔除以控制体积（state JSON 保留全量）
+    slim = []
+    for e in recent:
+        if (e.get("form") or "").startswith("424B") and e.get("item_quotes"):
+            e2 = {k: v for k, v in e.items() if k != "item_quotes"}
+            slim.append(e2)
+        else:
+            slim.append(e)
+    payload = {"meta": meta, "entries": slim}
     with open(OUT_JS, "w", encoding="utf-8") as f:
         f.write("window.US_DATA = ")
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
-    print("[build] assets/us_data.js  %d 条，%.1f MB" %
-          (len(master["entries"]), os.path.getsize(OUT_JS) / 1048576))
+    print("[build] assets/us_data.js  内嵌 %d 条（最近 %d 个日期）· 历史 %d 条按需分片加载 · %.1f MB"
+          % (len(slim), len(loaded), older, os.path.getsize(OUT_JS) / 1048576), flush=True)
 
 
 def main():

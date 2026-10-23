@@ -19,6 +19,7 @@
   var UF = { from: "", to: "", cat: "全部", sub: "全部", form: "全部", amt: "全部", cn: "全部",
              item: "全部", q: "", h424: "0", page: 1 };
   var expanded = {};
+  var histState = { loading: false, done: false };
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -65,6 +66,46 @@
 
   function entries() { return (window.US_DATA && window.US_DATA.entries) || []; }
   function meta() { return (window.US_DATA && window.US_DATA.meta) || {}; }
+
+  // 历史分片：us_data.js 只内嵌最近若干申报日，更早日期在 state/us_market/YYYY-MM-DD.json
+  function unloadedDates() {
+    var M = meta();
+    if (histState.done) return [];
+    var avail = M.available_dates || [], loaded = M.loaded_dates || avail;
+    var lset = {};
+    loaded.forEach(function (d) { lset[d] = 1; });
+    return avail.filter(function (d) { return !lset[d]; });
+  }
+  function loadHistory(cb) {
+    var todo = unloadedDates();
+    if (!todo.length) { histState.done = true; if (cb) cb(); return; }
+    if (histState.loading) return;
+    histState.loading = true;
+    var got = 0, add = [];
+    todo.forEach(function (d) {
+      fetch("./state/us_market/" + d + ".json").then(function (r) {
+        if (!r.ok) throw new Error("http " + r.status);
+        return r.json();
+      }).then(function (j) {
+        add = add.concat(j.entries || []);
+      }).catch(function () {}).then(function () {
+        got++;
+        if (got === todo.length) {
+          window.US_DATA.entries = entries().concat(add);
+          window.US_DATA.meta.loaded_dates = meta().available_dates;
+          histState.done = true; histState.loading = false;
+          if (cb) cb(); else render();
+        }
+      });
+    });
+  }
+  // 筛选起点早于已载入窗口时需要历史分片
+  function needsHistory() {
+    if (!unloadedDates().length) return false;
+    var loaded = meta().loaded_dates || [];
+    var minLoaded = loaded.length ? loaded[0] : "9999";
+    return !!(UF.from && UF.from < minLoaded);
+  }
 
   function filtered() {
     var q = UF.q.trim().toLowerCase();
@@ -140,7 +181,17 @@
     }
 
     parseQS();
+    if (needsHistory() && !histState.loading) {
+      loadHistory();
+    }
+    if (histState.loading) {
+      root.innerHTML = '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
+        + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">正在载入历史分片…</div>'
+        + '<div class="note">筛选起点早于默认载入窗口，正在按日分片拉取 state/us_market/ 历史数据</div></div></div>';
+      return;
+    }
     var M = meta(), all = entries(), rows = filtered();
+    var unld = unloadedDates();
     var dr = M.date_range || [];
     var batches = M.batches || [];
     var lastB = batches[batches.length - 1] || {};
@@ -151,14 +202,18 @@
     all.forEach(function (e) { byCat[e.category] = (byCat[e.category] || 0) + 1; });
     var n424 = M.n_424b != null ? M.n_424b
       : all.filter(function (e) { return (e.form || "").indexOf("424B") === 0; }).length;
-    var pct424 = all.length ? Math.round(n424 * 1000 / all.length) / 10 : 0;
+    var denom = (unld.length && M.total) ? M.total : all.length;
+    var pct424 = denom ? Math.round(n424 * 1000 / denom) / 10 : 0;
 
     var h = '<div class="ph"><h1>美股（SEC）· 全量重大事项</h1>'
       + '<span class="sub">本页回答：SEC EDGAR 全量披露（不分中企外企）中，最近有哪些交易、融资、运营、法律与战略重大事项</span></div>';
 
     h += '<div class="statstrip">'
-      + statCard(all.length, "收录条目（筛选后 " + rows.length + "）",
-                 "窗口 " + (dr[0] || "—") + " ~ " + (dr[1] || "—") + " · 其中 424B* 定价补充 " + n424 + " 条（" + pct424 + "%）")
+      + statCard(M.total != null ? M.total : all.length, "收录条目（筛选后 " + rows.length + "）",
+                 "窗口 " + (dr[0] || "—") + " ~ " + (dr[1] || "—")
+                 + (unld.length ? " · 当前已载入最近 " + ((M.loaded_dates || []).length) + " 个申报日，历史 "
+                    + (M.older_count || 0) + " 条可点筛选栏按钮载入" : " · 全窗口已载入")
+                 + " · 其中 424B* 定价补充 " + n424 + " 条（" + pct424 + "%）")
       + statCard(lastB.batch_id || "—", "最近批次",
                  (lastB.new_entries != null ? "新增 " + lastB.new_entries + " 条 · " : "") + "索引可用 " + nDays + " 天")
       + statCard(dr[1] || "—", "数据至（EDGAR T+1）", "按美东申报日切片 · 当日索引未发布属正常")
@@ -177,6 +232,10 @@
       + '<select class="fsel" id="ufitem"></select>'
       + '<label class="us-chk"><input type="checkbox" id="ufh424"' + (UF.h424 === "1" ? " checked" : "")
       + '/> 隐藏 424B 定价补充</label>'
+      + (unld.length
+        ? '<button class="densbtn" id="ufhist">载入全部历史（' + (M.older_count || "?") + " 条 · "
+          + unld[0] + " 起）</button>"
+        : "")
       + '<button class="btn primary" id="ufcsv">导出 CSV（筛选后全部 ' + rows.length + ' 行）</button>'
       + "</div></div>";
 
@@ -212,6 +271,30 @@
           + 'title="点击筛选含 Item ' + esc(it) + " 的条目\">"
           + '<b>' + esc(it) + "</b> " + esc(ITEM_ZH[it] || "") + " × " + itemCnt[it]
           + '<i style="width:' + Math.round(itemCnt[it] * 100 / maxIt) + '%"></i></span>';
+      });
+      h += "</div></div>";
+    }
+
+    // 重点关注：当前筛选集中的高信号事件（法律/网络安全/退市/完成收购/控制权变更/要约/私有化）
+    var HI_ITEMS = ["1.05", "2.01", "3.01", "5.01", "1.02", "4.01", "4.02"];
+    var HI_FORMS = ["SCTO-T", "SC14D9", "SC13E3", "DEFM14A"];
+    var hi = rows.filter(function (e) {
+      if (e.category === "法律（诉讼/监管处罚）") return true;
+      var f = (e.form || "").replace(/[\s\/]/g, "").toUpperCase().replace(/A$/, "");
+      if (HI_FORMS.indexOf(f) >= 0) return true;
+      return (e.items || []).some(function (it) { return HI_ITEMS.indexOf(it) >= 0; });
+    }).slice(0, 8);
+    if (hi.length) {
+      h += '<div class="panel"><div class="panel-h"><h2>重点关注（当前筛选集高信号事件 '
+        + hi.length + ' 条，按时间倒序）</h2></div><div class="panel-b us-hi">';
+      hi.forEach(function (e) {
+        h += '<div class="us-hirow" data-eid="' + esc(e.id) + '">'
+          + '<span class="code">' + esc(e.date) + '</span> '
+          + '<b>' + esc(e.company) + '</b> '
+          + '<span class="pill blue">' + esc(e.form) + '</span> '
+          + '<span class="pill">' + esc(e.subtype.replace(/（.*$/, "")) + '</span> '
+          + '<span class="us-hisum">' + esc(e.summary) + '</span> '
+          + '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">原文</a></div>';
       });
       h += "</div></div>";
     }
@@ -288,7 +371,8 @@
       + (batches.length ? batches.map(function (b) {
           var ds = Object.keys(b.dates || {}).map(function (d) {
             var v = b.dates[d];
-            return d + (v.status === "ok" ? "(收录" + (v.kept || 0) + ")" : "(索引未发布)");
+            if (v.status === "ok") return d + "(收录" + (v.kept || 0) + ")";
+            return d + "(" + (/周末/.test(v.status || "") ? "周末无索引" : "索引未发布") + ")";
           }).join("、");
           return '<span class="code">' + esc(b.batch_id) + "</span> 新增 " + (b.new_entries || 0) + " 条：" + esc(ds);
         }).join("<br/>") : "—")
@@ -347,12 +431,30 @@
         render();
       });
     });
+    document.querySelectorAll(".us-hirow").forEach(function (el) {
+      el.addEventListener("click", function (ev) {
+        if (ev.target.closest("a")) return;
+        var id = el.getAttribute("data-eid");
+        expanded[id] = 1;
+        var idx = -1;
+        for (var i = 0; i < rows.length; i++) if (rows[i].id === id) { idx = i; break; }
+        if (idx >= 0) UF.page = Math.floor(idx / PAGE) + 1;
+        syncQS(); render();
+        var tr = document.querySelector('.us-row[data-eid="' + id + '"]');
+        if (tr) tr.scrollIntoView({ block: "center" });
+      });
+    });
     var qt;
     $("ufq").addEventListener("input", function (e) {
       clearTimeout(qt);
       qt = setTimeout(function () { UF.q = e.target.value; re(true); }, 350);
     });
-    $("ufcsv").addEventListener("click", function () { exportCSV(filtered()); });
+    var ufhist = $("ufhist");
+    if (ufhist) ufhist.addEventListener("click", function () { loadHistory(); render(); });
+    $("ufcsv").addEventListener("click", function () {
+      if (unloadedDates().length) { loadHistory(function () { exportCSV(filtered()); }); render(); }
+      else exportCSV(filtered());
+    });
     $("uprev").addEventListener("click", function () { if (UF.page > 1) { UF.page--; syncQS(); render(); } });
     $("unext").addEventListener("click", function () { if (UF.page < totalPages) { UF.page++; syncQS(); render(); } });
   }

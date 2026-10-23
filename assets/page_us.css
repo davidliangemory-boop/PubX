@@ -36,6 +36,13 @@
 .us-dgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 18px;
   font-size: 12.5px; line-height: 1.6; padding: 4px 2px; }
 .us-dgrid b { color: var(--ink-3); font-weight: 600; }
+/* 重点关注（高信号事件速览） */
+.us-hi { display: flex; flex-direction: column; gap: 2px; }
+.us-hirow { padding: 6px 8px; border-radius: 7px; font-size: 12.5px; line-height: 1.55; cursor: pointer; }
+.us-hirow:hover { background: var(--hover, rgba(127,127,127,.06)); }
+.us-hirow .code { color: var(--ink-3); }
+.us-hisum { color: var(--ink-2); display: inline; }
+.us-hirow a { white-space: nowrap; }
 @media (max-width: 640px) {
   .us-fbar .btn { margin-left: 0; }
   .us-fbar input[type="search"] { max-width: none; }
