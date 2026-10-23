@@ -20603,7 +20603,7 @@ window.DB = {
   "cursor": "2026-10-02",
   "done": false
  },
- "synced": "2026-10-23 06:35",
+ "synced": "2026-10-23 08:50",
  "events": [
   {
    "event_id": "E-001",
@@ -27862,11 +27862,11 @@ window.DB = {
   }
  },
  "validate": {
-  "generated": "2026-10-23 06:33",
+  "generated": "2026-10-23 08:48",
   "summary": {
    "ERROR": 0,
-   "WARN": 1,
-   "SKIP": 1
+   "WARN": 9,
+   "SKIP": 2
   },
   "issues": [
    {
@@ -27878,11 +27878,335 @@ window.DB = {
     "check": "批次命名",
     "level": "WARN",
     "detail": "14 条存量批次为旧命名（B-YYYYMMDD-HHMM / B-BF-* 等）；原始记录保留，构建层 build_data.py 已聚合为日批次视图 batches_daily"
+   },
+   {
+    "check": "审批表述依据",
+    "level": "WARN",
+    "detail": "E-010: 含「审批/备案完成」类表述但来源无审批类引文支撑"
+   },
+   {
+    "check": "审批表述依据",
+    "level": "WARN",
+    "detail": "E-023: 含「审批/备案完成」类表述但来源无审批类引文支撑"
+   },
+   {
+    "check": "审批表述依据",
+    "level": "WARN",
+    "detail": "E-025: 含「审批/备案完成」类表述但来源无审批类引文支撑"
+   },
+   {
+    "check": "审批表述依据",
+    "level": "WARN",
+    "detail": "E-026: 含「审批/备案完成」类表述但来源无审批类引文支撑"
+   },
+   {
+    "check": "changelog 一致",
+    "level": "WARN",
+    "detail": "E-028: changelog 末条 修正 ≠ update_type_latest 新增"
+   },
+   {
+    "check": "changelog 一致",
+    "level": "WARN",
+    "detail": "E-055: changelog 末条 修正 ≠ update_type_latest 新增"
+   },
+   {
+    "check": "changelog 一致",
+    "level": "WARN",
+    "detail": "2 条不一致"
+   },
+   {
+    "check": "审批表述依据",
+    "level": "WARN",
+    "detail": "4 条待补引文"
+   },
+   {
+    "check": "来源链接可达",
+    "level": "SKIP",
+    "detail": "抽样 8 条全部网络不可达（离线或外网受限），本次跳过"
    }
-  ]
+  ],
+  "pages": {
+   "widths": [
+    375,
+    768,
+    1280
+   ],
+   "routes_checked": 19,
+   "links_checked": 150,
+   "failed": 0,
+   "results": [
+    {
+     "route": "#/",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/events",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/events",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/events?view=table",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/events?view=table",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/board",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/board",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/issues",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/issues",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/cos",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/cos",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/topics",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/topics",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/about",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/about",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/about?tab=validate",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/about?tab=validate",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/event/E-028",
+     "expect": "h1",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/event/E-028",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/feed",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/events",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/hk",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/events?view=hk",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/arc",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/events?view=table",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/detail/23",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/event/E-037",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/ana/graph",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/topics?view=regions",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/sanctions",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/export?col=watch",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/market",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/us",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/cos/projects",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/events",
+     "empty": false,
+     "ok": true
+    },
+    {
+     "route": "#/src",
+     "expect": "redirect",
+     "h1": 1,
+     "overflow": {
+      "375": false,
+      "768": false,
+      "1280": false
+     },
+     "js_errors": [],
+     "final": "#/about",
+     "empty": false,
+     "ok": true
+    }
+   ],
+   "dead_links": []
+  }
  },
  "build": {
-  "time": "2026-10-23 06:35",
+  "time": "2026-10-23 08:50",
   "batch": "D-20261022",
   "events": 60
  }

@@ -341,6 +341,7 @@ body.compact .trendgrid, body.compact .evgrid, body.compact .projgrid { padding:
   .rail { position: static; }
   .trendgrid, .evgrid, .projgrid { grid-template-columns: 1fr; }
   .cards4 { grid-template-columns: repeat(2, 1fr); }
+  .cards3 { grid-template-columns: repeat(2, 1fr); }
   .hgrid { grid-template-columns: 1fr; }
   .kv { grid-template-columns: 1fr; }
   .view { padding: 18px 14px 50px; }

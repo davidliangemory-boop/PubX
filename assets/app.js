@@ -68,12 +68,52 @@
   }
 
   /* ── 事件派生索引 ── */
+  // 国家归一（看板矩阵/筛选用）：取 geo 文本「（」前第一段的首个国家/地区；
+  // 多国事项计入首列国，口径在矩阵下注明，保证合计=事件数
+  var GEO_SKIP = { "全球": "多国/全球", "海外": "多国/全球", "境外": "多国/全球" };
+  function countryOf(geoText) {
+    if (!geoText) return "未披露";
+    var t = String(geoText).split(/[（(]/)[0].trim();
+    var parts = t.split(/[、，,·\/；;]/).map(function (s) { return s.trim(); }).filter(Boolean);
+    var c = parts[0] || "未披露";
+    if (GEO_SKIP[c]) return GEO_SKIP[c];
+    if (c === "香港" || c === "中国香港") return "中国香港";
+    return c;
+  }
+  // 金额解析：scale 文本首个「数字+万/亿+币种」→ {val(亿), cur}；无则 null（不推测）
+  var CUR_TOKENS = ["美元", "港元", "人民币", "澳元", "欧元", "英镑", "日元", "新元", "迪拉姆", "卢比", "加元", "瑞郎"];
+  function amtParse(text) {
+    if (!text) return null;
+    var m = String(text).match(/([0-9][0-9,]*\.?[0-9]*)\s*(亿|万)?\s*(美元|港元|人民币|澳元|欧元|英镑|日元|新元|迪拉姆|卢比|加元|瑞郎|元)/);
+    if (!m) return null;
+    var v = parseFloat(m[1].replace(/,/g, ""));
+    if (isNaN(v)) return null;
+    var unit = m[2] || "";
+    var cur = m[3] === "元" ? "人民币" : m[3];
+    var yi = unit === "亿" ? v : unit === "万" ? v / 10000 : v / 1e8;
+    return { val: yi, cur: cur };
+  }
+  // 跟踪点期限解析：取文本中首个 20xx(-mm(-dd)) / 20xx年；无日期返回 null（列后，不猜）
+  function parseDeadline(text) {
+    if (!text) return null;
+    var m = String(text).match(/(20\d{2})[-年.\/](\d{1,2})[-月.\/](\d{1,2})日?/);
+    if (m) return m[1] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[3]).slice(-2);
+    m = String(text).match(/(20\d{2})[-年.\/](\d{1,2})/);
+    if (m) return m[1] + "-" + ("0" + m[2]).slice(-2);
+    m = String(text).match(/(20\d{2})年?/);
+    if (m) return m[1];
+    return null;
+  }
   var EVX = EV.map(function (e) {
     var latest = e.sources[e.sources.length - 1];
+    var first = e.sources[0];
+    var sc = e.scale ? e.scale.text : "";
+    var ap = amtParse(sc);
     return {
       e: e,
       id: e.event_id,
       date: latest ? latest.date : "",
+      firstDate: first ? first.date : "",
       title: e.title_fact ? e.title_fact.text : e.event_id,
       subject: e.parties && e.parties[0] ? e.parties[0].name : "—",
       mt: e.matter_type ? e.matter_type.value : null,
@@ -81,15 +121,22 @@
       status: e.status,
       ut: e.update_type_latest,
       geo: e.geo ? e.geo.text : null,
-      amt: e.scale ? amtShort(e.scale.text) : "",
+      country: countryOf(e.geo ? e.geo.text : null),
+      amt: sc ? amtShort(sc) : "",
+      amtVal: ap ? ap.val : null,
+      cur: ap ? ap.cur : null,
       chans: unique(e.sources.map(function (s) { return s.channel; }))
     };
   });
   EVX.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+  // 事件议题码（归一类，渲染期经 issueOf 计算；分析层产物）
+  function evIssues(e) {
+    return unique((e.legal_triggers || []).map(function (t) { return issueOf(t)[0]; }).filter(function (c) { return c !== "I0"; }));
+  }
   function evById(id) { for (var i = 0; i < EV.length; i++) if (EV[i].event_id === id) return EV[i]; return null; }
   function docByAid(aid) { for (var i = 0; i < D.length; i++) if (D[i]._aid === aid) return D[i]; return null; }
 
-  /* ═════════ 首页：本期最重要事件 → 数据卡 → 跟踪 → 更新一览 → 入口 ═════════ */
+  /* ═════════ 首页（R04）：本次更新带 → 头条 → 重点观察 → 关键数据 → 持续跟踪 → 入口 ═════════ */
   function vHome() {
     var maxDate = EVX.length ? EVX[0].date : "";
     var d7 = "";
@@ -100,62 +147,9 @@
     for (var bi = 0; bi < BD.length; bi++) if (BD[bi].kind === "daily") { lb = BD[bi]; break; }
     if (!lb) lb = B[0] || {};
 
-    // 头条：优先"进展"事件，否则最近的活跃事件
-    var lead = null;
-    for (var i = 0; i < EVX.length; i++) if (EVX[i].ut === "进展") { lead = EVX[i]; break; }
-    if (!lead) for (var j = 0; j < EVX.length; j++) if (EVX[j].status === "活跃") { lead = EVX[j]; break; }
-    if (!lead && EVX.length) lead = EVX[0];
+    var h = '<div class="ph"><h1>总览</h1><span class="sub">本页回答：本批变了什么、最重要的一件事是什么、接下来盯什么</span></div>';
 
-    var h = '<div class="ph"><h1>总览</h1><span class="sub">本页回答：本期最重要的出海事件是什么、为什么值得关注、接下来盯什么</span></div>';
-    if (lead) {
-      var e = lead.e;
-      var q0 = null, s0 = e.sources[e.sources.length - 1];
-      for (var k = e.sources.length - 1; k >= 0 && !q0; k--) if (e.sources[k].quotes && e.sources[k].quotes[0]) { q0 = e.sources[k].quotes[0]; s0 = e.sources[k]; }
-      h += '<div class="lede"><div class="lede-t">本期重点 · ' + esc(lead.date) + " · " + esc(lead.id) + '</div>'
-        + '<p style="font-size:17px;font-weight:700;line-height:1.7;margin-bottom:8px">' + esc(lead.title) + "</p>"
-        + '<div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px">'
-        + pill(lead.mt, "solid") + pill("阶段：" + lead.stage, "blue") + pill(lead.status) + (lead.amt ? pill(lead.amt, "blue") : "") + "</div>";
-      if (e.terms && e.terms[0]) h += '<div class="sec" style="border:none;padding:2px 0"><span class="sk">关键条件 ' + layerBadge("disclosed") + '</span>' + esc(e.terms[0].text) + (e.terms.length > 1 ? '<span class="dim">（另 ' + (e.terms.length - 1) + " 项见事件详情）</span>" : "") + "</div>";
-      if (q0) h += '<div class="em-q">「' + esc(q0.text) + "」<a href='" + esc(s0.url) + "#page=" + (q0.page || 1) + "' target='_blank' rel='noopener'>原文 P" + (q0.page || "?") + " ↗</a></div>";
-      h += '<div style="font-size:13px;display:flex;gap:14px;flex-wrap:wrap;margin-top:12px">'
-        + '<a href="#/event/' + lead.id + '"><b>完整分析 →</b></a>'
-        + (s0 ? '<a href="' + esc(s0.url) + '" target="_blank" rel="noopener">最新原文 ↗</a>' : "")
-        + '<span class="note">判断与风险分析见事件详情（避免重复呈现）</span></div></div>';
-    } else {
-      h += '<div class="lede"><div class="lede-t">本期重点</div><p>当前样本期内无收录事件。</p></div>';
-    }
-
-    // 关键数据卡（注明口径）
-    var funnel = lb.per_source ? Object.keys(lb.per_source).map(function (k) {
-      var p = lb.per_source[k]; return k.replace(/·.*/, "") + " 扫" + p.scanned + "/收" + p.kept;
-    }).join("；") : "—";
-    h += '<div class="statstrip">'
-      + statCard(D.length, "收录披露", "三渠道累计入库")
-      + statCard(EV.length, "事件", "多源/多公告合并后")
-      + statCard(EVX.length ? unique(EVX.map(function (x) { return x.subject; })).length : 0, "跟踪主体", "有出海实质动作披露")
-      + statCard(recent7, "近7日新增事件", "窗口 " + (d7 || "—") + " ~ " + maxDate)
-      + statCard(lb.kept != null ? lb.kept : "—", "最新日批次收录", esc(lb.id || "—") + (lb.runs > 1 ? "（" + lb.runs + " 轮合并）" : ""))
-      + "</div>";
-    h += '<div class="note" style="margin:-10px 0 20px">口径：最新日批次扫描漏斗（' + esc(lb.id || "—") + " · " + esc(lb.time || "—") + "）：" + esc(funnel) + "；金额保留原文币种，未做汇率换算。</div>";
-
-    // 近期变化 / 观察线索（标题级，不含摘要）
-    h += '<div class="panel"><div class="panel-h"><h2>近期变化 · 观察线索</h2><span class="note">近 7 日有更新的活跃事件，按日期倒序</span><a class="more" href="#/events">事件库 →</a></div>'
-      + '<div class="panel-b">' + (function () {
-        var rows = EVX.filter(function (x) { return x.date >= d7; }).slice(0, 8);
-        if (!rows.length) return '<div class="empty">近 7 日无事件更新</div>';
-        return rows.map(function (x) {
-          return '<div class="ev"><span class="pg">' + esc(x.date) + '</span><span>' + pill(x.ut === "进展" ? "进展" : "新增", x.ut === "进展" ? "blue" : "") + ' <a href="#/event/' + x.id + '"><b>' + esc(x.title) + "</b></a></span><span class='dim' style='margin-left:auto'>" + esc(x.stage || "") + (x.amt ? " · " + esc(x.amt) : "") + "</span></div>";
-        }).join("");
-      })() + "</div></div>";
-
-    // 持续跟踪（活跃事件标题级）
-    var active = EVX.filter(function (x) { return x.status === "活跃"; }).slice(0, 8);
-    h += '<div class="panel"><div class="panel-h"><h2>持续跟踪</h2><span class="note">状态为活跃的事件：条件兑现、审批、交割、投产节点</span></div><div class="panel-b">'
-      + (active.length ? active.map(function (x) {
-        return '<div class="ev"><span class="pg">' + esc(x.date) + '</span><span><a href="#/event/' + x.id + '">' + esc(x.title) + "</a></span><span class='dim' style='margin-left:auto'>" + esc(x.mt || "") + " · " + esc(x.stage || "") + "</span></div>";
-      }).join("") : '<div class="empty">当前无活跃事件</div>') + "</div></div>";
-
-    // 本次更新带：按日批次展示（回溯补入单列）；五类计数（新增/进展/重复/修正/失效），每类可展开到事件
+    /* ── ① 本次更新带（日批次五类计数，可展开到事件；回溯补入单列） ── */
     var todayB = null;
     for (var ti = 0; ti < BD.length; ti++) if (BD[ti].kind === "daily") { todayB = BD[ti]; break; }
     var bdDate = todayB ? todayB.day.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3") : "";
@@ -172,7 +166,7 @@
       + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "，含批次日后的人工修正记录）；计数来自事件层 changelog；点击分类可展开到事件"
                 : "窗口 " + esc(d7 || "—") + " ~ " + esc(maxDate) + "；计数来自事件层 changelog") + '</span></div><div class="panel-b">'
       + '<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px">'
-      + statCard(upd["新增"].length, "新增", "") + statCard(upd["进展"].length, "进展", "") + statCard(upd["重复"].length, "重复", "主键去重，不入库") + statCard(upd["修正"].length, "修正", "改记旧值留痕") + statCard(upd["失效"].length, "失效", "误收 / 作废，改记留痕") + "</div>"
+      + statCard(upd["新增"].length, "新增", "本批新入库事件") + statCard(upd["进展"].length, "进展", "阶段前移或新字段") + statCard(upd["重复"].length, "重复", "主键去重，不入库") + statCard(upd["修正"].length, "修正", "改记旧值留痕") + statCard(upd["失效"].length, "失效", "误收 / 作废，改记留痕") + "</div>"
       + (updTotal ? updTypes.map(function (k) {
           if (!upd[k].length) return "";
           return '<details class="updcat"' + (k === "新增" || k === "进展" ? " open" : "") + '><summary>' + pill(k, k === "进展" ? "blue" : k === "修正" || k === "失效" ? "warn" : "") + '<span class="dim" style="font-size:12px;margin-left:6px">' + upd[k].length + " 条</span></summary>"
@@ -193,7 +187,127 @@
     }
     h += "</div>";
 
-    // 入口
+    /* ── ② 头条事件（近 7 日有实质更新者优先；关注理由标 analysis 并写依据） ── */
+    var lead = null, leadWhy = "";
+    for (var i = 0; i < EVX.length; i++) if ((EVX[i].ut === "进展" || EVX[i].ut === "修正") && EVX[i].date >= d7) { lead = EVX[i]; leadWhy = "近 7 日有实质更新（" + lead.ut + "）"; break; }
+    if (!lead) for (var j = 0; j < EVX.length; j++) if (EVX[j].status === "活跃") { lead = EVX[j]; leadWhy = "最新活跃事件"; break; }
+    if (!lead && EVX.length) { lead = EVX[0]; leadWhy = "最新收录事件"; }
+    if (lead) {
+      var e = lead.e;
+      var q0 = null, s0 = e.sources[e.sources.length - 1];
+      for (var k = e.sources.length - 1; k >= 0 && !q0; k--) if (e.sources[k].quotes && e.sources[k].quotes[0]) { q0 = e.sources[k].quotes[0]; s0 = e.sources[k]; }
+      // 关注理由：执业提示优先、跟踪点次之，取 2–3 条（均为 analysis 层，带依据）
+      var reasons = (e.practice_notes || []).concat(e.watch_points || []).filter(function (r) { return r && r.text; }).slice(0, 3);
+      h += '<div class="lede"><div class="lede-t">头条事件 · ' + esc(lead.date) + " · " + esc(lead.id) + " · 入选依据：" + esc(leadWhy) + '</div>'
+        + '<p style="font-size:18px;font-weight:700;line-height:1.7;margin-bottom:8px">' + esc(lead.title) + "</p>"
+        + '<div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px">'
+        + pill(lead.mt, "solid") + pill("阶段：" + lead.stage, "blue") + pill(lead.status) + (lead.amt ? pill(lead.amt, "blue") : "") + pill(lead.country) + "</div>";
+      // 阶段链位置
+      if (e.stage_chain && e.stage_chain.length) {
+        h += '<div style="font-size:12.5px;color:var(--ink-3);margin-bottom:10px">阶段链位置：'
+          + e.stage_chain.map(function (c, ci) {
+            var cur = ci === e.stage_chain.length - 1;
+            return (ci ? " → " : "") + (cur ? "<b style='color:var(--blue)'>" : "") + esc(c.stage) + " " + esc(c.date) + (cur ? "</b>" : "");
+          }).join("") + "</div>";
+      }
+      if (e.scale && e.scale.text) h += '<div class="sec" style="border:none;padding:2px 0"><span class="sk">规模 ' + layerBadge(e.scale.layer || "disclosed") + (e.scale.basis ? ' <span class="dim">' + esc(e.scale.basis) + "</span>" : "") + '</span>' + esc(e.scale.text) + "</div>";
+      if (reasons.length) {
+        h += '<div style="margin:6px 0 4px"><span class="sk" style="font-size:12px;color:var(--ink-3);display:block;margin-bottom:4px">关注理由（系统分析，逐条附依据）</span>'
+          + reasons.map(function (r, ri) {
+            return '<div class="sec" style="padding:5px 0"><span class="sk">' + layerBadge(r.layer || "analysis") + (r.basis ? ' <span class="dim">依据：' + esc(r.basis) + "</span>" : "") + "</span>" + esc(r.text) + "</div>";
+          }).join("") + "</div>";
+      }
+      if (q0) h += '<div class="em-q">「' + esc(q0.text) + "」<a href='" + esc(s0.url) + "#page=" + (q0.page || 1) + "' target='_blank' rel='noopener'>原文 P" + (q0.page || "?") + " ↗</a></div>";
+      h += '<div style="font-size:13px;display:flex;gap:14px;flex-wrap:wrap;margin-top:12px">'
+        + '<a href="#/event/' + lead.id + '"><b>完整分析 →</b></a>'
+        + (s0 ? '<a href="' + esc(s0.url) + '" target="_blank" rel="noopener">最新原文 ↗</a>' : "")
+        + "</div></div>";
+    } else {
+      h += '<div class="lede"><div class="lede-t">头条事件</div><p>当前样本期内无收录事件。</p></div>';
+    }
+
+    /* ── ③ 重点观察（判断 + 证据链接 + 适用范围；同方向 <3 件标「观察线索」） ── */
+    var obs = [];
+    var scopeAll = "样本：全库 " + EV.length + " 事件（三渠道关键词/名单制采样合并，非全市场）；归一与判断均为系统分析层";
+    var prog = EVX.filter(function (x) { return x.date >= d7 && (x.ut === "进展" || x.ut === "修正"); });
+    if (prog.length) {
+      obs.push({
+        judgment: "近 7 日 " + prog.length + " 件事件出现实质更新（进展/修正）：" + prog.map(function (x) { return shortCo(x.subject); }).join("、") + "。",
+        basis: "按事件 changelog 类型统计，窗口 " + d7 + " ~ " + maxDate,
+        ev: prog, scope: scopeAll, clue: prog.length < 3
+      });
+    }
+    var mtCnt = countBy(function (x) { return x.mt; });
+    var mtTop = Object.keys(mtCnt).sort(function (a, b) { return mtCnt[b] - mtCnt[a]; })[0];
+    if (mtTop) {
+      var mtEvs = EVX.filter(function (x) { return x.mt === mtTop; });
+      obs.push({
+        judgment: "「" + mtTop + "」类事件最多（" + mtCnt[mtTop] + " / " + EV.length + "），为本样本期出海披露的主要形态。",
+        basis: "按归一事项类型计数（matter_type，分析层归一）",
+        ev: mtEvs.slice(0, 4), scope: scopeAll, clue: mtCnt[mtTop] < 3
+      });
+    }
+    var ctyCnt = {};
+    EVX.forEach(function (x) { ctyCnt[x.country] = (ctyCnt[x.country] || 0) + 1; });
+    var ctyTop = Object.keys(ctyCnt).filter(function (c) { return c !== "未披露"; }).sort(function (a, b) { return ctyCnt[b] - ctyCnt[a]; })[0];
+    if (ctyTop) {
+      obs.push({
+        judgment: "目的地集中于「" + ctyTop + "」（" + ctyCnt[ctyTop] + " / " + EV.length + " 事件）。",
+        basis: "按 geo 文本首个国家/地区归一计数；多国事项计入首列国",
+        ev: EVX.filter(function (x) { return x.country === ctyTop; }).slice(0, 4), scope: scopeAll, clue: ctyCnt[ctyTop] < 3
+      });
+    }
+    var term = EVX.filter(function (x) { return x.status === "终止"; });
+    if (term.length) {
+      obs.push({
+        judgment: "有 " + term.length + " 件事件已终止/撤回，提示出海事项存在中途退出的实态，立项判断需计入终止概率。",
+        basis: "按事件 status=终止 计数",
+        ev: term.slice(0, 4), scope: scopeAll, clue: term.length < 3
+      });
+    }
+    if (obs.length) {
+      h += '<div class="panel"><div class="panel-h"><h2>重点观察</h2><span class="note">判断 + 证据 + 适用范围，均为系统分析层；同方向事件不足 3 件时标「观察线索」，不称趋势</span></div><div class="panel-b">'
+        + obs.slice(0, 5).map(function (o) {
+          return '<div class="sec"><span class="sk">' + layerBadge("analysis") + " " + pill(o.clue ? "观察线索" : "重点观察", o.clue ? "warn" : "blue")
+            + ' <span class="dim">依据：' + esc(o.basis) + '</span></span>'
+            + esc(o.judgment)
+            + '<br/><span style="font-size:12.5px">证据：' + o.ev.map(function (x) { return '<a href="#/event/' + x.id + '">' + esc(x.id) + "</a>"; }).join(" · ") + "</span>"
+            + '<br/><span class="dim" style="font-size:12px">适用范围：' + esc(o.scope) + "</span></div>";
+        }).join("") + "</div></div>";
+    }
+
+    /* ── ④ 关键数据（每个数字带口径行） ── */
+    var funnel = lb.per_source ? Object.keys(lb.per_source).map(function (k) {
+      var p = lb.per_source[k]; return k.replace(/·.*/, "") + " 扫" + p.scanned + "/收" + p.kept;
+    }).join("；") : "—";
+    h += '<div class="statstrip">'
+      + statCard(D.length, "收录披露", "三渠道累计入库，截至最新批次")
+      + statCard(EV.length, "事件", "多源/多公告合并后，截至最新批次")
+      + statCard(EVX.length ? unique(EVX.map(function (x) { return x.subject; })).length : 0, "跟踪主体", "有出海实质动作披露的主体数")
+      + statCard(recent7, "近7日有更新事件", "窗口 " + (d7 || "—") + " ~ " + maxDate + "，按事件最新来源日期")
+      + statCard(lb.kept != null ? lb.kept : "—", "最新日批次收录", esc(lb.id || "—") + (lb.runs > 1 ? "（" + lb.runs + " 轮合并）" : ""))
+      + "</div>";
+    h += '<div class="note" style="margin:-10px 0 20px">口径：最新日批次扫描漏斗（' + esc(lb.id || "—") + " · " + esc(lb.time || "—") + "）：" + esc(funnel) + "；金额保留原文币种，未做汇率换算。</div>";
+
+    /* ── ⑤ 持续跟踪（跟踪点按临近期限排序；与更新带/观察不重复同一列表） ── */
+    var nodes = [];
+    EVX.forEach(function (x) {
+      if (x.status !== "活跃") return;
+      (x.e.watch_points || []).forEach(function (w) { nodes.push({ x: x, w: w, dl: parseDeadline(w.text) }); });
+    });
+    nodes.sort(function (a, b) {
+      if (a.dl && b.dl) return a.dl < b.dl ? -1 : 1;
+      if (a.dl) return -1;
+      if (b.dl) return 1;
+      return a.x.date < b.x.date ? 1 : -1;
+    });
+    h += '<div class="panel"><div class="panel-h"><h2>持续跟踪</h2><span class="note">活跃事件跟踪点 ' + nodes.length + " 条；期限自跟踪点文本解析（无明确日期的列后），按临近排序；节点为系统分析</span></div><div class='panel-b'>"
+      + (nodes.length ? nodes.slice(0, 10).map(function (n) {
+        return '<div class="ev"><span class="pg">' + esc(n.dl || "无期限") + '</span><span><a href="#/event/' + n.x.id + '">' + esc(n.x.title) + "</a>"
+          + '<br/><span class="dim" style="font-size:12px">' + esc((n.w.text || "").slice(0, 76)) + ((n.w.text || "").length > 76 ? "…" : "") + "</span></span></div>";
+      }).join("") : '<div class="empty">当前无活跃事件跟踪点</div>') + "</div></div>";
+
+    /* ── ⑥ 入口 ── */
     h += '<div class="feedch"><h2>进入各库</h2></div><div class="cards4">'
       + '<a class="stat" style="text-decoration:none" href="#/events"><div class="n">' + EV.length + '</div><div class="c">事件库</div><div class="d">筛选 / 表格 / 时间线 / 港股名单</div></a>'
       + '<a class="stat" style="text-decoration:none" href="#/cos"><div class="n">' + unique(EVX.map(function (x) { return x.subject; })).length + '</div><div class="c">企业档案</div><div class="d">主体事件链与筛查记录</div></a>'
@@ -209,17 +323,37 @@
     return h;
   }
 
-  /* ═════════ 事件库：卡片 / 表格 / 时间线 / 港股名单，筛选入 URL ═════════ */
-  var F = { q: "", ch: "全部", mt: "全部", stage: "全部", geo: "全部", ut: "全部", status: "全部", view: "cards", mode: "month" };
+  /* ═════════ 事件库：卡片 / 表格（自定义列+导出） / 时间线 / 港股名单，筛选入 URL ═════════ */
+  // 表格自定义列（借鉴投行天下 /ipo-review/a-stock：自定义列 + 导出当前筛选全部结果）
+  var EV_COLS = [
+    ["date", "最近更新"], ["firstDate", "首次披露"], ["title", "事件"], ["subject", "发行人"],
+    ["country", "国家/地区"], ["mt", "事项"], ["stage", "阶段"], ["amt", "金额/规模"],
+    ["cur", "币种"], ["issues", "议题码"], ["chans", "渠道"], ["status", "状态"], ["ut", "更新类型"]
+  ];
+  var EV_COLS_DEFAULT = ["date", "title", "subject", "country", "mt", "stage", "amt", "status", "ut"];
+  var F = { q: "", ch: "全部", mt: "全部", stage: "全部", geo: "全部", country: "全部", ut: "全部", status: "全部",
+            cur: "全部", amtmin: "", amtmax: "", dfrom: "", dto: "",
+            view: "cards", mode: "month", cols: EV_COLS_DEFAULT.slice() };
   function evFiltered() {
     var q = F.q.trim().toLowerCase();
+    var amin = parseFloat(F.amtmin), amax = parseFloat(F.amtmax);
     return EVX.filter(function (x) {
       if (F.ch !== "全部" && x.chans.indexOf(F.ch) < 0) return false;
       if (F.mt !== "全部" && x.mt !== F.mt) return false;
       if (F.stage !== "全部" && x.stage !== F.stage) return false;
       if (F.geo !== "全部" && (x.geo || "").indexOf(F.geo) < 0) return false;
+      if (F.country !== "全部" && x.country !== F.country) return false;
       if (F.ut !== "全部" && x.ut !== F.ut) return false;
       if (F.status !== "全部" && x.status !== F.status) return false;
+      if (F.cur !== "全部" && x.cur !== F.cur) return false;
+      if (!isNaN(amin) || !isNaN(amax)) {
+        // 金额区间：按原文币种数值（折算为亿）比较；未披露金额/非金额规模不入选
+        if (x.amtVal == null) return false;
+        if (!isNaN(amin) && x.amtVal < amin) return false;
+        if (!isNaN(amax) && x.amtVal > amax) return false;
+      }
+      if (F.dfrom && x.date < F.dfrom) return false;
+      if (F.dto && x.date > F.dto) return false;
       if (q && (x.title + " " + x.subject + " " + (x.geo || "") + " " + x.id).toLowerCase().indexOf(q) < 0) return false;
       return true;
     });
@@ -228,7 +362,10 @@
     var p = [];
     if (F.view !== "cards") p.push("view=" + F.view);
     if (F.mode !== "month") p.push("mode=" + F.mode);
-    ["q", "ch", "mt", "stage", "geo", "ut", "status"].forEach(function (k) { if (F[k] && F[k] !== "全部") p.push(k + "=" + encodeURIComponent(F[k])); });
+    ["q", "ch", "mt", "stage", "geo", "country", "ut", "status", "cur", "amtmin", "amtmax", "dfrom", "dto"].forEach(function (k) {
+      if (F[k] && F[k] !== "全部") p.push(k + "=" + encodeURIComponent(F[k]));
+    });
+    if (F.cols.join(",") !== EV_COLS_DEFAULT.join(",")) p.push("cols=" + F.cols.join(","));
     var h2 = "#/events" + (p.length ? "?" + p.join("&") : "");
     if (location.hash.split("?")[0] !== "#/events" || h2 !== location.hash) {
       history.replaceState(null, "", h2);
@@ -242,6 +379,58 @@
     }).join("");
   }
   function countBy(fn) { var m = {}; EVX.forEach(function (x) { var k = fn(x); if (k) m[k] = (m[k] || 0) + 1; }); return m; }
+  // 单元格取值：未取得字段显示「暂未取得」（R07）；title/subject 必有
+  function evCell(x, key) {
+    switch (key) {
+      case "date": return '<td class="mono">' + esc(x.date || "暂未取得") + "</td>";
+      case "firstDate": return '<td class="mono">' + esc(x.firstDate || "暂未取得") + "</td>";
+      case "title": return "<td><b>" + esc(x.title) + "</b></td>";
+      case "subject": return "<td>" + esc(shortCo(x.subject)) + "</td>";
+      case "country": return "<td>" + (x.country === "未披露" ? '<span class="na">【未披露】</span>' : esc(x.country)) + "</td>";
+      case "mt": return "<td>" + (x.mt ? pill(x.mt) : '<span class="na">暂未取得</span>') + "</td>";
+      case "stage": return "<td>" + esc(x.stage || "暂未取得") + "</td>";
+      case "amt": return '<td class="money">' + (x.amt ? esc(x.amt) : '<span class="na">【未披露】</span>') + "</td>";
+      case "cur": return "<td>" + (x.cur ? esc(x.cur) : '<span class="na">暂未取得</span>') + "</td>";
+      case "issues": return "<td>" + (evIssues(x.e).map(function (c) { return pill(c, "blue"); }).join(" ") || '<span class="na">暂未取得</span>') + "</td>";
+      case "chans": return "<td>" + x.chans.map(function (c) { return (CH_META[c] ? '<span class="chtag ' + CH_META[c].cls + '">' + CH_META[c].short + "</span>" : esc(c)); }).join(" ") + "</td>";
+      case "status": return "<td>" + esc(x.status) + "</td>";
+      case "ut": return "<td>" + pill(x.ut, x.ut === "进展" ? "blue" : x.ut === "修正" ? "warn" : "") + "</td>";
+    }
+    return "<td></td>";
+  }
+  // 导出当前筛选的全部结果 CSV（列=当前自定义列；带 BOM 供 Excel；本机生成不经服务器）
+  function evExportCSV() {
+    var rows = evFiltered();
+    var cols = F.cols.filter(function (c) { return EV_COLS.some(function (d) { return d[0] === c; }); });
+    var head = cols.map(function (c) { return EV_COLS.filter(function (d) { return d[0] === c; })[0][1]; });
+    function txt(x, key) {
+      switch (key) {
+        case "date": return x.date || "暂未取得";
+        case "firstDate": return x.firstDate || "暂未取得";
+        case "title": return x.title;
+        case "subject": return x.subject;
+        case "country": return x.country === "未披露" ? "【未披露】" : x.country;
+        case "mt": return x.mt || "暂未取得";
+        case "stage": return x.stage || "暂未取得";
+        case "amt": return x.amt || "【未披露】";
+        case "cur": return x.cur || "暂未取得";
+        case "issues": return evIssues(x.e).join(" ") || "暂未取得";
+        case "chans": return x.chans.join(" ");
+        case "status": return x.status;
+        case "ut": return x.ut;
+      }
+      return "";
+    }
+    function csvCell(v) { v = String(v == null ? "" : v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+    var lines = [head.map(csvCell).join(",")].concat(rows.map(function (x) {
+      return cols.map(function (c) { return csvCell(txt(x, c)); }).join(",");
+    }));
+    var blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "pubx-events-" + rows.length + "rows-" + ((DB.build && DB.build.batch) || "snap") + ".csv";
+    a.click();
+  }
   function vEvents() {
     var h = '<div class="ph"><h1>事件库</h1><span class="sub">本页回答：最近有哪些出海实质动作，按渠道/类型/阶段/国家/更新类型/状态筛选</span>'
       + '<span class="right">' + pill("合并自：信息流 / 披露总表 / 港股跟踪 / 项目·生命周期·日历", "") + "</span></div>";
@@ -250,11 +439,21 @@
       + '<select class="fsel" id="evch">' + optList(["全部", "A股·巨潮", "港股·披露易", "美股·EDGAR"], F.ch, (function () { var m = {}; EVX.forEach(function (x) { x.chans.forEach(function (c) { m[c] = (m[c] || 0) + 1; }); }); return m; })()) + "</select>"
       + '<select class="fsel" id="evmt">' + optList(["全部", "设厂", "并购", "合资", "销售", "融资", "退出", "诉讼", "监管"], F.mt, countBy(function (x) { return x.mt; })) + "</select>"
       + '<select class="fsel" id="evstage">' + optList(unique(["全部"].concat(EV.map(function (e) { return e.stage_current; }))), F.stage, countBy(function (x) { return x.stage; })) + "</select>"
-      + '<select class="fsel" id="evgeo">' + optList(["全部"].concat(unique(EVX.map(function (x) { return x.geo; })).slice(0, 40)), F.geo) + "</select>"
+      + '<select class="fsel" id="evcountry">' + optList(["全部"].concat(unique(EVX.map(function (x) { return x.country; })).sort()), F.country, countBy(function (x) { return x.country; })) + "</select>"
       + '<select class="fsel" id="evut">' + optList(["全部", "新增", "进展", "修正"], F.ut, countBy(function (x) { return x.ut; })) + "</select>"
       + '<select class="fsel" id="evst">' + optList(["全部", "活跃", "完成", "终止"], F.status, countBy(function (x) { return x.status; })) + "</select>"
       + '<button class="btn" id="evreset">清空</button>'
       + '<span class="note" id="evcount" style="margin-left:auto"></span></div>';
+    // 第二行：金额/日期区间（口径注释随控件）
+    h += '<div class="filterbar" style="border-bottom:1px solid var(--line);padding-top:0">'
+      + '<span class="note">金额区间（亿·原文币种）</span>'
+      + '<select class="fsel" id="evcur">' + optList(["全部"].concat(unique(EVX.map(function (x) { return x.cur; })).sort()), F.cur, countBy(function (x) { return x.cur; })) + "</select>"
+      + '<input class="finput" id="evmin" style="min-width:70px;width:80px" placeholder="≥" value="' + esc(F.amtmin) + '"/>'
+      + '<input class="finput" id="evmax" style="min-width:70px;width:80px" placeholder="≤" value="' + esc(F.amtmax) + '"/>'
+      + '<span class="note">最近更新日期</span>'
+      + '<input class="finput" id="evfrom" style="min-width:120px" type="date" value="' + esc(F.dfrom) + '"/>'
+      + '<input class="finput" id="evto" style="min-width:120px" type="date" value="' + esc(F.dto) + '"/>'
+      + '<span class="note">金额按原文币种折算为亿比较，不跨币种合计；未披露金额的事件在设区间时不入选</span></div>';
     h += '<div class="subnav wrap" style="padding:8px 24px 0;border-bottom:1px solid var(--line)">'
       + [["cards", "卡片"], ["table", "表格"], ["timeline", "时间线"], ["hk", "港股名单"]].map(function (x) {
         return '<a href="javascript:;" data-evview="' + x[0] + '"' + (F.view === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
@@ -263,6 +462,9 @@
         + [["month", "按月"], ["stage", "按阶段"]].map(function (x) {
           return '<a href="javascript:;" data-evmode="' + x[0] + '"' + (F.mode === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
         }).join("") + "</span>" : "")
+      + (F.view === "table" ? '<span style="margin-left:auto;display:flex;gap:8px;align-items:center">'
+        + '<a href="javascript:;" id="evcolbtn">自定义列（' + F.cols.length + "）</a>"
+        + '<a href="javascript:;" id="evcsv"><b>导出 CSV（全部筛选结果）</b></a></span>' : "")
       + "</div>";
     h += '<div class="panel-b" id="evrows"></div></div>';
     return h;
@@ -272,15 +474,14 @@
     var cnt = $("evcount"); if (cnt) cnt.textContent = "显示 " + rows.length + " / " + EVX.length;
     var box = $("evrows"); if (!box) return;
     if (F.view === "table") {
-      box.innerHTML = '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>事件</th><th>主体</th><th>类型</th><th>阶段</th><th>金额/规模</th><th>状态</th><th>渠道</th><th>更新</th></tr></thead><tbody>'
+      box.innerHTML = '<div class="tbl-wrap"><table class="tbl"><thead><tr>'
+        + F.cols.map(function (c) { return "<th>" + esc(EV_COLS.filter(function (d) { return d[0] === c; })[0][1]) + "</th>"; }).join("")
+        + '</tr></thead><tbody>'
         + rows.map(function (x) {
-          return '<tr class="click" data-href="#/event/' + x.id + '"><td class="mono">' + esc(x.date) + '</td>'
-            + '<td><b>' + esc(x.title) + "</b></td><td>" + esc(shortCo(x.subject)) + "</td>"
-            + '<td>' + pill(x.mt || "—") + '</td><td>' + esc(x.stage || "—") + '</td>'
-            + '<td class="money">' + esc(x.amt || "—") + '</td><td>' + esc(x.status) + '</td>'
-            + '<td>' + x.chans.map(function (c) { return (CH_META[c] ? '<span class="chtag ' + CH_META[c].cls + '">' + CH_META[c].short + "</span>" : esc(c)); }).join(" ") + "</td>"
-            + '<td>' + pill(x.ut, x.ut === "进展" ? "blue" : "") + "</td></tr>";
-        }).join("") + "</tbody></table></div>";
+          return '<tr class="click" data-href="#/event/' + x.id + '">'
+            + F.cols.map(function (c) { return evCell(x, c); }).join("") + "</tr>";
+        }).join("") + "</tbody></table></div>"
+        + '<div class="secnote">表格可横向滚动；导出 CSV 含当前筛选的全部 ' + rows.length + " 行（非仅本页），列=当前自定义列。</div>";
       box.querySelectorAll("tr.click").forEach(function (tr) { tr.addEventListener("click", function () { location.hash = tr.getAttribute("data-href"); }); });
       return;
     }
@@ -330,11 +531,15 @@
   }
   function bindEvents() {
     $("evq").addEventListener("input", function (e) { F.q = e.target.value; evSyncURL(); evRows(); });
-    [["evch", "ch"], ["evmt", "mt"], ["evstage", "stage"], ["evgeo", "geo"], ["evut", "ut"], ["evst", "status"]].forEach(function (x) {
+    [["evch", "ch"], ["evmt", "mt"], ["evstage", "stage"], ["evcountry", "country"], ["evut", "ut"], ["evst", "status"], ["evcur", "cur"]].forEach(function (x) {
+      $(x[0]).addEventListener("change", function (e) { F[x[1]] = e.target.value; evSyncURL(); evRows(); });
+    });
+    [["evmin", "amtmin"], ["evmax", "amtmax"], ["evfrom", "dfrom"], ["evto", "dto"]].forEach(function (x) {
       $(x[0]).addEventListener("change", function (e) { F[x[1]] = e.target.value; evSyncURL(); evRows(); });
     });
     $("evreset").addEventListener("click", function () {
-      F = { q: "", ch: "全部", mt: "全部", stage: "全部", geo: "全部", ut: "全部", status: "全部", view: F.view, mode: F.mode };
+      F = { q: "", ch: "全部", mt: "全部", stage: "全部", geo: "全部", country: "全部", ut: "全部", status: "全部",
+            cur: "全部", amtmin: "", amtmax: "", dfrom: "", dto: "", view: F.view, mode: F.mode, cols: EV_COLS_DEFAULT.slice() };
       view.innerHTML = vEvents(); bindEvents(); evRows(); evSyncURL();
     });
     document.querySelectorAll("[data-evview]").forEach(function (a) {
@@ -342,6 +547,28 @@
     });
     document.querySelectorAll("[data-evmode]").forEach(function (a) {
       a.addEventListener("click", function () { F.mode = a.getAttribute("data-evmode"); view.innerHTML = vEvents(); bindEvents(); evRows(); evSyncURL(); });
+    });
+    var csvBtn = $("evcsv");
+    if (csvBtn) csvBtn.addEventListener("click", evExportCSV);
+    var colBtn = $("evcolbtn");
+    if (colBtn) colBtn.addEventListener("click", function () {
+      var box = $("evrows");
+      var panel = document.createElement("div");
+      panel.id = "evcolpick";
+      panel.style.cssText = "border:1px dashed var(--line-2);border-radius:8px;padding:10px 14px;margin-bottom:12px;display:flex;gap:12px;flex-wrap:wrap";
+      panel.innerHTML = '<span class="note" style="width:100%">勾选表格列（即时生效，随 URL 参数 cols 可分享）：</span>'
+        + EV_COLS.map(function (c) {
+          return '<label class="fchk"><input type="checkbox" data-col="' + c[0] + '"' + (F.cols.indexOf(c[0]) >= 0 ? " checked" : "") + "/>" + esc(c[1]) + "</label>";
+        }).join("");
+      box.parentNode.insertBefore(panel, box);
+      colBtn.style.pointerEvents = "none";
+      panel.querySelectorAll("[data-col]").forEach(function (cb) {
+        cb.addEventListener("change", function () {
+          F.cols = EV_COLS.filter(function (c) { return panel.querySelector('[data-col="' + c[0] + '"]').checked; }).map(function (c) { return c[0]; });
+          if (!F.cols.length) F.cols = ["title"];
+          evRows(); evSyncURL();
+        });
+      });
     });
   }
 
@@ -513,43 +740,111 @@
     return h;
   }
 
-  /* ═════════ 项目看板：阶段 × 事项矩阵（借鉴投行天下看板：含合计行列、点击穿透到事件库、KPI 注口径） ═════════ */
+  /* ═════════ 项目看板（R07，借鉴投行天下）：阶段×国家 / 阶段×事项双矩阵含合计可穿透；KPI 注口径；节点临近；资金透视 ═════════ */
+  var STAGE_ORDER = ["意向", "协议", "中标/签约", "实施", "变更", "投产/运营", "完成"];
   function vBoard() {
-    var stages = unique(EV.map(function (e) { return e.stage_current; }).filter(Boolean));
-    var mts = unique(EVX.map(function (x) { return x.mt; }).filter(Boolean));
-    var cell = {}, rowSum = {}, colSum = {};
-    EVX.forEach(function (x) {
-      var s = x.stage || "未定", m = x.mt || "未归类";
-      var k = s + "|" + m;
-      cell[k] = (cell[k] || 0) + 1;
-      rowSum[s] = (rowSum[s] || 0) + 1;
-      colSum[m] = (colSum[m] || 0) + 1;
-    });
-    if (stages.indexOf("未定") < 0 && Object.keys(rowSum).some(function (s) { return s === "未定"; })) stages.push("未定");
-    var h = '<div class="ph"><h1>项目看板</h1><span class="sub">本页回答：在途事件处于什么阶段、按事项类型如何分布；点击格子穿透到事件库对应筛选</span></div>';
-    h += '<div class="panel"><div class="panel-h"><h2>阶段 × 事项类型矩阵</h2><span class="note">口径：当前事件层 ' + EV.length + ' 个事件（多源合并后），按 stage_current × matter_type 计数；合计行列与事件库筛选结果一致</span></div>'
-      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>阶段 ＼ 事项</th>'
-      + mts.map(function (m) { return "<th>" + esc(m) + "</th>"; }).join("") + "<th>合计</th></tr></thead><tbody>"
-      + stages.map(function (s) {
-        return "<tr><th class='rowh'>" + esc(s) + "</th>"
-          + mts.map(function (m) {
-            var n = cell[s + "|" + m] || 0;
-            return '<td class="mono">' + (n ? '<a href="#/events?stage=' + encodeURIComponent(s) + "&mt=" + encodeURIComponent(m) + '"><b>' + n + "</b></a>" : '<span class="dim">·</span>') + "</td>";
-          }).join("")
-          + '<td class="mono"><b>' + (rowSum[s] || 0) + "</b></td></tr>";
-      }).join("")
-      + "<tr><th class='rowh'>合计</th>" + mts.map(function (m) { return '<td class="mono"><b>' + (colSum[m] || 0) + "</b></td>"; }).join("")
-      + '<td class="mono"><b>' + EVX.length + "</b></td></tr></tbody></table></div>"
-      + '<div class="secnote">样本口径：仅覆盖已收录披露合并成的事件（三渠道关键词/名单制采样，非全市场）；未入库主体不在样本内，不作全市场结论。</div></div>';
-    // 临近节点表：活跃事件的跟踪点（按事件最新日期排序）
-    var act = EVX.filter(function (x) { return x.status === "活跃"; });
+    var stages = unique(EV.map(function (e) { return e.stage_current; }).filter(Boolean))
+      .sort(function (a, b) { var ia = STAGE_ORDER.indexOf(a), ib = STAGE_ORDER.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); });
+    var mts = unique(EVX.map(function (x) { return x.mt; }).filter(Boolean)).sort(function (a, b) { return countBy(function (x) { return x.mt; })[b] - countBy(function (x) { return x.mt; })[a]; });
+    var ctys = unique(EVX.map(function (x) { return x.country; }).filter(function (c) { return c !== "未披露"; }))
+      .sort(function (a, b) { return countBy(function (x) { return x.country; })[b] - countBy(function (x) { return x.country; })[a]; });
+    var noGeo = EVX.filter(function (x) { return x.country === "未披露"; }).length;
+    var inFlight = EVX.filter(function (x) { return x.status === "活跃"; });
+    var done = EVX.filter(function (x) { return x.status === "完成"; });
+    var term = EVX.filter(function (x) { return x.status === "终止"; });
+    var lb = (DB.batches_daily || [])[0] || {};
+
+    var h = '<div class="ph"><h1>项目看板</h1><span class="sub">本页回答：在途事件处于什么阶段、分布在哪；点击矩阵格子穿透到事件库对应筛选</span></div>';
+    // KPI（每个注口径，仿投行天下注释）
+    h += '<div class="statstrip">'
+      + statCard(EV.length, "在库事件", "多源合并后；截至 " + esc(lb.id || "—"))
+      + statCard(inFlight.length, "在途（活跃）", "status=活跃；不含完成/终止")
+      + statCard(done.length, "已完成", "status=完成（交割/挂牌等）")
+      + statCard(term.length, "已终止", "status=终止（撤回/终止公告）")
+      + statCard(noGeo, "未披露国家", "不计入国家矩阵")
+      + "</div>";
+
+    // 矩阵渲染助手：rows=阶段, cols=国家或事项；合计行列；格子穿透 #/events?stage=..&country/mt=..
+    function matrix(cols, keyFn, paramName, caliber) {
+      var cell = {}, rowSum = {}, colSum = {};
+      EVX.forEach(function (x) {
+        var s = x.stage || "未定", m = keyFn(x);
+        if (m == null) return;
+        cell[s + "|" + m] = (cell[s + "|" + m] || 0) + 1;
+        rowSum[s] = (rowSum[s] || 0) + 1;
+        colSum[m] = (colSum[m] || 0) + 1;
+      });
+      var rows = stages.concat(Object.keys(rowSum).filter(function (s) { return stages.indexOf(s) < 0; }));
+      var total = Object.keys(colSum).reduce(function (a, k) { return a + colSum[k]; }, 0);
+      return '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>阶段 ＼ ' + esc(paramName === "country" ? "国家/地区" : "事项") + '</th>'
+        + cols.map(function (m) { return "<th>" + esc(m) + "</th>"; }).join("") + "<th>合计</th></tr></thead><tbody>"
+        + rows.map(function (s) {
+          return "<tr><th class='rowh'>" + esc(s) + "</th>"
+            + cols.map(function (m) {
+              var n = cell[s + "|" + m] || 0;
+              return '<td class="mono">' + (n ? '<a href="#/events?stage=' + encodeURIComponent(s) + "&" + paramName + "=" + encodeURIComponent(m) + '"><b>' + n + "</b></a>" : '<span class="dim">·</span>') + "</td>";
+            }).join("")
+            + '<td class="mono"><b><a href="#/events?stage=' + encodeURIComponent(s) + '">' + (rowSum[s] || 0) + "</a></b></td></tr>";
+        }).join("")
+        + "<tr><th class='rowh'>合计</th>" + cols.map(function (m) {
+          return '<td class="mono"><b><a href="#/events?' + paramName + "=" + encodeURIComponent(m) + '">' + (colSum[m] || 0) + "</a></b></td>";
+        }).join("")
+        + '<td class="mono"><b>' + total + "</b></td></tr></tbody></table></div>"
+        + '<div class="secnote">' + caliber + "</div>";
+    }
+
+    h += '<div class="panel"><div class="panel-h"><h2>阶段 × 国家/地区矩阵</h2><span class="note">口径：当前事件层 ' + EV.length + ' 个事件按 stage_current × 国家归一计数；国家取 geo 文本首个国家/地区，多国事项计入首列国；合计行列与事件库筛选结果一致</span></div>'
+      + matrix(ctys, function (x) { return x.country === "未披露" ? null : x.country; }, "country",
+        "样本口径：仅覆盖已收录披露合并成的事件（三渠道关键词/名单制采样，非全市场）；未披露国家 " + noGeo + " 个事件不计入矩阵；不作全市场结论。") + "</div>";
+
+    h += '<div class="panel"><div class="panel-h"><h2>阶段 × 事项类型矩阵</h2><span class="note">口径：stage_current × matter_type（归一类，分析层）计数</span></div>'
+      + matrix(mts, function (x) { return x.mt; }, "mt",
+        "未归类事项类型的事件不计入本矩阵；矩阵合计 = 事件库对应筛选数，可逐格点击核验。") + "</div>";
+
+    // 节点临近表：跟踪点中有日期的按日期升序（最近的在前），无日期的列后并注明
     var nodes = [];
-    act.forEach(function (x) { (x.e.watch_points || []).forEach(function (w) { nodes.push({ x: x, w: w }); }); });
-    h += '<div class="panel"><div class="panel-h"><h2>待跟踪节点</h2><span class="note">活跃事件 ' + act.length + " 个的跟踪点，按事件最新披露日期倒序；节点为系统分析（依据见事件详情）</span></div><div class='panel-b'>"
+    EVX.forEach(function (x) {
+      (x.e.watch_points || []).forEach(function (w) { nodes.push({ x: x, w: w, dl: parseDeadline(w.text) }); });
+    });
+    nodes.sort(function (a, b) {
+      if (a.dl && b.dl) return a.dl < b.dl ? -1 : 1;
+      if (a.dl) return -1;
+      if (b.dl) return 1;
+      return a.x.date < b.x.date ? 1 : -1;
+    });
+    h += '<div class="panel"><div class="panel-h"><h2>节点临近表</h2><span class="note">全部事件跟踪点 ' + nodes.length + " 条；日期自跟踪点文本解析（无明确日期列后）；节点为系统分析，依据见事件详情 §⑦</span></div><div class='panel-b'>"
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>期限</th><th>事件</th><th>节点</th><th>来源</th></tr></thead><tbody>'
       + (nodes.length ? nodes.map(function (n) {
-        return '<div class="ev"><span class="pg">' + esc(n.x.date) + '</span><span><a href="#/event/' + n.x.id + '">' + esc(n.x.title) + "</a></span>"
-          + '<span class="dim" style="font-size:12px">' + esc((n.w.text || "").slice(0, 72)) + ((n.w.text || "").length > 72 ? "…" : "") + "</span></div>";
-      }).join("") : '<div class="empty">当前无活跃事件</div>') + "</div></div>";
+        return '<tr><td class="mono">' + esc(n.dl || "无明确日期") + '</td>'
+          + '<td style="font-size:12.5px"><a href="#/event/' + n.x.id + '">' + esc(n.x.title.slice(0, 40)) + (n.x.title.length > 40 ? "…" : "") + "</a></td>"
+          + '<td style="font-size:12.5px">' + esc((n.w.text || "").slice(0, 60)) + ((n.w.text || "").length > 60 ? "…" : "") + "</td>"
+          + '<td><a href="#/event/' + n.x.id + '">详情 §⑦</a></td></tr>';
+      }).join("") : '<tr><td colspan="4"><div class="empty">当前无跟踪点</div></td></tr>') + "</tbody></table></div></div></div>";
+
+    // 资金透视（R07）：按币种分列，不做跨币种合计，除非原文给出折算
+    var funds = (V.funds || []);
+    var byCcy = {};
+    funds.forEach(function (f) {
+      var k = f.ccy || "未识别";
+      var yi = f.scale === "亿" ? f.num : f.scale === "万" ? f.num / 10000 : f.num / 1e8;
+      (byCcy[k] = byCcy[k] || { n: 0, sum: 0 }).n++;
+      byCcy[k].sum += yi;
+    });
+    var ccyKeys = Object.keys(byCcy).sort(function (a, b) { return byCcy[b].n - byCcy[a].n; });
+    h += '<div class="panel"><div class="panel-h"><h2>资金透视</h2><span class="note">'
+      + funds.length + " 条金额解析自披露原文；按币种分列，不做跨币种合计；同一公告的原币与折算人民币分别成条</span></div>"
+      + '<div class="statstrip" style="margin:14px 24px 0">'
+      + ccyKeys.map(function (k) {
+        return statCard(byCcy[k].sum >= 100 ? Math.round(byCcy[k].sum) : (Math.round(byCcy[k].sum * 100) / 100), "亿" + k, byCcy[k].n + " 条解析 · 原文币种");
+      }).join("") + "</div>"
+      + '<div class="panel-b" style="padding-top:8px"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>主体</th><th>金额（原文）</th><th>类型</th><th>方向</th><th></th></tr></thead><tbody>'
+      + funds.slice(0, 30).map(function (f) {
+        var ev = EDOC[f.aid];
+        return '<tr><td class="mono">' + esc(f.date) + '</td><td style="font-size:12.5px">' + esc(shortCo(f.company)) + '</td>'
+          + '<td class="money">' + esc(f.raw) + '</td><td>' + pill(f.ftype || "—") + '</td><td style="font-size:12px">' + esc(f.direction || "—") + '</td>'
+          + '<td>' + (ev ? '<a href="#/event/' + ev.event_id + '">事件 →</a>' : '<span class="dim">未挂事件</span>') + "</td></tr>";
+      }).join("") + "</tbody></table></div>"
+      + '<div class="secnote">口径：金额由披露「投资金额」字段解析（derive.py），仅覆盖有明确金额的披露；最近 30 条，全量见事件库金额区间筛选。</div></div></div>';
     return h;
   }
 
@@ -892,7 +1187,22 @@
         + statCard(sm.SKIP, "SKIP", "条件未满足而跳过（如原文缓存缺失）")
         + statCard(esc(VR.generated || "—"), "最近质检时间", "scripts/validate.py")
         + "</div>"
-        + '<div class="panel"><div class="panel-h"><h2>检查项明细</h2><span class="note">JSON 可解析 · id 唯一 · 必填字段 · 三分层 basis · 金额口径 · 引文回原文 · 前端资源</span></div><div class="panel-b">'
+        + (VR.pages ? '<div class="panel"><div class="panel-h"><h2>页面检查（无头浏览器）</h2><span class="note">'
+          + "每条路由 × " + (VR.pages.widths || []).join("/") + "px：唯一 H1、无横向溢出、无 JS 报错、旧路由跳转；站内链接全局去重检查 "
+          + (VR.pages.links_checked || 0) + " 条；失败 " + VR.pages.failed + " / " + VR.pages.routes_checked + "</span></div>"
+          + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>路由</th><th>类型</th><th>H1 / 跳转结果</th><th>横向溢出</th><th>JS报错</th><th>结果</th></tr></thead><tbody>'
+          + (VR.pages.results || []).map(function (r) {
+            var ov = Object.keys(r.overflow || {}).filter(function (w) { return r.overflow[w]; });
+            return "<tr><td class='mono'>" + esc(r.route) + "</td><td>" + (r.expect === "redirect" ? "旧路由跳转" : "内容页") + "</td>"
+              + "<td class='mono'>" + (r.expect === "redirect" ? "→ " + esc(r.final || "—") : (r.h1 == null ? "—" : r.h1)) + "</td>"
+              + "<td>" + (ov.length ? '<span class="st bad">' + ov.join("/") + "</span>" : '<span class="st ok">无</span>') + "</td>"
+              + "<td class='mono'>" + (r.js_errors && r.js_errors.length ? '<span class="st bad">' + r.js_errors.length + "</span>" : "0") + "</td>"
+              + "<td>" + (r.ok ? '<span class="st ok">通过</span>' : '<span class="st bad">失败</span>') + "</td></tr>";
+          }).join("") + "</tbody></table></div>"
+          + ((VR.pages.dead_links || []).length ? '<div class="secnote">站内死链：' + VR.pages.dead_links.map(function (l) { return esc(l); }).join(" · ") + "</div>"
+            : '<div class="secnote">站内死链：0 条（' + (VR.pages.links_checked || 0) + " 条去重链接全部可渲染）</div>") + "</div>"
+          : '<div class="panel"><div class="panel-b"><div class="empty">本次质检未含页面检查（无 playwright 环境时跳过，详见下方 SKIP 项）</div></div></div>')
+        + '<div class="panel"><div class="panel-h"><h2>检查项明细</h2><span class="note">JSON 可解析 · id 唯一 · 必填字段 · 三分层 basis · external 来源 · 阶段链/changelog 一致 · doc 唯一归属 · 审批表述依据 · 金额口径 · 引文回原文 · 来源链接抽样 · 批次命名 · 前端资源</span></div><div class="panel-b">'
         + ((VR.issues || []).length ? (VR.issues || []).map(function (i) {
           return '<div class="ev"><span class="pg">' + esc(i.level) + '</span><span><b>' + esc(i.check) + "</b> " + esc(i.detail) + "</span></div>";
         }).join("") : '<div class="empty">无 ERROR / WARN / SKIP 项——全部检查通过</div>')
@@ -950,8 +1260,14 @@
     if (name === "events") {
       section = "cn"; sub = "#/events";
       F.q = qs.get("q") || ""; F.ch = qs.get("ch") || "全部"; F.mt = qs.get("mt") || "全部";
-      F.stage = qs.get("stage") || "全部"; F.geo = qs.get("geo") || "全部"; F.ut = qs.get("ut") || "全部";
-      F.status = qs.get("status") || "全部"; F.view = qs.get("view") || "cards"; F.mode = qs.get("mode") || "month";
+      F.stage = qs.get("stage") || "全部"; F.geo = qs.get("geo") || "全部"; F.country = qs.get("country") || "全部";
+      F.ut = qs.get("ut") || "全部"; F.status = qs.get("status") || "全部";
+      F.cur = qs.get("cur") || "全部"; F.amtmin = qs.get("amtmin") || ""; F.amtmax = qs.get("amtmax") || "";
+      F.dfrom = qs.get("dfrom") || ""; F.dto = qs.get("dto") || "";
+      F.view = qs.get("view") || "cards"; F.mode = qs.get("mode") || "month";
+      var colq = qs.get("cols");
+      F.cols = colq ? colq.split(",").filter(function (c) { return EV_COLS.some(function (d) { return d[0] === c; }); }) : EV_COLS_DEFAULT.slice();
+      if (!F.cols.length) F.cols = EV_COLS_DEFAULT.slice();
       html = vEvents();
     }
     else if (name === "event") { section = "cn"; sub = "#/events"; html = vEvent(param || ""); }
