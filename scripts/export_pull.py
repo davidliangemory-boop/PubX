@@ -167,6 +167,7 @@ def clean_entity_name(nm):
     nm = re.split(r"\s+(?:under|has|have|was|were|located|pursuant)\b", nm)[0]
     nm = re.sub(r",?\s+and\s+[A-Za-z]{0,4}$", "", nm)  # 截窗残片（如 ", and t"）
     nm = nm.replace("\xa0", " ")
+    nm = re.sub(r"[\s,]+(currently|formerly)\b.*$", "", nm, flags=re.I)  # 换行残片尾巴
     nm = nm.strip(" ,;.)")
     if not nm or re.search(r"\b(removal|addition|production bases|following|entity list|presumption|denial|subject to|for all items)\b|\b\d+\s*FR\b", nm, re.I):
         return ""
@@ -180,11 +181,16 @@ def clean_entity_name(nm):
 
 
 def parse_bullet_entities(txt):
-    """FR 附录/正文的 <bullet> 列表即官方逐条实体名单，优先于启发式抽取。"""
+    """FR 附录/正文的 <bullet> 列表即官方逐条实体名单，优先于启发式抽取。
+    FR raw text 按 ~72 列硬换行（可断在连字符处）且有 [[Page N]] 分页标记，
+    须先合并续行再取名单，否则长名被截成碎片丢失。"""
+    body = re.sub(r"\[\[Page \d+\]\]", " ", txt or "")
     names = []
-    for m in re.finditer(r"<bullet>\s*([^\n<]+)", txt or ""):
-        line = m.group(1).strip()
-        line = re.split(r"\s*\((?:also known|formerly known|f\.k\.a\.|a\.k\.a\.)", line)[0]
+    for m in re.finditer(r"<bullet>\s*(.*?)(?=<bullet>|\n\s*\n|$)", body, re.S):
+        line = m.group(1)
+        line = re.sub(r"-\s*\n\s*", "-", line)   # 连字符处断行
+        line = re.sub(r"\s*\n\s*", " ", line)
+        line = re.split(r"\s*\((?:also known|formerly known|f\.k\.a\.|a\.k\.a\.|including)", line)[0]
         nm = clean_entity_name(line)
         if nm and 3 < len(nm) < 110 and nm not in names:
             names.append(nm)
@@ -348,6 +354,12 @@ def pull_fr(gte, lte, stats):
             "url": d.get("html_url"), "pdf_url": d.get("pdf_url"),
             "source": {"channel": "Federal Register API", "retrieved_at": now_cn()},
         })
+        if is_uflpa and parties:
+            # UFLPA 批次含新增与修订，逐名动作以原文为准（数量句已单列）
+            items[-1]["cn_parties"] = [{"name": p, "kind": "新增/修订"} for p in parties]
+        elif column == "lists" and parties and items[-1]["china_link"]["value"] == "是":
+            act_zh = {"added": "新增", "removed": "移除", "revised": "修订"}.get(action, "变动")
+            items[-1]["cn_parties"] = [{"name": p, "kind": act_zh} for p in parties]
         stats["FR-BIS" if "Industry" in agency_name else "FR-other"]["kept"] += 1
     return items
 
@@ -389,7 +401,8 @@ def ofac_action(title, type_label):
 
 
 def ofac_summary(h):
-    """OFAC recent-action 详情页正文摘要（Recent Actions Body 段落，external 层）。"""
+    """OFAC recent-action 详情页正文摘要（Recent Actions Body 段落，external 层）。
+    正文之后的列表筛选/订阅导航样板（Filter by Category …）一律截掉。"""
     m = re.search(r'Recent Actions Body(.*?)<footer|Recent Actions Body(.*?)(?:Related (?:Information|Links)|<div class="block)', h, re.S)
     body = m.group(1) or m.group(2) if m else ""
     if not body:
@@ -400,6 +413,7 @@ def ofac_summary(h):
         paras = [p for p in paras if len(p) > 80]
         return paras[0] if paras else ""
     txt = htmlmod.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body))).strip()
+    txt = re.split(r"\s*Filter by Category\s|\s*Search All Recent Actions\s", txt)[0].strip()
     return txt
 
 
@@ -454,7 +468,8 @@ def pull_ofac(gte, lte, stats):
 
 def ofac_sdn_changes(text):
     """解析 OFAC recent-action 正文的 SDN 增删明细（'The following … have been added…' 段）。
-    external 层：条数与名称均逐条来自原文；删除段常含 a.k.a. 重复列示，如实注明。"""
+    external 层：条数与名称均逐条来自原文；删除段常含 a.k.a. 重复列示，如实注明。
+    changes 段条目形如「旧条目 [TAG]. -to- 新条目」，'-to-' 后为修订后名称，剥离前缀取新名。"""
     marks = list(re.finditer(r"The following ([^:]{5,120}?):", text))
     out = []
     for i, m in enumerate(marks):
@@ -464,28 +479,27 @@ def ofac_sdn_changes(text):
         end = marks[i + 1].start() if i + 1 < len(marks) else len(text)
         block = text[m.end():end]
         parts = re.split(r"\[[A-Z][A-Z0-9\- ]*\](?:\s*\(Linked To:[^)]*\))?\s*\.", block)
-        entries = [p.strip() for p in parts if len(p.strip()) > 5]
-        names = []
-        for e in entries:
-            if "vessel" in head.lower():
+        entries = [re.sub(r"^\s*-to-\s*", "", p.strip()) for p in parts if len(p.strip()) > 5]
+        def _nm(e, head_l):
+            if "vessel" in head_l:
                 nm = re.split(r"\s+\(| flag;", e)[0]
-            elif "individual" in head.lower():
+            elif "individual" in head_l:
                 nm = ",".join(e.split(",")[:2])
             else:
                 nm = e.split(",")[0]
-            nm = re.sub(r"\s*\(a\.k\.a\..*$", "", nm, flags=re.S).strip(" .;")
+                # 通用段混列个人/实体：单词名（个人姓氏残片）补到第二段
+                if len(nm.split()) == 1 and "," in e:
+                    nm = ",".join(e.split(",")[:2])
+            return re.sub(r"\s*\(a\.k\.a\..*$", "", nm, flags=re.S).strip(" .;")
+        names = []
+        for e in entries:
+            nm = _nm(e, head.lower())
             if 3 < len(nm) < 90 and nm not in names:
                 names.append(nm)
         cn_names = []
         for e in entries:
             if CN_RE.search(e):
-                if "individual" in head.lower():
-                    nm = ",".join(e.split(",")[:2])
-                elif "vessel" in head.lower():
-                    nm = re.split(r"\s+\(| flag;", e)[0]
-                else:
-                    nm = e.split(",")[0]
-                nm = re.sub(r"\s*\(a\.k\.a\..*$", "", nm, flags=re.S).strip(" .;")
+                nm = _nm(e, head.lower())
                 if nm and 3 < len(nm) < 90 and nm not in cn_names:
                     cn_names.append(nm)
         out.append({"head": head, "count": len(entries), "names": names, "cn_names": cn_names})
@@ -515,20 +529,30 @@ def enrich_ofac_detail(item, stats):
                           if not p["text"].startswith(("SDN 变动明细", "其中地址"))]
         changes = ofac_sdn_changes(text)
         if changes:
+            def _kind_zh(head):
+                if re.search(r"deletion|removal", head, re.I):
+                    return "删除"
+                if re.search(r"change", head, re.I):
+                    return "修订"
+                return "新增"
             seg = []
             parties = []
             for c in changes:
-                kind = "删除" if re.search(r"deletion|removal", c["head"], re.I) else "新增"
+                kind = _kind_zh(c["head"])
                 seg.append("%s %d 条（%s）" % (kind, c["count"], c["head"][:60]))
                 parties.extend(c["names"])
             item["points"].append({
                 "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：%s。" % "；".join(seg),
                 "layer": "external", "source": item["url"]})
             cn_all = []
+            cn_parties = []
             for c in changes:
-                kind = "删除" if re.search(r"deletion|removal", c["head"], re.I) else "新增"
+                kind = _kind_zh(c["head"])
                 for nm in c["cn_names"]:
                     cn_all.append("%s（%s）" % (nm, kind))
+                    cn_parties.append({"name": nm, "kind": kind})
+            if cn_parties:
+                item["cn_parties"] = cn_parties
             if cn_all:
                 item["points"].append({
                     "text": "其中地址/注册地涉中国的条目：%s。" % "、".join(cn_all[:10]),
@@ -579,7 +603,10 @@ def enrich_ofac_enforcement(item, stats):
     if m:
         item["points"].append({"text": "违规笔数（apparent violations）：%s。" % m.group(1),
                                "layer": "external", "source": item["url"]})
-    if re.search(r"voluntarily self-disclosed", text, re.I):
+    if re.search(r"\bnot voluntarily self-disclosed", text, re.I):
+        item["points"].append({"text": "原文载：违规「未经自愿披露」（not voluntarily self-disclosed，含 largely not 等限定以原文为准）。",
+                               "layer": "external", "source": item["url"]})
+    elif re.search(r"voluntarily self-disclosed", text, re.I):
         item["points"].append({"text": "原文提及自愿披露（voluntarily self-disclosed）情节，是否构成 VSD 及程度以执法文书为准。",
                                "layer": "external", "source": item["url"]})
     m = re.search(r"(non-egregious|egregious)", text, re.I)
@@ -660,8 +687,15 @@ def enrich_bis_enforcement(item, stats):
             "layer": "external", "source": pdf_url})
     provs = []
     seen_prov = set()
+    # 违规总数句：「committed sixty-six (66) violations of the Regulations」
+    tm = re.search(r"committed\s+([a-z\-]+|\d+)\s*\((\d+)\)\s*violations?\s+of\s+the\s+(?:Regulations|EAR)\b", flat, re.I)
+    if tm:
+        item["points"].append({"text": "违规总数：%s 笔（和解命令原文：committed %s (%s) violations）。" % (
+            tm.group(2), tm.group(1), tm.group(2)), "layer": "external", "source": pdf_url})
     for vm in re.finditer(
             r"(\w+(?:-\w+)?)\s*\((\d+)\)\s*violations?\s+(?:of|under)\s+(?:the\s+)?(?:15\s*C\.F\.R\.\s*)?§?\s*(?:Section\s+)?([\d.]+(?:\(\w\))?)", flat, re.I):
+        if re.search(r"\bin\s+total\b", flat[max(0, vm.start() - 60):vm.start()], re.I):
+            continue  # 「In total, …」为小计句，不单列以免误读为额外笔数
         key = (vm.group(2), vm.group(3))
         if key not in seen_prov:
             seen_prov.add(key)
@@ -669,6 +703,8 @@ def enrich_bis_enforcement(item, stats):
     if not provs:
         for vm in re.finditer(
                 r"(\d+)\s+violations?\s+(?:of|under)\s+(?:the\s+)?(?:15\s*C\.F\.R\.\s*)?§?\s*(?:Section\s+)?([\d.]+(?:\(\w\))?)", flat, re.I):
+            if re.search(r"\bin\s+total\b", flat[max(0, vm.start() - 60):vm.start()], re.I):
+                continue
             key = vm.groups()
             if key not in seen_prov:
                 seen_prov.add(key)
@@ -888,6 +924,8 @@ def main():
                                      "layer": "external", "source": it["url"]})
                 if not fr["parties"]:
                     fr["parties"] = it["parties"]
+                if not fr.get("cn_parties"):
+                    fr["cn_parties"] = [{"name": nm, "kind": "新增/修订"} for nm in it["parties"]]
             continue
         kept.append(it)
     items = kept

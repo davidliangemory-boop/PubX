@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-10-23 04:05",
+  "updated": "2026-10-23 08:54",
   "cadence": "周更（周批 W-YYYYWW）",
   "last_window_lte": "2026-10-23",
   "sources": [
@@ -347,6 +347,198 @@
    },
    "new_items": 0,
    "total_items": 84
+  },
+  {
+   "batch_id": "W-202643",
+   "kind": "backfill",
+   "time": "2026-10-23 07:31",
+   "window": {
+    "gte": "2026-07-25",
+    "lte": "2026-10-23",
+    "note": "按来源发布日过滤"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 6,
+     "kept": 6,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 2,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 29,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 30,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 50,
+     "kept": 44,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 44,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 4,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 3,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 1,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84
+  },
+  {
+   "batch_id": "W-202643",
+   "kind": "backfill",
+   "time": "2026-10-23 08:42",
+   "window": {
+    "gte": "2026-07-25",
+    "lte": "2026-10-23",
+    "note": "按来源发布日过滤"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 6,
+     "kept": 6,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 2,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 29,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 30,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 50,
+     "kept": 44,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 44,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 4,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 3,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 1,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84
+  },
+  {
+   "batch_id": "W-202643",
+   "kind": "enrich",
+   "time": "2026-10-23 08:54",
+   "window": {
+    "gte": "",
+    "lte": "",
+    "note": "OFAC 条目重采：SDN changes 段 -to- 前缀剥离 + 修订类标注 + 个人残名修复"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 50,
+     "kept": 44,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 44,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84
   }
  ],
  "items": [
@@ -402,7 +594,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261021"
     },
     {
-     "text": "其中地址/注册地涉中国的条目：MOXING CARTOON（删除）、SHANGHAI MOXING CULTURAL MEDIA CO LTD (Chinese Simplified: 上海墨星⽂化传播有限公司)（删除）、SHANGHAI HONGMAN CARTOON AND ANIMATION DESIGN STUDIO（删除）、SHANGHAI HONGMAN ANIMATION DESIGN STUDIO (Chinese Simplified: 上海弘漫动漫设计工作室)（删除）。",
+     "text": "其中地址/注册地涉中国的条目：MOXING CARTOON（删除）、SHANGHAI MOXING CULTURAL MEDIA CO LTD (Chinese Simplified: 上海墨星⽂化传播有限公司)（删除）、LU, Hezheng（删除）、SHANGHAI HONGMAN CARTOON AND ANIMATION DESIGN STUDIO（删除）、SHANGHAI HONGMAN ANIMATION DESIGN STUDIO (Chinese Simplified: 上海弘漫动漫设计工作室)（删除）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261021"
     }
@@ -416,8 +608,30 @@
    "pdf_url": "https://ofac.treasury.gov/media/937276/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:47"
    },
+   "cn_parties": [
+    {
+     "name": "MOXING CARTOON",
+     "kind": "删除"
+    },
+    {
+     "name": "SHANGHAI MOXING CULTURAL MEDIA CO LTD (Chinese Simplified: 上海墨星⽂化传播有限公司)",
+     "kind": "删除"
+    },
+    {
+     "name": "LU, Hezheng",
+     "kind": "删除"
+    },
+    {
+     "name": "SHANGHAI HONGMAN CARTOON AND ANIMATION DESIGN STUDIO",
+     "kind": "删除"
+    },
+    {
+     "name": "SHANGHAI HONGMAN ANIMATION DESIGN STUDIO (Chinese Simplified: 上海弘漫动漫设计工作室)",
+     "kind": "删除"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -467,8 +681,14 @@
    "pdf_url": "https://ofac.treasury.gov/media/937261/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:41"
+    "retrieved_at": "2026-10-23 08:47"
    },
+   "cn_parties": [
+    {
+     "name": "SHANGHAI ZHISUAN TECHNOLOGY CO LTD (Chinese Simplified: 上海至算科技有限公司)",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -492,7 +712,7 @@
      "source": "OFAC recent-actions"
     },
     {
-     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Venezuela-related General License 60A , \"Authorizing Transactions Related to Earthquake Relief Efforts in Venezuela.\" OFAC is also issuing one amended Frequently Asked Question, FAQ 1263 . Filter by Category All Recent Actions Enforcement Actions General Licenses Miscellaneous Regulations and Guidance Sanctions List Updates Search All Recent Actions (enter keywords) Start Date (format: MM/DD/YYYY)  End Date (format: MM/DD/YYYY) Search by Year (format: YYYY) Sign up for OFAC Recent Actions e-mail updates",
+     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Venezuela-related General License 60A , \"Authorizing Transactions Related to Earthquake Relief Efforts in Venezuela.\" OFAC is also issuing one amended Frequently Asked Question, FAQ 1263 .",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261016"
     }
@@ -506,7 +726,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937251/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:41"
+    "retrieved_at": "2026-10-23 08:47"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -576,8 +796,14 @@
    "pdf_url": "https://ofac.treasury.gov/media/937246/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:41"
+    "retrieved_at": "2026-10-23 08:47"
    },
+   "cn_parties": [
+    {
+     "name": "ELITESPHERE TRADING CO",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -590,7 +816,7 @@
    "title": "Venezuela-related Designation Removal",
    "parties": [
     "RODRIGUEZ GOMEZ",
-    "RODRIGUEZ",
+    "RODRIGUEZ, Jorge",
     "JORGE J",
     "JORGE JESUS"
    ],
@@ -625,7 +851,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:41"
+    "retrieved_at": "2026-10-23 08:47"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -662,7 +888,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
     },
     {
-     "text": "原文提及自愿披露（voluntarily self-disclosed）情节，是否构成 VSD 及程度以执法文书为准。",
+     "text": "原文载：违规「未经自愿披露」（not voluntarily self-disclosed，含 largely not 等限定以原文为准）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261013_33"
     },
@@ -681,7 +907,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937231/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:41"
+    "retrieved_at": "2026-10-23 08:48"
    },
    "penalty": {
     "amount_usd": 11662930.0,
@@ -746,7 +972,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937211/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:41"
+    "retrieved_at": "2026-10-23 08:47"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -785,7 +1011,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-13/pdf/2026-20839.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -824,7 +1050,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-13/pdf/2026-20831.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -849,7 +1075,7 @@
      "source": "OFAC recent-actions"
     },
     {
-     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Russia-related General License 135 , \"Authorizing Transactions Related to the Sale, Delivery, Offloading, and Importation of Diesel Fuel of Russian Federation Origin.\" Filter by Category All Recent Actions Enforcement Actions General Licenses Miscellaneous Regulations and Guidance Sanctions List Updates Search All Recent Actions (enter keywords) Start Date (format: MM/DD/YYYY)  End Date (format: MM/DD/YYYY) Search by Year (format: YYYY) Sign up for OFAC Recent Actions e-mail updates",
+     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Russia-related General License 135 , \"Authorizing Transactions Related to the Sale, Delivery, Offloading, and Importation of Diesel Fuel of Russian Federation Origin.\"",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261009_33"
     }
@@ -863,7 +1089,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937216/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:42"
+    "retrieved_at": "2026-10-23 08:48"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -877,7 +1103,7 @@
    "title": "Settlement Agreement between the U.S. Department of the Treasury's Office of Foreign Assets Control and Pegasus Worldwide Logistics; International Criminal Court Designation and General Licenses; Burma-related Designation Removal",
    "parties": [
     "INTERNATIONAL CRIMINAL COURT",
-    "HTET"
+    "HTET, Theint Win"
    ],
    "china_link": {
     "value": "否",
@@ -910,7 +1136,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937201/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:42"
+    "retrieved_at": "2026-10-23 08:48"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -980,8 +1206,38 @@
    "pdf_url": "https://ofac.treasury.gov/media/937101/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:42"
+    "retrieved_at": "2026-10-23 08:48"
    },
+   "cn_parties": [
+    {
+     "name": "BRICH SHIPPING COMPANY LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "HECHUANG INTERNATIONAL GROUP LIMITED (Chinese Traditional: 和創國際集團有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "JLS DRAGON COMPANY LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "SHUNHANG SHIP MANAGEMENT LIMITED (Chinese Traditional: 順航船舶管理有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "STANDWILL SHIPPING LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "AVA 6",
+     "kind": "新增"
+    },
+    {
+     "name": "SHENZHEN Crude Oil Tanker Cameroon",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -993,26 +1249,26 @@
    "doc_no": "20261005",
    "title": "Designations Removals; Designations Updates; Publication of Iran-related OFAC Alert; Publication of Amended Iran-related Frequently Asked Question",
    "parties": [
-    "ABBAS",
-    "AHMAD",
-    "AL-AMIRI",
-    "AL-AZAWI",
-    "AL-BAZZAZ",
-    "AL-BAZAZ",
-    "AL-DAJANI",
-    "AL-HAMMADI",
-    "HAMADI",
-    "AL-JABBURI",
-    "AL-MAJID",
-    "AL-QASIR",
-    "AL-QASSIR",
-    "AL-RUBA",
-    "AL-ZIBARI",
-    "ALAWI",
-    "ALLAWI",
-    "ALWAN",
-    "AMD CO. LTD AGENCY",
-    "ARAB PROJECTS COMPANY S.A. LTD"
+    "ABBAS, Abdul Hussein",
+    "AHMAD, Rasem",
+    "AHMAD, Wallid Issa",
+    "AL-AMIRI, Adnan Talib Hassim",
+    "AL-AZAWI, Dafir",
+    "AL-BAZZAZ, Hikmet Abdallah",
+    "AL-BAZAZ, Hikmet Abdullah",
+    "AL-DAJANI, Leila N.S",
+    "AL-DAJANI, Nadim S",
+    "AL-DAJANI, Sa'ad",
+    "AL-HAMMADI, Hamid Yusif",
+    "HAMADI, Hamed Yussef",
+    "AL-JABBURI, Sadi Tuma Abbas",
+    "AL-MAJID, Hussein Kamel Hassan",
+    "AL-MAJID, Husayn Kamil Hasan",
+    "AL-QASIR, Nazar Jumah Ali",
+    "AL-QASSIR, Nizar Jomaa Ali",
+    "AL-RUBA, Dr. Khadim",
+    "AL-ZIBARI, Arshad Muhammad Ahmad Muhammad",
+    "ALAWI, Abdel-Salam Abdel-Rahman"
    ],
    "china_link": {
     "value": "是",
@@ -1031,12 +1287,12 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261005"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 181 条（deletions have been made to OFAC's SDN List）；新增 45 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 181 条（deletions have been made to OFAC's SDN List）；修订 45 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261005"
     },
     {
-     "text": "其中地址/注册地涉中国的条目：MOHAMED（删除）、AE INTERNATIONAL TRADE CO LIMITED (Chinese Traditional: 艾宜國際貿易有限公司)（新增）、-to- AE INTERNATIONAL TRADE CO LIMITED (Chinese Traditional: 艾宜國際貿易有限公司)（新增）、HIN YUN TRADING COMPANY LIMITED (Chinese Traditional: 欣蘊貿易有限公司)（新增）、-to- HIN YUN TRADING COMPANY LIMITED (Chinese Traditional: 欣蘊貿易有限公司)（新增）、QIAN XI LONG TRADING CO LIMITED (Chinese Traditional: 千禧龍貿易有限公司)（新增）、-to- QIAN XI LONG TRADING CO LIMITED (Chinese Traditional: 千禧龍貿易有限公司)（新增）。",
+     "text": "其中地址/注册地涉中国的条目：MOHAMED, Abdul Kader Ibrahim（删除）、AE INTERNATIONAL TRADE CO LIMITED (Chinese Traditional: 艾宜國際貿易有限公司)（修订）、HIN YUN TRADING COMPANY LIMITED (Chinese Traditional: 欣蘊貿易有限公司)（修订）、QIAN XI LONG TRADING CO LIMITED (Chinese Traditional: 千禧龍貿易有限公司)（修订）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261005"
     }
@@ -1050,8 +1306,26 @@
    "pdf_url": "https://ofac.treasury.gov/media/937091/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:42"
+    "retrieved_at": "2026-10-23 08:48"
    },
+   "cn_parties": [
+    {
+     "name": "MOHAMED, Abdul Kader Ibrahim",
+     "kind": "删除"
+    },
+    {
+     "name": "AE INTERNATIONAL TRADE CO LIMITED (Chinese Traditional: 艾宜國際貿易有限公司)",
+     "kind": "修订"
+    },
+    {
+     "name": "HIN YUN TRADING COMPANY LIMITED (Chinese Traditional: 欣蘊貿易有限公司)",
+     "kind": "修订"
+    },
+    {
+     "name": "QIAN XI LONG TRADING CO LIMITED (Chinese Traditional: 千禧龍貿易有限公司)",
+     "kind": "修订"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -1100,7 +1374,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:42"
+    "retrieved_at": "2026-10-23 08:49"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1132,7 +1406,12 @@
      "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
     },
     {
-     "text": "违规笔数与条款：11 笔 × 15 C.F.R. § 764.2(e)；47 笔 × 15 C.F.R. § 764.2(a)；7 笔 × 15 C.F.R. § 764.2(a)；1 笔 × 15 C.F.R. § 764.2(a)；55 笔 × 15 C.F.R. § 764.2(a)。",
+     "text": "违规总数：66 笔（和解命令原文：committed sixty-six (66) violations）。",
+     "layer": "external",
+     "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
+    },
+    {
+     "text": "违规笔数与条款：11 笔 × 15 C.F.R. § 764.2(e)；47 笔 × 15 C.F.R. § 764.2(a)；7 笔 × 15 C.F.R. § 764.2(a)；1 笔 × 15 C.F.R. § 764.2(a)。",
      "layer": "external",
      "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
     },
@@ -1151,14 +1430,14 @@
    "pdf_url": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf",
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 04:05"
+    "retrieved_at": "2026-10-23 08:41"
    },
-   "first_seen": "2026-10-23 02:13",
    "penalty": {
     "amount_usd": 2000000.0,
     "text": "$2,000,000",
     "suspended": true
-   }
+   },
+   "first_seen": "2026-10-23 02:13"
   },
   {
    "id": "ofac-20261001",
@@ -1207,7 +1486,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20261001"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 2 条（individuals have been added to OFAC's SDN List）；新增 29 条（entities have been added to OFAC's SDN List）；新增 5 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 2 条（individuals have been added to OFAC's SDN List）；新增 29 条（entities have been added to OFAC's SDN List）；修订 5 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20261001"
     },
@@ -1226,8 +1505,66 @@
    "pdf_url": "https://ofac.treasury.gov/media/937086/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:42"
+    "retrieved_at": "2026-10-23 08:49"
    },
+   "cn_parties": [
+    {
+     "name": "HAMEDANI, Mehnoosh Poursaraf (Arabic: مهنوش پورصراف همدانی)",
+     "kind": "新增"
+    },
+    {
+     "name": "KESHVARDOUST, Ramin (Arabic: رامین کشوردوست)",
+     "kind": "新增"
+    },
+    {
+     "name": "BONASOL GROUP CO",
+     "kind": "新增"
+    },
+    {
+     "name": "DOMINION TRADING GROUP LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "EAST CONCORD DEVELOPMENT LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "HEPCO SHANGHAI CO",
+     "kind": "新增"
+    },
+    {
+     "name": "HESSENBERG CO",
+     "kind": "新增"
+    },
+    {
+     "name": "KGT TRADING LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "M AND R STEEL CO",
+     "kind": "新增"
+    },
+    {
+     "name": "MEIZI CO",
+     "kind": "新增"
+    },
+    {
+     "name": "SHANGHAI RUIMI IMPORT AND EXPORT TRADE CO",
+     "kind": "新增"
+    },
+    {
+     "name": "TANEX GLOBAL TRADING HONG KONG LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "EVER SHINING LIMITED (Chinese Simplified: 宜欣有限公司)",
+     "kind": "修订"
+    },
+    {
+     "name": "EVER SHINING LTD",
+     "kind": "修订"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -1250,10 +1587,11 @@
     "RIVAS NUNEZ, Juan Gabriel (Latin: RIVAS NUÑEZ",
     "ENIGMA COMMUNITY",
     "SOLUCIONES INTEGRALES TOLUCA",
-    "PATRACA",
+    "PATRACA, S.A. DE C.V",
     "BOUTIQUE PATRACA",
     "MED PATRON",
-    "PROTOPOVICH"
+    "PROTOPOVICH, Tatyana",
+    "PROTOPOVICH, Tayuana"
    ],
    "china_link": {
     "value": "否",
@@ -1286,7 +1624,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:43"
+    "retrieved_at": "2026-10-23 08:49"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1325,7 +1663,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20014.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1364,7 +1702,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20012.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1403,7 +1741,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20011.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1442,7 +1780,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20010.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1481,7 +1819,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20009.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1520,7 +1858,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20008.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1559,7 +1897,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20007.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1598,7 +1936,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20006.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1637,7 +1975,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19978.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1676,7 +2014,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19977.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1715,7 +2053,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19973.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1754,7 +2092,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937026/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:43"
+    "retrieved_at": "2026-10-23 08:49"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1805,7 +2143,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260929"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（individuals have been added to OFAC's SDN List）；新增 30 条（entities have been added to OFAC's SDN List）；新增 13 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（individuals have been added to OFAC's SDN List）；新增 30 条（entities have been added to OFAC's SDN List）；修订 13 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260929"
     },
@@ -1824,8 +2162,22 @@
    "pdf_url": "https://ofac.treasury.gov/media/937021/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 03:43"
+    "retrieved_at": "2026-10-23 08:49"
    },
+   "cn_parties": [
+    {
+     "name": "LI, Fen (Chinese Simplified: 李芬)",
+     "kind": "新增"
+    },
+    {
+     "name": "TABATABAI, Seyyed Asghar Alizadeh",
+     "kind": "新增"
+    },
+    {
+     "name": "EC MOJO TECHNOLOGY CO LIMITED (Chinese Traditional: 昴雋電訊有限公司)",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -1849,7 +2201,7 @@
      "source": "OFAC recent-actions"
     },
     {
-     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Venezuela-related General License 46E , \"Authorizing Certain Activities Involving Venezuelan-Origin Oil or Petrochemical Products;\" Venezuela-related General License 48D , \"Authorizing the Supply of Certain Items and Services to Venezuela;\" Venezuela-related General License 49B , \"Authorizing Negotiations of and Entry Into Contingent Contracts for Certain Investment in Venezuela.\" Filter by Category All Recent Actions Enforcement Actions General Licenses Miscellaneous Regulations and Guidance Sanctions List Upd…",
+     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Venezuela-related General License 46E , \"Authorizing Certain Activities Involving Venezuelan-Origin Oil or Petrochemical Products;\" Venezuela-related General License 48D , \"Authorizing the Supply of Certain Items and Services to Venezuela;\" Venezuela-related General License 49B , \"Authorizing Negotiations of and Entry Into Contingent Contracts for Certain Investment in Venezuela.\"",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260928"
     }
@@ -1863,7 +2215,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937006/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:01"
+    "retrieved_at": "2026-10-23 08:49"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1902,7 +2254,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19678.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1941,7 +2293,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19657.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1980,7 +2332,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936981/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:01"
+    "retrieved_at": "2026-10-23 08:49"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2019,7 +2371,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-24/pdf/2026-19537.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2032,15 +2384,15 @@
    "doc_no": "20260923",
    "title": "Democratic Republic of the Congo-related Designations Removals",
    "parties": [
-    "OLENGA",
+    "OLENGA, Francois (Latin: OLENGA",
     "OLENGA TETE",
     "OLENGA TATE",
-    "OKUNJI",
-    "OTSHUNDI",
+    "OKUNJI, Francois (Latin: OKUNJI",
+    "OTSHUNDI, Francois (Latin: OTSHUNDI",
     "SAFARI CLUB",
     "CENTRE DE LOISIR SAFARI CLUB",
     "\"SAFARI BEACH\"",
-    "-to- CENTRO DE INVESTIGACION Y DESARROLLO DE ARMAMENTO DE INFANTERIA"
+    "CENTRO DE INVESTIGACION Y DESARROLLO DE ARMAMENTO DE INFANTERIA"
    ],
    "china_link": {
     "value": "否",
@@ -2073,7 +2425,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:01"
+    "retrieved_at": "2026-10-23 08:50"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2112,7 +2464,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19424.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2151,7 +2503,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19423.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2190,7 +2542,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19422.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2229,7 +2581,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-23/pdf/2026-19421.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2244,10 +2596,11 @@
    "parties": [
     "PEOPLE'S FRONT FOR DEMOCRACY AND JUSTICE",
     "W KIDAN",
-    "WOLDEKIDAN",
-    "WELDEKIDANE",
-    "NEMARIAM",
-    "KASSA",
+    "WOLDEKIDAN, Hagos Ghebrehiwet",
+    "WELDEKIDANE, Hagos Ghebrehiwet",
+    "NEMARIAM, Abraha Kassa",
+    "KASSA, Wedi",
+    "KASSA, Abraha",
     "ERITREAN DEFENSE FORCES",
     "ERITREAN DEFENSE FORCE",
     "RED SEA TRADING CORPORATION",
@@ -2284,7 +2637,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936951/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:01"
+    "retrieved_at": "2026-10-23 08:50"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2348,7 +2701,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:01"
+    "retrieved_at": "2026-10-23 08:50"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2362,7 +2715,7 @@
    "title": "Russia-related Designations Removals; Counter Narcotics Designation Removal; Issuance of Amended Venezuela General License and Frequently Asked Question",
    "parties": [
     "VEGA SANCHEZ",
-    "BOMATTER",
+    "BOMATTER, Hans Peter",
     "MODULSAN MAKINA KESICI TAKIM VE DISLI SANAYI TICARET LIMITED SIRKETI"
    ],
    "china_link": {
@@ -2396,7 +2749,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936946/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:02"
+    "retrieved_at": "2026-10-23 08:50"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2409,6 +2762,7 @@
    "doc_no": "20260914",
    "title": "Iran-related Designation; Issuance of Amended Venezuela-related General License and Frequently Asked Question",
    "parties": [
+    "VTB BANK PUBLIC JOINT STOCK COMPANY (Cyrillic: БАНК ВТБ ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО)",
     "Sectoral Sanctions Identifications List Updates"
    ],
    "china_link": {
@@ -2428,7 +2782,12 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260914"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 3 条（changes have been made to OFAC's SDN List）；新增 3 条（changes have been made to OFAC's Sectoral Sanctions Identifi）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：修订 3 条（changes have been made to OFAC's SDN List）；修订 3 条（changes have been made to OFAC's Sectoral Sanctions Identifi）。",
+     "layer": "external",
+     "source": "https://ofac.treasury.gov/recent-actions/20260914"
+    },
+    {
+     "text": "其中地址/注册地涉中国的条目：VTB BANK PUBLIC JOINT STOCK COMPANY (Cyrillic: БАНК ВТБ ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО)（修订）、VTB BANK PUBLIC JOINT STOCK COMPANY (Cyrillic: БАНК ВТБ ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО)（修订）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260914"
     }
@@ -2442,8 +2801,18 @@
    "pdf_url": "https://ofac.treasury.gov/media/936926/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:02"
+    "retrieved_at": "2026-10-23 08:50"
    },
+   "cn_parties": [
+    {
+     "name": "VTB BANK PUBLIC JOINT STOCK COMPANY (Cyrillic: БАНК ВТБ ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО)",
+     "kind": "修订"
+    },
+    {
+     "name": "VTB BANK PUBLIC JOINT STOCK COMPANY (Cyrillic: БАНК ВТБ ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО)",
+     "kind": "修订"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -2481,7 +2850,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18576.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2520,7 +2889,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18572.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2559,7 +2928,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18569.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2598,7 +2967,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18565.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2637,7 +3006,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-11/pdf/2026-18563.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2699,7 +3068,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936911/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:02"
+    "retrieved_at": "2026-10-23 08:50"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2738,7 +3107,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-10/pdf/2026-18461.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2755,20 +3124,15 @@
     "LOS TIGUERONES",
     "SAFEW TECHNOLOGY CO",
     "XINBI GUARANTEE (Chinese Simplified: 新币担保)",
-    "-to- BOUKICH",
+    "BOUKICH, Abdelhakim",
     "CELESTINO HERRERA",
-    "-to- CELESTINO HERRERA",
     "DOT ONE VALUE CREATION GROUP (Arabic: گروه بین‌ المللی توسعه مالی و اقتصادی آوان)",
-    "-to- DOT ONE VALUE CREATION GROUP (Arabic: گروه بین‌ المللی توسعه مالی و اقتصادی آوان)",
     "ISIL KHORASAN",
-    "-to- ISIL KHORASAN",
     "MAKLED GARCIA",
-    "-to- MAKLED GARCIA",
     "NETHERLANDS CARIBBEAN BANK N.V",
-    "-to- NETHERLANDS CARIBBEAN BANK N.V",
-    "-to- O",
+    "O, In Chun (Korean: 오인준)",
     "SUDANESE MUSLIM BROTHERHOOD (Arabic: الحركة الاسلامية السودانية)",
-    "-to- SUDANESE MUSLIM BROTHERHOOD"
+    "SUDANESE MUSLIM BROTHERHOOD"
    ],
    "china_link": {
     "value": "是",
@@ -2806,8 +3170,18 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:02"
+    "retrieved_at": "2026-10-23 08:51"
    },
+   "cn_parties": [
+    {
+     "name": "SAFEW TECHNOLOGY CO",
+     "kind": "新增"
+    },
+    {
+     "name": "XINBI GUARANTEE (Chinese Simplified: 新币担保)",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -2871,7 +3245,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936901/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:02"
+    "retrieved_at": "2026-10-23 08:51"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2915,7 +3289,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936881/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:02"
+    "retrieved_at": "2026-10-23 08:51"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2969,7 +3343,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936871/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:02"
+    "retrieved_at": "2026-10-23 08:51"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3008,7 +3382,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936866/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:03"
+    "retrieved_at": "2026-10-23 08:51"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3060,8 +3434,14 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:03"
+    "retrieved_at": "2026-10-23 08:51"
    },
+   "cn_parties": [
+    {
+     "name": "KAMENG TRADING LIMITED",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -3094,7 +3474,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-28/pdf/C1-2026-16628.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3133,7 +3513,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936841/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:03"
+    "retrieved_at": "2026-10-23 08:52"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3172,7 +3552,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-27/pdf/2026-17491.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3211,7 +3591,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-27/pdf/2026-17487.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3261,7 +3641,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936796/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:03"
+    "retrieved_at": "2026-10-23 08:52"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3300,7 +3680,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-26/pdf/2026-17426.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3351,7 +3731,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260824"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（individuals have been added to OFAC's SDN List）；新增 48 条（entities have been added to OFAC's SDN List）；新增 6 条（vessels have been added to OFAC's SDN List）；新增 22 条（changes have been made to OFAC's SDN List）；删除 110 条（deletions have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 23 条（individuals have been added to OFAC's SDN List）；新增 48 条（entities have been added to OFAC's SDN List）；新增 6 条（vessels have been added to OFAC's SDN List）；修订 22 条（changes have been made to OFAC's SDN List）；删除 110 条（deletions have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260824"
     },
@@ -3370,8 +3750,110 @@
    "pdf_url": "https://ofac.treasury.gov/media/936751/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:03"
+    "retrieved_at": "2026-10-23 08:52"
    },
+   "cn_parties": [
+    {
+     "name": "LI, Na (Chinese Simplified: 李娜)",
+     "kind": "新增"
+    },
+    {
+     "name": "OBUKHOV, Ivan",
+     "kind": "新增"
+    },
+    {
+     "name": "TIAN, Jianbai (Chinese Simplified: 天健栢)",
+     "kind": "新增"
+    },
+    {
+     "name": "ZHANG, Limei (Chinese Simplified: 张丽美)",
+     "kind": "新增"
+    },
+    {
+     "name": "BOSITONG SUPPLY CHAIN SHENZHEN CO LTD (Chinese Simplified: 波斯通供应链深圳有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "BRE INTERNATIONAL LOGISTICS CORPORATION HK LIMITED (Chinese Traditional: 波斯通香港國際物流有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "CLEVER SHIPPING LIMITED (Chinese Traditional: 智運航運有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "DEC PHOTONICS LIMITED (Chinese Traditional: 迪信光電有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "FEILI CO LIMITED (Chinese Traditional: 乏得有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "FEISU LIMITED (Chinese Traditional: 沸俗有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "GUSKA CO LIMITED (Chinese Traditional: 谷思卡有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "HK JIATAI TECHNOLOGY LIMITED (Chinese Traditional: 香港嘉泰科技有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "LILIMOON NAVIGATION INC",
+     "kind": "新增"
+    },
+    {
+     "name": "MINVUR LIMITED (Chinese Traditional: 明霧有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "MT TRADING AND LOGISTICS HK LIMITED (Chinese Traditional: 尚乘商貿物流有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "RIQUEZA GROUP LTD",
+     "kind": "新增"
+    },
+    {
+     "name": "RPT TECHNOLOGY LIMITED (Chinese Traditional: 瑞普達科技有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "SELENIUM RESOURCES LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "SHENZHEN BOSITONG LOGISTICS CO LTD (Chinese Simplified: 深圳波斯通物流有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "SHENZHEN SWEET OCEAN TECHNOLOGY LIMITED (Chinese Simplified: 深圳市晨涛科技有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "SHIPOIL LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "SKY OIL AND GAS ASIA LIMITED (Chinese Traditional: 天石油天然氣亞洲有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "SWEET OCEAN INDUSTRIAL LIMITED (Chinese Traditional: 思源實業有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "TIANY TECHNOLOGY LIMITED (Chinese Traditional: 天毅科技有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "VIENNA SHIPPING CO",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -3416,8 +3898,14 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-24/pdf/2026-17231.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
+   "cn_parties": [
+    {
+     "name": "Arrow China Electronics Trading Co., Ltd",
+     "kind": "修订"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -3460,7 +3948,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-24/pdf/2026-17230.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3490,6 +3978,11 @@
      "text": "民事罚款：$1,000,000（和解命令原文）。",
      "layer": "external",
      "source": "https://www.bis.gov/media/documents/container-manufacturing-ltd-8-24-2026.pdf"
+    },
+    {
+     "text": "违规总数：10 笔（和解命令原文：committed ten (10) violations）。",
+     "layer": "external",
+     "source": "https://www.bis.gov/media/documents/container-manufacturing-ltd-8-24-2026.pdf"
     }
    ],
    "impact": {
@@ -3501,14 +3994,14 @@
    "pdf_url": "https://www.bis.gov/media/documents/container-manufacturing-ltd-8-24-2026.pdf",
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 04:05"
+    "retrieved_at": "2026-10-23 08:42"
    },
-   "first_seen": "2026-10-23 02:13",
    "penalty": {
     "amount_usd": 1000000.0,
     "text": "$1,000,000",
     "suspended": false
-   }
+   },
+   "first_seen": "2026-10-23 02:13"
   },
   {
    "id": "ofac-20260821",
@@ -3531,7 +4024,7 @@
      "source": "OFAC recent-actions"
     },
     {
-     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Venezuela General License 61 - Authorizing the Supply of Certain Items and Services to Venezuela Related to Telecommunications, and Venezuela General License 62 - Authorizing Negotiations of and Entry Into Contingent Contracts for Investment in the Telecommunications Sector of Venezuela.  Additionally, OFAC is issuing one new Venezuela-related Frequently Asked Question ( FAQ 1266 ). Filter by Category All Recent Actions Enforcement Actions General Licenses Miscellaneous Regulations and Guidance Sanctions List U…",
+     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Venezuela General License 61 - Authorizing the Supply of Certain Items and Services to Venezuela Related to Telecommunications, and Venezuela General License 62 - Authorizing Negotiations of and Entry Into Contingent Contracts for Investment in the Telecommunications Sector of Venezuela.  Additionally, OFAC is issuing one new Venezuela-related Frequently Asked Question ( FAQ 1266 ).",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260821"
     }
@@ -3545,7 +4038,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936741/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:04"
+    "retrieved_at": "2026-10-23 08:52"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3596,7 +4089,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260820"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 19 条（individuals have been added to OFAC's SDN List）；新增 16 条（entities have been added to OFAC's SDN List）；新增 10 条（vessels have been added to OFAC's SDN List）；新增 4 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 19 条（individuals have been added to OFAC's SDN List）；新增 16 条（entities have been added to OFAC's SDN List）；新增 10 条（vessels have been added to OFAC's SDN List）；修订 4 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260820"
     }
@@ -3610,7 +4103,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936731/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:04"
+    "retrieved_at": "2026-10-23 08:52"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3658,7 +4151,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936716/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:04"
+    "retrieved_at": "2026-10-23 08:53"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3697,7 +4190,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-14/pdf/2026-16628.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3738,7 +4231,7 @@
    "pdf_url": "https://www.bis.gov/media/documents/plexon-inc.-8-14-2026.pdf",
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 04:05"
+    "retrieved_at": "2026-10-23 08:42"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3789,7 +4282,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936706/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:04"
+    "retrieved_at": "2026-10-23 08:53"
    },
    "penalty": {
     "amount_usd": 60764.0,
@@ -3864,8 +4357,22 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:04"
+    "retrieved_at": "2026-10-23 08:53"
    },
+   "cn_parties": [
+    {
+     "name": "BLUE DASH GENERAL TRADING COMPANY LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "GLEAMING HK TRADING LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "OVIEDO OVERSEAS COMPANY LIMITED",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -3889,9 +4396,7 @@
     "SOCIEDAD MERCANTIL DUNA SA",
     "UNION DE INDUSTRIA MILITAR",
     "LEGRA SOTOLONGO",
-    "-to- LEGRA SOTOLONGO",
-    "LOPEZ MIERA",
-    "-to- LOPEZ MIERA"
+    "LOPEZ MIERA"
    ],
    "china_link": {
     "value": "是",
@@ -3910,7 +4415,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260806"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（individuals have been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；新增 5 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 6 条（individuals have been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；修订 5 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260806"
     },
@@ -3929,8 +4434,14 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:04"
+    "retrieved_at": "2026-10-23 08:53"
    },
+   "cn_parties": [
+    {
+     "name": "PEREZ CORTES, Waldo",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -3968,7 +4479,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-06/pdf/2026-16078.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -3982,8 +4493,7 @@
    "title": "Counter Terrorism Designations Removals and Update",
    "parties": [
     "FLY BAGHDAD AIRLINES COMPANY",
-    "AL-SHABBANI",
-    "-to- AL-SHABBANI"
+    "AL-SHABBANI, Basheer Abdulkadhim Alwan"
    ],
    "china_link": {
     "value": "否",
@@ -4002,7 +4512,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260805"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 2 条（deletions have been made to OFAC's SDN List）；新增 2 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 2 条（deletions have been made to OFAC's SDN List）；修订 2 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260805"
     }
@@ -4016,7 +4526,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:04"
+    "retrieved_at": "2026-10-23 08:53"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4041,7 +4551,7 @@
      "source": "OFAC recent-actions"
     },
     {
-     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Venezuela-related General License 5Y , \"Authorizing Certain Transactions Related to the Petróleos de Venezuela, S.A. 2020 8.5 Percent Bond on or After September 17, 2026.\" Additionally, OFAC is issuing one amended Venezuela-related Frequently Asked Question, FAQ 595 . Filter by Category All Recent Actions Enforcement Actions General Licenses Miscellaneous Regulations and Guidance Sanctions List Updates Search All Recent Actions (enter keywords) Start Date (format: MM/DD/YYYY)  End Date (format: MM/DD/YYYY) Sear…",
+     "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Venezuela-related General License 5Y , \"Authorizing Certain Transactions Related to the Petróleos de Venezuela, S.A. 2020 8.5 Percent Bond on or After September 17, 2026.\" Additionally, OFAC is issuing one amended Venezuela-related Frequently Asked Question, FAQ 595 .",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260803"
     }
@@ -4055,7 +4565,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/936651/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:05"
+    "retrieved_at": "2026-10-23 08:53"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4084,10 +4594,10 @@
     "Henan Tongzhou Cotton Industry Co., Ltd",
     "Hunan Aihua Group Co., Ltd",
     "Jiangsu Tiangong Technology Co., Ltd",
-    "Jiangyin Xinren Aluminum Foil Technology Co., Ltd. (also",
+    "Jiangyin Xinren Aluminum Foil Technology Co., Ltd",
     "Jiangyin Xinren Aluminum Technology Co., Ltd",
     "Kashgar Aodu Sugar Industry Co., Ltd",
-    "Kashgar Jiangguoguo Agricultural Technology Co., Ltd. (also",
+    "Kashgar Jiangguoguo Agricultural Technology Co., Ltd",
     "Nanjing Lilai Pharmaceutical Technology Co., Ltd",
     "SDIC Xinjiang Lithium Industry Co., Ltd",
     "SDIC Xinjiang Luobupo Potash Co., Ltd",
@@ -4103,6 +4613,7 @@
     "Xinjiang Biochemical Pharmaceutical Co., Ltd",
     "Xinjiang Huashidan Pharmaceutical Co., Ltd",
     "Xinjiang Jinchuan Mining Industry Co., Ltd",
+    "Xinjiang Production and Construction Corps Eighth Division Tianshan Aluminum Co., Ltd",
     "Xinjiang Tefeng Pharmaceutical Industry Co., Ltd",
     "Xinjiang Tianchi Energy Co., Ltd",
     "Xinjiang Tianhongji Technology Co., Ltd",
@@ -4111,7 +4622,7 @@
     "Xinjiang Tianzhan New Material Technology Co., Ltd",
     "Yili Chuanning Biotechnology Co., Ltd",
     "Xinjiang GCL New Energy Material Technology, Co. Ltd",
-    "Xinjiang Tianmian Foundation Textile Co., Ltd., currently"
+    "Xinjiang Tianmian Foundation Textile Co., Ltd"
    ],
    "china_link": {
     "value": "是",
@@ -4164,8 +4675,190 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-03/pdf/2026-15628.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
+   "cn_parties": [
+    {
+     "name": "Xinjiang Communications Construction Group Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Nuziline Bio-Pharmaceutical Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Tianyun Organic Agriculture Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Zhengzhou Synear Food Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Alar Nanjiang Carbon New Material Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Aksu Aodu Sugar Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Baiyin Nonferrous Group Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Baoji Jucheng Titanium Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Chacha Food Company, Limited",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Chalkis Health Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Fujian Septwolves Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Guangxi Kelun Pharmaceutical Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Henan Guorong Electronic Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Henan Tongzhou Cotton Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Hunan Aihua Group Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Jiangsu Tiangong Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Jiangyin Xinren Aluminum Foil Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Jiangyin Xinren Aluminum Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Kashgar Aodu Sugar Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Kashgar Jiangguoguo Agricultural Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Nanjing Lilai Pharmaceutical Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "SDIC Xinjiang Lithium Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "SDIC Xinjiang Luobupo Potash Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Shandong Gold Mining Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Shandong Gold Smelting Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Shandong Weiqiao Pioneering Group Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Shandong Weiqiao Textile Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Shihezi Xinren Battery Aluminum Foil Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "TBEA Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Tefeng Pharmaceutical Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Tianshan Aluminum Group Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Baiyin Mining Development Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Biochemical Pharmaceutical Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Huashidan Pharmaceutical Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Jinchuan Mining Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Production and Construction Corps Eighth Division Tianshan Aluminum Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Tefeng Pharmaceutical Industry Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Tianchi Energy Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Tianhongji Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Tianshan Snow Lotus Pharmaceutical Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Tianshan Yingda Carbon Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Tianzhan New Material Technology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Yili Chuanning Biotechnology Co., Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang GCL New Energy Material Technology, Co. Ltd",
+     "kind": "新增/修订"
+    },
+    {
+     "name": "Xinjiang Tianmian Foundation Textile Co., Ltd",
+     "kind": "新增/修订"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -4183,8 +4876,8 @@
     "SHANGHAI ELITE INTERNATIONAL TRAVEL CO LTD (Chinese Simplified: 上海马汉国际旅行社有限公司)",
     "SHANGHAI WINGS INTERNATIONAL LOGISTICS CO (Chinese Simplified: 上海翼上国际货运有限公司)",
     "SKIEZ TRAVELS AND LOGISTICS PRIVATE LIMITED",
-    "DURANSOY",
-    "-to- DURANSOY"
+    "DURANSOY, Cagri; DOB 04 Aug 1985; POB Kadikoy",
+    "DURANSOY, Cagri"
    ],
    "china_link": {
     "value": "是",
@@ -4203,7 +4896,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260730"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；新增 3 条（changes have been made to OFAC's SDN List）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：新增 1 条（individual has been added to OFAC's SDN List）；新增 5 条（entities have been added to OFAC's SDN List）；修订 3 条（changes have been made to OFAC's SDN List）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260730"
     },
@@ -4222,8 +4915,22 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:05"
+    "retrieved_at": "2026-10-23 08:54"
    },
+   "cn_parties": [
+    {
+     "name": "TANG, Xin",
+     "kind": "新增"
+    },
+    {
+     "name": "SHANGHAI ELITE INTERNATIONAL TRAVEL CO LTD (Chinese Simplified: 上海马汉国际旅行社有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "SHANGHAI WINGS INTERNATIONAL LOGISTICS CO (Chinese Simplified: 上海翼上国际货运有限公司)",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -4290,8 +4997,34 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:05"
+    "retrieved_at": "2026-10-23 08:54"
    },
+   "cn_parties": [
+    {
+     "name": "BILLION NEXUS INT'L CO",
+     "kind": "新增"
+    },
+    {
+     "name": "CONFIDENT APEX LIMITED (Chinese Traditional: 帆起有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "MARINOVA FREIGHT LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "NEVADA SPIRIT COMPANY LIMITED",
+     "kind": "新增"
+    },
+    {
+     "name": "QI HANG SHIP MANAGEMENT LIMITED (Chinese Traditional: 啟航船舶管理有限公司)",
+     "kind": "新增"
+    },
+    {
+     "name": "VAST MIGHTY LIMITED",
+     "kind": "新增"
+    }
+   ],
    "first_seen": "2026-10-23 02:13"
   },
   {
@@ -4309,20 +5042,20 @@
     "ARELLANO FELIX",
     "COMACHO RODRIGUES",
     "TORRES MENDEZ",
-    "CHANG",
+    "CHANG, Chi Fu",
     "KHUN SA",
-    "CHAN",
-    "CHANGTRAKUL",
-    "HEATH",
-    "ZAMBA",
-    "ZAMBO",
-    "OGUNGBUYI",
-    "ADEMULERO",
-    "BABESTAN",
-    "SHOFESO",
-    "AGRICOLA GANADERA HENAO GONZALEZ Y CIA. S.C.S",
-    "COMPANIA AGROINVERSORA HENAGRO LTDA",
-    "DESARROLLOS COMERCIALES E INDUSTRIALES HENAO GONZALEZ Y CIA. S.C.S"
+    "CHAN, Changtrakul",
+    "CHANG, Shi-Fu",
+    "CHANG, Xifu",
+    "CHANGTRAKUL, Chan",
+    "HEATH, Noel Timothy",
+    "ZAMBA, Noel Heath",
+    "ZAMBO, Noel Heath",
+    "OGUNGBUYI, Oluwole A",
+    "ADEMULERO, Babestan Oluwole",
+    "BABESTAN, Wole A",
+    "OGUNGBUYI, Wally",
+    "OGUNGBUYI, Wole A"
    ],
    "china_link": {
     "value": "否",
@@ -4341,7 +5074,7 @@
      "source": "https://ofac.treasury.gov/recent-actions/20260727"
     },
     {
-     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 286 条（deletions have been made to OFAC's SDN List）；新增 74 条（changes have been made to OFAC's SDN List）；新增 4 条（entities have been added to OFAC's Sectoral Sanctions Identi）；删除 20 条（deletions have been made to OFAC's Sectoral Sanctions Identi）；新增 1 条（individual has been added to OFAC's Non-SDN Palestinian Legi）；删除 4 条（deletions have been made to OFAC's Non-SDN Palestinian Legis）。",
+     "text": "SDN 变动明细（原文逐条解析；删除段含 a.k.a. 别名重复列示，条数为原文行列数）：删除 286 条（deletions have been made to OFAC's SDN List）；修订 74 条（changes have been made to OFAC's SDN List）；新增 4 条（entities have been added to OFAC's Sectoral Sanctions Identi）；删除 20 条（deletions have been made to OFAC's Sectoral Sanctions Identi）；新增 1 条（individual has been added to OFAC's Non-SDN Palestinian Legi）；删除 4 条（deletions have been made to OFAC's Non-SDN Palestinian Legis）。",
      "layer": "external",
      "source": "https://ofac.treasury.gov/recent-actions/20260727"
     }
@@ -4355,7 +5088,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 04:05"
+    "retrieved_at": "2026-10-23 08:54"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4394,7 +5127,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-07-27/pdf/2026-15112.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 03:40"
+    "retrieved_at": "2026-10-23 08:11"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -4428,14 +5161,14 @@
    "pdf_url": null,
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 04:05"
+    "retrieved_at": "2026-10-23 08:42"
    },
    "first_seen": "2026-10-23 02:13"
   }
  ],
  "uflpa_snapshot": {
-  "retrieved_at": "2026-10-23 04:05",
-  "sha256": "5835407ed17938b85cc60cc4c9075ddb3e9a9ab8fc5b9d86659b74bd70c38424",
+  "retrieved_at": "2026-10-23 08:42",
+  "sha256": "d9e98d6635c5d1f7861ad6e882cf4125a39093fdc98af09c2913131025a546ad",
   "count": 205,
   "entries": [
    {
