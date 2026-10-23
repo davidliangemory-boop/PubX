@@ -231,10 +231,15 @@ EXC_DROP_RE = re.compile(
 def clean_excerpt(txt):
     """首页正文摘录：剔除免责声明/通函套话/公司注册头部，保留公告标题与正文首句（繁体原文）。"""
     flat = re.sub(r"\s+", " ", txt)
-    # 部分 PDF 逐字空格分隔（"香 港 交 易 …"），压缩中文字间空格使规则可匹配
+    # 部分 PDF 逐字空格分隔（"香 港 交 易 …"/"2 0 2 6"/"L B M A P"），压缩字间空格使规则可匹配；
+    # 拉丁字母仅压缩单字母词序列（"L B M A P"→"LBMAP"），不动正常英文单词间空格
     flat = re.sub(r"(?<=[一-鿿]) (?=[一-鿿])", "", flat)
-    flat = re.sub(r"[（(][^（）()]{0,60}註冊成立[^（）()]{0,60}[)）]", " ", flat)
+    flat = re.sub(r"(?<=\d) (?=\d)", "", flat)
+    flat = re.sub(r"(?<=\b[A-Za-z]) (?=[A-Za-z]\b)", "", flat)
+    flat = re.sub(r"[（(][^（）()]{0,80}(?:註冊成立|注册成立|Incorporated in)[^（）()]{0,80}[)）]", " ", flat)
     flat = re.sub(r"[（(]\s*(?:股份代號|Stock Code)\s*[：:][^（）()]{0,20}[)）]", " ", flat)
+    # 全大写英文标题行（"NOTIFICATION LETTER AND REPLY FORM" 等，≥2 个词）属版式噪音
+    flat = re.sub(r"\b[A-Z][A-Z0-9&,\.\-']+(?: [A-Z0-9&,\.\-']+){1,12}\b", " ", flat)
     segs = [s for s in re.split(r"(?<=[。；;])", flat) if s.strip()]
     segs = [s for s in segs if not EXC_DROP_RE.search(s)]
     body = "".join(segs).strip()
@@ -349,9 +354,10 @@ def scan_day(day, name2codes, seen_ids, docs_by_id, max_pdf, pdf_state):
     """扫描一天，返回 (新增条目, 批次统计)。"""
     ymd = day.replace("-", "")
     stats = {"date": day, "scanned": 0, "kept": 0, "excluded": 0, "new": 0, "dup": 0,
-             "correction": 0, "pdf_fetched": 0, "errors": [], "warns": [], "unmapped": {}}
+             "cross_dup": 0, "correction": 0, "pdf_fetched": 0, "errors": [], "warns": [], "unmapped": {}}
     new_docs = []
     day_excluded = set()
+    day_kept = set()
     for t1, t2g in GROUPS:
         try:
             recs, warns = servlet_query(ymd, t1, t2g)
@@ -367,7 +373,10 @@ def scan_day(day, name2codes, seen_ids, docs_by_id, max_pdf, pdf_state):
             if not nid:
                 continue
             if nid in seen_ids:
-                stats["dup"] += 1
+                if nid in day_kept:
+                    stats["cross_dup"] += 1  # 同日跨组别重出（同一公告属多个 headline 组）
+                else:
+                    stats["dup"] += 1  # 此前批次已见
                 continue
             if nid in day_excluded:
                 continue
@@ -396,6 +405,7 @@ def scan_day(day, name2codes, seen_ids, docs_by_id, max_pdf, pdf_state):
                         stats["unmapped"][nm] = stats["unmapped"].get(nm, 0) + 1
                 continue
             seen_ids.add(nid)
+            day_kept.add(nid)
             stats["kept"] += 1
             stats["new"] += 1
             title = clean(r.get("TITLE")).replace("  ", " ")
@@ -550,14 +560,15 @@ def build_hk_data_js(db):
 def redo_excerpt(docs_by_id, pdf_state):
     """按现行 clean_excerpt 规则重抓并重建摘录（仅针对命中旧 boilerplate 残留的条目）。"""
     bad = re.compile(r"^(香港交易及結算所|香港联合交易|此乃要件|IMPORTANT|Hong Kong Exchanges)|"
-                     r"註冊成立|注册成立|Stock Code|股份代號|股份代号|承擔任何責任|承担任何责任|應諮詢閣下|"
+                     r"註冊成立|注册成立|Incorporated in|Stock Code|股份代號|股份代号|承擔任何責任|承担任何责任|應諮詢閣下|"
                      r"香\s*港\s*交\s*易\s*及\s*結\s*算|承\s*擔\s*任\s*何\s*責\s*任|"
                      r"註\s*冊\s*成\s*立|股\s*份\s*代\s*號|S\s*t\s*o\s*c\s*k\s*C\s*o\s*d\s*e|"
                      r"此\s*乃\s*要\s*件|請\s*即\s*處\s*理|交\s*予\s*買\s*主|股\s*票\s*經\s*紀|"
                      r"僅\s*作\s*參\s*考|僅\s*供\s*參\s*考|不\s*構\s*成|邀\s*請\s*或\s*要\s*約|"
                      r"提\s*呈\s*發\s*售|"
                      r"司\s*法\s*管\s*轄\s*區|受\s*到\s*法\s*律\s*限\s*制|尚\s*未\s*根\s*據|"
-                     r"美\s*國\s*證\s*券\s*法|1\s*9\s*3\s*3\s*年|不\s*得\s*在\s*美\s*國")
+                     r"美\s*國\s*證\s*券\s*法|1\s*9\s*3\s*3\s*年|不\s*得\s*在\s*美\s*國|"
+                     r"\d \d \d|\b[A-Za-z] [A-Za-z] [A-Za-z]\b|\b[A-Z]{3,}(?: [A-Z]{3,})+\b")
     n = 0
     for doc in docs_by_id.values():
         if doc.get("pdf_status") != "done" or not bad.search(doc.get("excerpt") or ""):
