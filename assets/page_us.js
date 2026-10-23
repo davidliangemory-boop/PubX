@@ -9,7 +9,13 @@
   var CATS = ["全部", "交易类", "融资类", "运营", "法律（诉讼/监管处罚）", "对外投资", "经营战略重大事项"];
   var AMT_B = ["全部", "【未披露】", "<100万美元", "100万–1亿美元", "1亿–10亿美元", "≥10亿美元", "非美元/其他"];
   var CN_B = ["全部", "是", "未知"];
-  var UF = { from: "", to: "", cat: "全部", sub: "全部", form: "全部", amt: "全部", cn: "全部", q: "", page: 1 };
+  var ITEM_ZH = { "1.01": "签订重大协议", "1.02": "终止重大协议", "1.05": "网络安全事件",
+    "2.01": "完成收购/处置", "2.03": "产生财务义务", "2.05": "重组退出成本", "2.06": "重大减值",
+    "3.01": "退市/上市标准", "3.02": "未注册增发", "5.01": "控制权变更", "5.02": "董监高变动",
+    "8.01": "其他重大事项" };
+  var UF = { from: "", to: "", cat: "全部", sub: "全部", form: "全部", amt: "全部", cn: "全部",
+             item: "全部", q: "", page: 1 };
+  var expanded = {};
   var bound = false;
 
   function esc(s) {
@@ -39,14 +45,14 @@
     UF.from = qs.get("from") || ""; UF.to = qs.get("to") || "";
     UF.cat = qs.get("cat") || "全部"; UF.sub = qs.get("sub") || "全部";
     UF.form = qs.get("form") || "全部"; UF.amt = qs.get("amt") || "全部";
-    UF.cn = qs.get("cn") || "全部"; UF.q = qs.get("q") || "";
+    UF.cn = qs.get("cn") || "全部"; UF.item = qs.get("item") || "全部"; UF.q = qs.get("q") || "";
     UF.page = parseInt(qs.get("page") || "1", 10) || 1;
   }
   function syncQS() {
     var p = [];
     if (UF.from) p.push("from=" + UF.from);
     if (UF.to) p.push("to=" + UF.to);
-    ["cat", "sub", "form", "amt", "cn", "q"].forEach(function (k) {
+    ["cat", "sub", "form", "amt", "cn", "item", "q"].forEach(function (k) {
       if (UF[k] && UF[k] !== "全部") p.push(k + "=" + encodeURIComponent(UF[k]));
     });
     if (UF.page > 1) p.push("page=" + UF.page);
@@ -65,6 +71,7 @@
       if (UF.sub !== "全部" && e.subtype !== UF.sub) return false;
       if (UF.form !== "全部" && e.form !== UF.form) return false;
       if (UF.cn !== "全部" && e.china !== UF.cn) return false;
+      if (UF.item !== "全部" && (e.items || []).indexOf(UF.item) < 0) return false;
       if (UF.amt !== "全部" && amtBucket(e.amount) !== UF.amt) return false;
       if (q) {
         var hay = (e.company + " " + (e.ticker || "") + " " + e.summary + " " +
@@ -159,8 +166,45 @@
       + '<select class="fsel" id="ufamt">' + opts(AMT_B, UF.amt) + "</select>"
       + '<select class="fsel" id="ufcn">' + opts(CN_B, UF.cn) + "</select>"
       + '<input type="search" id="ufq" placeholder="关键词：公司/代码/事项/对方…" value="' + esc(UF.q) + '"/>'
+      + '<select class="fsel" id="ufitem"></select>'
       + '<button class="btn primary" id="ufcsv">导出 CSV（筛选后全部 ' + rows.length + ' 行）</button>'
       + "</div></div>";
+
+    // 逐类拆解（本筛选集六类计数 + 占比条，点击穿透为类别筛选）——借鉴李成工作站逐题拆解 / 投行天下看板穿透
+    var catCnt = {};
+    rows.forEach(function (e) { catCnt[e.category] = (catCnt[e.category] || 0) + 1; });
+    var maxCat = 1;
+    CATS.slice(1).forEach(function (c) { if ((catCnt[c] || 0) > maxCat) maxCat = catCnt[c]; });
+    h += '<div class="panel"><div class="panel-h"><h2>逐类拆解（当前筛选集 ' + rows.length + ' 条，点击类别穿透）</h2></div>'
+      + '<div class="panel-b us-break">';
+    CATS.slice(1).forEach(function (c) {
+      var n = catCnt[c] || 0;
+      var pct = rows.length ? Math.round(n * 1000 / rows.length) / 10 : 0;
+      h += '<div class="us-brkrow' + (UF.cat === c ? " on" : "") + '" data-cat="' + esc(c) + '">'
+        + '<span class="us-brkname">' + esc(c) + "</span>"
+        + '<span class="us-brkbar"><i style="width:' + Math.round(n * 100 / maxCat) + '%"></i></span>'
+        + '<span class="us-brknum">' + n + " 条 · " + pct + "%</span></div>";
+    });
+    h += "</div></div>";
+
+    // Item 分布条（8-K 条目级计数，点击穿透）——借鉴 EDGAR 全文检索 facet 计数
+    var itemCnt = {};
+    rows.forEach(function (e) {
+      (e.items || []).forEach(function (it) { itemCnt[it] = (itemCnt[it] || 0) + 1; });
+    });
+    var itemKeys = Object.keys(itemCnt).sort(function (a, b) { return itemCnt[b] - itemCnt[a]; });
+    if (itemKeys.length) {
+      var maxIt = itemCnt[itemKeys[0]];
+      h += '<div class="panel"><div class="panel-h"><h2>8-K Item 分布（条目可含多个 Item，合计大于条目数）</h2></div>'
+        + '<div class="panel-b us-items">';
+      itemKeys.forEach(function (it) {
+        h += '<span class="us-itempill' + (UF.item === it ? " on" : "") + '" data-item="' + esc(it) + '" '
+          + 'title="点击筛选含 Item ' + esc(it) + " 的条目\">"
+          + '<b>' + esc(it) + "</b> " + esc(ITEM_ZH[it] || "") + " × " + itemCnt[it]
+          + '<i style="width:' + Math.round(itemCnt[it] * 100 / maxIt) + '%"></i></span>';
+      });
+      h += "</div></div>";
+    }
 
     var totalPages = Math.max(1, Math.ceil(rows.length / PAGE));
     if (UF.page > totalPages) UF.page = totalPages;
@@ -177,7 +221,7 @@
       var items = (e.items || []).map(function (it, i) {
         return '<span class="pill" title="' + esc((e.item_names || [])[i] || "") + '">' + esc(it) + "</span>";
       }).join(" ");
-      h += "<tr>"
+      h += '<tr class="us-row" data-eid="' + esc(e.id) + '">'
         + '<td class="code">' + esc(e.date) + "</td>"
         + "<td><b>" + esc(e.company) + "</b><br/><span class=\"code\">"
         + esc(e.ticker ? e.ticker + " · " : "") + "CIK " + esc(e.cik) + "</span></td>"
@@ -192,6 +236,19 @@
         + '<td><a href="' + esc(e.url) + '" target="_blank" rel="noopener">主文档</a> · '
         + '<a href="' + esc(e.index_url) + '" target="_blank" rel="noopener">索引</a></td>'
         + "</tr>";
+      if (expanded[e.id]) {
+        h += '<tr class="us-detail"><td colspan="10"><div class="us-dgrid">'
+          + "<div><b>Accession</b><br/><span class=\"code\">" + esc(e.accession) + "</span></div>"
+          + "<div><b>收录批次</b><br/>" + esc(e.batch || "—") + "</div>"
+          + "<div><b>Item 全名</b><br/>" + esc(((e.items || []).map(function (it, i) {
+              return it + " " + ((e.item_names || [])[i] || ""); }).join("；")) || "—（非 8-K 无 Item 编号）") + "</div>"
+          + "<div><b>中国关联依据</b><br/>" + esc(e.china_basis || "—") + "</div>"
+          + "<div><b>字段分层</b><br/>一句话事项/金额/对方=原文抽取（disclosed"
+            + (e.amount === "【未披露】" ? "，金额原文未披露" : "") + "）；类别/子类/中国关联=系统规则推断（analysis，依据=表格+Item+关键词）</div>"
+          + '<div><b>出处定位</b><br/><a href="' + esc(e.url) + '" target="_blank" rel="noopener">主文档（一句话事项抽取处）</a> · '
+          + '<a href="' + esc(e.index_url) + '" target="_blank" rel="noopener">EDGAR Filing Detail 索引页</a></div>'
+          + "</div></td></tr>";
+      }
     });
     h += "</tbody></table></div>"
       + '<div class="panel-b us-pager">'
@@ -206,28 +263,65 @@
       + "<br/><b>分层</b>：一句话事项/金额为原文正则抽取（disclosed）；类别/子类/中国关联为系统规则推断（analysis，依据=表格类型+Item 编号+关键词）。"
       + "中国关联仅作标签：<b>是</b>=CIK 命中出海观察名单或公司名含中国地名/中概关键词；<b>未知</b>=未进一步核查，不代表「否」。"
       + "本页与「出海信批归纳」（仅中企）及港股、出口管制分页面的数据文件、统计口径<b>互不混用</b>。"
+      + "<br/><b>批次记录</b>（日批次 D-=按日采集 / 回溯 B-=历史补入）："
+      + (batches.length ? batches.map(function (b) {
+          var ds = Object.keys(b.dates || {}).map(function (d) {
+            var v = b.dates[d];
+            return d + (v.status === "ok" ? "(收录" + (v.kept || 0) + ")" : "(索引未发布)");
+          }).join("、");
+          return '<span class="code">' + esc(b.batch_id) + "</span> 新增 " + (b.new_entries || 0) + " 条：" + esc(ds);
+        }).join("<br/>") : "—")
       + "</div></div>";
 
     root.innerHTML = h;
 
-    // 子类 / 表格选项按当前数据与类别联动
-    var subs = ["全部"], forms = ["全部"];
+    // 子类 / 表格 / Item 选项按当前数据与类别联动
+    var subs = ["全部"], forms = ["全部"], itemsAll = ["全部"];
     all.forEach(function (e) {
       if ((UF.cat === "全部" || e.category === UF.cat) && subs.indexOf(e.subtype) < 0) subs.push(e.subtype);
       if (forms.indexOf(e.form) < 0) forms.push(e.form);
+      (e.items || []).forEach(function (it) {
+        var lbl = it + " " + (ITEM_ZH[it] || "");
+        if (itemsAll.indexOf(lbl) < 0) itemsAll.push(lbl);
+      });
     });
     forms.sort(function (a, b) { return a === "全部" ? -1 : b === "全部" ? 1 : a.localeCompare(b); });
     if (subs.indexOf(UF.sub) < 0) UF.sub = "全部";
     $("ufsub").innerHTML = opts(subs, UF.sub);
     $("ufform").innerHTML = opts(forms, UF.form);
+    var itemVals = itemsAll.map(function (x) { return x.split(" ")[0]; });
+    $("ufitem").innerHTML = itemsAll.map(function (x, i) {
+      return '<option value="' + esc(itemVals[i]) + '"' + (itemVals[i] === UF.item ? " selected" : "") + ">"
+        + (x === "全部" ? "8-K Item 全部" : esc(x)) + "</option>";
+    }).join("");
 
     function re(page1) {
       if (page1) UF.page = 1;
       syncQS(); render();
     }
     [["uffrom", "from"], ["ufto", "to"], ["ufcat", "cat"], ["ufsub", "sub"],
-     ["ufform", "form"], ["ufamt", "amt"], ["ufcn", "cn"]].forEach(function (x) {
+     ["ufform", "form"], ["ufamt", "amt"], ["ufcn", "cn"], ["ufitem", "item"]].forEach(function (x) {
       $(x[0]).addEventListener("change", function (e) { UF[x[1]] = e.target.value; re(true); });
+    });
+    document.querySelectorAll(".us-brkrow").forEach(function (el) {
+      el.addEventListener("click", function () {
+        var c = el.getAttribute("data-cat");
+        UF.cat = (UF.cat === c) ? "全部" : c; UF.sub = "全部"; re(true);
+      });
+    });
+    document.querySelectorAll(".us-itempill").forEach(function (el) {
+      el.addEventListener("click", function () {
+        var it = el.getAttribute("data-item");
+        UF.item = (UF.item === it) ? "全部" : it; re(true);
+      });
+    });
+    document.querySelectorAll(".us-row").forEach(function (el) {
+      el.addEventListener("click", function (ev) {
+        if (ev.target.closest("a")) return;
+        var id = el.getAttribute("data-eid");
+        if (expanded[id]) delete expanded[id]; else expanded[id] = 1;
+        render();
+      });
     });
     var qt;
     $("ufq").addEventListener("input", function (e) {

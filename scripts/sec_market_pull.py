@@ -17,7 +17,7 @@
   python3 sec_market_pull.py --date 2026-10-21        # 单日（日批次 D-YYYYMMDD）
   python3 sec_market_pull.py --backfill-days 20       # 回溯 N 天（回溯批次 B-YYYYMMDD，默认 20）
   python3 sec_market_pull.py --build-only             # 仅由 state/us_market.json 重建 us_data.js
-限流：≤8 次/秒（官方上限 10，留余量），带 User-Agent，429/5xx 指数退避。
+限流：自适应 0.6–5s/请求（官方上限 10/s，共享出口实测极易触发封禁）；403 触发全局静默 60–600s。
 """
 import argparse
 import concurrent.futures as cf
@@ -41,9 +41,8 @@ MASTER_P = os.path.join(STATE, "us_market.json")
 SEEN_P = os.path.join(STATE, "sec_market_seen.json")
 OUT_JS = os.path.join(ROOT, "assets", "us_data.js")
 
-RPS = 0.4               # 共享出口 IP 上 SEC 限流极敏感：实测 2/s 触发数分钟 403 封禁，0.25/s 可持续
 MAX_DOC_BYTES = 700000  # 主文档只读前 700KB，够取 Items 与首段事实
-THREADS = 2
+THREADS = 4
 
 FORM_WHITELIST = {
     "8-K", "8-K/A", "6-K", "6-K/A",
@@ -95,14 +94,17 @@ TAG_RE = re.compile(r"<[^>]+>")
 
 _lock = threading.Lock()
 _last_req = [0.0]
-_interval = [1.0 / RPS]  # 自适应请求间隔（秒）：成功衰减、403 翻倍，2.5–30
-_stats = {"fetches": 0, "errors": 0}
+_interval = [1.2]   # 自适应请求间隔（秒）：成功缓慢衰减、403 上调，0.6–5
+_ban_until = [0.0]  # 全局封禁静默期：任何 403 触发，期间所有线程不发请求
+_ban_len = [60.0]   # 静默期长度，连续 403 指数拉长（60→…→600），成功后复位
+_stats = {"fetches": 0, "errors": 0, "bans": 0}
 
 
 def throttle():
     with _lock:
         now = time.monotonic()
-        wait = _last_req[0] + _interval[0] - now
+        start = max(_last_req[0] + _interval[0], _ban_until[0])
+        wait = start - now
         if wait > 0:
             time.sleep(wait)
         _last_req[0] = time.monotonic()
@@ -111,18 +113,27 @@ def throttle():
 def _adapt(ok):
     with _lock:
         if ok:
-            _interval[0] = max(2.5, _interval[0] * 0.85)
+            _interval[0] = max(0.6, _interval[0] * 0.97)
+            _ban_len[0] = 60.0
         else:
-            _interval[0] = min(30.0, _interval[0] * 2.0)
+            _stats["bans"] += 1
+            _interval[0] = min(5.0, _interval[0] * 1.5)
+            _ban_until[0] = time.monotonic() + _ban_len[0]
+            print("[403 疑似限流，全局静默 %.0fs] %s" % (_ban_len[0], _adapt._url), flush=True)
+            _ban_len[0] = min(600.0, _ban_len[0] * 1.6)
+
+
+_adapt._url = ""
 
 
 def fetch(url, max_bytes=None, retries=2, retry_403=False):
-    """自适应限流 + 退避；max_bytes 截断读取（主文档只看头部）。
-    共享出口上 SEC 限流窗口存在但短（实测静默 2–5 分钟即恢复），
-    403 时把全局请求间隔翻倍，成功后逐步回落，避免陷入超长休眠。
+    """自适应限流 + 封禁静默；max_bytes 截断读取（主文档只看头部）。
+    共享出口 IP 上 SEC/Akamai 会按时间窗封禁：一旦 403，全局限流静默等待恢复
+    （实测封禁持续数分钟，期间继续发请求只会延长封禁）。
     日索引的 403（未发布）不重试，由调用方视为正常态。"""
     for i in range(retries + 1):
         throttle()
+        _adapt._url = url
         try:
             req = urllib.request.Request(url, headers=UA)
             with urllib.request.urlopen(req, timeout=40) as r:
@@ -137,11 +148,11 @@ def fetch(url, max_bytes=None, retries=2, retry_403=False):
                 if not retry_403:
                     raise
                 _adapt(False)
-                print("[403 限流，请求间隔升至 %.1fs]" % _interval[0], flush=True)
             if i == retries:
                 _stats["errors"] += 1
                 raise
-            time.sleep(min(60, (8 * (3 ** i)) if e.code == 403 else (2 ** (i + 2))))
+            if e.code != 403:
+                time.sleep(min(90, 2 ** (i + 2)))
         except Exception:
             if i == retries:
                 _stats["errors"] += 1
@@ -182,7 +193,17 @@ def efts_items(datestr):
         while True:
             url = ("https://efts.sec.gov/LATEST/search-index?q=%22%22&forms=8-K"
                    "&startdt=%s&enddt=%s&from=%d" % (datestr, datestr, frm))
-            d = json.loads(fetch(url))
+            d = None
+            for _try in range(3):
+                raw = fetch(url, retries=3, retry_403=True)
+                try:
+                    d = json.loads(raw)
+                    break
+                except Exception:
+                    print("[EFTS 响应非 JSON，8s 后重试]", flush=True)
+                    time.sleep(8)
+            if d is None:
+                return None
             hits = d.get("hits", {}).get("hits", [])
             for h in hits:
                 s = h.get("_source", {})
@@ -261,11 +282,21 @@ def item_context(text, item):
     return best
 
 
+BOILER_RE = re.compile(
+    r"^(indicate by check mark|for the month of|commission file number|pursuant to (?:the )?section|"
+    r"check the appropriate box|if (?:any of )?the following|table of contents|this report on form|"
+    r"the information (?:contained|furnished)|the securities and exchange commission)", re.I)
+
+
 def first_sentences(text, n=2, cap=260):
     parts = re.split(r"(?<=[.!?])\s+(?=[A-Z(])", text.strip())
     out = ""
+    skipped = 0
     for s in parts:
         if not s:
+            continue
+        if BOILER_RE.match(s.strip()) and skipped < 6:
+            skipped += 1
             continue
         out = (out + " " + s).strip()
         if len(out) >= cap or out.count(".") + out.count("!") + out.count("?") >= n:
@@ -400,12 +431,17 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     acc_nodash = acc.replace("-", "")
     cik_i = str(int(row["cik"]))
     form = row["form"]
+    fdate = row["date"]
+    if re.fullmatch(r"\d{8}", fdate):  # master.idx 的 Date Filed 是 YYYYMMDD，归一为 YYYY-MM-DD
+        fdate = "%s-%s-%s" % (fdate[:4], fdate[4:6], fdate[6:8])
     base = "https://www.sec.gov/Archives/edgar/data/%s/%s" % (cik_i, acc_nodash)
     index_url = "%s/%s-index.htm" % (base, acc)
     info = (efts_map or {}).get(acc) if form.startswith("8-K") else None
+    fup = form.upper()
+    maxb = 220000 if fup.startswith("424B") else (500000 if fup[:2] in ("S-", "F-") or fup.startswith("SC") else MAX_DOC_BYTES)
     try:
-        raw = fetch("https://www.sec.gov/Archives/edgar/" + row["path"],
-                    max_bytes=MAX_DOC_BYTES, retries=3, retry_403=True)
+        raw = fetch("https://www.sec.gov/Archives/" + row["path"],
+                    max_bytes=maxb, retries=4, retry_403=True)
         text = parse_primary(raw, form)
     except Exception as e:
         return None, "%s %s: %s" % (acc, form, str(e)[:120])
@@ -415,7 +451,9 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
         if not keep:
             return "SKIP", None
         cat, sub = classify_8k(keep, text)
-        seg = item_context(text, keep[0])
+        picked = [i for i in ITEM_PRIORITY if i in keep]
+        primary = picked[0] if picked else keep[0]
+        seg = item_context(text, primary)
         summary = first_sentences(seg) if seg else first_sentences(text)
     else:
         items = []
@@ -426,10 +464,15 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     primary_doc = (info or {}).get("doc") or ""
     doc_url = "%s/%s" % (base, primary_doc) if primary_doc else index_url
     china, china_basis = china_tag(cik_i, row["company"], watch_ciks)
+    amt_ctx = ""
+    if form.startswith("8-K") and keep:
+        amt_ctx = item_context(text, primary) or text[:6000]
+    else:
+        amt_ctx = text[:6000]
     entry = {
         "id": "usm_" + acc_nodash,
         "accession": acc,
-        "date": row["date"],
+        "date": fdate,
         "company": row["company"],
         "cik": cik_i,
         "ticker": tickers.get(cik_i),
@@ -439,7 +482,7 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
         "category": cat,
         "subtype": sub,
         "summary": summary,
-        "amount": extract_amount(item_context(text, keep[0]) if form.startswith("8-K") else text[:6000]),
+        "amount": extract_amount(amt_ctx),
         "counterparty": extract_counterparty(text),
         "url": doc_url,
         "index_url": index_url,
@@ -525,13 +568,19 @@ def collect_dates(dates, batch_id, max_docs=None, max_minutes=None):
                     seen_acc.add(acc)
                 elif entry:
                     results.append(entry)
+                    master["entries"].append(entry)
+                    have_ids.add(entry["id"])
                     seen_acc.add(entry["accession"])
                     fetched_docs += 1
                 elif err:
                     bstat["errors"].append(err)
+                # 日内部署细粒度断点：每 150 份落盘，封禁中断不丢整天进度
+                if (len(results) + len(bstat["errors"])) % 150 == 0:
+                    json.dump({"acc": sorted(seen_acc),
+                               "last_run": datetime.datetime.now().isoformat(timespec="seconds")},
+                              open(SEEN_P, "w", encoding="utf-8"), ensure_ascii=False)
+                    save_master(master)
         results.sort(key=lambda e: (e["company"], e["accession"]))
-        master["entries"].extend(results)
-        have_ids.update(e["id"] for e in results)
         bstat["dates"][dstr] = {
             "status": "ok", "scanned": len(rows), "whitelist_hits": len(hits),
             "new_filings": len(todo), "doc_fetched": len(pre), "kept": len(results),
@@ -563,7 +612,7 @@ def save_master(master):
     master["meta"].update({
         "generated_at": datetime.datetime.now(
             datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M"),
-        "date_range": [dates[-1], dates[0]] if dates else [],
+        "date_range": [dates[0], dates[-1]] if dates else [],
         "total": len(master["entries"]),
         "by_category": cats,
         "caliber": ("数据源 SEC EDGAR 每日索引 master.idx（T+1）；表格白名单 8-K/6-K/S-1/F-1/S-4/F-4/"
@@ -621,9 +670,9 @@ def main():
         batch_id = "B-" + today.strftime("%Y%m%d")
     bstat = collect_dates(dates, batch_id, max_docs=a.max_docs, max_minutes=a.max_minutes)
     ok = sum(1 for v in bstat["dates"].values() if v.get("status") == "ok")
-    print("批次 %s：索引可用 %d 天 · 新增收录 %d 条 · 错误 %d 个（抓取 %d 次，失败 %d 次）"
+    print("批次 %s：索引可用 %d 天 · 新增收录 %d 条 · 错误 %d 个（抓取 %d 次，失败 %d 次，封禁静默 %d 次）"
           % (batch_id, ok, bstat["new_entries"], len(bstat["errors"]),
-             _stats["fetches"], _stats["errors"]))
+             _stats["fetches"], _stats["errors"], _stats["bans"]))
     return 0
 
 
