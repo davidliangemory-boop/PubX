@@ -49,8 +49,12 @@
   function chTag(r) { var m = CH_META[chOf(r)] || { short: "其他", cls: "ot" }; return '<span class="chtag ' + m.cls + '">' + m.short + "</span>"; }
   function amtShort(t) {
     if (!t) return "";
+    // 口径前缀：金额为注册资本/认购价等非交易对价时保留名目，避免误读为交易额
+    var pre = "";
+    if (/^注册资本/.test(t)) pre = "注册资本 ";
+    else if (/^(认购|出资)/.test(t)) pre = "出资 ";
     var m = String(t).match(/([0-9][0-9,]*\.?[0-9]*)\s*(亿|万)?\s*(美元|港元|人民币|元|澳元|欧元|新元|迪拉姆)/);
-    if (m) return m[0].replace(/\s+/g, "");
+    if (m) return pre + m[0].replace(/\s+/g, "");
     return String(t).slice(0, 24);
   }
   function statCard(n, c, d) {
