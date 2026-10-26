@@ -158,12 +158,55 @@ KW_RULES = [
 
 LEGACY_KW = [(code, kw) for _rid, code, kws, _n in KW_RULES for kw in kws]
 
+# 旧轮自由文本拆片专用补充词表（顺序即优先级，更具体的码在前）：
+# 覆盖 KW_RULES 未含但议题表存在的二级码（I10.3 等）与各源披露惯用语。
+# 只用于 map_legacy_fragment，不回灌关键词规则主流程。
+LEGACY_EXTRA = [
+    ("I1.5", ["境外发行上市", "备案通知书", "国合函", "管理试行办法", "中国证监会", "证监会"]),
+    ("I1.1", ["对外投资监管"]),
+    ("I13.1", ["两地披露同步", "多地披露同步", "跨市场披露", "披露同步", "海外监管公告", "同步披露"]),
+    ("I13.2", ["聆讯", "挂牌", "决议有效期", "择机发行"]),
+    ("I3.3", ["交易分类", "上市规则", "须予披露", "須予披露", "主要交易", "关连交易", "關連交易",
+              "关联交易", "14A", "百分比率", "视作出售", "独立董事委员会", "联交所"]),
+    ("I2.2", ["特许经营", "承包资质", "投资许可", "投资准入", "外资准入", "准入"]),
+    ("I2.3", ["土地使用", "地块"]),
+    ("I2.4", ["优惠政策", "工业区"]),
+    ("I6.2", ["PDPA", "个人数据", "数据保护"]),
+    ("I7.1", ["CBAM"]),
+    ("I7.4", ["BfArM", "INVIMA", "上市许可", "GMP", "药物警戒", "AS9100", "REACH", "EPR", "标签", "认证"]),
+    ("I8.1", ["转移定价"]),
+    ("I8.2", ["税务居民"]),
+    ("I9.1", ["劳工法", "外籍员工"]),
+    ("I10.1", ["截止日", "最后期限", "long stop", "Long Stop"]),
+    ("I10.3", ["银团", "担保", "保函", "抵押", "贷款", "融资", "增信"]),
+    ("I10.5", ["治理条款", "对等治理", "治理安排", "治理"]),
+    ("I12.2", ["反洗钱"]),
+]
+LEGACY_KW = [(c, k) for c, ks in LEGACY_EXTRA for k in ks] + LEGACY_KW
+
+# 旧片段状态推断：分类/豁免类结论 → not_applicable（无审批状态含义）；
+# 完成类措辞 → disclosed_cleared；待办类措辞 → disclosed_pending；其余 not_disclosed。
+LEGACY_NA = re.compile(r"不构成|无需|豁免|不涉及|不存在|无关连|概无|排除|公告标为")
+LEGACY_PENDING = re.compile(r"需[^，。；]{0,14}(批准|审批|核准|备案|报告)|须[^，。；]{0,14}(批准|审批|核准|备案|报告)"
+                            r"|将按|择机|待完成|待观察|在审|尚未|未履行|有效期内")
+
+
+def legacy_status(frag):
+    if LEGACY_NA.search(frag):
+        return "not_applicable", "片段含分类/豁免/否定性结论措辞（不构成/豁免/概无等），无审批状态含义"
+    st = status_of(frag, default="")
+    if st == "disclosed_cleared":
+        return st, "片段含完成类措辞（已获/已取得/已完成等），按片段原文表述判定"
+    if st == "disclosed_pending" or LEGACY_PENDING.search(frag):
+        return "disclosed_pending", "片段含待办/进行中措辞（需批准/将按/择机/在审等），按片段原文表述判定"
+    return "not_disclosed", "片段未载处理状态，按纪律一律 not_disclosed，不推断"
+
 
 def map_legacy_fragment(frag):
     for code, kw in LEGACY_KW:
         if kw in frag:
-            return code
-    return None
+            return code, kw
+    return None, None
 
 
 def raw_categories(e, db_by_aid):
@@ -291,31 +334,54 @@ def main():
         legacy = e.get("legal_triggers") or []
         carried = e.get("legal_notes_unmapped") or []  # 首轮已单列的未归码片段：重跑不丢
         trs = build_triggers(e, db_by_aid, tax_names)
-        # 旧自由文本拆片归码（保留旧轮分析内容，归不上的单列）
+        # 旧自由文本拆片归码（保留旧轮分析内容，归不上的单列）；
+        # 已被旧轮归码的片段（basis 含标记）以 trigger_fact 重跑映射，保证幂等不丢
         unmapped = []
         for lt in legacy:
             txt = lt.get("text") or ""
-            if not txt.strip() or lt.get("issue_code"):
+            if not txt.strip():
                 continue
-            for frag in re.split(r"[；;]", txt):
+            if lt.get("issue_code") and "旧轮入库分析文本归码" not in (lt.get("basis") or ""):
+                continue
+            frags = [lt.get("trigger_fact") or txt] if lt.get("issue_code") else re.split(r"[；;]", txt)
+            for frag in frags:
                 frag = frag.strip()
                 if not frag:
                     continue
-                code = map_legacy_fragment(frag)
+                code, kw = map_legacy_fragment(frag)
                 if code:
-                    key = ("L", code, frag)
+                    st, st_basis = legacy_status(frag)
                     if not any(t["issue_code"] == code and frag in t["trigger_fact"] for t in trs):
                         trs.append({
                             "issue_code": code, "issue": tax_names.get(code, ""),
                             "trigger_fact": frag,
                             "text": frag,
-                            "status": "not_disclosed", "layer": "analysis",
-                            "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查",
+                            "status": st, "layer": "analysis",
+                            "basis": "旧轮入库分析文本归码（命中词「%s」→ %s）；%s"
+                                     % (kw, code, st_basis),
                         })
                 else:
                     unmapped.append({"text": frag, "basis": lt.get("basis") or ""})
         for cu in carried:
-            if not any(u["text"] == cu.get("text") for u in unmapped):
+            # 历史未归码片段每轮重试：词表扩充后可归码的进入触发点，仍归不上的才不丢保留
+            if any(u["text"] == cu.get("text") for u in unmapped):
+                continue
+            cfrag = (cu.get("text") or "").strip()
+            if not cfrag:
+                continue
+            code, kw = map_legacy_fragment(cfrag)
+            if code:
+                st, st_basis = legacy_status(cfrag)
+                if not any(t["issue_code"] == code and cfrag in t["trigger_fact"] for t in trs):
+                    trs.append({
+                        "issue_code": code, "issue": tax_names.get(code, ""),
+                        "trigger_fact": cfrag,
+                        "text": cfrag,
+                        "status": st, "layer": "analysis",
+                        "basis": "旧轮入库分析文本归码（命中词「%s」→ %s）；%s"
+                                 % (kw, code, st_basis),
+                    })
+            else:
                 unmapped.append(cu)
         trs.sort(key=lambda t: t["issue_code"])
         e["legal_triggers"] = trs
@@ -334,8 +400,8 @@ def main():
             raise SystemExit("事件无触发点（违反每事件≥1）：" + e["event_id"])
 
     evj.setdefault("meta", {})["legal_map"] = {
-        "version": "r06-2", "run": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed；原始分类/多渠道披露标 not_applicable（无审批状态含义）；否定与低风险语境不出条",
+        "version": "r06-3", "run": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed；原始分类/多渠道披露标 not_applicable（无审批状态含义）；否定与低风险语境不出条；旧轮片段归码含 I10.3 等补充词表，状态按片段措辞推断（完成/待办/豁免结论/未披露）",
         "triggers": n_trig, "legacy_unmapped": n_unmapped,
     }
     if not dry:

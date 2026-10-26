@@ -935,12 +935,30 @@
       + "），每条触发点只挂一个二级码；trigger_fact 引用事件已有字段或原文摘录上下文；原文未载处理状态的一律「未披露」，不从「交割完成」倒推审批。"
       + '原始分类（巨潮公告类型 / 披露易 headline / SEC 表格）逐源保留在 I3.3，标「原文事实·无审批状态」（不得读作「已通过」），与归一议题双层并存。议题数与 <a href="#/events">事件库</a>议题筛选结果一致（同一判定函数）。</div>';
 
+    // 一级议题总览矩阵（李成工作站「总览表先行」做法：先给全覆盖索引，再展开明细）
+    h += '<div class="panel"><div class="panel-h"><h2>一级议题总览</h2>'
+      + '<span class="note">点击议题码直达下方明细；事件数与 <a href="#/events">事件库</a>议题筛选同口径</span></div>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:90px">议题码</th><th>一级议题</th><th>事件数</th><th>触发条数</th><th>有命中二级议题</th><th></th></tr></thead><tbody>'
+      + TAX.map(function (fl) {
+        var flEv = {}, flN = 0, hitSub = 0;
+        fl.sub.forEach(function (s) {
+          var items = bySub[s[0]] || [];
+          if (items.length) hitSub++;
+          items.forEach(function (x) { flEv[x.e.event_id] = 1; flN++; });
+        });
+        return "<tr" + (flN ? "" : " style='opacity:.55'") + '><td><a href="javascript:;" onclick="document.getElementById(\'iss-' + fl.code + '\').scrollIntoView({behavior:\'smooth\'})"><b>' + esc(fl.code) + "</b></a></td>"
+          + '<td style="font-size:12.5px">' + esc(fl.name) + "</td>"
+          + '<td class="mono">' + Object.keys(flEv).length + '</td><td class="mono">' + flN + "</td>"
+          + '<td class="mono">' + hitSub + " / " + fl.sub.length + "</td>"
+          + '<td style="font-size:12px">' + (flN ? '<a href="#/events?issue=' + fl.code + '">事件库筛选 →</a>' : '<span class="dim">样本内暂无触发</span>') + "</td></tr>";
+      }).join("") + "</tbody></table></div></div>";
+
     h += TAX.map(function (fl) {
       var flEv = {}, flN = 0;
       fl.sub.forEach(function (s) {
         (bySub[s[0]] || []).forEach(function (x) { flEv[x.e.event_id] = 1; flN++; });
       });
-      return '<div class="panel"><div class="panel-h"><h2>' + esc(fl.code) + " " + esc(fl.name) + '</h2>'
+      return '<div class="panel" id="iss-' + esc(fl.code) + '"><div class="panel-h"><h2>' + esc(fl.code) + " " + esc(fl.name) + '</h2>'
         + '<span class="note">事件 ' + Object.keys(flEv).length + " · 触发条数 " + flN + '　<a href="#/events?issue=' + fl.code + '">事件库筛选 →</a></span>'
         + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:230px">二级议题</th><th>事件数</th><th>触发条数</th><th>明细（公司 → 事件 → 原文页）</th></tr></thead><tbody>'
         + fl.sub.map(function (s) {
