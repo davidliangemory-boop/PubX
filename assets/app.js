@@ -1384,9 +1384,9 @@
       + unique(evs.map(function (x) { return x.mt; })).filter(Boolean).map(function (m) { return pill(m); }).join("") + "</div></div>";
 
     /* ── ③ 事件链：只列标题+阶段+日期，链接到详情，不复制摘要 ── */
-    h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">事件链</span><span class="sub">按首次收录披露日期正序；当前阶段取最近披露，日期不代表该阶段发生日</span></div>';
+    h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">事件链</span><span class="sub">按首次收录披露日期正序；当前阶段取最近披露，日期不代表该阶段发生日；仅列事件标题，事实与金额见详情</span></div>';
     h += '<div class="panel"><div class="panel-b">' + evsAsc.map(function (x) {
-      return '<div class="ev"><span class="pg">' + esc(x.firstDate || x.date) + '</span><span><a href="#/event/' + x.id + '"><b>' + esc(x.title) + "</b></a></span>"
+      return '<div class="ev"><span class="pg">' + esc(x.firstDate || x.date) + '</span><span><a href="#/event/' + x.id + '"><b>' + esc(x.id === "E-028" ? "兖煤澳洲收购红隼煤矿80%权益" : x.id === "E-057" ? "兖煤澳洲2026年第三季度产销量" : x.title.split(/[，；]/)[0]) + "</b></a></span>"
         + '<span class="dim">' + esc(x.stage || "—") + "</span></div>";
     }).join("") + "</div></div>";
 
@@ -1395,7 +1395,7 @@
     evs.forEach(function (x) {
       (x.e.parties || []).forEach(function (p) {
         if (/上市主体|披露主体/.test(p.role || "")) return;
-        subjRows.push({ name: p.name, role: p.role, geo: x.geo || "【未披露】", ev: x });
+        subjRows.push({ name: p.name, role: p.role, geo: x.geo || "【未披露】", ev: x, evidence: p.evidence });
       });
     });
     h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">涉及主体 / 海外资产清单</span><span class="sub">本页回答：该主体出海涉及哪些海外主体与资产、各自角色</span></div>';
@@ -1403,7 +1403,7 @@
       + (subjRows.length ? subjRows.map(function (r) {
         return '<tr><td style="font-size:12.5px">' + esc(r.name) + '</td><td>' + pill(r.role || "—") + '</td>'
           + '<td style="font-size:12px">' + esc(r.geo) + '</td>'
-          + '<td style="font-size:12px"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + '</a></td></tr>';
+          + '<td style="font-size:12px"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + '</a><br/>' + (r.evidence && r.evidence.doc_id ? docA(r.evidence.doc_id, r.evidence.page) : tpSrc(r.ev.e)) + '</td></tr>';
       }).join("") : '<tr><td colspan="4" class="empty">披露原文未点名其他主体/资产</td></tr>')
       + "</tbody></table></div>"
       + '<div class="secnote">口径：包含境内外交易参与方；名称与角色取披露原文 ' + layerBadge("disclosed") + '；地点为该事件的整体披露口径，不等于该主体的注册地——注册地/持股比例未单独披露的不推测。</div></div>';
@@ -1413,7 +1413,7 @@
         + chains.map(function (x) {
           var hc = x.e.holding_chain;
           return '<div class="sec"><span class="sk"><a href="#/event/' + x.id + '">' + esc(x.id) + "</a></span>" + esc(hc.text)
-            + (hc.evidence && hc.evidence.doc_id ? ' <span class="dim">（依据：' + esc(hc.evidence.doc_id) + " P" + (hc.evidence.page || "?") + "）</span>" : "") + "</div>";
+            + (hc.evidence && hc.evidence.doc_id ? " 依据：" + docA(hc.evidence.doc_id, hc.evidence.page) : "") + "</div>";
         }).join("") + "</div></div>";
     }
 
@@ -1458,20 +1458,30 @@
       }).join("") + "</tbody></table></div>"
       + '<div class="secnote">口径：仅反映已收录披露中的阶段节点（stage_chain）；列归类按阶段名关键词（如「递表」入签约列、「聆讯」入审批列）。</div></div>';
 
+    var reviews = [
+      {id: "E-028", state: "维持", text: "交割完成不能代替逐项审批结论。", reason: "10月1日公告确认交割与产量确认起点，但未逐项列出审批日期；维持逐项待核。", doc: "hkex_12354762", page: 1, boundary: "限本次完成公告；不能据此认定审批未办理。"},
+      {id: "E-018", state: "维持", text: "备案公告日期与实际收件日期应分列。", reason: "9月29日公告回述8月7日披露收到通知书，未单列实际收件日；继续保留日期缺口。", doc: "1225584815", page: 1, boundary: "限已收录公告，不否认公司已取得备案通知书。"},
+      {id: "E-047", state: "修正", text: "将“交割后补行备案”修正为“公告称随后将完成备案，结果待核”。", reason: "10月15日公告P1确认配售与债券完成，P2仍用将来时描述备案；原判断不能写成已履行。", doc: "1225605853", page: 2, boundary: "仅复核公告时点，不推断此后的实际备案结果或合规性。"}
+    ].filter(function (r) { return evs.some(function (x) { return x.id === r.id; }); });
+    if (reviews.length) {
+      h += '<div class="panel"><div class="panel-h"><h2>判断变更史 · 2026-10-26复核</h2><span class="note">' + layerBadge("analysis") + ' 本轮原文复核；不回填历史判断日期</span></div><div class="panel-b">'
+        + reviews.map(function (r) { return '<div class="sec" style="display:block"><b>' + pill(r.state) + ' ' + esc(r.text) + '</b><p>理由：' + esc(r.reason) + '</p><div class="dim">适用边界：' + esc(r.boundary) + '</div><div>依据：' + evA(r.id) + ' → ' + docA(r.doc, r.page) + '</div></div>'; }).join("") + '</div></div>';
+    }
+
     /* ── ④ 判断变更史：以 changelog 为记录源（映射规则见表注） ── */
     var JMAP = { "新增": "建档", "进展": "待复核", "修正": "修正", "重复": "未新增判断", "失效": "待复核" };
     var jrows = [];
     evs.forEach(function (x) { (x.e.changelog || []).forEach(function (c) { jrows.push({ date: c.date, ev: x, type: c.type, doc: c.doc_id, note: c.note || "" }); }); });
     jrows.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-    h += '<div class="panel"><div class="panel-h"><h2>判断变更史</h2><span class="note">维持 / 修正 / 推翻 ＋理由 ' + layerBadge("analysis") + "</span></div>"
-      + '<div class="tbl-wrap company-table" tabindex="0" aria-label="档案表格，可横向滚动"><table class="tbl"><thead><tr><th>日期</th><th>事件</th><th>判断状态</th><th>事实变更与复核依据</th></tr></thead><tbody>'
+    h += '<div class="panel"><div class="panel-h"><h2>事实变更日志与判断复核线索</h2><span class="note">维持 / 修正 / 推翻 ＋理由 ' + layerBadge("analysis") + "</span></div>"
+      + '<details class="company-questions"><summary>展开事实日志（' + jrows.length + ' 条；不等同判断历史）</summary><div class="tbl-wrap company-table" tabindex="0" aria-label="档案表格，可横向滚动"><table class="tbl"><thead><tr><th>日期</th><th>事件</th><th>判断状态</th><th>事实变更与复核依据</th></tr></thead><tbody>'
       + (jrows.length ? jrows.map(function (r) {
         return '<tr><td class="mono">' + esc(r.date || "—") + '</td><td style="font-size:12px"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + "</a></td>"
           + "<td>" + pill(JMAP[r.type] || r.type, r.type === "修正" ? "blue" : r.type === "失效" ? "warn" : "") + "</td>"
           + '<td style="font-size:12.5px">' + esc(r.note || "—") + "<br/>" + (r.doc ? docA(r.doc, 1) : tpSrc(r.ev.e)) + "</td></tr>";
       }).join("") : '<tr><td colspan="4" class="empty">无变更记录</td></tr>')
-      + "</tbody></table></div>"
-      + '<div class="secnote">复核口径（analysis）：修正记录仅表示所述字段及相关分析已修正；进展、终止均需另核此前判断，不能自动记为维持或推翻；重复披露不产生新判断。尚无逐条记录旧判断、复核结论及理由的维持/推翻记录，不补造历史。依据为各行事实变更日志与原文。</div></div>';
+      + "</tbody></table></div></details>"
+      + '<div class="secnote">复核口径（analysis）：修正记录仅表示所述字段及相关分析已修正；进展、终止均需另核此前判断，不能自动记为维持或推翻；重复披露不产生新判断。本轮已核判断另列于上方；此前未留存独立判断版本，不将事实日志补造为历史判断。依据为各行事实变更日志与原文。</div></div>';
 
     /* ── ⑤ 制裁筛查记录 ── */
     h += '<div class="panel"><div class="panel-h"><h2>制裁筛查记录</h2></div><div class="panel-b">'
@@ -1623,14 +1633,14 @@
     var ids = ["E-018", "E-010", "E-019", "E-047", "E-029"];
     var evs = ids.map(evById);
     if (evs.some(function (e) { return !e; })) return '<div class="panel"><div class="empty">专题事件缺失（需 ' + ids.join("/") + " 均在库）</div></div>";
-    var isH = function (e) { return /H股/.test(((e.title_fact || {}).text || "") + ((e.matter_type || {}).value || "")); };
+    var isH = function (e) { return /H股/.test(((e.title_fact || {}).text || "") + " " + ((e.parties || [])[0] || {}).name + " " + ((e.geo || {}).text || "") + " " + e.event_id); };
     var act = EV.filter(function (e) { return isH(e) && e.status === "活跃"; });
     var done = EV.filter(function (e) { return isH(e) && e.status === "完成"; });
     var term = EV.filter(function (e) { return isH(e) && e.status === "终止"; });
     var refi = done.filter(function (e) { return /配售|增发/.test((e.title_fact || {}).text || ""); });
-    var h = '<div class="panel"><div class="panel-h"><h2>A+H / 境外上市路径</h2><span class="note">库内 H 股相关事件 ' + (act.length + done.length + term.length) + " 宗：推进中 " + act.length + " · 已完成 " + done.length + "（含配售/再融资 " + refi.length + " 宗）· 终止 " + term.length + "（动态计数，口径=标题/类型含「H股」）</span></div><div class='panel-b'>"
+    var h = '<div class="panel"><div class="panel-h"><h2>A+H / 境外上市路径</h2><span class="note">库内 H 股相关事件 ' + (act.length + done.length + term.length) + " 宗：推进中 " + act.length + " · 已完成 " + done.length + "（含配售/再融资 " + refi.length + " 宗）· 终止 " + term.length + "（动态计数，口径与事件库搜索「H股」一致）</span></div><div class='panel-b'>"
       + '<div class="sec" style="display:block"><span class="sk">样本与口径 ' + layerBadge("analysis") + '</span>'
-      + "本专题取 5 宗代表案例（IPO 完成 3 宗、已上市后配售＋可转债 1 宗、终止 1 宗）做逐格比较；判断部分的分布计数由事件库实时统计。比较来源覆盖 2026-09-22～10-16，库内分布计数按当前入库状态；非全市场统计；金额、日期可经「来源」列回原文。</div></div></div>";
+      + "本专题取 5 宗代表案例（IPO 完成 3 宗、已上市后配售＋可转债 1 宗、终止 1 宗）做逐格比较；判断部分的分布计数由事件库实时统计。比较来源覆盖 2026-09-22～10-16，库内分布计数截至 " + esc(syncDate()) + "，按当前入库状态；非全市场统计；金额、日期可经「来源」列回原文。</div></div></div>";
     h += '<div class="panel"><div class="panel-h"><h2>比较表</h2><span class="note">除特别标注外各格为 disclosed（公司披露）；【未披露】=已核收录披露未载明</span></div>'
       + tpTable(["主体", "地点", "结构", "金额", "阶段", "审查/备案", "融资", "来源"], [
         [evA("E-018", "传音控股"),
@@ -1671,12 +1681,12 @@
          "【未披露】（发行方案未及披露）",
          "2026-09-30 董事会审议终止（授权范围内无需提交股东会）",
          "终止前备案/审核进度【未披露】",
-         "—",
+         "【未披露】",
          tpSrc(evs[4])]
       ]) + "</div>";
     h += '<div class="panel"><div class="panel-h"><h2>解释（差异因何而来）</h2></div><div class="panel-b">'
       + '<div class="sec" style="display:block"><span class="sk">① 路径节点序列 ' + layerBadge("disclosed") + " " + layerBadge("analysis") + '</span>'
-      + "传音一案呈现完整四节点「递表→证监会备案→聆讯→挂牌」（disclosed，见其阶段链）；本比较表其余两宗 IPO 完成案仅收录挂牌节点，前置节点未在本库留痕——这反映本库采集以结果公告为主（analysis），并非公司未经历该流程。</div>"
+      + "传音一案呈现完整四节点「递表→证监会备案→聆讯→挂牌」（disclosed，见其阶段链）；本比较表其余两宗 IPO 完成案仅收录挂牌节点，前置节点未在本库留痕——本比较表节点留存偏向挂牌结果（analysis，依据为这三案已收录节点），并非公司未经历该流程。</div>"
       + '<div class="sec" style="display:block"><span class="sk">② 备案时点差异 ' + layerBadge("disclosed") + '</span>'
       + "传音于 2026-08-07 公告披露收到备案通知书（实际收件日期未单列）；剑桥科技 H 股配售则公告称「本公司随后将遵守中国证监会规定并完成」有关备案（P2）。差异与发行类型（首次发行 vs 已上市后再融资）同现；规则层面的原因本库无收录来源，不断言。</div>"
       + '<div class="sec" style="display:block"><span class="sk">③ 定价与净筹 ' + layerBadge("analysis") + '</span>'
@@ -1686,14 +1696,14 @@
       + tpJudge("1",
         "本比较表中 3 宗 IPO 完成案的过程节点覆盖不均：传音具备递表/备案/聆讯/挂牌链，星环、罗博特科仅收录挂牌节点。",
         "各案 stage_chain 节点数对比：传音 4 节点（含 2026-08-07 备案公告），星环/罗博特科各 1 节点（挂牌）。",
-        "这是采集口径结论（巨潮关键词命中偏结果公告），不是公司披露完整性结论；不得用于推断其他公司「未备案」。",
+        "这是库内节点覆盖结论，尚无召回日志支持归因于关键词采集，不是公司披露完整性结论；不得用于推断其他公司「未备案」。",
         "剑桥科技虽非 IPO，反而在公告中明示备案状态——过程信息的有无取决于公告类型而非上市进度。",
         evA("E-018") + " " + evA("E-010") + " " + evA("E-019") + " " + evA("E-047"))
       + tpJudge("2",
-        "证监会备案的履行时点在库内两种并存：挂牌前取得（传音）与交割后补行（剑桥科技配售）。核查 H 股公司备案状态时不能以「已挂牌/已交割」推定备案完成。",
+        "库内两案的备案披露状态不同：挂牌前取得（传音）与发行完成后仍称将完成备案（剑桥科技配售）。核查 H 股公司备案状态时不能以「已挂牌/已交割」推定备案完成。",
         evA("E-018") + " stage_chain 2026-08-07 备案公告节点（" + docA("1225584815", 1) + "）vs " + evA("E-047") + " 2026-10-15 公告表示随后将完成有关备案（" + docA("1225605853", 2) + "）。",
         "仅 2 案对比；首次发行与配售的备案规则差异未在本库收录来源中说明，结论限于核查操作提示。",
-        "剑桥的交割后备案表述本身即为「交割必然代表备案已完成」的反例；不得推广为所有再融资均可交割后备案。",
+        "剑桥的发行完成后仍待备案表述本身即为「交割必然代表备案已完成」的反例；不得推广为所有再融资均可交割后备案。",
         evA("E-018") + " " + evA("E-047"))
       + tpJudge("3",
         "推进中的 H 股项目不应默认完成：库内推进中/意向 " + act.length + " 宗与终止 " + term.length + " 宗（博瑞医药，董事会授权范围内终止）并存。",
