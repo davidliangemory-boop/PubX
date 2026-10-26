@@ -1317,6 +1317,16 @@
   function companyEvents(name) {
     return EVX.filter(function (x) { return x.subject === name; }).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
   }
+  /* 主体名解析：精确全称 > 唯一短名（shortCo）匹配；返回规范全称或 null。支持 #/company/兖矿能源 这类短名直达 */
+  function resolveCo(name) {
+    if (!name) return null;
+    var names = unique(EVX.map(function (x) { return x.subject; }));
+    if (names.indexOf(name) >= 0) return name;
+    var short = names.filter(function (n) { return shortCo(n) === name; });
+    if (short.length === 1) return short[0];
+    var loose = names.filter(function (n) { return n.indexOf(name) >= 0 || shortCo(n).indexOf(name) >= 0; });
+    return loose.length === 1 ? loose[0] : null;
+  }
   function vCos() {
     var names = unique(EVX.map(function (x) { return x.subject; }));
     var h = '<div class="ph"><h1>企业档案</h1><span class="sub">本页回答：哪些主体有出海动作、各自的事件链进展到哪</span></div>';
@@ -1357,7 +1367,16 @@
   }
   function vCompany(name) {
     var evs = companyEvents(name);
-    if (!evs.length) return '<div class="panel"><div class="empty">未找到该主体的事件记录</div></div>';
+    if (!evs.length) {
+      var cand = unique(EVX.map(function (x) { return x.subject; }))
+        .filter(function (n) { return !name || n.indexOf(name) >= 0 || shortCo(n).indexOf(name) >= 0; });
+      return '<div class="ph"><h1>企业档案</h1><span class="sub">未找到「' + esc(name || "") + '」的事件记录</span></div>'
+        + '<div class="panel"><div class="panel-b"><div class="empty">未找到该主体的事件记录（主体以披露原文全称建档，支持短名自动跳转）</div>'
+        + (cand.length ? '<div style="margin-top:10px;font-size:13px">相近主体：' + cand.map(function (n) {
+            return '<a href="#/company/' + encodeURIComponent(n) + '">' + esc(shortCo(n)) + "</a>";
+          }).join("　") + "</div>" : '<div style="margin-top:10px"><a href="#/cos">返回企业档案列表 →</a></div>')
+        + "</div></div>";
+    }
     var evsAsc = evs.slice().sort(function (a, b) { return a.firstDate < b.firstDate ? -1 : 1; });
     var lb = B[0] || {};
     var h = '<div class="panel dhead"><div class="crumbs"><a href="#/cos">企业档案</a> / ' + esc(name) + "</div>"
@@ -1392,7 +1411,30 @@
         }).join("") + "</div></div>";
     }
 
-    /* ── ② 项目状态矩阵：事件 × 阶段链节点 ── */
+    /* ── ② 法律议题触发点：议题 → 触发事实 → 事件 → 出处（只列实际触发的，不适用项不展示） ── */
+    var LSTAT = { disclosed_pending: ["已披露 · 办理中/待完成", "warn"], disclosed_cleared: ["已披露 · 已完成", "ok"], not_disclosed: ["未披露", ""], not_applicable: ["不适用", ""] };
+    var lrows = [], lND = 0, lNA = 0;
+    evs.forEach(function (x) {
+      (x.e.legal_triggers || []).forEach(function (t) {
+        if (t.status === "not_applicable") { lNA++; return; }
+        if (t.status === "not_disclosed") { lND++; return; }
+        lrows.push({ ev: x, t: t });
+      });
+    });
+    h += '<div class="panel"><div class="panel-h"><h2>法律议题触发点</h2><span class="note">规则引擎按议题码命中，状态判定与依据见各行 ' + layerBadge("analysis") + "；未披露 " + lND + " 条 · 不适用 " + lNA + " 条不逐行展示</span></div>"
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>议题</th><th>触发事实</th><th>状态</th><th>事件</th></tr></thead><tbody>'
+      + (lrows.length ? lrows.map(function (r) {
+        var st = LSTAT[r.t.status] || [r.t.status || "—", ""];
+        return '<tr><td style="font-size:12px;white-space:nowrap"><span class="mono">' + esc(r.t.issue_code || "") + "</span> " + esc(r.t.issue || "") + "</td>"
+          + '<td style="font-size:12px">' + esc(r.t.trigger_fact || r.t.text || "—")
+          + (r.t.basis ? '<div class="dim" style="font-size:11px;margin-top:2px">判定依据：' + esc(r.t.basis) + "</div>" : "") + "</td>"
+          + "<td>" + pill(st[0], st[1]) + "</td>"
+          + '<td style="font-size:12px;white-space:nowrap"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + "</a></td></tr>";
+      }).join("") : '<tr><td colspan="4" class="empty">无已披露处理状态的触发议题（命中均为未披露或不适用）</td></tr>')
+      + "</tbody></table></div>"
+      + '<div class="secnote">口径：议题码体系见 <a href="#/issues">法律议题库</a>；状态由入库规则按命中上下文判定（analysis），「已披露 · 已完成」须有原文结论文句支撑。</div></div>';
+
+    /* ── ③ 项目状态矩阵：事件 × 阶段链节点 ── */
     h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">项目状态矩阵</span><span class="sub">●=阶段链已披露节点（附日期）；▶=当前阶段；「—」=无已披露节点，不表示该环节未发生</span></div>';
     h += '<div class="panel"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>事件</th>'
       + CO_STAGE_COLS.map(function (c) { return "<th>" + c[0] + "</th>"; }).join("") + "</tr></thead><tbody>"
@@ -1414,7 +1456,7 @@
     h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">事件链</span><span class="sub">按时间正序；只列事件标题+阶段+日期，摘要与金额见事件详情页，不在此复制</span></div>';
     h += '<div class="panel"><div class="panel-b">' + evsAsc.map(function (x) {
       return '<div class="ev"><span class="pg">' + esc(x.firstDate || x.date) + '</span><span>' + pill(x.mt || "—") + ' <a href="#/event/' + x.id + '"><b>' + esc(x.title) + "</b></a></span>"
-        + '<span class="dim" style="margin-left:auto;white-space:nowrap">' + esc(x.stage || "—") + " · " + esc(x.status) + "</span></div>";
+        + '<span class="dim" style="margin-left:auto;white-space:nowrap">' + x.chans.map(function (c) { var m = CH_META[c]; return m ? m.short : c; }).join("/") + " · " + esc(x.stage || "—") + " · " + esc(x.status) + "</span></div>";
     }).join("") + "</div></div>";
 
     /* ── ④ 判断变更史：以 changelog 为记录源（映射规则见表注） ── */
@@ -1459,10 +1501,25 @@
   /* 专题共用：来源链接 / 事件链接 / 判断块（每条判断：表述+依据+适用边界+反例，标 analysis） */
   function tpSrc(e) {
     return (e.sources || []).map(function (s) {
-      return '<a href="' + esc(s.url) + '#page=1" target="_blank" rel="noopener">' + esc(s.channel || "") + " " + esc(s.date) + " ↗</a>";
+      var pg = (s.quotes && s.quotes.length && s.quotes[0].page) ? s.quotes[0].page : 1;
+      return '<a href="' + esc(s.url) + '#page=' + pg + '" target="_blank" rel="noopener">' + esc(s.channel || "") + " " + esc(s.date) + " P" + pg + " ↗</a>";
     }).join("　");
   }
   function evA(id, label) { return '<a href="#/event/' + id + '">' + esc(label || id) + "</a>"; }
+  /* doc_id → 原文 PDF 链接（带页码锚点）：判断/表格中的文档引用可一键点到原文页 */
+  var DOCURL = null;
+  function docUrl(docId) {
+    if (!DOCURL) {
+      DOCURL = {};
+      EV.forEach(function (e) { (e.sources || []).forEach(function (s) { if (s.doc_id && s.url && !DOCURL[s.doc_id]) DOCURL[s.doc_id] = s.url; }); });
+    }
+    return DOCURL[docId];
+  }
+  function docA(docId, page) {
+    var u = docUrl(docId);
+    if (!u) return "<span class=\"mono\">" + esc(docId) + (page ? " P" + page : "") + "</span>";
+    return '<a href="' + esc(u) + (page ? "#page=" + page : "") + '" target="_blank" rel="noopener" class="mono">' + esc(docId) + (page ? " P" + page : "") + " ↗</a>";
+  }
   function tpJudge(no, text, basis, scope, cex, links) {
     return '<div class="sec" style="display:block">'
       + '<div style="margin-bottom:4px"><b>判断 ' + no + '</b> ' + layerBadge("analysis") + "</div>"
@@ -1496,7 +1553,7 @@
          "境外双重上市控股子公司兖煤澳洲（ASX:YAL/03668.HK）为收购方",
          "首付 18.5 亿美元＋最高 5.5 亿美元或有付款（煤价挂钩，交割后首五年）",
          "2026-04-14 签约 → 2026-10-01 交割完成",
-         "SPA 先决条件列明 ACCC、FIRB、国家发改委、山东省商务厅、市监总局及三井优先购买权（hkex_12105020 P13）；各审批实际通过情况未逐项公告",
+         "SPA 先决条件列明 ACCC、FIRB、国家发改委、山东省商务厅、市监总局及三井优先购买权（" + docA("hkex_12105020", 13) + "）；各审批实际通过情况未逐项公告",
          "兖煤澳洲可用现金＋五年期 12 亿美元银团收购贷款；另 2 亿美元营运资金融资",
          tpSrc(e28)],
         [evA("E-013", "<b>龙佰集团</b>"),
@@ -1509,8 +1566,8 @@
          tpSrc(e13)],
         [evA("E-011", "<b>鸿富瀚</b>"),
          "COP 公司 73.99%（刚果（金）科米卡矿区电站项目公司），完成后并表",
-         "收购格派 BVI 100%＋ECOSOLEIL 49%＋向格派 BVI 增资 5.2 亿元；持股平台位于香港/BVI/法国；涉及刚果（金）公民代持安排",
-         "合计约 5.6 亿元（股权收购 2,050 万＋1,950 万＋增资 5.2 亿）；标的股东全部权益评估值 7,900 万元（收益法），与增资额倒挂",
+         "收购格派 BVI 100%＋ECOSOLEIL 49%＋向格派 BVI 增资 5.2 亿元；中间持股平台位于香港/BVI，ECOSOLEIL 注册于刚果（金）；黄鸿旋（中国籍）为鼎鸿晟代持 ECOSOLEIL 49% 股权，另 51% 由刚果（金）公民 MANGI MWANZA SYLVIN 直接持有",
+         "合计约 5.6 亿元（股权收购 2,050 万＋1,950 万＋增资 5.2 亿）；对价以评估值为定价参考：格派 BVI 全部权益评估 2,059.28 万元（资产基础法）、COP 收益法评估 7,900 万元（对应 24.99% 权益 1,974.21 万元），与两笔股权对价基本一致；5.2 亿元增资投向项目建设",
          "2026-09-23 董事会通过（意向；正式协议未签、审批未完成）",
          "境内外审批备案路径【未披露】；公告仅将「审批未完成」列为不确定性",
          "【未披露】",
@@ -1522,7 +1579,7 @@
       + '<div class="sec" style="display:block"><span class="sk">② 对价形式 ' + layerBadge("disclosed") + '</span>'
       + "在产矿（红隼）＝现金首付＋煤价挂钩或有对价；前期矿砂项目（龙佰）＝现金＋设备作价，降低现金支出；意向电站项目（鸿富瀚）＝小额股权收购＋大额增资进入。或有对价在库内仅出现于已交割案例。</div>"
       + '<div class="sec" style="display:block"><span class="sk">③ 审查披露 ' + layerBadge("analysis") + '</span>'
-      + "澳洲两案均把 FIRB/ACCC 写入先决条件（红隼 SPA 摘要 P13、龙佰条款清单）；刚果（金）案未披露东道国外资审查安排——未披露不等于无审查义务。依据：E-028/E-013 terms.conditions_precedent；E-011 公告风险段。</div>"
+      + "澳洲两案均把 FIRB/ACCC 写入先决条件（红隼 SPA 摘要 " + docA("hkex_12105020", 13) + "、龙佰条款清单 " + docA("1225578713", 4) + "）；刚果（金）案未披露东道国外资审查安排——未披露不等于无审查义务。依据：E-028/E-013 terms.conditions_precedent；E-011 公告风险段。</div>"
       + "</div></div>";
     h += '<div class="panel"><div class="panel-h"><h2>判断</h2><span class="note">均为系统分析（analysis），带依据与适用边界</span></div><div class="panel-b">'
       + tpJudge("1",
@@ -1533,7 +1590,7 @@
         evA("E-028") + " " + evA("E-013") + " " + evA("E-011"))
       + tpJudge("2",
         "对价/支付设计与标的成熟度同向：在产资产出现或有对价，前期项目以实物作价，意向项目以增资进入。",
-        "三案 scale 与 terms 字段：红隼或有付款公式（PLVHA00 指数＋30% 收入分成，hkex_12105020 P3）；龙佰设备作价 14,000 万澳元；鸿富瀚增资 5.2 亿元。",
+        "三案 scale 与 terms 字段：红隼或有付款挂钩 PLVHA00 指数（" + docA("hkex_12105020", 2) + "），触发门槛 225 美元/吨＋30% 收入分成（" + docA("hkex_12105020", 3) + "）；龙佰设备作价 14,000 万澳元（" + docA("1225578713", 2) + "）；鸿富瀚增资 5.2 亿元（" + docA("1225579070", 2) + "）。",
         "样本 3 案；或有对价也可能由买卖双方估值分歧驱动而非成熟度，库内无证据区分两种动因。",
         "库内暂无。",
         evA("E-028") + " " + evA("E-013") + " " + evA("E-011"))
@@ -1547,7 +1604,7 @@
     h += tpMissing([
       "红隼：FIRB/ACCC/发改委等各审批的实际通过时间与附加条件（公告未逐项披露）",
       "龙佰：最终交易文件能否于 2026-10-31 前签署；FIRB/ACCC 审批结果与 Image 股东会表决",
-      "鸿富瀚：正式协议条款；代持安排的合规处理；境内外审批备案路径",
+      "鸿富瀚：正式协议条款；黄鸿旋为鼎鸿晟代持安排的后续合规处理；境内外审批备案路径",
       "三案 ODI 外汇登记实际办理情况均未披露"
     ]);
     return h;
@@ -1626,12 +1683,12 @@
         evA("E-018") + " " + evA("E-010") + " " + evA("E-019") + " " + evA("E-047"))
       + tpJudge("2",
         "证监会备案的履行时点在库内两种并存：挂牌前取得（传音）与交割后补行（剑桥科技配售）。核查 H 股公司备案状态时不能以「已挂牌/已交割」推定备案完成。",
-        evA("E-018") + " stage_chain 2026-08-07 备案节点 vs " + evA("E-047") + " 2026-10-15 节点「中国证监会备案尚待随后完成（交割后义务）」。",
+        evA("E-018") + " stage_chain 2026-08-07 备案节点（" + docA("1225584815", 1) + "）vs " + evA("E-047") + " 2026-10-15 节点「中国证监会备案尚待随后完成（交割后义务）」（" + docA("1225605853", 2) + "）。",
         "仅 2 案对比；首次发行与配售的备案规则差异未在本库收录来源中说明，结论限于核查操作提示。",
         "无——两案即库内全部已披露备案时点的样本。",
         evA("E-018") + " " + evA("E-047"))
       + tpJudge("3",
-        "推进中的 H 股项目不应默认完成：库内推进中/意向 " + act.length + " 宗与终止 1 宗（博瑞医药，董事会授权范围内终止）并存。",
+        "推进中的 H 股项目不应默认完成：库内推进中/意向 " + act.length + " 宗与终止 " + term.length + " 宗（博瑞医药，董事会授权范围内终止）并存。",
         "事件库 H 股相关事件状态实时分布：活跃 " + act.length + " / 完成 " + done.length + " / 终止 " + term.length + "。",
         "终止原因未披露，不能归纳终止诱因；分布计数为本库收录口径，非全市场。",
         "2026 年 9 月密集完成（星环 09-21、罗博特科/彤程/景旺 09-29）显示同期完成案例集中——终止是个案而非趋势。",
@@ -1921,7 +1978,12 @@
       if (param) { redirectTo("#/events"); return; }  // 旧子路由 projects/lifecycle/calendar/funds/compliance
       section = "cn"; sub = "#/cos"; html = vCos();
     }
-    else if (name === "company") { section = "cn"; sub = "#/cos"; html = vCompany(param || ""); }
+    else if (name === "company") {
+      section = "cn"; sub = "#/cos";
+      var cname = resolveCo(param || "");
+      if (cname && cname !== param) { redirectTo("#/company/" + encodeURIComponent(cname)); return; }
+      html = vCompany(param || "");
+    }
     else if (name === "topics") {
       var tv = qs.get("view") || "mining";
       if (tv === "policy") { redirectTo("#/about?tab=policy"); return; }  // R11-4：政策清单移入方法页
