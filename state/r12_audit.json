@@ -241,5 +241,94 @@
    "E-028暂定调整事实与最终结算分析拆开",
    "首页按事件归并修正并保留逐项依据"
   ]
+ },
+ "round4": {
+  "date": "2026-10-27",
+  "previous_commit": "c50db75",
+  "sources": [
+   {
+    "event_id": "E-028",
+    "http": 200,
+    "result": "已重新下载阅读完成公告两页；80%间接权益/18.5亿美元首付P1，五年期12亿美元贷款及最高5.5亿美元或有付款P2；P1标题須予披露交易，未载FIRB结果。"
+   },
+   {
+    "event_id": "E-055",
+    "http": 200,
+    "result": "重新下载阅读三页；P1主体600496，7273.35万美元/4.86亿元/2.33%，重要提示中标，正文成功签约。"
+   },
+   {
+    "event_id": "E-032",
+    "http": 200,
+    "result": "重新下载阅读P1；43,014,760股/29.06%，10月5日生效、10月7日实际转让。"
+   }
+  ],
+  "a_grade_evidence": [
+   {
+    "event_id": "E-013",
+    "evidence_checked": 24,
+    "failures": []
+   },
+   {
+    "event_id": "E-015",
+    "evidence_checked": 14,
+    "failures": []
+   },
+   {
+    "event_id": "E-018",
+    "evidence_checked": 16,
+    "failures": []
+   },
+   {
+    "event_id": "E-024",
+    "evidence_checked": 15,
+    "failures": []
+   },
+   {
+    "event_id": "E-028",
+    "evidence_checked": 28,
+    "failures": []
+   },
+   {
+    "event_id": "E-032",
+    "evidence_checked": 13,
+    "failures": []
+   },
+   {
+    "event_id": "E-040",
+    "evidence_checked": 14,
+    "failures": []
+   },
+   {
+    "event_id": "E-046",
+    "evidence_checked": 13,
+    "failures": []
+   },
+   {
+    "event_id": "E-047",
+    "evidence_checked": 17,
+    "failures": []
+   },
+   {
+    "event_id": "E-049",
+    "evidence_checked": 23,
+    "failures": []
+   },
+   {
+    "event_id": "E-055",
+    "evidence_checked": 12,
+    "failures": []
+   },
+   {
+    "event_id": "E-058",
+    "evidence_checked": 21,
+    "failures": []
+   }
+  ],
+  "boundary": "本轮远程核对3件A级事件；全库A级字段引文仅作缓存页码匹配，非分析逐句验证。",
+  "changes": [
+   "红隼I3.3由5条混源/重复归码合并成1条带原文P1引文的披露事实",
+   "首页摘要读修订summary，不再按事件ID写死",
+   "首页保留最近复核日往前7自然日修正，避免新复核覆盖R12关键修正"
+  ]
  }
 }

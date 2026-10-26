@@ -1,0 +1,127 @@
+{
+ "round": 4,
+ "date": "2026-10-27",
+ "scope": "每页5个事件入口，核对站内详情与带页码来源入口；不等于外网原文均可达",
+ "results": [
+  {
+   "from": "/",
+   "href": "#/event/E-060",
+   "h1": 1,
+   "source_pages": 5
+  },
+  {
+   "from": "/",
+   "href": "#/event/E-046",
+   "h1": 1,
+   "source_pages": 19
+  },
+  {
+   "from": "/",
+   "href": "#/event/E-028",
+   "h1": 1,
+   "source_pages": 41
+  },
+  {
+   "from": "/",
+   "href": "#/event/E-055",
+   "h1": 1,
+   "source_pages": 17
+  },
+  {
+   "from": "/",
+   "href": "#/event/E-057",
+   "h1": 1,
+   "source_pages": 8
+  },
+  {
+   "from": "/events",
+   "href": "#/event/E-060",
+   "h1": 1,
+   "source_pages": 5
+  },
+  {
+   "from": "/events",
+   "href": "#/event/E-046",
+   "h1": 1,
+   "source_pages": 19
+  },
+  {
+   "from": "/events",
+   "href": "#/event/E-059",
+   "h1": 1,
+   "source_pages": 3
+  },
+  {
+   "from": "/events",
+   "href": "#/event/E-058",
+   "h1": 1,
+   "source_pages": 24
+  },
+  {
+   "from": "/events",
+   "href": "#/event/E-057",
+   "h1": 1,
+   "source_pages": 8
+  },
+  {
+   "from": "/board",
+   "href": "#/event/E-013",
+   "h1": 1,
+   "source_pages": 31
+  },
+  {
+   "from": "/board",
+   "href": "#/event/E-050",
+   "h1": 1,
+   "source_pages": 4
+  },
+  {
+   "from": "/board",
+   "href": "#/event/E-049",
+   "h1": 1,
+   "source_pages": 31
+  },
+  {
+   "from": "/board",
+   "href": "#/event/E-046",
+   "h1": 1,
+   "source_pages": 19
+  },
+  {
+   "from": "/board",
+   "href": "#/event/E-028",
+   "h1": 1,
+   "source_pages": 41
+  },
+  {
+   "from": "/issues",
+   "href": "#/event/E-005",
+   "h1": 1,
+   "source_pages": 5
+  },
+  {
+   "from": "/issues",
+   "href": "#/event/E-007",
+   "h1": 1,
+   "source_pages": 4
+  },
+  {
+   "from": "/issues",
+   "href": "#/event/E-008",
+   "h1": 1,
+   "source_pages": 5
+  },
+  {
+   "from": "/issues",
+   "href": "#/event/E-011",
+   "h1": 1,
+   "source_pages": 5
+  },
+  {
+   "from": "/issues",
+   "href": "#/event/E-013",
+   "h1": 1,
+   "source_pages": 31
+  }
+ ]
+}

@@ -237,18 +237,18 @@
     }); });
     reviews.sort(function (a,b) { return b.c.date.localeCompare(a.c.date); });
     var reviewDay = reviews.length ? reviews[0].c.date : "";
-    var currentReviews = reviews.filter(function (r) { return r.c.date === reviewDay; });
+    var reviewStart = reviewDay ? new Date(new Date(reviewDay + "T00:00:00Z").getTime() - 6 * 86400000).toISOString().slice(0,10) : "";
+    var currentReviews = reviews.filter(function (r) { return r.c.date >= reviewStart && r.c.date <= reviewDay; });
     var reviewCount = new Set(currentReviews.map(function (r) { return r.e.event_id; })).size;
     if (currentReviews.length) h += '<details class="updcat"><summary>' + pill("修正", "warn")
-      + ' 人工复核 D-' + esc(reviewDay.replace(/-/g,"")) + ' · ' + reviewCount + ' 个事件 / ' + currentReviews.length
-      + ' 条修订</summary><div class="secnote">口径：最近人工复核日的 correction 记录；事件数去重，修订条数不去重。独立列示，不计入上方采集批次。历史旧值仅在详情更新记录保留。</div>'
+      + ' 人工复核 ' + esc(reviewStart) + '—' + esc(reviewDay) + ' · ' + reviewCount + ' 个事件 / ' + currentReviews.length
+      + ' 条修订</summary><div class="secnote">口径：截至最近复核日的7个自然日 correction 记录（非采集新增）；事件数去重，修订条数不去重。独立列示，不计入上方采集批次。历史旧值仅在详情更新记录保留。</div>'
       + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>公司 / 事件</th><th>核查问题与处理</th><th>依据 / 出处</th></tr></thead><tbody>'
       + Array.from(new Set(currentReviews.map(function (r) { return r.e.event_id; }))).map(function (id) {
         var rows = currentReviews.filter(function (r) { return r.e.event_id === id; });
         var e = rows[0].e;
-        var headline = id === "E-028" ? "红隼：审批结果未披露；首付出处P1；合同整改不是处罚。"
-          : id === "E-055" ? "精工：展示阶段为中标；保留正文签约措辞；主体代码600496。"
-          : id === "E-057" ? "Q3：撤除无出处占比及外部比较；仅保留运营数据相关议题。" : "字段与依据已复核，详见修订明细。";
+        var summaries = rows.map(function (r) { return r.c.summary; }).filter(Boolean);
+        var headline = Array.from(new Set(summaries)).join(" ") || "字段与依据已复核，详见修订明细。";
         return '<tr><td><a href="#/event/' + esc(id) + '">' + esc(e.parties[0].name) + ' · ' + esc(id)
           + '</a><br/><span class="dim">' + rows.length + ' 条修订</span></td><td>' + layerBadge("analysis") + esc(headline)
           + '<details><summary>逐项处理与依据</summary>' + rows.map(function (r) {
