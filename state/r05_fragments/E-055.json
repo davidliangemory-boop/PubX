@@ -1,0 +1,249 @@
+{
+  "event_id": "E-055",
+  "title_fact": {
+    "text": "精工钢构签约尼日利亚及埃塞俄比亚丹格特化肥厂项目钢结构分包合同，中标/签约总金额7,273.35万美元（约4.86亿元，占最近一期经审计营收2.33%）",
+    "layer": "disclosed",
+    "basis": "1225610572 P1：重要内容提示「中标总金额」与正文「成功签约…签约金额」同额并列（2026-10-26复核原文）",
+    "evidence": {"doc_id": "1225610572", "page": 1, "quote": "中标总金额为 7,273.35 万美元（折合人民币约 4.86 亿元）"}
+  },
+  "importance": {
+    "level": "A",
+    "reason": "单笔海外合同额约4.86亿元、占营收2.33%，为公司工业建筑板块出海非洲的标志性订单；业主方为非洲最大工业集团旗下主体，履行周期长、跨境收付与东道国合规风险敞口大",
+    "layer": "analysis",
+    "basis": "1225610572 P1（金额占比、重大意义表述）＋P2（业主方背景、分包范围）"
+  },
+  "holding_chain": {
+    "text": "长江精工钢结构（集团）股份有限公司（A股601778）→ 长江精工（上海）建筑科技有限公司（分包合同签署主体）",
+    "layer": "disclosed",
+    "evidence": {"doc_id": "1225610572", "page": 2, "quote": "分包人：长江精工（上海）建筑科技有限公司"},
+    "basis": null
+  },
+  "parties": [
+    {
+      "name": "长江精工钢结构（集团）股份有限公司",
+      "role": "上市主体",
+      "relation_to_listed": "披露主体自身（A股601778）",
+      "stake_pct": null,
+      "layer": "disclosed",
+      "evidence": {"doc_id": "1225610572", "page": 1, "quote": "长江精工钢结构（集团）股份有限公司"},
+      "basis": null
+    },
+    {
+      "name": "长江精工（上海）建筑科技有限公司",
+      "role": "承包商",
+      "relation_to_listed": "公司下属分包合同签署主体（分包人）",
+      "stake_pct": null,
+      "layer": "disclosed",
+      "evidence": {"doc_id": "1225610572", "page": 2, "quote": "分包人：长江精工（上海）建筑科技有限公司"},
+      "basis": null
+    },
+    {
+      "name": "丹格特项目自由区企业（DANGOTE PROJECTS FZE）",
+      "role": "雇主",
+      "relation_to_listed": "业主方/发包人，与公司及所控制企业不存在关联关系，不构成关联交易",
+      "stake_pct": null,
+      "layer": "disclosed",
+      "evidence": {"doc_id": "1225610572", "page": 2, "quote": "上述交易方与公司及本公司所控制企业之间不存在关联关系"},
+      "basis": null
+    },
+    {
+      "name": "丹格特工业集团（Dangote Group）",
+      "role": "雇主",
+      "relation_to_listed": "业主方母公司（非洲最大综合性工业集团，总部尼日利亚拉各斯），项目筹建方",
+      "stake_pct": null,
+      "layer": "disclosed",
+      "evidence": {"doc_id": "1225610572", "page": 2, "quote": "由非洲首富阿里科·丹格特创立"},
+      "basis": null
+    }
+  ],
+  "geo": {
+    "text": "尼日利亚、埃塞俄比亚（建设地点；业主方总部位于尼日利亚拉各斯）",
+    "layer": "disclosed",
+    "evidence": {"doc_id": "1225610572", "page": 1, "quote": "建设地点：尼日利亚及埃塞俄比亚"}
+  },
+  "matter_type": {
+    "value": "销售合同",
+    "layer": "analysis",
+    "basis": "钢结构工程分包合同（材料采购、制作加工、运输及安装），属经营性重大合同而非投资/融资"
+  },
+  "stage_current": "中标/签约",
+  "stage_chain": [
+    {
+      "date": "2026-10-20",
+      "stage": "中标/签约",
+      "doc_id": "1225610572",
+      "note": "公告披露「近日，公司成功签约」并载明钢结构合同主要条款（合同双方、金额、分包范围、付款方式）；重要内容提示口径为「中标总金额」。原文未载中标通知书与合同签署的各自具体日期",
+      "layer": "disclosed",
+      "evidence": {"doc_id": "1225610572", "page": 1, "quote": "近日，公司成功签约尼日利亚及埃塞俄比亚丹格特化肥厂项目"}
+    }
+  ],
+  "scale": {
+    "text": "合同金额7,273.35万美元（折合人民币约4.86亿元），占公司最近一期经审计营业收入的2.33%",
+    "layer": "disclosed",
+    "evidence": {"doc_id": "1225610572", "page": 1, "quote": "占公司最近一期经审计营业收入的 2.33%"}
+  },
+  "terms": {
+    "completeness": "仅摘要条款",
+    "completeness_basis": "公告仅披露钢结构合同四项主要条款（合同双方、合同金额、分包工程范围、付款方式），未披露合同全文；工期、违约、争议解决等条款均未载明",
+    "fields": {
+      "payment": {
+        "value": "项目将依照合同约定按进度支付相应款项（具体付款节点、比例与币种安排未披露）",
+        "evidence": {"doc_id": "1225610572", "page": 2, "quote": "付款方式：项目将依照合同约定按进度支付相应款项"}
+      },
+      "conditions_precedent": {"value": null, "evidence": null},
+      "approvals": {"value": null, "evidence": null},
+      "contingent": {"value": null, "evidence": null},
+      "completion_adjustment": {"value": null, "evidence": null},
+      "deposit": {"value": null, "evidence": null},
+      "long_stop_date": {"value": null, "evidence": null},
+      "breach": {"value": null, "evidence": null},
+      "reps_warranties": {"value": null, "evidence": null},
+      "transition": {"value": null, "evidence": null},
+      "tax": {"value": null, "evidence": null},
+      "dispute_resolution": {"value": null, "evidence": null}
+    }
+  },
+  "legal_triggers": [
+    {
+      "code": "I2",
+      "text": "东道国准入：在尼日利亚、埃塞俄比亚承接工程涉及当地承包资质、劳工、税务登记等准入事项，公告未披露相关安排",
+      "status": "not_disclosed",
+      "layer": "analysis",
+      "basis": "1225610572全文仅披露项目建设地点与业主背景，未载两国承包资质/注册安排",
+      "evidence": null
+    },
+    {
+      "code": "I7",
+      "text": "贸易海关：分包范围含钢结构材料采购、制作加工、运输及安装，跨境交付涉及出口报关与东道国进口清关、关税安排，公告未披露贸易条款（如Incoterms）与清关责任划分",
+      "status": "not_disclosed",
+      "layer": "analysis",
+      "basis": "1225610572 P2分包工程范围条款，未载运输与清关责任",
+      "evidence": {"doc_id": "1225610572", "page": 2, "quote": "分包工程范围：钢结构材料采购、制作加工、运输及安装"}
+    },
+    {
+      "code": "I10.4",
+      "text": "争议解决：合同适用法律与争议解决方式（诉讼/仲裁及机构）未披露",
+      "status": "not_disclosed",
+      "layer": "analysis",
+      "basis": "1225610572披露的四项主要条款不含适用法律与争议解决",
+      "evidence": null
+    },
+    {
+      "code": "I10.3",
+      "text": "融资担保：公告未披露预付款保函、履约保函等担保安排",
+      "status": "not_disclosed",
+      "layer": "analysis",
+      "basis": "1225610572全文无保函/担保字样",
+      "evidence": null
+    },
+    {
+      "code": "I1",
+      "text": "境内出境监管：对外工程承包项下的跨境收付汇、对外承包工程相关管理手续未披露",
+      "status": "not_disclosed",
+      "layer": "analysis",
+      "basis": "1225610572全文未提及备案或收付汇安排",
+      "evidence": null
+    }
+  ],
+  "impact": [
+    {
+      "text": "该项目的顺利实施预计对公司未来业绩产生积极影响，充实海外订单储备，深化非洲市场布局",
+      "layer": "disclosed",
+      "basis": "1225610572 P2「四、对公司的影响」节",
+      "evidence": {"doc_id": "1225610572", "page": 2, "quote": "该项目的顺利实施预计对公司未来业绩产生积极影响"}
+    },
+    {
+      "text": "项目建成后将成为东非地区规模最大的现代化化肥生产基地（尼日利亚4条、埃塞俄比亚2条化肥生产线），公司作为钢结构分包商参与，订单执行与丹格特集团项目资金链高度绑定",
+      "layer": "analysis",
+      "basis": "1225610572 P2项目简介；客户集中度与业主资金链传导为基于披露事实的分析",
+      "evidence": {"doc_id": "1225610572", "page": 2, "quote": "建成后将成为东非地区规模最大的现代化化肥生产基地"}
+    }
+  ],
+  "watch_points": [
+    {
+      "text": "合同金额较大、履行期限较长，存在因法律法规、行业政策、市场环境、意外事件及不可抗力导致无法如期或全面履行的风险（公告自身风险提示）",
+      "layer": "analysis",
+      "basis": "1225610572 P1–P2风险提示节原文"
+    },
+    {
+      "text": "美元计价合同但业主位于尼日利亚/埃塞俄比亚，奈拉与比尔汇率及当地外汇短缺可能传导至业主支付能力，按进度回款节奏未披露",
+      "layer": "analysis",
+      "basis": "1225610572 P2付款方式仅载「按进度支付」；汇率与外汇风险为基于东道国环境的分析"
+    },
+    {
+      "text": "中标与签约的时点未分别披露（「近日」签约），后续关注开工、交付节点及是否签署补充协议",
+      "layer": "analysis",
+      "basis": "1225610572全文无中标通知书日期与合同签署日期"
+    }
+  ],
+  "gaps": [
+    {
+      "item": "付款节点、预付款比例与结算币种安排",
+      "why": "判断垫资规模、现金流压力与汇率敞口",
+      "where": "钢结构分包合同全文；后续定期报告重大合同履行进展披露",
+      "layer": "analysis",
+      "basis": "1225610572 P2仅载「按进度支付相应款项」"
+    },
+    {
+      "item": "合同工期、交付时间表与违约/赔偿责任条款",
+      "why": "评估履约风险与收入确认节奏",
+      "where": "合同全文（未公开）；后续进展公告",
+      "layer": "analysis",
+      "basis": "1225610572披露的四项主要条款不含工期与违约条款"
+    },
+    {
+      "item": "合同适用法律、争议解决方式及业主付款担保（保函/母公司信用支持）",
+      "why": "发生争议或业主拖欠时的救济路径与回款保障无法评估",
+      "where": "合同全文（未公开）",
+      "layer": "analysis",
+      "basis": "1225610572全文无适用法律、仲裁与保函字样"
+    },
+    {
+      "item": "两国当地承包资质、税务与用工安排",
+      "why": "东道国准入与常设机构税务风险直接影响项目利润",
+      "where": "公司海外经营主体工商/税务登记信息及后续年报海外业务章节",
+      "layer": "analysis",
+      "basis": "1225610572仅披露分包人名称，未载当地落地安排"
+    }
+  ],
+  "practice_notes": [
+    {
+      "text": "公告同时出现「中标总金额」与「签约金额」同额表述时，向业务方调取中标通知书与合同文本核对二者日期，事件阶段以合同签署为准标注，避免把中标前移为签约",
+      "layer": "analysis",
+      "basis": "1225610572 P1重要内容提示用「中标」、正文用「成功签约」，两口径同额并列"
+    },
+    {
+      "text": "对美元计价的非洲业主合同，交割前核查付款路径（离岸/在岸账户）、东道国外汇管制现状及预付款保函、履约保函是否写入合同，而非仅核对合同额",
+      "layer": "analysis",
+      "basis": "1225610572 P2付款条款仅一句话，保函与收付路径均未见披露"
+    },
+    {
+      "text": "分包范围含「材料采购、制作加工、运输及安装」的跨境交付，合同审查时逐一确认Incoterms、目的港清关责任、关税承担与安装阶段当地用工/签证安排",
+      "layer": "analysis",
+      "basis": "1225610572 P2分包工程范围条款涵盖运输及安装但未划分清关责任"
+    },
+    {
+      "text": "业主为自由区企业（FZE）而非集团本部时，核查其偿债能力与母公司（丹格特集团）是否提供付款担保或安慰函，并在合同中落实",
+      "layer": "analysis",
+      "basis": "1225610572 P2披露发包人为DANGOTE PROJECTS FZE（集团旗下子公司），合同主体非集团本部"
+    }
+  ],
+  "sources": [
+    {
+      "doc_id": "1225610572",
+      "channel": "A股·巨潮",
+      "file": "精工钢构关于签约海外重大项目的公告（公告编号2026-067）",
+      "date": "2026-10-20",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-20/1225610572.PDF",
+      "new_info": "首次披露该项目：中标/签约金额7,273.35万美元及占比、业主方DANGOTE PROJECTS FZE背景、分包人主体、分包范围与按进度付款方式",
+      "quotes": [
+        {"text": "中标总金额为 7,273.35 万美元（折合人民币约 4.86 亿元）", "page": 1},
+        {"text": "近日，公司成功签约尼日利亚及埃塞俄比亚丹格特化肥厂项目", "page": 1},
+        {"text": "分包人：长江精工（上海）建筑科技有限公司", "page": 2},
+        {"text": "付款方式：项目将依照合同约定按进度支付相应款项", "page": 2}
+      ]
+    }
+  ],
+  "source_diff": null,
+  "changelog_add": {"date": "2026-10-26", "type": "重抽", "note": "R05事实重抽：doc_id定为1225610572（任务单所列1225612752实为晶科科技财务资助公告，与本事件无关）；terms由null改为12字段结构；阶段维持「中标/签约」（原文两口径并列，不前移为完成）"}
+}

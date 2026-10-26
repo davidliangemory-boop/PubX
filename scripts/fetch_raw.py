@@ -20,6 +20,8 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAWDIR = os.path.join(ROOT, "raw")
 UA = "PubX-research/1.0 (public-disclosure archive; contact via GitHub Pages repo)"
+# SEC 要求 UA 声明可联系身份（实测无邮箱格式联系地址一律 403）
+SEC_UA = "PubX research davidliangemory@gmail.com"
 SLEEP = 1.2
 
 
@@ -27,7 +29,7 @@ def fetch(url):
     # 巨潮静态服务器经代理访问 http 会挂起，统一升 https（与 build_data.https_link 一致）
     if url.startswith("http://static.cninfo.com.cn"):
         url = "https://" + url[len("http://"):]
-    headers = {"User-Agent": UA}
+    headers = {"User-Agent": SEC_UA if "sec.gov" in url else UA}
     # 披露易部分文件无 Referer 时返回 200 但为「网页已移除」HTML 页（实测），需带检索页 Referer
     if "hkexnews.hk" in url:
         headers["Referer"] = "https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=zh"

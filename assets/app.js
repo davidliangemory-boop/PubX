@@ -652,22 +652,49 @@
       + (e.matter_type ? pill(e.matter_type.value, "solid") : pill("类型未归类"))
       + pill("阶段：" + (e.stage_current || "unknown"), "blue")
       + pill(e.status) + pill("更新：" + e.update_type_latest, e.update_type_latest === "进展" ? "blue" : "")
-      + (e.geo && e.geo.text ? pill(e.geo.text) : "") + favBtn("event", e.event_id) + "</div>"
+      + (e.geo && e.geo.text ? pill(e.geo.text.length > 36 ? e.geo.text.slice(0, 36) + "…" : e.geo.text) : "") + favBtn("event", e.event_id) + "</div>"
       + '<div style="margin-top:8px;font-size:12.5px;display:flex;gap:16px;flex-wrap:wrap">'
       + '<span class="dim">更新日期 ' + esc((e.changelog && e.changelog.length ? e.changelog[e.changelog.length - 1].date : (latest ? latest.date : "—"))) + "</span>"
       + (latest ? '<a href="' + esc(latest.url) + '" target="_blank" rel="noopener">查看原文（' + esc(latest.channel || "") + " " + esc(latest.date) + "）↗</a>" : "")
       + "</div>"
       + '<div class="note" style="margin-top:10px">' + layerBadge(e.title_fact ? e.title_fact.layer : "analysis")
-      + (e.title_fact && e.title_fact.basis ? " 依据：" + esc(e.title_fact.basis) : "") + "</div></div>";
+      + (e.title_fact && e.title_fact.basis ? " 依据：" + esc(e.title_fact.basis) : "") + "</div>"
+      + '<div class="note" style="margin-top:4px">三分层 ' + layerBadge("disclosed") + " 公司披露（附原文出处）　" + layerBadge("external") + " 外部事实（附来源）　" + layerBadge("analysis") + " 系统分析（附依据）；原文未载明一律写【未披露】，不推测</div></div>";
 
-    /* 11 节结构对齐 docs/schema.md §(b)（借鉴李成工作站单案页：逐题拆解+总表+待核验清单） */
+    /* R05 固定 11 节（李成式逐题拆解；对齐 docs/schema.md §(b)/(e) 红隼样板） */
+    var srcById = {};
+    e.sources.forEach(function (s) { srcById[s.doc_id] = s; });
+    function evHtml(ev) {
+      if (!ev || !ev.quote) return "";
+      var s = srcById[ev.doc_id];
+      var pg = "P" + (ev.page || "?");
+      var ln = s && s.url ? '<a href="' + esc(s.url) + "#page=" + (ev.page || 1) + '" target="_blank" rel="noopener">' + pg + " ↗</a>" : pg;
+      return '<div class="dim" style="font-size:12px">证据：「' + esc(ev.quote) + "」 " + esc(ev.doc_id || "") + " " + ln + "</div>";
+    }
+    function anaItem(x) {
+      return '<div class="sec">' + layerBadge(x.layer || "analysis")
+        + (x.basis ? ' <span class="dim">依据：' + esc(x.basis) + "</span>" : "")
+        + "<br/>" + esc(x.text || "") + evHtml(x.evidence) + "</div>";
+    }
+    var TERMS_ROWS = [["payment", "价款与支付"], ["conditions_precedent", "先决条件"], ["approvals", "审批 / 备案"],
+      ["contingent", "或有对价"], ["completion_adjustment", "完成调整"], ["deposit", "定金 / 预付"],
+      ["long_stop_date", "长停止日"], ["breach", "违约与终止"], ["reps_warranties", "陈述与保证"],
+      ["transition", "过渡期安排"], ["tax", "税费"], ["dispute_resolution", "争议解决"]];
+    var TR_STATUS = { disclosed_cleared: "已披露·已通过", disclosed_pending: "已披露·进行中", not_disclosed: "未披露", not_applicable: "不适用", disclosed: "已披露" };
+
     var main = '<div class="panel"><div class="sech"><span class="sno">①</span><h2>主体及关系</h2></div><div style="padding:4px 24px 16px">'
       + e.parties.map(function (p) {
-        return '<div class="sec"><span class="sk">' + esc(p.role) + " " + layerBadge(p.layer || "disclosed") + '</span>' + esc(p.name) + (p.basis ? ' <span class="dim">（' + esc(p.basis) + "）</span>" : "") + "</div>";
-      }).join("") + "</div></div>";
+        return '<div class="sec"><span class="sk">' + esc(p.role) + " " + layerBadge(p.layer || "disclosed") + '</span>' + esc(p.name)
+          + (p.relation_to_listed ? ' <span class="dim">（' + esc(p.relation_to_listed) + "）</span>" : "")
+          + (p.stake_pct != null ? ' <span class="dim">持股 ' + esc(String(p.stake_pct)) + "%</span>" : "")
+          + (p.basis ? ' <span class="dim">（' + esc(p.basis) + "）</span>" : "") + evHtml(p.evidence) + "</div>";
+      }).join("")
+      + (e.holding_chain && e.holding_chain.text ? '<div class="sec"><span class="sk">持股链 ' + layerBadge(e.holding_chain.layer || "disclosed") + "</span>"
+        + esc(e.holding_chain.text) + (e.holding_chain.basis ? ' <span class="dim">（' + esc(e.holding_chain.basis) + "）</span>" : "") + evHtml(e.holding_chain.evidence) + "</div>" : "")
+      + "</div></div>";
 
     main += '<div class="panel"><div class="sech"><span class="sno">②</span><h2>地点</h2></div><div class="kv">'
-      + '<div class="dl"><span class="k">国家 / 地区</span><span class="v">' + na(e.geo && e.geo.text) + (e.geo ? " " + layerBadge(e.geo.layer || "disclosed") : "") + "</span></div></div></div>";
+      + '<div class="dl"><span class="k">国家 / 地区</span><span class="v">' + na(e.geo && e.geo.text) + (e.geo ? " " + layerBadge(e.geo.layer || "disclosed") : "") + evHtml(e.geo && e.geo.evidence) + "</span></div></div></div>";
 
     // 双层分类（Vault 做法）：原文类别逐源保留（disclosed），归一事项类型仅作分析产物
     var rawCats = [];
@@ -678,59 +705,99 @@
     });
 
     main += '<div class="panel"><div class="sech"><span class="sno">③</span><h2>事项与阶段链</h2><span class="note">'
-      + (e.matter_type ? esc(e.matter_type.value) + " " : "") + '当前阶段：' + esc(e.stage_current || "unknown") + '</span></div><div class="tl">'
+      + (e.matter_type ? esc(e.matter_type.value) + " " : "") + '当前阶段：' + esc(e.stage_current || "unknown") + '</span></div>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>阶段</th><th>事实</th><th>出处</th></tr></thead><tbody>'
       + e.stage_chain.map(function (c) {
-        var doc = null;
-        for (var i = 0; i < e.sources.length; i++) if (e.sources[i].doc_id === c.doc_id) doc = e.sources[i];
-        return '<div class="tl-item"><div class="tld">' + esc(c.date) + "<br/>" + pill(c.stage || "—", "blue") + '</div><div class="tlt">'
-          + (doc ? '<a href="' + esc(doc.url) + '" target="_blank" rel="noopener">' + esc((doc.file || "").slice(0, 52)) + " ↗</a>" : esc(c.doc_id))
-          + '<br/><span class="dim" style="font-size:12px">' + esc(c.note || "") + " " + layerBadge(c.layer || "disclosed") + "</span></div></div>";
-      }).join("") + "</div>"
+        var doc = srcById[c.doc_id];
+        return "<tr><td class='mono'>" + esc(c.date || "—") + "</td><td>" + pill(c.stage || "—", "blue") + "</td>"
+          + "<td style='font-size:12.5px'>" + esc(c.note || "") + " " + layerBadge(c.layer || "disclosed") + evHtml(c.evidence) + "</td>"
+          + "<td style='font-size:12px'>" + (doc ? '<a href="' + esc(doc.url) + '" target="_blank" rel="noopener">' + esc((doc.file || c.doc_id).slice(0, 34)) + " ↗</a>" : esc(c.doc_id || "—")) + "</td></tr>";
+      }).join("") + "</tbody></table></div>"
       + '<div class="secnote" style="border-top:1px dashed var(--line)">原文类别 ' + layerBadge("disclosed") + "：" + (rawCats.length ? rawCats.map(function (r) { return esc(r); }).join("；") : "—（披露表未留原文分类）")
       + "<br/>归一事项类型 " + layerBadge("analysis") + "：" + (e.matter_type ? esc(e.matter_type.value) + (e.matter_type.basis ? '（依据：' + esc(e.matter_type.basis) + "）" : "") : "未归类") + "；归一映射只作分析产物，不回写原文分类</div></div>";
 
     main += '<div class="panel"><div class="sech"><span class="sno">④</span><h2>规模与资金</h2></div><div style="padding:4px 24px 16px">'
       + '<div class="sec" style="border:none"><span class="sk">金额 / 规模 ' + (e.scale ? layerBadge(e.scale.layer || "disclosed") : "") + (e.scale && e.scale.basis ? ' <span class="dim">' + esc(e.scale.basis) + "</span>" : "") + '</span>'
-      + (e.scale && e.scale.text ? esc(e.scale.text) : '<span class="na">【未披露】</span>') + "</div></div></div>";
+      + (e.scale && e.scale.text ? esc(e.scale.text) + evHtml(e.scale.evidence) : '<span class="na">【未披露】</span>') + "</div></div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑤</span><h2>交易条款（审批 / 先决条件 / 义务 / 时间节点）</h2></div><div style="padding:4px 24px 16px">'
-      + (e.terms && e.terms.length ? e.terms.map(function (t) { return '<div class="sec">' + layerBadge(t.layer) + " " + esc(t.text) + (t.basis ? ' <span class="dim">（' + esc(t.basis) + "）</span>" : "") + "</div>"; }).join("") : '<div class="na">【未披露】</div>') + "</div></div>";
+    main += '<div class="panel"><div class="sech"><span class="sno">⑤</span><h2>交易条款</h2>'
+      + (e.terms && !Array.isArray(e.terms) && e.terms.completeness ? '<span class="note">条款完整性 ' + layerBadge("analysis") + "：" + esc(e.terms.completeness) + (e.terms.completeness_basis ? "（" + esc(e.terms.completeness_basis) + "）" : "") + "</span>" : "")
+      + '</div><div style="padding:4px 24px 16px">'
+      + (function () {
+        var t = e.terms;
+        if (!t) return '<div class="na">【未披露】</div>';
+        if (Array.isArray(t)) {  // 旧形态兼容（未重抽事件）
+          return t.map(function (x) { return '<div class="sec">' + layerBadge(x.layer) + " " + esc(x.text) + (x.basis ? ' <span class="dim">（' + esc(x.basis) + "）</span>" : "") + "</div>"; }).join("");
+        }
+        return '<div class="tbl-wrap"><table class="tbl"><tbody>'
+          + TERMS_ROWS.map(function (r) {
+            var f = (t.fields || {})[r[0]] || {};
+            var v = f.value;
+            var cell = v == null ? '<span class="na">【未披露】</span>'
+              : (v === "unknown" ? '<span class="na">unknown（尚未核查）</span>' : esc(v) + evHtml(f.evidence));
+            return "<tr><td style='white-space:nowrap;font-size:12.5px;color:var(--ink-3)'>" + r[1] + "</td><td style='font-size:13px'>" + cell + "</td></tr>";
+          }).join("") + "</tbody></table></div>";
+      })() + "</div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑥</span><h2>法律合规触发点</h2><span class="note">仅列实际触发事项，逐条挂议题码（docs/schema.md §c），非模板清单</span></div>'
-      + '<div style="padding:4px 24px 16px">' + (e.legal_triggers && e.legal_triggers.length ? e.legal_triggers.map(function (a) {
-        return '<div class="sec"><span class="sk">' + (a.code ? pill(a.code, "blue") + " " : "") + layerBadge(a.layer) + (a.basis ? ' <span class="dim">' + esc(a.basis) + "</span>" : "") + "</span>" + esc(a.text) + "</div>";
-      }).join("") : '<div class="na">入库分析未识别到具体触发点；不代表无合规义务</div>') + "</div></div>";
+    main += '<div class="panel"><div class="sech"><span class="sno">⑥</span><h2>法律触发点</h2><span class="note">仅列实际触发事项，逐条挂议题码（docs/schema.md §c），非模板清单</span></div>'
+      + (e.legal_triggers && e.legal_triggers.length
+        ? '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>议题</th><th>触发事实</th><th>状态</th><th>层</th></tr></thead><tbody>'
+          + e.legal_triggers.map(function (a) {
+            return "<tr><td style='white-space:nowrap'>" + (a.code ? pill(a.code, "blue") : "—") + "</td>"
+              + "<td style='font-size:12.5px'>" + esc(a.text || "") + (a.basis ? '<div class="dim" style="font-size:12px">依据：' + esc(a.basis) + "</div>" : "") + evHtml(a.evidence) + "</td>"
+              + "<td style='white-space:nowrap;font-size:12px'>" + esc(TR_STATUS[a.status] || a.status || "—") + "</td>"
+              + "<td>" + layerBadge(a.layer) + "</td></tr>";
+          }).join("") + "</tbody></table></div>"
+        : '<div style="padding:4px 24px 16px"><div class="na">入库分析未识别到具体触发点；不代表无合规义务</div>') + "</div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑦</span><h2>影响与跟踪点</h2></div><div style="padding:4px 24px 16px">'
-      + anaBlock(e.watch_points, "入库分析未标注跟踪点") + "</div></div>";
+    main += '<div class="panel"><div class="sech"><span class="sno">⑦</span><h2>影响</h2></div><div style="padding:4px 24px 16px">'
+      + (e.impact && e.impact.length ? e.impact.map(anaItem).join("") : '<div class="na">入库分析未标注影响</div>') + "</div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑧</span><h2>信息缺口（原文未披露，待核验）</h2></div><div style="padding:4px 24px 16px">'
-      + anaBlock(e.gaps, "无记录") + "</div></div>";
+    main += '<div class="panel"><div class="sech"><span class="sno">⑧</span><h2>跟踪点</h2></div><div style="padding:4px 24px 16px">'
+      + (e.watch_points && e.watch_points.length ? e.watch_points.map(anaItem).join("") : '<div class="na">入库分析未标注跟踪点</div>') + "</div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑨</span><h2>执业提示（写给办同类项目的法务 / 投资人）</h2></div><div style="padding:4px 24px 16px">'
-      + anaBlock(e.practice_notes, "入库分析未填写") + "</div></div>";
+    main += '<div class="panel"><div class="sech"><span class="sno">⑨</span><h2>信息缺口</h2><span class="note">原文未披露：缺什么 / 为何重要 / 去哪找</span></div>'
+      + (e.gaps && e.gaps.length
+        ? '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>缺口</th><th>为何重要</th><th>去哪找</th></tr></thead><tbody>'
+          + e.gaps.map(function (g) {
+            if (g.item != null) {
+              return "<tr><td style='font-size:12.5px'>" + esc(g.item) + "</td><td style='font-size:12.5px'>" + esc(g.why || "—") + "</td><td style='font-size:12.5px'>" + esc(g.where || "—") + "</td></tr>";
+            }
+            return "<tr><td colspan='3' style='font-size:12.5px'>" + layerBadge(g.layer || "analysis") + " " + esc(g.text || "") + (g.basis ? ' <span class="dim">（' + esc(g.basis) + "）</span>" : "") + "</td></tr>";
+          }).join("") + "</tbody></table></div>"
+        : '<div style="padding:4px 24px 16px"><div class="na">无记录</div>') + "</div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑩</span><h2>来源与口径</h2><span class="note">' + e.sources.length + " 份披露文件</span></div>"
+    main += '<div class="panel"><div class="sech"><span class="sno">⑩</span><h2>执业提示</h2><span class="note">写给办同类交易的法务：可迁移的核查动作</span></div><div style="padding:4px 24px 16px">'
+      + (e.practice_notes && e.practice_notes.length ? e.practice_notes.map(anaItem).join("") : '<div class="na">入库分析未填写</div>') + "</div></div>";
+
+    main += '<div class="panel"><div class="sech"><span class="sno">⑪</span><h2>来源</h2><span class="note">' + e.sources.length + " 份披露文件；引文链接带 #page 可定位原文页</span></div>"
       + '<div class="evlist">' + e.sources.map(function (s) {
         return '<div class="ev"><span class="pg">' + esc(s.date) + '</span><span class="qt">'
-          + chTag({ "渠道": s.channel }) + " <b>" + esc(s.file) + '</b><br/><a href="' + esc(s.url) + '" target="_blank" rel="noopener">原文 ↗</a>'
+          + chTag({ "渠道": s.channel }) + " <b>" + esc(s.file) + '</b>　<a href="' + esc(s.url) + '" target="_blank" rel="noopener">原文 ↗</a>'
+          + (s.new_info ? '<div class="dim" style="font-size:12px;margin-top:2px">本来源新增信息：' + esc(s.new_info) + "</div>" : "")
           + (s.quotes || []).map(function (q) {
             return '<div class="evi"><div class="qt">「' + esc(q.text) + '」</div><div class="ops"><a href="' + esc(s.url) + "#page=" + (q.page || 1) + '" target="_blank" rel="noopener">定位 P' + (q.page || "?") + " ↗</a><button data-copy='" + esc(q.text) + "'>复制引文</button></div></div>";
           }).join("") + "</span></div>";
       }).join("") + "</div>"
-      + (e.source_diff ? '<div class="secnote" style="border-top:1px solid var(--line)">跨来源口径差异 ' + layerBadge(e.source_diff.layer) + "：" + esc(e.source_diff.text) + (e.source_diff.basis ? '（依据：' + esc(e.source_diff.basis) + "）" : "") + "</div>" : "")
+      + (e.source_diff ? '<div class="secnote" style="border-top:1px solid var(--line)">跨来源口径差异 ' + layerBadge(e.source_diff.layer || "analysis") + "：" + esc(e.source_diff.text) + (e.source_diff.basis ? '（依据：' + esc(e.source_diff.basis) + "）" : "") + "</div>"
+        : e.sources.length === 1 ? '<div class="secnote" style="border-top:1px solid var(--line)">单一来源事件：无第二来源可供口径比对；同主体其他披露见右侧「同主体其他事件」。</div>' : "")
       + "</div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑪</span><h2>更新记录</h2></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>类型</th><th>来源文件</th><th>说明</th></tr></thead><tbody>'
+    main += '<div class="panel"><div class="sech"><h2>更新记录</h2></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>类型</th><th>来源文件</th><th>说明</th></tr></thead><tbody>'
       + e.changelog.map(function (c) {
         return '<tr><td class="mono">' + esc(c.date) + '</td><td>' + pill(c.type, c.type === "进展" ? "blue" : c.type === "修正" ? "warn" : "") + '</td>'
           + '<td style="font-size:12px">' + esc(c.doc_id) + '</td><td style="font-size:12.5px">' + esc(c.note || "") + "</td></tr>";
       }).join("") + "</tbody></table></div></div>";
 
+    var siblings = EVX.filter(function (x) { return x.subject === e.parties[0].name && x.id !== e.event_id; });
     var rail = '<div class="rail">'
       + '<div class="panel"><div class="rail-h">关联</div><div style="padding:8px 18px 14px;font-size:13px">'
       + '<div style="padding:3px 0"><a href="#/company/' + encodeURIComponent(e.parties[0].name) + '">主体档案 →</a></div>'
       + '<div style="padding:3px 0"><a href="#/events">事件库 →</a></div>'
+      + (siblings.length ? '<div style="border-top:1px dashed var(--line);margin-top:8px;padding-top:8px"><span class="dim" style="font-size:12px">同主体其他事件（' + siblings.length + '）</span>'
+        + siblings.map(function (x) {
+          return '<div style="padding:4px 0"><a href="#/event/' + x.id + '"><b>' + esc(x.id) + "</b> " + esc(x.title.length > 30 ? x.title.slice(0, 30) + "…" : x.title) + '</a><br/><span class="dim" style="font-size:12px">' + esc(x.date) + " · " + esc(x.stage || "—") + " · " + esc(x.status) + "</span></div>";
+        }).join("") + "</div>" : "")
       + "</div></div>"
       + '<div class="panel"><div class="rail-h">个人备注（本机保存）</div><div style="padding:8px 18px 16px">'
       + '<textarea id="pnote" data-note="' + esc(e.event_id) + '" style="width:100%;min-height:80px;border:1px solid var(--line-2);border-radius:8px;padding:8px 10px;font-size:13px;font-family:inherit" placeholder="记录核验结论、待办或质疑…">' + esc(ANN.notes[e.event_id] || "") + "</textarea></div></div>"

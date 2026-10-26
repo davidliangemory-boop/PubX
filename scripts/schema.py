@@ -53,9 +53,15 @@ CHANNELS = ["A股·巨潮", "港股·披露易", "美股·EDGAR", "其他来源"
 # 必填字段（缺失 = ERROR）；叙事字段（text/layer/basis 结构）
 REQUIRED_FIELDS = ["event_id", "title_fact", "status", "parties",
                    "stage_current", "stage_chain", "sources", "changelog"]
-NARRATIVE_FIELDS = ["title_fact", "geo", "matter_type", "scale"]
-NARRATIVE_LIST_FIELDS = ["terms", "legal_triggers", "watch_points", "gaps",
+NARRATIVE_FIELDS = ["title_fact", "geo", "matter_type", "scale", "holding_chain"]
+NARRATIVE_LIST_FIELDS = ["legal_triggers", "watch_points",
                          "practice_notes", "impact"]
+# terms：R05 起为结构化字典 {completeness, completeness_basis, fields{12 条款}};
+# gaps：{item, why, where, layer, basis} 三段式（缺什么/为何重要/去哪找）
+TERMS_FIELDS = ["payment", "conditions_precedent", "approvals", "contingent",
+                "completion_adjustment", "deposit", "long_stop_date", "breach",
+                "reps_warranties", "transition", "tax", "dispute_resolution"]
+TERMS_COMPLETENESS = ["全文已披露", "仅摘要条款", "未披露协议条款"]
 
 CURRENCY_TOKENS = ["美元", "港元", "人民币", "澳元", "欧元", "英镑", "日元",
                    "新元", "迪拉姆", "卢比", "加元", "瑞郎", "万元", "亿元", "元",
@@ -132,6 +138,36 @@ def check_event(ev):
                 err(f, f"第{i + 1}项非法 layer {item.get('layer')!r}")
             elif item["layer"] == "analysis" and not str(item.get("basis") or "").strip():
                 err(f, f"第{i + 1}项 analysis 层必须写 basis 依据")
+
+    # 交易条款：R05 起为结构化字典；存量 list 形态（{text,layer,basis} 数组）兼容
+    t = ev.get("terms")
+    if isinstance(t, dict):
+        if t.get("completeness") not in TERMS_COMPLETENESS:
+            err("terms", f"completeness 非法 {t.get('completeness')!r}")
+        fields = t.get("fields")
+        if not isinstance(fields, dict):
+            err("terms", "缺 fields 字典")
+        else:
+            missing = [k for k in TERMS_FIELDS if k not in fields]
+            if missing:
+                err("terms", f"fields 缺 {missing}")
+            for k in TERMS_FIELDS:
+                fld = fields.get(k)
+                if isinstance(fld, dict) and "value" not in fld:
+                    err("terms", f"fields.{k} 缺 value（null=已核未披露）")
+    elif isinstance(t, list):
+        for i, item in enumerate(t):
+            if not is_narrative(item):
+                err("terms", f"（旧形态）第{i + 1}项应为 {{text, layer, basis}} 结构")
+
+    # 信息缺口：{item, why, where} 三段式；存量 {text} 形态兼容
+    for i, g in enumerate(ev.get("gaps") or []):
+        if isinstance(g, dict) and "item" in g:
+            for k in ("item", "why", "where"):
+                if not str(g.get(k) or "").strip():
+                    err("gaps", f"第{i + 1}项缺 {k}")
+        elif not is_narrative(g):
+            err("gaps", f"第{i + 1}项应为 {{item, why, where}} 或 {{text, layer, basis}} 结构")
 
     # 规模金额：出现数字时必须带币种/单位口径；以"—/未披露/未载"开头的视为未披露说明，豁免
     sc = ev.get("scale")

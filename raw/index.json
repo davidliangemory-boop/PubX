@@ -464,33 +464,43 @@
  },
  "sec_000110465926100534": {
   "url": "https://www.sec.gov/Archives/edgar/data/1737806/000110465926100534/tm2623874d1_ex99-1.htm",
-  "fetched_at": "2026-10-23 10:36:57",
-  "ok": false,
-  "error": "HTTP Error 403: Forbidden"
+  "fetched_at": "2026-10-26 18:35:13",
+  "ok": true,
+  "bytes": 340644,
+  "pages": 1,
+  "sha256": "3dd324ca1c36ee84c3d65222373425ae18c0fb47615fe1c7d8ffa1bda943288a"
  },
  "sec_000110465926112996": {
   "url": "https://www.sec.gov/Archives/edgar/data/1736541/000110465926112996/tm2626774d1_ex99-1.htm",
-  "fetched_at": "2026-10-23 10:36:59",
-  "ok": false,
-  "error": "HTTP Error 403: Forbidden"
+  "fetched_at": "2026-10-26 18:35:14",
+  "ok": true,
+  "bytes": 11429,
+  "pages": 1,
+  "sha256": "3b293e18dbcbf5d1d93b08739851c488567fd95f1204c9af2ced854999784d99"
  },
  "sec_000110465926116411": {
   "url": "https://www.sec.gov/Archives/edgar/data/1791706/000110465926116411/tm2627732d1_ex99-1.htm",
-  "fetched_at": "2026-10-23 10:37:00",
-  "ok": false,
-  "error": "HTTP Error 403: Forbidden"
+  "fetched_at": "2026-10-26 18:35:15",
+  "ok": true,
+  "bytes": 11169,
+  "pages": 1,
+  "sha256": "9f50a7afefa96784a271e69433ab8c3b15951d02ac6a55defdd1f2b2f5d2fa8d"
  },
  "sec_000110465926116605": {
   "url": "https://www.sec.gov/Archives/edgar/data/1481513/000110465926116605/tm2627736d1_ex99-1.htm",
-  "fetched_at": "2026-10-23 10:37:01",
-  "ok": false,
-  "error": "HTTP Error 403: Forbidden"
+  "fetched_at": "2026-10-26 18:35:17",
+  "ok": true,
+  "bytes": 10380,
+  "pages": 1,
+  "sha256": "5f754bb57f8fcccb56b5fc7ff71c7866d1b7688842f3c800953a0f74a9516b5e"
  },
  "sec_000119312526411251": {
   "url": "https://www.sec.gov/Archives/edgar/data/1810997/000119312526411251/d129675dex991.htm",
-  "fetched_at": "2026-10-23 10:37:03",
-  "ok": false,
-  "error": "HTTP Error 403: Forbidden"
+  "fetched_at": "2026-10-26 18:35:18",
+  "ok": true,
+  "bytes": 8434,
+  "pages": 1,
+  "sha256": "8d9c2616e7b1dd271a10bf462655fe5b4b56d2249e236ea26163a044b1661e71"
  },
  "hkex_12369276_b": {
   "url": "https://www1.hkexnews.hk/...（手动补抓，带 Referer）",
@@ -498,5 +508,13 @@
   "ok": true,
   "pages": 4,
   "sha256": "ce03053faedc8afdf8c4736f1a51192628691062b954bc58c8babbbc8bd8cf43"
+ },
+ "hkex_12105020": {
+  "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0414/2026041400557_c.pdf",
+  "fetched_at": "2026-10-26 20:04:51",
+  "ok": true,
+  "bytes": 3059011,
+  "pages": 90,
+  "sha256": "a5372d49a6c0e917dcc48be93497a274fa7945c25372edbaf07b0f95c76f98fa"
  }
 }

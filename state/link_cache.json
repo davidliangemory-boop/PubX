@@ -8,5 +8,10 @@
   "ok": true,
   "status": 200,
   "ts": "2026-10-23"
+ },
+ "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0914/2026091400872_c.pdf": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-26"
  }
 }

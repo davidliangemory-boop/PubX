@@ -1,0 +1,346 @@
+{
+ "event_id": "E-024",
+ "title_fact": {
+  "text": "海尔智家子公司智运天下（上海）为两家全资子公司提供合计1,500万元连带责任保证：智运天下（重庆）500万元（兴业银行）、青岛飞升供应链1,000万元（光大银行），期限一年、无反担保",
+  "layer": "disclosed",
+  "basis": "hkex_12354145 P5-P6 担保协议主要内容表",
+  "evidence": {
+   "doc_id": "hkex_12354145",
+   "page": 5,
+   "quote": "合计担保金额 1,500 万元人民币"
+  }
+ },
+ "importance": {
+  "level": "A",
+  "reason": "公司及子公司对外担保总额达697,464万元（占2025年度经审计净资产5.9%）；本次两家被担保方资产负债率均超70%触发特别风险提示，属或有负债与担保集中度监控重点",
+  "layer": "analysis",
+  "basis": "hkex_12354145 P2 累计担保表及特别风险提示勾选、P4/P5 财务数据"
+ },
+ "holding_chain": {
+  "text": "海尔智家股份有限公司（A+H，600690/6690）→ 控股子公司智运天下（上海）科技有限公司（担保人，上市公司对其持股比例未披露）→ 100% → 智运天下（重庆）科技有限公司、青岛飞升供应链管理有限公司（被担保人，即上市公司孙公司）",
+  "layer": "disclosed",
+  "evidence": {
+   "doc_id": "hkex_12354145",
+   "page": 3,
+   "quote": "被担保人为担保人的全资子公司，本次担保无反担保"
+  },
+  "basis": null
+ },
+ "parties": [
+  {
+   "name": "海尔智家股份有限公司",
+   "role": "上市主体",
+   "relation_to_listed": "上市主体本身；担保人为其控股子公司",
+   "stake_pct": null,
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 3,
+    "quote": "海尔智家股份有限公司（简称“公司”）的子公司智运天下（上海）"
+   },
+   "basis": null
+  },
+  {
+   "name": "智运天下（上海）科技有限公司",
+   "role": "担保人",
+   "relation_to_listed": "上市公司控股子公司",
+   "stake_pct": null,
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 4,
+    "quote": "智运天下（上海）科技有限公司（公司控股子公司）， 100%"
+   },
+   "basis": null
+  },
+  {
+   "name": "智运天下（重庆）科技有限公司",
+   "role": "被担保方",
+   "relation_to_listed": "担保人的全资子公司（上市公司孙公司），2024-01-09成立，注册资本500万元",
+   "stake_pct": null,
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 4,
+    "quote": "91500231MAD9TPDD4A"
+   },
+   "basis": null
+  },
+  {
+   "name": "青岛飞升供应链管理有限公司",
+   "role": "被担保方",
+   "relation_to_listed": "担保人的全资子公司（上市公司孙公司），注册资本4,000万元",
+   "stake_pct": null,
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 5,
+    "quote": "被担保人名称 青岛飞升供应链管理有限公司"
+   },
+   "basis": null
+  },
+  {
+   "name": "兴业银行、光大银行",
+   "role": "金融机构（债权人）",
+   "relation_to_listed": null,
+   "stake_pct": null,
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 6,
+    "quote": "兴业银 行 500万元 连带责任 保证 一 年"
+   },
+   "basis": null
+  }
+ ],
+ "geo": {
+  "text": "中国（担保人上海；被担保人重庆、青岛）",
+  "layer": "disclosed",
+  "evidence": {
+   "doc_id": "hkex_12354145",
+   "page": 5,
+   "quote": "注册地 青岛市"
+  }
+ },
+ "matter_type": {
+  "value": "担保",
+  "layer": "analysis",
+  "basis": "子公司为其全资子公司银行融资提供连带责任保证，属集团内担保/财务资助安排"
+ },
+ "stage_current": "实施",
+ "stage_chain": [
+  {
+   "date": "2026-03-26",
+   "stage": "董事会审议",
+   "doc_id": "hkex_12354145",
+   "note": "董事会审议2026年度预计担保额议案",
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 6,
+    "quote": "上述担保已经公司于 2026 年 3 月 26 日召开的董事会"
+   }
+  },
+  {
+   "date": "2026-06-24",
+   "stage": "股东会批准年度额度",
+   "doc_id": "hkex_12354145",
+   "note": "2025年年度股东会审议通过2026年度预计担保额议案，担保金额上限312亿元，授权总裁办公会逐笔决定",
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 3,
+    "quote": "公司于 2026 年 6 月 24 日召开了 2025 年年度股东会"
+   }
+  },
+  {
+   "date": "2026-09-30",
+   "stage": "实施并公告",
+   "doc_id": "hkex_12354145",
+   "note": "担保人在年度额度内为两家子公司融资提供连带责任保证，合计1,500万元，无须调剂",
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 3,
+    "quote": "本次新增担保金额在前述股东会批准的担保额度范围内，无须调剂"
+   }
+  }
+ ],
+ "scale": {
+  "text": "本次担保合计人民币1,500万元（智运天下重庆500万元/兴业银行、青岛飞升1,000万元/光大银行，期限均一年）；股东会年度授权上限312亿元；截至公告日对外担保总额697,464万元，占2025年度经审计净资产5.9%，无逾期担保",
+  "layer": "disclosed",
+  "evidence": {
+   "doc_id": "hkex_12354145",
+   "page": 6,
+   "quote": "公司及子公司对外担保总额 697,464 万元（均为对控股"
+  }
+ },
+ "terms": {
+  "completeness": "仅摘要条款",
+  "completeness_basis": "公告以表格列示担保协议主要内容（金融机构、金额、方式、期限、反担保、其他股东是否担保），担保协议全文未附",
+  "fields": {
+   "payment": {
+    "value": null,
+    "evidence": null
+   },
+   "conditions_precedent": {
+    "value": null,
+    "evidence": null
+   },
+   "approvals": {
+    "value": "本次担保落在2026-03-26董事会、2026-06-24股东会审议通过的年度预计担保额度（上限312亿元）内，无须调剂及另行批准；董事会意见认为符合相关法律法规及《公司章程》",
+    "evidence": {
+     "doc_id": "hkex_12354145",
+     "page": 6,
+     "quote": "于 2026 年 6 月 24 日召开的股东会审议通过，担保金额未超过该会议审议的预计担保议案披露的担保额度"
+    }
+   },
+   "contingent": {
+    "value": "连带责任保证、期限一年、无反担保：被担保人到期未清偿债务时，担保人（智运天下上海）承担连带清偿责任，构成或有代偿义务",
+    "evidence": {
+     "doc_id": "hkex_12354145",
+     "page": 6,
+     "quote": "连带责任 保证 一 年 否 否"
+    }
+   },
+   "completion_adjustment": {
+    "value": null,
+    "evidence": null
+   },
+   "deposit": {
+    "value": null,
+    "evidence": null
+   },
+   "long_stop_date": {
+    "value": null,
+    "evidence": null
+   },
+   "breach": {
+    "value": null,
+    "evidence": null
+   },
+   "reps_warranties": {
+    "value": null,
+    "evidence": null
+   },
+   "transition": {
+    "value": null,
+    "evidence": null
+   },
+   "tax": {
+    "value": null,
+    "evidence": null
+   },
+   "dispute_resolution": {
+    "value": null,
+    "evidence": null
+   }
+  }
+ },
+ "legal_triggers": [
+  {
+   "code": "I10.3",
+   "text": "融资与担保：上市公司控股子公司为其全资子公司融资提供连带责任保证，无反担保、无其他股东按比例担保；在股东会批准的312亿元年度额度内实施",
+   "status": "disclosed_cleared",
+   "layer": "analysis",
+   "basis": "hkex_12354145 P3、P6 担保协议主要内容及内部决策程序",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 3,
+    "quote": "本次担保无反担保"
+   }
+  },
+  {
+   "code": "I3.3",
+   "text": "交易分类：均为对控股（孙）公司的担保，不存在为控股股东、实际控制人及其关联人提供担保的情形，不构成关联/关连交易，无需独立股东批准",
+   "status": "disclosed_cleared",
+   "layer": "analysis",
+   "basis": "hkex_12354145 P7 声明段落",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 7,
+    "quote": "也不存在为控股股东、实际控制人及其关联人提供担保的情形"
+   }
+  },
+  {
+   "code": "I13",
+   "text": "信息披露：A股临2026-059号公告经港股上市规则13.10B条以海外监管公告形式转载",
+   "status": "disclosed_cleared",
+   "layer": "analysis",
+   "basis": "hkex_12354145 P1 转载声明",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 1,
+    "quote": "第13.10B條由海爾智家股份有限公司作出"
+   }
+  }
+ ],
+ "impact": [
+  {
+   "text": "本次担保后公司及子公司对外担保总额697,464万元（均为对控股子公司的担保），占2025年度经审计净资产5.9%，对外担保逾期累计金额为0",
+   "layer": "disclosed",
+   "basis": "hkex_12354145 P2、P6-P7",
+   "evidence": {
+    "doc_id": "hkex_12354145",
+    "page": 7,
+    "quote": "占公司 2025 年度经审计净资产的 5.9%"
+   }
+  },
+  {
+   "text": "两家被担保方2026-06-30资产负债率约76.6%（智运天下重庆3,251/4,245万元）与87.8%（青岛飞升46,252/52,661万元），均超70%触发特别风险提示，代偿概率高于一般子公司担保",
+   "layer": "analysis",
+   "basis": "按公告P4/P5财务数据计算；P2勾选『本次对资产负债率超过70%的单位提供担保』"
+  },
+  {
+   "text": "青岛飞升担保余额（含本次）达49,500万元，为单体第二大境内被担保方，且其2026年上半年净亏损32万元",
+   "layer": "analysis",
+   "basis": "hkex_12354145 P7 余额表及P5 净利润数据"
+  }
+ ],
+ "watch_points": [
+  {
+   "text": "被担保方资产负债率超70%且青岛飞升2026年上半年净亏损32万元，跟踪其偿债能力与代偿触发信号",
+   "layer": "analysis",
+   "basis": "hkex_12354145 P5 财务指标"
+  },
+  {
+   "text": "年度担保额度312亿元的使用进度及后续额度调剂公告",
+   "layer": "analysis",
+   "basis": "hkex_12354145 P3 年度担保授权"
+  }
+ ],
+ "gaps": [
+  {
+   "item": "担保协议全文（违约金、追偿安排、争议解决条款）",
+   "why": "明确代偿后的追偿路径与法律救济",
+   "where": "担保协议文本或公司后续A股披露",
+   "layer": "analysis",
+   "basis": "公告仅列协议主要内容表格"
+  },
+  {
+   "item": "上市公司对担保人智运天下（上海）的持股比例",
+   "why": "确认担保人是否全资、是否存在少数股东分担风险问题",
+   "where": "公司年报子公司清单或工商登记信息",
+   "layer": "analysis",
+   "basis": "公告仅表述为『控股子公司』，未载比例"
+  }
+ ],
+ "practice_notes": [
+  {
+   "text": "集团内担保披露核查时逐户勾稽『实际担保余额（不含本次）+本次担保=累计余额表』：本案600+500=1,100、48,500+1,000=49,500，与P7余额表一致方可采信",
+   "layer": "analysis",
+   "basis": "hkex_12354145 P2 与 P7 数据勾稽"
+  },
+  {
+   "text": "对资产负债率超70%的被担保方，在担保台账中标注特别风险提示触发项，并补充获取其最近一期现金流与授信到期表",
+   "layer": "analysis",
+   "basis": "本案两家被担保方均触发该提示"
+  },
+  {
+   "text": "出具披露意见前核对年度股东会授权额度口径（312亿元上限、授权总裁办公会逐笔决定并签署法律文件），确认单笔担保落在额度内且无须调剂",
+   "layer": "analysis",
+   "basis": "hkex_12354145 P3 年度担保授权条款"
+  }
+ ],
+ "sources": [
+  {
+   "doc_id": "hkex_12354145",
+   "channel": "港股·披露易",
+   "file": "海外监管公告——关于为控股子公司提供担保的公告",
+   "date": "2026-09-30",
+   "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0930/2026093002283_c.pdf",
+   "new_info": "转载A股临2026-059：新增两笔担保明细（合计1,500万元、连带责任保证、期限一年、无反担保）、被担保方财务数据、累计担保余额697,464万元及资产负债率超70%特别风险提示",
+   "quotes": [
+    {
+     "text": "截至本公告披露日，公司及子公司对外担保总额697,464万元（均为对控股",
+     "page": 6
+    },
+    {
+     "text": "子公司的担保），占公司2025年度经审计净资产的5.9%。",
+     "page": 7
+    }
+   ]
+  }
+ ],
+ "source_diff": null
+}

@@ -183,7 +183,7 @@ def main():
     for d in db["disclosures"]:
         d = dict(d)
         d["阶段组"] = stage_group(d.get("动作阶段", ""))
-        d.setdefault("处理状态", "已发布")
+        d.pop("处理状态", None)  # R05：恒为「已发布」的 0 信息量字段，删除
         d["渠道"] = channel_of(d)
         d["来源链接"] = https_link(d.get("来源链接"))
         disclosures.append(d)
@@ -203,6 +203,9 @@ def main():
         "synced": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))
                                         ).strftime("%Y-%m-%d %H:%M"),
     }
+    for n in out["derived"]["graph"]["nodes"]:
+        if isinstance(n, dict) and isinstance(n.get("url"), str):
+            n["url"] = https_link(n["url"])
     # 事件层：一事件一记录（state/events.json，由 migrate_events.py / 批次流程维护）
     ev_path = os.path.join(ROOT, "state", "events.json")
     if os.path.exists(ev_path):

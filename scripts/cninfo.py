@@ -8,7 +8,7 @@ import json, re, time, sys, os, subprocess, tempfile
 import urllib.request, urllib.parse
 
 BASE = "http://www.cninfo.com.cn/new/hisAnnouncement/query"
-PDF_BASE = "http://static.cninfo.com.cn/"
+PDF_BASE = "https://static.cninfo.com.cn/"  # http 经代理会挂起（实测），https 正常
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "

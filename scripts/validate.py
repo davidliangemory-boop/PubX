@@ -224,7 +224,12 @@ def check_event_consistency(evj):
                     n_unk += 1
                     add("null/unknown 区分", "WARN", f"{eid}.{f}[{i}]: text 为 unknown 字面量")
         # 审批类表述支撑：trigger/terms 中出现「已完成审批/备案」类表述时，同事件任一 quote 须含审批类字样
-        texts = [t.get("text", "") for t in (e.get("legal_triggers") or []) + (e.get("terms") or [])]
+        tt = e.get("terms")
+        if isinstance(tt, dict):
+            ttexts = [str((fld or {}).get("value") or "") for fld in (tt.get("fields") or {}).values()]
+        else:
+            ttexts = [x.get("text", "") for x in (tt or [])]
+        texts = [t.get("text", "") for t in (e.get("legal_triggers") or [])] + ttexts
         if any(list(approval_claims(t)) for t in texts):
             quotes = [q.get("text", "") for s in e.get("sources", []) for q in (s.get("quotes") or [])]
             if not any(APPROVAL_QUOTE.search(q or "") for q in quotes):
@@ -560,11 +565,69 @@ def check_export():
         add("出口管制前端数据", "ERROR", "assets/export_data.js 不存在")
 
 
+def check_event_evidence(evj):
+    """R05 起事件字段可带 evidence={doc_id,page,quote≤60字}：递归扫描全事件，
+    quote 规范化空白后必须是 raw/<doc_id>.txt 对应页（\\f 分页）子串。"""
+    rawdir = os.path.join(ROOT, "raw")
+    if not os.path.isdir(rawdir):
+        return
+    n_ok = n_bad = 0
+    pages_cache = {}
+
+    def pages_of(doc_id):
+        if doc_id not in pages_cache:
+            p = os.path.join(rawdir, f"{doc_id}.txt")
+            pages_cache[doc_id] = (open(p, encoding="utf-8", errors="replace").read().split("\f")
+                                   if os.path.exists(p) else None)
+        return pages_cache[doc_id]
+
+    def walk(o, where):
+        nonlocal n_ok, n_bad
+        if isinstance(o, dict):
+            ev = o.get("evidence")
+            if isinstance(ev, dict) and {"doc_id", "page", "quote"} <= set(ev):
+                q = re.sub(r"\s+", "", str(ev.get("quote") or ""))
+                pages = pages_of(ev["doc_id"])
+                pn = ev["page"]
+                ok = (pages is not None and isinstance(pn, int)
+                      and 1 <= pn <= len(pages)
+                      and q and q in re.sub(r"\s+", "", pages[pn - 1]))
+                if ok:
+                    n_ok += 1
+                else:
+                    n_bad += 1
+                    if pages is None:
+                        msg = f"无原文缓存 {ev['doc_id']}"
+                    elif not isinstance(pn, int) or not (1 <= pn <= len(pages)):
+                        msg = f"页码 {pn} 越界（原文 {len(pages)} 页）"
+                    else:
+                        hits = [i + 1 for i, pg in enumerate(pages)
+                                if q in re.sub(r"\s+", "", pg)]
+                        msg = (f"标注 P{pn} 实际位于 P{hits}" if hits else "quote 非原文子串")
+                    add("字段级 evidence 回原文", "ERROR",
+                        f"{where}: {msg}「{str(ev.get('quote'))[:26]}…」")
+                if len(str(ev.get("quote") or "")) > 60:
+                    add("字段级 evidence 回原文", "WARN",
+                        f"{where}: quote 超过 60 字")
+            for k, v in o.items():
+                if k != "evidence":
+                    walk(v, where)
+        elif isinstance(o, list):
+            for x in o:
+                walk(x, where)
+
+    for e in (evj or {}).get("events", []):
+        walk(e, e.get("event_id", "?"))
+    add("字段级 evidence 回原文", "OK" if n_bad == 0 else "ERROR",
+        f"evidence 核验 {n_ok + n_bad} 处：命中 {n_ok} / 失败 {n_bad}")
+
+
 def main():
     check_state_jsons()
     evj = check_events()
     check_disclosures(evj)
     check_quotes(evj)
+    check_event_evidence(evj)
     check_batches()
     check_event_consistency(evj)
     check_internal_refs(evj)

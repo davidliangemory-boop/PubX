@@ -1,0 +1,110 @@
+{
+  "event_id": "E-032",
+  "title_fact": {
+    "text": "安踏体育完成收购PUMA SE约29.06%股权（43,014,760股）：购股协议全部交割条件已达成，交割2026-10-05生效、2026-10-07实际转让",
+    "layer": "disclosed",
+    "basis": "hkex_12365982 完成公告P1（2026-10-26 逐字复核原文）",
+    "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "完成收購PUMA SE的29.06%股權"}
+  },
+  "importance": {
+    "level": "A",
+    "reason": "跨境收购全球头部运动品牌PUMA SE约29.06%股权，为港交所「主要交易」级别的大额出境股权投资；对价未于本公告载明，须回溯前期公告及2026-04-24通函",
+    "layer": "analysis",
+    "basis": "hkex_12365982 标题标为「主要交易」及标的规模，结合全库事件对比"
+  },
+  "holding_chain": {
+    "text": "安踏体育用品有限公司（开曼群岛注册，港交所2020/82020，上市主体）→从卖方受让PUMA SE 43,014,760股普通股（约占目标公司全部已发行股本29.06%）；受让由何主体直接持有本公告未载明",
+    "layer": "disclosed",
+    "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "於開曼群島註冊成立之有限公司"},
+    "basis": null
+  },
+  "parties": [
+    {"name": "安踏体育用品有限公司（ANTA Sports Products Limited）", "role": "上市主体", "relation_to_listed": null, "stake_pct": null, "layer": "disclosed", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "安踏體育用品有限公司"}, "basis": null},
+    {"name": "PUMA SE（目标公司）", "role": "标的", "relation_to_listed": null, "stake_pct": 29.06, "layer": "disclosed", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "完成從賣方受讓43,014,760股目標公司普通股"}, "basis": null},
+    {"name": "卖方（本公告未列名）", "role": "卖方", "relation_to_listed": null, "stake_pct": null, "layer": "disclosed", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "完成從賣方受讓43,014,760股目標公司普通股"}, "basis": null}
+  ],
+  "geo": {
+    "text": "未披露（本公告仅载目标公司PUMA SE名称，未载其注册地/所在地）",
+    "layer": "disclosed",
+    "evidence": null
+  },
+  "matter_type": {"value": "并购", "layer": "analysis", "basis": "受让目标公司存量普通股43,014,760股（约29.06%），属股权收购类并购"},
+  "stage_current": "完成",
+  "stage_chain": [
+    {"date": "2026-01-26", "stage": "签约", "doc_id": "hkex_12365982", "note": "本公告提述日期分别为2026-01-26、2026-02-13、2026-03-04的公告及2026-04-24通函（内容有关收购事项；该等文件未入库，签约确切日期以该等公告为准）", "layer": "disclosed", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "日期分別為二零二六年一月二十六日、二零二六年二月十三日及二零二六年三月四日的公告"}},
+    {"date": "2026-04-24", "stage": "审批", "doc_id": "hkex_12365982", "note": "发出收购事项通函（主要交易通常涉股东批准程序；具体批准情况以通函为准，本公告未载）", "layer": "disclosed", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "本公司日期為二零二六年四月二十四日的通函"}},
+    {"date": "2026-10-05", "stage": "交割", "doc_id": "hkex_12365982", "note": "购股协议项下所有交割条件已获达成，交割于2026-10-05生效", "layer": "disclosed", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "交割已於二零二六年十月五日生效"}},
+    {"date": "2026-10-07", "stage": "完成", "doc_id": "hkex_12365982", "note": "实际转让日期：完成从卖方受让43,014,760股目标公司普通股（约29.06%）", "layer": "disclosed", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "已於二零二六年十月七日（實際轉讓日期）完成從賣方受讓43,014,760股"}}
+  ],
+  "scale": {
+    "text": "43,014,760股PUMA SE普通股，相当于截至公告日期目标公司全部已发行股本约29.06%；对价未载于本公告（此前公告及2026-04-24通函载有交易对价，可回溯追溯）",
+    "layer": "disclosed",
+    "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "相當於截至本公告日期目標公司全部已發行股本約29.06%"}
+  },
+  "terms": {
+    "completeness": "未披露协议条款",
+    "completeness_basis": "完成公告仅宣布交割条件全部达成、交割生效日（2026-10-05）与实际转让日期（2026-10-07），未载对价及任何协议条款；条款详见2026-01-26、02-13、03-04公告及2026-04-24通函（未入库）",
+    "fields": {
+      "payment": {"value": null, "evidence": null},
+      "conditions_precedent": {"value": "购股协议项下的所有交割条件已获达成（具体条件内容未载于本公告）", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "購股協議項下的所有交割條件已獲達成"}},
+      "approvals": {"value": null, "evidence": null},
+      "contingent": {"value": null, "evidence": null},
+      "completion_adjustment": {"value": null, "evidence": null},
+      "deposit": {"value": null, "evidence": null},
+      "long_stop_date": {"value": null, "evidence": null},
+      "breach": {"value": null, "evidence": null},
+      "reps_warranties": {"value": null, "evidence": null},
+      "transition": {"value": "交割于2026年10月5日生效，并于2026年10月7日（实际转让日期）完成股份受让", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "交割已於二零二六年十月五日生效"}},
+      "tax": {"value": null, "evidence": null},
+      "dispute_resolution": {"value": null, "evidence": null}
+    }
+  },
+  "legal_triggers": [
+    {"code": "I3.3", "text": "上市规则分类：公告标为「主要交易」", "status": "disclosed_cleared", "layer": "analysis", "basis": "公告标题明示，属联交所主要交易类别（通常须经股东批准，程序见2026-04-24通函）", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "主要交易"}},
+    {"code": "I10.1", "text": "先决条件：购股协议项下所有交割条件已获达成；具体条件清单（是否含监管批准）未载于本公告", "status": "disclosed_cleared", "layer": "analysis", "basis": "hkex_12365982 P1 明示全部交割条件达成；条件内容须回查前期公告及通函", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "購股協議項下的所有交割條件已獲達成"}},
+    {"code": "I2.1", "text": "东道国外资审查（标的为欧洲上市公司，涉德国/欧盟外资审查可能）：本公告未提及任何审批事项，不能倒推审批完成或豁免", "status": "not_disclosed", "layer": "analysis", "basis": "hkex_12365982 全文无审批字样（2026-10-26 逐字核对）", "evidence": null},
+    {"code": "I1", "text": "境内ODI/出境程序：未披露", "status": "not_disclosed", "layer": "analysis", "basis": "公告未提及；收购主体与资金来源未载于本公告，须回查通函", "evidence": null}
+  ],
+  "impact": [
+    {"text": "安踏成为PUMA SE约29.06%股东（43,014,760股）", "layer": "disclosed", "basis": "hkex_12365982 P1", "evidence": {"doc_id": "hkex_12365982", "page": 1, "quote": "相當於截至本公告日期目標公司全部已發行股本約29.06%"}},
+    {"text": "29.06%持股不具控制权，协同落地取决于董事会席位与商业协议安排（未载于本公告）", "layer": "analysis", "basis": "持股比例低于50%且公告无控制权/并表表述"},
+    {"text": "对价、资金来源与汇率敞口（欧元）无法从本公告评估，须回溯前期公告及2026-04-24通函", "layer": "analysis", "basis": "hkex_12365982 未载对价与资金安排"}
+  ],
+  "watch_points": [
+    {"text": "29.06%紧贴德国30%强制要约线：任何增持前须重新测算要约义务触发", "layer": "analysis", "basis": "德国收购法30%控制权门槛，结合本次持股29.06%的事实"},
+    {"text": "德国WpHG投票权重大持股披露通知义务的履行情况", "layer": "analysis", "basis": "受让德国上市公司大额股份的法定披露义务（公告未载，属法域强制要求）"},
+    {"text": "对价支付、资金来源与EUR/CNY汇率安排（须回查通函口径核对实际支付）", "layer": "analysis", "basis": "hkex_12365982 未载对价，指向前期公告及通函"},
+    {"text": "董事会席位与治理安排、是否有增持/一致行动安排", "layer": "analysis", "basis": "29.06%参股权益的协同落地点，公告未披露"},
+    {"text": "PUMA自身业绩波动与欧洲消费市场景气对投资价值的影响", "layer": "analysis", "basis": "标的为全球运动品牌，经营周期性风险"}
+  ],
+  "gaps": [
+    {"item": "交易对价与支付方式", "why": "评估资金影响、回报与减值敏感性", "where": "2026-01-26、02-13、03-04公告及2026-04-24通函", "layer": "analysis", "basis": "hkex_12365982 未载对价，仅提述前期文件"},
+    {"item": "卖方身份", "why": "判断交易对手风险、是否关联交易", "where": "前期公告及通函", "layer": "analysis", "basis": "hkex_12365982 仅称「卖方」未列名"},
+    {"item": "交割条件具体内容（是否含德国AWV/欧盟外资审查等监管批准）", "why": "确认审批路径及是否有后续监管义务", "where": "前期公告、通函及德国监管披露", "layer": "analysis", "basis": "hkex_12365982 仅称所有交割条件已获达成"},
+    {"item": "董事会席位、治理安排与一致行动/增持安排", "why": "决定29.06%权益的协同落地与后续要约风险", "where": "通函、后续公告及PUMA披露", "layer": "analysis", "basis": "hkex_12365982 未载治理安排"},
+    {"item": "受让股份的直接持有主体", "why": "判断ODI路径与税务结构", "where": "通函及后续披露", "layer": "analysis", "basis": "hkex_12365982 未载明收购主体"}
+  ],
+  "practice_notes": [
+    {"text": "发布「交割条件全部达成」公告前，应取得每项先决条件成就的书面证据（监管批准函、无重大不利变化确认等）逐项归档备查", "layer": "analysis", "basis": "本案公告仅一句「所有交割条件已获达成」，条件清单在前期文件，证据链须可回溯"},
+    {"text": "受让欧洲上市公司大额存量股：交割后立即核对投票权披露通知（德国WpHG门槛3%/5%等）是否已按期提交，并在增持决策前重测30%强制要约线", "layer": "analysis", "basis": "本案持股29.06%紧贴30%要约线，属可迁移的门槛监控动作"},
+    {"text": "完成公告未载对价时，法务应交叉核对通函口径、实际支付金额与汇率锁定安排是否一致", "layer": "analysis", "basis": "本案对价仅在前期公告及通函，完成公告无金额"},
+    {"text": "区分「交割生效日」与「实际转让日期」两个节点（本案相差2日），在产权登记与风险转移判断上以实际转让日期为准核对", "layer": "analysis", "basis": "hkex_12365982 载明2026-10-05生效、2026-10-07实际转让"}
+  ],
+  "sources": [
+    {
+      "doc_id": "hkex_12365982",
+      "channel": "港股·披露易",
+      "file": "主要交易——完成收购PUMA SE的29.06%股权",
+      "date": "2026-10-07",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1007/2026100701670_c.pdf",
+      "new_info": "宣布购股协议项下所有交割条件已获达成；交割2026-10-05生效；2026-10-07（实际转让日期）完成从卖方受让43,014,760股PUMA SE普通股，约占全部已发行股本29.06%；提述2026-01-26、02-13、03-04公告及2026-04-24通函",
+      "quotes": [
+        {"text": "購股協議項下的所有交割條件已獲達成", "page": 1},
+        {"text": "完成從賣方受讓43,014,760股目標公司普通股", "page": 1},
+        {"text": "相當於截至本公告日期目標公司全部已發行股本約29.06%", "page": 1}
+      ]
+    }
+  ],
+  "source_diff": null,
+  "changelog_add": {"date": "2026-10-26", "type": "修正", "doc_id": "hkex_12365982", "note": "R05李成式重抽：terms结构化12字段（本公告未载条款一律null）；stage_chain补交割生效/实际转让双节点及前期公告提述；geo改为未披露（原文未载标的所在地）；法律触发点议题码化（I3.3/I10.1/I2.1/I1）；gaps补item/why/where"}
+}

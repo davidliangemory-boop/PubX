@@ -1,0 +1,134 @@
+{
+  "event_id": "E-013",
+  "title_fact": {
+    "text": "龙佰集团与Image Resources签署《条款清单修订协议》，将Durack/Yandanooka矿砂项目最终交易文件签署日由2026-10-07延长至2026-10-31，投资方放弃因逾期未签产生的终止权，其他条款不变",
+    "layer": "disclosed",
+    "basis": "1225598484 P1–P2；1225578713 P4（2026-10-26 逐字复核原文）",
+    "evidence": {"doc_id": "1225598484", "page": 1, "quote": "公司与Image Resources就延长最终交易文件签署日等事项签署了《条款清单修订协议》"}
+  },
+  "importance": {
+    "level": "A",
+    "reason": "出资总额约16,000万澳元（约76,560万元人民币）的出境矿业投资，且因董事长许冉任对方董事构成关联交易；含FIRB/ACCC审批先决条件、预付款与第一顺位担保等具法律约束力安排，交易结构（股权收购或UJV）未定",
+    "layer": "analysis",
+    "basis": "1225578713 P1–P5 披露的金额、关联交易认定与先决条件，结合全库事件对比"
+  },
+  "holding_chain": {
+    "text": "龙佰集团股份有限公司（002601.SZ，上市主体）→公司或其指定子公司（投资方，指定主体未定）→拟取得Image Resources全资子公司Titon Resources Pty Ltd持有的Durack/Yandanooka矿砂项目约80%权益（Image保留约20%）；龙佰经Murray Zircon Pty Ltd持股17.76%、经Orient Zirconic Resources (Australia) Pty Ltd持股4.88%，合计持有Image Resources 22.64%，为其第一大股东",
+    "layer": "disclosed",
+    "evidence": {"doc_id": "1225578713", "page": 2, "quote": "合计持股比例为22.64%，为其第一大股东"},
+    "basis": null
+  },
+  "parties": [
+    {"name": "龙佰集团股份有限公司", "role": "上市主体", "relation_to_listed": null, "stake_pct": null, "layer": "disclosed", "evidence": {"doc_id": "1225578713", "page": 1, "quote": "龙佰集团股份有限公司"}, "basis": null},
+    {"name": "龙佰集团或其指定的子公司（投资方，指定主体未定）", "role": "收购方", "relation_to_listed": "上市公司或其指定子公司", "stake_pct": null, "layer": "disclosed", "evidence": {"doc_id": "1225578713", "page": 1, "quote": "公司或公司指定的子公司拟通过现金出资及机器设备等资产作价出资的方式进行投资"}, "basis": null},
+    {"name": "Image Resources NL（依梅智资源公司，ASX:IMA）", "role": "卖方", "relation_to_listed": "参股公司/关联方：公司经Murray Zircon Pty Ltd与Orient Zirconic Resources (Australia) Pty Ltd合计持股22.64%为第一大股东；董事长许冉任其董事", "stake_pct": null, "layer": "disclosed", "evidence": {"doc_id": "1225578713", "page": 2, "quote": "董事长许冉女士为Image Resources董事"}, "basis": null},
+    {"name": "Titon Resources Pty Ltd（项目公司）", "role": "标的", "relation_to_listed": "Image Resources全资子公司，持有Durack/Yandanooka矿砂项目", "stake_pct": 80, "layer": "disclosed", "evidence": {"doc_id": "1225578713", "page": 3, "quote": "全资子公司Titon Resources Pty Ltd"}, "basis": null},
+    {"name": "Durack和Yandanooka矿砂项目（标的项目）", "role": "标的", "relation_to_listed": null, "stake_pct": null, "layer": "disclosed", "evidence": {"doc_id": "1225578713", "page": 1, "quote": "Durack和Yandanooka矿砂项目"}, "basis": null}
+  ],
+  "geo": {
+    "text": "澳大利亚西澳大利亚州珀斯以北约300公里的北珀斯盆地（North Perth Basin）",
+    "layer": "disclosed",
+    "evidence": {"doc_id": "1225578713", "page": 3, "quote": "地处西澳大利亚州珀斯以北约300公里的北珀斯盆地"}
+  },
+  "matter_type": {"value": "并购", "layer": "analysis", "basis": "拟以现金＋设备作价出资取得项目约80%权益，结构可选收购项目公司股权或设立UJV，按并购（备选合资）归类"},
+  "stage_current": "意向",
+  "stage_chain": [
+    {"date": "2026-09-22", "stage": "签约", "doc_id": "1225578713", "note": "与参股公司Image Resources在焦作签署《Term Sheet》（条款清单/意向协议，框架性、意向性安排；公告于2026-09-24披露）", "layer": "disclosed", "evidence": {"doc_id": "1225578713", "page": 1, "quote": "公司与参股公司Image Resources NL"}},
+    {"date": "2026-10-07", "stage": "签约", "doc_id": "1225598484", "note": "原最终文件签署日（条款清单签署日后15日）届至，最终交易文件未签署", "layer": "disclosed", "evidence": {"doc_id": "1225598484", "page": 2, "quote": "该日期称为“最终文件签署日”，即2026年10月7日"}},
+    {"date": "2026-10-08", "stage": "签约", "doc_id": "1225598484", "note": "签署《条款清单修订协议》：最终文件签署日延长至2026-10-31，投资方确认未发出终止通知并放弃因10-07前未签产生的终止权，其他条款（含Image股东会批准与监管批准截止日）不变；公告于2026-10-10披露", "layer": "disclosed", "evidence": {"doc_id": "1225598484", "page": 2, "quote": "最终文件签署日延长至2026年10月31日"}}
+  ],
+  "scale": {
+    "text": "出资总额约16,000万澳元（约76,560万元人民币）：现金约2,000万澳元（约9,570万元）＋协商作价约14,000万澳元（约66,990万元）机器设备等资产，换取标的项目约80%权益；对价及权益比例尚未最终确定",
+    "layer": "disclosed",
+    "evidence": {"doc_id": "1225578713", "page": 1, "quote": "公司现金及资产出资总额约为16,000万澳元"}
+  },
+  "terms": {
+    "completeness": "仅摘要条款",
+    "completeness_basis": "公告披露了条款清单主要内容摘要（拟议交易、结构选项、预付款及担保、陈述保证、最终文件、先决条件及审批时间表、排他、保密、费用、管辖法律、约束力范围），但最终交易文件尚未签署，正式条款以最终交易文件为准；税务仅作为确定交易结构的考量因素被提及，无税务条款",
+    "fields": {
+      "payment": {"value": "投资方以约20,000,000澳元现金，附加经双方协商作价约140,000,000澳元机器设备等资产（合称总对价）出资，取得约80%权益；交易对价及权益比例尚未最终确定", "evidence": {"doc_id": "1225578713", "page": 3, "quote": "投资方以约20,000,000澳元现金，附加经双方协商作价约140,000,000澳元的机器设备等资产"}},
+      "conditions_precedent": {"value": "完成尽职调查、评估并签署最终交易协议；Image Resources取得其股东会批准（含ASX上市规则要求的批准，签署日后60日内）；投资方取得FIRB批准及ACCC相关审批（如适用，签署日后120日内）；投资方完成内部决策程序（投委会、董事会及/或股东会）；取得其他必要政府、监管及第三方批准", "evidence": {"doc_id": "1225578713", "page": 4, "quote": "取得其股东会批准（含ASX上市规则要求的批准），期限为条款清单签署日后60日内"}},
+      "approvals": {"value": "投资方取得FIRB（澳大利亚外国投资审查委员会）批准及ACCC（澳大利亚竞争与消费者委员会）相关审批（如适用），期限为条款清单签署日后120日内", "evidence": {"doc_id": "1225578713", "page": 4, "quote": "投资方取得FIRB（澳大利亚外国投资审查委员会）批准及ACCC（澳大利亚竞争与消费者委员会）相关审批（如适用）"}},
+      "contingent": {"value": null, "evidence": null},
+      "completion_adjustment": {"value": null, "evidence": null},
+      "deposit": {"value": "预付款500万澳元应于2026年9月25日前支付；交易因任何原因未完成则全额退还投资方，触发协议约定终止情形的90日内偿还", "evidence": {"doc_id": "1225578713", "page": 4, "quote": "投资方应于2026年9月25日前支付预付款500万澳元"}},
+      "long_stop_date": {"value": "双方应在条款清单签署日后15日内（即2026-10-07）签署最终交易文件，可书面协议延长；经2026-10-08《条款清单修订协议》延长至2026-10-31并可再书面延长；其他日期（Image股东会批准60日、监管批准120日截止日）不变", "evidence": {"doc_id": "1225598484", "page": 2, "quote": "最终文件签署日延长至2026年10月31日"}},
+      "breach": {"value": "如未能按期签署最终交易文件，投资方有权书面终止交易，预付款需在90日内全额退还；修订协议中投资方确认未发出终止通知并放弃因2026-10-07前未签产生的终止权", "evidence": {"doc_id": "1225578713", "page": 4, "quote": "如未能按期签署，投资方有权书面终止交易，预付款需在90日内全额退还"}},
+      "reps_warranties": {"value": "Image Resources陈述保证：不存在对标的项目产生重大不利影响的重大协议、无需取得重大第三方同意；项目公司股份或资产无既有担保权益；矿权上无抵押、押记、担保权益、临时性禁令或其他产权负担；上述保证在预付款支付日及交割日重复作出", "evidence": {"doc_id": "1225578713", "page": 4, "quote": "项目公司的股份或其资产上不存在既有担保权益"}},
+      "transition": {"value": "交易完成后公司持有标的项目约80%权益，Image Resources保留约20%权益；公司将根据最终确定的交易结构安排项目公司治理及人员配置", "evidence": {"doc_id": "1225578713", "page": 5, "quote": "本次交易完成后，公司持有标的项目约80%权益"}},
+      "tax": {"value": null, "evidence": null},
+      "dispute_resolution": {"value": "管辖法律：西澳大利亚州法律（条款清单及修订协议同）", "evidence": {"doc_id": "1225578713", "page": 5, "quote": "管辖法律：西澳大利亚州法律"}}
+    }
+  },
+  "legal_triggers": [
+    {"code": "I2.1", "text": "澳大利亚FIRB外资审查：条款清单明确将投资方取得FIRB批准列为先决条件（签署日后120日内），修订协议明确监管批准截止日不变；申请是否已提交及结果未披露", "status": "disclosed_pending", "layer": "analysis", "basis": "1225578713 P4 先决条件条款；1225598484 P2 确认其他日期不变", "evidence": {"doc_id": "1225578713", "page": 4, "quote": "投资方取得FIRB（澳大利亚外国投资审查委员会）批准及ACCC（澳大利亚竞争与消费者委员会）相关审批（如适用）"}},
+    {"code": "I3.1", "text": "竞争申报：ACCC相关审批（如适用）列为先决条件（120日内），进展未披露", "status": "disclosed_pending", "layer": "analysis", "basis": "1225578713 P4 先决条件第2项", "evidence": {"doc_id": "1225578713", "page": 4, "quote": "ACCC（澳大利亚竞争与消费者委员会）相关审批（如适用）"}},
+    {"code": "I3.3", "text": "上市规则/关联交易程序：董事长许冉任Image董事，构成关联交易但不构成重大资产重组；签署意向协议无需董事会审议，签署正式交易文件需经董事会、如需则股东会审议——后续决策程序尚未履行", "status": "disclosed_pending", "layer": "analysis", "basis": "1225578713 P2 关联交易认定与程序安排", "evidence": {"doc_id": "1225578713", "page": 2, "quote": "本次《意向协议》涉及的交易构成关联交易"}},
+    {"code": "I1", "text": "境内出境程序：公告风险提示称本次交易尚需履行必要的审批、备案或登记程序，未点名ODI备案", "status": "disclosed_pending", "layer": "analysis", "basis": "1225578713 P6 风险提示第3项的概括表述", "evidence": {"doc_id": "1225578713", "page": 6, "quote": "本次交易尚需履行必要的审批、备案或登记程序"}},
+    {"code": "I9.3", "text": "矿业/环保许可：Durack和Yandanooka项目均已取得勘探许可，尚未获得采矿许可，也未开展开采工作", "status": "disclosed_pending", "layer": "analysis", "basis": "1225578713 P3 标的项目基本情况", "evidence": {"doc_id": "1225578713", "page": 3, "quote": "均已取得勘探许可，尚未获得采矿许可"}},
+    {"code": "I10.1", "text": "先决条件/最终文件签署日：签署日后15日内签最终文件（即2026-10-07），经修订协议延长至2026-10-31并可再书面延长；Image股东会批准（60日）与监管批准（120日）截止日不变", "status": "disclosed_pending", "layer": "analysis", "basis": "1225578713 P4；1225598484 P2 修订条款", "evidence": {"doc_id": "1225598484", "page": 2, "quote": "条款清单中的其他日期均不改变，包括Image Resources批准截止日及监管批准截止日"}},
+    {"code": "I10.3", "text": "担保/融资安排：Image须促使投资方就项目及项目公司股权、资产（含矿权）取得第一顺位担保或投资方认可的其他优先担保，担保文件须在Image股东会批准后2日内签署并完成完善；预付款及偿还、担保、陈述保证等条款具法律约束力", "status": "disclosed_pending", "layer": "analysis", "basis": "1225578713 P4 预付款及担保条款；担保设立待股东会批准", "evidence": {"doc_id": "1225578713", "page": 4, "quote": "取得第一顺位担保或投资方认可的其他优先担保"}},
+    {"code": "I10.4", "text": "争议解决：条款清单与修订协议均受西澳大利亚州法律管辖", "status": "disclosed_cleared", "layer": "analysis", "basis": "1225578713 P5；1225598484 P2「适用法律」条款", "evidence": {"doc_id": "1225598484", "page": 2, "quote": "本修订协议对双方具有法律约束力，并受西澳大利亚州法律管辖"}}
+  ],
+  "impact": [
+    {"text": "获取海外矿砂资源，保障钛白粉及锆产业链上游原材料的长期稳定供应，提升资源保障能力", "layer": "disclosed", "basis": "1225578713 P5 交易目的", "evidence": {"doc_id": "1225578713", "page": 5, "quote": "保障钛白粉及锆产业链上游原材料的长期稳定供应"}},
+    {"text": "标的资源量（JORC 2012）：Durack矿区3,770万吨、重矿物品位2.2%；Yandanooka矿区5,700万吨、重矿物品位3.1%；有价矿物以锆石及钛矿物为主", "layer": "disclosed", "basis": "1225578713 P3 标的项目基本情况", "evidence": {"doc_id": "1225578713", "page": 3, "quote": "Durack矿区资源量为3,770万吨，重矿物品位2.2%"}},
+    {"text": "资金来源为公司自有或自筹资金及实物资产，签署意向协议本身不会对当期财务状况和经营成果产生重大不利影响", "layer": "disclosed", "basis": "1225578713 P5", "evidence": {"doc_id": "1225578713", "page": 5, "quote": "不会对公司当期财务状况和经营成果产生重大不利影响"}},
+    {"text": "项目尚未获得采矿许可、未开采，距实际产出有开发周期与审批不确定性；出资以设备作价为主（约1.4亿澳元），现金压力小但澳元敞口与后续资本开支须跟踪", "layer": "analysis", "basis": "1225578713 P3 许可状态与P1–P2 出资结构"}
+  ],
+  "watch_points": [
+    {"text": "最终交易文件能否于2026-10-31前签署（已延长一次，可书面再延长）", "layer": "analysis", "basis": "1225598484 P2 修订条款"},
+    {"text": "FIRB批准及ACCC审批（如适用）：期限条款清单签署日后120日内（约2027-01-20前），修订协议确认该截止日不变", "layer": "analysis", "basis": "1225578713 P4 审批时间表；1225598484 P2"},
+    {"text": "Image股东会批准（签署日后60日内，约2026-11-21前，截止日不变）及担保文件在批准后2日内签署", "layer": "analysis", "basis": "1225578713 P4 先决条件第1项与担保条款"},
+    {"text": "最终交易结构（收购项目公司股权 vs 设立UJV）与最终对价/权益比例未定", "layer": "analysis", "basis": "1225578713 P2–P3 交易结构条款"},
+    {"text": "设备作价约1.4亿澳元的评估依据与公允性（关联交易背景下）及设备出口程序", "layer": "analysis", "basis": "1225578713 P1–P2 出资结构"},
+    {"text": "预付款500万澳元是否已于2026-09-25前支付未披露；触发终止情形时90日内退还的可执行性依赖担保设立", "layer": "analysis", "basis": "1225578713 P4 预付款条款，支付情况无后续披露"}
+  ],
+  "gaps": [
+    {"item": "最终交易结构（股权收购或UJV）与最终对价、权益比例", "why": "决定并表、税务、审批路径与治理安排", "where": "最终交易文件签署公告及后续进展公告", "layer": "analysis", "basis": "1225578713 P2 明示交易对价及权益比例尚未最终确定"},
+    {"item": "设备作价约1.4亿澳元的评估依据与资产清单", "why": "关联交易作价公允性核查核心，亦涉设备出口程序", "where": "评估报告、董事会审议公告", "layer": "analysis", "basis": "1225578713 仅载「经协商作价」"},
+    {"item": "预付款500万澳元是否已于2026-09-25前实际支付、担保文件是否已签", "why": "触发退还/担保权利义务的履行状态", "where": "后续进展公告", "layer": "analysis", "basis": "1225578713 P4 仅载义务；1225598484 未提及预付款状态"},
+    {"item": "FIRB/ACCC申请是否已提交及审查进展", "why": "120日时限的关键路径，决定交易能否落地", "where": "后续进展公告、FIRB公开信息、Image Resources ASX公告", "layer": "analysis", "basis": "1225578713 P4 仅列审批义务"},
+    {"item": "Durack/Yandanooka采矿许可申请时间表与开发计划", "why": "项目尚未获采矿许可，决定投产时点与后续资本开支", "where": "Image Resources ASX披露、澳政府矿业许可登记", "layer": "analysis", "basis": "1225578713 P3 许可现状"}
+  ],
+  "practice_notes": [
+    {"text": "条款清单阶段即锁定有约束力条款（本案：预付款及偿还、担保、陈述保证、尽调、股东会批准义务、FIRB/ACCC审批义务、排他、保密、费用、管辖法律）——起草时逐项标注约束力属性并单独成节", "layer": "analysis", "basis": "1225578713 P5「法律效力」条款的可迁移做法"},
+    {"text": "设备作价出资：要求第三方评估报告，并核对出口报关价值与澳洲端估值的一致性，避免关联交易背景下的作价公允性争议", "layer": "analysis", "basis": "本案设备作价约1.4亿澳元占总对价87.5%，且构成关联交易"},
+    {"text": "董事长任对方董事的关联交易：在董事会审议正式交易文件前核查回避表决安排、独立董事意见与关联方认定口径", "layer": "analysis", "basis": "1225578713 P2 认定构成关联交易，正式文件尚需董事会及/或股东会审议"},
+    {"text": "矿权尽调对照卖方陈述保证逐项验证：矿权上有无抵押/押记/临时禁令、勘探许可转采矿许可的状态与障碍", "layer": "analysis", "basis": "1225578713 P3–P4 陈述保证与许可现状"},
+    {"text": "延期修订采用「视为一个整体、其他日期不变」表述时，核查其余截止日（本案：股东会批准60日、监管批准120日）是否仍需同步顺延——本案明确不变，须按原截止日倒排关键路径", "layer": "analysis", "basis": "1225598484 P2 修订协议第（三）3条"}
+  ],
+  "sources": [
+    {
+      "doc_id": "1225578713",
+      "channel": "A股·巨潮",
+      "file": "关于签署海外矿砂项目合作意向协议的公告",
+      "date": "2026-09-24",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-09-24/1225578713.PDF",
+      "new_info": "首次披露2026-09-22签署条款清单：总对价约16,000万澳元（现金约2,000万＋设备作价约14,000万）换取Durack/Yandanooka项目约80%权益；交易结构可选股权收购或UJV；预付款500万澳元（9-25前付）＋第一顺位担保；先决条件含Image股东会批准（60日）、FIRB/ACCC审批（120日）；构成关联交易；标的资源量与许可状态",
+      "quotes": [
+        {"text": "公司现金及资产出资总额约为16,000万澳元", "page": 1},
+        {"text": "持有的Durack和Yandanooka矿砂项目（以下简称“标的项目”）约80%的权益", "page": 1},
+        {"text": "投资方应于2026年9月25日前支付预付款500万澳元", "page": 4}
+      ]
+    },
+    {
+      "doc_id": "1225598484",
+      "channel": "A股·巨潮",
+      "file": "关于签署海外矿砂项目合作意向协议的进展公告",
+      "date": "2026-10-10",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-10/1225598484.PDF",
+      "new_info": "披露2026-10-08签署《条款清单修订协议》：最终文件签署日由2026-10-07延长至2026-10-31并可书面再延长；投资方确认未发出终止通知、放弃因10-07前未签产生的终止权；其他条款（含Image批准截止日及监管批准截止日）不变；修订协议具法律约束力并受西澳大利亚州法律管辖",
+      "quotes": [
+        {"text": "2026年10月8日，公司与Image Resources就延长最终交易文件签署日等事项签署了《条款清单修订协议》", "page": 1},
+        {"text": "最终文件签署日延长至2026年10月31日", "page": 2}
+      ]
+    }
+  ],
+  "source_diff": {
+    "text": "1225598484进展公告较1225578713新增：最终文件签署日由2026-10-07延至2026-10-31、投资方放弃因逾期未签产生的终止权、其他条款（含Image股东会批准60日与监管批准120日截止日）不变；出资总额约16,000万澳元与约80%权益口径两公告一致，无矛盾",
+    "layer": "analysis",
+    "basis": "1225578713 P1/P4 vs 1225598484 P1–P2 逐字比对"
+  },
+  "changelog_add": {"date": "2026-10-26", "type": "修正", "doc_id": "1225598484", "note": "R05李成式重抽：terms结构化12字段（补齐预付款/担保/陈述保证/先决条件/排他性/管辖法律等已披露条款）；法律触发点议题码化（I2.1/I3.1/I3.3/I1/I9.3/I10.1/I10.3/I10.4）；更正持股口径——经子公司合计持股22.64%（Murray Zircon 17.76%＋Orient Zirconic 4.88%），原『合计约17.76%』有误；stage_chain补10-07原截止日与10-08修订节点；gaps补item/why/where"}
+}

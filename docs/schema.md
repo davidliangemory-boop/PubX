@@ -33,15 +33,27 @@
   "stage_current": "意向|协议|实施|变更|投产/运营|完成",
   "stage_chain": [ { "date": "2026-10-01", "stage": "完成", "doc_id": "", "note": "", "layer": "disclosed" } ],
   "scale": { "text": "金额+币种+口径", "layer": "disclosed", "basis": "" },   // 规模：金额/币种/持股/产能；null = 未披露
-  "terms": [ { "text": "关键条件（审批/先决条件/义务/时间节点）", "layer": "", "basis": "" } ],   // null = 未披露
-  "impact": [ { "text": "", "layer": "" } ],        // 影响（可选扩展）
+  // terms（R05 起为结构化字典；存量 list 形态兼容渲染）：
+  "terms": {
+    "completeness": "全文已披露|仅摘要条款|未披露协议条款",
+    "completeness_basis": "判断依据",
+    "fields": {                              // 12 个条款字段一个不能少；value=null=已核原文未披露，"unknown"=尚未核查
+      "payment": { "value": "…或 null", "evidence": { "doc_id": "", "page": 1, "quote": "≤60字原文子串" } },
+      "conditions_precedent": {}, "approvals": {}, "contingent": {},
+      "completion_adjustment": {}, "deposit": {}, "long_stop_date": {},
+      "breach": {}, "reps_warranties": {}, "transition": {}, "tax": {}, "dispute_resolution": {}
+    }
+  },
+  "holding_chain": { "text": "持股链：母公司→收购主体(控股)→标的 x%", "layer": "disclosed", "basis": null, "evidence": null },
+  "impact": [ { "text": "", "layer": "disclosed|analysis", "basis": "" } ],   // 影响（R05 起独立成第⑦节）
   "watch_points": [ { "text": "", "layer": "analysis", "basis": "" } ],   // 跟踪点
-  "legal_triggers": [ { "code": "I2.1", "text": "", "status": "disclosed|disclosed_pending|not_disclosed|not_applicable",
+  "legal_triggers": [ { "code": "I2.1", "text": "", "status": "disclosed|disclosed_cleared|disclosed_pending|not_disclosed|not_applicable",
                         "layer": "analysis", "basis": "" } ], // 法律合规触发点，仅写实际触发；code = 议题码（I1–I13 二级），无码时前端按关键词归组（标 analysis）
-  "gaps": [ { "text": "原文未披露的事项", "layer": "analysis", "basis": "" } ],
+  "gaps": [ { "item": "缺什么", "why": "为何重要", "where": "去哪找", "layer": "analysis", "basis": "" } ],  // R05 三段式；存量 {text} 兼容
   "practice_notes": [ { "text": "", "layer": "analysis", "basis": "" } ],
   "sources": [ { "doc_id": "", "channel": "", "file": "文件名", "date": "发布日期",
-                 "url": "", "quotes": [ { "text": "短引文（原文逐字）", "page": 1 } ] } ],
+                 "url": "", "new_info": "该来源新增信息（R05 起）",
+                 "quotes": [ { "text": "短引文（原文逐字）", "page": 1 } ] } ],
   "source_diff": null,              // 多来源口径差异；null = 无
   "changelog": [ { "date": "", "type": "新增|进展|修正", "doc_id": "", "note": "" } ]
 }
@@ -51,6 +63,7 @@
 - **id**：`event_id` 必填、全局唯一（跨模块也不得重复）。
 - **发布日期**：以 `sources[].date`（披露日期）与 `stage_chain[].date` 为准，格式 `YYYY-MM-DD`。
 - **三分层（layer）**：`disclosed` 公司披露（必须有 sources 支撑）/ `external` 外部事实（必须附外部来源）/ `analysis` 系统分析（必须写 `basis` 依据）。所有叙事字段（`text` + `layer` + `basis`）都遵守此约定。
+- **字段级 evidence（R05 起）**：A 级事件（importance.level=A）的 parties/geo/stage_chain/scale/terms.fields 等字段可带 `evidence={doc_id, page, quote≤60字}`；`quote` 必须是 `raw/<doc_id>.txt` 对应页（`\f` 分页）的原文逐字子串，由 `scripts/validate.py` 的「字段级 evidence 回原文」逐项比对；重抽片段先经 `scripts/r05_verify.py` 核验再由 `scripts/r05_apply.py` 合并。
 - **sources[]**：每份来源必须有 `file`（文件名）、`date`（日期）、`url`；引文 `quotes[].text` 必须是原文逐字子串（有原文缓存时由 validate.py 回原文比对），`page` 给页码或章节定位。
 - **scale**：金额必须带币种（美元/港元/人民币/澳元/欧元/…），保留原文口径，不做汇率换算；`null` 显示【未披露】。
 - **gaps**：信息缺口，即「原文未披露但影响判断」的事项清单。
