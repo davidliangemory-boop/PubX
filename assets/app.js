@@ -983,7 +983,7 @@
     return h;
   }
 
-  /* ═════════ 出口管制：执法案例 / 清单 / 规则 三栏目 + 观察名单比对（原 SDN 筛查并入） ═════════ */
+  /* ═════════ 出口管制：页面体在 assets/page_ex.js（window.render_ex / window.bind_ex），此处仅做路由分发与兜底 ═════════ */
   var EXC = { col: "enforcement" };
   var EX_COLS = [["enforcement", "执法案例更新"], ["lists", "清单更新"], ["rules", "规则更新"], ["watch", "观察名单比对"]];
   function vExport() {
@@ -1067,6 +1067,12 @@
         return '<tr><td class="mono">' + esc(g.id) + '</td><td class="mono">' + esc(g.time) + '</td><td class="mono">' + (g.runs || 1) + '</td><td class="mono">' + p.scanned + '</td><td class="mono">' + (p.kept || 0) + "</td></tr>";
       }).join("") + "</tbody></table></div>"
       + '<div class="secnote">逐轮原始记录（B-YYYYMMDD-HHMM）见「方法与来源 → 更新记录」。</div></div>';
+  }
+  function vExportFallback() {
+    return '<div class="ph"><h1>出口管制</h1><span class="sub">BIS / OFAC / UFLPA 执法、清单与规则更新；观察名单比对</span></div>'
+      + '<div class="panel"><div class="panel-b" style="padding:30px;text-align:center">'
+      + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">页面模块未加载</div>'
+      + '<div class="note">assets/page_ex.js 未就绪，请检查构建。</div></div></div>';
   }
 
   /* ═════════ 企业档案：只列事件链条目，不复制摘要 ═════════ */
@@ -1311,7 +1317,8 @@
       cn: [["#/", "总览"], ["#/events", "事件库"], ["#/issues", "法律议题"], ["#/cos", "企业档案"],
            ["#/topics", "专题研究"], ["#/board", "项目看板"], ["#/about", "方法与来源"]],
       us: [], hk: [],
-      export: EX_COLS.map(function (x) { return ["#/export?col=" + x[0], x[1]]; })
+      /* 出口管制二级导航由 assets/page_ex.js 页内栏目切换（带条目计数）承担，避免重复 */
+      export: []
     };
     subnav.innerHTML = (SUBS[section] || []).map(function (x) {
       return '<a href="' + x[0] + '"' + (x[0] === cur ? ' class="on"' : "") + ">" + esc(x[1]) + "</a>";
@@ -1363,7 +1370,8 @@
     else if (name === "hk-market") { section = "hk"; sub = ""; html = window.render_hk ? window.render_hk(qs) : vMarket("hk"); }
     else if (name === "export") {
       section = "export"; EXC.col = qs.get("col") || "enforcement";
-      sub = "#/export?col=" + EXC.col; html = vExport();
+      sub = "#/export?col=" + EXC.col;
+      html = window.render_ex ? window.render_ex(EXC.col, qs) : vExport();
     }
     /* ── 旧路由 301 式重定向 ── */
     else if (name === "market") { redirectTo("#/us"); return; }
@@ -1408,7 +1416,7 @@
     if (name === "events") { bindEvents(); evRows(); }
     if (name === "us" && window.render_us) { window.render_us($("usroot")); }
     if (name === "hk-market" && window.bind_hk) window.bind_hk();
-    if (name === "export") { exBody(); }
+    if (name === "export") { if (window.bind_ex) { window.bind_ex(view, EXC.col, qs); } else { exBody(); } }
     if (name === "cos") { cosRows(""); var ci = $("coq"); if (ci) ci.addEventListener("input", function (e) { cosRows(e.target.value); }); }
     if (name === "topics") { document.querySelectorAll("[data-tpv]").forEach(function (a) { a.addEventListener("click", function () { TPV.v = a.getAttribute("data-tpv"); view.innerHTML = vTopics(); routeBindTopics(); tpBody(); }); }); tpBody(); }
     if (name === "about") { document.querySelectorAll("[data-abt]").forEach(function (a) { a.addEventListener("click", function () { AB.tab = a.getAttribute("data-abt"); view.innerHTML = vAbout(); routeBindAbout(); abBody(); bindExport(); }); }); abBody(); bindExport(); }

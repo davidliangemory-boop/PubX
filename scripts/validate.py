@@ -499,6 +499,67 @@ def check_internal_refs(evj):
         add("依据引用可解析", "WARN", f"{n_raw} 处引用中 {n_bad} 处无法解析到披露序号")
 
 
+def check_export():
+    """出口管制模块 state/export.json 与 assets/export_data.js 结构校验（文件不存在则 SKIP）。"""
+    p = os.path.join(ROOT, "state", "export.json")
+    if not os.path.exists(p):
+        add("出口管制模块", "SKIP", "state/export.json 不存在（scripts/export_pull.py 尚未运行）")
+        return
+    ex = load_json(p)
+    if ex is None:
+        return
+    items = ex.get("items", [])
+    seen, bad_layer = {}, 0
+    for it in items:
+        iid = it.get("id")
+        if not iid:
+            add("出口管制 id 唯一", "ERROR", "条目缺 id")
+        elif iid in seen:
+            add("出口管制 id 唯一", "ERROR", f"重复 id: {iid}")
+        seen[iid] = 1
+        for f in ("date", "agency", "title", "url", "column"):
+            if not it.get(f):
+                add("出口管制必填字段", "ERROR", f"{iid}: 缺 {f}")
+        if it.get("column") not in ("enforcement", "lists", "rules"):
+            add("出口管制必填字段", "ERROR", f"{iid}: column 非法 {it.get('column')}")
+        cl = it.get("china_link") or {}
+        if cl.get("value") not in ("是", "否") or not cl.get("basis"):
+            add("出口管制中国关联", "ERROR", f"{iid}: china_link 缺值或缺依据")
+        for pt in it.get("points") or []:
+            if pt.get("layer") not in ("disclosed", "external", "analysis"):
+                bad_layer += 1
+        imp = it.get("impact") or {}
+        if imp.get("layer") != "analysis" or not imp.get("basis"):
+            add("出口管制合规影响", "ERROR", f"{iid}: impact 须为 analysis 层且写依据")
+    if bad_layer:
+        add("出口管制三分层", "ERROR", f"{bad_layer} 条要点 layer 非法")
+    add("出口管制模块", "OK", f"export.json {len(items)} 条校验完成")
+    w = ex.get("watch")
+    if w:
+        r = w.get("results", {})
+        total = sum(r.get(k, 0) for k in ("no_hit", "name_match_only", "confirmed"))
+        if total != w.get("subject_count"):
+            add("观察名单比对", "ERROR", f"各态合计 {total} ≠ 受检主体 {w.get('subject_count')}")
+        if r.get("confirmed") and not w.get("matches"):
+            add("观察名单比对", "WARN", "confirmed>0 但无匹配依据表")
+        for f in ("list_version", "sha256", "entry_count"):
+            if not w.get(f):
+                add("观察名单比对", "ERROR", f"watch 缺 {f}")
+        add("观察名单比对", "OK", f"名单 {w.get('list_version')} · 受检 {w.get('subject_count')} · {r}")
+    jsp = os.path.join(ROOT, "assets", "export_data.js")
+    if os.path.exists(jsp):
+        raw = open(jsp, encoding="utf-8").read()
+        m = re.match(r"^window\.EXDATA\s*=\s*", raw)
+        try:
+            assert m, "不是 window.EXDATA 赋值"
+            json.loads(raw[m.end():].rstrip().rstrip(";"))
+            add("出口管制前端数据", "OK", "assets/export_data.js 可解析")
+        except Exception as e:
+            add("出口管制前端数据", "ERROR", f"export_data.js: {e}")
+    else:
+        add("出口管制前端数据", "ERROR", "assets/export_data.js 不存在")
+
+
 def main():
     check_state_jsons()
     evj = check_events()
@@ -508,6 +569,7 @@ def main():
     check_event_consistency(evj)
     check_internal_refs(evj)
     check_links(evj)
+    check_export()
     check_frontend()
 
     n_err = sum(1 for _, lv, _ in ISSUES if lv == "ERROR")
