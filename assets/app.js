@@ -908,6 +908,35 @@
     var pg = (s.quotes && s.quotes[0] && s.quotes[0].page) || 1;
     return '<a href="' + esc(s.url) + "#page=" + pg + '" target="_blank" rel="noopener">原文 P' + pg + " ↗</a>";
   }
+  // 触发点证据定位：在事件全部来源的 quote 中与触发片段做字符级匹配，
+  // 命中则链到该 quote 所在页；否则回退到首条来源（通常为主披露）首页
+  function trigSrcLink(x) {
+    var snip = trigFactShort(x.t).replace(/^[…\s]+|[…\s]+$/g, "");
+    var core = snip.replace(/[^一-龥A-Za-z0-9]/g, "");
+    var best = null, bestScore = 0;
+    (x.e.sources || []).forEach(function (s) {
+      (s.quotes || []).forEach(function (q) {
+        var qt = (q.text || "").replace(/[^一-龥A-Za-z0-9]/g, "");
+        if (!qt || !core) return;
+        var score = 0;
+        if (qt.indexOf(core.slice(0, 12)) >= 0 || core.indexOf(qt.slice(0, 12)) >= 0) {
+          score = Math.min(core.length, qt.length) + 100;
+        } else {
+          for (var i = 0; i + 4 <= Math.min(core.length, 48); i += 4) {
+            if (qt.indexOf(core.substr(i, 4)) >= 0) score += 4;
+          }
+        }
+        if (score > bestScore) { bestScore = score; best = { s: s, q: q }; }
+      });
+    });
+    if (best && bestScore >= 12) {
+      var pg = best.q.page || 1;
+      return '<a href="' + esc(best.s.url) + '#page=' + pg + '" target="_blank" rel="noopener">原文 P' + pg + " ↗</a>";
+    }
+    // 未匹配到摘录（触发点来自分析字段/审批状态表述）：只链原文首页，不断言页码
+    var s0 = (x.e.sources || [])[0] || {};
+    return s0.url ? '<a href="' + esc(s0.url) + '" target="_blank" rel="noopener" title="触发点未匹配到逐字摘录，链接为主披露原文首页">原文 ↗</a>' : "";
+  }
   function vIssues() {
     // 聚合：事件 legal_triggers → 二级议题桶；事件数 / 触发条数双口径（Vault 做法）
     var bySub = {}, total = 0, evWith = 0, unMapped = 0, legacyNoCode = 0;
@@ -983,27 +1012,28 @@
               var evs = byCo[co] = byCo[co] || {};
               (evs[x.e.event_id] = evs[x.e.event_id] || []).push(x);   // 同事件可有多条同码触发点，全列
             });
-            det = '<details><summary>展开 ' + evN + " 事件 / " + items.length + " 条</summary>"
+            det = '<details id="det-' + esc(s[0]) + '"><summary>展开 ' + evN + " 事件 / " + items.length + " 条</summary>"
               + '<div class="secnote" style="border:none;padding-left:0">处理方式分布（四态口径）：' + esc(stTxt) + "<br/>"
               + "常见触发事实：" + facts.map(function (f) { return "「" + esc(f) + "…」"; }).join(" ") + "<br/>"
               + (HINTS[s[0]] ? "执业提示 " + layerBadge("analysis") + "：" + esc(HINTS[s[0]]) + "<br/>" : "")
-              + "个案层提示见各事件详情 §⑩（事件级，非议题级结论）</div>"
+              + "个案层提示见各事件详情 §⑩（事件级，非议题级结论）；「原文 Pn」按触发片段与来源摘录的字符级匹配定位页码</div>"
               + Object.keys(byCo).map(function (co) {
                 var evs = byCo[co];
                 return '<div style="padding:4px 0"><a href="#/company/' + encodeURIComponent(co) + '"><b>' + esc(shortCo(co)) + "</b></a>　"
                   + Object.keys(evs).map(function (eid) {
                     return evs[eid].map(function (x) {
-                      var s0 = x.e.sources[x.e.sources.length - 1] || {};
                       return '<span style="display:block;margin:2px 10px 2px 0"><a href="#/event/' + eid + '">' + eid + "</a> "
                         + trPill(x.t)
-                        + " " + srcPageLink(s0)
+                        + " " + layerBadge(x.t.layer)
+                        + " " + trigSrcLink(x)
                         + '<br/><span class="dim" style="font-size:12px">' + esc(trigFactShort(x.t)) + '</span></span>';
                     }).join("");
                   }).join("") + "</div>";
               }).join("") + "</details>";
           }
           return "<tr" + (items.length ? "" : " style='opacity:.55'") + "><td style='font-size:12.5px'><b>" + esc(s[0]) + "</b> " + esc(s[1])
-            + (items.length ? '<br/><a href="#/events?issue=' + s[0] + '" style="font-size:12px">事件库筛选 →</a>' : "") + "</td>"
+            + (items.length ? '<br/><a href="#/events?issue=' + s[0] + '" style="font-size:12px">事件库筛选 →</a>' : "")
+            + '<br/><a href="#/issues?code=' + s[0] + '" style="font-size:11.5px" class="dim" title="本议题深链（展开并定位）"># 深链</a>' + "</td>"
             + '<td class="mono">' + evN + '</td><td class="mono">' + items.length + "</td><td style='font-size:12.5px'>" + det + "</td></tr>";
         }).join("") + "</tbody></table></div></div>";
     }).join("");
@@ -1440,15 +1470,24 @@
     if (AB.tab === "batches") {
       var BD = DB.batches_daily || [];
       var list = BD.length ? BD : B;
-      box.innerHTML = (BD.length ? '<div class="note" style="margin-bottom:12px">日批次视图：同一自然日多轮运行合并为 D-YYYYMMDD（runs 记轮数）；回溯补入单列 B-YYYYMMDD。逐轮原始记录见「更新记录」。</div>' : "")
+      box.innerHTML = (BD.length ? '<div class="note" style="margin-bottom:12px">日批次视图：同一自然日多轮运行合并为 D-YYYYMMDD（runs 记轮数）；回溯补入单列 B-YYYYMMDD。2026-10-22 前为每 2 小时一轮的旧批次（B-YYYYMMDD-HHMM），逐轮结论按轮次号原文保留于下方（不改写历史记录）；逐轮扫描计数见「更新记录」。</div>' : "")
         + list.map(function (b) {
         var ps = Object.keys(b.per_source || {}).map(function (k) {
           var p = b.per_source[k]; return esc(k) + "：扫 " + p.scanned + " / 收 " + p.kept + " / 剔 " + p.excluded + (p.failed ? " / 败 " + p.failed : "");
         }).join("<br/>");
         var note;
-        if (b.notes) {
-          var uniqN = b.notes.filter(function (x, i, a) { return a.indexOf(x) === i; });
-          note = esc(uniqN[0] || "—") + (uniqN.length > 1 ? '<div class="dim" style="margin-top:4px">（同日另有 ' + (uniqN.length - 1) + " 轮说明，见「更新记录」逐轮原始记录）</div>" : "");
+        if (b.notes && b.notes.length) {
+          var seen = {};
+          var rows = [];
+          b.notes.forEach(function (n) {
+            var run = typeof n === "string" ? "" : (n.run || "");
+            var txt = typeof n === "string" ? n : (n.text || "");
+            var key = run + "|" + txt;
+            if (seen[key]) return;
+            seen[key] = 1;
+            rows.push('<div style="margin:2px 0">' + (run ? '<span class="mono dim" style="font-size:11.5px">[' + esc(run) + "]</span> " : "") + esc(txt) + "</div>");
+          });
+          note = rows.join("") || "—";
         } else {
           note = esc(b.trend || b.note || "—");
         }
@@ -1658,6 +1697,15 @@
     window.scrollTo(0, 0);
     // 绑定
     if (name === "events") { bindEvents(); evRows(); }
+    if (name === "issues") {
+      // 深链：#/issues?code=I1.1（或旧式 #/issues/I2）→ 展开对应二级议题并定位
+      var icode = qs.get("code") || param || "";
+      if (icode) {
+        var det0 = $("det-" + icode);
+        if (det0) { det0.open = true; det0.scrollIntoView(); }
+        else { var p0 = $("iss-" + icode.split(".")[0]); if (p0) p0.scrollIntoView(); }
+      }
+    }
     if (name === "us" && window.render_us) { window.render_us($("usroot")); }
     if (name === "hk-market" && window.bind_hk) window.bind_hk();
     if (name === "export") { if (window.bind_ex) { window.bind_ex(view, EXC.col, qs); } else { exBody(); } }

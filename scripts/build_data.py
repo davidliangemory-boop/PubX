@@ -163,9 +163,9 @@ def build_batches_daily(batches):
         g["runs_ids"].append(b.get("id", ""))
         g["items"] = sorted(set(g["items"]) | set(b.get("items") or []))
         if b.get("note"):
-            g["notes"].append(b["note"])
+            g["notes"].append({"run": b.get("id", ""), "text": b["note"]})
         if b.get("trend"):
-            g["notes"].append(b["trend"])
+            g["notes"].append({"run": b.get("id", ""), "text": b["trend"]})
         for sk, sp in (b.get("per_source") or {}).items():
             tgt = g["per_source"].setdefault(sk, {"scanned": 0, "kept": 0, "excluded": 0, "failed": 0})
             for k in tgt:
