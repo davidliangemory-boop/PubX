@@ -1377,11 +1377,18 @@
           }).join("　") + "</div>" : '<div style="margin-top:10px"><a href="#/cos">返回企业档案列表 →</a></div>')
         + "</div></div>";
     }
-    var evsAsc = evs.slice().sort(function (a, b) { return a.firstDate < b.firstDate ? -1 : 1; });
+    var evsAsc = evs.slice().sort(function (a, b) { return (a.firstDate || a.date).localeCompare(b.firstDate || b.date) || a.id.localeCompare(b.id); });
     var h = '<div class="panel dhead"><div class="crumbs"><a href="#/cos">企业档案</a> / ' + esc(name) + "</div>"
       + "<h1>" + esc(shortCo(name)) + "</h1>"
       + '<div class="dtags">' + pill(evs.length + " 个事件", "solid") + pill("最新 " + evs[0].date, "blue")
       + unique(evs.map(function (x) { return x.mt; })).filter(Boolean).map(function (m) { return pill(m); }).join("") + "</div></div>";
+
+    /* ── ③ 事件链：只列标题+阶段+日期，链接到详情，不复制摘要 ── */
+    h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">事件链</span><span class="sub">按首次收录披露日期正序；当前阶段取最近披露，日期不代表该阶段发生日</span></div>';
+    h += '<div class="panel"><div class="panel-b">' + evsAsc.map(function (x) {
+      return '<div class="ev"><span class="pg">' + esc(x.firstDate || x.date) + '</span><span><a href="#/event/' + x.id + '"><b>' + esc(x.title) + "</b></a></span>"
+        + '<span class="dim">' + esc(x.stage || "—") + "</span></div>";
+    }).join("") + "</div></div>";
 
     /* ── ① 海外主体/资产清单：仅收录披露原文点名的主体与资产，未披露处不推测 ── */
     var subjRows = [];
@@ -1391,15 +1398,15 @@
         subjRows.push({ name: p.name, role: p.role, geo: x.geo || "【未披露】", ev: x });
       });
     });
-    h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">海外主体 / 资产清单</span><span class="sub">本页回答：该主体出海涉及哪些海外主体与资产、各自角色</span></div>';
-    h += '<div class="panel"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>名称</th><th>角色</th><th>相关地点（事件口径）</th><th>所属事件</th></tr></thead><tbody>'
+    h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">涉及主体 / 海外资产清单</span><span class="sub">本页回答：该主体出海涉及哪些海外主体与资产、各自角色</span></div>';
+    h += '<div class="panel"><div class="tbl-wrap company-table" tabindex="0" aria-label="档案表格，可横向滚动"><table class="tbl"><thead><tr><th>名称</th><th>角色</th><th>相关地点（事件口径）</th><th>所属事件</th></tr></thead><tbody>'
       + (subjRows.length ? subjRows.map(function (r) {
         return '<tr><td style="font-size:12.5px">' + esc(r.name) + '</td><td>' + pill(r.role || "—") + '</td>'
           + '<td style="font-size:12px">' + esc(r.geo) + '</td>'
           + '<td style="font-size:12px"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + '</a></td></tr>';
       }).join("") : '<tr><td colspan="4" class="empty">披露原文未点名其他主体/资产</td></tr>')
       + "</tbody></table></div>"
-      + '<div class="secnote">口径：名称与角色取披露原文 ' + layerBadge("disclosed") + '；地点为该事件的整体披露口径，不等于该主体的注册地——注册地/持股比例未单独披露的不推测。</div></div>';
+      + '<div class="secnote">口径：包含境内外交易参与方；名称与角色取披露原文 ' + layerBadge("disclosed") + '；地点为该事件的整体披露口径，不等于该主体的注册地——注册地/持股比例未单独披露的不推测。</div></div>';
     var chains = evs.filter(function (x) { return x.e.holding_chain && x.e.holding_chain.text; });
     if (chains.length) {
       h += '<div class="panel"><div class="panel-h"><h2>持股链</h2><span class="note">disclosed（公司披露）</span></div><div class="panel-b">'
@@ -1421,7 +1428,7 @@
       });
     });
     h += '<div class="panel"><div class="panel-h"><h2>法律问题与待核查事项</h2><span class="note">规则引擎按议题码命中，状态判定与依据见各行 ' + layerBadge("analysis") + "；未披露 " + lND + " 条列为核查问题 · 不适用 " + lNA + " 条不逐行展示</span></div>"
-      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>议题</th><th>触发事实</th><th>状态</th><th>事件</th></tr></thead><tbody>'
+      + '<details class="company-questions"><summary>展开逐题核查表（' + lrows.length + ' 条，含原文入口）</summary><div class="tbl-wrap company-table" tabindex="0" aria-label="档案表格，可横向滚动"><table class="tbl"><thead><tr><th>议题</th><th>触发事实</th><th>状态</th><th>事件</th></tr></thead><tbody>'
       + (lrows.length ? lrows.map(function (r) {
         var st = LSTAT[r.t.status] || [r.t.status || "—", ""];
         return '<tr><td style="font-size:12px;white-space:nowrap"><span class="mono">' + esc(r.t.issue_code || "") + "</span> " + esc(r.t.issue || "") + "</td>"
@@ -1430,18 +1437,18 @@
           + "<td>" + pill(st[0], st[1]) + "</td>"
           + '<td style="font-size:12px;white-space:nowrap"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + "</a><br/>" + tpSrc(r.ev.e) + "</td></tr>";
       }).join("") : '<tr><td colspan="4" class="empty">无已披露处理状态的触发议题（命中均为未披露或不适用）</td></tr>')
-      + "</tbody></table></div>"
+      + "</tbody></table></div></details>"
       + '<div class="secnote">口径：议题码体系见 <a href="#/issues">法律议题库</a>；状态由入库规则按命中上下文判定（analysis），「已披露 · 已完成」须有原文结论文句支撑。</div></div>';
 
     /* ── ③ 项目状态矩阵：事件 × 阶段链节点 ── */
     h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">项目状态矩阵</span><span class="sub">●=阶段链已披露节点（附日期）；▶=当前阶段；「—」=无已披露节点，不表示该环节未发生</span></div>';
-    h += '<div class="panel"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>事件</th>'
+    h += '<div class="panel"><div class="tbl-wrap company-table" tabindex="0" aria-label="档案表格，可横向滚动"><table class="tbl"><thead><tr><th>事件</th>'
       + CO_STAGE_COLS.map(function (c) { return "<th>" + c[0] + "</th>"; }).join("") + "</tr></thead><tbody>"
       + evsAsc.map(function (x) {
         var cells = CO_STAGE_COLS.map(function () { return { nodes: [] }; });
         (x.e.stage_chain || []).forEach(function (n) { var ci = coStageCol(n.stage); if (ci >= 0 && n.date) cells[ci].nodes.push(n.date); });
         var cur = coStageCol(x.stage);
-        if (cur >= 0 && !cells[cur].nodes.length && x.date) cells[cur].nodes.push(x.date);
+        // 披露更新日不能补作阶段发生日；节点日期只取 stage_chain。
         return '<tr><td style="font-size:12px;min-width:180px"><a href="#/event/' + x.id + '">' + esc(x.title.length > 26 ? x.title.slice(0, 26) + "…" : x.title) + "</a></td>"
           + cells.map(function (c, ci) {
             var inner = c.nodes.length ? "● " + c.nodes.map(esc).join("<br/>● ") : '<span class="dim">—</span>';
@@ -1451,20 +1458,13 @@
       }).join("") + "</tbody></table></div>"
       + '<div class="secnote">口径：仅反映已收录披露中的阶段节点（stage_chain）；列归类按阶段名关键词（如「递表」入签约列、「聆讯」入审批列）。</div></div>';
 
-    /* ── ③ 事件链：只列标题+阶段+日期，链接到详情，不复制摘要 ── */
-    h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">事件链</span><span class="sub">按时间正序；只列事件标题+阶段+日期，摘要与金额见事件详情页，不在此复制</span></div>';
-    h += '<div class="panel"><div class="panel-b">' + evsAsc.map(function (x) {
-      return '<div class="ev"><span class="pg">' + esc(x.firstDate || x.date) + '</span><span><a href="#/event/' + x.id + '"><b>' + esc(x.title) + "</b></a></span>"
-        + '<span class="dim">' + esc(x.stage || "—") + "</span></div>";
-    }).join("") + "</div></div>";
-
     /* ── ④ 判断变更史：以 changelog 为记录源（映射规则见表注） ── */
     var JMAP = { "新增": "建档", "进展": "待复核", "修正": "修正", "重复": "未新增判断", "失效": "待复核" };
     var jrows = [];
     evs.forEach(function (x) { (x.e.changelog || []).forEach(function (c) { jrows.push({ date: c.date, ev: x, type: c.type, doc: c.doc_id, note: c.note || "" }); }); });
     jrows.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     h += '<div class="panel"><div class="panel-h"><h2>判断变更史</h2><span class="note">维持 / 修正 / 推翻 ＋理由 ' + layerBadge("analysis") + "</span></div>"
-      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>事件</th><th>判断状态</th><th>事实变更与复核依据</th></tr></thead><tbody>'
+      + '<div class="tbl-wrap company-table" tabindex="0" aria-label="档案表格，可横向滚动"><table class="tbl"><thead><tr><th>日期</th><th>事件</th><th>判断状态</th><th>事实变更与复核依据</th></tr></thead><tbody>'
       + (jrows.length ? jrows.map(function (r) {
         return '<tr><td class="mono">' + esc(r.date || "—") + '</td><td style="font-size:12px"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + "</a></td>"
           + "<td>" + pill(JMAP[r.type] || r.type, r.type === "修正" ? "blue" : r.type === "失效" ? "warn" : "") + "</td>"
@@ -1533,6 +1533,10 @@
       + rows.map(function (r) { return "<tr>" + r.map(function (c) { return '<td style="font-size:12px">' + c + "</td>"; }).join("") + "</tr>"; }).join("")
       + "</tbody></table></div>";
   }
+  function tpQuestions(rows) {
+    return '<div class="panel"><div class="panel-h"><h2>问题 → 核查依据 → 下一份披露看什么</h2><span class="note">核查动作均为 analysis（系统分析），不是已发生事实</span></div>'
+      + tpTable(["核查问题", "依据 / 原文定位", "后续观察动作与判断边界"], rows) + '</div>';
+  }
   function tpMissing(items) {
     return '<div class="panel"><div class="panel-h"><h2>未知项（披露缺口）</h2></div><div class="panel-b"><ul style="margin:0;padding-left:20px;font-size:12.5px">'
       + items.map(function (i) { return "<li style=\"margin:3px 0\">" + i + "</li>"; }).join("") + "</ul></div></div>";
@@ -1576,7 +1580,7 @@
       + '<div class="sec" style="display:block"><span class="sk">① 收购主体层级 ' + layerBadge("analysis") + '</span>'
       + "三案分别呈现不同持股与资金结构：红隼案（首付 18.5 亿美元）由境外上市子公司收购并配套境外银团；龙佰案（16,000 万澳元）由上市主体/指定子公司直接出资；鸿富瀚案（约 5.6 亿元）经香港/BVI 持股平台。依据：三案持股链与资金来源字段对比。注意：三案标的所在国不同，规模与结构可能同时受东道国因素驱动，不能单独归因于规模。</div>"
       + '<div class="sec" style="display:block"><span class="sk">② 对价形式 ' + layerBadge("analysis") + '</span>'
-      + "在产矿（红隼）＝现金首付＋煤价挂钩或有对价；前期矿砂项目（龙佰）＝现金＋设备作价，降低现金支出；意向电站项目（鸿富瀚）＝小额股权收购＋大额增资进入。或有对价在库内仅出现于已交割案例。</div>"
+      + "在产矿（红隼）＝现金首付＋煤价挂钩或有对价；前期矿砂项目（龙佰）＝现金＋设备作价，降低现金支出；意向电站项目（鸿富瀚）＝小额股权收购＋大额增资进入。依据：本专题三案比较表；红隼付款核对 " + docA("hkex_12354762", 2) + "，龙佰与鸿富瀚见各案来源。此处仅描述三案，不能据此建立项目阶段与对价形式的因果关系。</div>"
       + '<div class="sec" style="display:block"><span class="sk">③ 审查披露 ' + layerBadge("analysis") + '</span>'
       + "澳洲两案均把 FIRB/ACCC 写入先决条件（龙佰 ACCC 限如适用）（红隼 SPA 摘要 " + docA("hkex_12105020", 13) + "、龙佰条款清单 " + docA("1225578713", 4) + "）；刚果（金）案未披露东道国外资审查安排——未披露不等于无审查义务。依据：E-028/E-013 terms.conditions_precedent；E-011 公告风险段。</div>"
       + "</div></div>";
@@ -1596,10 +1600,15 @@
       + tpJudge("3",
         "审批清单、办理状态和批准日期应分列核查：红隼签约公告已有先决条件清单，交割公告未逐项载明批准日期；龙佰列明 FIRB 与 ACCC（如适用）；鸿富瀚仅载境内外备案审批不确定性。",
         "E-028 terms.conditions_precedent（六项先决条件）vs E-013 条款清单审批时限 vs E-011 公告仅列不确定性。",
-        "披露口径受上市规则约束（HKEX 须予披露交易 vs 巨潮对外投资公告模板不同），完整度差异部分是规则差异而非交易差异；且不得由「已完成交割」倒推各项审批的实际通过时间。",
+        "三案公告类别与阶段均不同，未核验相关规则，不能把完整度差异归因于规则或交易阶段；不得由「已完成交割」倒推各项审批的实际通过时间。",
         "红隼的审批清单来自 4 月签约公告，并非 10 月交割才披露；不能据此归纳披露随阶段变得完整的规律。",
         evA("E-028") + " " + evA("E-013") + " " + evA("E-011"))
       + "</div></div>";
+    h += tpQuestions([
+      [evA("E-028", "红隼：交割后还需支付多少？"), docA("hkex_12354762", 1) + " 首付与调整；" + docA("hkex_12354762", 2) + " 或有付款", "分列完成调整与首五年或有付款。下一份公告检查最终调整金额、年度煤价触发与实际支付；最高 5.5 亿美元是上限，不能记作已付。"],
+      [evA("E-013", "龙佰：条款清单何时变为正式交易？"), docA("1225598484", 1) + " 修订；" + docA("1225578713", 4) + " 先决条件", "先查最终文件是否签署，再查审批及设备作价履约；2026-10-31 是约定签署期限，不是交割承诺。未见新公告维持待核。"],
+      [evA("E-011", "鸿富瀚：增资资金是否已投入项目？"), docA("1225579070", 1) + " 意向与资金来源；" + docA("1225579070", 2) + " 股权收购和增资", "分别核对两笔股权转让、5.2 亿元增资及正式协议。董事会通过不能替代付款、过户或建设投入证据。"]
+    ]);
     h += tpMissing([
       "红隼：FIRB/ACCC/发改委等各审批的实际通过时间与附加条件（公告未逐项披露）",
       "龙佰：最终交易文件能否于 2026-10-31 前签署；FIRB/ACCC 审批结果与 Image 股东会表决",
@@ -1621,15 +1630,15 @@
     var refi = done.filter(function (e) { return /配售|增发/.test((e.title_fact || {}).text || ""); });
     var h = '<div class="panel"><div class="panel-h"><h2>A+H / 境外上市路径</h2><span class="note">库内 H 股相关事件 ' + (act.length + done.length + term.length) + " 宗：推进中 " + act.length + " · 已完成 " + done.length + "（含配售/再融资 " + refi.length + " 宗）· 终止 " + term.length + "（动态计数，口径=标题/类型含「H股」）</span></div><div class='panel-b'>"
       + '<div class="sec" style="display:block"><span class="sk">样本与口径 ' + layerBadge("analysis") + '</span>'
-      + "本专题取 5 宗代表案例（IPO 完成 3 宗、已上市后配售＋可转债 1 宗、终止 1 宗）做逐格比较；判断部分的分布计数由事件库实时统计。比较来源覆盖 2026-09-21～10-15，库内分布计数按当前入库状态；非全市场统计；金额、日期可经「来源」列回原文。</div></div></div>";
+      + "本专题取 5 宗代表案例（IPO 完成 3 宗、已上市后配售＋可转债 1 宗、终止 1 宗）做逐格比较；判断部分的分布计数由事件库实时统计。比较来源覆盖 2026-09-22～10-16，库内分布计数按当前入库状态；非全市场统计；金额、日期可经「来源」列回原文。</div></div></div>";
     h += '<div class="panel"><div class="panel-h"><h2>比较表</h2><span class="note">除特别标注外各格为 disclosed（公司披露）；【未披露】=已核收录披露未载明</span></div>'
       + tpTable(["主体", "地点", "结构", "金额", "阶段", "审查/备案", "融资", "来源"], [
         [evA("E-018", "传音控股"),
          "中国香港（联交所主板，代号 2636）",
          "A 股科创板公司直接发行 H 股，无中间发行 SPV；控股股东持股 46.71%→43.44%（超配悉数行使为 42.99%）",
          "全球发售 86,648,300 股＠35.30 港元（香港公开发售 10%＋国际发售 90%）",
-         "递表 2025-12-02（2026-06-18 更新）→ 证监会备案 2026-08-07 → 聆讯 2026-09-17 → 挂牌 2026-10-15",
-         "中国证监会备案通知书（国合函〔2026〕1847 号）2026-08-07 取得；联交所上市聆讯 2026-09-17 " + layerBadge("disclosed"),
+         "递表 2025-12-02（2026-06-18 更新）→ 备案公告 2026-08-07 → 聆讯 2026-09-17 → 挂牌 2026-10-15",
+         "中国证监会备案通知书（国合函〔2026〕1847 号）2026-08-07 披露收到（实际收件日期未单列）；联交所上市聆讯 2026-09-17 " + layerBadge("disclosed"),
          "净额约 29 亿港元（超配前）",
          tpSrc(evs[0])],
         [evA("E-010", "星环科技"),
@@ -1652,8 +1661,8 @@
          "中国香港（H 股配售）；奥地利 Vienna MTF（债券上市）",
          "已上市 H 股公司：配售新 H 股＋发行可转债；控股股东及一致行动人持股 9.22%→8.78%（被动稀释，未参与发行）",
          "配售 18,446,000 股＠105.16 港元；可转债本金人民币 39.6 亿元，初步转换价 128.82 港元",
-         "2026-10-12 配售先决条件达成 → 10-14 债券发行并于 Vienna MTF 买卖 → 10-15 完成公告",
-         "中国证监会备案为交割后义务，公告时「尚待随后完成」 " + layerBadge("disclosed"),
+         "2026-10-12 配售完成（先决条件已达成） → 10-14 债券发行并于 Vienna MTF 买卖 → 10-15 完成公告",
+         "公告原文：「本公司随后将遵守中国证监会规定并完成」有关备案（" + docA("1225605853", 2) + "）；公告时尚未报告完成 " + layerBadge("disclosed"),
          "配售净额约 19.2984 亿港元＋债券认购净额约 46.0552 亿港元",
          tpSrc(evs[3])],
         [evA("E-029", "博瑞医药"),
@@ -1669,20 +1678,20 @@
       + '<div class="sec" style="display:block"><span class="sk">① 路径节点序列 ' + layerBadge("disclosed") + " " + layerBadge("analysis") + '</span>'
       + "传音一案呈现完整四节点「递表→证监会备案→聆讯→挂牌」（disclosed，见其阶段链）；本比较表其余两宗 IPO 完成案仅收录挂牌节点，前置节点未在本库留痕——这反映本库采集以结果公告为主（analysis），并非公司未经历该流程。</div>"
       + '<div class="sec" style="display:block"><span class="sk">② 备案时点差异 ' + layerBadge("disclosed") + '</span>'
-      + "传音于挂牌前约两个月取得备案通知书（2026-08-07）；剑桥科技 H 股配售则公告备案「尚待随后完成」（交割后义务）。差异与发行类型（首次发行 vs 已上市后再融资）同现；规则层面的原因本库无收录来源，不断言。</div>"
+      + "传音于 2026-08-07 公告披露收到备案通知书（实际收件日期未单列）；剑桥科技 H 股配售则公告称「本公司随后将遵守中国证监会规定并完成」有关备案（P2）。差异与发行类型（首次发行 vs 已上市后再融资）同现；规则层面的原因本库无收录来源，不断言。</div>"
       + '<div class="sec" style="display:block"><span class="sk">③ 定价与净筹 ' + layerBadge("analysis") + '</span>'
-      + "每股价 35.30（传音）/49.00（星环）/436.00（罗博特科）/105.16 港元（剑桥配售），差逾 10 倍；每股价格受股本结构影响不可横向比较，可比较的是净筹规模：约 6.3 亿～49.61 亿港元。依据：各案 scale 字段。</div>"
+      + "每股价 35.30（传音）/49.00（星环）/436.00（罗博特科）/105.16 港元（剑桥配售），差逾 10 倍；每股价格受股本结构影响不可横向比较，如比较净筹，须分列 IPO、配售和债券：三宗 IPO 净筹约 6.3 亿～49.61 亿港元；剑桥配售约 19.2984 亿港元、债券约 46.0552 亿港元，不能把债券资金等同股权融资。依据：比较表各案来源，剑桥 " + docA("1225605853", 2) + "。</div>"
       + "</div></div>";
     h += '<div class="panel"><div class="panel-h"><h2>判断</h2><span class="note">均为系统分析（analysis），带依据与适用边界</span></div><div class="panel-b">'
       + tpJudge("1",
         "本比较表中 3 宗 IPO 完成案的过程节点覆盖不均：传音具备递表/备案/聆讯/挂牌链，星环、罗博特科仅收录挂牌节点。",
-        "各案 stage_chain 节点数对比：传音 4 节点（含 2026-08-07 备案），星环/罗博特科各 1 节点（挂牌）。",
+        "各案 stage_chain 节点数对比：传音 4 节点（含 2026-08-07 备案公告），星环/罗博特科各 1 节点（挂牌）。",
         "这是采集口径结论（巨潮关键词命中偏结果公告），不是公司披露完整性结论；不得用于推断其他公司「未备案」。",
         "剑桥科技虽非 IPO，反而在公告中明示备案状态——过程信息的有无取决于公告类型而非上市进度。",
         evA("E-018") + " " + evA("E-010") + " " + evA("E-019") + " " + evA("E-047"))
       + tpJudge("2",
         "证监会备案的履行时点在库内两种并存：挂牌前取得（传音）与交割后补行（剑桥科技配售）。核查 H 股公司备案状态时不能以「已挂牌/已交割」推定备案完成。",
-        evA("E-018") + " stage_chain 2026-08-07 备案节点（" + docA("1225584815", 1) + "）vs " + evA("E-047") + " 2026-10-15 节点「中国证监会备案尚待随后完成（交割后义务）」（" + docA("1225605853", 2) + "）。",
+        evA("E-018") + " stage_chain 2026-08-07 备案公告节点（" + docA("1225584815", 1) + "）vs " + evA("E-047") + " 2026-10-15 公告表示随后将完成有关备案（" + docA("1225605853", 2) + "）。",
         "仅 2 案对比；首次发行与配售的备案规则差异未在本库收录来源中说明，结论限于核查操作提示。",
         "剑桥的交割后备案表述本身即为「交割必然代表备案已完成」的反例；不得推广为所有再融资均可交割后备案。",
         evA("E-018") + " " + evA("E-047"))
@@ -1693,8 +1702,13 @@
         "2026 年 9 月密集完成（星环 09-21、罗博特科/彤程/景旺 09-29）显示同期完成案例集中——这些结果不同的案例说明完成与终止并存；非连续全市场样本，不能判断趋势。",
         evA("E-029") + ' <a href="#/events?q=' + encodeURIComponent("H股") + '">事件库筛选「H股」→</a>')
       + "</div></div>";
+    h += tpQuestions([
+      [evA("E-018", "传音：哪些日期可证明哪些节点？"), docA("1225584815", 1) + " 递表、备案公告与聆讯；" + docA("1225606076", 1) + " 挂牌", "建立节点与公告日双列；备案公告披露收到通知书，不据此认定实际收件日。挂牌后另查超配行使公告，不能用挂牌预期替代结果。"],
+      [evA("E-047", "剑桥：发行完成是否等于备案已完成？"), docA("1225605853", 1) + " 配售/债券完成；" + docA("1225605853", 2) + " 后续备案及净筹", "分开跟踪配售、可转债、证监会备案三条线。下一份披露找备案完成证据；不得仅据先决条件达成推定备案完成。"],
+      [evA("E-029", "博瑞：终止是否揭示同类上市障碍？"), tpSrc(evs[4]), "只能确认本事件终止；原因、备案进度未披露，不能归因监管收紧，也不能以单案估计全市场终止概率。"]
+    ]);
     h += tpMissing([
-      "各完成案的备案通知书文号与取得日期（库内仅传音披露）",
+      "各完成案的备案通知书文号、实际收件日期与公告日分列（传音已披露文号与公告日，实际收件日未单列）",
       "推进中各案（翱捷、军信、若羽臣、天赐、汉威、新宙邦、绿联、江丰、联讯、嘉立创、奥士康）的递表日期（本库未收录）",
       "各案募集资金用途明细（传音公告明示未载，需招股书口径）",
       "传音超额配售权行使结果与稳定价格期操作"

@@ -361,3 +361,11 @@ body.compact .trendgrid, body.compact .evgrid, body.compact .projgrid { padding:
 .topic-comparison th:nth-child(4) { min-width: 168px; }
 .topic-comparison th:last-child { min-width: 120px; }
 .topic-evidence { margin-top: 8px; padding: 8px 12px; border-left: 2px solid var(--line); font-size: 12px; line-height: 1.8; }
+
+/* R11：档案表格保留可读列宽，长问题在表格内滚动。 */
+.company-table table { min-width: 900px; }
+.company-table th:first-child { min-width: 150px; }
+.company-table td { vertical-align: top; line-height: 1.7; }
+.company-table td:nth-child(2) { min-width: 180px; }
+.company-table:focus-visible, .topic-comparison:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.company-questions summary { padding: 14px 18px; cursor: pointer; color: var(--blue); font-size: 13px; }
