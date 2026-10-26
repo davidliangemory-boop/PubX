@@ -20770,7 +20770,7 @@ window.DB = {
   "cursor": "2026-10-02",
   "done": false
  },
- "synced": "2026-10-26 23:56",
+ "synced": "2026-10-27 00:01",
  "events": [
   {
    "event_id": "E-001",
@@ -26534,12 +26534,13 @@ window.DB = {
       }
      },
      "completion_adjustment": {
-      "value": "首付须作惯常完成调整：扣除签署交易文件时已付4,000万美元定金，并就完成时净债务及营运资金作其他暂定调整（「暂定」表明存在交割后最终调整）",
+      "value": "首付须作惯常完成调整：扣除签署交易文件时已付4,000万美元定金，并就完成时净债务及营运资金作其他暂定调整。",
       "evidence": {
        "doc_id": "hkex_12354762",
        "page": 1,
        "quote": "有關調整包括扣除簽署交易文件時已支付的4,000萬美元定金"
-      }
+      },
+      "layer": "disclosed"
      },
      "deposit": {
       "value": "签署SPA时支付4,000万美元现金定金，可抵扣首付对价并计息；仅在买方未能完成交易、拒绝履行SPA或未能取得中国对外投资监管审批时由卖方保留；ODI未获批时定金为卖方唯一补偿",
@@ -26597,9 +26598,9 @@ window.DB = {
      "issue": "ODI 发改委备案/核准",
      "trigger_fact": "语料提及「…③中国对外投资监管审批：国家发改委…」（字段：terms.conditions_precedent）",
      "text": "语料提及「…③中国对外投资监管审批：国家发改委…」（字段：terms.conditions_precedent）",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」；该条件属于4月签约时点，10月交割公告未逐项列明达成或豁免结果，当前办理状态记未披露。"
     },
     {
      "issue_code": "I1.1",
@@ -26615,27 +26616,27 @@ window.DB = {
      "issue": "商务部境外投资备案",
      "trigger_fact": "语料提及「…山东省商务厅…」（字段：terms.conditions_precedent）",
      "text": "语料提及「…山东省商务厅…」（字段：terms.conditions_precedent）",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I1.2 命中词「商务厅」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
+     "basis": "R-I1.2 命中词「商务厅」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」；该条件属于4月签约时点，10月交割公告未逐项列明达成或豁免结果，当前办理状态记未披露。"
     },
     {
      "issue_code": "I10.1",
      "issue": "先决条件与长停止日",
      "trigger_fact": "语料提及「…某些境外合并管制机构——均列为先决条件…」（字段：terms.approvals）",
      "text": "语料提及「…某些境外合并管制机构——均列为先决条件…」（字段：terms.approvals）",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.approvals字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.approvals字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」；该条件属于4月签约时点，10月交割公告未逐项列明达成或豁免结果，当前办理状态记未披露。"
     },
     {
      "issue_code": "I10.1",
      "issue": "先决条件与长停止日",
      "trigger_fact": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
      "text": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「达成或豁免」→ I10.1）；片段为先决条件达成/豁免期限（长停止日）安排，属已披露待履行条款"
+     "basis": "旧轮入库分析文本归码（命中词「达成或豁免」→ I10.1）；片段为先决条件达成/豁免期限（长停止日）安排，属已披露待履行条款；该条件属于4月签约时点，10月交割公告未逐项列明达成或豁免结果，当前办理状态记未披露。"
     },
     {
      "issue_code": "I10.2",
@@ -26692,15 +26693,6 @@ window.DB = {
      "basis": "R-I10.5 命中词「合资」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
     },
     {
-     "issue_code": "I12.2",
-     "issue": "境外行政处罚与整改",
-     "trigger_fact": "语料提及「…且未能在协定整改框架内修正…」（字段：terms.breach）",
-     "text": "语料提及「…且未能在协定整改框架内修正…」（字段：terms.breach）",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "R-I12.2 命中词「整改」→ 行政处罚与整改；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
-    },
-    {
      "issue_code": "I2.1",
      "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
      "trigger_fact": "语料提及「…②FIRB批准…」（字段：terms.conditions_precedent）",
@@ -26730,11 +26722,16 @@ window.DB = {
     {
      "issue_code": "I3.1",
      "issue": "经营者集中申报（多法域）",
-     "trigger_fact": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
-     "text": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "trigger_fact": "签约公告将ACCC裁定、国家市场监督管理总局批准及境外合并管制许可列为先决条件；完成公告未逐项披露实际批准或豁免结果。",
+     "text": "竞争审查条件已列明；具体办理结果【未披露】，不能由交割倒推。",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I3.1-mt：并购事项→反垄断申报核查点；无原文不推断"
+     "basis": "hkex_12105020 P13–P14列先决条件；hkex_12354762 P1–P2仅宣布交割，不逐项确认审批。",
+     "evidence": {
+      "doc_id": "hkex_12105020",
+      "page": 13,
+      "quote": "ACCC 認定該交易無需申報"
+     }
     },
     {
      "issue_code": "I3.3",
@@ -27004,6 +27001,444 @@ window.DB = {
      "layer": "analysis",
      "basis": "完成公告P1–P2未逐项载明审批结果；首付18.5亿美元原句位于P1，当前页码复核正确。",
      "note": "R12：I2.1 / 首付摘录页码：历史记录曾推断FIRB已完成、首付摘录P2 → not_disclosed / analysis；首付P1；完成公告P1–P2未逐项载明审批结果；首付18.5亿美元原句位于P1，当前页码复核正确。"
+    },
+    {
+     "date": "2026-10-26",
+     "batch_id": "D-20261026",
+     "type": "修正",
+     "change": "correction",
+     "review": "R12-3",
+     "fields": [
+      "legal_triggers"
+     ],
+     "old_value": [
+      {
+       "issue_code": "I1.1",
+       "issue": "ODI 发改委备案/核准",
+       "trigger_fact": "语料提及「…③中国对外投资监管审批：国家发改委…」（字段：terms.conditions_precedent）",
+       "text": "语料提及「…③中国对外投资监管审批：国家发改委…」（字段：terms.conditions_precedent）",
+       "status": "disclosed_pending",
+       "layer": "analysis",
+       "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
+      },
+      {
+       "issue_code": "I1.1",
+       "issue": "ODI 发改委备案/核准",
+       "trigger_fact": "救济限制：买方未取得中国对外投资监管审批时，4,000万美元定金为卖方唯一补偿——买方监管审批失败的违约敞口以定金为上限",
+       "text": "救济限制：买方未取得中国对外投资监管审批时，4,000万美元定金为卖方唯一补偿——买方监管审批失败的违约敞口以定金为上限",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「对外投资监管」→ I1.1）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+      },
+      {
+       "issue_code": "I1.2",
+       "issue": "商务部境外投资备案",
+       "trigger_fact": "语料提及「…山东省商务厅…」（字段：terms.conditions_precedent）",
+       "text": "语料提及「…山东省商务厅…」（字段：terms.conditions_precedent）",
+       "status": "disclosed_pending",
+       "layer": "analysis",
+       "basis": "R-I1.2 命中词「商务厅」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
+      },
+      {
+       "issue_code": "I10.1",
+       "issue": "先决条件与长停止日",
+       "trigger_fact": "语料提及「…某些境外合并管制机构——均列为先决条件…」（字段：terms.approvals）",
+       "text": "语料提及「…某些境外合并管制机构——均列为先决条件…」（字段：terms.approvals）",
+       "status": "disclosed_pending",
+       "layer": "analysis",
+       "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.approvals字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
+      },
+      {
+       "issue_code": "I10.1",
+       "issue": "先决条件与长停止日",
+       "trigger_fact": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
+       "text": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
+       "status": "disclosed_pending",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「达成或豁免」→ I10.1）；片段为先决条件达成/豁免期限（长停止日）安排，属已披露待履行条款"
+      },
+      {
+       "issue_code": "I10.2",
+       "issue": "价款调整/或有对价",
+       "trigger_fact": "语料提及「…另附最高5.5亿美元煤价挂钩或有付款」（字段：title_fact）",
+       "text": "语料提及「…另附最高5.5亿美元煤价挂钩或有付款」（字段：title_fact）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.2 命中词「或有」→ 价款调整/或有对价；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+      },
+      {
+       "issue_code": "I10.3",
+       "issue": "融资与担保（含母公司担保、财务资助）",
+       "trigger_fact": "事项类型=并购；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+       "text": "事项类型=并购；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+      },
+      {
+       "issue_code": "I10.3",
+       "issue": "融资与担保（含母公司担保、财务资助）",
+       "trigger_fact": "收购融资：首付由兖煤澳洲可用现金＋首次提取五年期12亿美元银团收购贷款组合支付，另落实2亿美元5年期承诺营运资金融资",
+       "text": "收购融资：首付由兖煤澳洲可用现金＋首次提取五年期12亿美元银团收购贷款组合支付，另落实2亿美元5年期承诺营运资金融资",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「银团」→ I10.3）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+      },
+      {
+       "issue_code": "I10.3",
+       "issue": "融资与担保（含母公司担保、财务资助）",
+       "trigger_fact": "贷款人、担保与财务契约未披露",
+       "text": "贷款人、担保与财务契约未披露",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「担保」→ I10.3）；片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
+      },
+      {
+       "issue_code": "I10.4",
+       "issue": "争议解决与适用法",
+       "trigger_fact": "语料提及「…争议解决…」（字段：gaps）",
+       "text": "语料提及「…争议解决…」（字段：gaps）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.4 命中词「争议解决」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+      },
+      {
+       "issue_code": "I10.5",
+       "issue": "合资治理/僵局/退出",
+       "trigger_fact": "语料提及「…影响JV治理与产量分成 合资企业协定…」（字段：gaps）",
+       "text": "语料提及「…影响JV治理与产量分成 合资企业协定…」（字段：gaps）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.5 命中词「合资」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+      },
+      {
+       "issue_code": "I12.2",
+       "issue": "境外行政处罚与整改",
+       "trigger_fact": "语料提及「…且未能在协定整改框架内修正…」（字段：terms.breach）",
+       "text": "语料提及「…且未能在协定整改框架内修正…」（字段：terms.breach）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I12.2 命中词「整改」→ 行政处罚与整改；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+      },
+      {
+       "issue_code": "I2.1",
+       "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+       "trigger_fact": "语料提及「…②FIRB批准…」（字段：terms.conditions_precedent）",
+       "text": "语料提及「…②FIRB批准…」（字段：terms.conditions_precedent）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "中资控股主体收购澳洲矿业资产，可能触发；2026-10-01公告未载明审批情况。已回查2026-04-14公告，其将FIRB列为先决条件，仍不据交割倒推具体批准结果。"
+      },
+      {
+       "issue_code": "I2.1",
+       "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+       "trigger_fact": "完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
+       "text": "完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "中资控股主体收购澳洲矿业资产，可能触发；2026-10-01公告未载明审批情况。已回查2026-04-14公告，其将FIRB列为先决条件，仍不据交割倒推具体批准结果。"
+      },
+      {
+       "issue_code": "I2.3",
+       "issue": "土地/矿权/特许权",
+       "trigger_fact": "语料提及「…采矿权与环保许可承继…」（字段：db.③法务关注）",
+       "text": "语料提及「…采矿权与环保许可承继…」（字段：db.③法务关注）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I2.3 命中词「采矿权」→ 土地/矿权/特许权；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+      },
+      {
+       "issue_code": "I3.1",
+       "issue": "经营者集中申报（多法域）",
+       "trigger_fact": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+       "text": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I3.1-mt：并购事项→反垄断申报核查点；无原文不推断"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组签约（境外控股子公司签署红隼集团100%股权买卖协定）」（来源：港股·披露易 2026-04-14）",
+       "text": "披露渠道原始分类：巨潮公告类型「并购重组签约（境外控股子公司签署红隼集团100%股权买卖协定）」（来源：港股·披露易 2026-04-14）",
+       "status": "not_applicable",
+       "layer": "disclosed",
+       "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "披露渠道原始分类：披露易 headline「公告及通告 - [主要交易 / 復牌]」（来源：港股·披露易 2026-04-14）",
+       "text": "披露渠道原始分类：披露易 headline「公告及通告 - [主要交易 / 復牌]」（来源：港股·披露易 2026-04-14）",
+       "status": "not_applicable",
+       "layer": "disclosed",
+       "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组进展（境外控股子公司完成煤矿收购）」（来源：港股·披露易 2026-10-01）",
+       "text": "披露渠道原始分类：巨潮公告类型「并购重组进展（境外控股子公司完成煤矿收购）」（来源：港股·披露易 2026-10-01）",
+       "status": "not_applicable",
+       "layer": "disclosed",
+       "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "披露渠道原始分类：披露易 headline「須予披露的交易」（来源：港股·披露易 2026-10-01）",
+       "text": "披露渠道原始分类：披露易 headline「須予披露的交易」（来源：港股·披露易 2026-10-01）",
+       "status": "not_applicable",
+       "layer": "disclosed",
+       "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "上市规则分类：公告标为「须予披露交易」",
+       "text": "上市规则分类：公告标为「须予披露交易」",
+       "status": "not_applicable",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「上市规则」→ I3.3）；片段含分类/豁免/否定性结论措辞（不构成/豁免/概无等），无审批状态含义"
+      },
+      {
+       "issue_code": "I9.3",
+       "issue": "环保、原住民/社区权益",
+       "trigger_fact": "语料提及「…采矿权与环保许可承继…」（字段：db.③法务关注）",
+       "text": "语料提及「…采矿权与环保许可承继…」（字段：db.③法务关注）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+      }
+     ],
+     "new_value": [
+      {
+       "issue_code": "I1.1",
+       "issue": "ODI 发改委备案/核准",
+       "trigger_fact": "语料提及「…③中国对外投资监管审批：国家发改委…」（字段：terms.conditions_precedent）",
+       "text": "语料提及「…③中国对外投资监管审批：国家发改委…」（字段：terms.conditions_precedent）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」；该条件属于4月签约时点，10月交割公告未逐项列明达成或豁免结果，当前办理状态记未披露。"
+      },
+      {
+       "issue_code": "I1.1",
+       "issue": "ODI 发改委备案/核准",
+       "trigger_fact": "救济限制：买方未取得中国对外投资监管审批时，4,000万美元定金为卖方唯一补偿——买方监管审批失败的违约敞口以定金为上限",
+       "text": "救济限制：买方未取得中国对外投资监管审批时，4,000万美元定金为卖方唯一补偿——买方监管审批失败的违约敞口以定金为上限",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「对外投资监管」→ I1.1）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+      },
+      {
+       "issue_code": "I1.2",
+       "issue": "商务部境外投资备案",
+       "trigger_fact": "语料提及「…山东省商务厅…」（字段：terms.conditions_precedent）",
+       "text": "语料提及「…山东省商务厅…」（字段：terms.conditions_precedent）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I1.2 命中词「商务厅」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」；该条件属于4月签约时点，10月交割公告未逐项列明达成或豁免结果，当前办理状态记未披露。"
+      },
+      {
+       "issue_code": "I10.1",
+       "issue": "先决条件与长停止日",
+       "trigger_fact": "语料提及「…某些境外合并管制机构——均列为先决条件…」（字段：terms.approvals）",
+       "text": "语料提及「…某些境外合并管制机构——均列为先决条件…」（字段：terms.approvals）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.approvals字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」；该条件属于4月签约时点，10月交割公告未逐项列明达成或豁免结果，当前办理状态记未披露。"
+      },
+      {
+       "issue_code": "I10.1",
+       "issue": "先决条件与长停止日",
+       "trigger_fact": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
+       "text": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「达成或豁免」→ I10.1）；片段为先决条件达成/豁免期限（长停止日）安排，属已披露待履行条款；该条件属于4月签约时点，10月交割公告未逐项列明达成或豁免结果，当前办理状态记未披露。"
+      },
+      {
+       "issue_code": "I10.2",
+       "issue": "价款调整/或有对价",
+       "trigger_fact": "语料提及「…另附最高5.5亿美元煤价挂钩或有付款」（字段：title_fact）",
+       "text": "语料提及「…另附最高5.5亿美元煤价挂钩或有付款」（字段：title_fact）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.2 命中词「或有」→ 价款调整/或有对价；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+      },
+      {
+       "issue_code": "I10.3",
+       "issue": "融资与担保（含母公司担保、财务资助）",
+       "trigger_fact": "事项类型=并购；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+       "text": "事项类型=并购；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+      },
+      {
+       "issue_code": "I10.3",
+       "issue": "融资与担保（含母公司担保、财务资助）",
+       "trigger_fact": "收购融资：首付由兖煤澳洲可用现金＋首次提取五年期12亿美元银团收购贷款组合支付，另落实2亿美元5年期承诺营运资金融资",
+       "text": "收购融资：首付由兖煤澳洲可用现金＋首次提取五年期12亿美元银团收购贷款组合支付，另落实2亿美元5年期承诺营运资金融资",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「银团」→ I10.3）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+      },
+      {
+       "issue_code": "I10.3",
+       "issue": "融资与担保（含母公司担保、财务资助）",
+       "trigger_fact": "贷款人、担保与财务契约未披露",
+       "text": "贷款人、担保与财务契约未披露",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「担保」→ I10.3）；片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
+      },
+      {
+       "issue_code": "I10.4",
+       "issue": "争议解决与适用法",
+       "trigger_fact": "语料提及「…争议解决…」（字段：gaps）",
+       "text": "语料提及「…争议解决…」（字段：gaps）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.4 命中词「争议解决」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+      },
+      {
+       "issue_code": "I10.5",
+       "issue": "合资治理/僵局/退出",
+       "trigger_fact": "语料提及「…影响JV治理与产量分成 合资企业协定…」（字段：gaps）",
+       "text": "语料提及「…影响JV治理与产量分成 合资企业协定…」（字段：gaps）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I10.5 命中词「合资」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+      },
+      {
+       "issue_code": "I2.1",
+       "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+       "trigger_fact": "语料提及「…②FIRB批准…」（字段：terms.conditions_precedent）",
+       "text": "语料提及「…②FIRB批准…」（字段：terms.conditions_precedent）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "中资控股主体收购澳洲矿业资产，可能触发；2026-10-01公告未载明审批情况。已回查2026-04-14公告，其将FIRB列为先决条件，仍不据交割倒推具体批准结果。"
+      },
+      {
+       "issue_code": "I2.1",
+       "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+       "trigger_fact": "完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
+       "text": "完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "中资控股主体收购澳洲矿业资产，可能触发；2026-10-01公告未载明审批情况。已回查2026-04-14公告，其将FIRB列为先决条件，仍不据交割倒推具体批准结果。"
+      },
+      {
+       "issue_code": "I2.3",
+       "issue": "土地/矿权/特许权",
+       "trigger_fact": "语料提及「…采矿权与环保许可承继…」（字段：db.③法务关注）",
+       "text": "语料提及「…采矿权与环保许可承继…」（字段：db.③法务关注）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I2.3 命中词「采矿权」→ 土地/矿权/特许权；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+      },
+      {
+       "issue_code": "I3.1",
+       "issue": "经营者集中申报（多法域）",
+       "trigger_fact": "签约公告将ACCC裁定、国家市场监督管理总局批准及境外合并管制许可列为先决条件；完成公告未逐项披露实际批准或豁免结果。",
+       "text": "竞争审查条件已列明；具体办理结果【未披露】，不能由交割倒推。",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "hkex_12105020 P13–P14列先决条件；hkex_12354762 P1–P2仅宣布交割，不逐项确认审批。",
+       "evidence": {
+        "doc_id": "hkex_12105020",
+        "page": 13,
+        "quote": "ACCC 認定該交易無需申報"
+       }
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组签约（境外控股子公司签署红隼集团100%股权买卖协定）」（来源：港股·披露易 2026-04-14）",
+       "text": "披露渠道原始分类：巨潮公告类型「并购重组签约（境外控股子公司签署红隼集团100%股权买卖协定）」（来源：港股·披露易 2026-04-14）",
+       "status": "not_applicable",
+       "layer": "disclosed",
+       "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "披露渠道原始分类：披露易 headline「公告及通告 - [主要交易 / 復牌]」（来源：港股·披露易 2026-04-14）",
+       "text": "披露渠道原始分类：披露易 headline「公告及通告 - [主要交易 / 復牌]」（来源：港股·披露易 2026-04-14）",
+       "status": "not_applicable",
+       "layer": "disclosed",
+       "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组进展（境外控股子公司完成煤矿收购）」（来源：港股·披露易 2026-10-01）",
+       "text": "披露渠道原始分类：巨潮公告类型「并购重组进展（境外控股子公司完成煤矿收购）」（来源：港股·披露易 2026-10-01）",
+       "status": "not_applicable",
+       "layer": "disclosed",
+       "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "披露渠道原始分类：披露易 headline「須予披露的交易」（来源：港股·披露易 2026-10-01）",
+       "text": "披露渠道原始分类：披露易 headline「須予披露的交易」（来源：港股·披露易 2026-10-01）",
+       "status": "not_applicable",
+       "layer": "disclosed",
+       "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+      },
+      {
+       "issue_code": "I3.3",
+       "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+       "trigger_fact": "上市规则分类：公告标为「须予披露交易」",
+       "text": "上市规则分类：公告标为「须予披露交易」",
+       "status": "not_applicable",
+       "layer": "analysis",
+       "basis": "旧轮入库分析文本归码（命中词「上市规则」→ I3.3）；片段含分类/豁免/否定性结论措辞（不构成/豁免/概无等），无审批状态含义"
+      },
+      {
+       "issue_code": "I9.3",
+       "issue": "环保、原住民/社区权益",
+       "trigger_fact": "语料提及「…采矿权与环保许可承继…」（字段：db.③法务关注）",
+       "text": "语料提及「…采矿权与环保许可承继…」（字段：db.③法务关注）",
+       "status": "not_disclosed",
+       "layer": "analysis",
+       "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+      }
+     ],
+     "summary": "移除合同整改误挂的行政处罚；竞争审批改为已列条件、结果未披露；历史先决条件不再显示为当前未完成。",
+     "doc_id": "hkex_12105020",
+     "page": 13,
+     "layer": "analysis",
+     "basis": "签约公告P13–P14列ACCC等审批条件及MAC合同救济；完成公告未逐项列明批准或豁免。",
+     "note": "R12第三轮：合同整改并非监管处罚；竞争审批不是未提及；历史先决条件不能当作当前未完成状态。"
+    },
+    {
+     "date": "2026-10-26",
+     "batch_id": "D-20261026",
+     "type": "修正",
+     "change": "correction",
+     "review": "R12-3",
+     "fields": [
+      "terms.completion_adjustment",
+      "impact"
+     ],
+     "old_value": {
+      "value": "首付须作惯常完成调整：扣除签署交易文件时已付4,000万美元定金，并就完成时净债务及营运资金作其他暂定调整（「暂定」表明存在交割后最终调整）",
+      "evidence": {
+       "doc_id": "hkex_12354762",
+       "page": 1,
+       "quote": "有關調整包括扣除簽署交易文件時已支付的4,000萬美元定金"
+      }
+     },
+     "new_value": "首付须作惯常完成调整：扣除签署交易文件时已付4,000万美元定金，并就完成时净债务及营运资金作其他暂定调整。",
+     "summary": "暂定调整保留为披露事实；后续最终结算的推断单列系统分析。",
+     "doc_id": "hkex_12354762",
+     "page": 1,
+     "layer": "analysis",
+     "basis": "完成公告P1–P2只载暂定调整，不披露后续最终结算时间及数额。",
+     "note": "R12第三轮：拆开公司披露与后续结算分析，保留证据页码。"
     }
    ],
    "update_type_latest": "修正",
@@ -27063,6 +27498,11 @@ window.DB = {
      "text": "或有付款构成潜在后续现金流出：最高5.5亿美元视交割后五年内煤价（PLVHA00年度均值）表现，按超出225美元/吨部分可归属收入的30%逐年计",
      "layer": "analysis",
      "basis": "hkex_12105020 P2–P3或有对价机制"
+    },
+    {
+     "text": "“暂定调整”提示后续应核查最终结算金额，但该公告未载最终调整的日期及数额。",
+     "layer": "analysis",
+     "basis": "hkex_12354762 P1–P2使用暂定调整措辞；不将后续调整推断混入公司已披露条款。"
     }
    ],
    "legal_notes_unmapped": [
@@ -27078,7 +27518,12 @@ window.DB = {
      "text": "首个触发年度结果待观察",
      "basis": "hkex_12354762 P2＋hkex_12105020 P2–P3（指数定义与30%分成比例）"
     }
-   ]
+   ],
+   "legal_review": {
+    "date": "2026-10-26",
+    "locked": true,
+    "basis": "R12第三轮复核签约公告P13–P14与完成公告P1–P2；合同整改不归行政处罚，竞争先决条件与审批结果分列。"
+   }
   },
   {
    "event_id": "E-029",
@@ -35047,7 +35492,7 @@ window.DB = {
   "practice_hints_note": "通用核查提示（analysis 层）：依据议题码定义的常规执业动作，非针对个案的结论；个案处理状态以各事件法律问题总表为准"
  },
  "validate": {
-  "generated": "2026-10-26 23:53",
+  "generated": "2026-10-26 23:58",
   "summary": {
    "ERROR": 0,
    "WARN": 1,
@@ -35341,7 +35786,7 @@ window.DB = {
   }
  },
  "build": {
-  "time": "2026-10-26 23:56",
+  "time": "2026-10-27 00:01",
   "batch": "D-20261022",
   "events": 60
  }

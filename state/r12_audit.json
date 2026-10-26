@@ -135,5 +135,111 @@
    "首页人工修正改为数据驱动的事件/问题/出处表",
    "人工复核议题锁定避免映射覆盖"
   ]
+ },
+ "round3": {
+  "date": "2026-10-26",
+  "previous_commit": "436d278",
+  "sources": [
+   {
+    "event_id": "E-028",
+    "doc_id": "hkex_12354762",
+    "http": 200,
+    "result": "完成公告P1首付18.5亿美元、80%权益；P2五年期12亿美元贷款及最高5.5亿或有付款，无FIRB办理结果"
+   },
+   {
+    "event_id": "E-028",
+    "doc_id": "hkex_12105020",
+    "http": 200,
+    "result": "签约公告P13竞争审查与FIRB先决条件；P14 MAC整改为合同终止权而非行政处罚"
+   },
+   {
+    "event_id": "E-055",
+    "doc_id": "1225610572",
+    "http": 200,
+    "result": "600496；P1中标总金额7273.35万美元/4.86亿元/2.33%；同时披露成功签约"
+   },
+   {
+    "event_id": "E-057",
+    "doc_id": "1225612269",
+    "http": 200,
+    "result": "P1 Q3权益产量9.4/销量9.0百万吨、均价170澳元/吨，无16%至22%占比"
+   },
+   {
+    "event_id": "E-032",
+    "doc_id": "hkex_12365982",
+    "http": 200,
+    "result": "安踏P1 43,014,760股/29.06%，10月5日生效、10月7日实际转让"
+   }
+  ],
+  "a_grade_evidence": [
+   {
+    "event_id": "E-013",
+    "evidence_checked": 24,
+    "failures": []
+   },
+   {
+    "event_id": "E-015",
+    "evidence_checked": 14,
+    "failures": []
+   },
+   {
+    "event_id": "E-018",
+    "evidence_checked": 16,
+    "failures": []
+   },
+   {
+    "event_id": "E-024",
+    "evidence_checked": 15,
+    "failures": []
+   },
+   {
+    "event_id": "E-028",
+    "evidence_checked": 27,
+    "failures": []
+   },
+   {
+    "event_id": "E-032",
+    "evidence_checked": 13,
+    "failures": []
+   },
+   {
+    "event_id": "E-040",
+    "evidence_checked": 14,
+    "failures": []
+   },
+   {
+    "event_id": "E-046",
+    "evidence_checked": 13,
+    "failures": []
+   },
+   {
+    "event_id": "E-047",
+    "evidence_checked": 17,
+    "failures": []
+   },
+   {
+    "event_id": "E-049",
+    "evidence_checked": 23,
+    "failures": []
+   },
+   {
+    "event_id": "E-055",
+    "evidence_checked": 12,
+    "failures": []
+   },
+   {
+    "event_id": "E-058",
+    "evidence_checked": 21,
+    "failures": []
+   }
+  ],
+  "boundary": "引文页码匹配只证明引文定位；不代表全库分析逐句获得验证。远程抽核另记。",
+  "changes": [
+   "E-028合同整改误挂I12.2移除",
+   "E-028竞争审批条件及当前办理结果分列",
+   "E-028历史先决条件不标为当前未完成",
+   "E-028暂定调整事实与最终结算分析拆开",
+   "首页按事件归并修正并保留逐项依据"
+  ]
  }
 }

@@ -243,11 +243,23 @@
       + ' 人工复核 D-' + esc(reviewDay.replace(/-/g,"")) + ' · ' + reviewCount + ' 个事件 / ' + currentReviews.length
       + ' 条修订</summary><div class="secnote">口径：最近人工复核日的 correction 记录；事件数去重，修订条数不去重。独立列示，不计入上方采集批次。历史旧值仅在详情更新记录保留。</div>'
       + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>公司 / 事件</th><th>核查问题与处理</th><th>依据 / 出处</th></tr></thead><tbody>'
-      + currentReviews.map(function (r) {
-        var source = (r.e.sources || []).filter(function (s) { return s.doc_id === r.c.doc_id; })[0];
-        return '<tr><td><a href="#/event/' + esc(r.e.event_id) + '">' + esc(r.e.parties[0].name) + ' · ' + esc(r.e.event_id)
-          + '</a></td><td>' + layerBadge(r.c.layer || "analysis") + esc((r.c.fields || []).join("、")) + "：" + esc(typeof r.c.new_value === "string" ? r.c.new_value : (r.c.note || "")) + '</td><td>' + esc(r.c.basis || "")
-          + (source ? '<br/><a target="_blank" rel="noopener" href="' + esc(source.url.split("#")[0]) + '#page=' + (r.c.page || 1) + '">原文 P' + (r.c.page || 1) + ' ↗</a>' : '') + '</td></tr>';
+      + Array.from(new Set(currentReviews.map(function (r) { return r.e.event_id; }))).map(function (id) {
+        var rows = currentReviews.filter(function (r) { return r.e.event_id === id; });
+        var e = rows[0].e;
+        var headline = id === "E-028" ? "红隼：审批结果未披露；首付出处P1；合同整改不是处罚。"
+          : id === "E-055" ? "精工：展示阶段为中标；保留正文签约措辞；主体代码600496。"
+          : id === "E-057" ? "Q3：撤除无出处占比及外部比较；仅保留运营数据相关议题。" : "字段与依据已复核，详见修订明细。";
+        return '<tr><td><a href="#/event/' + esc(id) + '">' + esc(e.parties[0].name) + ' · ' + esc(id)
+          + '</a><br/><span class="dim">' + rows.length + ' 条修订</span></td><td>' + layerBadge("analysis") + esc(headline)
+          + '<details><summary>逐项处理与依据</summary>' + rows.map(function (r) {
+            return '<p>' + esc(r.c.summary || (typeof r.c.new_value === "string" ? r.c.new_value : r.c.note || ""))
+              + '<br/><span class="dim">依据：' + esc(r.c.basis || "见事件更新记录") + '</span></p>';
+          }).join("") + '</details></td><td>' + rows.filter(function (r,i) {
+            return rows.findIndex(function (x) { return x.c.doc_id === r.c.doc_id && (x.c.page || 1) === (r.c.page || 1); }) === i;
+          }).map(function (r) {
+            var source = (e.sources || []).filter(function (x) { return x.doc_id === r.c.doc_id; })[0];
+            return source ? '<div><a target="_blank" rel="noopener" href="' + esc(source.url.split("#")[0]) + '#page=' + (r.c.page || 1) + '">' + esc(source.date) + ' · P' + (r.c.page || 1) + ' ↗</a></div>' : '';
+          }).join("") + '</td></tr>';
       }).join("") + '</tbody></table></div></details>';
 
     // 回溯补入单列
