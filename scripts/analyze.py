@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""LLM 分析模块（Moonshot OpenAI 兼容接口，纯标准库）。
+"""三步直接审核结果适配器（保留旧 API 接口供兼容，不在日批次默认路径调用）。
 
 两个角色：
   gate()    —— 实质筛选门：判断公告是否含"境外主体/业务 + 实质动作"
@@ -22,7 +22,6 @@ ANALYZE_FIELDS = ["公司全称"] + [
     "公告类型", "涉及国家/地区", "动作类型", "动作阶段", "投资金额", "合作方",
     "出海模式归类", "盈利方式", "本地化深度", "对主营业务的战略价值",
     "对营收结构与利润的预期影响", "是否构成第二增长曲线", "主要风险与不确定性",
-    "同行业可比出海案例（公司+时间+做法+成效）", "与本公司动作的异同", "先发/后发位置判断",
     "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）",
     "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）",
     "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）",
@@ -36,9 +35,9 @@ GATE_SYSTEM = (
     "收录标准（需同时满足）：涉及境外主体/资产/业务/市场/客户，且属于实质动作之一："
     "境外设企/建厂/产能/投产；收购/合资/股权调整/交割；海外签约/重大合同/订单；"
     "增资/股东借款/财务资助/担保；境外子公司产销量价与利润；项目延期/违约/处罚/退出；"
-    "能改变既有出海事项判断的后续进展。排除类别（category用下列值）："
+    "境外H股/D股上市（matter_type=listing_abroad）、境外发债；能改变既有出海事项判断的后续进展。排除类别（category用下列值）："
     "名称误匹配（公司名碰巧含关键词但与出海无关）、纯制度文件、资本运作"
-    "（H股上市/境外发债/回购/股权激励）、无新信息重复披露、弱信号"
+    "（仅纯回购/股权激励）、无新信息重复披露、弱信号"
     "（仅筹备境外上市的制度/提示，无实质动作）、其他无关。宁可错排也要保持收录纯度，"
     "但对'进展/延期/数据更新'类要收录——它们用于更新既有案例判断。"
 )
@@ -98,6 +97,8 @@ def _parse_json(s):
 
 def gate(title, text_head):
     """实质筛选。text_head 取公告前2页即可，控制成本。"""
+    if REVIEW is not None:
+        return REVIEW["gate"]
     prompt = (f"公告标题：{title}\n\n公告开头内容：\n{text_head[:2500]}\n\n"
               "请按收录标准判断，只输出JSON。")
     out = _chat([{"role": "system", "content": GATE_SYSTEM},
@@ -115,6 +116,8 @@ def gate(title, text_head):
 
 def analyze(title, full_text):
     """25字段结构化分析。返回dict含fields/quotes/undisclosed。"""
+    if REVIEW is not None:
+        return REVIEW["result"]
     prompt = f"公告标题：{title}\n\n公告全文：\n{full_text}\n\n请输出严格JSON。"
     last_err = None
     for attempt in range(2):
@@ -134,6 +137,8 @@ def analyze(title, full_text):
 
 def case_update(company, events):
     """events: [{date,title,stage,summary}] 按时间升序。返回 {'summary','check'}。"""
+    if REVIEW is not None:
+        return REVIEW.get("case_update", {"summary": "待完成同事项判断检验", "check": "未核验，不自动将同公司不同事项合并"})
     lines = "\n".join(
         f"{i+1}. [{e['date']}] {e['title']}（阶段：{e['stage']}）—— {e['summary']}"
         for i, e in enumerate(events))
@@ -146,3 +151,75 @@ def case_update(company, events):
     except Exception:
         return {"summary": events[-1]["summary"][:80],
                 "check": "案例概要为规则兜底生成（LLM输出解析失败）。"}
+
+
+REVIEW = None
+
+def use_review(path, pages):
+    """接受直接阅读原文的三步结果；引文与分析依据缺失则拒绝入库。"""
+    global REVIEW
+    REVIEW = None
+    r = json.load(open(path, encoding="utf-8"))
+    if not isinstance(r.get("gate", {}).get("include"), bool):
+        raise ValueError("gate.include 必须为布尔值")
+    if r["gate"]["include"]:
+        steps = r["steps"]
+        for key in ("extract_facts", "legal_map", "judge"):
+            if not isinstance(steps.get(key), list) or not steps[key]:
+                raise ValueError("缺少三步分析: " + key)
+        def check(x):
+            if isinstance(x, dict):
+                if x.get("layer") == "analysis" and not x.get("basis"):
+                    raise ValueError("analysis 必须有 basis")
+                if x.get("layer") == "external" and not x.get("source"):
+                    raise ValueError("external 必须有 source")
+                for v in x.values(): check(v)
+            elif isinstance(x, list):
+                for v in x: check(v)
+        import cninfo
+        def evidence_check(x):
+            if isinstance(x, dict):
+                ev = x.get("evidence")
+                if isinstance(ev, dict) and ev.get("quote"):
+                    page, quote = ev.get("page"), ev["quote"]
+                    if not isinstance(page, int) or isinstance(page, bool) or not 1 <= page <= len(pages):
+                        raise ValueError("字段证据页码无效")
+                    if len(quote) > 60 or not cninfo.norm(quote) or cninfo.norm(quote) not in cninfo.norm(pages[page-1]):
+                        raise ValueError("字段证据不在指定原文页或超过60字")
+                for v in x.values(): evidence_check(v)
+            elif isinstance(x, list):
+                for v in x: evidence_check(v)
+        check(steps)
+        check(r.get("event", {}))
+        evidence_check(steps)
+        evidence_check(r.get("event", {}))
+        extract_facts(r)
+        legal_map(r)
+        judge(r)
+        result = r["result"]
+        import cninfo
+        quotes = result.get("quotes", [])
+        if not quotes or len(cninfo.locate_quotes(pages, quotes)) != len(quotes):
+            raise ValueError("引文必须全部匹配原文")
+        if any(len(q) > 60 for q in quotes):
+            raise ValueError("引文超过60字")
+        result["fields"] = {k: str(result.get("fields", {}).get(k) if result.get("fields", {}).get(k) is not None else "【未披露】") for k in ANALYZE_FIELDS}
+    REVIEW = r
+
+
+def extract_facts(review):
+    """读取直接阅读原文后的事实提取结果；null 不填猜测值。"""
+    return review['steps']['extract_facts']
+
+
+def legal_map(review):
+    """读取二级法律议题映射；审批状态须由原文支持。"""
+    return review['steps']['legal_map']
+
+
+def judge(review):
+    """读取影响、跟踪点、缺口与执业提示；均须 analysis + basis。"""
+    items = review['steps']['judge']
+    if not isinstance(items, list) or any(not isinstance(x, dict) or x.get('layer') != 'analysis' or not x.get('basis') for x in items):
+        raise ValueError('judge 必须逐条标 analysis 并写依据')
+    return items

@@ -4,3 +4,8 @@ __pycache__/
 .DS_Store
 site/
 .musepool/
+
+# 认证只能由仓库外运行器管理
+.env
+.env.*
+state/*token*

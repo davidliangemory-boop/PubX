@@ -19,14 +19,14 @@
    - 持仓清单：对持仓主体跑观察名单比对并更新页面/state，写清同名≠命中
 4. 已收主键只判定重复/进展/修正；新发现按披露日入库，found_by=history_backfill，窗口写入批次 meta。
 5. 跑完后：把本窗记入 completed_windows；next_window_end = 本窗 start 的前一天；next_window_start = next_window_end 往前 29 天（共 30 天）；更新 updated_at；status=running。
-6. 通用规则同日更（去重、分析、validate ERROR=0、白名单推送）。更新带单列「历史回溯 H-日期：窗口 start～end，补入/进展/修正计数」。
+6. 通用规则同日更（去重、分析、validate ERROR=0、白名单审阅后推送）。更新带单列「历史回溯 H-日期：窗口 start～end，补入/进展/修正计数」。
 
 
 ## 网站同步（用户 2026-10-26 语音补充，强制）
-回溯产出必须按网站现有分析与呈现要求，同步更新到 PubX 对应页面后推送 main，而不是只写进度文件：
+回溯产出必须按网站现有分析与呈现要求，同步更新到 PubX 对应页面，按白名单审阅后由调度方发布（推送 main），而不是只写进度文件：
 - A股新批 → 出海信批归纳（首页更新带、事件库、相关详情）
 - 港股新批 → #/hk-market
 - 美股新批 → #/us
 - OFAC/出口管制 → #/export（执法/清单/规则及观察名单比对）
 - 持仓清单 → 出口管制观察名单比对或持仓相关视图（同名≠命中）
-遵守 disclosed/external/analysis 区分、来源可点开、validate ERROR=0、白名单推送；batch 写入首页“本次更新带”的历史回溯条目。
+遵守 disclosed/external/analysis 区分、来源可点开、validate ERROR=0、白名单审阅与推送；batch 写入首页“本次更新带”的历史回溯条目。

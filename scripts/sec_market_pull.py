@@ -10,8 +10,8 @@
 表格白名单：8-K/8-K/A（Item 1.01/1.02/1.05/2.01/2.03/2.05/2.06/3.01/3.02/5.01/5.02/8.01）、
 6-K/6-K/A、S-1/F-1/S-4/F-4（含/A）、424B*、SC TO-T/14D9/13E3（含/A）、DEFM14A、425。
 
-口径说明：--date D 扫描 EDGAR「D 日」日索引（按美东申报日切片）；EDGAR 无北京时间维度索引，
-美东申报日 D 覆盖北京时间 D 12:00 至 D+1 12:00 的大部分申报，页面口径以此为准并如实注明。
+口径说明：--date D 扫描相邻美东索引，按原文 ACCEPTANCE-DATETIME 换算北京时间，
+只收北京时间 D 00:00–24:00；旧存量 date 仍保留原有申报日，不回写伪造时间。
 
 去重：accessionNumber（state/sec_market_seen.json）；数据追加不覆盖历史。
 分片：state/us_market/YYYY-MM-DD.json；汇总 state/us_market.json；前端 assets/us_data.js。
@@ -551,7 +551,7 @@ def fetch_ex99_targeted(base):
         return ""
 
 
-def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
+def process_filing(row, tickers, watch_ciks, efts_map, batch_id, window_dates=None):
     """单个命中 filing → entry；失败返回 (None, 错误串)。"""
     acc = os.path.basename(row["path"]).replace(".txt", "")
     acc_nodash = acc.replace("-", "")
@@ -567,10 +567,24 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     maxb = 120000 if fup.startswith("424B") else (500000 if fup[:2] in ("S-", "F-") or fup.startswith("SC") else MAX_DOC_BYTES)
     text = ""
     ex99 = ""
+    accepted_cn = None
+    raw = None
     try:
+        if window_dates:
+            from zoneinfo import ZoneInfo
+            raw = fetch("https://www.sec.gov/Archives/" + row["path"],
+                        max_bytes=maxb, retries=4, retry_403=True)
+            match = re.search(r"<ACCEPTANCE-DATETIME>(\d{14})", raw)
+            if not match:
+                return None, acc + ": 无 ACCEPTANCE-DATETIME，未消费主键，待重试"
+            accepted_cn = datetime.datetime.strptime(match[1], "%Y%m%d%H%M%S").replace(
+                tzinfo=ZoneInfo("America/New_York")).astimezone(datetime.timezone(datetime.timedelta(hours=8)))
+            if accepted_cn.date().isoformat() not in window_dates:
+                return "OUTSIDE", None
+            text, ex99 = parse_primary(raw, form)
         # 8-K 快路径：EFTS 已知主文档名时直接抓主文档（比 full-submission.txt 小得多）
         pdoc = (info or {}).get("doc") or ""
-        if pdoc:
+        if pdoc and not text:
             try:
                 text = strip_html(fetch("%s/%s" % (base, pdoc),
                                         max_bytes=400000, retries=2, retry_403=True))
@@ -654,7 +668,9 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     entry = {
         "id": "usm_" + acc_nodash,
         "accession": acc,
-        "date": fdate,
+        "date": accepted_cn.date().isoformat() if accepted_cn else fdate,
+        "filing_date": fdate,
+        "accepted_at_cn": accepted_cn.isoformat() if accepted_cn else None,
         "company": row["company"],
         "cik": cik_i,
         "ticker": tickers.get(cik_i),
@@ -678,7 +694,7 @@ def process_filing(row, tickers, watch_ciks, efts_map, batch_id):
     return entry, None
 
 
-def collect_dates(dates, batch_id, max_docs=None, max_minutes=None, reextract=None):
+def collect_dates(dates, batch_id, max_docs=None, max_minutes=None, reextract=None, window_dates=None):
     deadline = time.monotonic() + max_minutes * 60 if max_minutes else None
     tickers_raw = load_json(os.path.join(STATE, "sec_tickers_cache.json"), None)
     if not tickers_raw:
@@ -764,13 +780,15 @@ def collect_dates(dates, batch_id, max_docs=None, max_minutes=None, reextract=No
             pre = pre[:max(0, max_docs - fetched_docs)]
         results = []
         with cf.ThreadPoolExecutor(max_workers=THREADS) as ex:
-            futs = {ex.submit(process_filing, r, tickers, watch_ciks, efts_map, batch_id): r for r in pre}
+            futs = {ex.submit(process_filing, r, tickers, watch_ciks, efts_map, batch_id, window_dates): r for r in pre}
             for fu in cf.as_completed(futs):
                 r = futs[fu]
                 try:
                     entry, err = fu.result()
                 except Exception as e:
                     entry, err = None, "worker: %s" % str(e)[:120]
+                if entry == "OUTSIDE":
+                    continue  # 不标已收，下一个北京时间批次仍可采集
                 if entry == "SKIP":
                     acc = os.path.basename(r["path"]).replace(".txt", "")
                     seen_acc.add(acc)
@@ -890,7 +908,7 @@ def main():
         save_master(master)
         return 0
 
-    today = datetime.date.today()
+    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date()
     if a.date:
         dates = [a.date]
         batch_id = "D-" + a.date.replace("-", "")
@@ -898,9 +916,12 @@ def main():
         dates = [(today - datetime.timedelta(days=i)).isoformat()
                  for i in range(1, a.backfill_days + 1)]
         batch_id = "B-" + today.strftime("%Y%m%d")
+    window_dates = set(dates)
+    # 北京时间日期涵盖前一美东自然日和当日；向前扩一天抓相邻索引。
+    dates = sorted(window_dates | {(datetime.date.fromisoformat(d) - datetime.timedelta(days=1)).isoformat() for d in window_dates})
     reextract = [d.strip() for d in a.reextract_dates.split(",") if d.strip()]
     bstat = collect_dates(dates, batch_id, max_docs=a.max_docs,
-                          max_minutes=a.max_minutes, reextract=reextract or None)
+                          max_minutes=a.max_minutes, reextract=reextract or None, window_dates=window_dates)
     ok = sum(1 for v in bstat["dates"].values() if v.get("status") == "ok")
     print("批次 %s：索引可用 %d 天 · 新增收录 %d 条 · 错误 %d 个（抓取 %d 次，失败 %d 次，封禁静默 %d 次）"
           % (batch_id, ok, bstat["new_entries"], len(bstat["errors"]),

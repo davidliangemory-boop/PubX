@@ -1026,7 +1026,7 @@ def main():
         gte = lte = args.date
     elif args.since:
         gte, lte = args.since, today_cn().strftime("%Y-%m-%d")
-        kind = "backfill"
+        kind = "backfill" if args.backfill_days is not None else "weekly"
     else:
         days = args.backfill_days if args.backfill_days is not None else None
         if days is None:

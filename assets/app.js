@@ -879,7 +879,8 @@
     main += '<div class="panel"><div class="sech"><h2>更新记录</h2></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>类型</th><th>来源文件</th><th>说明</th></tr></thead><tbody>'
       + e.changelog.map(function (c) {
         return '<tr><td class="mono">' + esc(c.date) + '</td><td>' + pill(c.type, c.type === "进展" ? "blue" : c.type === "修正" ? "warn" : "") + '</td>'
-          + '<td style="font-size:12px">' + esc(c.doc_id) + '</td><td style="font-size:12.5px">' + esc(c.note || "") + "</td></tr>";
+          + '<td style="font-size:12px">' + esc(c.doc_id) + '</td><td style="font-size:12.5px">' + esc(c.note || "")
+          + (c.diff && Object.keys(c.diff).length ? '<details><summary>字段变化与原值留痕</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere">' + esc(JSON.stringify(c.diff, null, 2)) + '</pre><p class="dim">进展中的字段快照供核查，既有事实保留；修正记录显示已替换的旧值与新值。出处见本行来源文件。</p></details>' : '') + "</td></tr>";
       }).join("") + "</tbody></table></div></div>";
 
     var siblings = EVX.filter(function (x) { return x.subject === e.parties[0].name && x.id !== e.event_id; });
@@ -1793,6 +1794,26 @@
   var AB = { tab: "coverage" };
   function vAbout() {
     var h = '<div class="ph"><h1>方法与来源</h1><span class="sub">本页回答：数据怎么来、覆盖到哪、排除了什么、质量如何、怎样取用</span></div>';
+    var mf = DB.manifest || {};
+    var pendingReviews = mf.pending_review || [];
+
+    h += '<div class="panel" style="padding:16px 24px"><div class="panel-h"><h2>采集与分析 manifest</h2></div><p>脚本 commit：<span class="mono" style="overflow-wrap:anywhere">' + esc(mf.script_commit || '未记录') + '</span></p><p>模型：' + esc(mf.model || '未记录') + ' · Prompt：' + esc(mf.prompt_version || '未记录') + '</p><p>批次：' + esc(mf.batch_id || '未记录') + ' · 生成时间：' + esc(mf.generated_at || '未记录') + '</p><p>' + esc(mf.analysis_mode || '') + '</p><a href="state/manifest.json" target="_blank" rel="noopener">查看完整 manifest 与脚本 SHA-256</a></div>';
+    h += '<div class="panel" style="padding:16px 24px"><h2>从原文到问题：更新核查路径</h2><p>公司／项目 → 触发事实及原文页码 → 法律问题与处理状态 → 信息缺口 → 判断依据 → 下一步核查动作。</p><p>待审核 ' + pendingReviews.length + ' 份（口径：state/pending 中未入库且未审核排除的出海候选；不计入已收录事件）。采集完成不代表审核完成；失败或待审须保留原文与候选，重跑接续。</p><p>日批 D-YYYYMMDD 按北京时间 00:00–24:00；手动回溯 B-YYYYMMDD 单列；出口管制按周批 W-YYYYWW。20 天定时补漏任务 B 已撤销。</p><a href="reports/P5-round5-source-audit.json" target="_blank" rel="noopener">第 5 轮：3 条原文核查与适用边界</a></div>';
+    h += '<div class="panel" style="padding:16px 24px"><h2>原文复核：公司 → 问题 → 出处</h2><p class="dim">2026-10-27 抽查 3 份既有披露，非新增事件；仅代表以下来源范围。事实与核查提示分列；手机可左右滑动查看出处。</p><div class="tbl-wrap"><table class="tbl" style="min-width:780px"><thead><tr><th>公司／项目</th><th>原文披露</th><th>问题与核查动作（系统分析）</th><th>出处</th></tr></thead><tbody>'
+      + '<tr><td>精工钢构／丹格特项目</td><td>7,273.35 万美元；P1 重要提示称中标，正文称成功签约；P2 分包人为长江精工（上海）。</td><td>依据 P1–P2 的主体和付款条款：区分上市主体与履约子公司；跟踪按进度付款，签约金额不能作为已实现收入。</td><td><a target="_blank" rel="noopener" href="https://static.cninfo.com.cn/finalpage/2026-10-20/1225610572.PDF#page=2">合同主体与付款 · P2 ↗</a></td></tr>'
+      + '<tr><td>安踏／PUMA</td><td>43,014,760 股、29.06%；10 月 5 日生效，10 月 7 日实际转让；本完成公告未披露对价。</td><td>依据 P1 的两个日期：法律生效日与实际转让日分别保留；交易对价应回查前期公告，不能以持股比例代替金额。</td><td><a target="_blank" rel="noopener" href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1007/2026100701670_c.pdf#page=1">交割日期及股数 · P1 ↗</a></td></tr>'
+      + '<tr><td>兖矿能源／红隼</td><td>控股子公司收购集团 100% 股权，间接取得矿山 80%；18.5 亿美元首付须扣定金及调整；另有最高 5.5 亿美元或有付款。</td><td>依据 P1–P2：区分集团股权与矿山权益；分别跟踪完成调整、首五年 225 美元／吨触发条件及 12 亿美元贷款；本公告未列具体审批结论。</td><td><a target="_blank" rel="noopener" href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1001/2026100100008_c.pdf#page=1">权益与首付 · P1 ↗</a> · <a target="_blank" rel="noopener" href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1001/2026100100008_c.pdf#page=2">融资与或有付款 · P2 ↗</a></td></tr>'
+      + '</tbody></table></div></div>';
+    if (pendingReviews.length) {
+      h += '<div class="panel" style="padding:16px 24px"><h2>待审原文与接续任务</h2><p>以下仅为出海候选。逐份核验公司／项目、问题与出处后才能入库；待审数不代表新增事件数。</p><ul>';
+      pendingReviews.forEach(function (r) {
+        h += '<li><span class="mono">' + esc(r.doc_id || '未记录') + '</span> · ' + esc(r.batch_id || '未记录批次') + ' · ' + esc(r.status || '待审');
+        if (r.raw_available && /^raw\/[a-zA-Z0-9_.-]+\.txt$/.test(r.raw_path || '')) h += ' · <a href="' + esc(r.raw_path) + '" target="_blank" rel="noopener">阅读缓存原文</a>';
+        if (!r.raw_available) h += ' · 原文尚未取得，先重试下载，不能开始事实分析';
+        h += '</li>';
+      });
+      h += '</ul></div>';
+    }
     h += '<div class="subnav wrap" style="margin-bottom:16px">'
       + [["coverage", "覆盖与排除"], ["health", "来源健康"], ["batches", "批次简报"], ["records", "更新记录"], ["diff", "版本比较"], ["validate", "质检报告"], ["export", "导出"], ["policy", "政策清单"]].map(function (x) {
         return '<a href="javascript:;" data-abt="' + x[0] + '"' + (AB.tab === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
@@ -1850,15 +1871,15 @@
       return;
     }
     if (AB.tab === "health") {
-      box.innerHTML = H.map(function (c) {
+      box.innerHTML = '<p class="note">以下为存量接入记录，状态不代表本次检索完成或实时可用性；实际覆盖、失败与待审以对应日批／周批日志为准。收录数为各渠道存量披露数，非本日新增。</p>' + H.map(function (c) {
         return '<div class="panel"><div class="panel-h"><h2>' + esc(c.name) + '</h2>'
-          + '<span class="st ' + (c.status === "正常" ? "ok" : c.status === "降级" ? "bad" : "plan") + '">' + esc(c.status) + "</span>"
+          + '<span class="st ' + (c.status === "正常" ? "ok" : c.status === "降级" ? "bad" : "plan") + '">' + esc(c.status === '正常' ? '历史正常' : c.status) + "</span>"
           + '<span class="note">收录 ' + c.count + " · 最新 " + esc(c.latest || "—") + " · 最近批次 " + esc(c.lastBatch || "—") + "</span></div>"
           + '<div class="kv" style="padding-top:6px">'
           + '<div class="dl"><span class="k">接入方式</span><span class="v">' + esc(c.method) + "</span></div>"
           + '<div class="dl"><span class="k">去重/游标</span><span class="v">' + esc(c.cursor) + "</span></div>"
           + '<div class="dl"><span class="k">频率</span><span class="v">' + esc(c.cadence) + "</span></div>"
-          + '<div class="dl"><span class="k">来源</span><span class="v"><a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(String(c.url).replace(/^https?:\/\//, "").slice(0, 48)) + " ↗</a></span></div></div>"
+          + '<div class="dl"><span class="k">来源</span><span class="v">' + (/^https?:\/\//.test(c.url || '') ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(String(c.url).replace(/^https?:\/\//, "").slice(0, 48)) + ' ↗</a>' : '未配置来源') + '</span></div></div>'
           + (c.note ? '<div class="secnote">' + esc(c.note) + "</div>" : "") + "</div>";
       }).join("") || '<div class="empty">无</div>';
       return;

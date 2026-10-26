@@ -191,6 +191,8 @@ def sec_json(url):
 
 
 def pull_sec(start, end):
+    from zoneinfo import ZoneInfo
+    lower_filed = (datetime.date.fromisoformat(start) - datetime.timedelta(days=1)).isoformat()
     watch = load("watchlist_us.json", [])
     seen = load("sec_seen.json", {"acc": [], "cursor": {}})
     seen_acc = set(seen.get("acc", []))
@@ -210,7 +212,7 @@ def pull_sec(start, end):
         # 历史分页：与窗口有交集才取
         for f in sub.get("filings", {}).get("files", []):
             try:
-                if f.get("filingFrom", "9999") <= end and f.get("filingTo", "0000") >= start:
+                if f.get("filingFrom", "9999") <= end and f.get("filingTo", "0000") >= lower_filed:
                     blocks.append(sec_json(f"https://data.sec.gov/submissions/{f['name']}"))
                     time.sleep(0.3)
             except Exception as e:
@@ -223,16 +225,24 @@ def pull_sec(start, end):
                     filed = b["filingDate"][i]
                 except Exception:
                     continue
-                if form not in FORMS or not (start <= filed <= end):
+                if form not in FORMS or not (lower_filed <= filed <= end):
                     continue
                 acc = b["accessionNumber"][i]
+                acceptance = (b.get("acceptanceDateTime") or [None] * n)[i]
+                if not acceptance:
+                    errors.append({"accession": acc, "error": "缺 acceptance，未消费主键"})
+                    continue
+                accepted = datetime.datetime.fromisoformat(acceptance.replace("Z", "+00:00"))
+                if accepted.tzinfo is None: accepted = accepted.replace(tzinfo=ZoneInfo("America/New_York"))
+                accepted_cn = accepted.astimezone(datetime.timezone(datetime.timedelta(hours=8)))
+                if not start <= accepted_cn.date().isoformat() <= end: continue
                 if acc in seen_acc:
                     continue
                 seen_acc.add(acc)
                 acc_nodash = acc.replace("-", "")
                 doc = b["primaryDocument"][i] if i < len(b.get("primaryDocument", [])) else ""
                 out.append({"ticker": w["ticker"], "cik": cik, "name": w["name"], "form": form,
-                            "filed": filed, "accession": acc,
+                            "filed": filed, "accepted_at_cn": accepted_cn.isoformat(), "accession": acc,
                             "items": b["items"][i] if i < len(b.get("items", [])) else "",
                             "desc": b["primaryDocDescription"][i] if i < len(b.get("primaryDocDescription", [])) else "",
                             "url": f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{doc}",
@@ -247,25 +257,25 @@ def pull_sec(start, end):
 
 
 if __name__ == "__main__":
-    # 用法一（区间）：backfill_pull.py <start YYYY-MM-DD> <end YYYY-MM-DD>
-    # 用法二（回溯窗口）：backfill_pull.py --end YYYY-MM-DD --backfill-days N（默认 20）
-    # 回溯批次入库时批次号为 B-YYYYMMDD（取 end 日，docs/schema.md §6）
-    args = sys.argv[1:]
-    if "--end" in args:
-        i = args.index("--end")
-        e = args[i + 1]
-        n = 20
-        if "--backfill-days" in args:
-            n = int(args[args.index("--backfill-days") + 1])
-        s = (datetime.date.fromisoformat(e) - datetime.timedelta(days=n - 1)).isoformat()
-    elif len(args) == 2:
-        s, e = args
+    import argparse
+    ap = argparse.ArgumentParser(description="三渠道候选采集；审核后入库，不自动生成事实")
+    ap.add_argument("start", nargs="?")
+    ap.add_argument("end", nargs="?")
+    ap.add_argument("--date", type=datetime.date.fromisoformat)
+    ap.add_argument("--end", dest="until", type=datetime.date.fromisoformat)
+    ap.add_argument("--backfill-days", type=int, default=20)
+    a = ap.parse_args()
+    if a.backfill_days < 1: ap.error("回溯天数必须大于0")
+    if a.date:
+        s = e = a.date.isoformat()
+    elif a.start and a.end:
+        s, e = a.start, a.end
     else:
-        print("usage: backfill_pull.py <start YYYY-MM-DD> <end YYYY-MM-DD>\n"
-              "   or: backfill_pull.py --end YYYY-MM-DD [--backfill-days N]")
-        sys.exit(1)
+        last = a.until or (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date() - datetime.timedelta(days=1))
+        e = last.isoformat()
+        s = (last - datetime.timedelta(days=a.backfill_days - 1)).isoformat()
     datetime.date.fromisoformat(s); datetime.date.fromisoformat(e)
     pull_cninfo(s, e)
     pull_hkex(s, e)
     pull_sec(s, e)
-    print("[backfill] 窗口 %s ~ %s 拉取完成" % (s, e))
+    print("[backfill] 窗口 %s ~ %s 候选拉取完成，仍需审核" % (s, e))

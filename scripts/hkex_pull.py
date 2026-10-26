@@ -73,7 +73,7 @@ def main():
     seen_p = os.path.join(STATE, "hkex_seen.json")
     ids = json.load(open(ids_p, encoding="utf-8")) if os.path.exists(ids_p) else {}
     seen = json.load(open(seen_p, encoding="utf-8")) if os.path.exists(seen_p) else {"news": [], "cursor": {}}
-    seen_ids = set(seen.get("news", []))
+    seen_ids = {str(x) for x in seen.get("news", [])}
     cursor = seen.get("cursor", {})
 
     today = datetime.date.today()
@@ -103,7 +103,7 @@ def main():
         if a.date:
             frm = to = run_date.strftime("%Y%m%d")  # 只扫该日北京时间 00:00–24:00
         else:
-            frm = cursor.get(code) or since_global.strftime("%Y%m%d")
+            frm = (cursor.get(code) or since_global.strftime("%Y%m%d")).replace("-", "")
             frm = min(frm, since_global.strftime("%Y%m%d"))
             to = today.strftime("%Y%m%d")
         q = {"sortDir": "0", "sortByOptions": "DateTime", "category": "0", "market": "SEHK",
@@ -118,10 +118,9 @@ def main():
         time.sleep(0.4)
         latest = cursor.get(code, "")
         for r in recs:
-            nid = r.get("NEWS_ID")
+            nid = str(r.get("NEWS_ID") or "")
             if not nid or nid in seen_ids:
                 continue
-            seen_ids.add(nid)
             dtc = r.get("DATE_TIME", "")  # DD/MM/YYYY HH:MM
             try:
                 dt = datetime.datetime.strptime(dtc, "%d/%m/%Y %H:%M")
@@ -129,10 +128,24 @@ def main():
             except Exception:
                 day = dtc
             latest = max(latest, day)
+            raw_id = "hkex_" + str(nid)
+            try:
+                import cninfo
+                got = cninfo.fetch_announcement({"announcementId": raw_id,
+                    "adjunctUrl": "https://www1.hkexnews.hk" + (r.get("FILE_LINK") or "")}, os.path.join(STATE, "tmp"))
+                time.sleep(0.4)
+            except Exception as exc:
+                errors.append({"news_id": nid, "error": "原文失败，未消费主键: " + str(exc)[:160]})
+                continue
+            seen_ids.add(nid)
             out.append({
+                "raw_path": "raw/" + raw_id + ".txt",
                 "code": code, "name": w["name"], "news_id": nid,
                 "title": clean(r.get("TITLE")), "category": cat_of(clean(r.get("LONG_TEXT"))),
                 "sub": clean(r.get("LONG_TEXT")),
+                "raw_category": r.get("LONG_TEXT"),
+                "source_pdf_url_zh": "https://www1.hkexnews.hk" + (r.get("FILE_LINK") or ""),
+                "source_pdf_url_en": None,  # 英文版本须另行核实，禁止猜测 URL
                 "date": day, "time": dtc,
                 "size": r.get("FILE_INFO", ""),
                 "url": "https://www1.hkexnews.hk" + (r.get("FILE_LINK") or ""),
@@ -142,8 +155,15 @@ def main():
 
     out.sort(key=lambda x: x["date"], reverse=True)
     out_p = a.out or os.path.join(STATE, "raw_hkex_%s.json" % today.strftime("%Y%m%d"))
+    newly_discovered = len(out)
+    # 发现去重与完成审核分开：保留同日未入库候选，重跑不能覆盖待审原文索引。
+    if os.path.exists(out_p):
+        previous = json.load(open(out_p, encoding="utf-8"))
+        retained = {str(x["news_id"]): x for x in previous.get("items", [])}
+        retained.update({str(x["news_id"]): x for x in out})
+        out = list(retained.values())
     json.dump({"pulled_at": datetime.datetime.now().isoformat(timespec="seconds"),
-               "from": since_global.strftime("%Y%m%d"), "count": len(out), "items": out, "errors": errors},
+               "from": since_global.strftime("%Y%m%d"), "count": len(out), "new_count": newly_discovered, "retained_count": len(out)-newly_discovered, "items": out, "errors": errors},
               open(out_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(ids, open(ids_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump({"news": sorted(seen_ids), "cursor": cursor}, open(seen_p, "w", encoding="utf-8"),
