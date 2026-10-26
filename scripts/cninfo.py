@@ -4,7 +4,7 @@
 纯标准库实现（PDF 解析优先用 pdftotext，缺失时回退 pypdf），
 保证 GitHub Actions 的 ubuntu-latest 环境零额外依赖即可运行。
 """
-import json, re, time, sys, os, subprocess, tempfile
+import json, re, time, sys, os, subprocess, tempfile, hashlib
 import urllib.request, urllib.parse
 
 BASE = "http://www.cninfo.com.cn/new/hisAnnouncement/query"
@@ -50,15 +50,17 @@ def clean(t):
     return re.sub(r"</?em>", "", t or "")
 
 
-def search(sdate, edate, keywords=None, max_page=5, verbose=True):
+def search(sdate, edate, keywords=None, max_page=200, verbose=True):
     """按关键词组检索，按 announcementId 去重，返回按时间升序的候选列表。"""
     seen = {}
+    failures = []
     for kw in (keywords or KEYWORDS):
         page = 1
         while True:
             try:
                 d = query(kw, sdate, edate, page)
             except Exception as e:
+                failures.append(f"{kw} page={page}: {e}")
                 if verbose:
                     print(f"[warn] 检索失败 {kw} 第{page}页: {e}", file=sys.stderr)
                 break
@@ -77,11 +79,15 @@ def search(sdate, edate, keywords=None, max_page=5, verbose=True):
                     }
                 elif kw not in seen[aid]["keywords"]:
                     seen[aid]["keywords"].append(kw)
+            if d.get("hasMore") and page >= max_page:
+                failures.append(f"{kw}: 达到分页上限 {max_page}，扫描未完整")
             if not d.get("hasMore") or page >= max_page:
                 break
             page += 1
             time.sleep(0.5)
         time.sleep(0.4)
+    if failures:
+        raise RuntimeError("检索不完整，禁止记作成功零新增：" + "; ".join(failures))
     return sorted(seen.values(), key=lambda x: (x["time"] or 0))
 
 
@@ -150,7 +156,17 @@ def fetch_announcement(item, workdir):
     os.makedirs(workdir, exist_ok=True)
     dest = os.path.join(workdir, f"{item['announcementId']}.pdf")
     download_pdf(pdf_url(item), dest)
-    return {"pages": extract_pages(dest), "pdf": dest}
+    pages = extract_pages(dest)
+    raw = os.path.join(os.path.dirname(os.path.dirname(__file__)), "raw")
+    os.makedirs(raw, exist_ok=True)
+    content = "\f".join(pages).encode("utf-8")
+    name = str(item["announcementId"]) + ".txt"
+    open(os.path.join(raw, name), "wb").write(content)
+    index_path = os.path.join(raw, "index.json")
+    index = json.load(open(index_path)) if os.path.exists(index_path) else {}
+    index[str(item["announcementId"])] = {"url": pdf_url(item), "sha256": hashlib.sha256(content).hexdigest(), "file": name}
+    json.dump(index, open(index_path, "w"), ensure_ascii=False, indent=2)
+    return {"pages": pages, "pdf": dest}
 
 
 def flatten(pages, limit=None):

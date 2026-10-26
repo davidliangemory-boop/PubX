@@ -312,6 +312,7 @@ PAGE_ROUTES = [
     ("", "h1"), ("events", "h1"), ("events?view=table", "h1"), ("board", "h1"),
     ("issues", "h1"), ("cos", "h1"), ("topics", "h1"), ("about", "h1"),
     ("about?tab=validate", "h1"), ("event/E-028", "h1"),
+    ("us", "h1"), ("hk-market", "h1"), ("export", "h1"),
     ("feed", "redirect"), ("hk", "redirect"), ("arc", "redirect"),
     ("detail/23", "redirect"), ("ana/graph", "redirect"), ("sanctions", "redirect"),
     ("market", "redirect"), ("cos/projects", "redirect"), ("src", "redirect"),

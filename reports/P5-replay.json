@@ -1,0 +1,27 @@
+{
+  "mode": "offline_existing_sources_replay",
+  "batches": [
+    {
+      "batch_id": "B-BF-20261026",
+      "replayed_docs": 1,
+      "duplicates": 1,
+      "event_count": 60
+    },
+    {
+      "batch_id": "B-20261022-0800",
+      "replayed_docs": 2,
+      "duplicates": 2,
+      "event_count": 60
+    },
+    {
+      "batch_id": "B-20261022-SEC",
+      "replayed_docs": 5,
+      "duplicates": 5,
+      "event_count": 60
+    }
+  ],
+  "mach_events": [
+    "E-049"
+  ],
+  "unchanged": true
+}

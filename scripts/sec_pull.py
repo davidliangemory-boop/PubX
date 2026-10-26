@@ -8,6 +8,7 @@
 用法：python3 sec_pull.py --days 45 --out ../state/raw_sec_YYYYMMDD.json
 """
 import json, os, sys, time, urllib.request, datetime, argparse
+from zoneinfo import ZoneInfo
 
 UA = {"User-Agent": "PubX Disclosure Monitor (research; contact: admin@pubx.local)"}
 FORMS = {"6-K", "20-F", "10-K", "10-Q", "8-K", "F-1", "F-1/A", "F-3", "F-3/A",
@@ -30,7 +31,7 @@ def fetch(url, retries=2):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--date", default="", help="只扫该日 YYYY-MM-DD（按 filed 日期过滤）")
+    ap.add_argument("--date", default="", help="只扫该日 YYYY-MM-DD（按 acceptance 换算北京时间过滤）")
     ap.add_argument("--backfill-days", type=int, default=20, help="回溯重叠窗口天数")
     ap.add_argument("--days", type=int, default=0, help="旧别名；>0 时覆盖 --backfill-days")
     ap.add_argument("--out", default="")
@@ -60,15 +61,41 @@ def main():
         for i, form in enumerate(rec.get("form", [])):
             filed = rec["filingDate"][i]
             acc = rec["accessionNumber"][i]
-            if form not in FORMS or filed < since or acc in seen_acc:
+            if form not in FORMS or acc in seen_acc or (a.date and filed < (run_date - datetime.timedelta(days=1)).isoformat()) or (not a.date and filed < since):
                 continue
-            if a.date and filed != run_date.isoformat():
-                continue  # --date：只收该日 filed 的申报
+            acceptance = (rec.get("acceptanceDateTime") or [None] * len(rec.get("form", [])))[i]
+            accepted_cn = None
+            if acceptance:
+                accepted_cn = datetime.datetime.fromisoformat(acceptance.replace("Z", "+00:00"))
+                if accepted_cn.tzinfo is None: accepted_cn = accepted_cn.replace(tzinfo=ZoneInfo("America/New_York"))
+                accepted_cn = accepted_cn.astimezone(datetime.timezone(datetime.timedelta(hours=8)))
+            if a.date and (accepted_cn is None or accepted_cn.date() != run_date):
+                continue
             doc = rec["primaryDocument"][i]
             acc_nodash = acc.replace("-", "")
+            raw_id = "sec_" + acc_nodash
+            raw_path = os.path.join(os.path.dirname(STATE), "raw", raw_id + ".txt")
+            exhibit_names = []
+            try:
+                from sec_market_pull import parse_primary
+                import hashlib
+                content = fetch("https://www.sec.gov/Archives/edgar/data/%d/%s.txt" % (int(w["cik"]), acc))
+                time.sleep(0.35)
+                primary_text, exhibit_text = parse_primary(content, form)
+                exhibit_names = __import__("re").findall(r"<TYPE>EX-99\.1[^<]*<SEQUENCE>[^<]*<FILENAME>([^\r\n<]+)", content, __import__("re").I)
+                body = primary_text + ("\f" + exhibit_text if exhibit_text else "")
+                if not body.strip(): raise ValueError("未提取到正文")
+                os.makedirs(os.path.dirname(raw_path), exist_ok=True)
+                with open(raw_path, "w", encoding="utf-8") as f: f.write(body)
+                raw_sha = hashlib.sha256(body.encode("utf-8")).hexdigest()
+            except Exception as exc:
+                errors.append({"accession": acc, "error": "原文读取失败，未消费主键: " + str(exc)[:160]})
+                continue
             out.append({
+                "raw_path": "raw/" + raw_id + ".txt", "sha256": raw_sha,
+                "exhibit_filenames": exhibit_names,
                 "ticker": w["ticker"], "cik": str(w["cik"]), "name": w["name"],
-                "form": form, "filed": filed, "accession": acc,
+                "form": form, "filed": filed, "accepted_at_cn": accepted_cn.isoformat() if accepted_cn else None, "accession": acc,
                 "items": rec.get("items", [""])[i] if rec.get("items") else "",
                 "desc": rec.get("primaryDocDescription", [""])[i] if rec.get("primaryDocDescription") else "",
                 "url": "https://www.sec.gov/Archives/edgar/data/%d/%s/%s" % (int(w["cik"]), acc_nodash, doc),

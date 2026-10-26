@@ -134,8 +134,8 @@ def batch_day(b):
     """批次 → (kind, day)：回溯批次（B-BF-* 或来源含「回溯」）kind=backfill，其余为日批次。
     旧命名 B-YYYYMMDD-HHMM / B-YYYYMMDD-SEC 等按自然日聚合为 D-YYYYMMDD（不改原始记录）。"""
     bid = b.get("id", "")
-    if bid.startswith("B-BF-") or "回溯" in (b.get("source") or ""):
-        day = bid.replace("B-BF-", "")[:8]
+    if bid.startswith("B-BF-") or re.fullmatch(r"B-\d{8}", bid) or "回溯" in (b.get("source") or ""):
+        day = re.sub(r"^B-(?:BF-)?", "", bid)[:8]
         return "backfill", day
     m = re.match(r"[BD]-(\d{8})", bid)
     if m:
@@ -238,6 +238,12 @@ def main():
     vr = load_watch("validate_report.json")
     if isinstance(vr, dict) and vr.get("summary"):
         out["validate"] = vr
+    from pipeline_state import write_manifest
+    latest_batch = next((b["id"] for b in db.get("batches", []) if re.fullmatch(r"[DB]-\d{8}", b.get("id", ""))), None)
+    if latest_batch is None:
+        daily_batches = [b for b in out["batches_daily"] if b["kind"] == "daily"]
+        latest_batch = daily_batches[0]["id"] if daily_batches else None
+    out["manifest"] = write_manifest(latest_batch)
     daily = [g for g in out["batches_daily"] if g["kind"] == "daily"]
     out["build"] = {
         "time": out["synced"],

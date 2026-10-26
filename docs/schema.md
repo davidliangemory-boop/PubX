@@ -112,6 +112,6 @@
 | 回溯批次 | `B-YYYYMMDD` | 历史回补（backfill_pull.py 链路，取回补窗口 end 日）；存量旧记录 `B-BF-YYYYMMDD` 在展示层归并到 B- 系列 |
 | 出口管制周批 | `W-YYYYWW` | 出口管制分页面采集上线后使用（ISO 周） |
 
-- 存量旧批次 `B-YYYYMMDD-HHMM` / `B-YYYYMMDD-SEC|HKEX|…` 为每 2 小时轮次的历史记录，**不改原始数据**；`scripts/build_data.py` 派生 `batches_daily`（按自然日聚合为 D-YYYYMMDD，回溯单列），首页「本次更新带」与 #/about「批次简报」按此展示。
+- 存量旧批次 `B-YYYYMMDD-HHMM` / `B-YYYYMMDD-SEC|HKEX|…` 为旧轮次的历史记录（现改为日批次），**不改原始数据**；`scripts/build_data.py` 派生 `batches_daily`（按自然日聚合为 D-YYYYMMDD，回溯单列），首页「本次更新带」与 #/about「批次简报」按此展示。
 - 采集脚本统一参数：`--date YYYY-MM-DD`（扫描该日北京时间 00:00–24:00）、`--backfill-days N`（回溯重叠窗口天数，默认 20）。适用：`run_once.py`、`hkex_pull.py`、`sec_pull.py`；`backfill_pull.py` 用 `--end YYYY-MM-DD --backfill-days N`。
 - 去重不因日批次合并而放松：巨潮 announcementId、披露易 NEWS_ID、EDGAR accessionNumber 主键去重照旧；重叠窗口内重复候选按 collected 清单跳过。

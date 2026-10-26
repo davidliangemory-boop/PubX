@@ -1,0 +1,7 @@
+{
+  "status": "not_started",
+  "window_start": null,
+  "window_end": null,
+  "retry_ids": [],
+  "note": "历史候选批次不代表已按本管线完成，不推定已完成窗口"
+}

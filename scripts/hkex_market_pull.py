@@ -669,9 +669,9 @@ def main():
         days = [(a.date, "D-" + a.date.replace("-", ""))]
     else:
         today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date()
-        for i in range(a.backfill_days - 1, -1, -1):
+        for i in range(a.backfill_days, 0, -1):
             d = (today - datetime.timedelta(days=i)).isoformat()
-            days.append((d, "B-" + d.replace("-", "")))
+            days.append((d, "B-" + today.strftime("%Y%m%d")))
 
     name2codes, code2name, t2ver = load_tier2()
     seen = load_json(SEEN_P, {"news": [], "sfc": []})

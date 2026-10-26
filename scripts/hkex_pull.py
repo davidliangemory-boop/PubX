@@ -121,7 +121,6 @@ def main():
             nid = r.get("NEWS_ID")
             if not nid or nid in seen_ids:
                 continue
-            seen_ids.add(nid)
             dtc = r.get("DATE_TIME", "")  # DD/MM/YYYY HH:MM
             try:
                 dt = datetime.datetime.strptime(dtc, "%d/%m/%Y %H:%M")
@@ -129,10 +128,24 @@ def main():
             except Exception:
                 day = dtc
             latest = max(latest, day)
+            raw_id = "hkex_" + str(nid)
+            try:
+                import cninfo
+                got = cninfo.fetch_announcement({"announcementId": raw_id,
+                    "adjunctUrl": "https://www1.hkexnews.hk" + (r.get("FILE_LINK") or "")}, os.path.join(STATE, "tmp"))
+                time.sleep(0.4)
+            except Exception as exc:
+                errors.append({"news_id": nid, "error": "原文失败，未消费主键: " + str(exc)[:160]})
+                continue
+            seen_ids.add(nid)
             out.append({
+                "raw_path": "raw/" + raw_id + ".txt",
                 "code": code, "name": w["name"], "news_id": nid,
                 "title": clean(r.get("TITLE")), "category": cat_of(clean(r.get("LONG_TEXT"))),
                 "sub": clean(r.get("LONG_TEXT")),
+                "raw_category": r.get("LONG_TEXT"),
+                "source_pdf_url_zh": "https://www1.hkexnews.hk" + (r.get("FILE_LINK") or ""),
+                "source_pdf_url_en": None,  # 英文版本须另行核实，禁止猜测 URL
                 "date": day, "time": dtc,
                 "size": r.get("FILE_INFO", ""),
                 "url": "https://www1.hkexnews.hk" + (r.get("FILE_LINK") or ""),
