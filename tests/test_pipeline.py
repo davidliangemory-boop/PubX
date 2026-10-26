@@ -54,6 +54,27 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(build_data.batch_day({'id':'B-20261027'}),('backfill','20261027'))
         self.assertEqual(build_data.batch_day({'id':'B-20261022-0800'}),('daily','20261022'))
 
+    def test_saved_pending_survives_empty_source_and_exclusion_closes_it(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root/'state/pending').mkdir(parents=True)
+            (root/'state/analysis').mkdir()
+            (root/'raw').mkdir()
+            candidate = {'announcementId':'saved', 'secName':'测试', 'title':'候选',
+                         'time':int(datetime.datetime(2026,10,22,tzinfo=run_once.TZ).timestamp()*1000)}
+            pending = root/'state/pending/saved.json'
+            pending.write_text(json.dumps({'candidate':candidate,'status':'awaiting_analysis'}))
+            (root/'raw/saved.txt').write_text('真实流程测试文本')
+            dbpath=root/'state/db.json';cfgpath=root/'state/config.json'
+            dbpath.write_text(json.dumps({'collected':{'scanned':[],'kept':[],'excluded':[]},'cursor':{'last_id':'0'},'disclosures':[],'batches':[],'tracked':[],'exceptions':[]}))
+            cfgpath.write_text('{"keywords":[]}')
+            (root/'state/analysis/saved.json').write_text(json.dumps({'gate':{'include':False,'category':'其他无关','reason':'原文不涉出海'}}))
+            with patch.multiple(run_once,ROOT=str(root),DB_PATH=str(dbpath),CFG_PATH=str(cfgpath)), patch.object(run_once.cninfo,'search',return_value=[]), patch.object(run_once,'rebuild',return_value=0), patch('pipeline_state.write_manifest'), patch.object(sys,'argv',['run_once.py','--date','2026-10-22']):
+                self.assertEqual(run_once.main(),0)
+            self.assertEqual(json.loads(pending.read_text())['status'],'excluded')
+            self.assertEqual(json.loads(dbpath.read_text())['collected']['excluded'],['saved'])
+            run_once.analyze.REVIEW = None
+
     def test_sec_acceptance_beijing_boundary_does_not_consume(self):
         row={'path':'edgar/data/1/0000000001-26-000001.txt','cik':'1','form':'6-K','date':'2026-10-21','company':'Test'}
         # 美东 12:00（夏令时）= 北京时间次日 00:00，应排除于 21 日，纳入 22 日。

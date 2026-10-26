@@ -20691,7 +20691,7 @@ window.DB = {
   "cursor": "2026-10-02",
   "done": false
  },
- "synced": "2026-10-27 00:34",
+ "synced": "2026-10-27 00:39",
  "events": [
   {
    "event_id": "E-001",
@@ -36061,7 +36061,7 @@ window.DB = {
   "practice_hints_note": "通用核查提示（analysis 层）：依据议题码定义的常规执业动作，非针对个案的结论；个案处理状态以各事件法律问题总表为准"
  },
  "validate": {
-  "generated": "2026-10-27 00:32",
+  "generated": "2026-10-27 00:36",
   "summary": {
    "ERROR": 0,
    "WARN": 1,
@@ -36397,8 +36397,8 @@ window.DB = {
   }
  },
  "manifest": {
-  "generated_at": "2026-10-27T00:34:51.777692+08:00",
-  "script_commit": "e8980905f68bac49b995299de94925828b68fa76",
+  "generated_at": "2026-10-27T00:39:14.245562+08:00",
+  "script_commit": "ae8abaa27f5b560d3e70f84ac75e72471c54806e",
   "script_sha256": {
    "scripts/analyze.py": "1f48df62377189baaf3a398a0b8a4963e27c63ae24517b76e3a016836a72057c",
    "scripts/backfill_pull.py": "517d00fa0b7aef3dc084d39f73dc6f2e3a602117a9671aaf5872e2515e7322d3",
@@ -36406,17 +36406,17 @@ window.DB = {
    "scripts/cninfo.py": "5ddcee16475bcdb5fd311d7676d216e53addf60566d0d9c4b3400132f9c8a045",
    "scripts/derive.py": "9f31c187734cef93b83a7c07e2eb708c8a749f96df3e0a3aeab8a6872961099b",
    "scripts/event_merge.py": "4e5a1230669398f1d447459faa444ab6d570d6d3d770f2506f3790ad82e9505c",
-   "scripts/export_pull.py": "e7b35ffcbd6a103e94b64c5cbcb618b769de7c435aa19209e9b7a2ff9cad7df0",
+   "scripts/export_pull.py": "fc17bdf43b447e4671e4727a6e8bba7a011fd67d301ad740d45097644c25d91a",
    "scripts/fetch_raw.py": "4e89f1bff9916227e02017c42c257cd06c2b3b9a591a38570a3ce4a289bcd3ea",
    "scripts/hkex_market_pull.py": "6855ec58eaba3307cba27dba128d8b7b73ff98dae31306805156d4be45eaa3b2",
    "scripts/hkex_pull.py": "b1c6cfe1175af67dc3563361a46dfc2e1a6fc4b404906b8a272fd234a43acd88",
    "scripts/legal_map.py": "0a40f08694aa9a9c39954b0b00a6238cadc5dcd6eb3d7d3fa275d46e951d21a2",
-   "scripts/pipeline_state.py": "7271551601bcea0007184466d82fa1a896e3c4d0fbe03f93ebb33b722214ed65",
+   "scripts/pipeline_state.py": "12e396b6dd2ce1045c6fe659d218d10fea5ae84c9eb96ee6d1f6e10538d4dc60",
    "scripts/r05_apply.py": "b0c81fc502e008ffa22f6b39457ed557888bef50737533413c2184d726a08b1f",
    "scripts/r05_verify.py": "30dad804dd0a1b777d5b3fc2c2d8249785831d8e5786b6ebacde7fe6c5d33ddd",
    "scripts/recover_state.py": "ae144d6a40c09bb30a9950373a889ef99c5674a5634ec3628ab10047c6ecde27",
    "scripts/replay_batches.py": "86d6906aaad4233796a97475826c4cc2454e048dc6ab3fbac88d2683528f2f3f",
-   "scripts/run_once.py": "b21ccb9475cb1f5661bd16517293dcdcb5cac83817491c993a2f1717935bf2ea",
+   "scripts/run_once.py": "9599c23dbb8ad22175b73db0ee71330cb42a6e95bdbdf1cd1844fef127aea535",
    "scripts/schema.py": "c4343c3a6b3929c84ea9188de1eadfb82d00a6e7f5b719dd5db8308a86e66f60",
    "scripts/sdn_screen.py": "92ae514f082ddd08453ef695ed3b4b116d204dd4242f9c0a54adfbe2d08a0ee7",
    "scripts/sec_market_pull.py": "1097e1f7de1e5f4c96fae9a2e8c9483bf85000454ef5f4d3dc1309a8ddd47b99",
@@ -36425,7 +36425,7 @@ window.DB = {
    "scripts/validate.py": "0a105e3d94716e66f54c4bada9be3ac5a54519015af70252bc65444dc7534c2a",
    "scripts/watch_updates.py": "65ca438b2fb0f0bfc12748ec0635ed95f0a7f1cc4462ca05cb20a3805e1cba6e"
   },
-  "prompt_version": "R08-P5-R2-20261027",
+  "prompt_version": "R08-P5-R3-20261027",
   "model": "未记录（构建不代表已执行模型分析）",
   "batch_id": "D-20261022",
   "analysis_mode": "Kimi Code 直接读取原文；人工审核结果文件入库，无需 API key",
@@ -36434,14 +36434,14 @@ window.DB = {
    "ops/prompts/backfill.md": "ee822a6325a29720126efbe482b77927e00aa5dab2c65b5dd51c8b61cf9b967f",
    "ops/prompts/daily.md": "9469ea0a56af9d415695e5eced8f9422909719d77e94797019cf636250383d9e",
    "ops/prompts/history_backfill.md": "405d7fffdf2710f228af58948ede09ddc75066e331518838b26659b3875b2793",
-   "ops/prompts/weekly_exportcontrol.md": "66326b726838a0185b4bcde0df4623babf1c5f61cfe0d742ea51d114b5c00aef"
+   "ops/prompts/weekly_exportcontrol.md": "6072dab57dd0d30247dc0bc9ef86383a811a50dfefd676069a4a7aad886ddd2d"
   },
   "pending_review": [],
   "scope": "出海信批；美股、港股、出口管制各自批次与统计见独立数据文件",
-  "source_audit": "reports/P5-round2-source-audit.json"
+  "source_audit": "reports/P5-round3-source-audit.json"
  },
  "build": {
-  "time": "2026-10-27 00:34",
+  "time": "2026-10-27 00:39",
   "batch": "D-20261022",
   "events": 60
  }

@@ -86,6 +86,16 @@ def main():
     scanned_before = set(db["collected"]["scanned"])
     cands = [c for c in cninfo.search(sdate, edate, cfg["keywords"])
              if c["announcementId"] not in scanned_before]
+    # 已落盘的待审资料不依赖源站再次命中；仅接续本次日期窗口。
+    by_id = {c['announcementId']: c for c in cands}
+    for pending_file in Path(ROOT, 'state/pending').glob('*.json'):
+        pending = load(pending_file)
+        c = pending.get('candidate', {})
+        aid = c.get('announcementId')
+        date = datetime.datetime.fromtimestamp((c.get('time') or 0) / 1000, TZ).date().isoformat()
+        if aid and aid not in scanned_before and sdate <= date <= edate:
+            by_id.setdefault(aid, c)
+    cands = list(by_id.values())
     print(f"窗口 {sdate}~{edate}，命中 {len(cands)} 条新候选")
     if dry:
         for c in cands:
@@ -139,6 +149,11 @@ def main():
 
         if not g["include"]:
             excluded_ids.append(aid)
+            pending_path = Path(ROOT, 'state/pending', aid + '.json')
+            if pending_path.exists():
+                pending = load(pending_path)
+                pending.update(status='excluded', reason=g.get('reason'), reviewed_at=now_str())
+                pending_path.write_text(json.dumps(pending, ensure_ascii=False, indent=2))
             cat = g["category"]
             notes_exc[cat] = notes_exc.get(cat, 0) + 1
             if cat in ("名称误匹配",):
@@ -231,7 +246,7 @@ def main():
     db["exceptions"] = db["exceptions"][-50:]
 
     exc_note = "；".join(f"{k}{v}条" for k, v in notes_exc.items())
-    note = ("收录：" + "、".join(notes_inc) if notes_inc else "本时段无新增收录")
+    note = ("收录：" + "、".join(notes_inc) if notes_inc else "本日批次本轮无新增收录")
     if exc_note:
         note += f"；排除：{exc_note}"
     if failed:
@@ -244,7 +259,10 @@ def main():
         existing["scanned"] = existing.get("scanned", 0) + len(cands)
         existing["kept"] = existing.get("kept", 0) + len(kept)
         existing["excluded"] = existing.get("excluded", 0) + len(excluded_ids)
-        existing["failed"] = existing.get("failed", 0) + len(failed)
+        # failed 为当前未解决候选，失败尝试数另列，避免同一资料重跑膨胀。
+        existing["failed_attempts"] = existing.get("failed_attempts", existing.get("failed", 0)) + len(failed)
+        existing["failed"] = len(failed)
+        existing["retry_ids"] = failed
         existing["items"] = sorted(set(existing.get("items", [])) | set(kept))
         existing["note"] = (existing.get("note", "").rstrip("。") + f"；{now_str()[11:]} 轮：" + note + "。")
         existing["window"] = window
@@ -258,6 +276,7 @@ def main():
             "source": "巨潮资讯", "scanned": len(cands), "kept": len(kept),
             "excluded": len(excluded_ids), "failed": len(failed),
             "items": kept, "note": note + "。", "runs": 1,
+            "retry_ids": failed, "failed_attempts": len(failed),
         })
     save(db)
     from pipeline_state import write_manifest

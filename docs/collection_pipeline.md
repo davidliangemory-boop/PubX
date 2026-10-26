@@ -52,3 +52,10 @@ run_once 的自动检索入口目前是巨潮。观察名单 HKEX/SEC 需按 pro
 - source-manifest 的 pending_review 仅统计出海 state/pending 中未 ingested 的候选，不代表全站四模块的待审数。
 - SDN 自动名称比对只证明该名单版本下名称比对结果，不能替代 BIS/UFLPA 的独立标识核查。
 - 本轮原文抽查报告：reports/P5-round2-source-audit.json；精工公告 P1 既称中标也称成功签约，阶段标签应连同这一边界阅读；P2 区分上市主体与分包履约主体。
+
+## 第 3 轮接续修正
+
+- 日批重跑会把同窗口 state/pending 中保存的 candidate 合并到检索结果；源站不再返回该公告时仍可使用已缓存原文审核。已处理主键继续跳过。
+- 排除审核将 pending 标为 excluded 并保留理由，manifest 待审仅计未入库且未审核排除项。日批 failed 表示本轮未解决数，failed_attempts 单列失败尝试数，retry_ids 可定位资料。
+- 日更/周更运行器提供 scan_date、week_since、D/W 批次号。周更以含今天的七个日历日运行 --since，不附带手动回溯参数；不恢复任务 B。
+- 本轮原文核查：reports/P5-round3-source-audit.json；附加 375/768/1280 路由检查：reports/P5-round3-routes.json。离线回放证明存量幂等，不代表连续两天实时采集成功。
