@@ -95,14 +95,19 @@ def load_watch(name):
 
 def build_health(db, cfg, disclosures):
     """各渠道健康度：接入方式/去重主键来自 config.channels（静态配置），
-    收录数与最新日期来自实际库内数据，失败从批次记录汇总。无数据如实为 0。"""
+    收录数与起止日期来自实际库内数据，失败从批次记录汇总。无数据如实为 0。
+    巨潮检索关键词取自 scripts/cninfo.py KEYWORDS（采集脚本唯一来源，不另抄一份）。"""
+    try:
+        from cninfo import KEYWORDS as CN_KW
+    except Exception:
+        CN_KW = []
     out = []
     last_batch = db["batches"][0] if db["batches"] else None
-    exc_n = len(db.get("exceptions", []))
     for c in cfg.get("channels", []):
         key = c["key"]
         docs = [d for d in disclosures if channel_of(d) == key]
-        latest = max([d["披露日期与时间"] for d in docs], default="")
+        dts = sorted(d["披露日期与时间"] for d in docs if d.get("披露日期与时间"))
+        latest = dts[-1] if dts else ""
         status = c.get("status", "正常")
         if status != "手动" and c.get("kind") != "screen":
             if last_batch and last_batch.get("failed", 0) > 0 and key == "A股·巨潮":
@@ -114,6 +119,8 @@ def build_health(db, cfg, disclosures):
             "method": c.get("method", ""), "cursor": c.get("cursor", ""),
             "cadence": c.get("cadence", ""), "url": c.get("url", "—"),
             "count": len(docs), "latest": latest,
+            "earliest": dts[0] if dts else "",
+            "keywords": CN_KW if key == "A股·巨潮" and CN_KW else None,
             "watch": c.get("watch") or None,
             "lastBatch": last_batch["id"] + " · " + last_batch["time"] if last_batch else "—",
             "note": c.get("note", ""),

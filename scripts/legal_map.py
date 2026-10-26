@@ -23,7 +23,7 @@ TAX_PATH = os.path.join(ROOT, "state", "issues_taxonomy.json")
 CLEARED = re.compile(r"已完成|已取得|已获得|已通过|已获|完成.*(备案|核准|审批|登记)|取得.*(备案|核准|批复|许可)")
 PENDING = re.compile(r"尚需|须待|待.*(批准|核准|备案|审批)|尚未|进行中|拟|需经|须经|有待")
 NEG = re.compile(r"未|不|无|尚需|待|拟|需")
-NEG_HIT = re.compile(r"不涉及|无需|不适用|未涉及|不属于|并非|未触发|无重大")
+NEG_HIT = re.compile(r"不涉及|无需|不适用|未涉及|不属于|并非|未触发|无重大|风险低|风险较低|风险可控|未见|不存在|影响有限")
 
 # 东道国外资审查机制（trigger_fact 中的机制名属 external 常识标注，写进 basis）
 FDI_REGIME = {
@@ -35,12 +35,23 @@ FDI_REGIME = {
 INVEST_MT = {"设厂", "建厂", "并购", "合资"}
 
 
-def ctx(text, kw, span=18):
-    """命中词上下文片段（真实文本子串，供 trigger_fact 引用）。"""
-    i = (text or "").find(kw)
+PUNCT = "。；;，,、（）()「」【】\n"
+
+
+def ctx(text, kw, span=42):
+    """命中词上下文片段（真实文本子串，供 trigger_fact 引用）。
+    向两侧扩展到最近的标点边界（上限 span 字符）；越界截断时以 … 标注，避免从词中间切开。"""
+    text = text or ""
+    i = text.find(kw)
     if i < 0:
         return ""
-    return text[max(0, i - span):i + len(kw) + span]
+    lo, hi = i, i + len(kw)
+    while lo > 0 and i - lo < span and text[lo - 1] not in PUNCT:
+        lo -= 1
+    while hi < len(text) and hi - i < span and text[hi] not in PUNCT:
+        hi += 1
+    frag = text[lo:hi].strip()
+    return ("…" if lo > 0 else "") + frag + ("…" if hi < len(text) else "")
 
 
 def status_of(snippet, default="not_disclosed"):
@@ -94,7 +105,9 @@ def corpus_of(e, db_by_aid):
             for f in ("③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）",
                       "主要风险与不确定性", "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）"):
                 if d.get(f):
-                    c.append(("db." + f[:6], str(d[f]), "analysis"))
+                    short = {"③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": "db.③法务关注",
+                             "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": "db.①商务关注"}.get(f, "db." + f)
+                    c.append((short, str(d[f]), "analysis"))
     return [(f, x, l) for f, x, l in c if x and str(x).strip()]
 
 
@@ -200,12 +213,13 @@ def build_triggers(e, db_by_aid, tax_names):
             if hit:
                 field, text, layer, snip = hit
                 if NEG_HIT.search(snip):
-                    break  # 否定语境（「不涉及ODI」等）：触发点不成立，不出条
+                    break  # 否定/低风险语境（「不涉及ODI」「制裁风险低」等）：触发点不成立，不出条
                 st = status_of(snip)
+                prov = "" if layer == "disclosed" else "；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
                 add(code,
                     "语料提及「%s」（字段：%s）" % (snip, field),
                     st, "analysis",
-                    "%s 命中词「%s」→ %s；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed" % (rid, kw, label))
+                    "%s 命中词「%s」→ %s；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed%s" % (rid, kw, label, prov))
                 break
 
     # ② 结构规则：境内出境监管（对外投资类事项兜底，not_disclosed 不推断）
@@ -248,17 +262,17 @@ def build_triggers(e, db_by_aid, tax_names):
     cats = raw_categories(e, db_by_aid)
     for s, label in cats:
         add("I3.3", "披露渠道原始分类：%s（来源：%s %s）" % (label, s.get("channel", ""), s.get("date", "")),
-            "disclosed_cleared", "disclosed",
-            "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）")
+            "not_applicable", "disclosed",
+            "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」")
     # ④ 多地披露同步
     chans = sorted({s.get("channel") for s in e.get("sources", []) if s.get("channel")})
     if len(chans) >= 2:
         add("I13.1", "同一事项经 %d 个市场渠道披露：%s" % (len(chans), "、".join(chans)),
-            "disclosed_cleared", "disclosed", "R-I13.1-src：来源渠道数≥2（sources 字段计数）")
+            "not_applicable", "disclosed", "R-I13.1-src：来源渠道数≥2（sources 字段计数）；披露事实，无审批状态含义")
     if not cats and not trs:
         add("I3.3", "披露渠道原始分类：%s（来源文件字段，无更细分类）"
             % "、".join(chans) if chans else "未记录",
-            "disclosed_cleared", "disclosed", "R-I3.3-fallback：无 raw_category 字段，以渠道兜底")
+            "not_applicable", "disclosed", "R-I3.3-fallback：无 raw_category 字段，以渠道兜底；分类信息无审批状态含义")
     return trs
 
 
@@ -275,6 +289,7 @@ def main():
     dist = {}
     for e in evj["events"]:
         legacy = e.get("legal_triggers") or []
+        carried = e.get("legal_notes_unmapped") or []  # 首轮已单列的未归码片段：重跑不丢
         trs = build_triggers(e, db_by_aid, tax_names)
         # 旧自由文本拆片归码（保留旧轮分析内容，归不上的单列）
         unmapped = []
@@ -299,6 +314,9 @@ def main():
                         })
                 else:
                     unmapped.append({"text": frag, "basis": lt.get("basis") or ""})
+        for cu in carried:
+            if not any(u["text"] == cu.get("text") for u in unmapped):
+                unmapped.append(cu)
         trs.sort(key=lambda t: t["issue_code"])
         e["legal_triggers"] = trs
         if unmapped:
@@ -316,8 +334,8 @@ def main():
             raise SystemExit("事件无触发点（违反每事件≥1）：" + e["event_id"])
 
     evj.setdefault("meta", {})["legal_map"] = {
-        "version": "r06-1", "run": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed",
+        "version": "r06-2", "run": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed；原始分类/多渠道披露标 not_applicable（无审批状态含义）；否定与低风险语境不出条",
         "triggers": n_trig, "legacy_unmapped": n_unmapped,
     }
     if not dry:

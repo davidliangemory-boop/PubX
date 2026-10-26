@@ -53,7 +53,8 @@
                         "trigger_fact": "触发事实：只引用事件已有字段或原文摘录上下文，禁止推测",
                         "text": "= trigger_fact（兼容旧前端/校验）",
                         "status": "disclosed_cleared|disclosed_pending|not_disclosed|not_applicable",
-                        "layer": "disclosed|analysis",     // 原文无审批字样一律 not_disclosed，禁止倒推「已审批」
+                        "layer": "disclosed|analysis",     // 原文无审批字样一律 not_disclosed，禁止倒推「已审批」；
+                                                           // 原始分类/多渠道披露等纯事实行标 not_applicable（无审批状态含义）
                         "basis": "命中规则 id + 字段 + 判定说明" } ],
   "legal_notes_unmapped": [ { "text": "旧轮自由文本未归码片段", "basis": "" } ],  // 保留待人工核定，不丢不编
   "gaps": [ { "item": "缺什么", "why": "为何重要", "where": "去哪找", "layer": "analysis", "basis": "" } ],  // R05 三段式；存量 {text} 兼容
