@@ -108,8 +108,15 @@ def main():
 
     today = datetime.date.today().strftime("%Y%m%d")
     out_p = a.out or os.path.join(STATE, "raw_sec_%s.json" % today)
+    newly_discovered = len(out)
+    # 发现去重与完成审核分开：保留同日未入库候选，重跑不能覆盖待审原文索引。
+    if os.path.exists(out_p):
+        previous = json.load(open(out_p, encoding="utf-8"))
+        retained = {str(x["accession"]): x for x in previous.get("items", [])}
+        retained.update({str(x["accession"]): x for x in out})
+        out = list(retained.values())
     json.dump({"pulled_at": datetime.datetime.now().isoformat(timespec="seconds"),
-               "since": since_global, "count": len(out), "items": out, "errors": errors},
+               "since": since_global, "count": len(out), "new_count": newly_discovered, "retained_count": len(out)-newly_discovered, "items": out, "errors": errors},
               open(out_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump({"acc": sorted(seen_acc), "cursor": cursor}, open(seen_p, "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)

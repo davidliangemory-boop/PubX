@@ -65,4 +65,42 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(entry['date'],'2026-10-22')
             self.assertEqual(entry['filing_date'],'2026-10-21')
 
+    def test_validation_failure_blocks_build(self):
+        from types import SimpleNamespace
+        with patch.object(run_once.subprocess, 'run', return_value=SimpleNamespace(returncode=1)) as command:
+            self.assertEqual(run_once.rebuild(), 1)
+            self.assertEqual(command.call_count, 1)
+            self.assertTrue(command.call_args.args[0][-1].endswith('validate.py'))
+
+    def test_review_rejects_wrong_page_and_empty_steps(self):
+        import analyze
+        review = {'gate': {'include': True}, 'steps': {
+            'extract_facts': [{'value': '金额100', 'layer':'disclosed', 'evidence': {'page':2, 'quote':'金额100'}}],
+            'legal_map': [{'issue_code':'I10.2','layer':'analysis','basis':'原文金额'}],
+            'judge': [{'text':'核查付款','layer':'analysis','basis':'原文金额'}]},
+            'result': {'fields': {'投资金额':0}, 'quotes':['金额100']}}
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp)/'review.json';p.write_text(json.dumps(review))
+            with self.assertRaisesRegex(ValueError, '指定原文页'):
+                analyze.use_review(p, ['金额100', '其他内容'])
+            review['steps']['extract_facts'][0]['evidence']['page'] = 1
+            p.write_text(json.dumps(review));analyze.use_review(p, ['金额100','其他内容'])
+            self.assertEqual(analyze.REVIEW['result']['fields']['投资金额'], '0')
+            review['steps']['judge'] = [];p.write_text(json.dumps(review))
+            with self.assertRaisesRegex(ValueError, '缺少三步'):
+                analyze.use_review(p, ['金额100'])
+        analyze.REVIEW = None
+
+    def test_watch_retry_retains_unreviewed_candidates(self):
+        for module_name, watchfile, key in [('hkex_pull','watchlist_hk.json','news_id'), ('sec_pull','watchlist_us.json','accession')]:
+            module = importlib.import_module(module_name)
+            with self.subTest(module=module_name), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp);(root/watchfile).write_text('[]')
+                output = root/'candidates.json';output.write_text(json.dumps({'items':[{key:'keep-me','raw_path':'raw/original.txt'}]}))
+                with patch.object(module,'STATE',tmp), patch.object(sys,'argv',[module_name,'--date','2026-10-22','--out',str(output)]):
+                    module.main()
+                self.assertEqual(json.loads(output.read_text())['items'][0][key], 'keep-me')
+                self.assertEqual(json.loads(output.read_text())['new_count'], 0)
+                self.assertEqual(json.loads(output.read_text())['retained_count'], 1)
+
 if __name__ == '__main__': unittest.main()

@@ -2,10 +2,10 @@
 
 ## 运行
 
-调度方先同步仓库。`PUBX_DRY_RUN=1 bash ops/run_daily.sh` 可审阅实际 prompt；移除变量后调用 PATH 中的 `kimi -p`。可用 `PUBX_ENGINE` 指定运行器、`PUBX_REPO` 指定仓库、`PUBX_LOG_DIR` 指定日志目录。没有任何 token 写入仓库。三个运行器共享 flock，避免并发覆盖。它们不 pull、stash、commit 或 push；构建、自检后把结果留给调度方。
+调度方先同步仓库。`PUBX_DRY_RUN=1 bash ops/run_daily.sh` 可审阅实际 prompt；移除变量后调用 PATH 中的 `kimi -p`。可用 `PUBX_ENGINE` 指定运行器、`PUBX_REPO` 指定仓库、`PUBX_LOG_DIR` 指定日志目录。没有任何 token 写入仓库。启用的运行器共享 flock，避免并发覆盖。它们不 pull、stash、commit 或 push；构建、自检后把结果留给调度方。
 
 - `bash ops/run_daily.sh`：按北京时间昨日运行日批次。
-- `bash ops/run_backfill.sh`：20 天重叠补漏；失败窗口续接 state/backfill_cursor.json。
+- 任务 B 已于 2026-10-27 撤销；`ops/run_backfill.sh` 返回 64，防止旧调度恢复。手动 `--backfill-days 20` 能力及游标续接仍保留。
 - `bash ops/run_weekly_exportcontrol.sh`：最近一周出口管制三栏目。
 
 `python3 scripts/run_once.py --date YYYY-MM-DD` 只扫该日，不混入 20 天窗口。`--backfill-days 20` 扫今天前 20 天到昨天，批次 B-运行日；失败候选不加入 scanned。待审原文与审核结果可重用，重跑不新建同主键事件。默认日批次 D-扫描日。出口管制维持 ISO 周批 W-YYYYWW。各模块数据与统计独立。
@@ -44,3 +44,11 @@ manifest 记录 Git HEAD、逐脚本 SHA-256、prompt 版本、模型记录和�
 ## 已知边界
 
 run_once 的自动检索入口目前是巨潮。观察名单 HKEX/SEC 需按 prompt 另外运行对应 pull 脚本，读取候选和原文后按同一审核契约入库，不能声称 run_once 自身已完成三渠道或 IR。SEC --date 新采集按 ACCEPTANCE-DATETIME 换算北京时间，从相邻美东索引取数据；既有数据保留旧申报日，不伪造转换。没有 acceptance 的新申报不消费主键，等待重试。HKEX 未核实的英文 PDF 链接为空，保留原始类别与繁体摘录。
+
+## 第 2 轮核查与操作边界
+
+- 字段证据按指定页逐字校验，摘要匹配不能替代字段证据匹配；三步不得是空数组，数值 0 保留为 0。
+- HKEX/SEC 观察名单 seen 是“已发现并保存原文”，不是“已审核入库”。每日输出重跑合并既有候选；日更还需读历史候选文件并与 events.docs 对照。跨日期待审资料保存在历史文件，不能只看当天 count。
+- source-manifest 的 pending_review 仅统计出海 state/pending 中未 ingested 的候选，不代表全站四模块的待审数。
+- SDN 自动名称比对只证明该名单版本下名称比对结果，不能替代 BIS/UFLPA 的独立标识核查。
+- 本轮原文抽查报告：reports/P5-round2-source-audit.json；精工公告 P1 既称中标也称成功签约，阶段标签应连同这一边界阅读；P2 区分上市主体与分包履约主体。

@@ -28,7 +28,8 @@ def recover():
     report = ['# 沙箱状态恢复审计', '', '依据：state/db.json、state/events.json、assets/data.js、当前 Git 可达历史。未删除任何用户原始数据。', '']
     for name, obj in payloads.items():
         key = next(iter(obj))
-        report.append(f'- {name}：从已收录记录恢复 {len(obj[key])} 个 {key}；历史 cursor 留空，避免跳过未见披露。')
+        actual = json.loads((ROOT/'state'/name).read_text())
+        report.append(f'- {name}：现存 {len(actual.get(key, []))} 个 {key}；可重建 {len(obj[key])} 个。保留现有文件；seen 的 scanned 包含历史排除项，不等于收录数。')
     missing = [i for i in ids if not (ROOT/'raw'/f'{i}.txt').exists()]
     report += ['', f'原文：{len(ids)-len(missing)}/{len(ids)} 个来源主键有 raw/<doc_id>.txt。', '',
                '## 不能无损恢复的状态', '',

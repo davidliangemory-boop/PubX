@@ -165,7 +165,7 @@ def use_review(path, pages):
     if r["gate"]["include"]:
         steps = r["steps"]
         for key in ("extract_facts", "legal_map", "judge"):
-            if key not in steps:
+            if not isinstance(steps.get(key), list) or not steps[key]:
                 raise ValueError("缺少三步分析: " + key)
         def check(x):
             if isinstance(x, dict):
@@ -176,7 +176,23 @@ def use_review(path, pages):
                 for v in x.values(): check(v)
             elif isinstance(x, list):
                 for v in x: check(v)
+        import cninfo
+        def evidence_check(x):
+            if isinstance(x, dict):
+                ev = x.get("evidence")
+                if isinstance(ev, dict) and ev.get("quote"):
+                    page, quote = ev.get("page"), ev["quote"]
+                    if not isinstance(page, int) or isinstance(page, bool) or not 1 <= page <= len(pages):
+                        raise ValueError("字段证据页码无效")
+                    if len(quote) > 60 or not cninfo.norm(quote) or cninfo.norm(quote) not in cninfo.norm(pages[page-1]):
+                        raise ValueError("字段证据不在指定原文页或超过60字")
+                for v in x.values(): evidence_check(v)
+            elif isinstance(x, list):
+                for v in x: evidence_check(v)
         check(steps)
+        check(r.get("event", {}))
+        evidence_check(steps)
+        evidence_check(r.get("event", {}))
         extract_facts(r)
         legal_map(r)
         judge(r)
@@ -187,7 +203,7 @@ def use_review(path, pages):
             raise ValueError("引文必须全部匹配原文")
         if any(len(q) > 60 for q in quotes):
             raise ValueError("引文超过60字")
-        result["fields"] = {k: str(result.get("fields", {}).get(k) or "【未披露】") for k in ANALYZE_FIELDS}
+        result["fields"] = {k: str(result.get("fields", {}).get(k) if result.get("fields", {}).get(k) is not None else "【未披露】") for k in ANALYZE_FIELDS}
     REVIEW = r
 
 

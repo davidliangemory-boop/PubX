@@ -2,9 +2,9 @@
 
 依据：state/db.json、state/events.json、assets/data.js、当前 Git 可达历史。未删除任何用户原始数据。
 
-- seen.json：从已收录记录恢复 86 个 scanned；历史 cursor 留空，避免跳过未见披露。
-- sec_seen.json：从已收录记录恢复 5 个 acc；历史 cursor 留空，避免跳过未见披露。
-- hkex_seen.json：从已收录记录恢复 10 个 news；历史 cursor 留空，避免跳过未见披露。
+- seen.json：现存 86 个 scanned；可重建 86 个。保留现有文件；seen 的 scanned 包含历史排除项，不等于收录数。
+- sec_seen.json：现存 5 个 acc；可重建 5 个。保留现有文件；seen 的 scanned 包含历史排除项，不等于收录数。
+- hkex_seen.json：现存 10 个 news；可重建 10 个。保留现有文件；seen 的 scanned 包含历史排除项，不等于收录数。
 
 原文：65/65 个来源主键有 raw/<doc_id>.txt。
 

@@ -73,7 +73,7 @@ def main():
     seen_p = os.path.join(STATE, "hkex_seen.json")
     ids = json.load(open(ids_p, encoding="utf-8")) if os.path.exists(ids_p) else {}
     seen = json.load(open(seen_p, encoding="utf-8")) if os.path.exists(seen_p) else {"news": [], "cursor": {}}
-    seen_ids = set(seen.get("news", []))
+    seen_ids = {str(x) for x in seen.get("news", [])}
     cursor = seen.get("cursor", {})
 
     today = datetime.date.today()
@@ -103,7 +103,7 @@ def main():
         if a.date:
             frm = to = run_date.strftime("%Y%m%d")  # 只扫该日北京时间 00:00–24:00
         else:
-            frm = cursor.get(code) or since_global.strftime("%Y%m%d")
+            frm = (cursor.get(code) or since_global.strftime("%Y%m%d")).replace("-", "")
             frm = min(frm, since_global.strftime("%Y%m%d"))
             to = today.strftime("%Y%m%d")
         q = {"sortDir": "0", "sortByOptions": "DateTime", "category": "0", "market": "SEHK",
@@ -118,7 +118,7 @@ def main():
         time.sleep(0.4)
         latest = cursor.get(code, "")
         for r in recs:
-            nid = r.get("NEWS_ID")
+            nid = str(r.get("NEWS_ID") or "")
             if not nid or nid in seen_ids:
                 continue
             dtc = r.get("DATE_TIME", "")  # DD/MM/YYYY HH:MM
@@ -155,8 +155,15 @@ def main():
 
     out.sort(key=lambda x: x["date"], reverse=True)
     out_p = a.out or os.path.join(STATE, "raw_hkex_%s.json" % today.strftime("%Y%m%d"))
+    newly_discovered = len(out)
+    # 发现去重与完成审核分开：保留同日未入库候选，重跑不能覆盖待审原文索引。
+    if os.path.exists(out_p):
+        previous = json.load(open(out_p, encoding="utf-8"))
+        retained = {str(x["news_id"]): x for x in previous.get("items", [])}
+        retained.update({str(x["news_id"]): x for x in out})
+        out = list(retained.values())
     json.dump({"pulled_at": datetime.datetime.now().isoformat(timespec="seconds"),
-               "from": since_global.strftime("%Y%m%d"), "count": len(out), "items": out, "errors": errors},
+               "from": since_global.strftime("%Y%m%d"), "count": len(out), "new_count": newly_discovered, "retained_count": len(out)-newly_discovered, "items": out, "errors": errors},
               open(out_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(ids, open(ids_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump({"news": sorted(seen_ids), "cursor": cursor}, open(seen_p, "w", encoding="utf-8"),

@@ -20691,7 +20691,7 @@ window.DB = {
   "cursor": "2026-10-02",
   "done": false
  },
- "synced": "2026-10-27 00:27",
+ "synced": "2026-10-27 00:34",
  "events": [
   {
    "event_id": "E-001",
@@ -36061,7 +36061,7 @@ window.DB = {
   "practice_hints_note": "通用核查提示（analysis 层）：依据议题码定义的常规执业动作，非针对个案的结论；个案处理状态以各事件法律问题总表为准"
  },
  "validate": {
-  "generated": "2026-10-27 00:24",
+  "generated": "2026-10-27 00:32",
   "summary": {
    "ERROR": 0,
    "WARN": 1,
@@ -36397,10 +36397,10 @@ window.DB = {
   }
  },
  "manifest": {
-  "generated_at": "2026-10-27T00:27:28.905640+08:00",
-  "script_commit": "4170f37bd758d64d8550735131062c8bb2b660af",
+  "generated_at": "2026-10-27T00:34:51.777692+08:00",
+  "script_commit": "e8980905f68bac49b995299de94925828b68fa76",
   "script_sha256": {
-   "scripts/analyze.py": "7e5be84a37b73f64a381351e11898c657b3b4fc7e2400100467e276dc0cf6bbd",
+   "scripts/analyze.py": "1f48df62377189baaf3a398a0b8a4963e27c63ae24517b76e3a016836a72057c",
    "scripts/backfill_pull.py": "517d00fa0b7aef3dc084d39f73dc6f2e3a602117a9671aaf5872e2515e7322d3",
    "scripts/build_data.py": "d83ba63d5dc68c0761816738e50f3eb56fbfffc71545c2f74bbd683fdfd63071",
    "scripts/cninfo.py": "5ddcee16475bcdb5fd311d7676d216e53addf60566d0d9c4b3400132f9c8a045",
@@ -36409,36 +36409,39 @@ window.DB = {
    "scripts/export_pull.py": "e7b35ffcbd6a103e94b64c5cbcb618b769de7c435aa19209e9b7a2ff9cad7df0",
    "scripts/fetch_raw.py": "4e89f1bff9916227e02017c42c257cd06c2b3b9a591a38570a3ce4a289bcd3ea",
    "scripts/hkex_market_pull.py": "6855ec58eaba3307cba27dba128d8b7b73ff98dae31306805156d4be45eaa3b2",
-   "scripts/hkex_pull.py": "6eaf4d7e23671c02e59d40c0999b583c96dc1a3cb8b1549eee9c67208b5ae58c",
+   "scripts/hkex_pull.py": "b1c6cfe1175af67dc3563361a46dfc2e1a6fc4b404906b8a272fd234a43acd88",
    "scripts/legal_map.py": "0a40f08694aa9a9c39954b0b00a6238cadc5dcd6eb3d7d3fa275d46e951d21a2",
-   "scripts/pipeline_state.py": "a61839bd2bdced6d24599042c30d34c73f81cf60da35c998852d2c45168e949e",
+   "scripts/pipeline_state.py": "7271551601bcea0007184466d82fa1a896e3c4d0fbe03f93ebb33b722214ed65",
    "scripts/r05_apply.py": "b0c81fc502e008ffa22f6b39457ed557888bef50737533413c2184d726a08b1f",
    "scripts/r05_verify.py": "30dad804dd0a1b777d5b3fc2c2d8249785831d8e5786b6ebacde7fe6c5d33ddd",
-   "scripts/recover_state.py": "504142b6cd8eabaeea59b1d5ec649b0d37f82caabbb9e5d89062ff2047f10e09",
+   "scripts/recover_state.py": "ae144d6a40c09bb30a9950373a889ef99c5674a5634ec3628ab10047c6ecde27",
    "scripts/replay_batches.py": "86d6906aaad4233796a97475826c4cc2454e048dc6ab3fbac88d2683528f2f3f",
-   "scripts/run_once.py": "0c926c101a5c5ca936baf77b9d53cfef722bd974c00eddb12787e360e89c5f01",
-   "scripts/schema.py": "b5e13aadba0e6dd329790180cb573d1d29f9d43f5717c34f72f765bc25fba2d4",
+   "scripts/run_once.py": "b21ccb9475cb1f5661bd16517293dcdcb5cac83817491c993a2f1717935bf2ea",
+   "scripts/schema.py": "c4343c3a6b3929c84ea9188de1eadfb82d00a6e7f5b719dd5db8308a86e66f60",
    "scripts/sdn_screen.py": "92ae514f082ddd08453ef695ed3b4b116d204dd4242f9c0a54adfbe2d08a0ee7",
    "scripts/sec_market_pull.py": "1097e1f7de1e5f4c96fae9a2e8c9483bf85000454ef5f4d3dc1309a8ddd47b99",
-   "scripts/sec_pull.py": "f7446635b508ce996f6df2dfbaef5421a61053a792ec41182c190a6d7e6c21fd",
+   "scripts/sec_pull.py": "a7b02ecbafd3a18d622413f9739dbd18bce70b310a448fe31e665ed3d6cbed3d",
    "scripts/sync_guard.py": "727d5df14d86c884d2b6d7ad8e47473d9350e79ffc41e780e32f48c2d7c8bde7",
    "scripts/validate.py": "0a105e3d94716e66f54c4bada9be3ac5a54519015af70252bc65444dc7534c2a",
    "scripts/watch_updates.py": "65ca438b2fb0f0bfc12748ec0635ed95f0a7f1cc4462ca05cb20a3805e1cba6e"
   },
-  "prompt_version": "R08-P5-20261027",
+  "prompt_version": "R08-P5-R2-20261027",
   "model": "未记录（构建不代表已执行模型分析）",
   "batch_id": "D-20261022",
   "analysis_mode": "Kimi Code 直接读取原文；人工审核结果文件入库，无需 API key",
   "prompt_sha256": {
-   "ops/prompts/_rules.md": "9b1ffbdb47ccc7b76e7cbe696b8db19ca74f3feba1c30b2b26f253e1dd009203",
-   "ops/prompts/backfill.md": "7724909c6a10c9f068749ee335df1f769586267d200f2ba24280d3e64c2ec68d",
-   "ops/prompts/daily.md": "f7829f0ac533493c2a1e3326511278287f0060e9ebe84c4db898da7a2ec6c47e",
-   "ops/prompts/history_backfill.md": "35f0f1a25baa1e303247c5e367693e0b5592314f547e1c10ed6e2ea13b03d269",
-   "ops/prompts/weekly_exportcontrol.md": "c55b645b8981a6f9c41ac7ca7c7fae3c08709b69a9d0ae21b650fc2336d797ad"
-  }
+   "ops/prompts/_rules.md": "8c129c74da9ef6186d24da1f17a240c3bc6f84b03e30b0079cc0d20bd0955f6f",
+   "ops/prompts/backfill.md": "ee822a6325a29720126efbe482b77927e00aa5dab2c65b5dd51c8b61cf9b967f",
+   "ops/prompts/daily.md": "9469ea0a56af9d415695e5eced8f9422909719d77e94797019cf636250383d9e",
+   "ops/prompts/history_backfill.md": "405d7fffdf2710f228af58948ede09ddc75066e331518838b26659b3875b2793",
+   "ops/prompts/weekly_exportcontrol.md": "66326b726838a0185b4bcde0df4623babf1c5f61cfe0d742ea51d114b5c00aef"
+  },
+  "pending_review": [],
+  "scope": "出海信批；美股、港股、出口管制各自批次与统计见独立数据文件",
+  "source_audit": "reports/P5-round2-source-audit.json"
  },
  "build": {
-  "time": "2026-10-27 00:27",
+  "time": "2026-10-27 00:34",
   "batch": "D-20261022",
   "events": 60
  }

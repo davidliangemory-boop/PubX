@@ -8,7 +8,7 @@ python3 scripts/run_once.py --rebuild
 
 无 API key 依赖。审核接口见 docs/collection_pipeline.md。
 退出0：本批次完成（可能零新增）；1：错误或尚有待审候选；10：dry-run。
-验证由 ops 运行器在构建后执行；不提交、不推送。
+构建前先验证，ops 运行器还会复验构建结果；不提交、不推送。
 """
 import json, os, sys, datetime, subprocess
 from pathlib import Path
@@ -272,6 +272,10 @@ def main():
 
 
 def rebuild():
+    validation = subprocess.run([sys.executable, os.path.join(HERE, "validate.py")])
+    if validation.returncode:
+        print("验证失败：停止构建，工作区保留供修复。")
+        return 1
     r = subprocess.run([sys.executable, os.path.join(HERE, "build_data.py")])
     return 0 if r.returncode == 0 else 1
 
