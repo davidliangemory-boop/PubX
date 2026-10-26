@@ -231,7 +231,25 @@
         }).join("")
         : '<div class="empty">本批（' + esc(bdDate || (d7 + " ~ " + maxDate)) + "）扫描 " + (todayB && todayB.scanned != null ? todayB.scanned : "—") + " 条，未发现新增出海事件</div>")
       + "</div>";
-    h += '<div class="secnote">' + pill("修正", "warn") + ' 人工复核 D-20261026（独立于上方采集日批次）：<a href="#/event/E-028">红隼：FIRB结果【未披露】、分析层；首付摘录P1</a>；<a href="#/event/E-057">Q3：删除无出处的冶金煤占比及外部排名等断言</a>；<a href="#/event/E-055">精工：展示阶段统一为中标，修正主体代码为600496</a>。旧值、新值、依据见事件修订记录。</div>';
+    var reviews = [];
+    EV.forEach(function (e) { (e.changelog || []).forEach(function (c) {
+      if (c.type === "修正" && c.change === "correction") reviews.push({e:e,c:c});
+    }); });
+    reviews.sort(function (a,b) { return b.c.date.localeCompare(a.c.date); });
+    var reviewDay = reviews.length ? reviews[0].c.date : "";
+    var currentReviews = reviews.filter(function (r) { return r.c.date === reviewDay; });
+    var reviewCount = new Set(currentReviews.map(function (r) { return r.e.event_id; })).size;
+    if (currentReviews.length) h += '<details class="updcat"><summary>' + pill("修正", "warn")
+      + ' 人工复核 D-' + esc(reviewDay.replace(/-/g,"")) + ' · ' + reviewCount + ' 个事件 / ' + currentReviews.length
+      + ' 条修订</summary><div class="secnote">口径：最近人工复核日的 correction 记录；事件数去重，修订条数不去重。独立列示，不计入上方采集批次。历史旧值仅在详情更新记录保留。</div>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>公司 / 事件</th><th>核查问题与处理</th><th>依据 / 出处</th></tr></thead><tbody>'
+      + currentReviews.map(function (r) {
+        var source = (r.e.sources || []).filter(function (s) { return s.doc_id === r.c.doc_id; })[0];
+        return '<tr><td><a href="#/event/' + esc(r.e.event_id) + '">' + esc(r.e.parties[0].name) + ' · ' + esc(r.e.event_id)
+          + '</a></td><td>' + layerBadge(r.c.layer || "analysis") + esc((r.c.fields || []).join("、")) + "：" + esc(typeof r.c.new_value === "string" ? r.c.new_value : (r.c.note || "")) + '</td><td>' + esc(r.c.basis || "")
+          + (source ? '<br/><a target="_blank" rel="noopener" href="' + esc(source.url.split("#")[0]) + '#page=' + (r.c.page || 1) + '">原文 P' + (r.c.page || 1) + ' ↗</a>' : '') + '</td></tr>';
+      }).join("") + '</tbody></table></div></details>';
+
     // 回溯补入单列
     var bf = BD.filter(function (g) { return g.kind === "backfill"; });
     if (bf.length) {

@@ -244,6 +244,10 @@ def raw_categories(e, db_by_aid):
 
 
 def build_triggers(e, db_by_aid, tax_names):
+    # 人工逐页复核的议题不得被旧分析片段重新派生覆盖。
+    review = e.get("legal_review") or {}
+    if review.get("locked") and review.get("basis") and e.get("legal_triggers"):
+        return e["legal_triggers"]
     mt = (e.get("matter_type") or {}).get("value") or ""
     if mt == "建厂":
         mt = "设厂"
