@@ -809,7 +809,7 @@
           + ((byFl.I0 || []).length ? '<div class="secnote">未归码触发点（待人工核定）：' + byFl.I0.map(function (a) { return "「" + esc(a.text || "") + "」"; }).join(" ") + "</div>" : "")
           + ((e.legal_notes_unmapped || []).length ? '<div class="secnote">旧轮分析文本未归码片段（保留待人工核定，' + e.legal_notes_unmapped.length + " 片）："
             + e.legal_notes_unmapped.map(function (u) { return "「" + esc(u.text) + "」"; }).join(" ") + "</div>" : "")
-          + '<div class="secnote">归码口径 ' + layerBadge("analysis") + '：scripts/legal_map.py 确定性规则生成；状态四态：已披露·已通过 / 已披露·未完成（含进行中、尚未启动、尚需批准） / 未披露 / 不适用；原文未载审批字样的不写「已审批」；原始分类行标「原文事实·无审批状态」。横向比较见 <a href="#/issues">法律议题库</a>。</div>';
+          + '<div class="secnote">归码口径 ' + layerBadge("analysis") + '：scripts/legal_map.py 确定性规则生成；状态四态：已披露·已通过（原文有完成类措辞） / 已披露·未完成（含进行中、尚需取得——含原文将批准列为先决条件但结果未逐项确认的情形） / 未披露 / 不适用；原文未载审批字样的不写「已审批」；原始分类行标「原文事实·无审批状态」。横向比较见 <a href="#/issues">法律议题库</a>。</div>';
       })() + "</div>";
 
     main += '<div class="panel"><div class="sech"><span class="sno">⑦</span><h2>影响</h2></div><div style="padding:4px 24px 16px">'
@@ -932,7 +932,7 @@
       + "</div>";
     h += '<div class="note" style="margin:-10px 0 16px">归码口径 ' + layerBadge("analysis")
       + "：scripts/legal_map.py 确定性规则（版本 " + esc(lm.version || "—") + "，运行于 " + esc(lm.run || "—")
-      + "），每条触发点只挂一个二级码；trigger_fact 引用事件已有字段或原文摘录上下文；原文未载处理状态的一律「未披露」，不从「交割完成」倒推审批。"
+      + "），每条触发点只挂一个二级码；trigger_fact 引用事件已有字段或原文摘录上下文；原文未载处理状态的一律「未披露」，不从「交割完成」倒推审批；命中自先决条件/审批字段（disclosed）的标「已披露·未完成（尚需取得）」，命中自分析文本的不据措辞推断状态。"
       + '原始分类（巨潮公告类型 / 披露易 headline / SEC 表格）逐源保留在 I3.3，标「原文事实·无审批状态」（不得读作「已通过」），与归一议题双层并存。议题数与 <a href="#/events">事件库</a>议题筛选结果一致（同一判定函数）。</div>';
 
     // 一级议题总览矩阵（李成工作站「总览表先行」做法：先给全覆盖索引，再展开明细）
@@ -980,7 +980,8 @@
             var byCo = {};
             items.forEach(function (x) {
               var co = x.e.parties && x.e.parties[0] ? x.e.parties[0].name : "—";
-              (byCo[co] = byCo[co] || {})[x.e.event_id] = x;
+              var evs = byCo[co] = byCo[co] || {};
+              (evs[x.e.event_id] = evs[x.e.event_id] || []).push(x);   // 同事件可有多条同码触发点，全列
             });
             det = '<details><summary>展开 ' + evN + " 事件 / " + items.length + " 条</summary>"
               + '<div class="secnote" style="border:none;padding-left:0">处理方式分布（四态口径）：' + esc(stTxt) + "<br/>"
@@ -991,11 +992,13 @@
                 var evs = byCo[co];
                 return '<div style="padding:4px 0"><a href="#/company/' + encodeURIComponent(co) + '"><b>' + esc(shortCo(co)) + "</b></a>　"
                   + Object.keys(evs).map(function (eid) {
-                    var x = evs[eid];
-                    var s0 = x.e.sources[x.e.sources.length - 1] || {};
-                    return '<span style="display:inline-block;margin:2px 10px 2px 0"><a href="#/event/' + eid + '">' + eid + "</a> "
-                      + trPill(x.t)
-                      + " " + srcPageLink(s0) + "</span>";
+                    return evs[eid].map(function (x) {
+                      var s0 = x.e.sources[x.e.sources.length - 1] || {};
+                      return '<span style="display:block;margin:2px 10px 2px 0"><a href="#/event/' + eid + '">' + eid + "</a> "
+                        + trPill(x.t)
+                        + " " + srcPageLink(s0)
+                        + '<br/><span class="dim" style="font-size:12px">' + esc(trigFactShort(x.t)) + '</span></span>';
+                    }).join("");
                   }).join("") + "</div>";
               }).join("") + "</details>";
           }

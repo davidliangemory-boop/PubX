@@ -348,7 +348,12 @@ def check_pages(report):
     all_links = set()
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch()
+            try:
+                browser = p.chromium.launch()
+            except Exception:
+                # 无 playwright 自带 chromium 时退回系统 Chrome（与 kc/shot.py 同一兜底）
+                browser = p.chromium.launch(executable_path="/usr/bin/google-chrome",
+                                            args=["--no-sandbox"])
             for route, expect in PAGE_ROUTES:
                 row = {"route": "#/" + route, "expect": expect, "h1": None,
                        "overflow": {}, "js_errors": [], "final": None, "empty": False}

@@ -24,6 +24,8 @@ CLEARED = re.compile(r"已完成|已取得|已获得|已通过|已获|完成.*(�
 PENDING = re.compile(r"尚需|须待|待.*(批准|核准|备案|审批)|尚未|进行中|拟|需经|须经|有待")
 NEG = re.compile(r"未|不|无|尚需|待|拟|需")
 NEG_HIT = re.compile(r"不涉及|无需|不适用|未涉及|不属于|并非|未触发|无重大|风险低|风险较低|风险可控|未见|不存在|影响有限")
+# 未来/意向措辞：「将…完成/取得」是尚未办理，不得判 disclosed_cleared
+FUTURE = re.compile(r"将[^。；，]{0,16}(完成|取得|获得|办理|履行|申请)|拟(完成|取得|办理|申请)|待(完成|取得|办理)")
 
 # 东道国外资审查机制（trigger_fact 中的机制名属 external 常识标注，写进 basis）
 FDI_REGIME = {
@@ -58,6 +60,8 @@ def status_of(snippet, default="not_disclosed"):
     """按命中上下文判断处理方式披露状态；否定/未完成语境不算完成。"""
     if not snippet:
         return default
+    if FUTURE.search(snippet):
+        return "disclosed_pending"   # 「将/拟/待…完成」=已披露意向，尚未办理
     if CLEARED.search(snippet) and not NEG.search(snippet[:CLEARED.search(snippet).start() + 2]):
         return "disclosed_cleared"
     if PENDING.search(snippet):
@@ -113,6 +117,7 @@ def corpus_of(e, db_by_aid):
 
 # 关键词规则：(rule_id, issue_code, keywords, 说明)；命中即在语料找上下文
 KW_RULES = [
+    ("R-I2.1", "I2.1", ["FIRB", "CFIUS", "外资审查", "外国投资审查", "外商投资安全审查", "投资审查委员会", "OIO", "NSIA"], "东道国外资审查"),
     ("R-I1.5", "I1.5", ["境外上市备案", "证监会备案", "全流通"], "境外上市证监会备案"),
     ("R-I1.6", "I1.6", ["对外承包", "EPC", "工程总承包", "总承包合同"], "对外承包工程资格与备案"),
     ("R-I2.2", "I2.2", ["行业准入", "负面清单", "经营许可", "牌照", "特许经营权"], "行业准入/负面清单"),
@@ -152,9 +157,13 @@ KW_RULES = [
     ("R-I13.3", "I13.3", ["募集资金", "募资", "配售所得", "全球发售所得"], "募集资金境外使用"),
     ("R-I1.4", "I1.4", ["国资", "国有资产", "国资委"], "国资境外投资监管"),
     ("R-I1.1", "I1.1", ["发改委", "ODI", "境外投资备案", "境外投资项目"], "ODI 发改委备案/核准"),
-    ("R-I1.2", "I1.2", ["商务部备案", "商务部门备案", "境外投资备案"], "商务部境外投资备案"),
+    ("R-I1.2", "I1.2", ["商务部备案", "商务部门备案", "境外投资备案", "商务厅", "商務廳", "商务部门"], "商务部境外投资备案"),
     ("R-I1.3", "I1.3", ["外汇登记", "资金汇出", "购付汇", "外汇局"], "外汇 ODI 登记及汇出"),
 ]
+
+# 先决条件/审批字段语义：命中自这些 disclosed 字段且片段无完成/待办措辞时，
+# 表示「原文已将批准列为须取得事项」→ disclosed_pending（不写已通过）
+FIELD_COND = {"terms.conditions_precedent", "terms.approvals"}
 
 LEGACY_KW = [(code, kw) for _rid, code, kws, _n in KW_RULES for kw in kws]
 
@@ -177,7 +186,8 @@ LEGACY_EXTRA = [
     ("I8.1", ["转移定价"]),
     ("I8.2", ["税务居民"]),
     ("I9.1", ["劳工法", "外籍员工"]),
-    ("I10.1", ["截止日", "最后期限", "long stop", "Long Stop"]),
+    ("I10.1", ["截止日", "最后期限", "long stop", "Long Stop", "达成或豁免"]),
+    ("I2.1", ["FIRB 审批", "FIRB 批准", "CFIUS 审查"]),
     ("I10.3", ["银团", "担保", "保函", "抵押", "贷款", "融资", "增信"]),
     ("I10.5", ["治理条款", "对等治理", "治理安排", "治理"]),
     ("I12.2", ["反洗钱"]),
@@ -187,11 +197,19 @@ LEGACY_KW = [(c, k) for c, ks in LEGACY_EXTRA for k in ks] + LEGACY_KW
 # 旧片段状态推断：分类/豁免类结论 → not_applicable（无审批状态含义）；
 # 完成类措辞 → disclosed_cleared；待办类措辞 → disclosed_pending；其余 not_disclosed。
 LEGACY_NA = re.compile(r"不构成|无需|豁免|不涉及|不存在|无关连|概无|排除|公告标为")
+# 「结果/内容未披露」优先于豁免类措辞：如「未逐项确认FIRB审批结果——批准/豁免的具体内容…未直接披露」
+LEGACY_ND = re.compile(r"未(逐项|直接|另行)?披露|未载明|未公告|未确认|无法评估")
 LEGACY_PENDING = re.compile(r"需[^，。；]{0,14}(批准|审批|核准|备案|报告)|须[^，。；]{0,14}(批准|审批|核准|备案|报告)"
-                            r"|将按|择机|待完成|待观察|在审|尚未|未履行|有效期内")
+                            r"|将按|择机|待完成|待观察|在审|尚未|未履行|有效期内|或之前达成|可协商延至")
 
 
 def legacy_status(frag):
+    if "达成或豁免" in frag or "或之前达成" in frag:
+        # 长停止日/先决条件达成或豁免期限条款：已披露、待履行的安排（「豁免」在此
+        # 指条件豁免而非监管豁免结论，不能落入 LEGACY_NA）
+        return "disclosed_pending", "片段为先决条件达成/豁免期限（长停止日）安排，属已披露待履行条款"
+    if LEGACY_ND.search(frag) and not LEGACY_PENDING.search(frag):
+        return "not_disclosed", "片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
     if LEGACY_NA.search(frag):
         return "not_applicable", "片段含分类/豁免/否定性结论措辞（不构成/豁免/概无等），无审批状态含义"
     st = status_of(frag, default="")
@@ -245,25 +263,45 @@ def build_triggers(e, db_by_aid, tax_names):
             "status": status, "layer": layer, "basis": basis,
         })
 
-    # ① 关键词规则：每条命中取一处真实上下文
+    # ① 关键词规则：每条命中取一处真实上下文；某处命中为否定/低风险语境时
+    # 继续找同一关键词的其他出现位置，全部否定才不出条（原 break 会误吞后续字段）
     for rid, code, kws, label in KW_RULES:
+        best = None
         for kw in kws:
-            hit = None
             for field, text, layer in corp:
-                if kw in text:
-                    hit = (field, text, layer, ctx(text, kw))
-                    break
-            if hit:
-                field, text, layer, snip = hit
+                if kw not in text:
+                    continue
+                snip = ctx(text, kw)
                 if NEG_HIT.search(snip):
-                    break  # 否定/低风险语境（「不涉及ODI」「制裁风险低」等）：触发点不成立，不出条
-                st = status_of(snip)
-                prov = "" if layer == "disclosed" else "；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
-                add(code,
-                    "语料提及「%s」（字段：%s）" % (snip, field),
-                    st, "analysis",
-                    "%s 命中词「%s」→ %s；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed%s" % (rid, kw, label, prov))
+                    continue  # 否定/低风险语境（「不涉及ODI」「制裁风险低」等）：该处不算触发
+                cand = (kw, field, text, layer, snip)
+                if layer == "disclosed":
+                    best = cand
+                    break
+                if not best:
+                    best = cand
                 break
+            if best and best[3] == "disclosed":
+                break
+        if best:
+            kw, field, text, layer, snip = best
+            st = status_of(snip)
+            cond_note = ""
+            if layer != "disclosed" and st != "not_disclosed":
+                # 命中自 gaps/watch_points 等前序分析文本：措辞（如「拟」）不构成
+                # 公司对该议题处理状态的披露，一律 not_disclosed
+                st = "not_disclosed"
+                cond_note = "；命中字段为 analysis 层文本，不据其措辞推断处理状态"
+            elif st == "not_disclosed" and layer == "disclosed" and field in FIELD_COND:
+                # 先决条件/审批字段：原文已将批准列为须取得事项（尚需取得），
+                # 结果未逐项确认，不写「已通过」
+                st = "disclosed_pending"
+                cond_note = "；命中自%s字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」" % field
+            prov = "" if layer == "disclosed" else "；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+            add(code,
+                "语料提及「%s」（字段：%s）" % (snip, field),
+                st, "analysis",
+                "%s 命中词「%s」→ %s；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed%s%s" % (rid, kw, label, prov, cond_note))
 
     # ② 结构规则：境内出境监管（对外投资类事项兜底，not_disclosed 不推断）
     def has_code(c):
@@ -278,9 +316,9 @@ def build_triggers(e, db_by_aid, tax_names):
             add("I1.2", "事项类型=%s；商务部境外投资备案在已核语料中%s"
                 % (mt, "有提及" if "商务" in full else "未提及"),
                 "not_disclosed", "analysis", "R-I1.2-mt：同上规则组")
-    # 东道国外资审查（并购/新设进入受审查法域）
+    # 东道国外资审查（并购/新设进入受审查法域）；关键词规则已命中 I2.1 时不再出兜底条
     for ctry, regime in FDI_REGIME.items():
-        if ctry in geo and mt in INVEST_MT:
+        if ctry in geo and mt in INVEST_MT and not has_code("I2.1"):
             kw_hit = any(kw in full for kw in ("外资审查", "FIRB", "CFIUS", "审批", "审查"))
             add("I2.1", "标的/项目位于%s（geo 字段），事项类型=%s；%s 审查在已核语料中%s"
                 % (ctry, mt, regime, "有提及" if kw_hit else "未提及办理状态"),
@@ -400,8 +438,8 @@ def main():
             raise SystemExit("事件无触发点（违反每事件≥1）：" + e["event_id"])
 
     evj.setdefault("meta", {})["legal_map"] = {
-        "version": "r06-3", "run": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed；原始分类/多渠道披露标 not_applicable（无审批状态含义）；否定与低风险语境不出条；旧轮片段归码含 I10.3 等补充词表，状态按片段措辞推断（完成/待办/豁免结论/未披露）",
+        "version": "r06-4", "run": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed；命中自先决条件/审批字段（terms.conditions_precedent/approvals）的 disclosed 语料升级为 disclosed_pending（原文载明尚需取得，不写已通过）；命中自 gaps/watch_points 等 analysis 层文本的不据措辞推断状态；原始分类/多渠道披露标 not_applicable（无审批状态含义）；否定与低风险语境不出条；旧片段「结果未披露」优先判 not_disclosed（不被「豁免」字样误判 not_applicable）",
         "triggers": n_trig, "legacy_unmapped": n_unmapped,
     }
     if not dry:

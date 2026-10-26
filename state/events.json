@@ -6,11 +6,11 @@
   "merge_groups": 3,
   "rules_ver": 1,
   "legal_map": {
-   "version": "r06-3",
-   "run": "2026-10-26 21:45",
-   "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed；原始分类/多渠道披露标 not_applicable（无审批状态含义）；否定与低风险语境不出条；旧轮片段归码含 I10.3 等补充词表，状态按片段措辞推断（完成/待办/豁免结论/未披露）",
-   "triggers": 379,
-   "legacy_unmapped": 32
+   "version": "r06-4",
+   "run": "2026-10-26 22:07",
+   "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed；命中自先决条件/审批字段（terms.conditions_precedent/approvals）的 disclosed 语料升级为 disclosed_pending（原文载明尚需取得，不写已通过）；命中自 gaps/watch_points 等 analysis 层文本的不据措辞推断状态；原始分类/多渠道披露标 not_applicable（无审批状态含义）；否定与低风险语境不出条；旧片段「结果未披露」优先判 not_disclosed（不被「豁免」字样误判 not_applicable）",
+   "triggers": 385,
+   "legacy_unmapped": 29
   }
  },
  "events": [
@@ -218,9 +218,9 @@
      "issue": "境外上市证监会备案（含全流通）",
      "trigger_fact": "语料提及「尚需证监会备案与香港监管机构批准…」（字段：db.③法务关注）",
      "text": "语料提及「尚需证监会备案与香港监管机构批准…」（字段：db.③法务关注）",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述；命中字段为 analysis 层文本，不据其措辞推断处理状态"
     },
     {
      "issue_code": "I10.3",
@@ -980,9 +980,9 @@
      "issue": "ODI 发改委备案/核准",
      "trigger_fact": "语料提及「…跨境并购ODI程序尚未启动」（字段：db.③法务关注）",
      "text": "语料提及「…跨境并购ODI程序尚未启动」（字段：db.③法务关注）",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述；命中字段为 analysis 层文本，不据其措辞推断处理状态"
     },
     {
      "issue_code": "I3.3",
@@ -2207,11 +2207,11 @@
     {
      "issue_code": "I2.1",
      "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
-     "trigger_fact": "标的/项目位于澳大利亚（geo 字段），事项类型=并购；FIRB 审查在已核语料中有提及",
-     "text": "标的/项目位于澳大利亚（geo 字段），事项类型=并购；FIRB 审查在已核语料中有提及",
-     "status": "not_disclosed",
+     "trigger_fact": "语料提及「…投资方取得FIRB批准及ACCC相关审批…」（字段：terms.conditions_precedent）",
+     "text": "语料提及「…投资方取得FIRB批准及ACCC相关审批…」（字段：terms.conditions_precedent）",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "R-I2.1-geo：受审查法域+投资类事项→FIRB 核查点；机制名为法域常识标注"
+     "basis": "R-I2.1 命中词「FIRB」→ 东道国外资审查；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
     },
     {
      "issue_code": "I2.3",
@@ -2803,9 +2803,9 @@
      "issue": "ODI 发改委备案/核准",
      "trigger_fact": "语料提及「…发改委/商务部/外汇备案及埃及GAFI登记等审批办理状态未在文中载明」（字段：terms.approvals）",
      "text": "语料提及「…发改委/商务部/外汇备案及埃及GAFI登记等审批办理状态未在文中载明」（字段：terms.approvals）",
-     "status": "not_disclosed",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.approvals字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
     },
     {
      "issue_code": "I1.2",
@@ -3108,11 +3108,11 @@
     {
      "issue_code": "I1.1",
      "issue": "ODI 发改委备案/核准",
-     "trigger_fact": "语料提及「…浙江省发改委通知书…」（字段：db.③法务关注）",
-     "text": "语料提及「…浙江省发改委通知书…」（字段：db.③法务关注）",
-     "status": "not_disclosed",
+     "trigger_fact": "语料提及「…设立境外孙公司并完成注册＋ODI备案…」（字段：db.公告类型）",
+     "text": "语料提及「…设立境外孙公司并完成注册＋ODI备案…」（字段：db.公告类型）",
+     "status": "disclosed_cleared",
      "layer": "analysis",
-     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
      "issue_code": "I10.3",
@@ -3583,11 +3583,11 @@
     {
      "issue_code": "I13.3",
      "issue": "募集资金境外使用",
-     "trigger_fact": "语料提及「募集资金用途分项未在本公告披露…」（字段：watch_points）",
-     "text": "语料提及「募集资金用途分项未在本公告披露…」（字段：watch_points）",
+     "trigger_fact": "语料提及「…全球发售所得款项净额估计约29亿港元」（字段：impact）",
+     "text": "语料提及「…全球发售所得款项净额估计约29亿港元」（字段：impact）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I13.3 命中词「全球发售所得」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
      "issue_code": "I3.3",
@@ -3908,6 +3908,15 @@
      "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
     },
     {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "语料提及「…半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪」（字段：db.③法务关注）",
+     "text": "语料提及「…半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪」（字段：db.③法务关注）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.1 命中词「外资审查」→ 东道国外资审查；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+    },
+    {
      "issue_code": "I3.3",
      "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
      "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-29）",
@@ -4040,9 +4049,9 @@
      "issue": "境外上市证监会备案（含全流通）",
      "trigger_fact": "公告称将按中国证监会相关规则及时完成配售事项备案手续",
      "text": "公告称将按中国证监会相关规则及时完成配售事项备案手续",
-     "status": "disclosed_cleared",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「中国证监会」→ I1.5）；片段含完成类措辞（已获/已取得/已完成等），按片段原文表述判定"
+     "basis": "旧轮入库分析文本归码（命中词「中国证监会」→ I1.5）；片段含待办/进行中措辞（需批准/将按/择机/在审等），按片段原文表述判定"
     },
     {
      "issue_code": "I10.3",
@@ -4510,11 +4519,11 @@
     {
      "issue_code": "I1.1",
      "issue": "ODI 发改委备案/核准",
-     "trigger_fact": "语料提及「…浙江省商务厅/发改委…」（字段：db.③法务关注）",
-     "text": "语料提及「…浙江省商务厅/发改委…」（字段：db.③法务关注）",
-     "status": "not_disclosed",
+     "trigger_fact": "语料提及「已完成本次交易相关的境外投资备案及审批程序」（字段：sources.quotes）",
+     "text": "语料提及「已完成本次交易相关的境外投资备案及审批程序」（字段：sources.quotes）",
+     "status": "disclosed_cleared",
      "layer": "analysis",
-     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I1.1 命中词「境外投资备案」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
      "issue_code": "I1.2",
@@ -5825,9 +5834,9 @@
      "issue": "ODI 发改委备案/核准",
      "trigger_fact": "语料提及「…③中国对外投资监管审批：国家发改委…」（字段：terms.conditions_precedent）",
      "text": "语料提及「…③中国对外投资监管审批：国家发改委…」（字段：terms.conditions_precedent）",
-     "status": "not_disclosed",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
     },
     {
      "issue_code": "I1.1",
@@ -5841,20 +5850,29 @@
     {
      "issue_code": "I1.2",
      "issue": "商务部境外投资备案",
-     "trigger_fact": "语料提及「…国家发改委/商务部备案公示」（字段：gaps）",
-     "text": "语料提及「…国家发改委/商务部备案公示」（字段：gaps）",
-     "status": "not_disclosed",
+     "trigger_fact": "语料提及「…山东省商务厅…」（字段：terms.conditions_precedent）",
+     "text": "语料提及「…山东省商务厅…」（字段：terms.conditions_precedent）",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "R-I1.2 命中词「商务部备案」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I1.2 命中词「商务厅」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
     },
     {
      "issue_code": "I10.1",
      "issue": "先决条件与长停止日",
      "trigger_fact": "语料提及「…某些境外合并管制机构——均列为先决条件…」（字段：terms.approvals）",
      "text": "语料提及「…某些境外合并管制机构——均列为先决条件…」（字段：terms.approvals）",
-     "status": "not_disclosed",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.approvals字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
+     "text": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
+     "status": "disclosed_pending",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（命中词「达成或豁免」→ I10.1）；片段为先决条件达成/豁免期限（长停止日）安排，属已披露待履行条款"
     },
     {
      "issue_code": "I10.2",
@@ -5890,7 +5908,7 @@
      "text": "贷款人、担保与财务契约未披露",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「担保」→ I10.3）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+     "basis": "旧轮入库分析文本归码（命中词「担保」→ I10.3）；片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
     },
     {
      "issue_code": "I10.4",
@@ -5922,11 +5940,20 @@
     {
      "issue_code": "I2.1",
      "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
-     "trigger_fact": "标的/项目位于澳大利亚（geo 字段），事项类型=并购；FIRB 审查在已核语料中有提及",
-     "text": "标的/项目位于澳大利亚（geo 字段），事项类型=并购；FIRB 审查在已核语料中有提及",
+     "trigger_fact": "语料提及「…②FIRB批准…」（字段：terms.conditions_precedent）",
+     "text": "语料提及「…②FIRB批准…」（字段：terms.conditions_precedent）",
+     "status": "disclosed_pending",
+     "layer": "analysis",
+     "basis": "R-I2.1 命中词「FIRB」→ 东道国外资审查；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
+    },
+    {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
+     "text": "完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I2.1-geo：受审查法域+投资类事项→FIRB 核查点；机制名为法域常识标注"
+     "basis": "旧轮入库分析文本归码（命中词「FIRB」→ I2.1）；片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
     },
     {
      "issue_code": "I2.3",
@@ -6262,20 +6289,12 @@
    ],
    "legal_notes_unmapped": [
     {
-     "text": "完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
-     "basis": "hkex_12105020 P13先决条件清单；hkex_12354762全文无审批结果字样（2026-10-26逐字核对）"
-    },
-    {
      "text": "各项审批实际办理结果未披露",
      "basis": "hkex_12105020 P13–P14；完成公告未逐项确认，不能因交割完成倒推"
     },
     {
      "text": "实际审查过程与结果未披露",
      "basis": "hkex_12105020 P13先决条件清单"
-    },
-    {
-     "text": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
-     "basis": "hkex_12105020 P13–P14附录1条款摘要"
     },
     {
      "text": "首个触发年度结果待观察",
@@ -6327,9 +6346,9 @@
      "issue": "境外上市证监会备案（含全流通）",
      "trigger_fact": "语料提及「…已完成的证监会备案随终止失效…」（字段：db.③法务关注）",
      "text": "语料提及「…已完成的证监会备案随终止失效…」（字段：db.③法务关注）",
-     "status": "disclosed_cleared",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述；命中字段为 analysis 层文本，不据其措辞推断处理状态"
     },
     {
      "issue_code": "I13.2",
@@ -6485,11 +6504,11 @@
     {
      "issue_code": "I7.1",
      "issue": "关税/301/232/反倾销反补贴",
-     "trigger_fact": "语料提及「…欧洲反补贴关税…」（字段：watch_points）",
-     "text": "语料提及「…欧洲反补贴关税…」（字段：watch_points）",
+     "trigger_fact": "语料提及「…301辆…」（字段：scale）",
+     "text": "语料提及「…301辆…」（字段：scale）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I7.1 命中词「301」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -6892,11 +6911,11 @@
     {
      "issue_code": "I10.1",
      "issue": "先决条件与长停止日",
-     "trigger_fact": "语料提及「…应取得每项先决条件成就的书面证据…」（字段：practice_notes）",
-     "text": "语料提及「…应取得每项先决条件成就的书面证据…」（字段：practice_notes）",
+     "trigger_fact": "语料提及「…：购股协议全部交割条件已达成…」（字段：title_fact）",
+     "text": "语料提及「…：购股协议全部交割条件已达成…」（字段：title_fact）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I10.1 命中词「交割条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
      "issue_code": "I10.5",
@@ -6906,6 +6925,24 @@
      "status": "not_disclosed",
      "layer": "analysis",
      "basis": "R-I10.5 命中词「董事会席位」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+    },
+    {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "语料提及「…是否含德国AWV/欧盟外资审查等监管批准…」（字段：gaps）",
+     "text": "语料提及「…是否含德国AWV/欧盟外资审查等监管批准…」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.1 命中词「外资审查」→ 东道国外资审查；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+    },
+    {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "东道国外资审查（标的为欧洲上市公司，涉德国/欧盟外资审查可能）：本公告未提及任何审批事项，不能倒推审批完成或豁免",
+     "text": "东道国外资审查（标的为欧洲上市公司，涉德国/欧盟外资审查可能）：本公告未提及任何审批事项，不能倒推审批完成或豁免",
+     "status": "not_applicable",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（命中词「外资审查」→ I2.1）；片段含分类/豁免/否定性结论措辞（不构成/豁免/概无等），无审批状态含义"
     },
     {
      "issue_code": "I3.1",
@@ -7112,10 +7149,6 @@
     {
      "text": "具体条件清单（是否含监管批准）未载于本公告",
      "basis": "hkex_12365982 P1 明示全部交割条件达成；条件内容须回查前期公告及通函"
-    },
-    {
-     "text": "东道国外资审查（标的为欧洲上市公司，涉德国/欧盟外资审查可能）：本公告未提及任何审批事项，不能倒推审批完成或豁免",
-     "basis": "hkex_12365982 全文无审批字样（2026-10-26 逐字核对）"
     }
    ]
   },
@@ -8550,9 +8583,9 @@
      "issue": "H 股/D 股/GDR",
      "trigger_fact": "语料提及「…H股类别股东会审议通过特别授权回购不超过已发行D股股份总数30%的议案」（字段：terms.approvals）",
      "text": "语料提及「…H股类别股东会审议通过特别授权回购不超过已发行D股股份总数30%的议案」（字段：terms.approvals）",
-     "status": "not_disclosed",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.approvals字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
     },
     {
      "issue_code": "I3.3",
@@ -9387,11 +9420,11 @@
     {
      "issue_code": "I1.1",
      "issue": "ODI 发改委备案/核准",
-     "trigger_fact": "语料提及「广东发改委ODI备案已取得…」（字段：db.③法务关注）",
-     "text": "语料提及「广东发改委ODI备案已取得…」（字段：db.③法务关注）",
-     "status": "disclosed_cleared",
+     "trigger_fact": "语料提及「关于并购粤丰环保7.22%股权项目收到广东省发展和改革委员会《境外投资项目备案通知书》的公告」（字段：sources.file）",
+     "text": "语料提及「关于并购粤丰环保7.22%股权项目收到广东省发展和改革委员会《境外投资项目备案通知书》的公告」（字段：sources.file）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I1.1 命中词「境外投资项目」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
      "issue_code": "I1.2",
@@ -9699,7 +9732,7 @@
      "text": "融资与担保：票据为发行人直接发行的优先票据，公告未载明是否存在子公司担保或增信安排",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「担保」→ I10.3）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+     "basis": "旧轮入库分析文本归码（命中词「担保」→ I10.3）；片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
     },
     {
      "issue_code": "I10.4",
@@ -10142,9 +10175,9 @@
      "issue": "先决条件与长停止日",
      "trigger_fact": "语料提及「配售事项全部先决条件已达成…」（字段：terms.conditions_precedent）",
      "text": "语料提及「配售事项全部先决条件已达成…」（字段：terms.conditions_precedent）",
-     "status": "not_disclosed",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
     },
     {
      "issue_code": "I10.3",
@@ -10167,11 +10200,11 @@
     {
      "issue_code": "I13.3",
      "issue": "募集资金境外使用",
-     "trigger_fact": "语料提及「…对产能消化与募资使用效率的影响」（字段：watch_points）",
-     "text": "语料提及「…对产能消化与募资使用效率的影响」（字段：watch_points）",
+     "trigger_fact": "语料提及「配售所得款项总额约19.3978亿港元…」（字段：terms.payment）",
+     "text": "语料提及「配售所得款项总额约19.3978亿港元…」（字段：terms.payment）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I13.3 命中词「配售所得」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
      "issue_code": "I3.3",
@@ -10765,7 +10798,7 @@
      "text": "未披露最后期限日（long stop date）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「最后期限」→ I10.1）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+     "basis": "旧轮入库分析文本归码（命中词「最后期限」→ I10.1）；片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
     },
     {
      "issue_code": "I10.3",
@@ -10799,18 +10832,18 @@
      "issue": "商标与专利布局",
      "trigger_fact": "语料提及「马赫心科技现有财务数据与集团拟转让资产/知识产权的作价明细 150亿元投前估值的支撑依据无法独立验证 公司后续定期报告…」（字段：gaps）",
      "text": "语料提及「马赫心科技现有财务数据与集团拟转让资产/知识产权的作价明细 150亿元投前估值的支撑依据无法独立验证 公司后续定期报告…」（字段：gaps）",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I11.2 命中词「知识产权」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "R-I11.2 命中词「知识产权」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述；命中字段为 analysis 层文本，不据其措辞推断处理状态"
     },
     {
      "issue_code": "I12.1",
      "issue": "境外诉讼仲裁",
      "trigger_fact": "语料提及「投资者认购8项先决条件：无限制性法律/判决/禁令及未决诉讼仲裁…」（字段：terms.conditions_precedent）",
      "text": "语料提及「投资者认购8项先决条件：无限制性法律/判决/禁令及未决诉讼仲裁…」（字段：terms.conditions_precedent）",
-     "status": "not_disclosed",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "R-I12.1 命中词「诉讼」→ 境外诉讼仲裁；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+     "basis": "R-I12.1 命中词「诉讼」→ 境外诉讼仲裁；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；命中自terms.conditions_precedent字段：原文将批准列为须取得事项（尚需取得），办理结果未逐项确认，不写「已通过」"
     },
     {
      "issue_code": "I13.1",
@@ -11993,7 +12026,7 @@
      "text": "融资担保：公告未披露预付款保函、履约保函等担保安排",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「担保」→ I10.3）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+     "basis": "旧轮入库分析文本归码（命中词「担保」→ I10.3）；片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
     },
     {
      "issue_code": "I10.4",
@@ -12029,7 +12062,7 @@
      "text": "东道国准入：在尼日利亚、埃塞俄比亚承接工程涉及当地承包资质、劳工、税务登记等准入事项，公告未披露相关安排",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「承包资质」→ I2.2）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+     "basis": "旧轮入库分析文本归码（命中词「承包资质」→ I2.2）；片段明示结果/内容未披露或无法评估，按 not_disclosed，不推断"
     },
     {
      "issue_code": "I3.3",
@@ -12444,6 +12477,15 @@
      "status": "not_disclosed",
      "layer": "analysis",
      "basis": "旧轮入库分析文本归码（命中词「多地披露同步」→ I13.1）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+    },
+    {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "语料提及「澳洲FIRB外资审查与矿业审批…」（字段：db.③法务关注）",
+     "text": "语料提及「澳洲FIRB外资审查与矿业审批…」（字段：db.③法务关注）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.1 命中词「FIRB」→ 东道国外资审查；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
     },
     {
      "issue_code": "I2.3",
