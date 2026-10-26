@@ -21,6 +21,8 @@ STATUS_MAP = {"意向": "谈判中", "协议": "签约推进", "实施": "实施
 
 def stage_group(s):
     # 与人工监测口径一致：投产/运营为全文包含匹配，优先于实施前缀
+    if s.startswith("中标"):
+        return "中标"
     if s.startswith("变更"):
         return "变更"
     if "投产" in s or "运营" in s:

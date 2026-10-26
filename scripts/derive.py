@@ -7,7 +7,7 @@
   · 合规事项（按动作类型从法规模板选取，证据自动挂披露摘录；无证据则「待跟踪」）
   · 关系图谱节点边 / 披露变化 / 判断检验 / 项目日历 / 政策时间线（真实法规政策）
 """
-import re, json
+import re, json, os
 from collections import OrderedDict
 
 # ── 区域别名归一（仅命中别名表的计入，避免自由文本噪音） ──
@@ -423,11 +423,21 @@ def build_derived(db, cfg):
             add_edge("d", nid("project", pid), nid("file", r["_aid"]), "披露", r["披露日期与时间"])
     derived["graph"] = {"nodes": nodes, "edges": edges}
 
-    # 披露变化（同公司≥2份披露时逐字段比对）+ 判断检验
+    event_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), "state", "events.json")
+    event_sources = []
+    if os.path.exists(event_file):
+        with open(event_file, encoding="utf-8") as event_stream:
+            event_sources = [{s.get("doc_id") for s in e.get("sources", [])}
+                             for e in json.load(event_stream).get("events", [])]
+    # 披露变化：只比较同一事件的多份来源。
     for name, evs in comp.items():
         evs = sorted(evs, key=lambda x: x["披露日期与时间"])
         for i in range(1, len(evs)):
             a, b = evs[i - 1], evs[i]
+            # 同一公司不同事项不能作为前后变化；仅同一事件的来源允许比对。
+            same_event = any({a["_aid"], b["_aid"]} <= ids for ids in event_sources)
+            if not same_event:
+                continue
             items = []
             if a.get("阶段组") != b.get("阶段组"):
                 items.append({"field": "阶段", "before": a.get("阶段组"), "after": b.get("阶段组"),

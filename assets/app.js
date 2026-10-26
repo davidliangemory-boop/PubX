@@ -201,7 +201,7 @@
     var upd = { "新增": {}, "进展": {}, "重复": {}, "修正": {}, "失效": {} };
     EV.forEach(function (e) {
       (e.changelog || []).forEach(function (c) {
-        var inWin = bdDate ? c.date >= bdDate : c.date >= d7;
+        var inWin = bdDate ? (c.batch_id ? c.batch_id === todayB.id : c.date === bdDate) : c.date >= d7;
         if (inWin && upd[c.type]) {
           var slot = upd[c.type][e.event_id];
           if (!slot) slot = upd[c.type][e.event_id] = { e: e, date: c.date, notes: [] };
@@ -215,7 +215,7 @@
     updTypes.forEach(function (k) { updN[k] = Object.keys(upd[k]).length; });
     var updTotal = updTypes.reduce(function (a, k) { return a + updN[k]; }, 0);
     h += '<div class="panel"><div class="panel-h"><h2>本次更新带</h2><span class="note">'
-      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "，含批次日后的人工修正记录）；计数来自事件层 changelog，按事件去重（同一事件同类多条合并）；点击分类可展开到事件"
+      + (todayB ? "日批次 " + esc(todayB.id) + "（" + esc(bdDate) + (todayB.runs > 1 ? "，" + todayB.runs + " 轮合并" : "") + "；人工修正另列，不混入本日计数）；计数来自事件层 changelog，按事件去重（同一事件同类多条合并）；点击分类可展开到事件"
                 : "窗口 " + esc(d7 || "—") + " ~ " + esc(maxDate) + "；计数来自事件层 changelog，按事件去重") + '</span></div><div class="panel-b">'
       + '<div style="display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px">'
       + statCard(updN["新增"], "新增", "本批新入库事件") + statCard(updN["进展"], "进展", "阶段前移或新字段") + statCard(updN["重复"], "重复", "主键去重，不入库") + statCard(updN["修正"], "修正", "改记旧值留痕") + statCard(updN["失效"], "失效", "误收 / 作废，改记留痕") + "</div>"
@@ -231,6 +231,7 @@
         }).join("")
         : '<div class="empty">本批（' + esc(bdDate || (d7 + " ~ " + maxDate)) + "）扫描 " + (todayB && todayB.scanned != null ? todayB.scanned : "—") + " 条，未发现新增出海事件</div>")
       + "</div>";
+    h += '<div class="secnote">' + pill("修正", "warn") + ' 人工复核 D-20261026（独立于上方采集日批次）：<a href="#/event/E-028">红隼：FIRB结果【未披露】、分析层；首付摘录P1</a>；<a href="#/event/E-057">Q3：删除无出处的冶金煤占比及外部排名等断言</a>；<a href="#/event/E-055">精工：展示阶段统一为中标，修正主体代码为600496</a>。旧值、新值、依据见事件修订记录。</div>';
     // 回溯补入单列
     var bf = BD.filter(function (g) { return g.kind === "backfill"; });
     if (bf.length) {
