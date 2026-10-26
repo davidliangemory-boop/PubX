@@ -353,3 +353,11 @@ body.compact .trendgrid, body.compact .evgrid, body.compact .projgrid { padding:
   .searchov { padding-top: 40px; }
   .densbtn { display: none; }
 }
+
+/* R11: keep research columns readable and let evidence tables scroll locally. */
+.topic-comparison table { min-width: 1120px; }
+.topic-comparison th:first-child { min-width: 92px; }
+.topic-comparison td { vertical-align: top; line-height: 1.7; }
+.topic-comparison th:nth-child(4) { min-width: 168px; }
+.topic-comparison th:last-child { min-width: 120px; }
+.topic-evidence { margin-top: 8px; padding: 8px 12px; border-left: 2px solid var(--line); font-size: 12px; line-height: 1.8; }

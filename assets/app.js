@@ -1378,7 +1378,6 @@
         + "</div></div>";
     }
     var evsAsc = evs.slice().sort(function (a, b) { return a.firstDate < b.firstDate ? -1 : 1; });
-    var lb = B[0] || {};
     var h = '<div class="panel dhead"><div class="crumbs"><a href="#/cos">企业档案</a> / ' + esc(name) + "</div>"
       + "<h1>" + esc(shortCo(name)) + "</h1>"
       + '<div class="dtags">' + pill(evs.length + " 个事件", "solid") + pill("最新 " + evs[0].date, "blue")
@@ -1411,17 +1410,17 @@
         }).join("") + "</div></div>";
     }
 
-    /* ── ② 法律议题触发点：议题 → 触发事实 → 事件 → 出处（只列实际触发的，不适用项不展示） ── */
+    /* ── ② 法律议题触发点：议题 → 触发事实 → 事件 → 出处（保留未披露核查项，不适用项不展示） ── */
     var LSTAT = { disclosed_pending: ["已披露 · 办理中/待完成", "warn"], disclosed_cleared: ["已披露 · 已完成", "ok"], not_disclosed: ["未披露", ""], not_applicable: ["不适用", ""] };
     var lrows = [], lND = 0, lNA = 0;
     evs.forEach(function (x) {
       (x.e.legal_triggers || []).forEach(function (t) {
         if (t.status === "not_applicable") { lNA++; return; }
-        if (t.status === "not_disclosed") { lND++; return; }
+        if (t.status === "not_disclosed") lND++;
         lrows.push({ ev: x, t: t });
       });
     });
-    h += '<div class="panel"><div class="panel-h"><h2>法律议题触发点</h2><span class="note">规则引擎按议题码命中，状态判定与依据见各行 ' + layerBadge("analysis") + "；未披露 " + lND + " 条 · 不适用 " + lNA + " 条不逐行展示</span></div>"
+    h += '<div class="panel"><div class="panel-h"><h2>法律问题与待核查事项</h2><span class="note">规则引擎按议题码命中，状态判定与依据见各行 ' + layerBadge("analysis") + "；未披露 " + lND + " 条列为核查问题 · 不适用 " + lNA + " 条不逐行展示</span></div>"
       + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>议题</th><th>触发事实</th><th>状态</th><th>事件</th></tr></thead><tbody>'
       + (lrows.length ? lrows.map(function (r) {
         var st = LSTAT[r.t.status] || [r.t.status || "—", ""];
@@ -1429,7 +1428,7 @@
           + '<td style="font-size:12px">' + esc(r.t.trigger_fact || r.t.text || "—")
           + (r.t.basis ? '<div class="dim" style="font-size:11px;margin-top:2px">判定依据：' + esc(r.t.basis) + "</div>" : "") + "</td>"
           + "<td>" + pill(st[0], st[1]) + "</td>"
-          + '<td style="font-size:12px;white-space:nowrap"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + "</a></td></tr>";
+          + '<td style="font-size:12px;white-space:nowrap"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + "</a><br/>" + tpSrc(r.ev.e) + "</td></tr>";
       }).join("") : '<tr><td colspan="4" class="empty">无已披露处理状态的触发议题（命中均为未披露或不适用）</td></tr>')
       + "</tbody></table></div>"
       + '<div class="secnote">口径：议题码体系见 <a href="#/issues">法律议题库</a>；状态由入库规则按命中上下文判定（analysis），「已披露 · 已完成」须有原文结论文句支撑。</div></div>';
@@ -1455,33 +1454,33 @@
     /* ── ③ 事件链：只列标题+阶段+日期，链接到详情，不复制摘要 ── */
     h += '<div class="ph" style="margin-top:18px"><span class="phl" style="font-size:18px">事件链</span><span class="sub">按时间正序；只列事件标题+阶段+日期，摘要与金额见事件详情页，不在此复制</span></div>';
     h += '<div class="panel"><div class="panel-b">' + evsAsc.map(function (x) {
-      return '<div class="ev"><span class="pg">' + esc(x.firstDate || x.date) + '</span><span>' + pill(x.mt || "—") + ' <a href="#/event/' + x.id + '"><b>' + esc(x.title) + "</b></a></span>"
-        + '<span class="dim" style="margin-left:auto;white-space:nowrap">' + x.chans.map(function (c) { var m = CH_META[c]; return m ? m.short : c; }).join("/") + " · " + esc(x.stage || "—") + " · " + esc(x.status) + "</span></div>";
+      return '<div class="ev"><span class="pg">' + esc(x.firstDate || x.date) + '</span><span><a href="#/event/' + x.id + '"><b>' + esc(x.title) + "</b></a></span>"
+        + '<span class="dim">' + esc(x.stage || "—") + "</span></div>";
     }).join("") + "</div></div>";
 
     /* ── ④ 判断变更史：以 changelog 为记录源（映射规则见表注） ── */
-    var JMAP = { "新增": "建档", "进展": "维持", "修正": "修正", "重复": "维持", "失效": "推翻" };
+    var JMAP = { "新增": "建档", "进展": "待复核", "修正": "修正", "重复": "未新增判断", "失效": "待复核" };
     var jrows = [];
-    evs.forEach(function (x) { (x.e.changelog || []).forEach(function (c) { jrows.push({ date: c.date, ev: x, type: c.type, note: c.note || "" }); }); });
+    evs.forEach(function (x) { (x.e.changelog || []).forEach(function (c) { jrows.push({ date: c.date, ev: x, type: c.type, doc: c.doc_id, note: c.note || "" }); }); });
     jrows.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     h += '<div class="panel"><div class="panel-h"><h2>判断变更史</h2><span class="note">维持 / 修正 / 推翻 ＋理由 ' + layerBadge("analysis") + "</span></div>"
-      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>事件</th><th>结论</th><th>理由</th></tr></thead><tbody>'
+      + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>事件</th><th>判断状态</th><th>事实变更与复核依据</th></tr></thead><tbody>'
       + (jrows.length ? jrows.map(function (r) {
         return '<tr><td class="mono">' + esc(r.date || "—") + '</td><td style="font-size:12px"><a href="#/event/' + r.ev.id + '">' + esc(r.ev.id) + "</a></td>"
           + "<td>" + pill(JMAP[r.type] || r.type, r.type === "修正" ? "blue" : r.type === "失效" ? "warn" : "") + "</td>"
-          + '<td style="font-size:12.5px">' + esc(r.note || "—") + "</td></tr>";
+          + '<td style="font-size:12.5px">' + esc(r.note || "—") + "<br/>" + (r.doc ? docA(r.doc, 1) : tpSrc(r.ev.e)) + "</td></tr>";
       }).join("") : '<tr><td colspan="4" class="empty">无变更记录</td></tr>')
       + "</tbody></table></div>"
-      + '<div class="secnote">映射规则（系统分析）：本库未设独立于事实的「判断」实体，故以事件 changelog 代理——修正=字段被后文/复核更正（此前相关分析表述随之失效）；进展/重复=仅追加事实、未触动既有字段，记维持；失效=事件终止或撤回，记推翻。依据：events.json 各事件 changelog。</div></div>';
+      + '<div class="secnote">复核口径（analysis）：修正记录仅表示所述字段及相关分析已修正；进展、终止均需另核此前判断，不能自动记为维持或推翻；重复披露不产生新判断。尚无逐条记录旧判断、复核结论及理由的维持/推翻记录，不补造历史。依据为各行事实变更日志与原文。</div></div>';
 
     /* ── ⑤ 制裁筛查记录 ── */
     h += '<div class="panel"><div class="panel-h"><h2>制裁筛查记录</h2></div><div class="panel-b">'
       + '<div class="sec"><span class="sk">OFAC SDN 比对 ' + layerBadge("analysis") + '</span>'
-      + "最近批次 " + esc(lb.id || "—") + "：SDN 全量 " + esc(String((lb.per_source && lb.per_source["OFAC·SDN"] || {}).scanned || "—")) + " 条与观察名单词级比对，本主体 0 命中"
-      + (lb.note ? ' <span class="dim">（依据批次说明）</span>' : "") + "</div>"
+      + "本页只显示逐事件留存的筛查记录；缺少名单版本、主体识别依据或比对结果时记为未核查（unknown），不以批次扫描量推定本主体结果。同名不等于命中。"
+      + "</div>"
       + evs.map(function (x) {
         return '<div class="sec"><span class="sk"><a href="#/event/' + x.id + '">' + esc(x.id) + "</a></span>"
-          + (x.e.sanctions_screen ? esc(x.e.sanctions_screen.result || "—") + "（名单版本 " + esc(x.e.sanctions_screen.list_version || "—") + "）" : "sanctions_screen：null（未逐事件记录；以批次级比对为准）") + "</div>";
+          + (x.e.sanctions_screen ? esc(x.e.sanctions_screen.result || "—") + "（名单版本 " + esc(x.e.sanctions_screen.list_version || "—") + "）" : "未核查（unknown）：未留存逐事件筛查记录") + "</div>";
       }).join("")
       + '<div class="sec"><span class="sk">异常记录</span>' + ((DB.exceptions || []).length ? esc(String((DB.exceptions || []).length)) + " 条全局异常（见方法与来源）" : "无") + "</div>"
       + "</div></div>";
@@ -1493,8 +1492,8 @@
   function vTopics() {
     var h = '<div class="ph"><h1>专题研究</h1><span class="sub">本页回答：一类现象在库内案例中呈现什么结构、差异因何而来、可以下什么判断（及边界）</span></div>';
     h += '<div class="subnav wrap" style="margin-bottom:16px">'
-      + [["mining", "中资境外矿业并购"], ["ah", "A+H / 境外上市路径"], ["regions", "国家与产业"], ["supply", "供应链与产能"]].map(function (x) {
-        return '<a href="javascript:;" data-tpv="' + x[0] + '"' + (TPV.v === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
+      + [["mining", "中资境外矿产与配套电站投资"], ["ah", "A+H / 境外上市路径"], ["regions", "国家与产业"], ["supply", "供应链与产能"]].map(function (x) {
+        return '<a href="#/topics?view=' + x[0] + '" data-tpv="' + x[0] + '"' + (TPV.v === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
       }).join("") + "</div><div id=\"tpbody\"></div>";
     return h;
   }
@@ -1527,10 +1526,10 @@
       + '<div class="dim" style="font-size:12px">依据：' + basis + "</div>"
       + '<div class="dim" style="font-size:12px">适用边界：' + scope + "</div>"
       + '<div class="dim" style="font-size:12px">反例：' + cex + "</div>"
-      + (links ? '<div style="font-size:12px;margin-top:2px">关联：' + links + "</div>" : "") + "</div>";
+      + (links ? '<div style="font-size:12px;margin-top:2px">关联：' + links + "</div>" + '<div class="topic-evidence">原文核查：' + unique((links.match(/E-\d+/g) || [])).map(function (id) { var e = evById(id); return e ? evA(id) + "：" + tpSrc(e) : ""; }).join("<br/>") + "</div>" : "") + "</div>";
   }
   function tpTable(cols, rows) {
-    return '<div class="tbl-wrap"><table class="tbl"><thead><tr>' + cols.map(function (c) { return "<th>" + c + "</th>"; }).join("") + "</tr></thead><tbody>"
+    return '<div class="tbl-wrap topic-comparison" tabindex="0" aria-label="案例比较表，可横向滚动"><table class="tbl"><thead><tr>' + cols.map(function (c) { return "<th>" + c + "</th>"; }).join("") + "</tr></thead><tbody>"
       + rows.map(function (r) { return "<tr>" + r.map(function (c) { return '<td style="font-size:12px">' + c + "</td>"; }).join("") + "</tr>"; }).join("")
       + "</tbody></table></div>";
   }
@@ -1539,16 +1538,16 @@
       + items.map(function (i) { return "<li style=\"margin:3px 0\">" + i + "</li>"; }).join("") + "</ul></div></div>";
   }
 
-  /* ── 专题 a：中资境外矿业并购的结构与审查（E-028 红隼 / E-013 龙佰 / E-011 鸿富瀚） ── */
+  /* ── 专题 a：中资境外矿产与配套电站投资的结构与审查（E-028 红隼 / E-013 龙佰 / E-011 鸿富瀚） ── */
   function tpMining() {
     var e28 = evById("E-028"), e13 = evById("E-013"), e11 = evById("E-011");
     if (!e28 || !e13 || !e11) return '<div class="panel"><div class="empty">专题事件缺失（需 E-028/E-013/E-011 均在库）</div></div>';
-    var h = '<div class="panel"><div class="panel-h"><h2>中资境外矿业并购的结构与审查</h2><span class="note">3 案比较 · 数据逐格可经「来源」列回原文</span></div><div class="panel-b">'
+    var h = '<div class="panel"><div class="panel-h"><h2>中资境外矿产与配套电站投资的结构与审查</h2><span class="note">3 案 · 收录来源 2026-04-14～10-10 · 非全市场样本</span></div><div class="panel-b">'
       + '<div class="sec" style="display:block"><span class="sk">选题说明 ' + layerBadge("analysis") + '</span>'
-      + "原拟题「中资在澳矿业并购的结构与审查」，但库内在澳矿业并购仅 2 案（" + evA("E-028", "E-028 兖煤红隼") + "、" + evA("E-013", "E-013 龙佰矿砂") + "），不足 3 案下限；故扩展为「中资境外矿业并购」，纳入 " + evA("E-011", "E-011 鸿富瀚刚果（金）案") + " 作对照。扩展理由：三案同属境外矿业/矿区资产股权取得，收购主体层级、对价形式与审查披露差异构成比较轴。依据：事件库 matter_type=并购 且标的为矿业资产者仅此 3 案。适用边界：仅库内已核事件，非行业全貌。</div></div></div>";
+      + "原拟题「中资在澳矿业并购的结构与审查」，但库内在澳矿业并购仅 2 案（" + evA("E-028", "E-028 兖煤红隼") + "、" + evA("E-013", "E-013 龙佰矿砂") + "），不足 3 案下限；故扩展为「中资境外矿产与配套电站投资」，纳入 " + evA("E-011", "E-011 鸿富瀚刚果（金）案") + " 作对照。扩展理由：两案涉及矿产权益，一案涉及矿区配套电站项目公司股权，收购主体层级、对价形式与审查披露差异构成比较轴。依据：从事件库选取 E-028/E-013 矿产权益事件及 E-011 矿区配套电站事件，共 3 案；电站不计作矿产资源权益。适用边界：仅库内已核事件，非行业全貌。</div></div></div>";
     h += '<div class="panel"><div class="panel-h"><h2>比较表</h2><span class="note">除特别标注外各格为 disclosed（公司披露）；【未披露】=已核原文未载明</span></div>'
       + tpTable(["主体", "标的与地点", "结构", "金额", "阶段", "审查/备案", "融资", "来源"], [
-        [evA("E-028", "<b>兖矿能源</b>（经兖煤澳洲）"),
+        [evA("E-028", "兖矿能源（经兖煤澳洲）"),
          "红隼煤矿 80% 权益（经收购红隼集团 100% 股权间接取得）；澳大利亚昆士兰州鲍文盆地",
          "境外双重上市控股子公司兖煤澳洲（ASX:YAL/03668.HK）为收购方",
          "首付 18.5 亿美元＋最高 5.5 亿美元或有付款（煤价挂钩，交割后首五年）",
@@ -1556,49 +1555,49 @@
          "SPA 先决条件列明 ACCC、FIRB、国家发改委、山东省商务厅、市监总局及三井优先购买权（" + docA("hkex_12105020", 13) + "）；各审批实际通过情况未逐项公告",
          "兖煤澳洲可用现金＋五年期 12 亿美元银团收购贷款；另 2 亿美元营运资金融资",
          tpSrc(e28)],
-        [evA("E-013", "<b>龙佰集团</b>"),
+        [evA("E-013", "龙佰集团"),
          "Durack/Yandanooka 矿砂项目约 80% 权益（Image 全资子公司 Titon 持有）；西澳大利亚州北珀斯盆地",
          "上市主体或其指定子公司直接出资；卖方 Image Resources 为龙佰参股公司（经 Murray Zircon 17.76%＋Orient Zirconic 4.88% 合计持股 22.64%，第一大股东），构成关联交易",
          "出资总额约 16,000 万澳元（现金约 2,000 万＋机器设备等资产作价约 14,000 万）；对价及权益比例尚未最终确定",
          "2026-09-22 签条款清单 → 2026-10-08 修订（最终文件签署日延至 2026-10-31）；正式协议未签",
-         "FIRB 批准及 ACCC 相关审批为先决条件（条款清单签署日后 120 日内，修订后截止日不变）" + layerBadge("disclosed") + "；ODI/商务部备案：公告未提及【未披露】",
-         "现金＋自有机器设备作价出资；外部融资安排【未披露】",
+         "FIRB 批准及 ACCC 相关审批（如适用）为先决条件（条款清单签署日后 120 日内，修订后截止日不变）" + layerBadge("disclosed") + "；ODI/商务部备案：公告未提及【未披露】",
+         "自有或自筹资金及实物资产（" + docA("1225578713", 5) + "）；具体外部融资工具【未披露】",
          tpSrc(e13)],
-        [evA("E-011", "<b>鸿富瀚</b>"),
+        [evA("E-011", "鸿富瀚"),
          "COP 公司 73.99%（刚果（金）科米卡矿区电站项目公司），完成后并表",
          "收购格派 BVI 100%＋ECOSOLEIL 49%＋向格派 BVI 增资 5.2 亿元；中间持股平台位于香港/BVI，ECOSOLEIL 注册于刚果（金）；黄鸿旋（中国籍）为鼎鸿晟代持 ECOSOLEIL 49% 股权，另 51% 由刚果（金）公民 MANGI MWANZA SYLVIN 直接持有",
          "合计约 5.6 亿元（股权收购 2,050 万＋1,950 万＋增资 5.2 亿）；对价以评估值为定价参考：格派 BVI 全部权益评估 2,059.28 万元（资产基础法）、COP 收益法评估 7,900 万元（对应 24.99% 权益 1,974.21 万元），与两笔股权对价基本一致；5.2 亿元增资投向项目建设",
          "2026-09-23 董事会通过（意向；正式协议未签、审批未完成）",
          "境内外审批备案路径【未披露】；公告仅将「审批未完成」列为不确定性",
-         "【未披露】",
+         "公司自有及自筹资金；具体借款、币种与期限【未披露】（" + docA("1225579070", 1) + "）",
          tpSrc(e11)]
       ]) + "</div>";
     h += '<div class="panel"><div class="panel-h"><h2>解释（差异因何而来）</h2></div><div class="panel-b">'
       + '<div class="sec" style="display:block"><span class="sk">① 收购主体层级 ' + layerBadge("analysis") + '</span>'
-      + "交易规模越大越倾向境外平台＋境外融资：红隼案（首付 18.5 亿美元）由境外上市子公司收购并配套境外银团；龙佰案（16,000 万澳元）由上市主体/指定子公司直接出资；鸿富瀚案（约 5.6 亿元）经香港/BVI 持股平台。依据：三案持股链与资金来源字段对比。注意：三案标的所在国不同，规模与结构可能同时受东道国因素驱动，不能单独归因于规模。</div>"
-      + '<div class="sec" style="display:block"><span class="sk">② 对价形式 ' + layerBadge("disclosed") + '</span>'
+      + "三案分别呈现不同持股与资金结构：红隼案（首付 18.5 亿美元）由境外上市子公司收购并配套境外银团；龙佰案（16,000 万澳元）由上市主体/指定子公司直接出资；鸿富瀚案（约 5.6 亿元）经香港/BVI 持股平台。依据：三案持股链与资金来源字段对比。注意：三案标的所在国不同，规模与结构可能同时受东道国因素驱动，不能单独归因于规模。</div>"
+      + '<div class="sec" style="display:block"><span class="sk">② 对价形式 ' + layerBadge("analysis") + '</span>'
       + "在产矿（红隼）＝现金首付＋煤价挂钩或有对价；前期矿砂项目（龙佰）＝现金＋设备作价，降低现金支出；意向电站项目（鸿富瀚）＝小额股权收购＋大额增资进入。或有对价在库内仅出现于已交割案例。</div>"
       + '<div class="sec" style="display:block"><span class="sk">③ 审查披露 ' + layerBadge("analysis") + '</span>'
-      + "澳洲两案均把 FIRB/ACCC 写入先决条件（红隼 SPA 摘要 " + docA("hkex_12105020", 13) + "、龙佰条款清单 " + docA("1225578713", 4) + "）；刚果（金）案未披露东道国外资审查安排——未披露不等于无审查义务。依据：E-028/E-013 terms.conditions_precedent；E-011 公告风险段。</div>"
+      + "澳洲两案均把 FIRB/ACCC 写入先决条件（龙佰 ACCC 限如适用）（红隼 SPA 摘要 " + docA("hkex_12105020", 13) + "、龙佰条款清单 " + docA("1225578713", 4) + "）；刚果（金）案未披露东道国外资审查安排——未披露不等于无审查义务。依据：E-028/E-013 terms.conditions_precedent；E-011 公告风险段。</div>"
       + "</div></div>";
     h += '<div class="panel"><div class="panel-h"><h2>判断</h2><span class="note">均为系统分析（analysis），带依据与适用边界</span></div><div class="panel-b">'
       + tpJudge("1",
-        "库内三案中，仅单笔最大交易采用「境外上市子公司＋境外银团」结构；亿元级以下交易由上市主体直接或经离岸小平台操作。",
+        "核查应把收购主体、持股平台与资金来源分列：红隼已披露境外银团；龙佰披露现金及设备作价；鸿富瀚披露自有及自筹资金，尚不能据此确认具体融资工具。",
         evA("E-028") + " 与 " + evA("E-013") + "、" + evA("E-011") + " 的持股链、scale（资金来源）字段对比。",
-        "样本仅 3 案、均为 2026 年 9–10 月披露，不得外推为行业惯例；结构选择还受卖方要求、税务与上市地规则影响，本案库内均无披露。",
-        "龙佰 16,000 万澳元交易未使用境外融资平台——规模并非唯一决定因素（本专题内即存在反例）。",
+        "样本仅 3 案、来源为 2026 年 4–10 月披露，不得外推为行业惯例；结构选择还受卖方要求、税务与上市地规则影响，本案库内均无披露。",
+        "龙佰允许指定子公司投资，且披露自有或自筹资金；这构成对「未披露银团就等于无境外平台或融资」推断的反证。",
         evA("E-028") + " " + evA("E-013") + " " + evA("E-011"))
       + tpJudge("2",
-        "对价/支付设计与标的成熟度同向：在产资产出现或有对价，前期项目以实物作价，意向项目以增资进入。",
+        "三案应分别跟踪煤价触发、设备作价交付和增资用途，不能只比较名义总金额；它们分别改变后续付款、非现金履约与建设资金投入的核查重点。",
         "三案 scale 与 terms 字段：红隼或有付款挂钩 PLVHA00 指数（" + docA("hkex_12105020", 2) + "），触发门槛 225 美元/吨＋30% 收入分成（" + docA("hkex_12105020", 3) + "）；龙佰设备作价 14,000 万澳元（" + docA("1225578713", 2) + "）；鸿富瀚增资 5.2 亿元（" + docA("1225579070", 2) + "）。",
         "样本 3 案；或有对价也可能由买卖双方估值分歧驱动而非成熟度，库内无证据区分两种动因。",
         "库内暂无。",
         evA("E-028") + " " + evA("E-013") + " " + evA("E-011"))
       + tpJudge("3",
-        "审批信息披露完整度随交易阶段提高：已交割案披露完整先决条件清单（红隼），条款清单案披露审批种类与期限（龙佰），意向案仅提示审批不确定（鸿富瀚）。",
+        "审批清单、办理状态和批准日期应分列核查：红隼签约公告已有先决条件清单，交割公告未逐项载明批准日期；龙佰列明 FIRB 与 ACCC（如适用）；鸿富瀚仅载境内外备案审批不确定性。",
         "E-028 terms.conditions_precedent（六项先决条件）vs E-013 条款清单审批时限 vs E-011 公告仅列不确定性。",
         "披露口径受上市规则约束（HKEX 须予披露交易 vs 巨潮对外投资公告模板不同），完整度差异部分是规则差异而非交易差异；且不得由「已完成交割」倒推各项审批的实际通过时间。",
-        "库内暂无（三案与规律同向）。",
+        "红隼的审批清单来自 4 月签约公告，并非 10 月交割才披露；不能据此归纳披露随阶段变得完整的规律。",
         evA("E-028") + " " + evA("E-013") + " " + evA("E-011"))
       + "</div></div>";
     h += tpMissing([
@@ -1622,10 +1621,10 @@
     var refi = done.filter(function (e) { return /配售|增发/.test((e.title_fact || {}).text || ""); });
     var h = '<div class="panel"><div class="panel-h"><h2>A+H / 境外上市路径</h2><span class="note">库内 H 股相关事件 ' + (act.length + done.length + term.length) + " 宗：推进中 " + act.length + " · 已完成 " + done.length + "（含配售/再融资 " + refi.length + " 宗）· 终止 " + term.length + "（动态计数，口径=标题/类型含「H股」）</span></div><div class='panel-b'>"
       + '<div class="sec" style="display:block"><span class="sk">样本与口径 ' + layerBadge("analysis") + '</span>'
-      + "本专题取 5 宗代表案例（IPO 完成 3 宗、已上市后配售＋可转债 1 宗、终止 1 宗）做逐格比较；判断部分的分布计数由事件库实时统计。比较仅覆盖库内已核事件，非全市场统计；金额、日期可经「来源」列回原文。</div></div></div>";
+      + "本专题取 5 宗代表案例（IPO 完成 3 宗、已上市后配售＋可转债 1 宗、终止 1 宗）做逐格比较；判断部分的分布计数由事件库实时统计。比较来源覆盖 2026-09-21～10-15，库内分布计数按当前入库状态；非全市场统计；金额、日期可经「来源」列回原文。</div></div></div>";
     h += '<div class="panel"><div class="panel-h"><h2>比较表</h2><span class="note">除特别标注外各格为 disclosed（公司披露）；【未披露】=已核收录披露未载明</span></div>'
       + tpTable(["主体", "地点", "结构", "金额", "阶段", "审查/备案", "融资", "来源"], [
-        [evA("E-018", "<b>传音控股</b>"),
+        [evA("E-018", "传音控股"),
          "中国香港（联交所主板，代号 2636）",
          "A 股科创板公司直接发行 H 股，无中间发行 SPV；控股股东持股 46.71%→43.44%（超配悉数行使为 42.99%）",
          "全球发售 86,648,300 股＠35.30 港元（香港公开发售 10%＋国际发售 90%）",
@@ -1633,7 +1632,7 @@
          "中国证监会备案通知书（国合函〔2026〕1847 号）2026-08-07 取得；联交所上市聆讯 2026-09-17 " + layerBadge("disclosed"),
          "净额约 29 亿港元（超配前）",
          tpSrc(evs[0])],
-        [evA("E-010", "<b>星环科技</b>"),
+        [evA("E-010", "星环科技"),
          "中国香港（代号 06727）",
          "A 股公司直接发行 H 股；实控人及一致行动人持股 22.42%→20.10%；香港公开发售 20%＋国际发售 80%",
          "发售价 49.00 港元/股",
@@ -1641,7 +1640,7 @@
          "本库仅收录挂牌节点；备案取得情况未在收录披露中载明【未披露】",
          "净筹约 6.3 亿港元",
          tpSrc(evs[1])],
-        [evA("E-019", "<b>罗博特科</b>"),
+        [evA("E-019", "罗博特科"),
          "中国香港（代号 03757）",
          "香港公开发售 10%＋国际发售 90%",
          "发售价 436.00 港元/股",
@@ -1649,7 +1648,7 @@
          "本库仅收录挂牌节点；备案取得情况未在收录披露中载明【未披露】",
          "净筹约 49.61 亿港元",
          tpSrc(evs[2])],
-        [evA("E-047", "<b>剑桥科技</b>"),
+        [evA("E-047", "剑桥科技"),
          "中国香港（H 股配售）；奥地利 Vienna MTF（债券上市）",
          "已上市 H 股公司：配售新 H 股＋发行可转债；控股股东及一致行动人持股 9.22%→8.78%（被动稀释，未参与发行）",
          "配售 18,446,000 股＠105.16 港元；可转债本金人民币 39.6 亿元，初步转换价 128.82 港元",
@@ -1657,7 +1656,7 @@
          "中国证监会备案为交割后义务，公告时「尚待随后完成」 " + layerBadge("disclosed"),
          "配售净额约 19.2984 亿港元＋债券认购净额约 46.0552 亿港元",
          tpSrc(evs[3])],
-        [evA("E-029", "<b>博瑞医药</b>"),
+        [evA("E-029", "博瑞医药"),
          "中国香港（拟）",
          "A 股公司筹划 H 股发行，后终止",
          "【未披露】（发行方案未及披露）",
@@ -1668,7 +1667,7 @@
       ]) + "</div>";
     h += '<div class="panel"><div class="panel-h"><h2>解释（差异因何而来）</h2></div><div class="panel-b">'
       + '<div class="sec" style="display:block"><span class="sk">① 路径节点序列 ' + layerBadge("disclosed") + " " + layerBadge("analysis") + '</span>'
-      + "传音一案呈现完整四节点「递表→证监会备案→聆讯→挂牌」（disclosed，见其阶段链）；库内其余完成案仅收录挂牌节点，前置节点未在本库留痕——这反映本库采集以结果公告为主（analysis），并非公司未经历该流程。</div>"
+      + "传音一案呈现完整四节点「递表→证监会备案→聆讯→挂牌」（disclosed，见其阶段链）；本比较表其余两宗 IPO 完成案仅收录挂牌节点，前置节点未在本库留痕——这反映本库采集以结果公告为主（analysis），并非公司未经历该流程。</div>"
       + '<div class="sec" style="display:block"><span class="sk">② 备案时点差异 ' + layerBadge("disclosed") + '</span>'
       + "传音于挂牌前约两个月取得备案通知书（2026-08-07）；剑桥科技 H 股配售则公告备案「尚待随后完成」（交割后义务）。差异与发行类型（首次发行 vs 已上市后再融资）同现；规则层面的原因本库无收录来源，不断言。</div>"
       + '<div class="sec" style="display:block"><span class="sk">③ 定价与净筹 ' + layerBadge("analysis") + '</span>'
@@ -1676,7 +1675,7 @@
       + "</div></div>";
     h += '<div class="panel"><div class="panel-h"><h2>判断</h2><span class="note">均为系统分析（analysis），带依据与适用边界</span></div><div class="panel-b">'
       + tpJudge("1",
-        "本库对 H 股事件的过程节点覆盖不均：仅传音一案具备递表/备案/聆讯/挂牌全链，其余完成案（星环、罗博特科等）只有挂牌节点。",
+        "本比较表中 3 宗 IPO 完成案的过程节点覆盖不均：传音具备递表/备案/聆讯/挂牌链，星环、罗博特科仅收录挂牌节点。",
         "各案 stage_chain 节点数对比：传音 4 节点（含 2026-08-07 备案），星环/罗博特科各 1 节点（挂牌）。",
         "这是采集口径结论（巨潮关键词命中偏结果公告），不是公司披露完整性结论；不得用于推断其他公司「未备案」。",
         "剑桥科技虽非 IPO，反而在公告中明示备案状态——过程信息的有无取决于公告类型而非上市进度。",
@@ -1685,13 +1684,13 @@
         "证监会备案的履行时点在库内两种并存：挂牌前取得（传音）与交割后补行（剑桥科技配售）。核查 H 股公司备案状态时不能以「已挂牌/已交割」推定备案完成。",
         evA("E-018") + " stage_chain 2026-08-07 备案节点（" + docA("1225584815", 1) + "）vs " + evA("E-047") + " 2026-10-15 节点「中国证监会备案尚待随后完成（交割后义务）」（" + docA("1225605853", 2) + "）。",
         "仅 2 案对比；首次发行与配售的备案规则差异未在本库收录来源中说明，结论限于核查操作提示。",
-        "无——两案即库内全部已披露备案时点的样本。",
+        "剑桥的交割后备案表述本身即为「交割必然代表备案已完成」的反例；不得推广为所有再融资均可交割后备案。",
         evA("E-018") + " " + evA("E-047"))
       + tpJudge("3",
         "推进中的 H 股项目不应默认完成：库内推进中/意向 " + act.length + " 宗与终止 " + term.length + " 宗（博瑞医药，董事会授权范围内终止）并存。",
         "事件库 H 股相关事件状态实时分布：活跃 " + act.length + " / 完成 " + done.length + " / 终止 " + term.length + "。",
         "终止原因未披露，不能归纳终止诱因；分布计数为本库收录口径，非全市场。",
-        "2026 年 9 月密集完成（星环 09-21、罗博特科/彤程/景旺 09-29）显示同期完成案例集中——终止是个案而非趋势。",
+        "2026 年 9 月密集完成（星环 09-21、罗博特科/彤程/景旺 09-29）显示同期完成案例集中——这些结果不同的案例说明完成与终止并存；非连续全市场样本，不能判断趋势。",
         evA("E-029") + ' <a href="#/events?q=' + encodeURIComponent("H股") + '">事件库筛选「H股」→</a>')
       + "</div></div>";
     h += tpMissing([
@@ -1812,7 +1811,7 @@
     if (AB.tab === "batches") {
       var BD = DB.batches_daily || [];
       var list = BD.length ? BD : B;
-      box.innerHTML = (BD.length ? '<div class="note" style="margin-bottom:12px">日批次视图：同一自然日多轮运行合并为 D-YYYYMMDD（runs 记轮数）；回溯补入单列 B-YYYYMMDD。2026-10-22 前为每 2 小时一轮的旧批次（B-YYYYMMDD-HHMM），逐轮结论按轮次号原文保留于下方（不改写历史记录）；逐轮扫描计数见「更新记录」。</div>' : "")
+      box.innerHTML = (BD.length ? '<div class="note" style="margin-bottom:12px">日批次视图：同一自然日多轮运行合并为 D-YYYYMMDD（runs 记轮数）；回溯补入单列 B-YYYYMMDD。2026-10-22 前为旧时段批次（B-YYYYMMDD-HHMM），逐轮结论按轮次号原文保留于下方（不改写历史记录）；逐轮扫描计数见「更新记录」。</div>' : "")
         + list.map(function (b) {
         var ps = Object.keys(b.per_source || {}).map(function (k) {
           var p = b.per_source[k]; return esc(k) + "：扫 " + p.scanned + " / 收 " + p.kept + " / 剔 " + p.excluded + (p.failed ? " / 败 " + p.failed : "");
