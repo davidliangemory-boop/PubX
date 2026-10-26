@@ -1,0 +1,12 @@
+{
+  "task": "history_backfill_30d_rolling",
+  "target_floor": "2020-01-01",
+  "window_days": 30,
+  "sources": ["ashare_new_filings", "hk_new_filings", "us_new_filings", "ofac_export_control", "holdings_watchlist"],
+  "parallel_with": ["daily_update"],
+  "next_window_start": "2026-09-26",
+  "next_window_end": "2026-10-25",
+  "completed_windows": [],
+  "status": "pending_first_run",
+  "updated_at": "2026-10-26 21:19:30 CST"
+}
