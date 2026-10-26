@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595669",
+  "candidate": {
+    "announcementId": "1225595669",
+    "time": 1791388800000,
+    "secCode": "603228",
+    "secName": "景旺电子",
+    "title": "H股公告-截至二零二六年九月三十日止股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595669.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595669.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "8743e1b2560b84ef28fbc933df0e51e6bc32f68938ca192d6fbd16d786e23043"
+}

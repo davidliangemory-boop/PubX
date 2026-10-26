@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587836",
+  "candidate": {
+    "announcementId": "1225587836",
+    "time": 1790697600000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "《传音控股董事会专门委员会工作细则（草案）》（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-09-30/1225587836.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587836.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b00ac2e8bf8555a2f7c902a319da8bb9bf42fcc57e35fd8fd4e9c653de81aa68"
+}

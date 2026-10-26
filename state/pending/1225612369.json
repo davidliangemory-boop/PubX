@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612369",
+  "candidate": {
+    "announcementId": "1225612369",
+    "time": 1792512000000,
+    "secCode": "601988",
+    "secName": "中国银行",
+    "title": "H股公告-董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-21/1225612369.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612369.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "cb42e2691830e170c8f15084bff6e1cec35158cba1a385b18102388044bc9151"
+}

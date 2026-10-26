@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590541",
+  "candidate": {
+    "announcementId": "1225590541",
+    "time": 1790784000000,
+    "secCode": "688052",
+    "secName": "纳芯微",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225590541.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590541.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "43cebf6b1dc2a771ddf8f0b917d969c9c78386499d700a67613aeabc4aa988e2"
+}

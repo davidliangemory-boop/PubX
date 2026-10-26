@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225620956",
+  "candidate": {
+    "announcementId": "1225620956",
+    "time": 1792771200000,
+    "secCode": "601988",
+    "secName": "中国银行",
+    "title": "H股公告-中国银行股份有限公司400亿美元中期票据计划下通过迪拜分行发行的票据在香港联合交易所上市之通告",
+    "adjunctUrl": "finalpage/2026-10-24/1225620956.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225620956.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "50f83bb3e2444ed83a0553d53fd8b0328692c76c5a0ed9e80fe263b3f71edfc9"
+}

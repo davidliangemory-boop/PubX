@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225619286",
+  "candidate": {
+    "announcementId": "1225619286",
+    "time": 1792771200000,
+    "secCode": "002779",
+    "secName": "中坚科技",
+    "title": "关于终止发行H股股票并于香港联合交易所有限公司主板上市的公告",
+    "adjunctUrl": "finalpage/2026-10-24/1225619286.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225619286.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "459d1e4de271779643d538844c758ce3658c11c6d29be595e40fa9641edeed44"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596003",
+  "candidate": {
+    "announcementId": "1225596003",
+    "time": 1791417160000,
+    "secCode": "001389",
+    "secName": "广合科技",
+    "title": "H股公告-截至二零二六年九月三十日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225596003.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596003.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5f0827264d93819fdb7883f86f0536350f876c6965257d085b1113a842990ff8"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605785",
+  "candidate": {
+    "announcementId": "1225605785",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "关于聘请H股发行及上市审计机构的公告",
+    "adjunctUrl": "finalpage/2026-10-15/1225605785.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605785.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2858daf5014340d87b1c08ba401e9e2ed571a621e9484187e124c905f877f95c"
+}

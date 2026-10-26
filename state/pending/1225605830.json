@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605830",
+  "candidate": {
+    "announcementId": "1225605830",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "关于制定与修订于H股发行上市后适用的《公司章程》及部分管理、内部治理制度的公告",
+    "adjunctUrl": "finalpage/2026-10-15/1225605830.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605830.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e9b7c1fa9024afad7e87eea8ea722ad03485a5724d4a00148240bc1aa91eec2b"
+}

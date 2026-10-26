@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225601989",
+  "candidate": {
+    "announcementId": "1225601989",
+    "time": 1791820800000,
+    "secCode": "688505",
+    "secName": "复旦张江",
+    "title": "复旦张江H股公告",
+    "adjunctUrl": "finalpage/2026-10-13/1225601989.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225601989.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3373410e36af255d9606c98f850e8bfab7d5171aa0bfbb05359e57e05fda6307"
+}

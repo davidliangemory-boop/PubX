@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225582675",
+  "candidate": {
+    "announcementId": "1225582675",
+    "time": 1790524800000,
+    "secCode": "000039",
+    "secName": "中集集团",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-09-28/1225582675.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225582675.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "a5466752bb70e6589c3c06a010c58fed277d8f471fe9280792871c37a29d57ac"
+}

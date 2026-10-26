@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225601554",
+  "candidate": {
+    "announcementId": "1225601554",
+    "time": 1791820800000,
+    "secCode": "603345",
+    "secName": "安井食品",
+    "title": "H股公告（董事会会议召开日期）",
+    "adjunctUrl": "finalpage/2026-10-13/1225601554.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225601554.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "441e3aa5c784f1317d8f81a945d853af04bd6db09ae426674e27014202693ac8"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225597828",
+  "candidate": {
+    "announcementId": "1225597828",
+    "time": 1791475200000,
+    "secCode": "002050",
+    "secName": "三花智控",
+    "title": "H股公告-截至2026年9月30日止之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-09/1225597828.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225597828.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e261b10c9b29515154d75c00868e71bbea1c6d1a8c71359ea0672038dd8007d2"
+}

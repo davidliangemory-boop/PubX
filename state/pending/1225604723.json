@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225604723",
+  "candidate": {
+    "announcementId": "1225604723",
+    "time": 1791993600000,
+    "secCode": "001236",
+    "secName": "弘业期货",
+    "title": "H股公告-董事会会议通知",
+    "adjunctUrl": "finalpage/2026-10-15/1225604723.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225604723.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "63acdd42b89a93cdff9b19119059381a3bc5d2ab259809c6a39a45ec6972ffe1"
+}

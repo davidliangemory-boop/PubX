@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225620894",
+  "candidate": {
+    "announcementId": "1225620894",
+    "time": 1792771200000,
+    "secCode": "603993",
+    "secName": "洛阳钼业",
+    "title": "洛阳钼业H股市场公告",
+    "adjunctUrl": "finalpage/2026-10-24/1225620894.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225620894.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "db00109c446174ab70c67e872c0056a85b7ece5a44963231a266de739b617807"
+}

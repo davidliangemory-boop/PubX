@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225597006",
+  "candidate": {
+    "announcementId": "1225597006",
+    "time": 1791475200000,
+    "secCode": "600958",
+    "secName": "东方证券",
+    "title": "东方证券：H股公告（2026年9月证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-09/1225597006.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225597006.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b3d9417a356af191f97fc0fc676fb6b83f0f7a0ff58360bfa547e7e470d8534b"
+}

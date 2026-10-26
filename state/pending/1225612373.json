@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612373",
+  "candidate": {
+    "announcementId": "1225612373",
+    "time": 1792512000000,
+    "secCode": "600016",
+    "secName": "民生银行",
+    "title": "H股公告-董事会会议召开日期的公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225612373.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612373.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4587eb4c5e24654c89f3a01ca8a347e7a1642dbcaa82742efa341739111c1f38"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596000",
+  "candidate": {
+    "announcementId": "1225596000",
+    "time": 1791417269000,
+    "secCode": "300364",
+    "secName": "中文在线",
+    "title": "关于终止发行H股股票并于香港联合交易所有限公司上市的公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225596000.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596000.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "636a8052d947a4f4235007d09908be5a935c25cdc8b8e6f632e5b29c793a1c53"
+}

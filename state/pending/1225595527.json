@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595527",
+  "candidate": {
+    "announcementId": "1225595527",
+    "time": 1791388800000,
+    "secCode": "601888",
+    "secName": "中国中免",
+    "title": "H股公告-月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595527.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595527.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "fa0e1eed4410e0908396df981b3e0cb0c7cefb7e201c4e474c43f5c0206b9276"
+}

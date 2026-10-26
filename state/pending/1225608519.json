@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608519",
+  "candidate": {
+    "announcementId": "1225608519",
+    "time": 1792166400000,
+    "secCode": "601991",
+    "secName": "大唐发电",
+    "title": "大唐发电H股公告",
+    "adjunctUrl": "finalpage/2026-10-17/1225608519.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608519.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "fc4e34e483cf67e9f407a0cbc7466970a7b8b755d749c4c65aef65e4b1efe6e7"
+}

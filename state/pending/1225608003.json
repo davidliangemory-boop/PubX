@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608003",
+  "candidate": {
+    "announcementId": "1225608003",
+    "time": 1792138571000,
+    "secCode": "300638",
+    "secName": "广和通",
+    "title": "H股公告-董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225608003.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608003.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "0214ebe74752e9ec2b713cc89ab9dd0d7a49b56e027bcf4ebe34a8c2e89af63d"
+}

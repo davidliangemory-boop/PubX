@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225601015",
+  "candidate": {
+    "announcementId": "1225601015",
+    "time": 1791820800000,
+    "secCode": "600196",
+    "secName": "复星医药",
+    "title": "复星医药H股公告-董事会会议日期",
+    "adjunctUrl": "finalpage/2026-10-13/1225601015.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225601015.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f9af253e5cf973badb2da50b2ab87738cc66e93f83ab293c9d139bf3b38734d6"
+}

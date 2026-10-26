@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595395",
+  "candidate": {
+    "announcementId": "1225595395",
+    "time": 1791388800000,
+    "secCode": "000898",
+    "secName": "鞍钢<em>股</em>份",
+    "title": "H股公告-截至二零二六年九月三十日止股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595395.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595395.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "0b1b56b73b0646636fdb7fa18736a087e9dc86119ae02dd7d42a40d37ca1679a"
+}

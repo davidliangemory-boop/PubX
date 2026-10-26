@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225610639",
+  "candidate": {
+    "announcementId": "1225610639",
+    "time": 1792425600000,
+    "secCode": "600031",
+    "secName": "三一重工",
+    "title": "《三一重工股份有限公司持续关连交易公告订立三一国际综合零件代理服务框架协议及订立经修订三一国际售后服务框架协议》（H股）",
+    "adjunctUrl": "finalpage/2026-10-20/1225610639.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225610639.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b2385c3e09533099687d529557f0be28c73ed8ac1a2f66f613e8eda90d5087f7"
+}

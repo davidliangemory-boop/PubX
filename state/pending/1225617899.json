@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225617899",
+  "candidate": {
+    "announcementId": "1225617899",
+    "time": 1792771200000,
+    "secCode": "601811",
+    "secName": "新华文轩",
+    "title": "新华文轩H股公告",
+    "adjunctUrl": "finalpage/2026-10-24/1225617899.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225617899.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "438e8b8de752e8a4425a2782483b3956d4c84d7c46bf7d3cbd1d7b34cfd60a9c"
+}

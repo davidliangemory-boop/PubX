@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595313",
+  "candidate": {
+    "announcementId": "1225595313",
+    "time": 1791388800000,
+    "secCode": "603127",
+    "secName": "昭衍新药",
+    "title": "H股公告：9月月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595313.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595313.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7b8d1b154b7699f38c3cedae8b08c1b9727ba71b294490f483c8238e7248325a"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225607344",
+  "candidate": {
+    "announcementId": "1225607344",
+    "time": 1792080000000,
+    "secCode": "600029",
+    "secName": "南方航空",
+    "title": "南方航空H股公告-董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225607344.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225607344.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "73b813ad2bbdb720f6111aeec4f451abdce03e7a3d9785c1db5ed6bb1a34fdb6"
+}

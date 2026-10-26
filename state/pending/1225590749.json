@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590749",
+  "candidate": {
+    "announcementId": "1225590749",
+    "time": 1790784000000,
+    "secCode": "600801",
+    "secName": "华新建材",
+    "title": "关于提请股东会给予董事会增发H股股份之一般性授权的提示性公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225590749.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590749.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2bf3d3a6f4d0f782b1367713ad115e39af0c1aa024fec19ad92ba875ae9aa036"
+}

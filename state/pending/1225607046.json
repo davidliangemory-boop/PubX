@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225607046",
+  "candidate": {
+    "announcementId": "1225607046",
+    "time": 1792060829000,
+    "secCode": "300408",
+    "secName": "三环集团",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-15/1225607046.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225607046.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "8c3558fc564b11083ccfed82ad2cc5cf54398437bd39f6d69e5736b370980ae0"
+}

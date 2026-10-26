@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605270",
+  "candidate": {
+    "announcementId": "1225605270",
+    "time": 1791993600000,
+    "secCode": "603228",
+    "secName": "景旺电子",
+    "title": "H股公告-董事会会议通知",
+    "adjunctUrl": "finalpage/2026-10-15/1225605270.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605270.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "a2b13a453b40528a0423caf82f841e6e3dc35402c944aee21530feabda5ce2a3"
+}

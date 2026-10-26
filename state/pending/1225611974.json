@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225611974",
+  "candidate": {
+    "announcementId": "1225611974",
+    "time": 1792512000000,
+    "secCode": "601628",
+    "secName": "中国人寿",
+    "title": "中国人寿H股公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225611974.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225611974.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "0a625b3aa0e39b55b3f391c1e970076f40112c0cff72266e023b7b655a99705a"
+}

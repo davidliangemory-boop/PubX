@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591493",
+  "candidate": {
+    "announcementId": "1225591493",
+    "time": 1790784000000,
+    "secCode": "601127",
+    "secName": "赛力斯",
+    "title": "H股公告（股份发行人及根据《上市规则》第十九B章上市的香港预托证券发行人的证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-01/1225591493.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591493.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "0dce500a7b646b2d30fd0f9cd45b9d8bf69e0169d21f07f6cec46706d02d47d3"
+}

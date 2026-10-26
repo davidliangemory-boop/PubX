@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225585155",
+  "candidate": {
+    "announcementId": "1225585155",
+    "time": 1790611200000,
+    "secCode": "601916",
+    "secName": "浙商银行",
+    "title": "浙商银行H股公告",
+    "adjunctUrl": "finalpage/2026-09-29/1225585155.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225585155.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e287fbb1e1bc0b39ce383f770a179a6ffbd93dd8ac78db638a3da0a4fcff6b6e"
+}

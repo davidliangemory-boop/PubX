@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596172",
+  "candidate": {
+    "announcementId": "1225596172",
+    "time": 1791475200000,
+    "secCode": "002747",
+    "secName": "埃斯顿",
+    "title": "H股公告-截至2026年9月30日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-09/1225596172.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596172.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "aeb0d7ab3339797e337515c5deb93b5ac30346864c273d828b80f9bda7c4aa85"
+}

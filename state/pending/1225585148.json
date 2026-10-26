@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225585148",
+  "candidate": {
+    "announcementId": "1225585148",
+    "time": 1790611200000,
+    "secCode": "601939",
+    "secName": "建设银行",
+    "title": "建设银行H股公告-2026年半年度报告",
+    "adjunctUrl": "finalpage/2026-09-29/1225585148.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225585148.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3797b763300976bf07de7bb818772f9f213eb8dd32bf6e80359703f64f830ff9"
+}

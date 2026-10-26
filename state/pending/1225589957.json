@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589957",
+  "candidate": {
+    "announcementId": "1225589957",
+    "time": 1791388800000,
+    "secCode": "002466",
+    "secName": "天齐锂业",
+    "title": "H股公告：证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225589957.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589957.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2d6eba744b7eff2abd4a224bec765d9e7779262bdaebd1f24d6174313bf8df43"
+}

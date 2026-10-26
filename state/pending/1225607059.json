@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225607059",
+  "candidate": {
+    "announcementId": "1225607059",
+    "time": 1792080000000,
+    "secCode": "002936",
+    "secName": "郑州银行",
+    "title": "H股公告 - 郑州银行股份有限公司董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-16/1225607059.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225607059.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "825e2e1861ae1ca5e80a2e948c929b305105d6221e2f8205f4d73ab7d8f6c843"
+}

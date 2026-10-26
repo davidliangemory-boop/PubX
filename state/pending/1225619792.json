@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225619792",
+  "candidate": {
+    "announcementId": "1225619792",
+    "time": 1792771200000,
+    "secCode": "601808",
+    "secName": "中海油服",
+    "title": "中海油服H股公告-董事名单与其角色和职能",
+    "adjunctUrl": "finalpage/2026-10-24/1225619792.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225619792.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "014b972dc548999beaf25c4fbee3ff09366ec8e5a4bb1c3ceebe74350d96a50d"
+}

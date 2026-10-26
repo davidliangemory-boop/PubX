@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587842",
+  "candidate": {
+    "announcementId": "1225587842",
+    "time": 1790697600000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "《传音控股股东提名人选参选董事的程序（ 草案）》（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-09-30/1225587842.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587842.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "79e487248294466004f7842b7e712ab65a77c28d090e2ab4d269c0852a5a979d"
+}

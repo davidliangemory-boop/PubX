@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-u",
+    "scripts/run_once.py",
+    "--date",
+    "2026-09-26"
+  ],
+  "returncode": null,
+  "timeout": true,
+  "reason": "150秒未完成；保留原文、状态及日志，窗口不得前移"
+}

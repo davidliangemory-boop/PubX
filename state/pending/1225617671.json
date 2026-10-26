@@ -1,0 +1,28 @@
+{
+  "doc_id": "1225617671",
+  "candidate": {
+    "announcementId": "1225617671",
+    "time": 1792726771000,
+    "secCode": "300222",
+    "secName": "科大智能",
+    "title": "关于重新向香港联交所递交境外上市股份（H股）发行上市申请并刊发申请资料的公告",
+    "adjunctUrl": "finalpage/2026-10-23/1225617671.PDF",
+    "keywords": [
+      "境外"
+    ]
+  },
+  "raw_path": "raw/1225617671.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "ingested",
+  "sha256": "e53d25d0181f4c365d5f93e9a711a4a632a515bc103c366cf034e1f681825124",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225600733",
+  "candidate": {
+    "announcementId": "1225600733",
+    "time": 1791820800000,
+    "secCode": "002384",
+    "secName": "东山精密",
+    "title": "公司章程（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-13/1225600733.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225600733.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "ffcc7da1334f4403b61a4cebdb895c83df3cfb4ab9a6b6c679ba46fec9ed06bd"
+}

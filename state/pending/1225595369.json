@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595369",
+  "candidate": {
+    "announcementId": "1225595369",
+    "time": 1791388800000,
+    "secCode": "603093",
+    "secName": "南华期货",
+    "title": "南华期货H股公告-截至2026年9月30日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595369.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595369.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "ef18b6503086ab3f9111b10c7341971712a39477019874cda7e53cffbed5443c"
+}

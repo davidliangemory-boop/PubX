@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606286",
+  "candidate": {
+    "announcementId": "1225606286",
+    "time": 1792080000000,
+    "secCode": "601186",
+    "secName": "中国铁建",
+    "title": "中国铁建H股公告",
+    "adjunctUrl": "finalpage/2026-10-16/1225606286.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606286.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "cf57980d2f5ab121e51a8cd0fb8bdb350b7ceaa318dfcd300643b157a44d93e3"
+}

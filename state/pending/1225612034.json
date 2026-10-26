@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612034",
+  "candidate": {
+    "announcementId": "1225612034",
+    "time": 1792512000000,
+    "secCode": "601995",
+    "secName": "中金公司",
+    "title": "中金公司H股公告（董事会会议通告）",
+    "adjunctUrl": "finalpage/2026-10-21/1225612034.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612034.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1965cea977d99951f0c53929b66412a39edb1937b3b6d1b2c0396f61445b0147"
+}

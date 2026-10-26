@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608274",
+  "candidate": {
+    "announcementId": "1225608274",
+    "time": 1792166400000,
+    "secCode": "601127",
+    "secName": "赛力斯",
+    "title": "H股公告（董事会会议召开日期）",
+    "adjunctUrl": "finalpage/2026-10-17/1225608274.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608274.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1614c8711f3c059479f99ff2ae3403a206f2505aece525a716fc02d186f09eec"
+}

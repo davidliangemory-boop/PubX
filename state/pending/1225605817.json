@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605817",
+  "candidate": {
+    "announcementId": "1225605817",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "宁波江丰电子材料股份有限公司董事及高级管理人员薪酬管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-15/1225605817.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605817.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2cddc60ceb24be72710aa19493ca4108996511ac463951455a15470985f1835c"
+}

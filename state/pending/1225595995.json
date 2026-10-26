@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595995",
+  "candidate": {
+    "announcementId": "1225595995",
+    "time": 1791417269000,
+    "secCode": "301200",
+    "secName": "大族数控",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-08/1225595995.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595995.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f583aa18e233c4ee0f3987a750adbb0d88c9453aeaad8a995246c1d15c9a18d8"
+}

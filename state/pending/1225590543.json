@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590543",
+  "candidate": {
+    "announcementId": "1225590543",
+    "time": 1790784000000,
+    "secCode": "688166",
+    "secName": "博瑞医药",
+    "title": "关于终止发行H股股票并在香港联合交易所有限公司主板上市的公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225590543.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590543.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f2f2c617b2516056a68458c316d420ae2bcce04aefd5a1572fb84fa8f6209c83"
+}

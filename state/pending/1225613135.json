@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613135",
+  "candidate": {
+    "announcementId": "1225613135",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司内幕信息知情人登记管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613135.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613135.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "8152585e3f9a790eb5f532a77316d6a06b9cdff7adb925c3f65b55b388fac414"
+}

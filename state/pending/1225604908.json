@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225604908",
+  "candidate": {
+    "announcementId": "1225604908",
+    "time": 1791993600000,
+    "secCode": "000898",
+    "secName": "鞍钢<em>股</em>份",
+    "title": "H股公告-董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-15/1225604908.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225604908.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b54e986f9cc0fea0c9be7170c3bc48f716954baf7355e5e4213ad1532ff4d3e7"
+}

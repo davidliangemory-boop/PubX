@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225604545",
+  "candidate": {
+    "announcementId": "1225604545",
+    "time": 1791993600000,
+    "secCode": "000166",
+    "secName": "申万宏源",
+    "title": "H股公告-董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-15/1225604545.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225604545.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "df89523d136b5449eeae596b17e0d4ea59b8d30396940df479ed3fefa5126a12"
+}

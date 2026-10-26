@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613143",
+  "candidate": {
+    "announcementId": "1225613143",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司股东提名人选参选公司董事程序（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613143.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613143.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d13da5957f2acd9dab975c1f6cfd91b0050fdd4dd5549ac7e4e37f0a2e0b5964"
+}

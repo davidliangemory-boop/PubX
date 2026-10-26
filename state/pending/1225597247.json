@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225597247",
+  "candidate": {
+    "announcementId": "1225597247",
+    "time": 1791475200000,
+    "secCode": "601766",
+    "secName": "中国中车",
+    "title": "中国中车H股市场公告",
+    "adjunctUrl": "finalpage/2026-10-09/1225597247.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225597247.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "94b3092f7fef7f0d1d60eb6685a4ac70cb45c078eed8b05149c3437f5d903acf"
+}

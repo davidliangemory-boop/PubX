@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596033",
+  "candidate": {
+    "announcementId": "1225596033",
+    "time": 1791431189000,
+    "secCode": "002600",
+    "secName": "领益智造",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225596033.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596033.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "bb1670e064f701d6870324b98953a72be2e22419bf09fd09d3c0c8b77f0a8004"
+}

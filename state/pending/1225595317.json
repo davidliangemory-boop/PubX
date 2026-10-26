@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595317",
+  "candidate": {
+    "announcementId": "1225595317",
+    "time": 1791388800000,
+    "secCode": "601963",
+    "secName": "重庆银行",
+    "title": "H股公告-截至二零二六年九月三十日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595317.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595317.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "64d5398748a9b08ebc13cbff19582a00bb9136aad7cf9d6ea6f0ae6cd113fcac"
+}

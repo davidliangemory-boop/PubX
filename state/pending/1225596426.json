@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596426",
+  "candidate": {
+    "announcementId": "1225596426",
+    "time": 1791448690000,
+    "secCode": "300347",
+    "secName": "泰格医药",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225596426.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596426.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f671f9dd6c1a41e859987ef4e96ce93eebe20c40331649db4c0bccfa62344e7c"
+}

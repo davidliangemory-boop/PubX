@@ -1,0 +1,45 @@
+{
+  "id": "ofac-20261026",
+  "column": "rules",
+  "action": "",
+  "date": "2026-10-26",
+  "agency": "OFAC",
+  "doc_no": "20261026",
+  "title": "Issuance of Amended Frequently Asked Questions Regarding Blocking and Rejecting Transactions and Filing Reports with OFAC",
+  "parties": [],
+  "china_link": {
+    "value": "否",
+    "layer": "external",
+    "basis": "原文未出现中国相关关键词（全文检索）"
+  },
+  "points": [
+    {
+      "text": "类型标签：Regulations and Guidance（OFAC recent-actions 列表）。",
+      "layer": "external",
+      "source": "OFAC recent-actions"
+    },
+    {
+      "text": "摘要：The Department of the Treasury's Office of Foreign Assets Control (OFAC) is amending several Frequently Asked Questions (FAQs) today ( 10, 32, 33, 34, 35, 36, 41, 42, 49, 50, and 53 ) as part of its ongoing process of reviewing published guidance to ensure information remains current. This batch includes the FAQ topics on Blocking and Rejecting Transactions and on Filing Reports with OFAC .",
+      "layer": "external",
+      "source": "https://ofac.treasury.gov/recent-actions/20261026"
+    }
+  ],
+  "impact": {
+    "layer": "analysis",
+    "text": "本文 的发布/修订改变相关交易的授权边界：须以原文逐项核对授权范围、附加条件、生效/失效与过渡安排；存量交易与既有许可策略应按新文本重新核对授权依据，失效许可项下的进行中的交易须及时收尾。",
+    "basis": "本文档标题/摘要与 dates、CFR 引用所载条款（以原文为准）"
+  },
+  "url": "https://ofac.treasury.gov/recent-actions/20261026",
+  "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
+  "source": {
+    "channel": "OFAC recent-actions",
+    "retrieved_at": "2026-10-27 04:34"
+  },
+  "first_seen": "2026-10-27 04:37",
+  "source_cache": {
+    "path": "raw/ofac-20261026.html",
+    "sha256": "69cfe717e229965b7184d66418fe9002816eb1a1fce6b9dea421a9ee46558d2f",
+    "url": "https://ofac.treasury.gov/recent-actions/20261026",
+    "scope": "窗口外额外采集；不计入H-20261027历史新增"
+  }
+}

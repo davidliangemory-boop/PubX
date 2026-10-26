@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225603403",
+  "candidate": {
+    "announcementId": "1225603403",
+    "time": 1791890307000,
+    "secCode": "300077",
+    "secName": "国民技术",
+    "title": "H股公告（董事会会议通告）",
+    "adjunctUrl": "finalpage/2026-10-13/1225603403.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603403.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "196ed0379deef52abd6a371a7e23720c27a62f8e873b081c26fed4c46f847b46"
+}

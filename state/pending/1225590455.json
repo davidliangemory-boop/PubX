@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590455",
+  "candidate": {
+    "announcementId": "1225590455",
+    "time": 1790784000000,
+    "secCode": "601899",
+    "secName": "紫金矿业",
+    "title": "紫金矿业H股市场公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225590455.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590455.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "51af06cb3e277c54d442442eb440ece0770324fefed1d0bb6c41a00e86108bfc"
+}

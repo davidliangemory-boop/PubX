@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591347",
+  "candidate": {
+    "announcementId": "1225591347",
+    "time": 1790763729000,
+    "secCode": "300433",
+    "secName": "蓝思科技",
+    "title": "H股公告：证券变动月报表（2026年9月）",
+    "adjunctUrl": "finalpage/2026-09-30/1225591347.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591347.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c7c275e194196b04c16c914d5580f1ff7683ed8f094f4b2223568b49886b5e6f"
+}

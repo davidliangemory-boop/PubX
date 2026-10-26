@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595351",
+  "candidate": {
+    "announcementId": "1225595351",
+    "time": 1791388800000,
+    "secCode": "688180",
+    "secName": "君实生物",
+    "title": "君实生物H股公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225595351.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595351.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7bbc5926de1f35d585cc0124b55cda0c7d8236f29a1f35af8723f4641fdffabe"
+}

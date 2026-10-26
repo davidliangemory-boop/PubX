@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595449",
+  "candidate": {
+    "announcementId": "1225595449",
+    "time": 1791388800000,
+    "secCode": "688031",
+    "secName": "星环科技",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595449.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595449.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "64c255c747a828e35d89ae3d08582a85e695d2796b2e0fba62ed9a39129865ca"
+}

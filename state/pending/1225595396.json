@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595396",
+  "candidate": {
+    "announcementId": "1225595396",
+    "time": 1791388800000,
+    "secCode": "002130",
+    "secName": "沃尔核材",
+    "title": "H股公告：截至二零二六年九月三十日止股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595396.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595396.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "39068c8a5a793291746a466bbf6f17e7516f281a10bea8b1329a5c1f284a4201"
+}

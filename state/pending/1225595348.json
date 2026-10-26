@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595348",
+  "candidate": {
+    "announcementId": "1225595348",
+    "time": 1791388800000,
+    "secCode": "601995",
+    "secName": "中金公司",
+    "title": "中金公司H股公告（股份发行人的证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-08/1225595348.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595348.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "709b16ead464748b9fb42121862738a0c14bc3d894725001c99cb1f27c456173"
+}

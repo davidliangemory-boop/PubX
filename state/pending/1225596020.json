@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596020",
+  "candidate": {
+    "announcementId": "1225596020",
+    "time": 1791388800000,
+    "secCode": "603083",
+    "secName": "剑桥科技",
+    "title": "关于根据一般性授权配售新H股及发行可转换债券的公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225596020.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596020.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d74e5dee1a580f82562d7d05dc50604097617063e9a2e07f4574d1151a78c40c"
+}

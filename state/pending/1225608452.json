@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608452",
+  "candidate": {
+    "announcementId": "1225608452",
+    "time": 1792166400000,
+    "secCode": "603341",
+    "secName": "龙旗科技",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225608452.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608452.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "6d737961c703f7a134a7d708c15aab20086612b2611b0ee9aab58b7717c70803"
+}

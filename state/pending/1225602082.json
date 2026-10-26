@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225602082",
+  "candidate": {
+    "announcementId": "1225602082",
+    "time": 1791820800000,
+    "secCode": "601127",
+    "secName": "赛力斯",
+    "title": "H股公告（翌日披露报表）",
+    "adjunctUrl": "finalpage/2026-10-13/1225602082.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225602082.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "27b033f05ba8bfccf725de829301cca24a8aa12bf2f4bc3001add978ceeb7fe2"
+}

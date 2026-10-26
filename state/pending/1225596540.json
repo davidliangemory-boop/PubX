@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596540",
+  "candidate": {
+    "announcementId": "1225596540",
+    "time": 1791475200000,
+    "secCode": "600332",
+    "secName": "白云山",
+    "title": "H股公告（证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-09/1225596540.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596540.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d0ead441e6a7e0bf020449ac0b96a058209349275d90ba9a1cc9527456c441ab"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225620088",
+  "candidate": {
+    "announcementId": "1225620088",
+    "time": 1792771200000,
+    "secCode": "002202",
+    "secName": "金风科技",
+    "title": "H股公告（持续性关连交易）",
+    "adjunctUrl": "finalpage/2026-10-24/1225620088.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225620088.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "43435b00f7de551e1db654c201567bfb3c90d5bf180267252bb21f0bc886b5b9"
+}

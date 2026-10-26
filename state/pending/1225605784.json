@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605784",
+  "candidate": {
+    "announcementId": "1225605784",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "关于筹划发行H股股票并上市相关事项的提示性公告",
+    "adjunctUrl": "finalpage/2026-10-15/1225605784.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605784.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9983045578a0525a62b6efb7ae214a3aa0c014e249e7bb67e54a25e5f5315320"
+}

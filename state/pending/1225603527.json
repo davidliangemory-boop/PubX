@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225603527",
+  "candidate": {
+    "announcementId": "1225603527",
+    "time": 1791907200000,
+    "secCode": "601319",
+    "secName": "中国人保",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-14/1225603527.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603527.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "63b0536ed9239aaf196ed87a7db88040f0bdcc58e1ddae6b6712f7d887f8d485"
+}

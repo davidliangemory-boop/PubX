@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225598385",
+  "candidate": {
+    "announcementId": "1225598385",
+    "time": 1791561600000,
+    "secCode": "601828",
+    "secName": "美凯龙",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-10/1225598385.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225598385.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "73250465b37acc0ce931bbdf338dbce03397a97ffebab9f9b950232e27f792ff"
+}

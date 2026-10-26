@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225603371",
+  "candidate": {
+    "announcementId": "1225603371",
+    "time": 1791907200000,
+    "secCode": "601678",
+    "secName": "滨化<em>股</em>份",
+    "title": "H股公告-董事会会议日期",
+    "adjunctUrl": "finalpage/2026-10-14/1225603371.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603371.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "afd36d631dfeb397788313206fde62a8a3f089f9466ca21ba136290e23da1a2d"
+}

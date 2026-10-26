@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-10-23 11:09",
+  "updated": "2026-10-27 04:37",
   "cadence": "周更（周批 W-YYYYWW）",
   "last_window_lte": "2026-10-23",
   "sources": [
@@ -30,7 +30,19 @@
     "note": "JS 渲染的实时仪表盘，静态抓取取不到数字；本页不转录其数字，仅作来源指引"
    }
   ],
-  "caliber": "本模块数据与其他分页面互不混用；仅收官方公开文件；要点=external（附来源），合规影响=analysis（写依据）；原文未载显示【未披露】。「执法案例更新」栏的 CBP/UFLPA 执法统计由 CBP 实时仪表盘发布（JS 渲染），本页不抓取其数字、不转录，避免口径失真；UFLPA 清单批次见「清单更新」栏。"
+  "caliber": "本模块数据与其他分页面互不混用；仅收官方公开文件；要点=external（附来源），合规影响=analysis（写依据）；原文未载显示【未披露】。「执法案例更新」栏的 CBP/UFLPA 执法统计由 CBP 实时仪表盘发布（JS 渲染），本页不抓取其数字、不转录，避免口径失真；UFLPA 清单批次见「清单更新」栏。",
+  "history_backfill": {
+   "batch_id": "H-20261027",
+   "window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+   },
+   "new_verified_items": 0,
+   "outside_window_pending": 1,
+   "entity_list_compare": "pending",
+   "holdings_compare": "pending"
+  },
+  "cursor_note": "窗口外2026-10-26条目已保存为待审；保留原增量游标，避免自动跳过。"
  },
  "batches": [
   {
@@ -544,6 +556,136 @@
    },
    "new_items": 0,
    "total_items": 84
+  },
+  {
+   "batch_id": "W-202644",
+   "kind": "weekly",
+   "time": "2026-10-27 04:34",
+   "window": {
+    "gte": "2026-09-26",
+    "lte": "2026-09-26",
+    "note": "按来源发布日（美东日期）过滤，与北京时间当日近似对齐"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 20,
+     "kept": 0,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 0,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84
+  },
+  {
+   "batch_id": "W-202644",
+   "kind": "weekly",
+   "time": "2026-10-27 04:37",
+   "window": {
+    "gte": "2026-09-26",
+    "lte": "2026-10-27",
+    "note": "按来源发布日过滤"
+   },
+   "stats": {
+    "FR-BIS": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-UFLPA": {
+     "scanned": 1,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-OFAC": {
+     "scanned": 13,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-fulltext": {
+     "scanned": 0,
+     "kept": 0,
+     "failed": 0
+    },
+    "FR-other": {
+     "scanned": 0,
+     "kept": 13,
+     "failed": 0
+    },
+    "OFAC-RA": {
+     "scanned": 20,
+     "kept": 18,
+     "failed": 0
+    },
+    "OFAC-detail": {
+     "scanned": 19,
+     "kept": 0,
+     "failed": 0
+    },
+    "BIS-news": {
+     "scanned": 50,
+     "kept": 1,
+     "failed": 0
+    },
+    "BIS-detail": {
+     "scanned": 1,
+     "kept": 0,
+     "failed": 0
+    },
+    "DHS-UFLPA": {
+     "scanned": 205,
+     "kept": 0,
+     "failed": 0
+    }
+   },
+   "new_items": 0,
+   "total_items": 84,
+   "discovered_outside_history_window": 1,
+   "pending_review": 1
   }
  ],
  "items": [
@@ -613,7 +755,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937276/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "cn_parties": [
     {
@@ -690,7 +832,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937261/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "cn_parties": [
     {
@@ -751,7 +893,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937251/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 09:44"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -821,7 +963,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937246/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:05"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "cn_parties": [
     {
@@ -876,7 +1018,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:05"
+    "retrieved_at": "2026-10-27 04:35"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -942,7 +1084,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937231/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:05"
+    "retrieved_at": "2026-10-27 04:35"
    },
    "penalty": {
     "amount_usd": 11662930.0,
@@ -1007,7 +1149,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937211/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:05"
+    "retrieved_at": "2026-10-27 04:35"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1046,7 +1188,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-13/pdf/2026-20839.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1085,7 +1227,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-10-13/pdf/2026-20831.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1124,7 +1266,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937216/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 11:06"
+    "retrieved_at": "2026-10-27 04:35"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1192,7 +1334,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937206/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 11:24"
+    "retrieved_at": "2026-10-27 04:35"
    },
    "also_enforcement": true,
    "penalty": {
@@ -1268,7 +1410,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937101/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:06"
+    "retrieved_at": "2026-10-27 04:36"
    },
    "cn_parties": [
     {
@@ -1368,7 +1510,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937091/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:06"
+    "retrieved_at": "2026-10-27 04:36"
    },
    "cn_parties": [
     {
@@ -1436,7 +1578,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:06"
+    "retrieved_at": "2026-10-27 04:36"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1483,21 +1625,21 @@
      "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
     },
     {
-     "text": "涉案清单对手方（原文）：SiCarrier（Entity List）、SMSEL（Unverified List）。",
+     "text": "涉案清单对手方（原文）：Huawei Japan（Entity List）、SiCarrier（Entity List）、SMSEL（Unverified List）、Huawei（Entity List）、access information（Entity List）。",
      "layer": "external",
      "source": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf"
     }
    ],
    "impact": {
     "layer": "analysis",
-    "text": "本案（罚款 $2,000,000，全额缓期执行（fully suspended），违约即激活；违规 66 笔；对手方 SiCarrier（Entity List）、SMSEL（Unverified List）；VSD 情节）显示执法按「行为类型 × 条款」分组累计笔数，持续性的后续传输/服务可逐笔计为独立违规；VSD 与缓期执行（suspended）安排直接影响实际缴付金额，和解区间与披露策略可据本案对照。",
+    "text": "本案（罚款 $2,000,000，全额缓期执行（fully suspended），违约即激活；违规 66 笔；对手方 Huawei Japan（Entity List）、SiCarrier（Entity List）、SMSEL（Unverified List）、Huawei（Entity List）；VSD 情节）显示执法按「行为类型 × 条款」分组累计笔数，持续性的后续传输/服务可逐笔计为独立违规；VSD 与缓期执行（suspended）安排直接影响实际缴付金额，和解区间与披露策略可据本案对照。",
     "basis": "本案和解命令 Statement of Charges 分组与罚款/缓期条款（PDF 原文）+ EAR §764.2、§766.18 和解框架"
    },
    "url": "https://www.bis.gov/press-release/bis-reaches-administrative-enforcement-settlement-lambda-research-corporation",
    "pdf_url": "https://www.bis.gov/media/documents/lambda-research-corporation-10-2-2026.pdf",
    "source": {
     "channel": "BIS news-updates",
-    "retrieved_at": "2026-10-23 10:38"
+    "retrieved_at": "2026-10-27 04:37"
    },
    "penalty": {
     "amount_usd": 2000000.0,
@@ -1572,7 +1714,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937086/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:06"
+    "retrieved_at": "2026-10-27 04:36"
    },
    "cn_parties": [
     {
@@ -1692,7 +1834,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/935656/download?inline=",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:07"
+    "retrieved_at": "2026-10-27 04:36"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1731,7 +1873,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20014.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1770,7 +1912,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20012.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1809,7 +1951,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20011.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1848,7 +1990,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20010.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1887,7 +2029,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20009.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1926,7 +2068,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20008.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -1965,7 +2107,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20007.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2004,7 +2146,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-20006.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2043,7 +2185,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19978.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2082,7 +2224,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19977.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2121,7 +2263,7 @@
    "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-09-30/pdf/2026-19973.pdf",
    "source": {
     "channel": "Federal Register API",
-    "retrieved_at": "2026-10-23 09:43"
+    "retrieved_at": "2026-10-27 04:34"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2160,7 +2302,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937026/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:07"
+    "retrieved_at": "2026-10-27 04:37"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -2230,7 +2372,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937021/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:07"
+    "retrieved_at": "2026-10-27 04:36"
    },
    "cn_parties": [
     {
@@ -2283,7 +2425,7 @@
    "pdf_url": "https://ofac.treasury.gov/media/937006/download?inline",
    "source": {
     "channel": "OFAC recent-actions",
-    "retrieved_at": "2026-10-23 10:07"
+    "retrieved_at": "2026-10-27 04:37"
    },
    "first_seen": "2026-10-23 02:13"
   },
@@ -5272,8 +5414,8 @@
   }
  ],
  "uflpa_snapshot": {
-  "retrieved_at": "2026-10-23 11:09",
-  "sha256": "c1d2be544109b27f3efee9131620df92b75d5ce97a938dd3eb6df184dc8fd6ed",
+  "retrieved_at": "2026-10-27 04:37",
+  "sha256": "a4275c4896cc0953a8c26fd8337e138895d6c3721d18c55911ad8434187361e2",
   "count": 205,
   "entries": [
    {
@@ -6726,17 +6868,16 @@
  "watch": {
   "list": "OFAC SDN",
   "list_version": "2026-10-20",
-  "retrieved_at": "2026-10-23 02:33",
+  "retrieved_at": "2026-10-27 04:40",
   "sha256": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
   "entry_count": 19471,
-  "subject_count": 171,
+  "subject_count": 225,
   "results": {
-   "no_hit": 171,
+   "no_hit": 225,
    "name_match_only": 0,
    "confirmed": 0
   },
   "matches": [],
-  "method": "名称归一（大小写/标点/法律后缀/括号注记）+ 别名表精确匹配；confirmed 需名称+独立标识（地址/证件/国别）一致，脚本数据侧无独立标识，confirmed 只能由人工核验置位。",
   "subjects": [
    {
     "name": "腾讯控股",
@@ -7071,7 +7212,7 @@
     "source": "事件主体·E-011"
    },
    {
-    "name": "卖方：格派控股（香港）、自然人黄鸿旋（涉及刚果（金）公民代持安排）；完成后公司持COP公司73.99%并并表",
+    "name": "卖方：格派控股（香港）、自然人黄鸿旋（中国籍，为深圳市鼎鸿晟精密科技有限公司代持 ECOSOLEIL 49% 股权；ECOSOLEIL 另 51% 由刚果（金）公民 MANGI MWANZA SYLVIN 持有）；完成后公司持 COP 公司 73.99% 并并表",
     "source": "事件主体·E-011"
    },
    {
@@ -7087,7 +7228,19 @@
     "source": "事件主体·E-013"
    },
    {
-    "name": "Image Resources NL（ASX:IMA，公司经子公司合计持股约17.76%，董事长许冉任其董事→构成关联交易）；标的为其全资子公司Titon Resources持有的两个矿砂项目",
+    "name": "龙佰集团或其指定的子公司（投资方，指定主体未定）",
+    "source": "事件主体·E-013"
+   },
+   {
+    "name": "Image Resources NL（依梅智资源公司，ASX:IMA）",
+    "source": "事件主体·E-013"
+   },
+   {
+    "name": "Titon Resources Pty Ltd（项目公司）",
+    "source": "事件主体·E-013"
+   },
+   {
+    "name": "Durack和Yandanooka矿砂项目（标的项目）",
     "source": "事件主体·E-013"
    },
    {
@@ -7103,7 +7256,11 @@
     "source": "事件主体·E-015"
    },
    {
-    "name": "无（独资建设埃及项目公司）",
+    "name": "玲珑轮胎（埃及）公司（拟设，实际名称以当地政府有关部门出具的企业登记证明书为准）",
+    "source": "事件主体·E-015"
+   },
+   {
+    "name": "玲珑集团有限公司",
     "source": "事件主体·E-015"
    },
    {
@@ -7124,6 +7281,14 @@
    },
    {
     "name": "深圳传音控股股份有限公司",
+    "source": "事件主体·E-018"
+   },
+   {
+    "name": "深圳市传音投资有限公司",
+    "source": "事件主体·E-018"
+   },
+   {
+    "name": "Digimoc Holdings Limited",
     "source": "事件主体·E-018"
    },
    {
@@ -7171,7 +7336,19 @@
     "source": "事件主体·E-024"
    },
    {
-    "name": "被担保人：智运天下（重庆）科技有限公司、青岛飞升供应链管理有限公司（均为控股子公司）",
+    "name": "智运天下（上海）科技有限公司",
+    "source": "事件主体·E-024"
+   },
+   {
+    "name": "智运天下（重庆）科技有限公司",
+    "source": "事件主体·E-024"
+   },
+   {
+    "name": "青岛飞升供应链管理有限公司",
+    "source": "事件主体·E-024"
+   },
+   {
+    "name": "兴业银行、光大银行",
     "source": "事件主体·E-024"
    },
    {
@@ -7203,7 +7380,31 @@
     "source": "事件主体·E-028"
    },
    {
-    "name": "卖方：EMR Capital Advisors Pty Ltd、Kestrel Coal (EMR) Limited、Adaro Capital Limited及EMR Capital Management Limited",
+    "name": "兖煤澳大利亚有限公司（兖煤澳洲公司，ASX:YAL/03668.HK）",
+    "source": "事件主体·E-028"
+   },
+   {
+    "name": "EMR Capital Advisors Pty Ltd、Kestrel Coal (EMR) Limited、Adaro Capital Limited（ACL）（合称「卖方」）",
+    "source": "事件主体·E-028"
+   },
+   {
+    "name": "ACL 及 EMR Capital Management Limited（红隼集团认股权证出售方）",
+    "source": "事件主体·E-028"
+   },
+   {
+    "name": "红隼煤矿合资企业（Kestrel Joint Venture，经红隼集团100%股权间接持有80%权益）",
+    "source": "事件主体·E-028"
+   },
+   {
+    "name": "五年期12亿美元银团（贷款人未具名）",
+    "source": "事件主体·E-028"
+   },
+   {
+    "name": "三井集团（红隼煤矿合资企业优先购买权人；可在规定期限内行使、放弃或为合资企业协定批准兖煤澳洲作为受让人）",
+    "source": "事件主体·E-028"
+   },
+   {
+    "name": "三井红隼煤炭投资有限公司（Mitsui Kestrel Coal Investment Pty Ltd）",
     "source": "事件主体·E-028"
    },
    {
@@ -7219,11 +7420,15 @@
     "source": "事件主体·E-031"
    },
    {
-    "name": "安踏体育用品有限公司",
+    "name": "安踏体育用品有限公司（ANTA Sports Products Limited）",
     "source": "事件主体·E-032"
    },
    {
-    "name": "卖方（未于本公告列名）；标的公司PUMA SE（德国运动品牌，法兰克福上市）",
+    "name": "PUMA SE（目标公司）",
+    "source": "事件主体·E-032"
+   },
+   {
+    "name": "卖方（本公告未列名）",
     "source": "事件主体·E-032"
    },
    {
@@ -7283,7 +7488,7 @@
     "source": "事件主体·E-039"
    },
    {
-    "name": "D股股东（要约对象）；结果已刊载于公司网站及德国联邦公报",
+    "name": "D股股东（回购要约对象）",
     "source": "事件主体·E-040"
    },
    {
@@ -7331,7 +7536,7 @@
     "source": "事件主体·E-046"
    },
    {
-    "name": "联席全球协调人：摩根大通、工银亚洲、农业银行、中国银行、交通银行、建设银行、中信证券、高盛（亚洲）、汇丰、摩根士丹利",
+    "name": "摩根大通、工银亚洲、农业银行、中国银行、交通银行、建设银行、中信证券、高盛（亚洲）、汇丰、摩根士丹利",
     "source": "事件主体·E-046"
    },
    {
@@ -7339,7 +7544,11 @@
     "source": "事件主体·E-047"
    },
    {
-    "name": "不少于六名独立第三方承配人；可转债于维也纳证券交易所 Vienna MTF 上市",
+    "name": "不少于六名承配人",
+    "source": "事件主体·E-047"
+   },
+   {
+    "name": "Cambridge Industries Company Limited及上海康令科技合伙企业（有限合伙）",
     "source": "事件主体·E-047"
    },
    {
@@ -7351,7 +7560,27 @@
     "source": "事件主体·E-049"
    },
    {
-    "name": "Hangzhou Jingtao、Lanchi Ventures（蓝驰创投）、Huaye Tiancheng（华业天成）、MiraclePlus（奇绩创坛）",
+    "name": "上海马赫心科技有限公司（MHX Technology）",
+    "source": "事件主体·E-049"
+   },
+   {
+    "name": "上海马赫智芯智能科技有限公司",
+    "source": "事件主体·E-049"
+   },
+   {
+    "name": "杭州经韬（杭州经韬企业管理合伙企业（有限合伙））",
+    "source": "事件主体·E-049"
+   },
+   {
+    "name": "蓝驰创投（Lanchi Ventures）",
+    "source": "事件主体·E-049"
+   },
+   {
+    "name": "华业天成（Huaye Tiancheng）",
+    "source": "事件主体·E-049"
+   },
+   {
+    "name": "奇绩创坛三期（MiraclePlus，北京奇绩创坛三期创业投资基金中心（有限合伙））",
     "source": "事件主体·E-049"
    },
    {
@@ -7387,7 +7616,15 @@
     "source": "事件主体·E-055"
    },
    {
-    "name": "业主方：DANGOTE PROJECTS FZE（丹格特工业集团旗下，非洲最大综合性工业集团）；分包主体：长江精工（上海）建筑科技有限公司；不构成关联交易",
+    "name": "长江精工（上海）建筑科技有限公司",
+    "source": "事件主体·E-055"
+   },
+   {
+    "name": "丹格特项目自由区企业（DANGOTE PROJECTS FZE）",
+    "source": "事件主体·E-055"
+   },
+   {
+    "name": "丹格特工业集团（Dangote Group）",
     "source": "事件主体·E-055"
    },
    {
@@ -7407,7 +7644,23 @@
     "source": "事件主体·E-058"
    },
    {
-    "name": "买方：集团公司（控股股东，持有约68.37%已发行股本）",
+    "name": "中国人寿资产管理有限公司",
+    "source": "事件主体·E-058"
+   },
+   {
+    "name": "中国人寿保险（集团）公司",
+    "source": "事件主体·E-058"
+   },
+   {
+    "name": "中国人寿养老保险股份有限公司",
+    "source": "事件主体·E-058"
+   },
+   {
+    "name": "安保集团有限公司（AMP Limited）",
+    "source": "事件主体·E-058"
+   },
+   {
+    "name": "中诚信托有限责任公司",
     "source": "事件主体·E-058"
    },
    {
@@ -7419,9 +7672,137 @@
     "source": "事件主体·E-060"
    },
    {
-    "name": "无（经全资子公司贵州前进轮胎投资有限责任公司100%持股，无外部合作方；不构成关联交易）",
+    "name": "贵州前进轮胎投资有限责任公司",
     "source": "事件主体·E-060"
+   },
+   {
+    "name": "ADVANCE TYRE MOROCCO SAS",
+    "source": "事件主体·E-060"
+   },
+   {
+    "name": "海南天然橡胶产业集团股份有限公司",
+    "source": "事件主体·E-H-20261027-1225617098"
+   },
+   {
+    "name": "Halcyon Agri Corporation Limited",
+    "source": "事件主体·E-H-20261027-1225617098"
+   },
+   {
+    "name": "中化国际（控股）股份有限公司",
+    "source": "事件主体·E-H-20261027-1225617098"
+   },
+   {
+    "name": "南昌矿机集团股份有限公司",
+    "source": "事件主体·E-H-20261027-1225617420"
+   },
+   {
+    "name": "PT. BINA DAYA LAHAN PERTIWI",
+    "source": "事件主体·E-H-20261027-1225617420"
+   },
+   {
+    "name": "Group Win Limited",
+    "source": "事件主体·E-H-20261027-1225617420"
+   },
+   {
+    "name": "Major Invest Limited",
+    "source": "事件主体·E-H-20261027-1225617420"
+   },
+   {
+    "name": "Pierre Dermawan",
+    "source": "事件主体·E-H-20261027-1225617420"
+   },
+   {
+    "name": "Rudy Soeparman",
+    "source": "事件主体·E-H-20261027-1225617420"
+   },
+   {
+    "name": "中水集团远洋股份有限公司",
+    "source": "事件主体·E-H-20261027-1225617216"
+   },
+   {
+    "name": "深圳和美渔业有限公司",
+    "source": "事件主体·E-H-20261027-1225617216"
+   },
+   {
+    "name": "基里巴斯政府",
+    "source": "事件主体·E-H-20261027-1225617216"
+   },
+   {
+    "name": "海富有限公司",
+    "source": "事件主体·E-H-20261027-1225617216"
+   },
+   {
+    "name": "Kiribati Prosperity Fisheries Limited（暂定）",
+    "source": "事件主体·E-H-20261027-1225617216"
+   },
+   {
+    "name": "科大智能科技股份有限公司",
+    "source": "事件主体·E-H-20261027-1225617671"
+   },
+   {
+    "name": "浙江兆丰机电股份有限公司",
+    "source": "事件主体·E-H-20261027-1225619598"
+   },
+   {
+    "name": "兆丰精密株式会社（拟）",
+    "source": "事件主体·E-H-20261027-1225619598"
+   },
+   {
+    "name": "晶晨半导体（上海）股份有限公司",
+    "source": "事件主体·E-H-20261027-1225621125"
+   },
+   {
+    "name": "会通新材料股份有限公司",
+    "source": "事件主体·E-H-20261027-1225620428"
+   },
+   {
+    "name": "OMIKRON S.R.L",
+    "source": "事件主体·E-H-20261027-1225620428"
+   },
+   {
+    "name": "MICCA 22 S.R.L",
+    "source": "事件主体·E-H-20261027-1225620428"
+   },
+   {
+    "name": "INVESTAR S.R.L",
+    "source": "事件主体·E-H-20261027-1225620428"
+   },
+   {
+    "name": "圆融新材料（香港）有限公司",
+    "source": "事件主体·E-H-20261027-1225620428"
+   },
+   {
+    "name": "广东鸿特科技股份有限公司",
+    "source": "事件主体·E-H-20261027-1225586743"
+   },
+   {
+    "name": "广东鸿特精密技术肇庆有限公司",
+    "source": "事件主体·E-H-20261027-1225586743"
    }
-  ]
+  ],
+  "method": "名称归一（大小写/标点/法律后缀/括号注记）+ 别名表精确匹配；confirmed 需名称+独立标识（地址/证件/国别）一致，脚本数据侧无独立标识，confirmed 只能由人工核验置位。",
+  "additional_checks": {
+   "uflpa": {
+    "retrieved_at": "2026-10-27 04:37",
+    "entry_count": 205,
+    "sha256": "a4275c4896cc0953a8c26fd8337e138895d6c3721d18c55911ad8434187361e2",
+    "results": {
+     "no_hit": 225,
+     "name_match_only": 0,
+     "confirmed": 0
+    },
+    "matches": [],
+    "source": "https://www.dhs.gov/uflpa-entity-list",
+    "method": "按本次DHS快照做名称归一及别名比对；同名不等于受限主体确认。"
+   },
+   "bis_entity_list": {
+    "status": "pending",
+    "reason": "现有脚本未提供完整实体清单快照和受限方独立标识比对，不能用SDN结果替代。"
+   },
+   "holdings": {
+    "status": "pending",
+    "reason": "仓库未发现独立持仓清单；本次受检集合仅为观察名单与事件parties。"
+   }
+  }
  }
 }

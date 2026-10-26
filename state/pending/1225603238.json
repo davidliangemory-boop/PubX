@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225603238",
+  "candidate": {
+    "announcementId": "1225603238",
+    "time": 1791890187000,
+    "secCode": "300223",
+    "secName": "君正<em>股</em>份",
+    "title": "H股公告-董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-13/1225603238.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603238.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5fb74ab699ffdcad0a4be9c18c6b18f7931a2b4c96db80fc05fb0de9462d3958"
+}

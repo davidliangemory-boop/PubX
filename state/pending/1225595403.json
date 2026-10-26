@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595403",
+  "candidate": {
+    "announcementId": "1225595403",
+    "time": 1791388800000,
+    "secCode": "002594",
+    "secName": "比亚迪",
+    "title": "H股公告（(1)临时股东会投票表决结果(2)董事会及董事会委员会成员之变动及(3)修订《公司章程》）",
+    "adjunctUrl": "finalpage/2026-10-08/1225595403.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595403.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "6ce2cf6656fe3e743719eab006ec9ae0b06b751a7ced96b234b70576a243e67d"
+}

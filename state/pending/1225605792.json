@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605792",
+  "candidate": {
+    "announcementId": "1225605792",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "宁波江丰电子材料股份有限公司反洗钱及经济制裁管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-15/1225605792.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605792.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3d43ae73573050aa22e0e9b237a197969cf4239c0b72c863f49cde2f3bd4ab3a"
+}

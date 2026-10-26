@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596909",
+  "candidate": {
+    "announcementId": "1225596909",
+    "time": 1791475200000,
+    "secCode": "002714",
+    "secName": "牧原<em>股</em>份",
+    "title": "H股公告（证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-09/1225596909.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596909.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "ff86d6d30d928bcfbd121274a3fcac2ce21f9ba7230cc29860f40820acd6c997"
+}

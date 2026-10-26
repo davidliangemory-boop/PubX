@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225586714",
+  "candidate": {
+    "announcementId": "1225586714",
+    "time": 1790697600000,
+    "secCode": "603228",
+    "secName": "景旺电子",
+    "title": "景旺电子关于H股挂牌并上市交易暨股份变动的公告",
+    "adjunctUrl": "finalpage/2026-09-30/1225586714.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225586714.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7c5567ca73f884fa61322ebe758225e9148e95f262f8516729a715b43c1991ea"
+}

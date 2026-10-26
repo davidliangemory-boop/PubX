@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591335",
+  "candidate": {
+    "announcementId": "1225591335",
+    "time": 1791388800000,
+    "secCode": "002803",
+    "secName": "吉宏<em>股</em>份",
+    "title": "关于控股股东及高级管理人员增持公司H股股份的公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225591335.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591335.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "68fd0a99dbc3d33750cdd5f84bedc9844d8bbda432240d6c85f8e9aff6cb6c1c"
+}

@@ -1,0 +1,25 @@
+{
+  "doc_id": "1225591131",
+  "candidate": {
+    "announcementId": "1225591131",
+    "time": 1790784000000,
+    "secCode": "603296",
+    "secName": "华勤技术",
+    "title": "华勤技术H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225591131.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591131.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "awaiting_raw",
+  "raw_error": "PDF未提取到文字，需OCR后逐页校验；原PDF已保留。",
+  "pdf_path": "raw/1225591131.pdf",
+  "pdf_sha256": "9c3743910ff18f6f9a42281eb41e609f3950ae4400fcf91bd6b59d941427a385"
+}

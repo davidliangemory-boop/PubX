@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225583767",
+  "candidate": {
+    "announcementId": "1225583767",
+    "time": 1790524800000,
+    "secCode": "603228",
+    "secName": "景旺电子",
+    "title": "景旺电子关于H股公开发行价格的公告",
+    "adjunctUrl": "finalpage/2026-09-28/1225583767.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225583767.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "df2ee553b1dfd59831d4e797010ce6bc3370b7e51543d872c72edf69eecb02e0"
+}

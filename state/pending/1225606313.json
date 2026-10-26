@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606313",
+  "candidate": {
+    "announcementId": "1225606313",
+    "time": 1792080000000,
+    "secCode": "603127",
+    "secName": "昭衍新药",
+    "title": "H股公告：董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225606313.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606313.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "689e42dd99335ca1ad7af38b3b930373e72970d3cd625a2155a25dd0b0e45997"
+}

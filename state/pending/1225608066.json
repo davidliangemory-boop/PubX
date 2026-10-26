@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608066",
+  "candidate": {
+    "announcementId": "1225608066",
+    "time": 1792166400000,
+    "secCode": "601390",
+    "secName": "中国中铁",
+    "title": "中国中铁H股公告",
+    "adjunctUrl": "finalpage/2026-10-17/1225608066.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608066.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5971c17a5159e0d19a6de945cdce10e81b62960736d3d746237735a565299a35"
+}

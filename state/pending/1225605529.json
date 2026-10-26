@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605529",
+  "candidate": {
+    "announcementId": "1225605529",
+    "time": 1791993600000,
+    "secCode": "300408",
+    "secName": "三环集团",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-15/1225605529.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605529.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "cde1453895755e5ba5e7b42cb61723c9191a2b56e99937e64a2e5edd1e6a7a99"
+}

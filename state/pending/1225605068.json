@@ -1,0 +1,30 @@
+{
+  "doc_id": "1225605068",
+  "candidate": {
+    "announcementId": "1225605068",
+    "time": 1791993600000,
+    "secCode": "002640",
+    "secName": "<em>跨境</em>通",
+    "title": "关于深圳飒芙商业有限公司破产清算的进展公告",
+    "adjunctUrl": "finalpage/2026-10-15/1225605068.PDF",
+    "keywords": [
+      "跨境"
+    ]
+  },
+  "raw_path": "raw/1225605068.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "excluded",
+  "sha256": "b850c5877776948dbd8d2f8d38611043301f40b2de70cd70d409c876bdc7a17a",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "本公告仅为深圳飒芙境内破产宣告，未披露境外主体、项目或本次跨境业务处理。",
+  "reviewed_at": "2026-10-27 04:38"
+}

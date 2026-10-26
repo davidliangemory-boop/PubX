@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225588044",
+  "candidate": {
+    "announcementId": "1225588044",
+    "time": 1790697600000,
+    "secCode": "601633",
+    "secName": "长城汽车",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-09-30/1225588044.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225588044.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "26d506e829e8fb2b74fc4d6fa925e2767b801d274ba5a0721fe41ec2e0abde20"
+}

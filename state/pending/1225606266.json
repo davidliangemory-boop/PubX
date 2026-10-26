@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606266",
+  "candidate": {
+    "announcementId": "1225606266",
+    "time": 1792080000000,
+    "secCode": "601788",
+    "secName": "光大证券",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-16/1225606266.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606266.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "0bd5d1469ecd7dd8fbd700eef4c11c016c2ff0c1647657ac3c87727dd5f8f57a"
+}

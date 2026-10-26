@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225611980",
+  "candidate": {
+    "announcementId": "1225611980",
+    "time": 1792512000000,
+    "secCode": "601398",
+    "secName": "工商银行",
+    "title": "工商银行H股公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225611980.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225611980.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "680a557f41caa1ed9cea9dbdc0d06b154deb24219ae794e75f197f458d4f6405"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613152",
+  "candidate": {
+    "announcementId": "1225613152",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "关于聘请H股审计机构的公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225613152.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613152.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c3ba46e3229de56f5ede54b315e9d90fe27324ecafb89c01c54352db1c23ce5b"
+}

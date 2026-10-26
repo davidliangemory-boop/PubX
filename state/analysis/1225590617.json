@@ -1,0 +1,35 @@
+{
+ "model": "GPT-6",
+ "prompt_version": "R08-task-D-20261027",
+ "gate": {
+  "include": false,
+  "category": "无新信息重复披露",
+  "reason": "证券变动月报表显示A/H股股份无增减，属例行程序，无新出海事项。"
+ },
+ "review_scope": "已读取完整原文逐页核查",
+ "steps": {
+  "extract_facts": [
+   {
+    "field": "门控事实",
+    "value": "证券变动月报表显示A/H股股份无增减，属例行程序，无新出海事项。",
+    "layer": "analysis",
+    "basis": "1225590617完整原文"
+   }
+  ],
+  "legal_map": [
+   {
+    "status": "not_applicable",
+    "layer": "analysis",
+    "basis": "不满足境外主体/业务加实质动作门控",
+    "text": "证券变动月报表显示A/H股股份无增减，属例行程序，无新出海事项。"
+   }
+  ],
+  "judge": [
+   {
+    "text": "本次排除，不消费为出海新事件。",
+    "layer": "analysis",
+    "basis": "证券变动月报表显示A/H股股份无增减，属例行程序，无新出海事项。"
+   }
+  ]
+ }
+}

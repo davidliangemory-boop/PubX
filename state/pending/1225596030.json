@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596030",
+  "candidate": {
+    "announcementId": "1225596030",
+    "time": 1791431069000,
+    "secCode": "002936",
+    "secName": "郑州银行",
+    "title": "H股公告 - 截至二零二六年九月三十日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225596030.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596030.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1bc7bd946a2348730061db317a08b5520a9018e9e674614e4859d3b01ef068d8"
+}

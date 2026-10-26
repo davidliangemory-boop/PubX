@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589888",
+  "candidate": {
+    "announcementId": "1225589888",
+    "time": 1790756410000,
+    "secCode": "301377",
+    "secName": "鼎泰高科",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-09-30/1225589888.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589888.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7df211d31b7b5200859b94f5293086b97a9ee99970c0a81d7b5defb51f50e347"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612911",
+  "candidate": {
+    "announcementId": "1225612911",
+    "time": 1792512000000,
+    "secCode": "600115",
+    "secName": "中国东航",
+    "title": "H股公告-董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-21/1225612911.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612911.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d21fea28bc03d90a757a1efc00dd95529ae00f6325aea74eaf62992b28c07505"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590890",
+  "candidate": {
+    "announcementId": "1225590890",
+    "time": 1790784000000,
+    "secCode": "603288",
+    "secName": "海天味业",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225590890.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590890.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9b514fb9d54b9b29f11c0557639516effaa0648651f31a50478f78729414ccda"
+}

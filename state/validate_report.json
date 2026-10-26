@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27 00:58",
+ "generated": "2026-10-27 04:55",
  "summary": {
   "ERROR": 0,
   "WARN": 1,
@@ -9,7 +9,7 @@
   {
    "check": "批次命名",
    "level": "WARN",
-   "detail": "15 条存量批次为旧命名（B-YYYYMMDD-HHMM / B-BF-* 等）；原始记录保留，构建层 build_data.py 已聚合为日批次视图 batches_daily"
+   "detail": "16 条存量批次为旧命名（B-YYYYMMDD-HHMM / B-BF-* 等）；原始记录保留，构建层 build_data.py 已聚合为日批次视图 batches_daily"
   }
  ],
  "pages": {
@@ -256,7 +256,7 @@
      "1280": false
     },
     "js_errors": [],
-    "final": "#/event/E-037",
+    "final": "#/event/E-047",
     "empty": false,
     "ok": true
    },

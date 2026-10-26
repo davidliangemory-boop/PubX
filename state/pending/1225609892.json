@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609892",
+  "candidate": {
+    "announcementId": "1225609892",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "董事、高级管理人员所持本公司股份及其变动管理办法（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609892.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609892.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f76ecc420579e973e9b409ee5f54cd5625977daabb6bd4611ab501ff3caf7936"
+}

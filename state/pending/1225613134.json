@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613134",
+  "candidate": {
+    "announcementId": "1225613134",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司外聘核数师提供非核数服务政策（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613134.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613134.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f2eaa02eae7c0574d2796e24216c9d6441dc06fe1b7059fd66c0a25eb4f7836f"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591598",
+  "candidate": {
+    "announcementId": "1225591598",
+    "time": 1790784000000,
+    "secCode": "600999",
+    "secName": "招商证券",
+    "title": "H股公告（董事名单与其角色和职能）",
+    "adjunctUrl": "finalpage/2026-10-01/1225591598.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591598.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "eb9aa56537f13501bc4f34b4aebc68e4b34c332a52e6ec4f72c41624f38588d9"
+}

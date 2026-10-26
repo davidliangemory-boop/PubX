@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225599203",
+  "candidate": {
+    "announcementId": "1225599203",
+    "time": 1791561600000,
+    "secCode": "002466",
+    "secName": "天齐锂业",
+    "title": "H股公告：董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-10/1225599203.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225599203.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d92893bfe8e783600722aba84b606d3dceb281d402abc1660459b846d7af8759"
+}

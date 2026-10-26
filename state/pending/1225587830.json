@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587830",
+  "candidate": {
+    "announcementId": "1225587830",
+    "time": 1790697600000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "《传音控股股东通讯政策（草案）》（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-09-30/1225587830.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587830.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "152051669b4931cb89137eff8ae1f7afef6810e714b708df898f398f7c91b08e"
+}

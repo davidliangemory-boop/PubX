@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225585699",
+  "candidate": {
+    "announcementId": "1225585699",
+    "time": 1790611200000,
+    "secCode": "603986",
+    "secName": "兆易创新",
+    "title": "根据2026年H股股份奖励计划授予奖励股份",
+    "adjunctUrl": "finalpage/2026-09-29/1225585699.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225585699.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "bf09c6b427c7967221ba54b66d62e0f3950b5a5ce519212d59e5de24f594dfab"
+}

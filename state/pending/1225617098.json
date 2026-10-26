@@ -1,0 +1,28 @@
+{
+  "doc_id": "1225617098",
+  "candidate": {
+    "announcementId": "1225617098",
+    "time": 1792684800000,
+    "secCode": "601118",
+    "secName": "海南橡胶",
+    "title": "关于控股子公司合盛农业发行境外次级永续债券暨公司为其提供担保的进展公告",
+    "adjunctUrl": "finalpage/2026-10-23/1225617098.PDF",
+    "keywords": [
+      "境外"
+    ]
+  },
+  "raw_path": "raw/1225617098.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "ingested",
+  "sha256": "3974523caa69b63f4d9307f20816ef1f5fe008d9e8a629be8e0b7ed9bcf1fc1c",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

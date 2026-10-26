@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609875",
+  "candidate": {
+    "announcementId": "1225609875",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "股东通讯政策（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609875.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609875.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "0e48e210edde86c47e019518e1cd335e2a5d9101647761b4b9238d6b01719069"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609015",
+  "candidate": {
+    "announcementId": "1225609015",
+    "time": 1792166400000,
+    "secCode": "002475",
+    "secName": "立讯精密",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225609015.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609015.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5edea9d6e69057bddb4ccde9677a05ca54aa9a94e069c91137c34b2e9baf7678"
+}

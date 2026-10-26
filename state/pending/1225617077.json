@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225617077",
+  "candidate": {
+    "announcementId": "1225617077",
+    "time": 1792684800000,
+    "secCode": "600988",
+    "secName": "赤峰黄金",
+    "title": "赤峰黄金关于股东协议转让公司股份完成过户登记、根据特别授权配售新增发行H股暨公司控股股东、实际控制人变更的公告",
+    "adjunctUrl": "finalpage/2026-10-23/1225617077.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225617077.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9705ff0edd9d798580e1e56b7a88a63cc069626b662edf068589b158316f37bf"
+}

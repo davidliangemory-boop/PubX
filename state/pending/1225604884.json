@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225604884",
+  "candidate": {
+    "announcementId": "1225604884",
+    "time": 1791993600000,
+    "secCode": "001389",
+    "secName": "广合科技",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-15/1225604884.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225604884.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7125e0ec5d5819c04840fde90c0304cab51b038c55224d0a47a85f3c957c3268"
+}

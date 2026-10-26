@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225601457",
+  "candidate": {
+    "announcementId": "1225601457",
+    "time": 1791820800000,
+    "secCode": "002703",
+    "secName": "浙江世宝",
+    "title": "董事会会议召开日期（H股公告）",
+    "adjunctUrl": "finalpage/2026-10-13/1225601457.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225601457.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "28faffb42e64c5f54619f19449d66f7acfcaa267700f9a922da27e9da8c51aa2"
+}

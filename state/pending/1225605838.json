@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605838",
+  "candidate": {
+    "announcementId": "1225605838",
+    "time": 1791993600000,
+    "secCode": "603650",
+    "secName": "彤程新材",
+    "title": "H股公告-董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-15/1225605838.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605838.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "951d1138ac2b05ba945010e5676103eee6c7b1334b282988138b5c79d2da214e"
+}

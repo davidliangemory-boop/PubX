@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-u",
+    "scripts/sec_market_pull.py",
+    "--date",
+    "2026-09-28"
+  ],
+  "returncode": null,
+  "timeout": true,
+  "reason": "150秒未完成；保留原文、状态及日志，窗口不得前移"
+}

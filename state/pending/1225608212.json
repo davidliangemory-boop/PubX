@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608212",
+  "candidate": {
+    "announcementId": "1225608212",
+    "time": 1792141107000,
+    "secCode": "300661",
+    "secName": "圣邦<em>股</em>份",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225608212.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608212.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1371f94e38754a9211abce88e5a9a53976523d0a8f35f37eab978147e7f7a21d"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596110",
+  "candidate": {
+    "announcementId": "1225596110",
+    "time": 1791475200000,
+    "secCode": "603345",
+    "secName": "安井食品",
+    "title": "H股公告（截至2026年9月30日止之股份发行人的证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-09/1225596110.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596110.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "60324d31a689bd00d24b882bae9c028723515bc659d6ce1566b13d69ac27e20e"
+}

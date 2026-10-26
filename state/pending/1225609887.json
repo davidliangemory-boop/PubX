@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609887",
+  "candidate": {
+    "announcementId": "1225609887",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "环境、社会及管治（ESG)管理制度（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609887.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609887.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5dca34bd77b357884e7c9e72236a06dd1ac8cf314f319ca9b428f72dee3e330a"
+}

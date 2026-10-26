@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596495",
+  "candidate": {
+    "announcementId": "1225596495",
+    "time": 1791475200000,
+    "secCode": "601865",
+    "secName": "福莱特",
+    "title": "福莱特H股公告（月报表 - 截至二零二六年九月三十日止月份之股份发行人的证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-09/1225596495.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596495.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "bcc26f31d657c1f6215b755c07fc2567df565f2bef3edce28040d632a6922c0d"
+}

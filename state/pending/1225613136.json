@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613136",
+  "candidate": {
+    "announcementId": "1225613136",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司关联（连）交易决策制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613136.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613136.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "dd1d54596bbf482959ad9923741b79912ec8392bcd82e7dee6217fcc8b30f76d"
+}

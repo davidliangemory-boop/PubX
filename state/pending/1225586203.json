@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225586203",
+  "candidate": {
+    "announcementId": "1225586203",
+    "time": 1790600428000,
+    "secCode": "300638",
+    "secName": "广和通",
+    "title": "H股公告-(1)根据2026年A股限制性股票激励计划作出授予；及(2)根据2026年H股股份奖励计划作出授予的公告",
+    "adjunctUrl": "finalpage/2026-09-28/1225586203.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225586203.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "548c9d1a940a93e562507cddfa12e4b0e502f5d65bcc107665df8a3a2d3b1774"
+}

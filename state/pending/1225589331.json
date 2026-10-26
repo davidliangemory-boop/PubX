@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589331",
+  "candidate": {
+    "announcementId": "1225589331",
+    "time": 1790697600000,
+    "secCode": "601678",
+    "secName": "滨化<em>股</em>份",
+    "title": "H股公告-滨化股份变更联席公司秘书及豁免严格遵守上市规则第3.28条及第8.17条",
+    "adjunctUrl": "finalpage/2026-09-30/1225589331.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589331.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "04ac6696195b290416202869f557cb1fc5e075e760a0ad99df3bc7dfc53acfed"
+}

@@ -1,0 +1,9 @@
+{
+  "command": [
+    "python3",
+    "-u",
+    "scripts/sdn_screen.py"
+  ],
+  "returncode": 0,
+  "timeout": false
+}

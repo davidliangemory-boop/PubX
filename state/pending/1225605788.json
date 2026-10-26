@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605788",
+  "candidate": {
+    "announcementId": "1225605788",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "宁波江丰电子材料股份有限公司环境、社会和公司治理（ESG）管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-15/1225605788.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605788.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "05776d8f5af05afaf750f4db9a0b6b46ffb4521c892cea8392634c7b0472e50d"
+}

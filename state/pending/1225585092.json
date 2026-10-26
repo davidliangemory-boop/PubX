@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225585092",
+  "candidate": {
+    "announcementId": "1225585092",
+    "time": 1790611200000,
+    "secCode": "601727",
+    "secName": "上海电气",
+    "title": "上海电气H股2026年中期报告",
+    "adjunctUrl": "finalpage/2026-09-29/1225585092.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225585092.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d19f1c9247b94e5c8481b73e4a3ba35dd70f349d3a9908024d6400307924d142"
+}

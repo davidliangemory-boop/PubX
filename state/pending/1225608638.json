@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608638",
+  "candidate": {
+    "announcementId": "1225608638",
+    "time": 1792166400000,
+    "secCode": "601998",
+    "secName": "中信银行",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225608638.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608638.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "92a36deeda6fccd8bc97bcc5b4d01d86f29fb2c1839de7c13c4f79b460fd8f71"
+}

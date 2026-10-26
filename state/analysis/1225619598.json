@@ -1,0 +1,454 @@
+{
+ "model": "GPT-6",
+ "prompt_version": "R08-task-D-20261027",
+ "gate": {
+  "include": true,
+  "category": "设厂",
+  "reason": "兆丰股份拟在韩国设全资子公司并建设生产基地，总投资不超过2,800万美元，仍待境内外手续"
+ },
+ "steps": {
+  "extract_facts": [
+   {
+    "field": "投资总额上限",
+    "value": "2800万美元",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 1,
+     "quote": "本次总投资额不超过 2,800 万美元"
+    }
+   },
+   {
+    "field": "注册资本",
+    "value": "1000万美元",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 1,
+     "quote": "注册资本：1,000 万美元"
+    }
+   },
+   {
+    "field": "项目阶段",
+    "value": "规划",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 1,
+     "quote": "本次投资尚处于规划阶段"
+    }
+   },
+   {
+    "field": "拟持股",
+    "value": "100%",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 2,
+     "quote": "兆丰股份持有该公司 100%的股权"
+    }
+   }
+  ],
+  "legal_map": [
+   {
+    "issue_code": "I1.1",
+    "issue": "ODI 发改委备案/核准",
+    "question": "ODI 发改委备案/核准的办理或履行状态如何？",
+    "trigger_fact": "发改委",
+    "text": "尚需备案或审批",
+    "disclosed_status": "尚需备案或审批",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 2,
+     "quote": "发改委"
+    },
+    "information_gap": "备案通知及完成时间",
+    "judgment": "尚需备案或审批；未披露部分保持待核。",
+    "verification_action": "索取备案或核准文件",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：发改委"
+   },
+   {
+    "issue_code": "I1.2",
+    "issue": "商务部境外投资备案",
+    "question": "商务部境外投资备案的办理或履行状态如何？",
+    "trigger_fact": "商务部门",
+    "text": "尚需备案或审批",
+    "disclosed_status": "尚需备案或审批",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 2,
+     "quote": "商务部门"
+    },
+    "information_gap": "境外投资证书",
+    "judgment": "尚需备案或审批；未披露部分保持待核。",
+    "verification_action": "核对证书与投资路径",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：商务部门"
+   },
+   {
+    "issue_code": "I1.3",
+    "issue": "外汇 ODI 登记及资金汇出",
+    "question": "外汇 ODI 登记及资金汇出的办理或履行状态如何？",
+    "trigger_fact": "外汇管理部门",
+    "text": "尚需备案或审批",
+    "disclosed_status": "尚需备案或审批",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 2,
+     "quote": "外汇管理部门"
+    },
+    "information_gap": "登记与汇出安排",
+    "judgment": "尚需备案或审批；未披露部分保持待核。",
+    "verification_action": "索取银行登记并核对付款节点",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：外汇管理部门"
+   },
+   {
+    "issue_code": "I2.2",
+    "issue": "行业准入及负面清单",
+    "question": "行业准入及负面清单的办理或履行状态如何？",
+    "trigger_fact": "境外当地投资许可和企业登记",
+    "text": "当地许可和登记尚待办理",
+    "disclosed_status": "当地许可和登记尚待办理",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 1,
+     "quote": "境外当地投资许可和企业登记"
+    },
+    "information_gap": "当地准入条件、证书和建设许可",
+    "judgment": "当地许可和登记尚待办理；未披露部分保持待核。",
+    "verification_action": "委托当地律师列明汽车零部件生产所需许可清单",
+    "layer": "analysis",
+    "basis": "1225619598 第1页：境外当地投资许可和企业登记"
+   }
+  ],
+  "judge": [
+   {
+    "text": "董事会审议通过仍处规划阶段；总投资上限与注册资本口径不同，不能当作已支付资本开支。",
+    "layer": "analysis",
+    "basis": "1225619598 第1页：本次总投资额不超过 2,800 万美元；1225619598 第1页：注册资本：1,000 万美元；1225619598 第1页：本次投资尚处于规划阶段；1225619598 第2页：兆丰股份持有该公司 100%的股权"
+   }
+  ]
+ },
+ "result": {
+  "fields": {
+   "公司全称": "浙江兆丰机电股份有限公司",
+   "公告类型": "关于对外投资设立境外子公司的公告",
+   "涉及国家/地区": "韩国",
+   "动作类型": "设厂",
+   "动作阶段": "规划",
+   "投资金额": "总投资不超过2800万美元；拟注册资本1000万美元",
+   "合作方": "兆丰精密株式会社（拟）",
+   "出海模式归类": null,
+   "盈利方式": null,
+   "本地化深度": null,
+   "对主营业务的战略价值": null,
+   "对营收结构与利润的预期影响": null,
+   "是否构成第二增长曲线": null,
+   "主要风险与不确定性": "董事会审议通过仍处规划阶段；总投资上限与注册资本口径不同，不能当作已支付资本开支。",
+   "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+   "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+   "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": "尚需备案或审批；尚需备案或审批；尚需备案或审批；当地许可和登记尚待办理"
+  },
+  "quotes": [
+   "本次总投资额不超过 2,800 万美元",
+   "注册资本：1,000 万美元",
+   "本次投资尚处于规划阶段",
+   "兆丰股份持有该公司 100%的股权"
+  ],
+  "undisclosed": "建设规模、产能、工期、经营许可和审批时间未披露。"
+ },
+ "event": {
+  "event_id": "E-H-20261027-1225619598",
+  "module": "cn_outbound",
+  "title_fact": {
+   "text": "兆丰股份拟在韩国设全资子公司并建设生产基地，总投资不超过2,800万美元，仍待境内外手续",
+   "layer": "disclosed",
+   "basis": "1225619598 第1页：本次总投资额不超过 2,800 万美元；1225619598 第1页：注册资本：1,000 万美元；1225619598 第1页：本次投资尚处于规划阶段；1225619598 第2页：兆丰股份持有该公司 100%的股权"
+  },
+  "status": "活跃",
+  "parties": [
+   {
+    "name": "浙江兆丰机电股份有限公司",
+    "role": "披露主体",
+    "layer": "disclosed",
+    "basis": "1225619598 原文"
+   },
+   {
+    "name": "兆丰精密株式会社（拟）",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225619598 原文"
+   }
+  ],
+  "geo": {
+   "text": "韩国",
+   "layer": "disclosed",
+   "basis": "1225619598 第1页：本次总投资额不超过 2,800 万美元；1225619598 第1页：注册资本：1,000 万美元；1225619598 第1页：本次投资尚处于规划阶段；1225619598 第2页：兆丰股份持有该公司 100%的股权"
+  },
+  "matter_type": {
+   "value": "设厂",
+   "layer": "analysis",
+   "basis": "1225619598 第1页：本次总投资额不超过 2,800 万美元；1225619598 第1页：注册资本：1,000 万美元；1225619598 第1页：本次投资尚处于规划阶段；1225619598 第2页：兆丰股份持有该公司 100%的股权"
+  },
+  "stage_current": "规划",
+  "stage_chain": [
+   {
+    "stage": "规划",
+    "date": "2026-10-23",
+    "doc_id": "1225619598",
+    "note": "兆丰股份拟在韩国设全资子公司并建设生产基地，总投资不超过2,800万美元，仍待境内外手续",
+    "layer": "disclosed"
+   }
+  ],
+  "scale": {
+   "text": "总投资不超过2800万美元；拟注册资本1000万美元",
+   "layer": "disclosed",
+   "basis": "1225619598 第1页：本次总投资额不超过 2,800 万美元；1225619598 第1页：注册资本：1,000 万美元；1225619598 第1页：本次投资尚处于规划阶段；1225619598 第2页：兆丰股份持有该公司 100%的股权"
+  },
+  "terms": null,
+  "legal_triggers": [
+   {
+    "issue_code": "I1.1",
+    "issue": "ODI 发改委备案/核准",
+    "question": "ODI 发改委备案/核准的办理或履行状态如何？",
+    "trigger_fact": "发改委",
+    "text": "尚需备案或审批",
+    "disclosed_status": "尚需备案或审批",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 2,
+     "quote": "发改委"
+    },
+    "information_gap": "备案通知及完成时间",
+    "judgment": "尚需备案或审批；未披露部分保持待核。",
+    "verification_action": "索取备案或核准文件",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：发改委"
+   },
+   {
+    "issue_code": "I1.2",
+    "issue": "商务部境外投资备案",
+    "question": "商务部境外投资备案的办理或履行状态如何？",
+    "trigger_fact": "商务部门",
+    "text": "尚需备案或审批",
+    "disclosed_status": "尚需备案或审批",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 2,
+     "quote": "商务部门"
+    },
+    "information_gap": "境外投资证书",
+    "judgment": "尚需备案或审批；未披露部分保持待核。",
+    "verification_action": "核对证书与投资路径",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：商务部门"
+   },
+   {
+    "issue_code": "I1.3",
+    "issue": "外汇 ODI 登记及资金汇出",
+    "question": "外汇 ODI 登记及资金汇出的办理或履行状态如何？",
+    "trigger_fact": "外汇管理部门",
+    "text": "尚需备案或审批",
+    "disclosed_status": "尚需备案或审批",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 2,
+     "quote": "外汇管理部门"
+    },
+    "information_gap": "登记与汇出安排",
+    "judgment": "尚需备案或审批；未披露部分保持待核。",
+    "verification_action": "索取银行登记并核对付款节点",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：外汇管理部门"
+   },
+   {
+    "issue_code": "I2.2",
+    "issue": "行业准入及负面清单",
+    "question": "行业准入及负面清单的办理或履行状态如何？",
+    "trigger_fact": "境外当地投资许可和企业登记",
+    "text": "当地许可和登记尚待办理",
+    "disclosed_status": "当地许可和登记尚待办理",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225619598",
+     "page": 1,
+     "quote": "境外当地投资许可和企业登记"
+    },
+    "information_gap": "当地准入条件、证书和建设许可",
+    "judgment": "当地许可和登记尚待办理；未披露部分保持待核。",
+    "verification_action": "委托当地律师列明汽车零部件生产所需许可清单",
+    "layer": "analysis",
+    "basis": "1225619598 第1页：境外当地投资许可和企业登记"
+   }
+  ],
+  "issue_not_applicable": [
+   {
+    "issue_code": "I3",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现竞争申报要素；上市规则交易分类以各来源 raw_category 逐源保留",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I4",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现出口管制要素（物项/技术/最终用户限制均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I5",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现制裁要素；同名主体识别另见出口管制分页「观察名单比对」（同名≠命中）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I6",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现数据/网络安全要素（无数据出境、个人信息、关键信息基础设施等原文提及）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I7",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现贸易/海关要素（关税、原产地、退税、产品认证均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I8",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现税务要素（常设机构/预提税/支柱二/间接转让均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I9",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现劳动/ESG 要素（雇佣、工会、环保、社区权益、供应链尽调均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I10",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现交易条款要素（或事项非合同型：如定期报告、人事变动）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I11",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现知识产权要素（技术许可/商标专利布局/337 调查均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I12",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现争议/处罚要素（无境外诉讼仲裁、行政处罚、投资仲裁的原文提及）",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   },
+   {
+    "issue_code": "I13",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现多地披露/境外上市/募资出境要素",
+    "layer": "analysis",
+    "basis": "1225619598 完整原文逐页核查；本次事项为设厂"
+   }
+  ],
+  "watch_points": [
+   {
+    "text": "董事会审议通过仍处规划阶段；总投资上限与注册资本口径不同，不能当作已支付资本开支。",
+    "layer": "analysis",
+    "basis": "1225619598 第1页：本次总投资额不超过 2,800 万美元；1225619598 第1页：注册资本：1,000 万美元；1225619598 第1页：本次投资尚处于规划阶段；1225619598 第2页：兆丰股份持有该公司 100%的股权"
+   }
+  ],
+  "gaps": [
+   {
+    "text": "建设规模、产能、工期、经营许可和审批时间未披露。",
+    "item": "建设规模、产能、工期、经营许可和审批时间未披露。",
+    "why": "影响事项后续履行及监管状态核实",
+    "where": "向公司或交易对方索取对应文件",
+    "layer": "analysis",
+    "basis": "1225619598 第1页：本次总投资额不超过 2,800 万美元；1225619598 第1页：注册资本：1,000 万美元；1225619598 第1页：本次投资尚处于规划阶段；1225619598 第2页：兆丰股份持有该公司 100%的股权"
+   }
+  ],
+  "practice_notes": [
+   {
+    "text": "索取备案或核准文件",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：发改委"
+   },
+   {
+    "text": "核对证书与投资路径",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：商务部门"
+   },
+   {
+    "text": "索取银行登记并核对付款节点",
+    "layer": "analysis",
+    "basis": "1225619598 第2页：外汇管理部门"
+   },
+   {
+    "text": "委托当地律师列明汽车零部件生产所需许可清单",
+    "layer": "analysis",
+    "basis": "1225619598 第1页：境外当地投资许可和企业登记"
+   }
+  ],
+  "sources": [
+   {
+    "doc_id": "1225619598",
+    "channel": "A股·巨潮",
+    "file": "关于对外投资设立境外子公司的公告",
+    "date": "2026-10-23",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-10-23/1225619598.PDF",
+    "quotes": [
+     {
+      "page": 1,
+      "text": "本次总投资额不超过 2,800 万美元"
+     },
+     {
+      "page": 1,
+      "text": "注册资本：1,000 万美元"
+     },
+     {
+      "page": 1,
+      "text": "本次投资尚处于规划阶段"
+     },
+     {
+      "page": 2,
+      "text": "兆丰股份持有该公司 100%的股权"
+     }
+    ],
+    "sha256": "9b08d01d51194bd13a28a0722e2dea1381ed4368e6e5ba1ffdbfbf69fe254a89"
+   }
+  ],
+  "source_diff": null,
+  "changelog": [],
+  "found_by": "history_backfill",
+  "history_window": {
+   "start": "2026-09-26",
+   "end": "2026-10-25"
+  }
+ },
+ "update_type": "new",
+ "target_id": null,
+ "reason": "按既有事件主体和标的核对未找到同一事项；本公告披露的境外实质动作新建事件。",
+ "case_update": {
+  "summary": "兆丰股份拟在韩国设全资子公司并建设生产基地，总投资不超过2,800万美元，仍待境内外手续",
+  "check": "维持：按本次已披露阶段跟踪；未有同事项既有判断可作前后检验。"
+ }
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612114",
+  "candidate": {
+    "announcementId": "1225612114",
+    "time": 1792512000000,
+    "secCode": "601888",
+    "secName": "中国中免",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-21/1225612114.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612114.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c720a32bb4109a856eddeb8e97d1214c9d08b674e8b213bee34e966aef2e18b9"
+}

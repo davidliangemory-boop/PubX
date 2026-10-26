@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608235",
+  "candidate": {
+    "announcementId": "1225608235",
+    "time": 1792166400000,
+    "secCode": "002600",
+    "secName": "领益智造",
+    "title": "H股公告-董事会会议日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225608235.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608235.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "8943ece648df477cf0d9991b2b475d883e2cac7479f41e3aea6954c9b1386d72"
+}

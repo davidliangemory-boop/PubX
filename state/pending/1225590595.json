@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590595",
+  "candidate": {
+    "announcementId": "1225590595",
+    "time": 1790784000000,
+    "secCode": "601601",
+    "secName": "中国太保",
+    "title": "中国太保H股公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225590595.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590595.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e31f8263973a50e2da46e75d35a84845cdbff7220448bee51d914e077f723932"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606334",
+  "candidate": {
+    "announcementId": "1225606334",
+    "time": 1792080000000,
+    "secCode": "688236",
+    "secName": "春立医疗",
+    "title": "H股市场公告",
+    "adjunctUrl": "finalpage/2026-10-16/1225606334.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606334.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4660cbb7fa6769f024d9ebc84c0ebac77c59c428b46216336a40f1d66045d8d5"
+}

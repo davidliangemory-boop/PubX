@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589909",
+  "candidate": {
+    "announcementId": "1225589909",
+    "time": 1790784000000,
+    "secCode": "001246",
+    "secName": "力勤资源",
+    "title": "H股公告（董事会战略与ESG委员会工作细则）",
+    "adjunctUrl": "finalpage/2026-10-01/1225589909.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589909.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "29ef65ce7ca5deff4d1e05beb83833edfa722090ca4a4cc213eabdc6bcaf33d7"
+}

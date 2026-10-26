@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596991",
+  "candidate": {
+    "announcementId": "1225596991",
+    "time": 1791475200000,
+    "secCode": "601111",
+    "secName": "中国国航",
+    "title": "中国国航H股公告-月报表",
+    "adjunctUrl": "finalpage/2026-10-09/1225596991.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596991.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "97445d92ac1aad800c706a318194d3d4f1fe1836af624c501b61db507c01c782"
+}

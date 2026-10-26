@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609390",
+  "candidate": {
+    "announcementId": "1225609390",
+    "time": 1792166400000,
+    "secCode": "601633",
+    "secName": "长城汽车",
+    "title": "H股公告-修订持续关连交易之年度上限",
+    "adjunctUrl": "finalpage/2026-10-17/1225609390.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609390.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "715a81a5b9cffffc028878be9e4d15c0747d58a1d08ac3130a6cd1fba55abf55"
+}

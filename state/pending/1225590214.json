@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590214",
+  "candidate": {
+    "announcementId": "1225590214",
+    "time": 1790784000000,
+    "secCode": "601998",
+    "secName": "中信银行",
+    "title": "H股公告—二零二六年九月三十日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225590214.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590214.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4ae3b6006c6d5ff1248ec899ddd5d6ad6defc9666a32ce762930fd6d040ac3af"
+}

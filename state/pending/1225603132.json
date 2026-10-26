@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225603132",
+  "candidate": {
+    "announcementId": "1225603132",
+    "time": 1791907200000,
+    "secCode": "002881",
+    "secName": "美格智能",
+    "title": "H股公告—董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-14/1225603132.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603132.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c944eabde111427ded670ce6e0a88ea9e7a460de7c86747362b2bee5c74f0e27"
+}

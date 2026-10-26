@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589564",
+  "candidate": {
+    "announcementId": "1225589564",
+    "time": 1790727135000,
+    "secCode": "001389",
+    "secName": "广合科技",
+    "title": "H股公告-建议采纳A股激励计划及H股激励计划",
+    "adjunctUrl": "finalpage/2026-09-30/1225589564.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589564.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1349c04426a9721be25b7cb16d3eabfa06f258a1cbce7712d7e961ff584d3cfa"
+}

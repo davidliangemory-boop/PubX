@@ -1,0 +1,35 @@
+{
+ "model": "GPT-6",
+ "prompt_version": "R08-task-D-20261027",
+ "gate": {
+  "include": false,
+  "category": "其他无关",
+  "reason": "本公告仅为深圳飒芙境内破产宣告，未披露境外主体、项目或本次跨境业务处理。"
+ },
+ "review_scope": "已读取完整原文逐页核查",
+ "steps": {
+  "extract_facts": [
+   {
+    "field": "门控事实",
+    "value": "本公告仅为深圳飒芙境内破产宣告，未披露境外主体、项目或本次跨境业务处理。",
+    "layer": "analysis",
+    "basis": "1225605068完整原文"
+   }
+  ],
+  "legal_map": [
+   {
+    "status": "not_applicable",
+    "layer": "analysis",
+    "basis": "不满足境外主体/业务加实质动作门控",
+    "text": "本公告仅为深圳飒芙境内破产宣告，未披露境外主体、项目或本次跨境业务处理。"
+   }
+  ],
+  "judge": [
+   {
+    "text": "本次排除，不消费为出海新事件。",
+    "layer": "analysis",
+    "basis": "本公告仅为深圳飒芙境内破产宣告，未披露境外主体、项目或本次跨境业务处理。"
+   }
+  ]
+ }
+}

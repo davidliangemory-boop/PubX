@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590228",
+  "candidate": {
+    "announcementId": "1225590228",
+    "time": 1790784000000,
+    "secCode": "601881",
+    "secName": "中国银河",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225590228.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590228.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3e1a5fed3371b109297b708ea1a1a2fafcdeafa33b5d1ed8403a2c4ae4db5ab6"
+}

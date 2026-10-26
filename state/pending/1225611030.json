@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225611030",
+  "candidate": {
+    "announcementId": "1225611030",
+    "time": 1792425600000,
+    "secCode": "600276",
+    "secName": "恒瑞医药",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-20/1225611030.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225611030.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "6f44c619c896243d3c992e4820748c35a457bc85cae229a716be5dd328fcf323"
+}

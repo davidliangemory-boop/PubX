@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587843",
+  "candidate": {
+    "announcementId": "1225587843",
+    "time": 1790697600000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "《环境、社会与公司治理责任政策（草案）》（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-09-30/1225587843.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587843.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "6e821592de870e6ca55ba66349ccb695299a78342509a0adba3ff03545a00f9c"
+}

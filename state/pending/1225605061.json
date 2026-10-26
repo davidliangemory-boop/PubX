@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605061",
+  "candidate": {
+    "announcementId": "1225605061",
+    "time": 1791993600000,
+    "secCode": "603296",
+    "secName": "华勤技术",
+    "title": "华勤技术H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-15/1225605061.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605061.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "84a5f700a260c1fb34bd5a92dcc1fb29a91731c53e387888204f4ab4ac6cbb68"
+}

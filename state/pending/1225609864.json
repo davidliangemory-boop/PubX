@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609864",
+  "candidate": {
+    "announcementId": "1225609864",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "关于聘请H股发行并上市审计机构的公告",
+    "adjunctUrl": "finalpage/2026-10-17/1225609864.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609864.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "440070ea4c1b505ccc71896f634c8a1a24afbc2ab12a5cd96c8a188c73554fec"
+}

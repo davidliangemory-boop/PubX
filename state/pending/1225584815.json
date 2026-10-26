@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225584815",
+  "candidate": {
+    "announcementId": "1225584815",
+    "time": 1790611200000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "传音控股关于刊发H股发行聆讯后资料集的公告",
+    "adjunctUrl": "finalpage/2026-09-29/1225584815.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225584815.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e62121b93a6597ee2bba4b648a3794d9e1c60896036b6b4ce6e125bf27ab34de"
+}

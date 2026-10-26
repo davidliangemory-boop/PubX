@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609363",
+  "candidate": {
+    "announcementId": "1225609363",
+    "time": 1792080000000,
+    "secCode": "601618",
+    "secName": "中国中冶",
+    "title": "中国中冶H股公告",
+    "adjunctUrl": "finalpage/2026-10-16/1225609363.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609363.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "19520d9044fca1a2fce589676eddb4ad705de0a08836fb6dc8fe108ed873cc22"
+}

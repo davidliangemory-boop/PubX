@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608306",
+  "candidate": {
+    "announcementId": "1225608306",
+    "time": 1792166400000,
+    "secCode": "688339",
+    "secName": "亿华通",
+    "title": "亿华通  H股公告-董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225608306.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608306.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "816e2711681f0c993330c593253536aac61bd27342864f3fbe8acbba73b77bd5"
+}

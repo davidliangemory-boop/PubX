@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225603806",
+  "candidate": {
+    "announcementId": "1225603806",
+    "time": 1791907200000,
+    "secCode": "002050",
+    "secName": "三花智控",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-14/1225603806.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603806.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "066dfbe11a63a48acbbb946ca76ef0d5b6874d05cf47b14e454c8e2592700328"
+}

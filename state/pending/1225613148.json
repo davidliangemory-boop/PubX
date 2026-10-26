@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613148",
+  "candidate": {
+    "announcementId": "1225613148",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司董事会提名委员会议事规则（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613148.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613148.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c60178b70ae095887d6ea3dfc9a7c64bcab3b14f84753b68795c641e629eb891"
+}

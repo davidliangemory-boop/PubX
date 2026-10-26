@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609865",
+  "candidate": {
+    "announcementId": "1225609865",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "董事会审计委员会工作细则（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609865.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609865.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2c55e95f913c217b8fa8d5c73c4e4cf049edc85a281c295f6a3493e15bf01a0d"
+}

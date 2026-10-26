@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609307",
+  "candidate": {
+    "announcementId": "1225609307",
+    "time": 1792166400000,
+    "secCode": "001232",
+    "secName": "嘉立创",
+    "title": "关于筹划发行H股股票并在香港联合交易所有限公司上市的提示性公告",
+    "adjunctUrl": "finalpage/2026-10-17/1225609307.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609307.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "35e65edb74f7c8f2926d104f1e03518a5195b8cf5d6dc9c778f99b283b97969c"
+}

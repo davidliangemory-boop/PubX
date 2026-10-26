@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225607431",
+  "candidate": {
+    "announcementId": "1225607431",
+    "time": 1792080000000,
+    "secCode": "603650",
+    "secName": "彤程新材",
+    "title": "H股公告-关联交易 增资协议",
+    "adjunctUrl": "finalpage/2026-10-16/1225607431.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225607431.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b2da50f49ef02c6be2bdd6c2f6db9594370e6bb4bb7cc870513a11ff3c22aa87"
+}

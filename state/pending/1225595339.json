@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595339",
+  "candidate": {
+    "announcementId": "1225595339",
+    "time": 1791388800000,
+    "secCode": "600031",
+    "secName": "三一重工",
+    "title": "三一重工股份有限公司H股公告-证券变动月报表（9月）",
+    "adjunctUrl": "finalpage/2026-10-08/1225595339.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595339.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c8b1a40a94cffc37600c76042d7233b91be45256d9e2407ba61dae299b37ad7d"
+}

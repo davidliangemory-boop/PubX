@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595394",
+  "candidate": {
+    "announcementId": "1225595394",
+    "time": 1791388800000,
+    "secCode": "002821",
+    "secName": "凯莱英",
+    "title": "H股公告：证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595394.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595394.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "73dc43e753596e3c8a5a5f9d5a31edcbfbe43cd9bdead8a428dc66ee5c7d7183"
+}

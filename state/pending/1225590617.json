@@ -1,0 +1,30 @@
+{
+  "doc_id": "1225590617",
+  "candidate": {
+    "announcementId": "1225590617",
+    "time": 1790784000000,
+    "secCode": "601598",
+    "secName": "中<em>国外</em>运",
+    "title": "H股公告-月报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225590617.PDF",
+    "keywords": [
+      "国外"
+    ]
+  },
+  "raw_path": "raw/1225590617.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "excluded",
+  "sha256": "6567a12976266ffb49b4483960908c66837a6e71bb4ced066d2a05cdb13b0860",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "证券变动月报表显示A/H股股份无增减，属例行程序，无新出海事项。",
+  "reviewed_at": "2026-10-27 04:38"
+}

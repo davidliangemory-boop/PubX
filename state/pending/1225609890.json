@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609890",
+  "candidate": {
+    "announcementId": "1225609890",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "内幕信息知情人登记管理制度（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609890.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609890.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5a8a3e9fddd2e343e3e2f1fdea3c4dc141aae3a37e3a709dc73bc852f07fbbeb"
+}

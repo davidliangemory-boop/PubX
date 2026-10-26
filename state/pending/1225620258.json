@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225620258",
+  "candidate": {
+    "announcementId": "1225620258",
+    "time": 1792771200000,
+    "secCode": "300014",
+    "secName": "亿纬锂能",
+    "title": "股东会议事规则（H股草案）",
+    "adjunctUrl": "finalpage/2026-10-24/1225620258.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225620258.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f793c3b20bc840d539b6d668f8c88c6bf01bc72110006fa88a7561bcc269e611"
+}

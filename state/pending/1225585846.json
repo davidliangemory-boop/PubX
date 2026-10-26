@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225585846",
+  "candidate": {
+    "announcementId": "1225585846",
+    "time": 1790596827000,
+    "secCode": "300223",
+    "secName": "君正<em>股</em>份",
+    "title": "H股公告-2026中期报告",
+    "adjunctUrl": "finalpage/2026-09-28/1225585846.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225585846.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "91138fa4f8443d666f6c624c384fe8f329501c8998dd35530fd0b8791fe2d10c"
+}

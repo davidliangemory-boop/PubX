@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225604407",
+  "candidate": {
+    "announcementId": "1225604407",
+    "time": 1791966027000,
+    "secCode": "301377",
+    "secName": "鼎泰高科",
+    "title": "H股公告-董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-14/1225604407.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225604407.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "cb679afa5c10bd84949868007721516766b4208229b73894554e3783efd767ca"
+}

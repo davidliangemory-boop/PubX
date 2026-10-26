@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225585709",
+  "candidate": {
+    "announcementId": "1225585709",
+    "time": 1790611200000,
+    "secCode": "002490",
+    "secName": "山东墨龙",
+    "title": "关于根据一般性授权完成配售新H股的公告",
+    "adjunctUrl": "finalpage/2026-09-29/1225585709.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225585709.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d909382444ccf16d984393e03a013224c8cd61613a96d98b9fe9b2787770673b"
+}

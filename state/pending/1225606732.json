@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606732",
+  "candidate": {
+    "announcementId": "1225606732",
+    "time": 1792080000000,
+    "secCode": "688279",
+    "secName": "峰岹科技",
+    "title": "H股公告（董事会会议通告）",
+    "adjunctUrl": "finalpage/2026-10-16/1225606732.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606732.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "458e8d7fdcce324c4cac0f5bc05e3446c909c3431d734cf2b41cf5b2830cb693"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609884",
+  "candidate": {
+    "announcementId": "1225609884",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "董事会及员工多元化政策（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609884.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609884.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1c080983e943422b28f948a91717cbccca941908c72546e1d2d10e69b733929f"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608526",
+  "candidate": {
+    "announcementId": "1225608526",
+    "time": 1792166400000,
+    "secCode": "601038",
+    "secName": "一拖<em>股</em>份",
+    "title": "一拖股份H股公告",
+    "adjunctUrl": "finalpage/2026-10-17/1225608526.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608526.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "50400161adf883f55bf9d3643c9d5ca22b05f9669ade5cc0048a0f7fb94d2e06"
+}

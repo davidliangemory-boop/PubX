@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596949",
+  "candidate": {
+    "announcementId": "1225596949",
+    "time": 1791475200000,
+    "secCode": "601808",
+    "secName": "中海油服",
+    "title": "中海油服H股公告-董事会会议公告",
+    "adjunctUrl": "finalpage/2026-10-09/1225596949.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596949.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "96f5e669caf875adaf68b40dedfa3be3e6fd122d21e8e7d4bb0963afbe8f3e11"
+}

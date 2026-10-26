@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613130",
+  "candidate": {
+    "announcementId": "1225613130",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司募集资金管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613130.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613130.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1e73290a51ca77030bc4c366560cd268416ea55cd19c65a411edaca768746955"
+}

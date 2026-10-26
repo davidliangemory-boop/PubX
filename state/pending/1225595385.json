@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595385",
+  "candidate": {
+    "announcementId": "1225595385",
+    "time": 1791388800000,
+    "secCode": "300750",
+    "secName": "宁德时代",
+    "title": "H股公告（截至2026年9月30日止股份发行人的证券变动月报表)",
+    "adjunctUrl": "finalpage/2026-10-08/1225595385.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595385.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7bd47344b38b5fc1b90db9dd44b14bb292eea1c7c590941b6da86598e5fbf9bd"
+}

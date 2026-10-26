@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606276",
+  "candidate": {
+    "announcementId": "1225606276",
+    "time": 1792080000000,
+    "secCode": "603501",
+    "secName": "豪威集团",
+    "title": "H股公告-董事会会议日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225606276.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606276.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1af4253b53eb3a4ed48359849f52a91ab1d0fefe7b2cc17b62ce151f5b003920"
+}

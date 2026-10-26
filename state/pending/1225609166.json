@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609166",
+  "candidate": {
+    "announcementId": "1225609166",
+    "time": 1792166400000,
+    "secCode": "601211",
+    "secName": "国泰海通",
+    "title": "国泰海通证券股份有限公司H股公告（董事会会议通知）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609166.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609166.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "32604fb6f9434fd73db50512d5a1182c89a64aa14cac0a55a94a024d466cf5c0"
+}

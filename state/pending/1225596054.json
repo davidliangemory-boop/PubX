@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596054",
+  "candidate": {
+    "announcementId": "1225596054",
+    "time": 1791450371000,
+    "secCode": "300408",
+    "secName": "三环集团",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225596054.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596054.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2225fbefb3348f50ab4a681cc04fba06814ebf7d2576d7f59ccbdb8fc12a62a0"
+}

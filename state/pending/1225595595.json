@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595595",
+  "candidate": {
+    "announcementId": "1225595595",
+    "time": 1791388800000,
+    "secCode": "600276",
+    "secName": "恒瑞医药",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595595.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595595.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "781b8b715d59164c2fb6d2283deb60088e3bb8f1908d1d2b4222de344decbc60"
+}

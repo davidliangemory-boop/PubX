@@ -2,11 +2,27 @@
   "task": "history_backfill_30d_rolling",
   "target_floor": "2020-01-01",
   "window_days": 30,
-  "sources": ["ashare_new_filings", "hk_new_filings", "us_new_filings", "ofac_export_control", "holdings_watchlist"],
-  "parallel_with": ["daily_update"],
+  "sources": [
+    "ashare_new_filings",
+    "hk_new_filings",
+    "us_new_filings",
+    "ofac_export_control",
+    "holdings_watchlist"
+  ],
+  "parallel_with": [
+    "daily_update"
+  ],
   "next_window_start": "2026-09-26",
   "next_window_end": "2026-10-25",
   "completed_windows": [],
-  "status": "pending_first_run",
-  "updated_at": "2026-10-26 21:19:30 CST"
+  "status": "pending",
+  "updated_at": "2026-10-27T04:42:29.862366+08:00",
+  "batch_id": "H-20261027",
+  "current_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "last_run_report": "state/history_runs/H-20261027/report.json",
+  "pending_reason": "四模块覆盖与逐份原文审核未完成；保留原窗口重试。",
+  "publish_ready": false
 }

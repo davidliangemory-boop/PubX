@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609891",
+  "candidate": {
+    "announcementId": "1225609891",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "关于制定于H股发行并上市后生效的《公司章程（草案）》及其附件、修订及制定部分公司治理制度的公告",
+    "adjunctUrl": "finalpage/2026-10-17/1225609891.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609891.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7665051e21a6553f058f463b332735f0a1685e1145e72e02996d41b2ac490206"
+}

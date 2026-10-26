@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595435",
+  "candidate": {
+    "announcementId": "1225595435",
+    "time": 1791388800000,
+    "secCode": "605499",
+    "secName": "东鹏饮料",
+    "title": "H股公告-截至二零二六年九月三十日止之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595435.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595435.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1c055ad81c618e484996a156fadad4e8642843fd862194e7c354475d4dd172e9"
+}

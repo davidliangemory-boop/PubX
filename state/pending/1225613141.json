@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613141",
+  "candidate": {
+    "announcementId": "1225613141",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司股东通讯政策（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613141.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613141.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9b5517e0aa4f20fd5a1b209db83436d814423b34812cf5ff08b4dd31cb1ee664"
+}

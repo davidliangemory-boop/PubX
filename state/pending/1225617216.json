@@ -1,0 +1,28 @@
+{
+  "doc_id": "1225617216",
+  "candidate": {
+    "announcementId": "1225617216",
+    "time": 1792684800000,
+    "secCode": "000798",
+    "secName": "中水渔业",
+    "title": "关于下属子公司在境外设立合资公司的公告",
+    "adjunctUrl": "finalpage/2026-10-23/1225617216.PDF",
+    "keywords": [
+      "境外"
+    ]
+  },
+  "raw_path": "raw/1225617216.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "ingested",
+  "sha256": "43581c64987014c0db21d8f71ac20f4ac8bf615a8c33e8aa86c9dd5f60408c05",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

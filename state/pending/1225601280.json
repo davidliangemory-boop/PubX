@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225601280",
+  "candidate": {
+    "announcementId": "1225601280",
+    "time": 1791820800000,
+    "secCode": "600808",
+    "secName": "马钢<em>股</em>份",
+    "title": "马钢股份H股市场公告",
+    "adjunctUrl": "finalpage/2026-10-13/1225601280.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225601280.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e1c30fbb9ae046fe961a21898bb131a034dcf95465fc703471f7c0262501645c"
+}

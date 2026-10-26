@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609504",
+  "candidate": {
+    "announcementId": "1225609504",
+    "time": 1792149370000,
+    "secCode": "301308",
+    "secName": "江波龙",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225609504.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609504.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "98d17f5670d8426dce29fbe179c8b77e61058b070ce69d8bf0183222aa0c24a6"
+}

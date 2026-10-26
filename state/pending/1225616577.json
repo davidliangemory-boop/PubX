@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225616577",
+  "candidate": {
+    "announcementId": "1225616577",
+    "time": 1792684800000,
+    "secCode": "600547",
+    "secName": "山东黄金",
+    "title": "山东黄金矿业股份有限公司2026年第四次临时股东会、2026年第一次A股类别股东会、2026年第一次H股类别股东会会议资料",
+    "adjunctUrl": "finalpage/2026-10-23/1225616577.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225616577.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1eb9badb0595e1013dbbde4c2de6097a5943b306c73b149b73d7dde28199571c"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608278",
+  "candidate": {
+    "announcementId": "1225608278",
+    "time": 1792166400000,
+    "secCode": "601298",
+    "secName": "青岛港",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-17/1225608278.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608278.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4b7f9cc85c7dae409d52a3d956e4d2d519a072e88a36d4b5f6b14e52b8347ce6"
+}

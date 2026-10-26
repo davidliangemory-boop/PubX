@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225620256",
+  "candidate": {
+    "announcementId": "1225620256",
+    "time": 1792771200000,
+    "secCode": "300014",
+    "secName": "亿纬锂能",
+    "title": "关于修订公司本次H股发行上市后适用的公司制度的公告",
+    "adjunctUrl": "finalpage/2026-10-24/1225620256.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225620256.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "15c4ccb5531acf0ccd53a455f1da0742a265c37f666f3f8267af4491f1402144"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225614696",
+  "candidate": {
+    "announcementId": "1225614696",
+    "time": 1792581388000,
+    "secCode": "300750",
+    "secName": "宁德时代",
+    "title": "H股公告（翌日披露报表）",
+    "adjunctUrl": "finalpage/2026-10-21/1225614696.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225614696.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1f2e255cdc03a4adfd2babd0e35c9fdab9f26e77c51167c738c73e7c9fabd429"
+}

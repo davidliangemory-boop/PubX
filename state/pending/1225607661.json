@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225607661",
+  "candidate": {
+    "announcementId": "1225607661",
+    "time": 1792080000000,
+    "secCode": "601318",
+    "secName": "中国平安",
+    "title": "中国平安H股公告",
+    "adjunctUrl": "finalpage/2026-10-16/1225607661.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225607661.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9319c11682fa65d66b22d4d0de69708d371eb811b6991009eb2bc0096f3f20f9"
+}

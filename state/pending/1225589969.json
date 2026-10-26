@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589969",
+  "candidate": {
+    "announcementId": "1225589969",
+    "time": 1790784000000,
+    "secCode": "601336",
+    "secName": "新华保险",
+    "title": "新华保险H股公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225589969.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589969.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3eeea3aefdeaf18f67dae5a037d49780eda0ecbd976a859f2ebf03b11e064dff"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595667",
+  "candidate": {
+    "announcementId": "1225595667",
+    "time": 1791388800000,
+    "secCode": "601678",
+    "secName": "滨化<em>股</em>份",
+    "title": "H股公告-截至二零二六年九月三十日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595667.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595667.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "98bde14a7d09e08e38192aa918a6169a98e98bb57282f262912b85ee647eb013"
+}

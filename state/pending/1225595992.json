@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595992",
+  "candidate": {
+    "announcementId": "1225595992",
+    "time": 1791417269000,
+    "secCode": "300450",
+    "secName": "先导智能",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595992.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595992.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "07a84dce86f530040e7d90488bd5c18f10d49a52ad26d1379d9c283c82fa8b7e"
+}

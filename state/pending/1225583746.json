@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225583746",
+  "candidate": {
+    "announcementId": "1225583746",
+    "time": 1790524800000,
+    "secCode": "600028",
+    "secName": "中国石化",
+    "title": "中国石化H股公告-翌日披露表格",
+    "adjunctUrl": "finalpage/2026-09-28/1225583746.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225583746.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "cfca08f97a45faf1f6c3a60b0c5f849a9e9597ba92537f55ccf881ad31ecfc66"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587835",
+  "candidate": {
+    "announcementId": "1225587835",
+    "time": 1790697600000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "《传音控股董事会成员与员工多元化政策（ 草案）》（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-09-30/1225587835.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587835.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "db2053cda369b1cda670f972e97567a574733551bc259eb93da7196392d3bdf1"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591508",
+  "candidate": {
+    "announcementId": "1225591508",
+    "time": 1790784000000,
+    "secCode": "601127",
+    "secName": "赛力斯",
+    "title": "H股公告（H股股份奖励计划项下之首次授予奖励股份）",
+    "adjunctUrl": "finalpage/2026-10-01/1225591508.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591508.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "8e5cfa4b0d1d0c00e82b05818fe00362c7a2852318f464e661c3de87335aa861"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596976",
+  "candidate": {
+    "announcementId": "1225596976",
+    "time": 1791475200000,
+    "secCode": "002352",
+    "secName": "顺丰控<em>股</em>",
+    "title": "H股公告-截至2026年9月30日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-09/1225596976.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596976.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3ace8de606f285cb610b17044ed5b5a10aa722023f711c16fbe28d7983de6292"
+}

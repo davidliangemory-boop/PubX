@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613147",
+  "candidate": {
+    "announcementId": "1225613147",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司董事会成员及员工队伍多元化政策（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613147.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613147.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3cc273d2cfc51700ec1b1a1263645bb45bc3d61110a05d71b3c81a49c78d854e"
+}

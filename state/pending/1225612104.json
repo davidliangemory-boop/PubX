@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612104",
+  "candidate": {
+    "announcementId": "1225612104",
+    "time": 1792512000000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-21/1225612104.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612104.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b1f00daef48e5ca3ecba326bfe429bbe5de0678ba2932a9326f1796843bda021"
+}

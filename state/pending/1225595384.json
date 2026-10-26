@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595384",
+  "candidate": {
+    "announcementId": "1225595384",
+    "time": 1791388800000,
+    "secCode": "300757",
+    "secName": "罗博特科",
+    "title": "H股公告（截至2026年9月30日止股份发行人的证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-08/1225595384.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595384.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4237d47235b2ec0947dc6c1f731ccdc38b29efea5bcd3175d46d71931a662520"
+}

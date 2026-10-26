@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609727",
+  "candidate": {
+    "announcementId": "1225609727",
+    "time": 1792080000000,
+    "secCode": "920491",
+    "secName": "奥迪威",
+    "title": "公司章程（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-16/1225609727.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609727.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "bc3dd08a3ee9fcbdecdace03cba813fa8d46243c4fcb172b05148f2297c291a4"
+}

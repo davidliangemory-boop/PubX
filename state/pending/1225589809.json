@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589809",
+  "candidate": {
+    "announcementId": "1225589809",
+    "time": 1790784000000,
+    "secCode": "001246",
+    "secName": "力勤资源",
+    "title": "H股公告（翌日披露表）",
+    "adjunctUrl": "finalpage/2026-10-01/1225589809.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589809.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "db841f108ce0955a22371e2351c4e78f4a87e0edd23f4ea34a2a147b2671a1bf"
+}

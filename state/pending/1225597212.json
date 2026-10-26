@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225597212",
+  "candidate": {
+    "announcementId": "1225597212",
+    "time": 1791475200000,
+    "secCode": "601211",
+    "secName": "国泰海通",
+    "title": "国泰海通证券股份有限公司H股公告（2026年9月证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-09/1225597212.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225597212.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "90dc079209324ad4587b73ca63450ae5d6ee370e89ef33ec808b9602969806b7"
+}

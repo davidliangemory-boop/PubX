@@ -1,0 +1,30 @@
+{
+  "doc_id": "1225611878",
+  "candidate": {
+    "announcementId": "1225611878",
+    "time": 1792512000000,
+    "secCode": "000417",
+    "secName": "合百集团",
+    "title": "关于清算注销安徽百大陆港跨境电子商务有限公司的公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225611878.PDF",
+    "keywords": [
+      "跨境"
+    ]
+  },
+  "raw_path": "raw/1225611878.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "excluded",
+  "sha256": "c6bf0d5f66d4d87ece28145dfef68cb13365aa389ed54fee506f598fe819c70f",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "注销主体在合肥注册，跨境电商业务未落地且本次无境外资产退出、境外争议或监管程序。",
+  "reviewed_at": "2026-10-27 04:38"
+}

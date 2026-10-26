@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595355",
+  "candidate": {
+    "announcementId": "1225595355",
+    "time": 1791388800000,
+    "secCode": "601633",
+    "secName": "长城汽车",
+    "title": "H股公告-长城汽车股份有限公司股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595355.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595355.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5b3bfe5bc762c615e11a4a8ea0167af209fc5ccc3033fa460c7a643278ae31b5"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225584980",
+  "candidate": {
+    "announcementId": "1225584980",
+    "time": 1790591666000,
+    "secCode": "300748",
+    "secName": "金力永磁",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-09-28/1225584980.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225584980.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "a998659ecc69971176625ad8b8f964392caa96e283e1a77c398135cc1d0e97e0"
+}

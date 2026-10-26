@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590578",
+  "candidate": {
+    "announcementId": "1225590578",
+    "time": 1791388800000,
+    "secCode": "002460",
+    "secName": "赣锋锂业",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225590578.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590578.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3f39569b0fe781d0f82c9819200385b0544d9c4b7ad6c13f65b84b6b89f86685"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606277",
+  "candidate": {
+    "announcementId": "1225606277",
+    "time": 1792080000000,
+    "secCode": "601633",
+    "secName": "长城汽车",
+    "title": "H股公告-董事会会议通知",
+    "adjunctUrl": "finalpage/2026-10-16/1225606277.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606277.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "8a766dd3f94c9aa2f498aeb296c96614bcdeeaf51b1f672ae9d75f3f1cac8896"
+}

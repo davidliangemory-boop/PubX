@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605803",
+  "candidate": {
+    "announcementId": "1225605803",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "宁波江丰电子材料股份有限公司信息披露管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-15/1225605803.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605803.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "414e4a7bb7851e5b5cf237760504aa1eab3c42e72e791687d71902953e75e4b6"
+}

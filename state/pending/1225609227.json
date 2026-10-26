@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609227",
+  "candidate": {
+    "announcementId": "1225609227",
+    "time": 1792148787000,
+    "secCode": "300347",
+    "secName": "泰格医药",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225609227.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609227.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f3a1333c9133b52ef6de62fdf64b7f658df3cbbae031a81339eae6ba12ece3c8"
+}

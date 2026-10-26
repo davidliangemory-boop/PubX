@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590593",
+  "candidate": {
+    "announcementId": "1225590593",
+    "time": 1790784000000,
+    "secCode": "688366",
+    "secName": "昊海生科",
+    "title": "H股公告：截至二零二六年九月三十日止月份股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225590593.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590593.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3f5561ef0b12139a0fbd85d240bc78edcf705e0d8928464fff9f5429ff65b6fd"
+}

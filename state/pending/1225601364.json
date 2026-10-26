@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225601364",
+  "candidate": {
+    "announcementId": "1225601364",
+    "time": 1791820800000,
+    "secCode": "688366",
+    "secName": "昊海生科",
+    "title": "H股公告：董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-13/1225601364.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225601364.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "768f65fae76b75145168a2228bb6d88a560bc9a2741d8cc6442593f42478f3ac"
+}

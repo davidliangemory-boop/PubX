@@ -1,0 +1,28 @@
+{
+  "doc_id": "1225615370",
+  "candidate": {
+    "announcementId": "1225615370",
+    "time": 1792684800000,
+    "secCode": "603738",
+    "secName": "泰晶科技",
+    "title": "泰晶科技股份有限公司关于对外投资设立境外全资子公司并建设生产基地的进展公告",
+    "adjunctUrl": "finalpage/2026-10-23/1225615370.PDF",
+    "keywords": [
+      "境外"
+    ]
+  },
+  "raw_path": "raw/1225615370.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "ingested",
+  "sha256": "1c25575cea410529070e1897852ea0e717cf09dcca477dbddfb812bb65082600",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

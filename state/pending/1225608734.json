@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608734",
+  "candidate": {
+    "announcementId": "1225608734",
+    "time": 1792166400000,
+    "secCode": "601077",
+    "secName": "渝农商行",
+    "title": "渝农商行H股公告",
+    "adjunctUrl": "finalpage/2026-10-17/1225608734.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608734.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b8ba6dd126f25a7a53c51044e2611eab7030a943f1da95b6dc7ba1c415d47b42"
+}

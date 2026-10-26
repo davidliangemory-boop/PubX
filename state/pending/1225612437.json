@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612437",
+  "candidate": {
+    "announcementId": "1225612437",
+    "time": 1792512000000,
+    "secCode": "601238",
+    "secName": "广汽集团",
+    "title": "H股公告-广汽集团董事会会议日期公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225612437.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612437.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "53607dbcbb41143bb735ce4f0d9cba6b4d5f8ffb4dcc04bd43876f246dc0c732"
+}

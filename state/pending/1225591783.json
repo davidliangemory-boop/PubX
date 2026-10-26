@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591783",
+  "candidate": {
+    "announcementId": "1225591783",
+    "time": 1790784000000,
+    "secCode": "688249",
+    "secName": "晶合集成",
+    "title": "H股公告-(I)关连交易订立增资协议(II)有关涉及增资及股东协议之关连交易之进一步资料",
+    "adjunctUrl": "finalpage/2026-10-01/1225591783.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591783.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1d965e569f49ce32b1d560f022f0de8818bcb3402d9781f355f08df11dfcc033"
+}

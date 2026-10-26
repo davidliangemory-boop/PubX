@@ -43,5 +43,30 @@
   "ok": true,
   "status": 200,
   "ts": "2026-10-26"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-10-08/1225589868.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-10-01/1225590543.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-10-01/1225589861.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-10-10/1225598484.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
+ },
+ "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0923/2026092300259_c.pdf": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
  }
 }

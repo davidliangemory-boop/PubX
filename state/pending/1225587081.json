@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587081",
+  "candidate": {
+    "announcementId": "1225587081",
+    "time": 1790697600000,
+    "secCode": "600548",
+    "secName": "深高速",
+    "title": "暂停办理H股股份过户登记",
+    "adjunctUrl": "finalpage/2026-09-30/1225587081.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587081.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "cf53afb2eaea16819efcd19b0f4ac8fb88b04457ef70a13f0bef7cde438bcc0d"
+}

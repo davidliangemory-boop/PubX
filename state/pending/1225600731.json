@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225600731",
+  "candidate": {
+    "announcementId": "1225600731",
+    "time": 1791820800000,
+    "secCode": "002384",
+    "secName": "东山精密",
+    "title": "关于刊发H股发行聆讯后资料集的公告",
+    "adjunctUrl": "finalpage/2026-10-13/1225600731.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225600731.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "a9d01e818c1ece4746f18d8eb634d8760c04e70f08071f7ea66da3304adab1fe"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225602199",
+  "candidate": {
+    "announcementId": "1225602199",
+    "time": 1791820800000,
+    "secCode": "601588",
+    "secName": "北辰实业",
+    "title": "北辰实业H股公告",
+    "adjunctUrl": "finalpage/2026-10-13/1225602199.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225602199.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "56fbcbba5b3e4e15bb2972da85cb8017f1f85ee4d0d0365858d086e244f295c8"
+}

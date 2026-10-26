@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613149",
+  "candidate": {
+    "announcementId": "1225613149",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司环境、社会及治理管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613149.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613149.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2d2b7dcbf980d18d10ae85145c0155a1f09feee968587b2182255692f53af217"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225607231",
+  "candidate": {
+    "announcementId": "1225607231",
+    "time": 1791993600000,
+    "secCode": "688031",
+    "secName": "星环科技",
+    "title": "H股公告-董事会会议通知",
+    "adjunctUrl": "finalpage/2026-10-15/1225607231.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225607231.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7aac11fb61eeb8607aa0cb84e636181245058fe04c9c7a6b82088b922abf3974"
+}

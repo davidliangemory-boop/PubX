@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225619052",
+  "candidate": {
+    "announcementId": "1225619052",
+    "time": 1792771200000,
+    "secCode": "601800",
+    "secName": "中国交建",
+    "title": "中国交建H股公告",
+    "adjunctUrl": "finalpage/2026-10-24/1225619052.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225619052.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "17e07039903cdeac187954ab64e7c23629e6fad56e0f50805f7762ffb7c7e2c5"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595997",
+  "candidate": {
+    "announcementId": "1225595997",
+    "time": 1791417156000,
+    "secCode": "300759",
+    "secName": "康龙化成",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225595997.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595997.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f5821193f2f892f6197b98ae5f223fb17bd3fa2531c6a23074ecce59b450b4b7"
+}

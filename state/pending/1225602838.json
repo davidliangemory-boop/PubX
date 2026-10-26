@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225602838",
+  "candidate": {
+    "announcementId": "1225602838",
+    "time": 1791907200000,
+    "secCode": "688052",
+    "secName": "纳芯微",
+    "title": "H股公告-董事会会议日期",
+    "adjunctUrl": "finalpage/2026-10-14/1225602838.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225602838.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9d4bbfc77ff6f824f8c7907629840e93852438060016746f2607951a798d8b51"
+}

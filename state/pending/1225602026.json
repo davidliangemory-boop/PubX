@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225602026",
+  "candidate": {
+    "announcementId": "1225602026",
+    "time": 1791734400000,
+    "secCode": "603083",
+    "secName": "剑桥科技",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-12/1225602026.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225602026.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e138bdcabc00a6cb6e4df5ed73342c0f9f8757a9d2a0ef2f04c26c211cafad3b"
+}

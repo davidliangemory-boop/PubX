@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596943",
+  "candidate": {
+    "announcementId": "1225596943",
+    "time": 1791475200000,
+    "secCode": "688185",
+    "secName": "康希诺",
+    "title": "康希诺H股公告",
+    "adjunctUrl": "finalpage/2026-10-09/1225596943.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596943.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "70d5f4d3b84b24b5ee96fc5b402fea594bb5b4eccd1fe466eadc43ed9d70a4cf"
+}

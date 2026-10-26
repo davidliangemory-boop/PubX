@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609231",
+  "candidate": {
+    "announcementId": "1225609231",
+    "time": 1792166400000,
+    "secCode": "600685",
+    "secName": "中船防务",
+    "title": "中船防务H股公告_董事会会议通知",
+    "adjunctUrl": "finalpage/2026-10-17/1225609231.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609231.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f6ab57de3dbb6737e2d53357dbaf3acea05686cda8dc3ce9c5afc8a3707ef654"
+}

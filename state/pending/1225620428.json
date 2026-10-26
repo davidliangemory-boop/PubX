@@ -1,0 +1,28 @@
+{
+  "doc_id": "1225620428",
+  "candidate": {
+    "announcementId": "1225620428",
+    "time": 1792771200000,
+    "secCode": "688219",
+    "secName": "会通股份",
+    "title": "会通新材料股份有限公司关于收购境外公司股权进展的自愿性公告",
+    "adjunctUrl": "finalpage/2026-10-24/1225620428.PDF",
+    "keywords": [
+      "境外"
+    ]
+  },
+  "raw_path": "raw/1225620428.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "ingested",
+  "sha256": "0c20013857fa2bbbe79fe8cba0b9e85607d2b29c88ba9ff0794154aefe4ade5b",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

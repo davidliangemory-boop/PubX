@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608320",
+  "candidate": {
+    "announcementId": "1225608320",
+    "time": 1792146627000,
+    "secCode": "301087",
+    "secName": "可孚医疗",
+    "title": "H股公告：董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225608320.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608320.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "ac1261bc4f9850a46c00116415f7e21ca0d8772e78c7cf2cfe3346e68bcd9080"
+}

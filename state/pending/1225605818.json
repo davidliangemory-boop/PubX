@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605818",
+  "candidate": {
+    "announcementId": "1225605818",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "宁波江丰电子材料股份有限公司对外担保管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-15/1225605818.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605818.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1369796155693d202327fd1765b8419b76c19df74371db1c8a358b0673ad60e3"
+}

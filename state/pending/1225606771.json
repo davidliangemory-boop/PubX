@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606771",
+  "candidate": {
+    "announcementId": "1225606771",
+    "time": 1792080000000,
+    "secCode": "601600",
+    "secName": "中国铝业",
+    "title": "H股公告：董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225606771.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606771.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "750c78f4ef9f243fedd381ad0aaec64831303d8961f3b00197fbf2dcadc4ef64"
+}

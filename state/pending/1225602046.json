@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225602046",
+  "candidate": {
+    "announcementId": "1225602046",
+    "time": 1791820800000,
+    "secCode": "000513",
+    "secName": "丽珠集团",
+    "title": "H股公告：董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-13/1225602046.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225602046.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c55589e1d36f6d4573a3f4c8b30cf2ea12efa5c18fd191a0a50203b67af8c8a4"
+}

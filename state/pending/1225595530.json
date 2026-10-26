@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595530",
+  "candidate": {
+    "announcementId": "1225595530",
+    "time": 1791388800000,
+    "secCode": "688339",
+    "secName": "亿华通",
+    "title": "亿华通  H股公告-截至二零二六年九月三十日止股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595530.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595530.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "26b17dcef2a2922041cad212095dc1627e0b330778d3c5b29a652f8c4bf8d3f8"
+}

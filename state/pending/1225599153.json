@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225599153",
+  "candidate": {
+    "announcementId": "1225599153",
+    "time": 1791561600000,
+    "secCode": "000921",
+    "secName": "海信家电",
+    "title": "H股公告-董事会会议通知",
+    "adjunctUrl": "finalpage/2026-10-10/1225599153.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225599153.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d9c7bf288d7368cd755d7736ea29e4a29f8e574d9f1c5cc16dfc1e324049b22f"
+}

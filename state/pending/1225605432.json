@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605432",
+  "candidate": {
+    "announcementId": "1225605432",
+    "time": 1791993600000,
+    "secCode": "000776",
+    "secName": "广发证券",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-15/1225605432.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605432.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e74fbaf624fd8168e45312f5d2020b0846b77687c23742fbad8bce1e3ee6173b"
+}

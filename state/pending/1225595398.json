@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595398",
+  "candidate": {
+    "announcementId": "1225595398",
+    "time": 1791388800000,
+    "secCode": "002768",
+    "secName": "国恩<em>股</em>份",
+    "title": "H股公告-截至2026年9月30日止股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595398.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595398.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "00fce125af18782628519d0ef6e0f6723ae04c434417d340c4673dd6e1484124"
+}

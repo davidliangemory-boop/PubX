@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606331",
+  "candidate": {
+    "announcementId": "1225606331",
+    "time": 1792080000000,
+    "secCode": "600999",
+    "secName": "招商证券",
+    "title": "H股公告（董事会会议召开日期）",
+    "adjunctUrl": "finalpage/2026-10-16/1225606331.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606331.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "521e9da1425c1a8812a6bebb706ecfba53a7df4c19c805e96d2309e23c42706a"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587906",
+  "candidate": {
+    "announcementId": "1225587906",
+    "time": 1790697600000,
+    "secCode": "601238",
+    "secName": "广汽集团",
+    "title": "H股公告-广汽集团2026年中期报告",
+    "adjunctUrl": "finalpage/2026-09-30/1225587906.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587906.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "fa4f8c2642433a5f5f0ef5de6ae578ce5ca92fc5baa5c4bcace39abf93ad170c"
+}

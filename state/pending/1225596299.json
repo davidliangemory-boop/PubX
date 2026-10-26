@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596299",
+  "candidate": {
+    "announcementId": "1225596299",
+    "time": 1791475200000,
+    "secCode": "601727",
+    "secName": "上海电气",
+    "title": "上海电气H股市场公告",
+    "adjunctUrl": "finalpage/2026-10-09/1225596299.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596299.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "f1cdc4821752ca24ca8e945f535ca93d189807e00d4a7d708dd2d5b22e9fbd4e"
+}

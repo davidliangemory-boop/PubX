@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225601009",
+  "candidate": {
+    "announcementId": "1225601009",
+    "time": 1791820800000,
+    "secCode": "603259",
+    "secName": "药明康德",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-13/1225601009.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225601009.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "58db708b04b708f0c8f1bb2b9fa9a2402c057dbab4eca02d4edae1849b7e79a8"
+}

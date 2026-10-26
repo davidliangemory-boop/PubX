@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587869",
+  "candidate": {
+    "announcementId": "1225587869",
+    "time": 1790697600000,
+    "secCode": "688339",
+    "secName": "亿华通",
+    "title": "亿华通  H股公告-中期报告",
+    "adjunctUrl": "finalpage/2026-09-30/1225587869.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587869.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b9893701288fb1a16a8fb797448466d4ee3197216fdc44b237dedbf8cbbef809"
+}

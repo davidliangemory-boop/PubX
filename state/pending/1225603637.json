@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225603637",
+  "candidate": {
+    "announcementId": "1225603637",
+    "time": 1791907200000,
+    "secCode": "601066",
+    "secName": "中信建投",
+    "title": "H股市场公告：董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-14/1225603637.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603637.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "31a198ae58a35d15cbd315bc12eaf6be9f49212bdc88c3597985c1e1e57d4c4e"
+}

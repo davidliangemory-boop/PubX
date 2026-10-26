@@ -1,0 +1,27 @@
+validate：ERROR 26 · WARN 1 · SKIP 0 → state/validate_report.json
+  [ERROR] 议题归码: E-H-20261027-1225617098: trigger status 'disclosed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617420: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617420: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617420: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617420: trigger status 'disclosed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617420: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617420: trigger status 'disclosed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617420: trigger status 'disclosed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617420: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617216: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617216: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617216: trigger status 'disclosed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617671: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225617671: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225619598: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225619598: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225619598: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225619598: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225621125: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225620428: trigger status 'completed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225620428: trigger status 'completed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225620428: trigger status 'completed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225620428: trigger status 'completed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225620428: trigger status 'disclosed' 非四态枚举
+  [ERROR] 议题归码: E-H-20261027-1225586743: trigger status 'pending' 非四态枚举
+  [ERROR] 议题归码: 68 事件 398 条触发点；空事件 0 / 非法码 0 / 非法状态 25 / 缺依据 0

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225610056",
+  "candidate": {
+    "announcementId": "1225610056",
+    "time": 1792381347000,
+    "secCode": "300866",
+    "secName": "安克创新",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-19/1225610056.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225610056.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4744a1de4fb161bc8dbb4710ffc6784548c039865ffe93437bdffc0881f887dd"
+}

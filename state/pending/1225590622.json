@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590622",
+  "candidate": {
+    "announcementId": "1225590622",
+    "time": 1790784000000,
+    "secCode": "600115",
+    "secName": "中国东航",
+    "title": "H股公告-月报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225590622.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590622.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "bddb01deed46be3c6f9a539dd1f61b7a116266ee163024f3ec1491aeea31f652"
+}

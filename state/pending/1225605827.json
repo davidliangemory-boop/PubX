@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605827",
+  "candidate": {
+    "announcementId": "1225605827",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "宁波江丰电子材料股份有限公司董事会薪酬与考核委员会实施细则（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-15/1225605827.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605827.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "a20514d217f327c333ebcc4c557a20e9ffdeacd5d719db20bc7a60cd22eee9a0"
+}

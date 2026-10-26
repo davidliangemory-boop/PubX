@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595388",
+  "candidate": {
+    "announcementId": "1225595388",
+    "time": 1791388800000,
+    "secCode": "300433",
+    "secName": "蓝思科技",
+    "title": "H股公告：联合公告每月更新资料内容有关中信里昂证券有限公司代表蓝思科技股份有限公司就收购巨腾国际控股有限公司全部已发行股份（蓝思科技股份有限公司及其一致行动人士已拥有或同意收购之股份除外）提出具有前置条件之自愿性有条件全面现金要约",
+    "adjunctUrl": "finalpage/2026-10-08/1225595388.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595388.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3c9147226db127a1f1a947117d0da154632a24d0559546423f8aa4cc794e197c"
+}

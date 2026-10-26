@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608729",
+  "candidate": {
+    "announcementId": "1225608729",
+    "time": 1792166400000,
+    "secCode": "605499",
+    "secName": "东鹏饮料",
+    "title": "H股公告-董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-17/1225608729.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608729.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "a815c4ce967eaf432cce3e4dcc745b4b9031546f02fda6df2f3d98d4c0b8ca39"
+}

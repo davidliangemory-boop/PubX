@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225597467",
+  "candidate": {
+    "announcementId": "1225597467",
+    "time": 1791456387000,
+    "secCode": "301308",
+    "secName": "江波龙",
+    "title": "H股公告-截至2026年9月30日之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225597467.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225597467.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "01519f965a80229674310064c103ecd7926f7eae4de7e67c5b028f05676faaf4"
+}

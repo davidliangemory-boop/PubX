@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589810",
+  "candidate": {
+    "announcementId": "1225589810",
+    "time": 1790784000000,
+    "secCode": "001246",
+    "secName": "力勤资源",
+    "title": "H股公告（董事会提名委员会工作细则）",
+    "adjunctUrl": "finalpage/2026-10-01/1225589810.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589810.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c9b82e1c8b6e210c3c5a4d24a884d39f367be95fc82c524dc4b2e0592f277d8f"
+}

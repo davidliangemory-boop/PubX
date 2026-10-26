@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225597185",
+  "candidate": {
+    "announcementId": "1225597185",
+    "time": 1791475200000,
+    "secCode": "002865",
+    "secName": "钧达<em>股</em>份",
+    "title": "H股公告-董事会会议通告",
+    "adjunctUrl": "finalpage/2026-10-09/1225597185.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225597185.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "131cebb8bd4ffdd8c2d7a76635208868b829b62a0d70507577c3e221ac66b511"
+}

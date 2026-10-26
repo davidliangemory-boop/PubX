@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225621563",
+  "candidate": {
+    "announcementId": "1225621563",
+    "time": 1792757906000,
+    "secCode": "300748",
+    "secName": "金力永磁",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-23/1225621563.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225621563.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5acfd52b7629e582eac2d73320a54876bff825b5b8c7df3b6d72af4ddb3f91e3"
+}

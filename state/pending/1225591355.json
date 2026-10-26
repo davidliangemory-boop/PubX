@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591355",
+  "candidate": {
+    "announcementId": "1225591355",
+    "time": 1790784000000,
+    "secCode": "601456",
+    "secName": "国联民生",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225591355.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591355.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9b4e3592f5333aadc1a2216c0199faeab2bbba0ed171daaa7eafa36c9a0fb708"
+}

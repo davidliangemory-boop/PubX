@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "-u",
+    "scripts/hkex_market_pull.py",
+    "--date",
+    "2026-09-26"
+  ],
+  "returncode": 0,
+  "timeout": false
+}

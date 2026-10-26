@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591139",
+  "candidate": {
+    "announcementId": "1225591139",
+    "time": 1790784000000,
+    "secCode": "601288",
+    "secName": "农业银行",
+    "title": "农业银行H股公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225591139.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591139.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4c96e4bc851673efb5ca29c69f5b60e413d4497bd190227256a34a8b1741e643"
+}

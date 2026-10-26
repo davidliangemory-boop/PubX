@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225598992",
+  "candidate": {
+    "announcementId": "1225598992",
+    "time": 1791561600000,
+    "secCode": "600876",
+    "secName": "凯盛新能",
+    "title": "凯盛新能H股公告",
+    "adjunctUrl": "finalpage/2026-10-10/1225598992.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225598992.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1c789eb8b7fa146526330f4167dc7a6909cb2d5f82b4620077aa6d1636a0976c"
+}

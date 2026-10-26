@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225591127",
+  "candidate": {
+    "announcementId": "1225591127",
+    "time": 1791388800000,
+    "secCode": "000166",
+    "secName": "申万宏源",
+    "title": "H股公告-截至2026年9月30日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225591127.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225591127.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c967c89d57a9c606601fa6415d35f0296768ce643c405617445a8215c4a9a079"
+}

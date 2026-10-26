@@ -1,0 +1,30 @@
+{
+  "doc_id": "1225601622",
+  "candidate": {
+    "announcementId": "1225601622",
+    "time": 1791820800000,
+    "secCode": "601598",
+    "secName": "中<em>国外</em>运",
+    "title": "2026年半年度权益分派实施公告",
+    "adjunctUrl": "finalpage/2026-10-13/1225601622.PDF",
+    "keywords": [
+      "国外"
+    ]
+  },
+  "raw_path": "raw/1225601622.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "excluded",
+  "sha256": "7648f54cf8f23aec262f9a38152d2da1c07e059e4a2e91fd18e9f2a3f171aa85",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "本公告为A股半年度分红实施，明示H股派息不适用本公告，无出海实质动作。",
+  "reviewed_at": "2026-10-27 04:38"
+}

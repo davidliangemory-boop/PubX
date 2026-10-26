@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608634",
+  "candidate": {
+    "announcementId": "1225608634",
+    "time": 1792166400000,
+    "secCode": "603288",
+    "secName": "海天味业",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225608634.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608634.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2ff8d884721308086fbc47d9801638ef55b871206f3cac83bf75db8f4ca90399"
+}

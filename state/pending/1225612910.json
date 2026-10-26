@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612910",
+  "candidate": {
+    "announcementId": "1225612910",
+    "time": 1792512000000,
+    "secCode": "601328",
+    "secName": "交通银行",
+    "title": "交通银行H股公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225612910.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612910.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "06eaf29ca9b06e6905f54171ad2a78b80ef84d1ee7855a6f42af5d8000477762"
+}

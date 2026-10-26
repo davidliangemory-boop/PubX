@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612912",
+  "candidate": {
+    "announcementId": "1225612912",
+    "time": 1792512000000,
+    "secCode": "603906",
+    "secName": "龙蟠科技",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-21/1225612912.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612912.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "0b294fa8ca760616f8a7f2f2e3ed2445c1d2806c2782dde236920171f7a95c0b"
+}

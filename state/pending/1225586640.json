@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225586640",
+  "candidate": {
+    "announcementId": "1225586640",
+    "time": 1790697600000,
+    "secCode": "002460",
+    "secName": "赣锋锂业",
+    "title": "H股公告（董事会会议通知）",
+    "adjunctUrl": "finalpage/2026-09-30/1225586640.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225586640.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "8972ffd0abff0a56a796dd5547f80cc0d53f294def88c24fd786447158633bd4"
+}

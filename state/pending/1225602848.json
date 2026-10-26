@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225602848",
+  "candidate": {
+    "announcementId": "1225602848",
+    "time": 1791907200000,
+    "secCode": "600332",
+    "secName": "白云山",
+    "title": "H股公告（董事会召开日期）",
+    "adjunctUrl": "finalpage/2026-10-14/1225602848.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225602848.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7084aa69e51f87a117e153d110cbf230b839a6373714f7e0a72fcd09aead2799"
+}

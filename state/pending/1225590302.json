@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590302",
+  "candidate": {
+    "announcementId": "1225590302",
+    "time": 1790784000000,
+    "secCode": "688187",
+    "secName": "时代电气",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225590302.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590302.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "866112970cd003c76b1572db696acbed23163583c2e141eacb62f0366541cf31"
+}

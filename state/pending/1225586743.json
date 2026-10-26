@@ -1,0 +1,28 @@
+{
+  "doc_id": "1225586743",
+  "candidate": {
+    "announcementId": "1225586743",
+    "time": 1790670251000,
+    "secCode": "300176",
+    "secName": "鸿特科技",
+    "title": "关于开展跨境资金池结算业务的公告",
+    "adjunctUrl": "finalpage/2026-09-29/1225586743.PDF",
+    "keywords": [
+      "跨境"
+    ]
+  },
+  "raw_path": "raw/1225586743.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "ingested",
+  "sha256": "d3346ebf577c449926d5db2ac34267b7f9f1b5c03d8524eed06a78819a035100",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

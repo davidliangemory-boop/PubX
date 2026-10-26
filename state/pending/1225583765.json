@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225583765",
+  "candidate": {
+    "announcementId": "1225583765",
+    "time": 1790524800000,
+    "secCode": "600196",
+    "secName": "复星医药",
+    "title": "复星医药H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-09-28/1225583765.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225583765.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "83fc9eebf37362befbd211b5a2e40f196cc9cfc62e099225c1cd60b428dd9dce"
+}

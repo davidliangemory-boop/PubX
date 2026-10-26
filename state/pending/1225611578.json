@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225611578",
+  "candidate": {
+    "announcementId": "1225611578",
+    "time": 1792453210000,
+    "secCode": "002384",
+    "secName": "东山精密",
+    "title": "关于刊发H股招股说明书、H股发行价格上限及H股香港公开发售等事宜的公告",
+    "adjunctUrl": "finalpage/2026-10-20/1225611578.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225611578.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9bd8aca10da724ddb588ef84080b26288cf506621ee6ad8d065be02771ad3311"
+}

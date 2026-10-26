@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609867",
+  "candidate": {
+    "announcementId": "1225609867",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "关联（连）交易管理制度（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609867.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609867.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "ce4c997bb836df0cd9bc7d08f51fb68a0c328c8915fcf316e9008fac47e360cf"
+}

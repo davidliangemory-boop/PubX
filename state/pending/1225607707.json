@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225607707",
+  "candidate": {
+    "announcementId": "1225607707",
+    "time": 1792068266000,
+    "secCode": "300308",
+    "secName": "中际旭创",
+    "title": "H股公告（董事会会议日期）",
+    "adjunctUrl": "finalpage/2026-10-15/1225607707.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225607707.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "311718cc3323cdcc91fe59c4f5d942aef0d2892668e02c4cce8a96a0ba58db9c"
+}

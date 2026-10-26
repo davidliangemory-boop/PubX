@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596921",
+  "candidate": {
+    "announcementId": "1225596921",
+    "time": 1791456130000,
+    "secCode": "300077",
+    "secName": "国民技术",
+    "title": "H股公告（证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-08/1225596921.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596921.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "500a6eec9759a1bd23f1db05fad67b93b7915c29f202761d98d2cc91de86284d"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613124",
+  "candidate": {
+    "announcementId": "1225613124",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "关于筹划发行H股股票并在香港联合交易所有限公司上市的提示性公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225613124.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613124.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "00237256fd426a7633022872d9a29854d4fc91e3cf29866e8e3a94e6ac6eebc4"
+}

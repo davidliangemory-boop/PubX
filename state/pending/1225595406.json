@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595406",
+  "candidate": {
+    "announcementId": "1225595406",
+    "time": 1791388800000,
+    "secCode": "002594",
+    "secName": "比亚迪",
+    "title": "H股公告（股份发行人及根据《上市规则》第十九B章上市的香港预托证券发行人的证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-08/1225595406.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595406.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "3129b805d2b2057576089649da8f981ed57c5eb82c9a24dfec73861818ebe693"
+}

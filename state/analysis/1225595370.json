@@ -1,0 +1,35 @@
+{
+ "model": "GPT-6",
+ "prompt_version": "R08-task-D-20261027",
+ "gate": {
+  "include": false,
+  "category": "名称误匹配",
+  "reason": "中国外运高管减持A股结果，未披露境外实质动作。"
+ },
+ "review_scope": "已读取完整原文逐页核查",
+ "steps": {
+  "extract_facts": [
+   {
+    "field": "门控事实",
+    "value": "中国外运高管减持A股结果，未披露境外实质动作。",
+    "layer": "analysis",
+    "basis": "1225595370完整原文"
+   }
+  ],
+  "legal_map": [
+   {
+    "status": "not_applicable",
+    "layer": "analysis",
+    "basis": "不满足境外主体/业务加实质动作门控",
+    "text": "中国外运高管减持A股结果，未披露境外实质动作。"
+   }
+  ],
+  "judge": [
+   {
+    "text": "本次排除，不消费为出海新事件。",
+    "layer": "analysis",
+    "basis": "中国外运高管减持A股结果，未披露境外实质动作。"
+   }
+  ]
+ }
+}

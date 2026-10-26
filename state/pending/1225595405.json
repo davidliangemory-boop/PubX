@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595405",
+  "candidate": {
+    "announcementId": "1225595405",
+    "time": 1791388800000,
+    "secCode": "002594",
+    "secName": "比亚迪",
+    "title": "H股公告（选举职工董事）",
+    "adjunctUrl": "finalpage/2026-10-08/1225595405.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595405.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5921def39dc0333ffb19c7e837c6ed5ec761a57a93df5cc5f438401837e0898b"
+}

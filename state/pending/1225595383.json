@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595383",
+  "candidate": {
+    "announcementId": "1225595383",
+    "time": 1791388800000,
+    "secCode": "301087",
+    "secName": "可孚医疗",
+    "title": "H股公告：截至2026年9月30日止股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595383.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595383.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4905f0841e305ed64c6f1be46534f6bc2175c54d64f47a264ef6c36742fe7464"
+}

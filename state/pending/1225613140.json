@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613140",
+  "candidate": {
+    "announcementId": "1225613140",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司董事会战略委员会议事规则（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613140.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613140.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "ad43833a07d1dd9949cae8c1997746c262dd2f879ca4a14398f75b8cb7616b54"
+}

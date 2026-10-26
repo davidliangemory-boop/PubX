@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225585513",
+  "candidate": {
+    "announcementId": "1225585513",
+    "time": 1790611200000,
+    "secCode": "600988",
+    "secName": "赤峰黄金",
+    "title": "赤峰黄金H股市场公告",
+    "adjunctUrl": "finalpage/2026-09-29/1225585513.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225585513.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c9c9053fe83af6d79d685146b56c537db0e7d0e6df1774ef3e3e987380883ad7"
+}

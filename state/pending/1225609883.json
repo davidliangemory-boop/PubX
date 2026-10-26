@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609883",
+  "candidate": {
+    "announcementId": "1225609883",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "独立董事工作制度（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609883.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609883.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "b2f60a26698bca373127ee40abf73ab0779c8aeec43fb8cfc46de7885be026ab"
+}

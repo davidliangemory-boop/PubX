@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595360",
+  "candidate": {
+    "announcementId": "1225595360",
+    "time": 1791388800000,
+    "secCode": "600660",
+    "secName": "福耀玻璃",
+    "title": "H股市场公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225595360.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595360.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5a1b8b9042db73cddf06a5600d189b04282696b9128436b7b4bf68b237588eae"
+}

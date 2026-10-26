@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609893",
+  "candidate": {
+    "announcementId": "1225609893",
+    "time": 1792166400000,
+    "secCode": "688808",
+    "secName": "联讯仪器",
+    "title": "对外担保管理制度（草案）（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-17/1225609893.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609893.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4e9faabc94ff547c8ba9dce2686bb33789599e3fbbb8e34325057b419c74e3a3"
+}

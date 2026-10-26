@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590009",
+  "candidate": {
+    "announcementId": "1225590009",
+    "time": 1790784000000,
+    "secCode": "601788",
+    "secName": "光大证券",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-01/1225590009.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590009.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "a952a0394e86bfc4a531d00a4053aa95efea2562feeb7c1599334542f8829ab8"
+}

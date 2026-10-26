@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225615862",
+  "candidate": {
+    "announcementId": "1225615862",
+    "time": 1792684800000,
+    "secCode": "603986",
+    "secName": "兆易创新",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-23/1225615862.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225615862.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "83fe085cd3c6947dae28a4063dc28f1384906b15aa8d3b4091eb1a67d9cd0c87"
+}

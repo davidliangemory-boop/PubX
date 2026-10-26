@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225597184",
+  "candidate": {
+    "announcementId": "1225597184",
+    "time": 1791475200000,
+    "secCode": "002865",
+    "secName": "钧达<em>股</em>份",
+    "title": "H股公告-截至二零二六年九月三十日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-09/1225597184.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225597184.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4ade5489eb00d3f78cd4fa1203de3ff822977cf44ced0d3122b5de5305fe59af"
+}

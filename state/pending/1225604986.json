@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225604986",
+  "candidate": {
+    "announcementId": "1225604986",
+    "time": 1791993600000,
+    "secCode": "600699",
+    "secName": "均胜电子",
+    "title": "H股公告（董事会会议日期）",
+    "adjunctUrl": "finalpage/2026-10-15/1225604986.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225604986.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "266b898a6bae62d010a64f692f6c7197c30356d63f09c671954ae8971788aa07"
+}

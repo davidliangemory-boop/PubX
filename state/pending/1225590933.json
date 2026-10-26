@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590933",
+  "candidate": {
+    "announcementId": "1225590933",
+    "time": 1790784000000,
+    "secCode": "601238",
+    "secName": "广汽集团",
+    "title": "H股公告-广汽集团2026年9月证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225590933.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590933.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "23f20f6bce374d7190950f3b8755fe38eafc63225fbf137b341f5756b046416e"
+}

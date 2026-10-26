@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595328",
+  "candidate": {
+    "announcementId": "1225595328",
+    "time": 1791388800000,
+    "secCode": "601919",
+    "secName": "中远海控",
+    "title": "中远海控H股公告—2026年9月证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595328.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595328.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "05a90254d8c2abea39d0359a378dd8fa4df99d4b70fd01e8ec0e1982dc7a19a9"
+}

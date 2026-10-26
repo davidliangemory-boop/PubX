@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225619548",
+  "candidate": {
+    "announcementId": "1225619548",
+    "time": 1792771200000,
+    "secCode": "002768",
+    "secName": "国恩<em>股</em>份",
+    "title": "H股公告-经修订董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-24/1225619548.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225619548.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d9daf3f0fd594f6b879af7021c26ba45bdb840c1d44971f95febf4578dcbbf77"
+}

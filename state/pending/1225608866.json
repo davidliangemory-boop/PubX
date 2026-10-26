@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608866",
+  "candidate": {
+    "announcementId": "1225608866",
+    "time": 1792166400000,
+    "secCode": "002352",
+    "secName": "顺丰控<em>股</em>",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225608866.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608866.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e4f06bf62c0508db563a2e1da83b8188af023ccdbb7d00c5c72c7ca4ecaefea1"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590585",
+  "candidate": {
+    "announcementId": "1225590585",
+    "time": 1790762887000,
+    "secCode": "300638",
+    "secName": "广和通",
+    "title": "H股公告-截至2026年9月30日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-09-30/1225590585.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590585.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "dec92c0f22aa29ddb4203e8d0b72630a83d5a5648a21af23e802a7cf0a39480f"
+}

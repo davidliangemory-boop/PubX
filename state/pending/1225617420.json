@@ -1,0 +1,28 @@
+{
+  "doc_id": "1225617420",
+  "candidate": {
+    "announcementId": "1225617420",
+    "time": 1792684800000,
+    "secCode": "001360",
+    "secName": "南矿集团",
+    "title": "关于拟收购境外公司51%股权并签署相关协议的公告",
+    "adjunctUrl": "finalpage/2026-10-23/1225617420.PDF",
+    "keywords": [
+      "境外"
+    ]
+  },
+  "raw_path": "raw/1225617420.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "ingested",
+  "sha256": "90195ef18770142bb917ed28fefe48b5db8ae2e499b35924296d69c88b515fd3",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

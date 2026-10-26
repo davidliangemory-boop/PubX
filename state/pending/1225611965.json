@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225611965",
+  "candidate": {
+    "announcementId": "1225611965",
+    "time": 1792512000000,
+    "secCode": "601865",
+    "secName": "福莱特",
+    "title": "福莱特H股公告（董事会会议日期）",
+    "adjunctUrl": "finalpage/2026-10-21/1225611965.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225611965.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "96ef63ad2aac49e5028ded78b590dac045de31fdb688933e71c220ad33d7fc3c"
+}

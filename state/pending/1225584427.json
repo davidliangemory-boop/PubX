@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225584427",
+  "candidate": {
+    "announcementId": "1225584427",
+    "time": 1790611200000,
+    "secCode": "688331",
+    "secName": "荣昌生物",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-09-29/1225584427.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225584427.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "d26972eddefefc1e6e489e5b64ce97ac4231d2a841253e0a7e6bdcafc7c573e2"
+}

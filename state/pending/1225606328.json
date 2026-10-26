@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606328",
+  "candidate": {
+    "announcementId": "1225606328",
+    "time": 1792080000000,
+    "secCode": "600874",
+    "secName": "创业环保",
+    "title": "H股公告--关连交易 关于向河北国津天创提供借款",
+    "adjunctUrl": "finalpage/2026-10-16/1225606328.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606328.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "bf6124f49e2e2c1e5601a5f6a53277275220851289e478813b639ece4b9881b8"
+}

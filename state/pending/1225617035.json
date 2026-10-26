@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225617035",
+  "candidate": {
+    "announcementId": "1225617035",
+    "time": 1792684800000,
+    "secCode": "601899",
+    "secName": "紫金矿业",
+    "title": "紫金矿业集团股份有限公司关于协议受让赤峰吉隆黄金矿业集团股份有限公司A股及认购其定向增发H股完成交割的公告",
+    "adjunctUrl": "finalpage/2026-10-23/1225617035.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225617035.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "49e4831acbd974636bfaab9b1cc20d53dbb81f5f4b241d6a9e008fb78945ff38"
+}

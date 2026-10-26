@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595991",
+  "candidate": {
+    "announcementId": "1225595991",
+    "time": 1791417269000,
+    "secCode": "300308",
+    "secName": "中际旭创",
+    "title": "H股公告（截至2026年9月30日止股份发行人的证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-08/1225595991.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595991.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5d7a71dd03198cd03298fa8396c5b008490e5f90be0c7369625becaa1d4ec46b"
+}

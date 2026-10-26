@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613128",
+  "candidate": {
+    "announcementId": "1225613128",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "公司章程修订对照表（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613128.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613128.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e8e6269a888e556adecfb03868794fc983aae0e28654f5c6f632d8fd3427541b"
+}

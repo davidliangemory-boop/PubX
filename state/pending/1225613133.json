@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613133",
+  "candidate": {
+    "announcementId": "1225613133",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司全面风险管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613133.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613133.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1dc785c44b430772a361d86e8640e27c58206ca0381a06386526f2bcd1f9ea33"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596168",
+  "candidate": {
+    "announcementId": "1225596168",
+    "time": 1791475200000,
+    "secCode": "688249",
+    "secName": "晶合集成",
+    "title": "H股公告-截至2026年9月30日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-09/1225596168.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596168.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "fd6bd7e0d5fe13c615464134094a68d2e32e8aef06ea062e5fe9e0374ee0168f"
+}

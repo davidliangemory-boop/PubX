@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225599126",
+  "candidate": {
+    "announcementId": "1225599126",
+    "time": 1791561600000,
+    "secCode": "002202",
+    "secName": "金风科技",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-10/1225599126.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225599126.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "473a17e2f729718143f84c21df6de54efe21db4426506b9b5da12f54bbb26040"
+}

@@ -1,0 +1,508 @@
+{
+ "model": "GPT-6",
+ "prompt_version": "R08-task-D-20261027",
+ "gate": {
+  "include": true,
+  "category": "并购",
+  "reason": "会通股份完成收购OMIKRON 70%股权，交割金额2,182.2900万欧元；按已披露治理安排不构成控制"
+ },
+ "steps": {
+  "extract_facts": [
+   {
+    "field": "交割日期",
+    "value": "2026-10-22",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "2026 年 10 月 22 日"
+    }
+   },
+   {
+    "field": "交割金额",
+    "value": "2,182.2900万欧元",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "2,182.2900 万欧元"
+    }
+   },
+   {
+    "field": "股权比例",
+    "value": "70%",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "公司持有目标公司 70%股权"
+    }
+   },
+   {
+    "field": "控制权",
+    "value": "不构成控制，联营企业",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "但对 OMIKRON 不构成控制"
+    }
+   }
+  ],
+  "legal_map": [
+   {
+    "issue_code": "I1.1",
+    "issue": "ODI 发改委备案/核准",
+    "question": "ODI 发改委备案/核准的办理或履行状态如何？",
+    "trigger_fact": "《境外投资项目备案通",
+    "text": "原文明示取得广东省发改委境外投资项目备案通知书",
+    "disclosed_status": "原文明示取得广东省发改委境外投资项目备案通知书",
+    "status": "disclosed_cleared",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "《境外投资项目备案通"
+    },
+    "information_gap": "文件编号及条件全文",
+    "judgment": "原文明示取得广东省发改委境外投资项目备案通知书；未披露部分保持待核。",
+    "verification_action": "索取备案通知核对投资路径和金额",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：《境外投资项目备案通"
+   },
+   {
+    "issue_code": "I1.2",
+    "issue": "商务部境外投资备案",
+    "question": "商务部境外投资备案的办理或履行状态如何？",
+    "trigger_fact": "《企业境外投资证书》",
+    "text": "原文明示取得广东省商务厅企业境外投资证书",
+    "disclosed_status": "原文明示取得广东省商务厅企业境外投资证书",
+    "status": "disclosed_cleared",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "《企业境外投资证书》"
+    },
+    "information_gap": "证书编号及有效期",
+    "judgment": "原文明示取得广东省商务厅企业境外投资证书；未披露部分保持待核。",
+    "verification_action": "取得商务证书并核对香港圆融持股路径",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：《企业境外投资证书》"
+   },
+   {
+    "issue_code": "I1.3",
+    "issue": "外汇 ODI 登记及资金汇出",
+    "question": "外汇 ODI 登记及资金汇出的办理或履行状态如何？",
+    "trigger_fact": "已完成在国家外汇管理局分支机构的备案",
+    "text": "原文明示已完成外汇备案",
+    "disclosed_status": "原文明示已完成外汇备案",
+    "status": "disclosed_cleared",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "已完成在国家外汇管理局分支机构的备案"
+    },
+    "information_gap": "银行登记及汇款凭证",
+    "judgment": "原文明示已完成外汇备案；未披露部分保持待核。",
+    "verification_action": "复核实际付款凭证与交割金额",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：已完成在国家外汇管理局分支机构的备案"
+   },
+   {
+    "issue_code": "I2.1",
+    "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+    "question": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）的办理或履行状态如何？",
+    "trigger_fact": "相关黄金权力许可",
+    "text": "原文明示通过Golden Power审查并取得许可",
+    "disclosed_status": "原文明示通过Golden Power审查并取得许可",
+    "status": "disclosed_cleared",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "相关黄金权力许可"
+    },
+    "information_gap": "许可附加条件及后续义务",
+    "judgment": "原文明示通过Golden Power审查并取得许可；未披露部分保持待核。",
+    "verification_action": "索取许可全文和后续承诺履行清单",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：相关黄金权力许可"
+   },
+   {
+    "issue_code": "I10.5",
+    "issue": "合资治理/僵局/退出",
+    "question": "合资治理/僵局/退出的办理或履行状态如何？",
+    "trigger_fact": "但对 OMIKRON 不构成控制",
+    "text": "70%持股但不控制，列为联营企业",
+    "disclosed_status": "70%持股但不控制，列为联营企业",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "但对 OMIKRON 不构成控制"
+    },
+    "information_gap": "股东会、董事会和法定审计委员会具体表决机制",
+    "judgment": "70%持股但不控制，列为联营企业；未披露部分保持待核。",
+    "verification_action": "复核章程及治理协议，验证重大事项表决和会计判断",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：但对 OMIKRON 不构成控制"
+   }
+  ],
+  "judge": [
+   {
+    "text": "维持交割已完成的披露事实；不能因70%持股推定控制或并表。审批状态分别依据本公告逐项明示记载，不从交割反推。",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：2026 年 10 月 22 日；1225620428 第2页：2,182.2900 万欧元；1225620428 第2页：公司持有目标公司 70%股权；1225620428 第2页：但对 OMIKRON 不构成控制"
+   }
+  ]
+ },
+ "result": {
+  "fields": {
+   "公司全称": "会通新材料股份有限公司",
+   "公告类型": "会通新材料股份有限公司关于收购境外公司股权进展的自愿性公告",
+   "涉及国家/地区": "意大利",
+   "动作类型": "并购",
+   "动作阶段": "交割完成",
+   "投资金额": "2,182.2900万欧元；持股70%，列为联营企业",
+   "合作方": "OMIKRON S.R.L；MICCA 22 S.R.L；INVESTAR S.R.L；圆融新材料（香港）有限公司",
+   "出海模式归类": null,
+   "盈利方式": null,
+   "本地化深度": null,
+   "对主营业务的战略价值": null,
+   "对营收结构与利润的预期影响": null,
+   "是否构成第二增长曲线": null,
+   "主要风险与不确定性": "维持交割已完成的披露事实；不能因70%持股推定控制或并表。审批状态分别依据本公告逐项明示记载，不从交割反推。",
+   "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+   "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+   "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": "原文明示取得广东省发改委境外投资项目备案通知书；原文明示取得广东省商务厅企业境外投资证书；原文明示已完成外汇备案；原文明示通过Golden Power审查并取得许可；70%持股但不控制，列为联营企业"
+  },
+  "quotes": [
+   "2026 年 10 月 22 日",
+   "2,182.2900 万欧元",
+   "公司持有目标公司 70%股权",
+   "但对 OMIKRON 不构成控制"
+  ],
+  "undisclosed": "监管文件编号及附条件、完整治理条款未披露。"
+ },
+ "event": {
+  "event_id": "E-H-20261027-1225620428",
+  "module": "cn_outbound",
+  "title_fact": {
+   "text": "会通股份完成收购OMIKRON 70%股权，交割金额2,182.2900万欧元；按已披露治理安排不构成控制",
+   "layer": "disclosed",
+   "basis": "1225620428 第2页：2026 年 10 月 22 日；1225620428 第2页：2,182.2900 万欧元；1225620428 第2页：公司持有目标公司 70%股权；1225620428 第2页：但对 OMIKRON 不构成控制"
+  },
+  "status": "完成",
+  "parties": [
+   {
+    "name": "会通新材料股份有限公司",
+    "role": "披露主体",
+    "layer": "disclosed",
+    "basis": "1225620428 原文"
+   },
+   {
+    "name": "OMIKRON S.R.L",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225620428 原文"
+   },
+   {
+    "name": "MICCA 22 S.R.L",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225620428 原文"
+   },
+   {
+    "name": "INVESTAR S.R.L",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225620428 原文"
+   },
+   {
+    "name": "圆融新材料（香港）有限公司",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225620428 原文"
+   }
+  ],
+  "geo": {
+   "text": "意大利",
+   "layer": "disclosed",
+   "basis": "1225620428 第2页：2026 年 10 月 22 日；1225620428 第2页：2,182.2900 万欧元；1225620428 第2页：公司持有目标公司 70%股权；1225620428 第2页：但对 OMIKRON 不构成控制"
+  },
+  "matter_type": {
+   "value": "并购",
+   "layer": "analysis",
+   "basis": "1225620428 第2页：2026 年 10 月 22 日；1225620428 第2页：2,182.2900 万欧元；1225620428 第2页：公司持有目标公司 70%股权；1225620428 第2页：但对 OMIKRON 不构成控制"
+  },
+  "stage_current": "交割完成",
+  "stage_chain": [
+   {
+    "stage": "交割完成",
+    "date": "2026-10-24",
+    "doc_id": "1225620428",
+    "note": "会通股份完成收购OMIKRON 70%股权，交割金额2,182.2900万欧元；按已披露治理安排不构成控制",
+    "layer": "disclosed"
+   }
+  ],
+  "scale": {
+   "text": "2,182.2900万欧元；持股70%，列为联营企业",
+   "layer": "disclosed",
+   "basis": "1225620428 第2页：2026 年 10 月 22 日；1225620428 第2页：2,182.2900 万欧元；1225620428 第2页：公司持有目标公司 70%股权；1225620428 第2页：但对 OMIKRON 不构成控制"
+  },
+  "terms": null,
+  "legal_triggers": [
+   {
+    "issue_code": "I1.1",
+    "issue": "ODI 发改委备案/核准",
+    "question": "ODI 发改委备案/核准的办理或履行状态如何？",
+    "trigger_fact": "《境外投资项目备案通",
+    "text": "原文明示取得广东省发改委境外投资项目备案通知书",
+    "disclosed_status": "原文明示取得广东省发改委境外投资项目备案通知书",
+    "status": "disclosed_cleared",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "《境外投资项目备案通"
+    },
+    "information_gap": "文件编号及条件全文",
+    "judgment": "原文明示取得广东省发改委境外投资项目备案通知书；未披露部分保持待核。",
+    "verification_action": "索取备案通知核对投资路径和金额",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：《境外投资项目备案通"
+   },
+   {
+    "issue_code": "I1.2",
+    "issue": "商务部境外投资备案",
+    "question": "商务部境外投资备案的办理或履行状态如何？",
+    "trigger_fact": "《企业境外投资证书》",
+    "text": "原文明示取得广东省商务厅企业境外投资证书",
+    "disclosed_status": "原文明示取得广东省商务厅企业境外投资证书",
+    "status": "disclosed_cleared",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "《企业境外投资证书》"
+    },
+    "information_gap": "证书编号及有效期",
+    "judgment": "原文明示取得广东省商务厅企业境外投资证书；未披露部分保持待核。",
+    "verification_action": "取得商务证书并核对香港圆融持股路径",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：《企业境外投资证书》"
+   },
+   {
+    "issue_code": "I1.3",
+    "issue": "外汇 ODI 登记及资金汇出",
+    "question": "外汇 ODI 登记及资金汇出的办理或履行状态如何？",
+    "trigger_fact": "已完成在国家外汇管理局分支机构的备案",
+    "text": "原文明示已完成外汇备案",
+    "disclosed_status": "原文明示已完成外汇备案",
+    "status": "disclosed_cleared",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "已完成在国家外汇管理局分支机构的备案"
+    },
+    "information_gap": "银行登记及汇款凭证",
+    "judgment": "原文明示已完成外汇备案；未披露部分保持待核。",
+    "verification_action": "复核实际付款凭证与交割金额",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：已完成在国家外汇管理局分支机构的备案"
+   },
+   {
+    "issue_code": "I2.1",
+    "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+    "question": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）的办理或履行状态如何？",
+    "trigger_fact": "相关黄金权力许可",
+    "text": "原文明示通过Golden Power审查并取得许可",
+    "disclosed_status": "原文明示通过Golden Power审查并取得许可",
+    "status": "disclosed_cleared",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "相关黄金权力许可"
+    },
+    "information_gap": "许可附加条件及后续义务",
+    "judgment": "原文明示通过Golden Power审查并取得许可；未披露部分保持待核。",
+    "verification_action": "索取许可全文和后续承诺履行清单",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：相关黄金权力许可"
+   },
+   {
+    "issue_code": "I10.5",
+    "issue": "合资治理/僵局/退出",
+    "question": "合资治理/僵局/退出的办理或履行状态如何？",
+    "trigger_fact": "但对 OMIKRON 不构成控制",
+    "text": "70%持股但不控制，列为联营企业",
+    "disclosed_status": "70%持股但不控制，列为联营企业",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225620428",
+     "page": 2,
+     "quote": "但对 OMIKRON 不构成控制"
+    },
+    "information_gap": "股东会、董事会和法定审计委员会具体表决机制",
+    "judgment": "70%持股但不控制，列为联营企业；未披露部分保持待核。",
+    "verification_action": "复核章程及治理协议，验证重大事项表决和会计判断",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：但对 OMIKRON 不构成控制"
+   }
+  ],
+  "issue_not_applicable": [
+   {
+    "issue_code": "I3",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现竞争申报要素；上市规则交易分类以各来源 raw_category 逐源保留",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I4",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现出口管制要素（物项/技术/最终用户限制均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I5",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现制裁要素；同名主体识别另见出口管制分页「观察名单比对」（同名≠命中）",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I6",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现数据/网络安全要素（无数据出境、个人信息、关键信息基础设施等原文提及）",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I7",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现贸易/海关要素（关税、原产地、退税、产品认证均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I8",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现税务要素（常设机构/预提税/支柱二/间接转让均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I9",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现劳动/ESG 要素（雇佣、工会、环保、社区权益、供应链尽调均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I11",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现知识产权要素（技术许可/商标专利布局/337 调查均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I12",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现争议/处罚要素（无境外诉讼仲裁、行政处罚、投资仲裁的原文提及）",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I13",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现多地披露/境外上市/募资出境要素",
+    "layer": "analysis",
+    "basis": "1225620428 完整原文逐页核查；本次事项为并购"
+   }
+  ],
+  "watch_points": [
+   {
+    "text": "维持交割已完成的披露事实；不能因70%持股推定控制或并表。审批状态分别依据本公告逐项明示记载，不从交割反推。",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：2026 年 10 月 22 日；1225620428 第2页：2,182.2900 万欧元；1225620428 第2页：公司持有目标公司 70%股权；1225620428 第2页：但对 OMIKRON 不构成控制"
+   }
+  ],
+  "gaps": [
+   {
+    "text": "监管文件编号及附条件、完整治理条款未披露。",
+    "item": "监管文件编号及附条件、完整治理条款未披露。",
+    "why": "影响事项后续履行及监管状态核实",
+    "where": "向公司或交易对方索取对应文件",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：2026 年 10 月 22 日；1225620428 第2页：2,182.2900 万欧元；1225620428 第2页：公司持有目标公司 70%股权；1225620428 第2页：但对 OMIKRON 不构成控制"
+   }
+  ],
+  "practice_notes": [
+   {
+    "text": "索取备案通知核对投资路径和金额",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：《境外投资项目备案通"
+   },
+   {
+    "text": "取得商务证书并核对香港圆融持股路径",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：《企业境外投资证书》"
+   },
+   {
+    "text": "复核实际付款凭证与交割金额",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：已完成在国家外汇管理局分支机构的备案"
+   },
+   {
+    "text": "索取许可全文和后续承诺履行清单",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：相关黄金权力许可"
+   },
+   {
+    "text": "复核章程及治理协议，验证重大事项表决和会计判断",
+    "layer": "analysis",
+    "basis": "1225620428 第2页：但对 OMIKRON 不构成控制"
+   }
+  ],
+  "sources": [
+   {
+    "doc_id": "1225620428",
+    "channel": "A股·巨潮",
+    "file": "会通新材料股份有限公司关于收购境外公司股权进展的自愿性公告",
+    "date": "2026-10-24",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225620428.PDF",
+    "quotes": [
+     {
+      "page": 2,
+      "text": "2026 年 10 月 22 日"
+     },
+     {
+      "page": 2,
+      "text": "2,182.2900 万欧元"
+     },
+     {
+      "page": 2,
+      "text": "公司持有目标公司 70%股权"
+     },
+     {
+      "page": 2,
+      "text": "但对 OMIKRON 不构成控制"
+     }
+    ],
+    "sha256": "0c20013857fa2bbbe79fe8cba0b9e85607d2b29c88ba9ff0794154aefe4ade5b"
+   }
+  ],
+  "source_diff": null,
+  "changelog": [],
+  "found_by": "history_backfill",
+  "history_window": {
+   "start": "2026-09-26",
+   "end": "2026-10-25"
+  }
+ },
+ "update_type": "new",
+ "target_id": null,
+ "reason": "按既有事件主体和标的核对未找到同一事项；本公告披露的境外实质动作新建事件。",
+ "case_update": {
+  "summary": "会通股份完成收购OMIKRON 70%股权，交割金额2,182.2900万欧元；按已披露治理安排不构成控制",
+  "check": "维持：按本次已披露阶段跟踪；未有同事项既有判断可作前后检验。"
+ }
+}

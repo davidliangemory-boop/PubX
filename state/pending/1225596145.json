@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596145",
+  "candidate": {
+    "announcementId": "1225596145",
+    "time": 1791388800000,
+    "secCode": "688234",
+    "secName": "天岳先进",
+    "title": "H股公告-截至二零二六年九月三十日止股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225596145.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596145.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "16fe776224b186fdcdb848195a520e9be5b1ea987dd7936f6f7f9d1f0500b798"
+}

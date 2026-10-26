@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225602101",
+  "candidate": {
+    "announcementId": "1225602101",
+    "time": 1791820800000,
+    "secCode": "603093",
+    "secName": "南华期货",
+    "title": "南华期货H股公告",
+    "adjunctUrl": "finalpage/2026-10-13/1225602101.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225602101.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e7223adc994c322dd564c35d9f6aee431bd1682e339f009b8ba0eac5db2a0fb1"
+}

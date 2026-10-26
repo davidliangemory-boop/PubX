@@ -1,0 +1,28 @@
+{
+  "doc_id": "1225621125",
+  "candidate": {
+    "announcementId": "1225621125",
+    "time": 1792771200000,
+    "secCode": "688099",
+    "secName": "晶晨股份",
+    "title": "晶晨股份关于香港联交所审议公司发行境外上市股份（H 股）的公告",
+    "adjunctUrl": "finalpage/2026-10-24/1225621125.PDF",
+    "keywords": [
+      "境外"
+    ]
+  },
+  "raw_path": "raw/1225621125.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "ingested",
+  "sha256": "77977af1067e3e736f489c125a55a1ade67fd89d663e07c91aff4387295111b9",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

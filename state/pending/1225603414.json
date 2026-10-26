@@ -1,0 +1,25 @@
+{
+  "doc_id": "1225603414",
+  "candidate": {
+    "announcementId": "1225603414",
+    "time": 1791907200000,
+    "secCode": "002600",
+    "secName": "领益智造",
+    "title": "H股公告：翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-14/1225603414.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603414.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "awaiting_raw",
+  "raw_error": "PDF未提取到文字，需OCR后逐页校验；原PDF已保留。",
+  "pdf_path": "raw/1225603414.pdf",
+  "pdf_sha256": "c18344718ef4f2119530ac1a8a6c7f3f189b179d5ae8532e30694d08f8e93423"
+}

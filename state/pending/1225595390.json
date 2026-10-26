@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595390",
+  "candidate": {
+    "announcementId": "1225595390",
+    "time": 1791388800000,
+    "secCode": "300476",
+    "secName": "胜宏科技",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595390.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595390.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "74f2f21089565f481ea01858d5ba582136688161e1b17b1016c4cd2e7d450424"
+}

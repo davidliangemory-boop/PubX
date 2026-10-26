@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225611731",
+  "candidate": {
+    "announcementId": "1225611731",
+    "time": 1792512000000,
+    "secCode": "603341",
+    "secName": "龙旗科技",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-21/1225611731.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225611731.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "9c8ba2fe5223afe87a7426571a7ab61667f1548891b17e50d55f11a56d113639"
+}

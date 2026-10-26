@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225584981",
+  "candidate": {
+    "announcementId": "1225584981",
+    "time": 1790591667000,
+    "secCode": "300748",
+    "secName": "金力永磁",
+    "title": "H股公告-调整可转换为公司H股的公司债券转换价格",
+    "adjunctUrl": "finalpage/2026-09-28/1225584981.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225584981.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "8264456ff1b1aebe6a59a46d9d94f1cfe19499de897ddbf7bfd907ebb524ef49"
+}

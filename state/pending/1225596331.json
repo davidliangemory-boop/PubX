@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596331",
+  "candidate": {
+    "announcementId": "1225596331",
+    "time": 1791475200000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "传音控股关于刊发H股招股说明书、H股发行价格上限及H股香港公开发售等事宜的公告",
+    "adjunctUrl": "finalpage/2026-10-09/1225596331.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596331.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "63b075d1b3b4d5cb8867d3f606725c92e48d53c233bdd67a85d9223158255e19"
+}

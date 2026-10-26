@@ -1,0 +1,636 @@
+{
+ "model": "GPT-6",
+ "prompt_version": "R08-task-D-20261027",
+ "gate": {
+  "include": true,
+  "category": "并购",
+  "reason": "南矿集团拟以1,275万美元收购印尼BDLP 51%老股，尚未完成资源验证与资产评估，交割及付款受条件约束"
+ },
+ "steps": {
+  "extract_facts": [
+   {
+    "field": "收购对价",
+    "value": "1275万美元",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 2,
+     "quote": "总价款为 1,275 万美元"
+    }
+   },
+   {
+    "field": "拟收购股权",
+    "value": "51%",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 2,
+     "quote": "受让目标公司股东 51%股权"
+    }
+   },
+   {
+    "field": "评估状态",
+    "value": "未完成勘查验证及资产评估",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 2,
+     "quote": "公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作"
+    }
+   },
+   {
+    "field": "交易性质",
+    "value": "老股转让",
+    "layer": "disclosed",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 7,
+     "quote": "本次交易不涉及目标公司发行新股或新增注册资本"
+    }
+   }
+  ],
+  "legal_map": [
+   {
+    "issue_code": "I1.1",
+    "issue": "ODI 发改委备案/核准",
+    "question": "ODI 发改委备案/核准的办理或履行状态如何？",
+    "trigger_fact": "尚需经过发改委",
+    "text": "资金出境仍待境内备案审批",
+    "disclosed_status": "资金出境仍待境内备案审批",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 1,
+     "quote": "尚需经过发改委"
+    },
+    "information_gap": "ODI文件及完成时间",
+    "judgment": "资金出境仍待境内备案审批；未披露部分保持待核。",
+    "verification_action": "逐笔付款前核对ODI文件和银行登记",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：尚需经过发改委"
+   },
+   {
+    "issue_code": "I1.2",
+    "issue": "商务部境外投资备案",
+    "question": "商务部境外投资备案的办理或履行状态如何？",
+    "trigger_fact": "商务主管部",
+    "text": "商务手续仍待办理",
+    "disclosed_status": "商务手续仍待办理",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 1,
+     "quote": "商务主管部"
+    },
+    "information_gap": "境外投资证书",
+    "judgment": "商务手续仍待办理；未披露部分保持待核。",
+    "verification_action": "核对境外投资证书主体和金额",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：商务主管部"
+   },
+   {
+    "issue_code": "I1.3",
+    "issue": "外汇 ODI 登记及资金汇出",
+    "question": "外汇 ODI 登记及资金汇出的办理或履行状态如何？",
+    "trigger_fact": "外汇主管部门",
+    "text": "资金汇出仍待手续",
+    "disclosed_status": "资金汇出仍待手续",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 1,
+     "quote": "外汇主管部门"
+    },
+    "information_gap": "外汇业务登记凭证及汇款路径",
+    "judgment": "资金汇出仍待手续；未披露部分保持待核。",
+    "verification_action": "核对四名卖方独立账户与KYC资料",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：外汇主管部门"
+   },
+   {
+    "issue_code": "I2.3",
+    "issue": "土地/矿权/特许权",
+    "question": "土地/矿权/特许权的办理或履行状态如何？",
+    "trigger_fact": "许可证编号为 540/564/DIESDM-G.ST/2015",
+    "text": "披露持有IUP采矿许可；不等于股权变更获准或所有生产许可齐备",
+    "disclosed_status": "披露持有IUP采矿许可；不等于股权变更获准或所有生产许可齐备",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 5,
+     "quote": "许可证编号为 540/564/DIESDM-G.ST/2015"
+    },
+    "information_gap": "矿权真实性、ESDM变更、林地/环境/建设许可",
+    "judgment": "披露持有IUP采矿许可；不等于股权变更获准或所有生产许可齐备；未披露部分保持待核。",
+    "verification_action": "由印尼律师向发证机关核证并核查股权变更同意",
+    "layer": "analysis",
+    "basis": "1225617420 第5页：许可证编号为 540/564/DIESDM-G.ST/2015"
+   },
+   {
+    "issue_code": "I10.1",
+    "issue": "先决条件与长停止日",
+    "question": "先决条件与长停止日的办理或履行状态如何？",
+    "trigger_fact": "本协议签署后 180 日内",
+    "text": "180日未完成交割可延长、调整结构、暂停付款或解除；非无条件成交",
+    "disclosed_status": "180日未完成交割可延长、调整结构、暂停付款或解除；非无条件成交",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 11,
+     "quote": "本协议签署后 180 日内"
+    },
+    "information_gap": "先决条件满足清单及签署生效日",
+    "judgment": "180日未完成交割可延长、调整结构、暂停付款或解除；非无条件成交；未披露部分保持待核。",
+    "verification_action": "建立条件满足和豁免清单，不把合同未来完成措辞读成已完成",
+    "layer": "analysis",
+    "basis": "1225617420 第11页：本协议签署后 180 日内"
+   },
+   {
+    "issue_code": "I10.2",
+    "issue": "价款调整/或有对价",
+    "question": "价款调整/或有对价的办理或履行状态如何？",
+    "trigger_fact": "储量保证与补偿",
+    "text": "披露储量短缺的现金、股权补偿及回购机制",
+    "disclosed_status": "披露储量短缺的现金、股权补偿及回购机制",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 16,
+     "quote": "储量保证与补偿"
+    },
+    "information_gap": "独立资源报告、可执行担保与补偿覆盖",
+    "judgment": "披露储量短缺的现金、股权补偿及回购机制；未披露部分保持待核。",
+    "verification_action": "委托合资格人核验资源量并测试卖方履约能力",
+    "layer": "analysis",
+    "basis": "1225617420 第16页：储量保证与补偿"
+   },
+   {
+    "issue_code": "I10.4",
+    "issue": "争议解决与适用法",
+    "question": "争议解决与适用法的办理或履行状态如何？",
+    "trigger_fact": "本协议适用香港特别行政区法律",
+    "text": "香港法与印尼强制法分工，HKIAC英文仲裁",
+    "disclosed_status": "香港法与印尼强制法分工，HKIAC英文仲裁",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 17,
+     "quote": "本协议适用香港特别行政区法律"
+    },
+    "information_gap": "跨境财产执行路径",
+    "judgment": "香港法与印尼强制法分工，HKIAC英文仲裁；未披露部分保持待核。",
+    "verification_action": "核对合同全文、仲裁条款与卖方可执行资产",
+    "layer": "analysis",
+    "basis": "1225617420 第17页：本协议适用香港特别行政区法律"
+   },
+   {
+    "issue_code": "I9.3",
+    "issue": "环保、原住民/社区权益",
+    "question": "环保、原住民/社区权益的办理或履行状态如何？",
+    "trigger_fact": "环境许可证",
+    "text": "生产许可为尾款条件，环保及社区风险尚待核实",
+    "disclosed_status": "生产许可为尾款条件，环保及社区风险尚待核实",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 9,
+     "quote": "环境许可证"
+    },
+    "information_gap": "环评、林地、废水、B3废物许可与社区协调",
+    "judgment": "生产许可为尾款条件，环保及社区风险尚待核实；未披露部分保持待核。",
+    "verification_action": "取得各许可及社区文件并逐一确认有效性",
+    "layer": "analysis",
+    "basis": "1225617420 第9页：环境许可证"
+   }
+  ],
+  "judge": [
+   {
+    "text": "资源储量为目标公司提供数据，公司尚未完成勘查验证与资产评估；储量保证不能替代独立核验。合同首付款15%、第二笔35%、尾款50%各附条件；协议中的已投产文字是付款条件，不能认定项目已投产。",
+    "layer": "analysis",
+    "basis": "1225617420 第2页：总价款为 1,275 万美元；1225617420 第2页：受让目标公司股东 51%股权；1225617420 第2页：公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作；1225617420 第7页：本次交易不涉及目标公司发行新股或新增注册资本"
+   }
+  ]
+ },
+ "result": {
+  "fields": {
+   "公司全称": "南昌矿机集团股份有限公司",
+   "公告类型": "关于拟收购境外公司51%股权并签署相关协议的公告",
+   "涉及国家/地区": "印度尼西亚",
+   "动作类型": "并购",
+   "动作阶段": "拟收购",
+   "投资金额": "1275万美元收购51%老股；100%估值2500万美元",
+   "合作方": "PT. BINA DAYA LAHAN PERTIWI；Group Win Limited；Major Invest Limited；Pierre Dermawan；Rudy Soeparman",
+   "出海模式归类": null,
+   "盈利方式": null,
+   "本地化深度": null,
+   "对主营业务的战略价值": null,
+   "对营收结构与利润的预期影响": null,
+   "是否构成第二增长曲线": null,
+   "主要风险与不确定性": "资源储量为目标公司提供数据，公司尚未完成勘查验证与资产评估；储量保证不能替代独立核验。合同首付款15%、第二笔35%、尾款50%各附条件；协议中的已投产文字是付款条件，不能认定项目已投产。",
+   "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+   "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+   "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": "资金出境仍待境内备案审批；商务手续仍待办理；资金汇出仍待手续；披露持有IUP采矿许可；不等于股权变更获准或所有生产许可齐备；180日未完成交割可延长、调整结构、暂停付款或解除；非无条件成交；披露储量短缺的现金、股权补偿及回购机制；香港法与印尼强制法分工，HKIAC英文仲裁；生产许可为尾款条件，环保及社区风险尚待核实"
+  },
+  "quotes": [
+   "总价款为 1,275 万美元",
+   "受让目标公司股东 51%股权",
+   "公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作",
+   "本次交易不涉及目标公司发行新股或新增注册资本"
+  ],
+  "undisclosed": "独立资源验证、资产评估、实际签署生效日及逐项许可完成情况未披露。"
+ },
+ "event": {
+  "event_id": "E-H-20261027-1225617420",
+  "module": "cn_outbound",
+  "title_fact": {
+   "text": "南矿集团拟以1,275万美元收购印尼BDLP 51%老股，尚未完成资源验证与资产评估，交割及付款受条件约束",
+   "layer": "disclosed",
+   "basis": "1225617420 第2页：总价款为 1,275 万美元；1225617420 第2页：受让目标公司股东 51%股权；1225617420 第2页：公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作；1225617420 第7页：本次交易不涉及目标公司发行新股或新增注册资本"
+  },
+  "status": "活跃",
+  "parties": [
+   {
+    "name": "南昌矿机集团股份有限公司",
+    "role": "披露主体",
+    "layer": "disclosed",
+    "basis": "1225617420 原文"
+   },
+   {
+    "name": "PT. BINA DAYA LAHAN PERTIWI",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225617420 原文"
+   },
+   {
+    "name": "Group Win Limited",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225617420 原文"
+   },
+   {
+    "name": "Major Invest Limited",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225617420 原文"
+   },
+   {
+    "name": "Pierre Dermawan",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225617420 原文"
+   },
+   {
+    "name": "Rudy Soeparman",
+    "role": "交易相关方",
+    "layer": "disclosed",
+    "basis": "1225617420 原文"
+   }
+  ],
+  "geo": {
+   "text": "印度尼西亚",
+   "layer": "disclosed",
+   "basis": "1225617420 第2页：总价款为 1,275 万美元；1225617420 第2页：受让目标公司股东 51%股权；1225617420 第2页：公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作；1225617420 第7页：本次交易不涉及目标公司发行新股或新增注册资本"
+  },
+  "matter_type": {
+   "value": "并购",
+   "layer": "analysis",
+   "basis": "1225617420 第2页：总价款为 1,275 万美元；1225617420 第2页：受让目标公司股东 51%股权；1225617420 第2页：公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作；1225617420 第7页：本次交易不涉及目标公司发行新股或新增注册资本"
+  },
+  "stage_current": "拟收购",
+  "stage_chain": [
+   {
+    "stage": "拟收购",
+    "date": "2026-10-23",
+    "doc_id": "1225617420",
+    "note": "南矿集团拟以1,275万美元收购印尼BDLP 51%老股，尚未完成资源验证与资产评估，交割及付款受条件约束",
+    "layer": "disclosed"
+   }
+  ],
+  "scale": {
+   "text": "1275万美元收购51%老股；100%估值2500万美元",
+   "layer": "disclosed",
+   "basis": "1225617420 第2页：总价款为 1,275 万美元；1225617420 第2页：受让目标公司股东 51%股权；1225617420 第2页：公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作；1225617420 第7页：本次交易不涉及目标公司发行新股或新增注册资本"
+  },
+  "terms": null,
+  "legal_triggers": [
+   {
+    "issue_code": "I1.1",
+    "issue": "ODI 发改委备案/核准",
+    "question": "ODI 发改委备案/核准的办理或履行状态如何？",
+    "trigger_fact": "尚需经过发改委",
+    "text": "资金出境仍待境内备案审批",
+    "disclosed_status": "资金出境仍待境内备案审批",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 1,
+     "quote": "尚需经过发改委"
+    },
+    "information_gap": "ODI文件及完成时间",
+    "judgment": "资金出境仍待境内备案审批；未披露部分保持待核。",
+    "verification_action": "逐笔付款前核对ODI文件和银行登记",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：尚需经过发改委"
+   },
+   {
+    "issue_code": "I1.2",
+    "issue": "商务部境外投资备案",
+    "question": "商务部境外投资备案的办理或履行状态如何？",
+    "trigger_fact": "商务主管部",
+    "text": "商务手续仍待办理",
+    "disclosed_status": "商务手续仍待办理",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 1,
+     "quote": "商务主管部"
+    },
+    "information_gap": "境外投资证书",
+    "judgment": "商务手续仍待办理；未披露部分保持待核。",
+    "verification_action": "核对境外投资证书主体和金额",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：商务主管部"
+   },
+   {
+    "issue_code": "I1.3",
+    "issue": "外汇 ODI 登记及资金汇出",
+    "question": "外汇 ODI 登记及资金汇出的办理或履行状态如何？",
+    "trigger_fact": "外汇主管部门",
+    "text": "资金汇出仍待手续",
+    "disclosed_status": "资金汇出仍待手续",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 1,
+     "quote": "外汇主管部门"
+    },
+    "information_gap": "外汇业务登记凭证及汇款路径",
+    "judgment": "资金汇出仍待手续；未披露部分保持待核。",
+    "verification_action": "核对四名卖方独立账户与KYC资料",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：外汇主管部门"
+   },
+   {
+    "issue_code": "I2.3",
+    "issue": "土地/矿权/特许权",
+    "question": "土地/矿权/特许权的办理或履行状态如何？",
+    "trigger_fact": "许可证编号为 540/564/DIESDM-G.ST/2015",
+    "text": "披露持有IUP采矿许可；不等于股权变更获准或所有生产许可齐备",
+    "disclosed_status": "披露持有IUP采矿许可；不等于股权变更获准或所有生产许可齐备",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 5,
+     "quote": "许可证编号为 540/564/DIESDM-G.ST/2015"
+    },
+    "information_gap": "矿权真实性、ESDM变更、林地/环境/建设许可",
+    "judgment": "披露持有IUP采矿许可；不等于股权变更获准或所有生产许可齐备；未披露部分保持待核。",
+    "verification_action": "由印尼律师向发证机关核证并核查股权变更同意",
+    "layer": "analysis",
+    "basis": "1225617420 第5页：许可证编号为 540/564/DIESDM-G.ST/2015"
+   },
+   {
+    "issue_code": "I10.1",
+    "issue": "先决条件与长停止日",
+    "question": "先决条件与长停止日的办理或履行状态如何？",
+    "trigger_fact": "本协议签署后 180 日内",
+    "text": "180日未完成交割可延长、调整结构、暂停付款或解除；非无条件成交",
+    "disclosed_status": "180日未完成交割可延长、调整结构、暂停付款或解除；非无条件成交",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 11,
+     "quote": "本协议签署后 180 日内"
+    },
+    "information_gap": "先决条件满足清单及签署生效日",
+    "judgment": "180日未完成交割可延长、调整结构、暂停付款或解除；非无条件成交；未披露部分保持待核。",
+    "verification_action": "建立条件满足和豁免清单，不把合同未来完成措辞读成已完成",
+    "layer": "analysis",
+    "basis": "1225617420 第11页：本协议签署后 180 日内"
+   },
+   {
+    "issue_code": "I10.2",
+    "issue": "价款调整/或有对价",
+    "question": "价款调整/或有对价的办理或履行状态如何？",
+    "trigger_fact": "储量保证与补偿",
+    "text": "披露储量短缺的现金、股权补偿及回购机制",
+    "disclosed_status": "披露储量短缺的现金、股权补偿及回购机制",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 16,
+     "quote": "储量保证与补偿"
+    },
+    "information_gap": "独立资源报告、可执行担保与补偿覆盖",
+    "judgment": "披露储量短缺的现金、股权补偿及回购机制；未披露部分保持待核。",
+    "verification_action": "委托合资格人核验资源量并测试卖方履约能力",
+    "layer": "analysis",
+    "basis": "1225617420 第16页：储量保证与补偿"
+   },
+   {
+    "issue_code": "I10.4",
+    "issue": "争议解决与适用法",
+    "question": "争议解决与适用法的办理或履行状态如何？",
+    "trigger_fact": "本协议适用香港特别行政区法律",
+    "text": "香港法与印尼强制法分工，HKIAC英文仲裁",
+    "disclosed_status": "香港法与印尼强制法分工，HKIAC英文仲裁",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 17,
+     "quote": "本协议适用香港特别行政区法律"
+    },
+    "information_gap": "跨境财产执行路径",
+    "judgment": "香港法与印尼强制法分工，HKIAC英文仲裁；未披露部分保持待核。",
+    "verification_action": "核对合同全文、仲裁条款与卖方可执行资产",
+    "layer": "analysis",
+    "basis": "1225617420 第17页：本协议适用香港特别行政区法律"
+   },
+   {
+    "issue_code": "I9.3",
+    "issue": "环保、原住民/社区权益",
+    "question": "环保、原住民/社区权益的办理或履行状态如何？",
+    "trigger_fact": "环境许可证",
+    "text": "生产许可为尾款条件，环保及社区风险尚待核实",
+    "disclosed_status": "生产许可为尾款条件，环保及社区风险尚待核实",
+    "status": "disclosed_pending",
+    "evidence": {
+     "doc_id": "1225617420",
+     "page": 9,
+     "quote": "环境许可证"
+    },
+    "information_gap": "环评、林地、废水、B3废物许可与社区协调",
+    "judgment": "生产许可为尾款条件，环保及社区风险尚待核实；未披露部分保持待核。",
+    "verification_action": "取得各许可及社区文件并逐一确认有效性",
+    "layer": "analysis",
+    "basis": "1225617420 第9页：环境许可证"
+   }
+  ],
+  "issue_not_applicable": [
+   {
+    "issue_code": "I3",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现竞争申报要素；上市规则交易分类以各来源 raw_category 逐源保留",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I4",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现出口管制要素（物项/技术/最终用户限制均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I5",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现制裁要素；同名主体识别另见出口管制分页「观察名单比对」（同名≠命中）",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I6",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现数据/网络安全要素（无数据出境、个人信息、关键信息基础设施等原文提及）",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I7",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现贸易/海关要素（关税、原产地、退税、产品认证均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I8",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现税务要素（常设机构/预提税/支柱二/间接转让均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I11",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现知识产权要素（技术许可/商标专利布局/337 调查均无原文提及）",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I12",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现争议/处罚要素（无境外诉讼仲裁、行政处罚、投资仲裁的原文提及）",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   },
+   {
+    "issue_code": "I13",
+    "status": "not_applicable",
+    "reason": "本次已核原文未触发该类问题；不代表已排除实际风险。已核事实未出现多地披露/境外上市/募资出境要素",
+    "layer": "analysis",
+    "basis": "1225617420 完整原文逐页核查；本次事项为并购"
+   }
+  ],
+  "watch_points": [
+   {
+    "text": "资源储量为目标公司提供数据，公司尚未完成勘查验证与资产评估；储量保证不能替代独立核验。合同首付款15%、第二笔35%、尾款50%各附条件；协议中的已投产文字是付款条件，不能认定项目已投产。",
+    "layer": "analysis",
+    "basis": "1225617420 第2页：总价款为 1,275 万美元；1225617420 第2页：受让目标公司股东 51%股权；1225617420 第2页：公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作；1225617420 第7页：本次交易不涉及目标公司发行新股或新增注册资本"
+   }
+  ],
+  "gaps": [
+   {
+    "text": "独立资源验证、资产评估、实际签署生效日及逐项许可完成情况未披露。",
+    "item": "独立资源验证、资产评估、实际签署生效日及逐项许可完成情况未披露。",
+    "why": "影响事项后续履行及监管状态核实",
+    "where": "向公司或交易对方索取对应文件",
+    "layer": "analysis",
+    "basis": "1225617420 第2页：总价款为 1,275 万美元；1225617420 第2页：受让目标公司股东 51%股权；1225617420 第2页：公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作；1225617420 第7页：本次交易不涉及目标公司发行新股或新增注册资本"
+   }
+  ],
+  "practice_notes": [
+   {
+    "text": "逐笔付款前核对ODI文件和银行登记",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：尚需经过发改委"
+   },
+   {
+    "text": "核对境外投资证书主体和金额",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：商务主管部"
+   },
+   {
+    "text": "核对四名卖方独立账户与KYC资料",
+    "layer": "analysis",
+    "basis": "1225617420 第1页：外汇主管部门"
+   },
+   {
+    "text": "由印尼律师向发证机关核证并核查股权变更同意",
+    "layer": "analysis",
+    "basis": "1225617420 第5页：许可证编号为 540/564/DIESDM-G.ST/2015"
+   },
+   {
+    "text": "建立条件满足和豁免清单，不把合同未来完成措辞读成已完成",
+    "layer": "analysis",
+    "basis": "1225617420 第11页：本协议签署后 180 日内"
+   },
+   {
+    "text": "委托合资格人核验资源量并测试卖方履约能力",
+    "layer": "analysis",
+    "basis": "1225617420 第16页：储量保证与补偿"
+   },
+   {
+    "text": "核对合同全文、仲裁条款与卖方可执行资产",
+    "layer": "analysis",
+    "basis": "1225617420 第17页：本协议适用香港特别行政区法律"
+   },
+   {
+    "text": "取得各许可及社区文件并逐一确认有效性",
+    "layer": "analysis",
+    "basis": "1225617420 第9页：环境许可证"
+   }
+  ],
+  "sources": [
+   {
+    "doc_id": "1225617420",
+    "channel": "A股·巨潮",
+    "file": "关于拟收购境外公司51%股权并签署相关协议的公告",
+    "date": "2026-10-23",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-10-23/1225617420.PDF",
+    "quotes": [
+     {
+      "page": 2,
+      "text": "总价款为 1,275 万美元"
+     },
+     {
+      "page": 2,
+      "text": "受让目标公司股东 51%股权"
+     },
+     {
+      "page": 2,
+      "text": "公司尚未对目标公司的金矿项目进行勘查验证和资产评估工作"
+     },
+     {
+      "page": 7,
+      "text": "本次交易不涉及目标公司发行新股或新增注册资本"
+     }
+    ],
+    "sha256": "90195ef18770142bb917ed28fefe48b5db8ae2e499b35924296d69c88b515fd3"
+   }
+  ],
+  "source_diff": null,
+  "changelog": [],
+  "found_by": "history_backfill",
+  "history_window": {
+   "start": "2026-09-26",
+   "end": "2026-10-25"
+  }
+ },
+ "update_type": "new",
+ "target_id": null,
+ "reason": "按既有事件主体和标的核对未找到同一事项；本公告披露的境外实质动作新建事件。",
+ "case_update": {
+  "summary": "南矿集团拟以1,275万美元收购印尼BDLP 51%老股，尚未完成资源验证与资产评估，交割及付款受条件约束",
+  "check": "维持：按本次已披露阶段跟踪；未有同事项既有判断可作前后检验。"
+ }
+}

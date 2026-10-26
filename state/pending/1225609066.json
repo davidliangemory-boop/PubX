@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225609066",
+  "candidate": {
+    "announcementId": "1225609066",
+    "time": 1792166400000,
+    "secCode": "688008",
+    "secName": "澜起科技",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225609066.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225609066.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "16ea7512336b61b16ffa3db527d22de95b2652ab5964d811c9e223cfdc12e10a"
+}

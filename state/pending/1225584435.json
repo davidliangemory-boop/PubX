@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225584435",
+  "candidate": {
+    "announcementId": "1225584435",
+    "time": 1790611200000,
+    "secCode": "601865",
+    "secName": "福莱特",
+    "title": "福莱特H股公告（变更于香港接收法律程序文件或通知之代理人）",
+    "adjunctUrl": "finalpage/2026-09-29/1225584435.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225584435.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "39c812136d769e37742e1ca0555141fe6aa7c79e915d70c444830126e7aa18f7"
+}

@@ -1,0 +1,37 @@
+{
+  "batch_id": "H-20261027",
+  "model": "GPT-6",
+  "scope": "仅下列15份原文，不能外推全部候选已审",
+  "included_doc_ids": [
+    "1225617671",
+    "1225617098",
+    "1225615370",
+    "1225620428",
+    "1225619598",
+    "1225617420",
+    "1225617216",
+    "1225621125",
+    "1225586743"
+  ],
+  "excluded_doc_ids": [
+    "1225605068",
+    "1225601622",
+    "1225612748",
+    "1225590617",
+    "1225595370",
+    "1225611878"
+  ],
+  "checks": {
+    "full_original_read": true,
+    "three_steps_written": true,
+    "quote_length_le_60": true,
+    "quote_matches_stated_page": true,
+    "analysis_basis_present": true,
+    "use_review_adapter_passed": 15
+  },
+  "full_validation": {
+    "ERROR": 0,
+    "WARN": 1,
+    "SKIP": 0
+  }
+}

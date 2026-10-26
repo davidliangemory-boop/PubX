@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225607250",
+  "candidate": {
+    "announcementId": "1225607250",
+    "time": 1792080000000,
+    "secCode": "002050",
+    "secName": "三花智控",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225607250.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225607250.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "c2589ffb4722c3ba241eff9f60d016ae90760b7978c360e28d504748166a64c4"
+}

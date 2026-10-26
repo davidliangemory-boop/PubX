@@ -1,0 +1,52 @@
+[
+  {
+    "type": "incomplete_review",
+    "detail": "出海候选仍有472份待审，其中8份PDF未提取到文字；不能记为成功零新增。",
+    "action": "保留同一窗口及全部pending/raw，下一轮先接续已缓存原文逐份审核。"
+  },
+  {
+    "type": "collector_raw_contract",
+    "detail": "港股extract_amount_excerpt只读第1页并删除PDF；美股fetch主文档按max_bytes截取且未缓存完整原文。",
+    "action": "维护方补齐完整原文缓存和三步审核入口；本次港股候选另存待审并重新留存完整PDF/TXT，不进入已核事件流。"
+  },
+  {
+    "type": "hk_dedup_stats",
+    "detail": "港股scanned累加跨分类返回行，全部候选NEWS_ID未留存，无法无损恢复主键去重扫描数。",
+    "action": "维护方在脚本中保存候选主键和独立尝试次数；本次去重扫描数写null。"
+  },
+  {
+    "type": "window_end_parameter",
+    "detail": "export_pull --since的结束日为运行日，实际覆盖2026-09-26至2026-10-27；新增ofac-20261026不计入本历史窗口。",
+    "action": "保留额外真实来源记录，历史统计仅取2026-10-25及以前；维护方增加--end。"
+  },
+  {
+    "type": "unsupported_screening",
+    "detail": "BIS实体清单全量快照和独立持仓清单缺失；SDN和UFLPA名称比对不能替代二者覆盖。",
+    "action": "配置实体清单源和持仓清单后独立补核；同名不等于命中。"
+  },
+  {
+    "type": "history_batch_build",
+    "detail": "build_data.py未识别H-批次为backfill；本次在白名单数据文件中将H组单独归入历史更新带。",
+    "action": "维护方为batch_day及manifest补齐H-支持；本次后处理配方留在state/history_runs/H-20261027。"
+  },
+  {
+    "type": "cninfo_http",
+    "detail": "仓库巨潮HTTP入口超时，原始单日命令150秒未完成；本次采用同一模块HTTPS入口完成窗口检索。",
+    "action": "维护方将巨潮BASE改为HTTPS；脚本未修改。"
+  },
+  {
+    "type": "partial_source_coverage",
+    "detail": "港股仅落盘2026-09-26至2026-09-28，SFC未完成整窗；CBP仅保留来源指引，未抓取JS仪表盘数据；IR未核查，不计覆盖。",
+    "action": "接续其余日期并分别记录来源实际覆盖，不将零报错或列表页可访问当作完整覆盖。"
+  },
+  {
+    "type": "validation_fixed",
+    "detail": "首次完整验证发现25条新分析议题状态未采用仓库四态枚举；已将新审核记录及事件中的状态改为disclosed_cleared/disclosed_pending/not_disclosed/not_applicable，保留原文事实和限定。",
+    "action": "已修正；原文引文复核、完整validate及构建后复验均通过，最终ERROR=0、WARN=1、SKIP=0。"
+  },
+  {
+    "type": "handoff_raw_whitelist",
+    "detail": "用户本轮明确允许raw/**，但现有sync_guard.py仅列state及assets数据，且PDF受仓库ignore规则影响；不能仅依git diff判断原文交接完整性。",
+    "action": "调度方按raw_manifest.json逐项审阅并带走真实原文（含未提取到文字的PDF）；维护方调整白名单规则，本任务不修改脚本或.gitignore。"
+  }
+]

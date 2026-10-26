@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225597404",
+  "candidate": {
+    "announcementId": "1225597404",
+    "time": 1791475200000,
+    "secCode": "000513",
+    "secName": "丽珠集团",
+    "title": "H股公告：证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-09/1225597404.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225597404.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "475f03d04b19a9f44e7e8b6f776985955bf5bf9e03e7e7599536ae46cdf7b073"
+}

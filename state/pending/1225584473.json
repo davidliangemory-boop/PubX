@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225584473",
+  "candidate": {
+    "announcementId": "1225584473",
+    "time": 1790586268000,
+    "secCode": "301087",
+    "secName": "可孚医疗",
+    "title": "关于控股股东增持公司H股股份计划进展暨实施期限过半的公告",
+    "adjunctUrl": "finalpage/2026-09-28/1225584473.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225584473.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "fd2019d9594e881859328a95e0ad640fb3edbb0c73d6d0884fac2fce63fc1d33"
+}

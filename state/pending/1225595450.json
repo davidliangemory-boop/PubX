@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595450",
+  "candidate": {
+    "announcementId": "1225595450",
+    "time": 1791388800000,
+    "secCode": "601456",
+    "secName": "国联民生",
+    "title": "H股公告（2026年9月证券变动月报表）",
+    "adjunctUrl": "finalpage/2026-10-08/1225595450.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595450.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5df45e58352373d024d6e8e608868d351fcce287ddb6552f9cee3dd63d6a7533"
+}

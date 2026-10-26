@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225589807",
+  "candidate": {
+    "announcementId": "1225589807",
+    "time": 1790784000000,
+    "secCode": "001246",
+    "secName": "力勤资源",
+    "title": "H股公告（董事名单与其角色和职能）",
+    "adjunctUrl": "finalpage/2026-10-01/1225589807.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225589807.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "ced60203ce6bfd25e98a9ff596823bcc057815841c0d1078c4fd3a7b8ddbfb50"
+}

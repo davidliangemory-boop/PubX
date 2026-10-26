@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225612596",
+  "candidate": {
+    "announcementId": "1225612596",
+    "time": 1792512000000,
+    "secCode": "600036",
+    "secName": "招商银行",
+    "title": "[H股公告]招商银行股份有限公司董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-21/1225612596.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225612596.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "4ed32232aaa42441e85a6300b402d762e6b80591b8afd4991530ed2bf72be2b0"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613138",
+  "candidate": {
+    "announcementId": "1225613138",
+    "time": 1792512000000,
+    "secCode": "002913",
+    "secName": "奥士康",
+    "title": "奥士康科技股份有限公司反不当行为及举报管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613138.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613138.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "bd9f23600229835c752483ea25f7cddc54bc821d44c6f9355530d36342f7b757"
+}

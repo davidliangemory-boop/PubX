@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605096",
+  "candidate": {
+    "announcementId": "1225605096",
+    "time": 1791993600000,
+    "secCode": "002130",
+    "secName": "沃尔核材",
+    "title": "H股公告：董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-15/1225605096.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605096.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "19d6c0abeac5657e4b89aa83476ea1c65a6a39dcbb01f34e989c257faeaeb0ad"
+}

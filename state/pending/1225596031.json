@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225596031",
+  "candidate": {
+    "announcementId": "1225596031",
+    "time": 1791431069000,
+    "secCode": "002881",
+    "secName": "美格智能",
+    "title": "H股公告一截至2026年9月30日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225596031.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225596031.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1dbebab8a1a96b09dcf11c371e139affd37e57a67e06e00fd5504372ac1e204a"
+}

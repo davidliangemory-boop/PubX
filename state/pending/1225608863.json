@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225608863",
+  "candidate": {
+    "announcementId": "1225608863",
+    "time": 1792166400000,
+    "secCode": "001289",
+    "secName": "龙源电力",
+    "title": "H股-董事会召开日期",
+    "adjunctUrl": "finalpage/2026-10-17/1225608863.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225608863.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "0127906f8175c67431b729c64f1ebc2b3e008d8f74ccb7543c3cae139ae8e2f4"
+}

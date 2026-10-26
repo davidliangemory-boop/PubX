@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595315",
+  "candidate": {
+    "announcementId": "1225595315",
+    "time": 1791388800000,
+    "secCode": "601326",
+    "secName": "秦港<em>股</em>份",
+    "title": "秦港股份H股公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225595315.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595315.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "cc160132b7d14106709fcf36977fc5ad36d9cde71ea7856e913367ec20f9dd15"
+}

@@ -1,0 +1,30 @@
+{
+  "doc_id": "1225612748",
+  "candidate": {
+    "announcementId": "1225612748",
+    "time": 1792512000000,
+    "secCode": "601598",
+    "secName": "中<em>国外</em>运",
+    "title": "关于召开2026年第三季度业绩说明会的公告",
+    "adjunctUrl": "finalpage/2026-10-21/1225612748.PDF",
+    "keywords": [
+      "国外"
+    ]
+  },
+  "raw_path": "raw/1225612748.txt",
+  "batch_id": "H-20261027",
+  "found_by": "history_backfill",
+  "history_window": {
+    "start": "2026-09-26",
+    "end": "2026-10-25"
+  },
+  "status": "excluded",
+  "sha256": "7e23f4f6a6180c228010167b206308fed367fddac94958fc30f21b56daba4b6b",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "仅召开业绩说明会及征集提问，未披露境外项目进展。",
+  "reviewed_at": "2026-10-27 04:38"
+}

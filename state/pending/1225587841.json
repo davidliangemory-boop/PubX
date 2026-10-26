@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225587841",
+  "candidate": {
+    "announcementId": "1225587841",
+    "time": 1790697600000,
+    "secCode": "688036",
+    "secName": "传音控<em>股</em>",
+    "title": "《传音控股外聘核数师提供非核数服务政策（草案）》（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-09-30/1225587841.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225587841.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "7ecc6049cc39840b8a1574f12b6418d3d6bf77bd31787be8c651c2833ba89a4a"
+}

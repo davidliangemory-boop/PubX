@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225590971",
+  "candidate": {
+    "announcementId": "1225590971",
+    "time": 1790784000000,
+    "secCode": "600685",
+    "secName": "中船防务",
+    "title": "中船防务H股公告_股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-01/1225590971.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225590971.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "dbc538433aa1bef54361b140222eae13b65da7a0296e6ee8724a022db8c934b4"
+}

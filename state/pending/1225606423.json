@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225606423",
+  "candidate": {
+    "announcementId": "1225606423",
+    "time": 1792080000000,
+    "secCode": "601717",
+    "secName": "中创智领",
+    "title": "中创智领H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-16/1225606423.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225606423.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2b811946ccd3eb5b9ff1ef4c5c8beb29a7720e6a35b8fec9909d2833c31f8c4b"
+}

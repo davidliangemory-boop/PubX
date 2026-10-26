@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225603070",
+  "candidate": {
+    "announcementId": "1225603070",
+    "time": 1791907200000,
+    "secCode": "688249",
+    "secName": "晶合集成",
+    "title": "H股公告-董事会会议日期",
+    "adjunctUrl": "finalpage/2026-10-14/1225603070.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225603070.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "81a0717b9479c66f6d1ff4c27ec0924d82365cbffc2268743bfb62b83ad5ef7e"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605976",
+  "candidate": {
+    "announcementId": "1225605976",
+    "time": 1792080000000,
+    "secCode": "601963",
+    "secName": "重庆银行",
+    "title": "H股公告-董事会会议召开日期",
+    "adjunctUrl": "finalpage/2026-10-16/1225605976.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605976.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "ca6d43686d545ff2458528c5e777669c98b119b02762939e9c404fbadb4b7b03"
+}

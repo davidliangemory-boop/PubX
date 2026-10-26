@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595528",
+  "candidate": {
+    "announcementId": "1225595528",
+    "time": 1791388800000,
+    "secCode": "603288",
+    "secName": "海天味业",
+    "title": "H股公告-截至二零二六年九月三十日止之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595528.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595528.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "2c438c87630fc6bd169e60a816e47a711165b116ab7d1a8145af3c0224313164"
+}

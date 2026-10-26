@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225613421",
+  "candidate": {
+    "announcementId": "1225613421",
+    "time": 1792540422000,
+    "secCode": "001246",
+    "secName": "力勤资源",
+    "title": "H股公告（董事会会议召开日期）",
+    "adjunctUrl": "finalpage/2026-10-21/1225613421.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225613421.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5983f88d879f874bc199aca392ab16b87143a97b3e4725563df87060cafc73f9"
+}

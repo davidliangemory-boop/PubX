@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225604738",
+  "candidate": {
+    "announcementId": "1225604738",
+    "time": 1791993600000,
+    "secCode": "600028",
+    "secName": "中国石化",
+    "title": "中国石化H股公告-公司秘書及授權代表變更",
+    "adjunctUrl": "finalpage/2026-10-15/1225604738.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225604738.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "37ff67d40c542719c95c0aa047ebe5e5276b5c90c47bc47f2d49ebf5435f8e4a"
+}

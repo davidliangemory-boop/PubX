@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595345",
+  "candidate": {
+    "announcementId": "1225595345",
+    "time": 1791388800000,
+    "secCode": "600956",
+    "secName": "新天绿能",
+    "title": "新天绿能H股公告",
+    "adjunctUrl": "finalpage/2026-10-08/1225595345.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595345.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "6d255f6a6edb75ccf189397b97928a1a7b9307f7d562d8897d3b098f00153c08"
+}

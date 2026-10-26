@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595447",
+  "candidate": {
+    "announcementId": "1225595447",
+    "time": 1791388800000,
+    "secCode": "601866",
+    "secName": "中远海发",
+    "title": "H股公告-证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595447.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595447.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "52cf05b2022906df207984c208582d4bdfa7ccb4ba5470679dd2177dbe75f0ab"
+}

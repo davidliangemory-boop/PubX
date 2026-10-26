@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225604229",
+  "candidate": {
+    "announcementId": "1225604229",
+    "time": 1791936131000,
+    "secCode": "002475",
+    "secName": "立讯精密",
+    "title": "H股公告-截至2026年9月30日止月份之股份发行人的证券变动月报表（经修订）",
+    "adjunctUrl": "finalpage/2026-10-14/1225604229.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225604229.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "6fe8736d2819bd072b38a661a62d0429630717fbd66cd6fd54db7d49671a49f0"
+}

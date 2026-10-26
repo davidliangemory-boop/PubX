@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595594",
+  "candidate": {
+    "announcementId": "1225595594",
+    "time": 1791388800000,
+    "secCode": "603906",
+    "secName": "龙蟠科技",
+    "title": "H股公告-截至二零二六年九月三十日止之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595594.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595594.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "5daba579bdc9914326e813eab3c8bac437cf8db7c6b3d91f54c5c2da317d740e"
+}

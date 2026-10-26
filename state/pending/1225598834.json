@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225598834",
+  "candidate": {
+    "announcementId": "1225598834",
+    "time": 1791561600000,
+    "secCode": "603341",
+    "secName": "龙旗科技",
+    "title": "H股公告-截至2026年9月30日止之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-10/1225598834.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225598834.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "1fb9273773b9a20300422de972466f30d20e38c98beac88fc01a1417b7ed4404"
+}

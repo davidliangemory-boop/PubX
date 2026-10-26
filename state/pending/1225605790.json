@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225605790",
+  "candidate": {
+    "announcementId": "1225605790",
+    "time": 1791993600000,
+    "secCode": "300666",
+    "secName": "江丰电子",
+    "title": "宁波江丰电子材料股份有限公司商业道德行为准则（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-15/1225605790.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225605790.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "e457a708e1540f6f66806860459594932109a9a9ed6ebcf90f9947e7ecfa860e"
+}

@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595387",
+  "candidate": {
+    "announcementId": "1225595387",
+    "time": 1791388800000,
+    "secCode": "300661",
+    "secName": "圣邦<em>股</em>份",
+    "title": "H股公告-截至2026年9月30日止股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595387.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595387.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "6ecacc857a1ff7269f14eca5510f35f53bd1c376a638c0052e4f2eaba923f8c0"
+}

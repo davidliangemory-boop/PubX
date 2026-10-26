@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225595994",
+  "candidate": {
+    "announcementId": "1225595994",
+    "time": 1791417269000,
+    "secCode": "301200",
+    "secName": "大族数控",
+    "title": "H股公告-截至2026年9月30日止月份之股份发行人的证券变动月报表",
+    "adjunctUrl": "finalpage/2026-10-08/1225595994.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225595994.txt",
+  "batch_id": "H-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis",
+  "sha256": "92713e7ab69f1945f44372bd43f5fa26812b089baed4f0afc4fd066fbbe778f6"
+}
