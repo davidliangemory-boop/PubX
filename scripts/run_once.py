@@ -84,8 +84,14 @@ def main():
         if cursor.get("status") == "pending":
             sdate, edate = cursor["window_start"], cursor["window_end"]
     scanned_before = set(db["collected"]["scanned"])
-    cands = [c for c in cninfo.search(sdate, edate, cfg["keywords"])
-             if c["announcementId"] not in scanned_before]
+    search_error = None
+    try:
+        cands = [c for c in cninfo.search(sdate, edate, cfg["keywords"])
+                 if c["announcementId"] not in scanned_before]
+    except Exception as e:
+        search_error = str(e)
+        cands = []
+        print(f" [fail] 检索未完成，仍接续本窗口缓存候选：{e}")
     # 已落盘的待审资料不依赖源站再次命中；仅接续本次日期窗口。
     by_id = {c['announcementId']: c for c in cands}
     for pending_file in Path(ROOT, 'state/pending').glob('*.json'):
@@ -107,6 +113,9 @@ def main():
         batch_id = cursor.get("batch_id", batch_id)
     kept, excluded_ids, failed = [], [], []
     exceptions = []
+    if search_error:
+        exceptions.append({"time": now_str(), "type": "检索失败", "detail": search_error,
+                           "result": "只接续缓存候选；窗口覆盖未完成，须重跑。"})
     tracked_new = []
     notes_inc, notes_exc = [], {}
 
@@ -247,6 +256,8 @@ def main():
 
     exc_note = "；".join(f"{k}{v}条" for k, v in notes_exc.items())
     note = ("收录：" + "、".join(notes_inc) if notes_inc else "本日批次本轮无新增收录")
+    if search_error:
+        note += "；检索失败，窗口覆盖未完成（仅处理缓存候选，不代表零新增）"
     if exc_note:
         note += f"；排除：{exc_note}"
     if failed:
@@ -266,6 +277,8 @@ def main():
         existing["items"] = sorted(set(existing.get("items", [])) | set(kept))
         existing["note"] = (existing.get("note", "").rstrip("。") + f"；{now_str()[11:]} 轮：" + note + "。")
         existing["window"] = window
+        existing["collection_complete"] = not bool(search_error)
+        existing["collection_error"] = search_error
         if "runs" in existing:
             existing["runs"] += 1
         else:
@@ -277,17 +290,18 @@ def main():
             "excluded": len(excluded_ids), "failed": len(failed),
             "items": kept, "note": note + "。", "runs": 1,
             "retry_ids": failed, "failed_attempts": len(failed),
+            "collection_complete": not bool(search_error), "collection_error": search_error,
         })
     save(db)
     from pipeline_state import write_manifest
     write_manifest(batch_id, analyze.REVIEW.get("model", "未记录（Kimi Code 直接审核结果）") if kept else None)
     if is_backfill:
         json.dump({"batch_id": batch_id, "window_start": sdate, "window_end": edate,
-                   "status": "pending" if failed else "outbound_completed", "retry_ids": failed,
+                   "status": "pending" if failed or search_error else "outbound_completed", "retry_ids": failed,
                    "updated_at": now_str()}, open(os.path.join(ROOT, "state/backfill_cursor.json"), "w"), ensure_ascii=False, indent=2)
     print(f"批次 {batch_id}：收录{len(kept)} 排除{len(excluded_ids)} 失败{len(failed)}")
     rc = rebuild()
-    return 1 if failed else rc
+    return 1 if failed or search_error else rc
 
 
 def rebuild():

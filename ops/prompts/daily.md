@@ -7,3 +7,5 @@ python3 scripts/run_once.py --date {scan_date}（巨潮候选→直接原文审�
 另运行 python3 scripts/watch_updates.py --date {scan_date}，补检在册观察主体近180天“进展/完成/终止/延期/更正”。输出只是候选，不混入日批次扫描/收录统计；按披露日原文审核后以回溯来源单列。H股/D股上市须归 matter_type=listing_abroad，不因上市属性排除。
 
 先检查 state/raw_hkex_*.json 与 state/raw_sec_*.json 的历史未入库候选（以 events.docs 为准），再处理本日输出；发现去重 seen 不代表完成分析。对审核通过的非巨潮候选，用 scripts/event_merge.py 归并事件，同时按文档契约维护 db.json 的披露与对应日批；两层主键必须一致，不得只更新其中一层。处理失败保留候选和原文，日报列明待审，不报告为零新增成功。
+
+接续核验：`collection_complete=false` 或 `collection_error` 非空表示该日检索未完成，即使缓存资料已审核完也不能报告成功或“本批零新增”；保留异常后重跑。入库后检查 changelog 有 date/type/batch_id/doc_id/note（type 为中文五类），首页对应 D 批次可见；进展的新字段在 diff 中保留并逐项核查，不覆盖已核事实。

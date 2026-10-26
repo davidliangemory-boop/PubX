@@ -9,7 +9,7 @@
    - 严禁改写 index.html、assets/app.js、assets/style.css、scripts/**、docs/**、README.md（前端与脚本由仓库维护方改）。如认为脚本需修改，写入 state/exceptions 留言，不要自行推送。
    - 不要 git commit/push/stash/reset，由外部调度方审阅后提交；不要写入任何 token。
 1. 采集：
-   a) 出海信批：python3 scripts/run_once.py 拉取巨潮、HKEX、SEC、公司 IR 中企新披露，原文存 raw/{doc_id}.txt（记 sha256）；对观察名单补检“进展/完成/终止/延期/更正”公告。
+   a) 出海信批：python3 scripts/run_once.py 拉取巨潮中企新披露；HKEX/SEC 另按每日任务执行对应 pull，IR 仅在已配置且实际核查时记覆盖，原文存 raw/{doc_id}.txt（记 sha256）；对观察名单补检“进展/完成/终止/延期/更正”公告。
    b) 美股：python3 scripts/sec_market_pull.py（EDGAR daily-index 增量，accession 去重）→ state/us_market*。
    c) 港股：python3 scripts/hkex_market_pull.py（披露易全市场分类增量，NEWS_ID 去重）→ state/hk_market*。
    d) 出口管制：python3 scripts/export_pull.py（Federal Register 实体清单/EAR 规则、OFAC Recent Actions/执法、BIS 执法新闻、DHS UFLPA Entity List、CBP UFLPA）→ state/export*；同时更新 SDN 等名单版本、条目数、sha。

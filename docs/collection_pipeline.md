@@ -59,3 +59,11 @@ run_once 的自动检索入口目前是巨潮。观察名单 HKEX/SEC 需按 pro
 - 排除审核将 pending 标为 excluded 并保留理由，manifest 待审仅计未入库且未审核排除项。日批 failed 表示本轮未解决数，failed_attempts 单列失败尝试数，retry_ids 可定位资料。
 - 日更/周更运行器提供 scan_date、week_since、D/W 批次号。周更以含今天的七个日历日运行 --since，不附带手动回溯参数；不恢复任务 B。
 - 本轮原文核查：reports/P5-round3-source-audit.json；附加 375/768/1280 路由检查：reports/P5-round3-routes.json。离线回放证明存量幂等，不代表连续两天实时采集成功。
+
+## 第 4 轮：故障续接与更新带契约
+
+- 源站检索异常仍接续同一窗口内已保存的 pending；批次写 `collection_complete=false`、`collection_error`，命令返回 1。缓存审核完成不等于窗口覆盖完成，不能报告零新增成功；回溯游标继续 pending。
+- merge 的输入更新类型为英文枚举；持久化 `update_type_latest` 和 `changelog.type` 使用页面已有中文五类，记录 `date/batch_id/doc_id/note`。此前写 `batch/change` 会使首页漏计新进展，本轮已统一。
+- 进展的新增/变化字段留在 `changelog.diff` 与 `source_doc_ids`，既有事实不被覆盖；详情“字段变化与原值留痕”可展开核查。只有有理由的 correction 替换事实并存 old/new。
+- 拒绝空来源、空事件 ID、来源主键重复及非法更新类型；拒绝发生在修改 store 前。
+- 本轮重新打开精工、安踏、红隼三份 PDF，核查记录为 reports/P5-round4-source-audit.json。未新增事件；核查报告不冒充当日日批。

@@ -879,7 +879,8 @@
     main += '<div class="panel"><div class="sech"><h2>更新记录</h2></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>日期</th><th>类型</th><th>来源文件</th><th>说明</th></tr></thead><tbody>'
       + e.changelog.map(function (c) {
         return '<tr><td class="mono">' + esc(c.date) + '</td><td>' + pill(c.type, c.type === "进展" ? "blue" : c.type === "修正" ? "warn" : "") + '</td>'
-          + '<td style="font-size:12px">' + esc(c.doc_id) + '</td><td style="font-size:12.5px">' + esc(c.note || "") + "</td></tr>";
+          + '<td style="font-size:12px">' + esc(c.doc_id) + '</td><td style="font-size:12.5px">' + esc(c.note || "")
+          + (c.diff && Object.keys(c.diff).length ? '<details><summary>字段变化与原值留痕</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere">' + esc(JSON.stringify(c.diff, null, 2)) + '</pre><p class="dim">进展中的字段快照供核查，既有事实保留；修正记录显示已替换的旧值与新值。出处见本行来源文件。</p></details>' : '') + "</td></tr>";
       }).join("") + "</tbody></table></div></div>";
 
     var siblings = EVX.filter(function (x) { return x.subject === e.parties[0].name && x.id !== e.event_id; });
@@ -1797,7 +1798,7 @@
     var pendingReviews = mf.pending_review || [];
 
     h += '<div class="panel" style="padding:16px 24px"><div class="panel-h"><h2>采集与分析 manifest</h2></div><p>脚本 commit：<span class="mono" style="overflow-wrap:anywhere">' + esc(mf.script_commit || '未记录') + '</span></p><p>模型：' + esc(mf.model || '未记录') + ' · Prompt：' + esc(mf.prompt_version || '未记录') + '</p><p>批次：' + esc(mf.batch_id || '未记录') + ' · 生成时间：' + esc(mf.generated_at || '未记录') + '</p><p>' + esc(mf.analysis_mode || '') + '</p><a href="state/manifest.json" target="_blank" rel="noopener">查看完整 manifest 与脚本 SHA-256</a></div>';
-    h += '<div class="panel" style="padding:16px 24px"><h2>从原文到问题：更新核查路径</h2><p>公司／项目 → 触发事实及原文页码 → 法律问题与处理状态 → 信息缺口 → 判断依据 → 下一步核查动作。</p><p>待审核 ' + pendingReviews.length + ' 份（口径：state/pending 中未入库且未审核排除的出海候选；不计入已收录事件）。采集完成不代表审核完成；失败或待审须保留原文与候选，重跑接续。</p><p>日批 D-YYYYMMDD 按北京时间 00:00–24:00；手动回溯 B-YYYYMMDD 单列；出口管制按周批 W-YYYYWW。20 天定时补漏任务 B 已撤销。</p><a href="reports/P5-round3-source-audit.json" target="_blank" rel="noopener">本轮 3 条原文核查与适用边界</a></div>';
+    h += '<div class="panel" style="padding:16px 24px"><h2>从原文到问题：更新核查路径</h2><p>公司／项目 → 触发事实及原文页码 → 法律问题与处理状态 → 信息缺口 → 判断依据 → 下一步核查动作。</p><p>待审核 ' + pendingReviews.length + ' 份（口径：state/pending 中未入库且未审核排除的出海候选；不计入已收录事件）。采集完成不代表审核完成；失败或待审须保留原文与候选，重跑接续。</p><p>日批 D-YYYYMMDD 按北京时间 00:00–24:00；手动回溯 B-YYYYMMDD 单列；出口管制按周批 W-YYYYWW。20 天定时补漏任务 B 已撤销。</p><a href="reports/P5-round4-source-audit.json" target="_blank" rel="noopener">第 4 轮：3 条原文核查与适用边界</a></div>';
     if (pendingReviews.length) {
       h += '<div class="panel" style="padding:16px 24px"><h2>待审原文与接续任务</h2><p>以下仅为出海候选。逐份核验公司／项目、问题与出处后才能入库；待审数不代表新增事件数。</p><ul>';
       pendingReviews.forEach(function (r) {
