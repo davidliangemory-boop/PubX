@@ -1,8 +1,8 @@
 {
- "generated": "2026-10-26 20:49",
+ "generated": "2026-10-26 21:11",
  "summary": {
   "ERROR": 0,
-  "WARN": 1,
+  "WARN": 4,
   "SKIP": 1
  },
  "issues": [
@@ -10,6 +10,21 @@
    "check": "批次命名",
    "level": "WARN",
    "detail": "15 条存量批次为旧命名（B-YYYYMMDD-HHMM / B-BF-* 等）；原始记录保留，构建层 build_data.py 已聚合为日批次视图 batches_daily"
+  },
+  {
+   "check": "审批表述依据",
+   "level": "WARN",
+   "detail": "E-010: 含「审批/备案完成」类表述但来源无审批类引文支撑"
+  },
+  {
+   "check": "审批表述依据",
+   "level": "WARN",
+   "detail": "E-026: 含「审批/备案完成」类表述但来源无审批类引文支撑"
+  },
+  {
+   "check": "审批表述依据",
+   "level": "WARN",
+   "detail": "2 条待补引文"
   },
   {
    "check": "页面检查",

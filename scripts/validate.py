@@ -622,6 +622,41 @@ def check_event_evidence(evj):
         f"evidence 核验 {n_ok + n_bad} 处：命中 {n_ok} / 失败 {n_bad}")
 
 
+def check_legal_map(evj):
+    """R06 议题归码验收：每事件 ≥1 条 trigger（ERROR）；trigger 二级码须在 issues_taxonomy.json 内（ERROR）；
+    status 须为四态枚举（ERROR）；每条须有 trigger_fact 与 basis（WARN）。"""
+    if not evj:
+        return
+    tax = load_json(os.path.join(ROOT, "state", "issues_taxonomy.json"), check="议题编码表")
+    if tax is None:
+        add("议题归码", "ERROR", "state/issues_taxonomy.json 缺失或不可解析")
+        return
+    valid = {c for fl in tax.get("first_level", []) for c, _n in fl.get("sub", [])}
+    STATUS4 = {"disclosed_cleared", "disclosed_pending", "not_disclosed", "not_applicable"}
+    n_empty = n_badcode = n_badstatus = n_nobasis = 0
+    n_trig = 0
+    for e in evj.get("events", []):
+        trs = e.get("legal_triggers") or []
+        eid = e.get("event_id")
+        if not trs:
+            n_empty += 1
+            add("议题归码", "ERROR", f"{eid}: 无任何 legal_triggers（违反每事件≥1）")
+        for t in trs:
+            n_trig += 1
+            c = t.get("issue_code") or t.get("code")
+            if c not in valid:
+                n_badcode += 1
+                add("议题归码", "ERROR", f"{eid}: 议题码 {c!r} 不在 issues_taxonomy.json 二级码内")
+            if t.get("status") not in STATUS4:
+                n_badstatus += 1
+                add("议题归码", "ERROR", f"{eid}: trigger status {t.get('status')!r} 非四态枚举")
+            if not str(t.get("trigger_fact") or "").strip() or not str(t.get("basis") or "").strip():
+                n_nobasis += 1
+                add("议题归码", "WARN", f"{eid}: trigger 缺 trigger_fact 或 basis")
+    add("议题归码", "OK" if not (n_empty or n_badcode or n_badstatus) else "ERROR",
+        f"{len(evj.get('events', []))} 事件 {n_trig} 条触发点；空事件 {n_empty} / 非法码 {n_badcode} / 非法状态 {n_badstatus} / 缺依据 {n_nobasis}")
+
+
 def main():
     check_state_jsons()
     evj = check_events()
@@ -630,6 +665,7 @@ def main():
     check_event_evidence(evj)
     check_batches()
     check_event_consistency(evj)
+    check_legal_map(evj)
     check_internal_refs(evj)
     check_links(evj)
     check_export()

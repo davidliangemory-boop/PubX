@@ -47,8 +47,15 @@
   "holding_chain": { "text": "持股链：母公司→收购主体(控股)→标的 x%", "layer": "disclosed", "basis": null, "evidence": null },
   "impact": [ { "text": "", "layer": "disclosed|analysis", "basis": "" } ],   // 影响（R05 起独立成第⑦节）
   "watch_points": [ { "text": "", "layer": "analysis", "basis": "" } ],   // 跟踪点
-  "legal_triggers": [ { "code": "I2.1", "text": "", "status": "disclosed|disclosed_cleared|disclosed_pending|not_disclosed|not_applicable",
-                        "layer": "analysis", "basis": "" } ], // 法律合规触发点，仅写实际触发；code = 议题码（I1–I13 二级），无码时前端按关键词归组（标 analysis）
+  // legal_triggers（R06 起由 scripts/legal_map.py 确定性规则生成，编码表 state/issues_taxonomy.json）：
+  "legal_triggers": [ { "issue_code": "I2.1",              // 必填；议题二级码，每条只挂一个，须在编码表内
+                        "issue": "外资审查（FIRB/…）",      // 冗余名称，便于阅读
+                        "trigger_fact": "触发事实：只引用事件已有字段或原文摘录上下文，禁止推测",
+                        "text": "= trigger_fact（兼容旧前端/校验）",
+                        "status": "disclosed_cleared|disclosed_pending|not_disclosed|not_applicable",
+                        "layer": "disclosed|analysis",     // 原文无审批字样一律 not_disclosed，禁止倒推「已审批」
+                        "basis": "命中规则 id + 字段 + 判定说明" } ],
+  "legal_notes_unmapped": [ { "text": "旧轮自由文本未归码片段", "basis": "" } ],  // 保留待人工核定，不丢不编
   "gaps": [ { "item": "缺什么", "why": "为何重要", "where": "去哪找", "layer": "analysis", "basis": "" } ],  // R05 三段式；存量 {text} 兼容
   "practice_notes": [ { "text": "", "layer": "analysis", "basis": "" } ],
   "sources": [ { "doc_id": "", "channel": "", "file": "文件名", "date": "发布日期",

@@ -217,8 +217,14 @@ def main():
                     s["url"] = https_link(s.get("url"))
             out["events"] = evs
             out["event_docs"] = evj.get("docs", {})
+            if (evj.get("meta") or {}).get("legal_map"):
+                out["legal_map"] = evj["meta"]["legal_map"]
         except Exception as e:
             print(f"[build] events.json 读取失败（跳过事件层）：{e}")
+    # 议题两级编码表（scripts/legal_map.py 输入；#/issues 与事件详情法律问题总表共用同一来源）
+    tax = load_watch("issues_taxonomy.json")
+    if isinstance(tax, dict) and tax.get("first_level"):
+        out["issues_taxonomy"] = tax
     # 质检报告（scripts/validate.py 产出，#/about 展示）
     vr = load_watch("validate_report.json")
     if isinstance(vr, dict) and vr.get("summary"):

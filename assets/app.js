@@ -167,6 +167,8 @@
   }
   function evById(id) { for (var i = 0; i < EV.length; i++) if (EV[i].event_id === id) return EV[i]; return null; }
   function docByAid(aid) { for (var i = 0; i < D.length; i++) if (D[i]._aid === aid) return D[i]; return null; }
+  // 法律触发点处理状态四态中文名（事件详情总表 / 议题库共用）
+  var TR_STATUS = { disclosed_cleared: "已披露·已通过", disclosed_pending: "已披露·进行中", not_disclosed: "未披露", not_applicable: "不适用", disclosed: "已披露" };
 
   /* ═════════ 首页（R04）：本次更新带 → 头条 → 重点观察 → 关键数据 → 持续跟踪 → 入口 ═════════ */
   function vHome() {
@@ -402,13 +404,14 @@
   ];
   var EV_COLS_DEFAULT = ["date", "title", "subject", "country", "mt", "stage", "amt", "status", "ut"];
   var F = { q: "", ch: "全部", mt: "全部", stage: "全部", geo: "全部", country: "全部", ut: "全部", status: "全部",
-            cur: "全部", amtmin: "", amtmax: "", dfrom: "", dto: "",
+            cur: "全部", amtmin: "", amtmax: "", dfrom: "", dto: "", issue: "全部",
             view: "cards", mode: "month", cols: EV_COLS_DEFAULT.slice() };
   function evFiltered() {
     var q = F.q.trim().toLowerCase();
     var amin = parseFloat(F.amtmin), amax = parseFloat(F.amtmax);
     return EVX.filter(function (x) {
       if (F.ch !== "全部" && x.chans.indexOf(F.ch) < 0) return false;
+      if (F.issue !== "全部" && !evMatchIssue(x.e, F.issue)) return false;
       if (F.mt !== "全部" && x.mt !== F.mt) return false;
       if (F.stage !== "全部" && x.stage !== F.stage) return false;
       if (F.geo !== "全部" && (x.geo || "").indexOf(F.geo) < 0) return false;
@@ -432,7 +435,7 @@
     var p = [];
     if (F.view !== "cards") p.push("view=" + F.view);
     if (F.mode !== "month") p.push("mode=" + F.mode);
-    ["q", "ch", "mt", "stage", "geo", "country", "ut", "status", "cur", "amtmin", "amtmax", "dfrom", "dto"].forEach(function (k) {
+    ["q", "ch", "mt", "stage", "geo", "country", "ut", "status", "cur", "amtmin", "amtmax", "dfrom", "dto", "issue"].forEach(function (k) {
       if (F[k] && F[k] !== "全部") p.push(k + "=" + encodeURIComponent(F[k]));
     });
     if (F.cols.join(",") !== EV_COLS_DEFAULT.join(",")) p.push("cols=" + F.cols.join(","));
@@ -512,6 +515,18 @@
       + '<select class="fsel" id="evcountry">' + optList(["全部"].concat(unique(EVX.map(function (x) { return x.country; })).sort()), F.country, countBy(function (x) { return x.country; })) + "</select>"
       + '<select class="fsel" id="evut">' + optList(["全部", "新增", "进展", "修正"], F.ut, countBy(function (x) { return x.ut; })) + "</select>"
       + '<select class="fsel" id="evst">' + optList(["全部", "活跃", "完成", "终止"], F.status, countBy(function (x) { return x.status; })) + "</select>"
+      + '<select class="fsel" id="evissue" title="法律议题码（与议题库同一判定）">'
+      + (function () {
+        var opts = [["全部", "议题码·全部"]];
+        TAX.forEach(function (fl) {
+          opts.push([fl.code, fl.code + " " + fl.name]);
+          fl.sub.forEach(function (s) { opts.push([s[0], "　" + s[0] + " " + s[1]]); });
+        });
+        var cnt = {}; opts.forEach(function (o) { if (o[0] !== "全部") cnt[o[0]] = EVX.filter(function (x) { return evMatchIssue(x.e, o[0]); }).length; });
+        return opts.map(function (o) {
+          return '<option value="' + esc(o[0]) + '"' + (o[0] === F.issue ? " selected" : "") + ">" + esc(o[1]) + (o[0] === "全部" ? "" : "（" + (cnt[o[0]] || 0) + "）") + "</option>";
+        }).join("");
+      })() + "</select>"
       + '<button class="btn" id="evreset">清空</button>'
       + '<span class="note" id="evcount" style="margin-left:auto"></span></div>';
     // 第二行：金额/日期区间（口径注释随控件）
@@ -541,7 +556,9 @@
   }
   function evRows() {
     var rows = evFiltered();
-    var cnt = $("evcount"); if (cnt) cnt.textContent = "显示 " + rows.length + " / " + EVX.length + (F.geo !== "全部" ? " · 地区文本筛选「" + F.geo + "」（跨页链接带入，清空可解除）" : "");
+    var cnt = $("evcount"); if (cnt) cnt.textContent = "显示 " + rows.length + " / " + EVX.length
+      + (F.issue !== "全部" ? " · 议题码「" + F.issue + "」（与议题库同一判定函数）" : "")
+      + (F.geo !== "全部" ? " · 地区文本筛选「" + F.geo + "」（跨页链接带入，清空可解除）" : "");
     var box = $("evrows"); if (!box) return;
     if (F.view === "table") {
       box.innerHTML = '<div class="tbl-wrap"><table class="tbl"><thead><tr>'
@@ -601,7 +618,7 @@
   }
   function bindEvents() {
     $("evq").addEventListener("input", function (e) { F.q = e.target.value; evSyncURL(); evRows(); });
-    [["evch", "ch"], ["evmt", "mt"], ["evstage", "stage"], ["evcountry", "country"], ["evut", "ut"], ["evst", "status"], ["evcur", "cur"]].forEach(function (x) {
+    [["evch", "ch"], ["evmt", "mt"], ["evstage", "stage"], ["evcountry", "country"], ["evut", "ut"], ["evst", "status"], ["evcur", "cur"], ["evissue", "issue"]].forEach(function (x) {
       $(x[0]).addEventListener("change", function (e) { F[x[1]] = e.target.value; evSyncURL(); evRows(); });
     });
     [["evmin", "amtmin"], ["evmax", "amtmax"], ["evfrom", "dfrom"], ["evto", "dto"]].forEach(function (x) {
@@ -609,7 +626,7 @@
     });
     $("evreset").addEventListener("click", function () {
       F = { q: "", ch: "全部", mt: "全部", stage: "全部", geo: "全部", country: "全部", ut: "全部", status: "全部",
-            cur: "全部", amtmin: "", amtmax: "", dfrom: "", dto: "", view: F.view, mode: F.mode, cols: EV_COLS_DEFAULT.slice() };
+            cur: "全部", amtmin: "", amtmax: "", dfrom: "", dto: "", issue: "全部", view: F.view, mode: F.mode, cols: EV_COLS_DEFAULT.slice() };
       view.innerHTML = vEvents(); bindEvents(); evRows(); evSyncURL();
     });
     document.querySelectorAll("[data-evview]").forEach(function (a) {
@@ -688,7 +705,6 @@
       ["contingent", "或有对价"], ["completion_adjustment", "完成调整"], ["deposit", "定金 / 预付"],
       ["long_stop_date", "长停止日"], ["breach", "违约与终止"], ["reps_warranties", "陈述与保证"],
       ["transition", "过渡期安排"], ["tax", "税费"], ["dispute_resolution", "争议解决"]];
-    var TR_STATUS = { disclosed_cleared: "已披露·已通过", disclosed_pending: "已披露·进行中", not_disclosed: "未披露", not_applicable: "不适用", disclosed: "已披露" };
 
     var main = '<div class="panel"><div class="sech"><span class="sno">①</span><h2>主体及关系</h2></div><div style="padding:4px 24px 16px">'
       + e.parties.map(function (p) {
@@ -747,16 +763,43 @@
           }).join("") + "</tbody></table></div>";
       })() + "</div></div>";
 
-    main += '<div class="panel"><div class="sech"><span class="sno">⑥</span><h2>法律触发点</h2><span class="note">仅列实际触发事项，逐条挂议题码（docs/schema.md §c），非模板清单</span></div>'
-      + (e.legal_triggers && e.legal_triggers.length
-        ? '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>议题</th><th>触发事实</th><th>状态</th><th>层</th></tr></thead><tbody>'
-          + e.legal_triggers.map(function (a) {
-            return "<tr><td style='white-space:nowrap'>" + (a.code ? pill(a.code, "blue") : "—") + "</td>"
-              + "<td style='font-size:12.5px'>" + esc(a.text || "") + (a.basis ? '<div class="dim" style="font-size:12px">依据：' + esc(a.basis) + "</div>" : "") + evHtml(a.evidence) + "</td>"
-              + "<td style='white-space:nowrap;font-size:12px'>" + esc(TR_STATUS[a.status] || a.status || "—") + "</td>"
-              + "<td>" + layerBadge(a.layer) + "</td></tr>";
-          }).join("") + "</tbody></table></div>"
-        : '<div style="padding:4px 24px 16px"><div class="na">入库分析未识别到具体触发点；不代表无合规义务</div>') + "</div>";
+    // ⑥ 法律问题总表（R06）：I1–I13 全覆盖，触发列明细，未触发列「—」+理由，保证覆盖完整
+    main += '<div class="panel"><div class="sech"><span class="sno">⑥</span><h2>法律问题总表</h2><span class="note">'
+      + "覆盖全部 13 个一级议题：触发点逐条挂二级码（docs/schema.md §c / state/issues_taxonomy.json）；未触发议题列「—」并给理由，不代表无合规义务"
+      + '</span></div>'
+      + (function () {
+        var trs = e.legal_triggers || [];
+        if (!TAX.length) {  // 编码表缺失时退回旧渲染
+          return trs.length
+            ? '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>议题</th><th>触发事实</th><th>状态</th><th>层</th></tr></thead><tbody>'
+              + trs.map(function (a) {
+                return "<tr><td style='white-space:nowrap'>" + pill(trigCode(a) || "—", "blue") + "</td>"
+                  + "<td style='font-size:12.5px'>" + esc(a.text || "") + "</td><td>" + esc(TR_STATUS[a.status] || a.status || "—") + "</td><td>" + layerBadge(a.layer) + "</td></tr>";
+              }).join("") + "</tbody></table></div>"
+            : '<div style="padding:4px 24px 16px"><div class="na">入库分析未识别到具体触发点；不代表无合规义务</div></div>';
+        }
+        var byFl = {};
+        trs.forEach(function (t) { var c = trigCode(t); var fc = c ? c.split(".")[0] : "I0"; (byFl[fc] = byFl[fc] || []).push(t); });
+        return '<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:200px">议题（一级）</th><th>触发点明细（二级码 / 触发事实 / 状态 / 层 / 依据）</th></tr></thead><tbody>'
+          + TAX.map(function (fl) {
+            var list = byFl[fl.code] || [];
+            var cell = list.length
+              ? list.map(function (a) {
+                return '<div style="padding:3px 0;border-bottom:1px dashed var(--line)">' + pill(a.issue_code || "—", "blue") + " "
+                  + '<span style="font-size:12.5px">' + esc(a.trigger_fact || a.text || "") + "</span> "
+                  + pill(TR_STATUS[a.status] || a.status || "—", a.status === "not_disclosed" ? "warn" : "")
+                  + " " + layerBadge(a.layer)
+                  + (a.basis ? '<div class="dim" style="font-size:12px">依据：' + esc(a.basis) + "</div>" : "") + evHtml(a.evidence) + "</div>";
+              }).join("")
+              : '<span class="dim">— ' + esc(fl.na_reason || "已核事实未涉及本议题要素") + "</span>";
+            return "<tr><td style='font-size:12.5px'><b>" + esc(fl.code) + "</b> " + esc(fl.name) + "</td><td>" + cell + "</td></tr>";
+          }).join("")
+          + "</tbody></table></div>"
+          + ((byFl.I0 || []).length ? '<div class="secnote">未归码触发点（待人工核定）：' + byFl.I0.map(function (a) { return "「" + esc(a.text || "") + "」"; }).join(" ") + "</div>" : "")
+          + ((e.legal_notes_unmapped || []).length ? '<div class="secnote">旧轮分析文本未归码片段（保留待人工核定，' + e.legal_notes_unmapped.length + " 片）："
+            + e.legal_notes_unmapped.map(function (u) { return "「" + esc(u.text) + "」"; }).join(" ") + "</div>" : "")
+          + '<div class="secnote">归码口径 ' + layerBadge("analysis") + '：scripts/legal_map.py 确定性规则生成；状态四态：已披露·已通过 / 已披露·进行中 / 未披露 / 不适用；原文未载审批字样的不写「已审批」。横向比较见 <a href="#/issues">法律议题库</a>。</div>';
+      })() + "</div>";
 
     main += '<div class="panel"><div class="sech"><span class="sno">⑦</span><h2>影响</h2></div><div style="padding:4px 24px 16px">'
       + (e.impact && e.impact.length ? e.impact.map(anaItem).join("") : '<div class="na">入库分析未标注影响</div>') + "</div></div>";
@@ -813,7 +856,12 @@
     return h + '<div class="split"><div>' + main + "</div>" + rail + "</div>";
   }
 
-  /* ═════════ 法律议题库：议题 → 公司 → 事件 → 出处（借鉴 Vault 问题级组织 + 双口径计数） ═════════ */
+  /* ═════════ 法律议题库：议题 → 公司 → 事件 → 出处（R06 Vault 式；编码表唯一来源 state/issues_taxonomy.json） ═════════ */
+  var TAX = (DB.issues_taxonomy && DB.issues_taxonomy.first_level) || [];
+  var TAX_SUB = {};   // 二级码 → {name, fc, fname}
+  TAX.forEach(function (fl) { fl.sub.forEach(function (s) { TAX_SUB[s[0]] = { name: s[1], fc: fl.code, fname: fl.name }; }); });
+  function trigCode(t) { return t.issue_code || t.code || null; }
+  // 旧轮无码 trigger 的关键词兜底归组（仅兼容；legal_map 重跑后全部带码）
   var ISSUE_TAX = [
     ["I4", "出口管制", ["出口管制", "实体清单", "EAR", "FDPR", "两用物项"]],
     ["I5", "制裁", ["制裁", "SDN", "OFAC", "UFLPA", "强迫劳动"]],
@@ -830,50 +878,94 @@
     ["I13", "信息披露与资本市场", ["披露同步", "H股", "H 股", "GDR", "两地上市", "上市规则"]]
   ];
   function issueOf(t) {
-    if (t.code) { for (var i = 0; i < ISSUE_TAX.length; i++) if (ISSUE_TAX[i][0] === t.code) return ISSUE_TAX[i]; }
+    var c = trigCode(t);
+    if (c && TAX_SUB[c]) return [TAX_SUB[c].fc, TAX_SUB[c].fname];
+    if (c) return [c.split(".")[0], ""];
     for (var j = 0; j < ISSUE_TAX.length; j++) {
       var kws = ISSUE_TAX[j][2];
       for (var k = 0; k < kws.length; k++) if ((t.text || "").indexOf(kws[k]) >= 0) return ISSUE_TAX[j];
     }
     return ["I0", "其他 / 未归类", []];
   }
+  // 议题页/筛选共用的唯一判定：事件是否命中某议题码（一级码前缀匹配二级码）
+  function evMatchIssue(e, code) {
+    return (e.legal_triggers || []).some(function (t) { var c = trigCode(t); return c && (c === code || c.indexOf(code + ".") === 0); });
+  }
+  function srcPageLink(s) {
+    if (!s || !s.url) return "";
+    var pg = (s.quotes && s.quotes[0] && s.quotes[0].page) || 1;
+    return '<a href="' + esc(s.url) + "#page=" + pg + '" target="_blank" rel="noopener">原文 P' + pg + " ↗</a>";
+  }
   function vIssues() {
-    // 聚合：事件 legal_triggers → 议题桶；事件数 / 议题条数双口径（Vault 做法）
-    var buckets = {}, unCls = 0, total = 0, evWith = 0;
+    // 聚合：事件 legal_triggers → 二级议题桶；事件数 / 触发条数双口径（Vault 做法）
+    var bySub = {}, total = 0, evWith = 0, unMapped = 0, legacyNoCode = 0;
     EV.forEach(function (e) {
       var trs = e.legal_triggers || [];
       if (trs.length) evWith++;
-      var latest = e.sources[e.sources.length - 1] || {};
+      unMapped += (e.legal_notes_unmapped || []).length;
       trs.forEach(function (t) {
         total++;
-        var tax = issueOf(t);
-        if (tax[0] === "I0") unCls++;
-        (buckets[tax[0]] = buckets[tax[0]] || { name: tax[1], items: [] }).items.push({ e: e, t: t, src: latest });
+        var c = trigCode(t);
+        if (!c || !TAX_SUB[c]) { legacyNoCode++; return; }
+        (bySub[c] = bySub[c] || []).push({ e: e, t: t });
       });
     });
-    var h = '<div class="ph"><h1>法律议题库</h1><span class="sub">本页回答：跨事件的法律议题有哪些，各事件如何落入议题、证据在哪份原文</span></div>';
+    var lm = DB.legal_map || {};
+    var h = '<div class="ph"><h1>法律议题库</h1><span class="sub">本页回答：某个法律问题在哪些公司、哪些事件中如何出现、原文处理到哪一步、证据在第几页</span></div>';
     h += '<div class="statstrip">'
-      + statCard(total, "议题条数", "全部事件的法律合规触发点合计")
-      + statCard(evWith, "涉及事件", "至少识别到 1 条触发点")
-      + statCard(Object.keys(buckets).length, "覆盖议题（一级）", "编码表见 docs/schema.md §c")
-      + statCard(unCls, "未归类条数", "关键词未命中，待人工核定")
+      + statCard(total, "触发条数", "全部事件法律触发点合计（每事件≥1条，R06 验收口径）")
+      + statCard(evWith, "涉及事件", "至少 1 条触发点；总事件 " + EV.length)
+      + statCard(Object.keys(bySub).length + " / " + Object.keys(TAX_SUB).length, "有命中二级议题", "编码表 I1–I13 共 " + Object.keys(TAX_SUB).length + " 个二级码")
+      + statCard(unMapped + legacyNoCode, "待人工归码", "旧轮自由文本拆片未命中编码表，保留在事件详情「法律问题总表」底部")
       + "</div>";
-    h += '<div class="note" style="margin:-10px 0 16px">归组口径 ' + layerBadge("analysis")
-      + '：trigger 自带议题码（code 字段）优先；其余按触发点文本关键词映射至议题编码表，系统归组、未经逐条人工核定；早期入库的一条触发点可能混合多个议题（以「；」分隔），按首个命中关键词归组。</div>';
-    var keys = Object.keys(buckets).sort();
-    h += keys.map(function (k) {
-      var b = buckets[k];
-      var evN = unique(b.items.map(function (x) { return x.e.event_id; })).length;
-      return '<div class="panel"><div class="panel-h"><h2>' + esc(k) + " " + esc(b.name) + '</h2>'
-        + '<span class="note">事件 ' + evN + " · 议题条数 " + b.items.length + "</span></div><div class='panel-b'>"
-        + b.items.map(function (x) {
-          return '<div class="ev"><span class="pg">' + esc(x.src.date || "") + '</span><span>'
-            + '<a href="#/company/' + encodeURIComponent(x.e.parties[0].name) + '">' + esc(shortCo(x.e.parties[0].name)) + "</a> → "
-            + '<a href="#/event/' + x.e.event_id + '"><b>' + esc(x.e.event_id) + "</b></a> "
-            + layerBadge(x.t.layer) + " " + esc((x.t.text || "").slice(0, 90)) + ((x.t.text || "").length > 90 ? "…" : "")
-            + '<br/><span class="dim" style="font-size:12px">出处：' + esc((x.src.file || "").slice(0, 44)) + (x.src.url ? ' <a href="' + esc(x.src.url) + '" target="_blank" rel="noopener">原文 ↗</a>' : "") + "</span></span></div>";
-        }).join("") + "</div></div>";
-    }).join("") || '<div class="panel"><div class="empty">尚无触发点数据</div></div>';
+    h += '<div class="note" style="margin:-10px 0 16px">归码口径 ' + layerBadge("analysis")
+      + "：scripts/legal_map.py 确定性规则（版本 " + esc(lm.version || "—") + "，运行于 " + esc(lm.run || "—")
+      + "），每条触发点只挂一个二级码；trigger_fact 引用事件已有字段或原文摘录上下文；原文未载处理状态的一律「未披露」，不从「交割完成」倒推审批。"
+      + '原始分类（巨潮公告类型 / 披露易 headline / SEC 表格）逐源保留在 I3.3，与归一议题双层并存。议题数与 <a href="#/events">事件库</a>议题筛选结果一致（同一判定函数）。</div>';
+
+    h += TAX.map(function (fl) {
+      var flEv = {}, flN = 0;
+      fl.sub.forEach(function (s) {
+        (bySub[s[0]] || []).forEach(function (x) { flEv[x.e.event_id] = 1; flN++; });
+      });
+      return '<div class="panel"><div class="panel-h"><h2>' + esc(fl.code) + " " + esc(fl.name) + '</h2>'
+        + '<span class="note">事件 ' + Object.keys(flEv).length + " · 触发条数 " + flN + '　<a href="#/events?issue=' + fl.code + '">事件库筛选 →</a></span>'
+        + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:230px">二级议题</th><th>事件数</th><th>触发条数</th><th>明细（公司 → 事件 → 原文页）</th></tr></thead><tbody>'
+        + fl.sub.map(function (s) {
+          var items = bySub[s[0]] || [];
+          var evN = unique(items.map(function (x) { return x.e.event_id; })).length;
+          var det;
+          if (!items.length) {
+            det = '<span class="dim">— 样本内暂无触发（口径：当前 ' + EV.length + " 事件）</span>";
+          } else {
+            // 常见触发事实（去重前 3）；已披露处理方式；公司→事件→原文页
+            var facts = unique(items.map(function (x) { return (x.t.trigger_fact || "").slice(0, 46); })).slice(0, 3);
+            var disc = items.filter(function (x) { return x.t.status === "disclosed_cleared" || x.t.status === "disclosed_pending"; });
+            var byCo = {};
+            items.forEach(function (x) {
+              var co = x.e.parties && x.e.parties[0] ? x.e.parties[0].name : "—";
+              (byCo[co] = byCo[co] || {})[x.e.event_id] = x;
+            });
+            det = '<details><summary>展开 ' + evN + " 事件 / " + items.length + " 条</summary>"
+              + '<div class="secnote" style="border:none;padding-left:0">常见触发事实：' + facts.map(function (f) { return "「" + esc(f) + "…」"; }).join(" ") + "<br/>"
+              + "已披露处理方式：" + (disc.length ? disc.length + " 条（已披露·已通过/进行中）" : "样本内均无原文处理披露（全部 not_disclosed）") + "；执业提示见各事件详情 §⑩（事件级，非议题级结论）</div>"
+              + Object.keys(byCo).map(function (co) {
+                var evs = byCo[co];
+                return '<div style="padding:4px 0"><a href="#/company/' + encodeURIComponent(co) + '"><b>' + esc(shortCo(co)) + "</b></a>　"
+                  + Object.keys(evs).map(function (eid) {
+                    var x = evs[eid];
+                    var s0 = x.e.sources[x.e.sources.length - 1] || {};
+                    return '<span style="display:inline-block;margin:2px 10px 2px 0"><a href="#/event/' + eid + '">' + eid + "</a> "
+                      + pill(TR_STATUS[x.t.status] || x.t.status, x.t.status === "not_disclosed" ? "warn" : "blue")
+                      + " " + srcPageLink(s0) + "</span>";
+                  }).join("") + "</div>";
+              }).join("") + "</details>";
+          }
+          return "<tr" + (items.length ? "" : " style='opacity:.55'") + "><td style='font-size:12.5px'><b>" + esc(s[0]) + "</b> " + esc(s[1])
+            + (items.length ? '<br/><a href="#/events?issue=' + s[0] + '" style="font-size:12px">事件库筛选 →</a>' : "") + "</td>"
+            + '<td class="mono">' + evN + '</td><td class="mono">' + items.length + "</td><td style='font-size:12.5px'>" + det + "</td></tr>";
+        }).join("") + "</tbody></table></div></div>";
+    }).join("");
     return h;
   }
 
@@ -1243,11 +1335,11 @@
   }
 
   /* ═════════ 方法与来源：health / batches / records / diff / export ═════════ */
-  var AB = { tab: "health" };
+  var AB = { tab: "coverage" };
   function vAbout() {
-    var h = '<div class="ph"><h1>方法与来源</h1><span class="sub">本页回答：数据怎么来、多久更新一次、质量如何、怎样取用</span></div>';
+    var h = '<div class="ph"><h1>方法与来源</h1><span class="sub">本页回答：数据怎么来、覆盖到哪、排除了什么、质量如何、怎样取用</span></div>';
     h += '<div class="subnav wrap" style="margin-bottom:16px">'
-      + [["health", "来源健康"], ["batches", "批次简报"], ["records", "更新记录"], ["diff", "版本比较"], ["validate", "质检报告"], ["export", "导出"]].map(function (x) {
+      + [["coverage", "覆盖与排除"], ["health", "来源健康"], ["batches", "批次简报"], ["records", "更新记录"], ["diff", "版本比较"], ["validate", "质检报告"], ["export", "导出"]].map(function (x) {
         return '<a href="javascript:;" data-abt="' + x[0] + '"' + (AB.tab === x[0] ? ' class="on"' : "") + ">" + x[1] + "</a>";
       }).join("") + "</div><div id=\"abbody\"></div>";
     return h;
@@ -1255,6 +1347,39 @@
   function abBody() {
     var box = $("abbody"); if (!box) return;
     var H = DB.health || [];
+    if (AB.tab === "coverage") {
+      // R06-5：各渠道覆盖范围（观察名单/检索方式/频率/起止日期）+ 排除清单及理由；全部取自 config/库内实际数据，缺项如实标注
+      var dates = D.map(function (r) { return r["披露日期与时间"]; }).filter(Boolean).sort();
+      var span = dates.length ? dates[0].slice(0, 10) + " ~ " + dates[dates.length - 1].slice(0, 10) : "—";
+      var tot = { scanned: 0, kept: 0, excluded: 0, failed: 0 };
+      (DB.batches || []).forEach(function (b) { ["scanned", "kept", "excluded", "failed"].forEach(function (k) { tot[k] += b[k] || 0; }); });
+      var lm = DB.legal_map || {};
+      box.innerHTML = '<div class="statstrip">'
+        + statCard(span, "收录披露日期范围", "库内 " + D.length + " 条披露（出海信批归纳模块）；非全市场口径")
+        + statCard(tot.scanned, "累计扫描（批次合计）", "各批次 scanned 求和；跨批次窗口重叠，非去重值")
+        + statCard(tot.kept, "累计收录", "kept 合计；命中率低属正常（关键词召回+人工门控）")
+        + statCard(tot.excluded, "累计剔除", "门控剔除：非出海相关 / 噪声类别 / 程序性公告")
+        + "</div>"
+        + '<div class="panel"><div class="panel-h"><h2>渠道覆盖范围</h2><span class="note">接入方式/频率/名单来自 state/config.json 静态配置；收录与最新日期为库内实数</span></div>'
+        + '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>渠道</th><th>检索方式与关键词/名单</th><th>频率</th><th>去重主键</th><th>收录</th><th>最新披露</th></tr></thead><tbody>'
+        + H.map(function (c) {
+          return "<tr><td style='white-space:nowrap'><b>" + esc(c.name) + "</b><br/><a href='" + esc(c.url) + "' target='_blank' rel='noopener' style='font-size:12px'>来源 ↗</a></td>"
+            + "<td style='font-size:12.5px'>" + esc(c.method) + (c.watch ? "<br/>观察名单 " + c.watch + " 家" : "") + (c.note ? '<div class="dim" style="font-size:12px">' + esc(c.note) + "</div>" : "") + "</td>"
+            + "<td style='font-size:12.5px'>" + esc(c.cadence || "—") + "</td><td style='font-size:12.5px'>" + esc(c.cursor || "—") + "</td>"
+            + "<td class='mono'>" + c.count + "</td><td class='mono'>" + esc(c.latest || "—") + "</td></tr>";
+        }).join("") + "</tbody></table></div>"
+        + '<div class="secnote">制裁名单筛查（OFAC SDN）为比对机制而非采集渠道：同名 ≠ 命中，需名称+国籍/地址/注册号等多项佐证；个案见 <a href="#/export">出口管制分页 → 观察名单比对</a>。'
+        + "议题归码：scripts/legal_map.py 确定性规则（版本 " + esc(lm.version || "—") + "，" + esc(lm.run || "—") + "），编码表 state/issues_taxonomy.json v" + esc((DB.issues_taxonomy || {}).version || "—") + "。</div></div>"
+        + '<div class="panel"><div class="panel-h"><h2>排除清单及理由</h2><span class="note">门控剔除规则与逐条异常记录；不静默丢数据</span></div><div class="panel-b">'
+        + '<div class="sec"><span class="sk">类别级排除（规则）</span>'
+        + "巨潮：制度文件、调研记录、公告制度等噪声类别不入库（config 渠道 note）；披露易：翌日披露报表、月报表等程序性类别进原始库但不进事件流；EDGAR：仅观察名单 CIK 的 6-K/20-F/10-K/8-K/F-1/F-3/424B 表格；召回关键词未命中的披露不在样本内（检索召回口径，非全市场）。</div>"
+        + ((DB.exceptions || []).length
+          ? '<div class="sec" style="border:none"><span class="sk">逐条异常 / 排除记录（' + (DB.exceptions || []).length + "）</span>"
+            + (DB.exceptions || []).map(function (x) { return '<div class="ev"><span class="qt">' + esc(typeof x === "string" ? x : JSON.stringify(x)) + "</span></div>"; }).join("") + "</div>"
+          : '<div class="sec" style="border:none"><span class="sk">逐条异常</span>当前无异常记录。</div>')
+        + "</div></div>";
+      return;
+    }
     if (AB.tab === "health") {
       box.innerHTML = H.map(function (c) {
         return '<div class="panel"><div class="panel-h"><h2>' + esc(c.name) + '</h2>'
@@ -1415,6 +1540,7 @@
       F.ut = qs.get("ut") || "全部"; F.status = qs.get("status") || "全部";
       F.cur = qs.get("cur") || "全部"; F.amtmin = qs.get("amtmin") || ""; F.amtmax = qs.get("amtmax") || "";
       F.dfrom = qs.get("dfrom") || ""; F.dto = qs.get("dto") || "";
+      F.issue = qs.get("issue") || "全部";
       F.view = qs.get("view") || "cards"; F.mode = qs.get("mode") || "month";
       var colq = qs.get("cols");
       F.cols = colq ? colq.split(",").filter(function (c) { return EV_COLS.some(function (d) { return d[0] === c; }); }) : EV_COLS_DEFAULT.slice();

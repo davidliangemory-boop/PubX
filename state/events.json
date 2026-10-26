@@ -4,7 +4,14 @@
   "doc_count": 63,
   "event_count": 60,
   "merge_groups": 3,
-  "rules_ver": 1
+  "rules_ver": 1,
+  "legal_map": {
+   "version": "r06-1",
+   "run": "2026-10-26 21:01",
+   "rule": "scripts/legal_map.py 确定性规则；trigger 只挂一个二级码；原文无处理字样一律 not_disclosed",
+   "triggers": 386,
+   "legacy_unmapped": 111
+  }
  },
  "events": [
   {
@@ -51,9 +58,76 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "美国de minimis取消后的关税合规；欧盟DSA/产品安全；数据跨境（爱尔兰总部实体）；知识产权诉讼（与SHEIN互诉）",
+     "issue_code": "I11.2",
+     "issue": "商标与专利布局",
+     "trigger_fact": "语料提及「品安全；数据跨境（爱尔兰总部实体）；知识产权诉讼（与SHEIN互诉）」（字段：db.③法务关注（）",
+     "text": "语料提及「品安全；数据跨境（爱尔兰总部实体）；知识产权诉讼（与SHEIN互诉）」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《PDD Holdings Inc.（拼多多） 2026-08-25：6-K：PDD Holdings Annou》披露原文生成（法务关注维度）"
+     "basis": "R-I11.2 命中词「知识产权」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I12.1",
+     "issue": "境外诉讼仲裁",
+     "trigger_fact": "语料提及「数据跨境（爱尔兰总部实体）；知识产权诉讼（与SHEIN互诉）」（字段：db.③法务关注（）",
+     "text": "语料提及「数据跨境（爱尔兰总部实体）；知识产权诉讼（与SHEIN互诉）」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I12.1 命中词「诉讼」→ 境外诉讼仲裁；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「定期财务业绩（季度未经审计业绩）」（来源：美股·EDGAR 2026-08-25）",
+     "text": "披露渠道原始分类：巨潮公告类型「定期财务业绩（季度未经审计业绩）」（来源：美股·EDGAR 2026-08-25）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I6.1",
+     "issue": "数据出境（安全评估/标准合同/认证）",
+     "trigger_fact": "语料提及「后的关税合规；欧盟DSA/产品安全；数据跨境（爱尔兰总部实体）；知识产权诉讼（与」（字段：db.③法务关注（）",
+     "text": "语料提及「后的关税合规；欧盟DSA/产品安全；数据跨境（爱尔兰总部实体）；知识产权诉讼（与」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I6.1 命中词「数据跨境」→ 数据出境/个人信息；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I6.3",
+     "issue": "网络安全/关键信息基础设施",
+     "trigger_fact": "语料提及「e minimis取消）与欧盟监管（DSA、关税）为最大变量；物流成本；平台合」（字段：watch_points）",
+     "text": "语料提及「e minimis取消）与欧盟监管（DSA、关税）为最大变量；物流成本；平台合」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I6.3 命中词「DSA」→ 网络安全/平台监管；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I6.3",
+     "issue": "网络安全/关键信息基础设施",
+     "trigger_fact": "欧盟DSA/产品安全",
+     "text": "欧盟DSA/产品安全",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「美国对华小额包裹关税（de minimis取消）与欧盟监」（字段：watch_points）",
+     "text": "语料提及「美国对华小额包裹关税（de minimis取消）与欧盟监」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "美国de minimis取消后的关税合规",
+     "text": "美国de minimis取消后的关税合规",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -158,9 +232,58 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "尚需证监会备案与香港监管机构批准；芯片设计企业涉出口管制与实体清单风险的自查",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "语料提及「尚需证监会备案与香港监管机构批准；芯片设计企业涉出」（字段：db.③法务关注（）",
+     "text": "语料提及「尚需证监会备案与香港监管机构批准；芯片设计企业涉出」（字段：db.③法务关注（）",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "入库分析基于《翱捷科技 2026-09-12：翱捷科技关于向香港联交所递交境外上市股份（H》披露原文生成（法务关注维度）"
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「翱捷科技：向香港联交所递交H股发行上市申请并刊发申请资料」（字段：title_fact）",
+     "text": "语料提及「翱捷科技：向香港联交所递交H股发行上市申请并刊发申请资料」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「拟发行规模、募资用途、保荐人未在本公告披露。」（字段：gaps）",
+     "text": "语料提及「拟发行规模、募资用途、保荐人未在本公告披露。」（字段：gaps）",
+     "status": "disclosed_pending",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市启动（H股发行上市申请递交）」（来源：A股·巨潮 2026-09-12）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市启动（H股发行上市申请递交）」（来源：A股·巨潮 2026-09-12）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「案与香港监管机构批准；芯片设计企业涉出口管制与实体清单风险的自查」（字段：db.③法务关注（）",
+     "text": "语料提及「案与香港监管机构批准；芯片设计企业涉出口管制与实体清单风险的自查」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -259,9 +382,49 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "证监会境外发行上市备案已获确认（国合函〔2026〕1848号）；聆讯后资料集刊发程序合规",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《湖南军信环保 2026-09-14：军信股份关于刊发境外上市外资股（H股）发行聆》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「湖南军信环保：H股发行上市审核推进」（字段：title_fact）",
+     "text": "语料提及「湖南军信环保：H股发行上市审核推进」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「拟发行股数、价格区间、募资规模未在本公告披露。」（字段：gaps）",
+     "text": "语料提及「拟发行股数、价格区间、募资规模未在本公告披露。」（字段：gaps）",
+     "status": "disclosed_pending",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市进展（H股聆讯后资料集刊发）」（来源：A股·巨潮 2026-09-14）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市进展（H股聆讯后资料集刊发）」（来源：A股·巨潮 2026-09-14）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「湖南军信环保：H股发行上市审核推进」（字段：title_fact）",
+     "text": "语料提及「湖南军信环保：H股发行上市审核推进」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -318,7 +481,17 @@
      "note": "H股发行上市审核推进（2026-08-13联交所聆讯后，2026-09-13刊发聆讯后资料集）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "证监会境外发行上市备案已获确认（国合函〔2026〕1848号）",
+     "basis": "入库分析基于《湖南军信环保 2026-09-14：军信股份关于刊发境外上市外资股（H股）发行聆》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "聆讯后资料集刊发程序合规",
+     "basis": "入库分析基于《湖南军信环保 2026-09-14：军信股份关于刊发境外上市外资股（H股）发行聆》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-004",
@@ -370,9 +543,13 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "按上市规则第37.50(c)条披露，程序合规；债券撤销上市地位需联交所批准",
-     "layer": "analysis",
-     "basis": "入库分析基于《联想集团 2026-09-14：悉数转换及注销于二零二九年到期675,000》披露原文生成（法务关注维度）"
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外融资工具退出（美元可转债悉数转换并注销、撤销上市）」（来源：港股·披露易 2026-09-14）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外融资工具退出（美元可转债悉数转换并注销、撤销上市）」（来源：港股·披露易 2026-09-14）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -429,7 +606,17 @@
      "note": "2029年到期6.75亿美元2.50%可换股债券最后一批本金29,675,000美元按换股价8.37港元悉数转换并注销，向联交所申请撤销该债券上市地位"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "按上市规则第37.50(c)条披露，程序合规",
+     "basis": "入库分析基于《联想集团 2026-09-14：悉数转换及注销于二零二九年到期675,000》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "债券撤销上市地位需联交所批准",
+     "basis": "入库分析基于《联想集团 2026-09-14：悉数转换及注销于二零二九年到期675,000》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-005",
@@ -481,9 +668,85 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "需办理发改委、商务部门境外投资备案及外汇登记，以及埃及项目审批；苏伊士经济区法律体系特殊（特区管理局一站式审批），关注劳工、环保与税收优惠落地条款",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「需办理发改委、商务部门境外投资备案及外汇登记，以」（字段：db.③法务关注（）",
+     "text": "语料提及「需办理发改委、商务部门境外投资备案及外汇登记，以」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《山东联科科技 2026-09-15：联科科技关于拟在境外投资设立公司并新建生产基》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "需办理发改委、商务部门境外投资备案及外汇登记，以及埃及项目审批",
+     "text": "需办理发改委、商务部门境外投资备案及外汇登记，以及埃及项目审批",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "语料提及「需办理发改委、商务部门境外投资备案及外汇登记，以及埃及项目审批；苏伊士」（字段：db.③法务关注（）",
+     "text": "语料提及「需办理发改委、商务部门境外投资备案及外汇登记，以及埃及项目审批；苏伊士」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2 命中词「境外投资备案」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.3",
+     "issue": "外汇 ODI 登记及资金汇出",
+     "trigger_fact": "语料提及「需办理发改委、商务部门境外投资备案及外汇登记，以及埃及项目审批；苏伊士经济区法律」（字段：db.③法务关注（）",
+     "text": "语料提及「需办理发改委、商务部门境外投资备案及外汇登记，以及埃及项目审批；苏伊士经济区法律」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.3 命中词「外汇登记」→ 外汇 ODI 登记及汇出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「20,000万），自有（自筹）资金及募集资金出资」（字段：scale）",
+     "text": "语料提及「20,000万），自有（自筹）资金及募集资金出资」（字段：scale）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「海外建厂（境外新设子公司＋生产基地投资）」（来源：A股·巨潮 2026-09-15）",
+     "text": "披露渠道原始分类：巨潮公告类型「海外建厂（境外新设子公司＋生产基地投资）」（来源：A股·巨潮 2026-09-15）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「射欧洲/中东/非洲三大市场；关注特区关税优惠与本地含量要求；客户为轮胎与橡胶」（字段：practice_notes）",
+     "text": "语料提及「射欧洲/中东/非洲三大市场；关注特区关税优惠与本地含量要求；客户为轮胎与橡胶」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「（特区管理局一站式审批），关注劳工、环保与税收优惠落地条款」（字段：db.③法务关注（）",
+     "text": "语料提及「（特区管理局一站式审批），关注劳工、环保与税收优惠落地条款」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "苏伊士经济区法律体系特殊（特区管理局一站式审批），关注劳工、环保与税收优惠落地条款",
+     "text": "苏伊士经济区法律体系特殊（特区管理局一站式审批），关注劳工、环保与税收优惠落地条款",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -596,9 +859,31 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "德国BfArM上市许可已获批（许可号7016884.00.00/7016885.00.00）；关注欧盟GMP持续合规、药物警戒义务与原研专利链接",
+     "issue_code": "I11.2",
+     "issue": "商标与专利布局",
+     "trigger_fact": "语料提及「d等在销）；政策与市场环境不确定性；专利与数据保护期相关合规」（字段：watch_points）",
+     "text": "语料提及「d等在销）；政策与市场环境不确定性；专利与数据保护期相关合规」（字段：watch_points）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《浙江华海药业 2026-09-15：华海药业关于制剂产品获得境外上市许可的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I11.2 命中词「专利」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I11.2",
+     "issue": "商标与专利布局",
+     "trigger_fact": "关注欧盟GMP持续合规、药物警戒义务与原研专利链接",
+     "text": "关注欧盟GMP持续合规、药物警戒义务与原研专利链接",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「海外合规（药品境外上市许可获批）」（来源：A股·巨潮 2026-09-15）",
+     "text": "披露渠道原始分类：巨潮公告类型「海外合规（药品境外上市许可获批）」（来源：A股·巨潮 2026-09-15）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -659,7 +944,13 @@
      "note": "子公司华海药业欧洲责任有限公司（Huahai Pharma Europe GmbH）获德国联邦药品和医疗器械管理局核准签发阿哌沙班片（2.5mg/5mg）上市许可"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "德国BfArM上市许可已获批（许可号7016884.00.00/7016885.00.00）",
+     "basis": "入库分析基于《浙江华海药业 2026-09-15：华海药业关于制剂产品获得境外上市许可的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-007",
@@ -711,9 +1002,22 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "仅签MOU未签正式协议，终止无法律责任敞口；跨境并购ODI程序尚未启动",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「式协议，终止无法律责任敞口；跨境并购ODI程序尚未启动」（字段：db.③法务关注（）",
+     "text": "语料提及「式协议，终止无法律责任敞口；跨境并购ODI程序尚未启动」（字段：db.③法务关注（）",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "入库分析基于《青岛酷特智能 2026-09-18：酷特智能关于子公司终止筹划收购境外公司股权的》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「海外并购终止」（来源：A股·巨潮 2026-09-18）",
+     "text": "披露渠道原始分类：巨潮公告类型「海外并购终止」（来源：A股·巨潮 2026-09-18）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -770,7 +1074,13 @@
      "note": "终止子公司爱家国际（投资）发展有限公司收购韩国apM集团部分运营公司控股权的筹划"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "仅签MOU未签正式协议，终止无法律责任敞口",
+     "basis": "入库分析基于《青岛酷特智能 2026-09-18：酷特智能关于子公司终止筹划收购境外公司股权的》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-008",
@@ -822,9 +1132,76 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "增资涉及ODI备案变更与外汇登记；泰国BOI投资优惠、劳工与环保合规；关注美国对泰国原产地规则认定",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「增资涉及ODI备案变更与外汇登记；泰国BOI投资优」（字段：db.③法务关注（）",
+     "text": "语料提及「增资涉及ODI备案变更与外汇登记；泰国BOI投资优」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《深圳中富电路 2026-09-21：中富电路关于向境外全资子公司增加投资的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中未提及",
+     "text": "事项类型=设厂；商务部境外投资备案在已核语料中未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I1.3",
+     "issue": "外汇 ODI 登记及资金汇出",
+     "trigger_fact": "语料提及「增资涉及ODI备案变更与外汇登记；泰国BOI投资优惠、劳工与环保合规」（字段：db.③法务关注（）",
+     "text": "语料提及「增资涉及ODI备案变更与外汇登记；泰国BOI投资优惠、劳工与环保合规」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.3 命中词「外汇登记」→ 外汇 ODI 登记及汇出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I2.4",
+     "issue": "投资优惠与园区协议义务",
+     "trigger_fact": "语料提及「ODI备案变更与外汇登记；泰国BOI投资优惠、劳工与环保合规；关注美国对泰国原产」（字段：db.③法务关注（）",
+     "text": "语料提及「ODI备案变更与外汇登记；泰国BOI投资优惠、劳工与环保合规；关注美国对泰国原产」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.4 命中词「投资优惠」→ 投资优惠与园区义务；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「海外增资（泰国生产基地）」（来源：A股·巨潮 2026-09-21）",
+     "text": "披露渠道原始分类：巨潮公告类型「海外增资（泰国生产基地）」（来源：A股·巨潮 2026-09-21）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「泰国基地核心价值在规避对华关税与贴近东南亚/欧美客户；关注客户认证」（字段：practice_notes）",
+     "text": "语料提及「泰国基地核心价值在规避对华关税与贴近东南亚/欧美客户；关注客户认证」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.2",
+     "issue": "原产地与转运规避",
+     "trigger_fact": "语料提及「优惠、劳工与环保合规；关注美国对泰国原产地规则认定」（字段：db.③法务关注（）",
+     "text": "语料提及「优惠、劳工与环保合规；关注美国对泰国原产地规则认定」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.2 命中词「原产地」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「外汇登记；泰国BOI投资优惠、劳工与环保合规；关注美国对泰国原产地规则认定」（字段：db.③法务关注（）",
+     "text": "语料提及「外汇登记；泰国BOI投资优惠、劳工与环保合规；关注美国对泰国原产地规则认定」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -937,9 +1314,31 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "生物识别数据属泰国PDPA敏感个人数据，设备合规与数据处理责任需在销售链条划分；出口管制与制裁风险低；持续监控代理商资信",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「重大合同（海外销售合同）」（来源：A股·巨潮 2026-09-22）",
+     "text": "披露渠道原始分类：巨潮公告类型「重大合同（海外销售合同）」（来源：A股·巨潮 2026-09-22）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「合规与数据处理责任需在销售链条划分；出口管制与制裁风险低；持续监控代理商资信」（字段：db.③法务关注（）",
+     "text": "语料提及「合规与数据处理责任需在销售链条划分；出口管制与制裁风险低；持续监控代理商资信」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《广电运通 2026-09-22：广电运通关于全资子公司签订海外重要合同的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「处理责任需在销售链条划分；出口管制与制裁风险低；持续监控代理商资信」（字段：db.③法务关注（）",
+     "text": "语料提及「处理责任需在销售链条划分；出口管制与制裁风险低；持续监控代理商资信」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -1000,7 +1399,17 @@
      "note": "产品出口（金融智能终端海外销售，依托本地代理商渠道）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "生物识别数据属泰国PDPA敏感个人数据，设备合规与数据处理责任需在销售链条划分",
+     "basis": "入库分析基于《广电运通 2026-09-22：广电运通关于全资子公司签订海外重要合同的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "持续监控代理商资信",
+     "basis": "入库分析基于《广电运通 2026-09-22：广电运通关于全资子公司签订海外重要合同的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-010",
@@ -1052,10 +1461,85 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "证监会境外上市备案为 H 股发行上市的制度性前置程序；本公告仅载「经香港联交所批准」上市，未载备案办理表述【未披露，以证监会备案公示为准】；H股持续披露义务；基础软件出海涉数据跨境与目标国合规",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "语料提及「证监会备案前置完成；H股持续披露义务；基础软件」（字段：db.③法务关注（）",
+     "text": "语料提及「证监会备案前置完成；H股持续披露义务；基础软件」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "复核原文 PDF（2026-10-23）：全文仅有联交所批准表述，无证监会备案字样；前置程序属制度要求（境外上市备案管理办法），非本公告披露内容",
-     "code": "I1"
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "证监会境外上市备案为 H 股发行上市的制度性前置程序",
+     "text": "证监会境外上市备案为 H 股发行上市的制度性前置程序",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "本公告仅载「经香港联交所批准」上市，未载备案办理表述【未披露，以证监会备案公示为准】",
+     "text": "本公告仅载「经香港联交所批准」上市，未载备案办理表述【未披露，以证监会备案公示为准】",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「星环信息科技（上海）：H股发行上市」（字段：title_fact）",
+     "text": "语料提及「星环信息科技（上海）：H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "H股持续披露义务",
+     "text": "H股持续披露义务",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「募集资金用途分项、基石投资者、承销团未在本公」（字段：gaps）",
+     "text": "语料提及「募集资金用途分项、基石投资者、承销团未在本公」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-22）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-22）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I6.1",
+     "issue": "数据出境（安全评估/标准合同/认证）",
+     "trigger_fact": "语料提及「成；H股持续披露义务；基础软件出海涉数据跨境与目标国合规」（字段：db.③法务关注（）",
+     "text": "语料提及「成；H股持续披露义务；基础软件出海涉数据跨境与目标国合规」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I6.1 命中词「数据跨境」→ 数据出境/个人信息；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -1174,9 +1658,76 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "ODI备案审批未完成；刚果（金）电力特许经营与外资准入；离岸代持架构还原；矿业国别反腐败与制裁筛查（高风险）；出口管制风险低",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「ODI备案审批未完成；刚果（金）电力特许经」（字段：db.③法务关注（）",
+     "text": "语料提及「ODI备案审批未完成；刚果（金）电力特许经」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《深圳市鸿富瀚科技 2026-09-23：关于全资子公司拟收购境外公司股权及对外增资的》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=并购；商务部境外投资备案在已核语料中有提及",
+     "text": "事项类型=并购；商务部境外投资备案在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "标的/项目位于法国（geo 字段），事项类型=并购；法国 FDI 审查 审查在已核语料中有提及",
+     "text": "标的/项目位于法国（geo 字段），事项类型=并购；法国 FDI 审查 审查在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.1-geo：受审查法域+投资类事项→法国 FDI 审查 核查点；机制名为法域常识标注"
+    },
+    {
+     "issue_code": "I2.3",
+     "issue": "土地/矿权/特许权",
+     "trigger_fact": "语料提及「刚果（金）科米卡矿区（持股平台位于香港/BVI/法国）」（字段：geo）",
+     "text": "语料提及「刚果（金）科米卡矿区（持股平台位于香港/BVI/法国）」（字段：geo）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.3 命中词「矿区」→ 土地/矿权/特许权；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.1",
+     "issue": "经营者集中申报（多法域）",
+     "trigger_fact": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "text": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I3.1-mt：并购事项→反垄断申报核查点；无原文不推断"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资（收购境外公司股权并增资，跨界并购）」（来源：A股·巨潮 2026-09-23）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资（收购境外公司股权并增资，跨界并购）」（来源：A股·巨潮 2026-09-23）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「矿业国别反腐败与制裁筛查（高风险）；出口管制风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「矿业国别反腐败与制裁筛查（高风险）；出口管制风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「；离岸代持架构还原；矿业国别反腐败与制裁筛查（高风险）；出口管制风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「；离岸代持架构还原；矿业国别反腐败与制裁筛查（高风险）；出口管制风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -1237,7 +1788,17 @@
      "note": "并购＋增资（控股境外电站项目公司COP 73.99%）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "刚果（金）电力特许经营与外资准入",
+     "basis": "入库分析基于《深圳市鸿富瀚科技 2026-09-23：关于全资子公司拟收购境外公司股权及对外增资的》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "离岸代持架构还原",
+     "basis": "入库分析基于《深圳市鸿富瀚科技 2026-09-23：关于全资子公司拟收购境外公司股权及对外增资的》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-012",
@@ -1289,9 +1850,31 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "14A章非豁免持续关连交易，需独立股东批准；跨境转移定价文档；欧洲主体涉及的当地税务合规",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「持续关连交易（零部件购销/动力总成采购等框架协议续期）」（来源：港股·披露易 2026-09-23）",
+     "text": "披露渠道原始分类：巨潮公告类型「持续关连交易（零部件购销/动力总成采购等框架协议续期）」（来源：港股·披露易 2026-09-23）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「持續關連交易」（来源：港股·披露易 2026-09-23）",
+     "text": "披露渠道原始分类：披露易 headline「持續關連交易」（来源：港股·披露易 2026-09-23）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「在协议项下的角色与跨境结算安排；出口关税环境对体系内调拨的影响」（字段：practice_notes）",
+     "text": "语料提及「在协议项下的角色与跨境结算安排；出口关税环境对体系内调拨的影响」（字段：practice_notes）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《吉利汽车控股 2026-09-23：(I)非豁免持续关连交易；及(II)获豁免持》披露原文生成（法务关注维度）"
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -1354,7 +1937,21 @@
      "note": "引文与原文 PDF 逐字核对修正（页码/繁简/括号/截断），事实表述不变（validate 引文回原文比对发现）"
     }
    ],
-   "update_type_latest": "修正"
+   "update_type_latest": "修正",
+   "legal_notes_unmapped": [
+    {
+     "text": "14A章非豁免持续关连交易，需独立股东批准",
+     "basis": "入库分析基于《吉利汽车控股 2026-09-23：(I)非豁免持续关连交易；及(II)获豁免持》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "跨境转移定价文档",
+     "basis": "入库分析基于《吉利汽车控股 2026-09-23：(I)非豁免持续关连交易；及(II)获豁免持》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "欧洲主体涉及的当地税务合规",
+     "basis": "入库分析基于《吉利汽车控股 2026-09-23：(I)非豁免持续关连交易；及(II)获豁免持》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-013",
@@ -1590,100 +2187,175 @@
    },
    "legal_triggers": [
     {
-     "code": "I2.1",
-     "text": "澳大利亚FIRB外资审查：条款清单明确将投资方取得FIRB批准列为先决条件（签署日后120日内），修订协议明确监管批准截止日不变；申请是否已提交及结果未披露",
-     "status": "disclosed_pending",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「FIRB 外资审查；ODI 备案；矿业权尽调；设备出资的出口与」（字段：db.③法务关注（）",
+     "text": "语料提及「FIRB 外资审查；ODI 备案；矿业权尽调；设备出资的出口与」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225578713 P4 先决条件条款；1225598484 P2 确认其他日期不变",
-     "evidence": {
-      "doc_id": "1225578713",
-      "page": 4,
-      "quote": "投资方取得FIRB（澳大利亚外国投资审查委员会）批准及ACCC（澳大利亚竞争与消费者委员会）相关审批（如适用）"
-     }
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I3.1",
-     "text": "竞争申报：ACCC相关审批（如适用）列为先决条件（120日内），进展未披露",
-     "status": "disclosed_pending",
-     "layer": "analysis",
-     "basis": "1225578713 P4 先决条件第2项",
-     "evidence": {
-      "doc_id": "1225578713",
-      "page": 4,
-      "quote": "ACCC（澳大利亚竞争与消费者委员会）相关审批（如适用）"
-     }
-    },
-    {
-     "code": "I3.3",
-     "text": "上市规则/关联交易程序：董事长许冉任Image董事，构成关联交易但不构成重大资产重组；签署意向协议无需董事会审议，签署正式交易文件需经董事会、如需则股东会审议——后续决策程序尚未履行",
-     "status": "disclosed_pending",
-     "layer": "analysis",
-     "basis": "1225578713 P2 关联交易认定与程序安排",
-     "evidence": {
-      "doc_id": "1225578713",
-      "page": 2,
-      "quote": "本次《意向协议》涉及的交易构成关联交易"
-     }
-    },
-    {
-     "code": "I1",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "境内出境程序：公告风险提示称本次交易尚需履行必要的审批、备案或登记程序，未点名ODI备案",
      "text": "境内出境程序：公告风险提示称本次交易尚需履行必要的审批、备案或登记程序，未点名ODI备案",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225578713 P6 风险提示第3项的概括表述",
-     "evidence": {
-      "doc_id": "1225578713",
-      "page": 6,
-      "quote": "本次交易尚需履行必要的审批、备案或登记程序"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I9.3",
-     "text": "矿业/环保许可：Durack和Yandanooka项目均已取得勘探许可，尚未获得采矿许可，也未开展开采工作",
-     "status": "disclosed_pending",
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=并购；商务部境外投资备案在已核语料中未提及",
+     "text": "事项类型=并购；商务部境外投资备案在已核语料中未提及",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225578713 P3 标的项目基本情况",
-     "evidence": {
-      "doc_id": "1225578713",
-      "page": 3,
-      "quote": "均已取得勘探许可，尚未获得采矿许可"
-     }
+     "basis": "R-I1.2-mt：同上规则组"
     },
     {
-     "code": "I10.1",
-     "text": "先决条件/最终文件签署日：签署日后15日内签最终文件（即2026-10-07），经修订协议延长至2026-10-31并可再书面延长；Image股东会批准（60日）与监管批准（120日）截止日不变",
-     "status": "disclosed_pending",
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "语料提及「FIRB（澳外资审查）审批为关键先决条件；关联交易定价公允性；尽调与估值未落」（字段：db.主要风险与不）",
+     "text": "语料提及「FIRB（澳外资审查）审批为关键先决条件；关联交易定价公允性；尽调与估值未落」（字段：db.主要风险与不）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225578713 P4；1225598484 P2 修订条款",
-     "evidence": {
-      "doc_id": "1225598484",
-      "page": 2,
-      "quote": "条款清单中的其他日期均不改变，包括Image Resources批准截止日及监管批准截止日"
-     }
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I10.3",
-     "text": "担保/融资安排：Image须促使投资方就项目及项目公司股权、资产（含矿权）取得第一顺位担保或投资方认可的其他优先担保，担保文件须在Image股东会批准后2日内签署并完成完善；预付款及偿还、担保、陈述保证等条款具法律约束力",
-     "status": "disclosed_pending",
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "澳大利亚FIRB外资审查：条款清单明确将投资方取得FIRB批准列为先决条件（签署日后120日内），修订协议明确监管批准截止日不变",
+     "text": "澳大利亚FIRB外资审查：条款清单明确将投资方取得FIRB批准列为先决条件（签署日后120日内），修订协议明确监管批准截止日不变",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225578713 P4 预付款及担保条款；担保设立待股东会批准",
-     "evidence": {
-      "doc_id": "1225578713",
-      "page": 4,
-      "quote": "取得第一顺位担保或投资方认可的其他优先担保"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I10.4",
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "竞争申报：ACCC相关审批（如适用）列为先决条件（120日内），进展未披露",
+     "text": "竞争申报：ACCC相关审批（如适用）列为先决条件（120日内），进展未披露",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "先决条件/最终文件签署日：签署日后15日内签最终文件（即2026-10-07），经修订协议延长至2026-10-31并可再书面延长",
+     "text": "先决条件/最终文件签署日：签署日后15日内签最终文件（即2026-10-07），经修订协议延长至2026-10-31并可再书面延长",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=并购；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=并购；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "语料提及「管辖法律：西澳大利亚州法律（条款清单及修」（字段：terms.dispute_resolution）",
+     "text": "语料提及「管辖法律：西澳大利亚州法律（条款清单及修」（字段：terms.dispute_resolution）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.4 命中词「管辖」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "争议解决：条款清单与修订协议均受西澳大利亚州法律管辖",
      "text": "争议解决：条款清单与修订协议均受西澳大利亚州法律管辖",
-     "status": "disclosed_cleared",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225578713 P5；1225598484 P2「适用法律」条款",
-     "evidence": {
-      "doc_id": "1225598484",
-      "page": 2,
-      "quote": "本修订协议对双方具有法律约束力，并受西澳大利亚州法律管辖"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.5",
+     "issue": "合资治理/僵局/退出",
+     "trigger_fact": "语料提及「资源并购/合资（拟取得项目公司约80%权益）」（字段：db.动作类型）",
+     "text": "语料提及「资源并购/合资（拟取得项目公司约80%权益）」（字段：db.动作类型）",
+     "status": "disclosed_pending",
+     "layer": "analysis",
+     "basis": "R-I10.5 命中词「合资」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "标的/项目位于澳大利亚（geo 字段），事项类型=并购；FIRB 审查在已核语料中有提及",
+     "text": "标的/项目位于澳大利亚（geo 字段），事项类型=并购；FIRB 审查在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.1-geo：受审查法域+投资类事项→FIRB 核查点；机制名为法域常识标注"
+    },
+    {
+     "issue_code": "I2.3",
+     "issue": "土地/矿权/特许权",
+     "trigger_fact": "语料提及「；项目公司股份或资产无既有担保权益；矿权上无抵押、押记、担保权益、临时性禁令」（字段：terms.reps_warranties）",
+     "text": "语料提及「；项目公司股份或资产无既有担保权益；矿权上无抵押、押记、担保权益、临时性禁令」（字段：terms.reps_warranties）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.3 命中词「矿权」→ 土地/矿权/特许权；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I2.3",
+     "issue": "土地/矿权/特许权",
+     "trigger_fact": "担保/融资安排：Image须促使投资方就项目及项目公司股权、资产（含矿权）取得第一顺位担保或投资方认可的其他优先担保，担保文件须在Image股东会批准后2日内签署并完成完善",
+     "text": "担保/融资安排：Image须促使投资方就项目及项目公司股权、资产（含矿权）取得第一顺位担保或投资方认可的其他优先担保，担保文件须在Image股东会批准后2日内签署并完成完善",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I3.1",
+     "issue": "经营者集中申报（多法域）",
+     "trigger_fact": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "text": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I3.1-mt：并购事项→反垄断申报核查点；无原文不推断"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资（海外矿砂项目投资合作意向协议，关联交易）」（来源：A股·巨潮 2026-09-24）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资（海外矿砂项目投资合作意向协议，关联交易）」（来源：A股·巨潮 2026-09-24）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资进展（海外矿砂项目意向协议延期修订）」（来源：A股·巨潮 2026-10-10）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资进展（海外矿砂项目意向协议延期修订）」（来源：A股·巨潮 2026-10-10）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「FIRB审查；澳洲矿业环保与原生植被审批；关联交易回避表决与披」（字段：db.③法务关注（）",
+     "text": "语料提及「FIRB审查；澳洲矿业环保与原生植被审批；关联交易回避表决与披」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "矿业/环保许可：Durack和Yandanooka项目均已取得勘探许可，尚未获得采矿许可，也未开展开采工作",
+     "text": "矿业/环保许可：Durack和Yandanooka项目均已取得勘探许可，尚未获得采矿许可，也未开展开采工作",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -1908,6 +2580,28 @@
      "layer": "analysis",
      "basis": "1225578713 P3 许可状态与P1–P2 出资结构"
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "申请是否已提交及结果未披露",
+     "basis": "1225578713 P4 先决条件条款；1225598484 P2 确认其他日期不变"
+    },
+    {
+     "text": "上市规则/关联交易程序：董事长许冉任Image董事，构成关联交易但不构成重大资产重组",
+     "basis": "1225578713 P2 关联交易认定与程序安排"
+    },
+    {
+     "text": "签署意向协议无需董事会审议，签署正式交易文件需经董事会、如需则股东会审议——后续决策程序尚未履行",
+     "basis": "1225578713 P2 关联交易认定与程序安排"
+    },
+    {
+     "text": "Image股东会批准（60日）与监管批准（120日）截止日不变",
+     "basis": "1225578713 P4；1225598484 P2 修订条款"
+    },
+    {
+     "text": "预付款及偿还、担保、陈述保证等条款具法律约束力",
+     "basis": "1225578713 P4 预付款及担保条款；担保设立待股东会批准"
+    }
    ]
   },
   {
@@ -1960,9 +2654,49 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "美国301/232关税、UL认证与IEEE标准合规；出口管制风险低；合同适用法律与争议解决安排",
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "语料提及「合规；出口管制风险低；合同适用法律与争议解决安排」（字段：db.③法务关注（）",
+     "text": "语料提及「合规；出口管制风险低；合同适用法律与争议解决安排」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《宁波三星医疗电气 2026-09-24：三星电气关于子公司签订海外经营合同的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I10.4 命中词「争议解决」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「重大合同（子公司中标美国数据中心储能油变项目）」（来源：A股·巨潮 2026-09-24）",
+     "text": "披露渠道原始分类：巨潮公告类型「重大合同（子公司中标美国数据中心储能油变项目）」（来源：A股·巨潮 2026-09-24）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「2关税、UL认证与IEEE标准合规；出口管制风险低；合同适用法律与争议解决安排」（字段：db.③法务关注（）",
+     "text": "语料提及「2关税、UL认证与IEEE标准合规；出口管制风险低；合同适用法律与争议解决安排」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「美国关税政策（变压器在301关税清单风险品类」（字段：watch_points）",
+     "text": "语料提及「美国关税政策（变压器在301关税清单风险品类」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "美国301/232关税、UL认证与IEEE标准合规",
+     "text": "美国301/232关税、UL认证与IEEE标准合规",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -2185,60 +2919,121 @@
    },
    "legal_triggers": [
     {
-     "code": "I1.1",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「74号限制/禁止开展的境外投资类别；发改委/商务部/外汇备案及埃及GAFI登记」（字段：terms.approvals）",
+     "text": "语料提及「74号限制/禁止开展的境外投资类别；发改委/商务部/外汇备案及埃及GAFI登记」（字段：terms.approvals）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "发改委境外投资项目备案：全文未提及办理状态",
      "text": "发改委境外投资项目备案：全文未提及办理状态",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "全文检索仅见埃及本地'应急预案备案''劳动合同备案'，无发改委境外投资备案表述",
-     "evidence": null
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I1.2",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "商务部境外投资备案：全文未提及办理状态",
      "text": "商务部境外投资备案：全文未提及办理状态",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "原文无商务部备案表述（P98仅载项目未列入四部委文件限制/禁止类目录）",
-     "evidence": null
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I1.3",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "外汇ODI登记：全文未提及",
      "text": "外汇ODI登记：全文未提及",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "原文无外汇登记表述；资金来源含银行贷款18,900万美元，涉跨境资金安排",
-     "evidence": null
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I2",
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "语料提及「结构、资金来源、建设内容）与发改委/商务部备案申报材料的一致性，建立可研—备案—年」（字段：practice_notes）",
+     "text": "语料提及「结构、资金来源、建设内容）与发改委/商务部备案申报材料的一致性，建立可研—备案—年」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2 命中词「商务部备案」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.3",
+     "issue": "外汇 ODI 登记及资金汇出",
+     "trigger_fact": "语料提及「件 占总投资70%，担保结构可能触发外汇登记与上市公司担保披露义务 公司授信/担」（字段：gaps）",
+     "text": "语料提及「件 占总投资70%，担保结构可能触发外汇登记与上市公司担保披露义务 公司授信/担」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.3 命中词「外汇登记」→ 外汇 ODI 登记及汇出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=设厂；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=设厂；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I2.2",
+     "issue": "行业准入及负面清单",
+     "trigger_fact": "埃及外资准入：可研分析项目不属于埃及外资禁止或重点限制领域（2017年72号投资法及GAFI负面清单），但GAFI登记/准入批准进展未披露，土地以当地政府实际审批登记为准",
      "text": "埃及外资准入：可研分析项目不属于埃及外资禁止或重点限制领域（2017年72号投资法及GAFI负面清单），但GAFI登记/准入批准进展未披露，土地以当地政府实际审批登记为准",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "P24负面清单分析+P53土地取得方式表述",
-     "evidence": {
-      "doc_id": "1225578878",
-      "page": 24,
-      "quote": "外国投资者可在多数行业持有 100%股权或设立子公司"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I9.3",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资（境外投建项目可行性研究，产能出海）」（来源：A股·巨潮 2026-09-24）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资（境外投建项目可行性研究，产能出海）」（来源：A股·巨潮 2026-09-24）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「埃及对欧出口享关税优惠（欧埃联系国协定），对美壁垒仍在」（字段：db.①商务关注（）",
+     "text": "语料提及「埃及对欧出口享关税优惠（欧埃联系国协定），对美壁垒仍在」（字段：db.①商务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.2",
+     "issue": "原产地与转运规避",
+     "trigger_fact": "语料提及「份额，从埃及直接出口可降低物流成本、规避贸易壁垒」（字段：impact）",
+     "text": "语料提及「份额，从埃及直接出口可降低物流成本、规避贸易壁垒」（字段：impact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.2 命中词「规避」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「与自由区/特区政策、劳工与税务合规、环评；境内ODI备案；出口欧美认证（EC」（字段：db.③法务关注（）",
+     "text": "语料提及「与自由区/特区政策、劳工与税务合规、环评；境内ODI备案；出口欧美认证（EC」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环评」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "环保：可研设环保方案专章（施工期扬尘/噪声/废水与运营期烟气粉尘治理措施），埃及环评批复取得状态未披露",
      "text": "环保：可研设环保方案专章（施工期扬尘/噪声/废水与运营期烟气粉尘治理措施），埃及环评批复取得状态未披露",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "P53起环保方案章节仅列治理措施，无批复字样",
-     "evidence": {
-      "doc_id": "1225578878",
-      "page": 53,
-      "quote": "施工期间产生的污染主要有扬尘（粉尘）、噪声、废水及少\n量废弃的建筑材料"
-     }
-    },
-    {
-     "code": "I13.1",
-     "text": "两地披露同步：公司为A股单一上市主体，不涉及",
-     "status": "not_applicable",
-     "layer": "analysis",
-     "basis": "P5企业类型为股份有限公司（台港澳与境内合资、上市），仅境内上市",
-     "evidence": null
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -2415,6 +3210,12 @@
      "layer": "analysis",
      "basis": "1225578878 P74资金来源构成、P77贷款条件、P82汇率波动风险"
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "两地披露同步：公司为A股单一上市主体，不涉及",
+     "basis": "P5企业类型为股份有限公司（台港澳与境内合资、上市），仅境内上市"
+    }
    ]
   },
   {
@@ -2467,9 +3268,31 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "ODI备案已办结（浙江省发改委通知书），路径合规清晰；新加坡ACRA合规、实质性经营与税务居民维护",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「ODI备案已办结（浙江省发改委通知书），路径合规清晰；新加坡ACR」（字段：db.③法务关注（）",
+     "text": "语料提及「ODI备案已办结（浙江省发改委通知书），路径合规清晰；新加坡ACR」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《浙江泰林生物技术 2026-09-24：关于设立新加坡孙公司并完成注册登记及境外投资》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资（设立境外孙公司并完成注册＋ODI备案）」（来源：A股·巨潮 2026-09-24）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资（设立境外孙公司并完成注册＋ODI备案）」（来源：A股·巨潮 2026-09-24）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -2526,7 +3349,13 @@
      "note": "新设子公司（国际贸易平台）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "新加坡ACRA合规、实质性经营与税务居民维护",
+     "basis": "入库分析基于《浙江泰林生物技术 2026-09-24：关于设立新加坡孙公司并完成注册登记及境外投资》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-017",
@@ -2578,9 +3407,67 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "IEEPA关税司法救济路径已闭环；关注CBP退税流程合规与潜在复核；新关税措施下的原产地与申报合规",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「海外合规/贸易救济（美国关税退税）」（来源：A股·巨潮 2026-09-25）",
+     "text": "披露渠道原始分类：巨潮公告类型「海外合规/贸易救济（美国关税退税）」（来源：A股·巨潮 2026-09-25）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「息合计1,695,153.58美元（关税1,623,937.00美元＋利息7」（字段：scale）",
+     "text": "语料提及「息合计1,695,153.58美元（关税1,623,937.00美元＋利息7」（字段：scale）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《中源家居 2026-09-25：中源家居关于境外子公司收到美国退税的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "IEEPA关税司法救济路径已闭环",
+     "text": "IEEPA关税司法救济路径已闭环",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "新关税措施下的原产地与申报合规",
+     "text": "新关税措施下的原产地与申报合规",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I7.2",
+     "issue": "原产地与转运规避",
+     "trigger_fact": "语料提及「税流程合规与潜在复核；新关税措施下的原产地与申报合规」（字段：db.③法务关注（）",
+     "text": "语料提及「税流程合规与潜在复核；新关税措施下的原产地与申报合规」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.2 命中词「原产地」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.3",
+     "issue": "出口退税/税则申报",
+     "trigger_fact": "语料提及「退税及利息合计1,695,153.58美」（字段：scale）",
+     "text": "语料提及「退税及利息合计1,695,153.58美」（字段：scale）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.3 命中词「退税」→ 出口退税/税则申报；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.3",
+     "issue": "出口退税/税则申报",
+     "trigger_fact": "关注CBP退税流程合规与潜在复核",
+     "text": "关注CBP退税流程合规与潜在复核",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -2835,48 +3722,76 @@
    },
    "legal_triggers": [
     {
-     "code": "I1.5",
-     "text": "证监会境外发行上市备案：已收到《境外发行上市备案通知书》（国合函〔2026〕1847号），备案信息予以确认",
-     "status": "disclosed_cleared",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "语料提及「将证监会备案通知书文号（国合函〔2026〕184」（字段：practice_notes）",
+     "text": "语料提及「将证监会备案通知书文号（国合函〔2026〕184」（字段：practice_notes）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225584815 备案公告表述",
-     "evidence": {
-      "doc_id": "1225584815",
-      "page": 1,
-      "quote": "对公司本次发行上市备案信息\n予以确认"
-     }
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I13.2",
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「传音控股H股全球发售86,648,300股（行使」（字段：title_fact）",
+     "text": "语料提及「传音控股H股全球发售86,648,300股（行使」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "H股发行上市：2026-10-15于联交所主板挂牌，代号2636，发行完成",
      "text": "H股发行上市：2026-10-15于联交所主板挂牌，代号2636，发行完成",
-     "status": "disclosed_cleared",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225606076 挂牌公告",
-     "evidence": {
-      "doc_id": "1225606076",
-      "page": 1,
-      "quote": "于 2026 年 10 月 15 日在香港联交所主板挂牌并上市交易"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I13.1",
-     "text": "两地披露同步：聆讯后资料集按香港要求仅在联交所网站刊登、不在境内媒体刊登，A股公告提供查询链接；挂牌结果同步以A股公告披露",
-     "status": "disclosed_cleared",
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「募集资金用途分项未在本公告披露，需跟踪招股书」（字段：watch_points）",
+     "text": "语料提及「募集资金用途分项未在本公告披露，需跟踪招股书」（字段：watch_points）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225584815 资料集刊发安排说明",
-     "evidence": {
-      "doc_id": "1225584815",
-      "page": 2,
-      "quote": "公司将不会在境内证券交易所的网站和符合监管机构规定条件的媒体上刊登该聆讯后\n资料集"
-     }
+     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I13.3",
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "募集资金境外使用：公告仅披露净筹约29亿港元，募集资金用途分项未披露",
      "text": "募集资金境外使用：公告仅披露净筹约29亿港元，募集资金用途分项未披露",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225606076 全文无募集资金用途表述",
-     "evidence": null
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市进展（H股聆讯后资料集刊发）」（来源：A股·巨潮 2026-09-29）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市进展（H股聆讯后资料集刊发）」（来源：A股·巨潮 2026-09-29）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-10-16）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-10-16）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「道深化/本地化产能/并购）；非洲市场关税与汇率环境」（字段：db.①商务关注（）",
+     "text": "语料提及「道深化/本地化产能/并购）；非洲市场关税与汇率环境」（字段：db.①商务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -3082,6 +3997,20 @@
      "layer": "analysis",
      "basis": "1225606076 发行完成事实"
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "证监会境外发行上市备案：已收到《境外发行上市备案通知书》（国合函〔2026〕1847号），备案信息予以确认",
+     "basis": "1225584815 备案公告表述"
+    },
+    {
+     "text": "两地披露同步：聆讯后资料集按香港要求仅在联交所网站刊登、不在境内媒体刊登，A股公告提供查询链接",
+     "basis": "1225584815 资料集刊发安排说明"
+    },
+    {
+     "text": "挂牌结果同步以A股公告披露",
+     "basis": "1225584815 资料集刊发安排说明"
+    }
    ]
   },
   {
@@ -3134,9 +4063,67 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "证监会备案（国合函〔2026〕1466号）已于2026-06完成；半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "语料提及「证监会备案（国合函〔2026〕1466号）已于」（字段：db.③法务关注（）",
+     "text": "语料提及「证监会备案（国合函〔2026〕1466号）已于」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《罗博特科智能科技 2026-09-29：罗博特科关于境外上市外资股（H股）挂牌并上市》披露原文生成（法务关注维度）"
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "证监会备案（国合函〔2026〕1466号）已于2026-06完成",
+     "text": "证监会备案（国合函〔2026〕1466号）已于2026-06完成",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「罗博特科智能科技：H股发行上市」（字段：title_fact）",
+     "text": "语料提及「罗博特科智能科技：H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「募集资金用途分项、基石投资者、承销团未在本公」（字段：gaps）",
+     "text": "语料提及「募集资金用途分项、基石投资者、承销团未在本公」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-29）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-29）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「26-06完成；半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪」（字段：db.③法务关注（）",
+     "text": "语料提及「26-06完成；半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -3249,9 +4236,31 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "公告称将按中国证监会相关规则及时完成配售事项备案手续；承配人均为独立第三方，无关连交易问题",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《山东墨龙石油机械 2026-09-29：山东墨龙关于根据一般性授权完成配售新H股的公》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「山东墨龙石油机械：H股一般性授权配售」（字段：title_fact）",
+     "text": "语料提及「山东墨龙石油机械：H股一般性授权配售」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外融资（H股配售完成）」（来源：A股·巨潮 2026-09-29）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外融资（H股配售完成）」（来源：A股·巨潮 2026-09-29）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -3308,7 +4317,17 @@
      "note": "H股一般性授权配售（向不少于六名承配人配售33,615,600股新H股）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "公告称将按中国证监会相关规则及时完成配售事项备案手续",
+     "basis": "入库分析基于《山东墨龙石油机械 2026-09-29：山东墨龙关于根据一般性授权完成配售新H股的公》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "承配人均为独立第三方，无关连交易问题",
+     "basis": "入库分析基于《山东墨龙石油机械 2026-09-29：山东墨龙关于根据一般性授权完成配售新H股的公》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-021",
@@ -3360,9 +4379,58 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "ODI增资备案（发改/商务/外汇）；越南工业区土地使用（诗华工业区A04+A05地块权属）；劳工与环保合规",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「ODI增资备案（发改/商务/外汇）；越南工」（字段：db.③法务关注（）",
+     "text": "语料提及「ODI增资备案（发改/商务/外汇）；越南工」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《三友联众 2026-09-30：关于拟增加境外子公司投资额的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "text": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「不超过3.2亿元（自有＋自筹＋可转债募集资金）」（字段：scale）",
+     "text": "语料提及「不超过3.2亿元（自有＋自筹＋可转债募集资金）」（字段：scale）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资（增加境外子公司投资额，增资扩产）」（来源：A股·巨潮 2026-09-30）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资（增加境外子公司投资额，增资扩产）」（来源：A股·巨潮 2026-09-30）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「以家电/新能源配套为主；对欧美出口享关税优惠」（字段：practice_notes）",
+     "text": "语料提及「以家电/新能源配套为主；对欧美出口享关税优惠」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「业区A04+A05地块权属）；劳工与环保合规」（字段：db.③法务关注（）",
+     "text": "语料提及「业区A04+A05地块权属）；劳工与环保合规」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -3419,7 +4487,13 @@
      "note": "增资扩产（越南继电器基地投资额8,000万元→不超过3.2亿元，提升4倍）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "越南工业区土地使用（诗华工业区A04+A05地块权属）",
+     "basis": "入库分析基于《三友联众 2026-09-30：关于拟增加境外子公司投资额的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-022",
@@ -3471,9 +4545,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "信息披露暂缓/豁免的合规边界（深交所指引）；出口管制与最终用途核查（若涉高端算力芯片转运风险极高）；新加坡贸易合规与反洗钱",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「重大合同（境外孙公司重大销售合同，暂缓披露解除后补充披露）」（来源：A股·巨潮 2026-09-30）",
+     "text": "披露渠道原始分类：巨潮公告类型「重大合同（境外孙公司重大销售合同，暂缓披露解除后补充披露）」（来源：A股·巨潮 2026-09-30）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「暂缓/豁免的合规边界（深交所指引）；出口管制与最终用途核查（若涉高端算力芯片转运」（字段：db.③法务关注（）",
+     "text": "语料提及「暂缓/豁免的合规边界（深交所指引）；出口管制与最终用途核查（若涉高端算力芯片转运」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《行云科技 2026-09-30：关于全资境外孙公司签订重大销售合同的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "出口管制与最终用途核查（若涉高端算力芯片转运风险极高）",
+     "text": "出口管制与最终用途核查（若涉高端算力芯片转运风险极高）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I7.2",
+     "issue": "原产地与转运规避",
+     "trigger_fact": "语料提及「管制与最终用途核查（若涉高端算力芯片转运风险极高）；新加坡贸易合规与反洗钱」（字段：db.③法务关注（）",
+     "text": "语料提及「管制与最终用途核查（若涉高端算力芯片转运风险极高）；新加坡贸易合规与反洗钱」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.2 命中词「转运」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -3534,7 +4639,17 @@
      "note": "产品出口（算力服务器跨境销售）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "信息披露暂缓/豁免的合规边界（深交所指引）",
+     "basis": "入库分析基于《行云科技 2026-09-30：关于全资境外孙公司签订重大销售合同的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "新加坡贸易合规与反洗钱",
+     "basis": "入库分析基于《行云科技 2026-09-30：关于全资境外孙公司签订重大销售合同的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-023",
@@ -3586,10 +4701,76 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "ODI 备案与外汇登记已完成：公司先后取得浙江省商务厅《企业境外投资证书》、浙江省发改委《关于境外投资项目备案通知书》，并完成境外直接投资外汇登记手续；2026-09-29 ZLX 在 ACRA（新加坡会计与企业管制局）完成股东变更登记，香港品茗登记为 ZLX 51% 已发行且实收资本的唯一合法及注册所有者",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「备案、外汇登记已完成（浙江省商务厅/发改委）；ACRA股东变更完成；需锁定知识」（字段：db.③法务关注（）",
+     "text": "语料提及「备案、外汇登记已完成（浙江省商务厅/发改委）；ACRA股东变更完成；需锁定知识」（字段：db.③法务关注（）",
+     "status": "disclosed_cleared",
+     "layer": "analysis",
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "ODI 备案与外汇登记已完成：公司先后取得浙江省商务厅《企业境外投资证书》、浙江省发改委《关于境外投资项目备案通知书》，并完成境外直接投资外汇登记手续",
+     "text": "ODI 备案与外汇登记已完成：公司先后取得浙江省商务厅《企业境外投资证书》、浙江省发改委《关于境外投资项目备案通知书》，并完成境外直接投资外汇登记手续",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "语料提及「已完成本次交易相关的境外投资备案及审批程序」（字段：sources.quotes）",
+     "text": "语料提及「已完成本次交易相关的境外投资备案及审批程序」（字段：sources.quotes）",
+     "status": "disclosed_cleared",
+     "layer": "analysis",
+     "basis": "R-I1.2 命中词「境外投资备案」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.3",
+     "issue": "外汇 ODI 登记及资金汇出",
+     "trigger_fact": "语料提及「并完成本次交易相关的境外直接投资外汇登记手续」（字段：sources.quotes）",
+     "text": "语料提及「并完成本次交易相关的境外直接投资外汇登记手续」（字段：sources.quotes）",
+     "status": "disclosed_cleared",
+     "layer": "analysis",
+     "basis": "R-I1.3 命中词「外汇登记」→ 外汇 ODI 登记及汇出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.2",
+     "issue": "价款调整/或有对价",
+     "trigger_fact": "语料提及「分期支付；剩余49%与业绩承诺挂钩（或有对价）；金额小，财务风险可控」（字段：practice_notes）",
+     "text": "语料提及「分期支付；剩余49%与业绩承诺挂钩（或有对价）；金额小，财务风险可控」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.2 命中词「或有」→ 价款调整/或有对价；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I11.2",
+     "issue": "商标与专利布局",
+     "trigger_fact": "语料提及「改委）；ACRA股东变更完成；需锁定知识产权归属与核心人员竞业条款」（字段：db.③法务关注（）",
+     "text": "语料提及「改委）；ACRA股东变更完成；需锁定知识产权归属与核心人员竞业条款」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I11.2 命中词「知识产权」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.1",
+     "issue": "经营者集中申报（多法域）",
+     "trigger_fact": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "text": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I3.1-mt：并购事项→反垄断申报核查点；无原文不推断"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组进展（收购境外公司股权第一次交割完成）」（来源：A股·巨潮 2026-09-30）",
+     "text": "披露渠道原始分类：巨潮公告类型「并购重组进展（收购境外公司股权第一次交割完成）」（来源：A股·巨潮 2026-09-30）",
+     "status": "disclosed_cleared",
      "layer": "disclosed",
-     "basis": "公告原文 P1「二、交易进展情况」逐句载明（2026-10-23 复核原文 PDF）",
-     "code": "I1"
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -3668,7 +4849,13 @@
      "note": "「ODI/外汇登记已完成」由分析层升级为披露层并补 3 条原文引文（P1）；挂议题码 I1"
     }
    ],
-   "update_type_latest": "修正"
+   "update_type_latest": "修正",
+   "legal_notes_unmapped": [
+    {
+     "text": "2026-09-29 ZLX 在 ACRA（新加坡会计与企业管制局）完成股东变更登记，香港品茗登记为 ZLX 51% 已发行且实收资本的唯一合法及注册所有者",
+     "basis": "公告原文 P1「二、交易进展情况」逐句载明（2026-10-23 复核原文 PDF）"
+    }
+   ]
   },
   {
    "event_id": "E-024",
@@ -3876,40 +5063,49 @@
    },
    "legal_triggers": [
     {
-     "code": "I10.3",
-     "text": "融资与担保：上市公司控股子公司为其全资子公司融资提供连带责任保证，无反担保、无其他股东按比例担保；在股东会批准的312亿元年度额度内实施",
-     "status": "disclosed_cleared",
+     "issue_code": "I10.2",
+     "issue": "价款调整/或有对价",
+     "trigger_fact": "语料提及「智运天下上海）承担连带清偿责任，构成或有代偿义务」（字段：terms.contingent）",
+     "text": "语料提及「智运天下上海）承担连带清偿责任，构成或有代偿义务」（字段：terms.contingent）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12354145 P3、P6 担保协议主要内容及内部决策程序",
-     "evidence": {
-      "doc_id": "hkex_12354145",
-      "page": 3,
-      "quote": "本次担保无反担保"
-     }
+     "basis": "R-I10.2 命中词「或有」→ 价款调整/或有对价；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I3.3",
-     "text": "交易分类：均为对控股（孙）公司的担保，不存在为控股股东、实际控制人及其关联人提供担保的情形，不构成关联/关连交易，无需独立股东批准",
-     "status": "disclosed_cleared",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=担保；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=担保；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12354145 P7 声明段落",
-     "evidence": {
-      "doc_id": "hkex_12354145",
-      "page": 7,
-      "quote": "也不存在为控股股东、实际控制人及其关联人提供担保的情形"
-     }
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
     },
     {
-     "code": "I13",
-     "text": "信息披露：A股临2026-059号公告经港股上市规则13.10B条以海外监管公告形式转载",
-     "status": "disclosed_cleared",
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "语料提及「担保协议全文（违约金、追偿安排、争议解决条款） 明确代偿后的追偿路径与法律救」（字段：gaps）",
+     "text": "语料提及「担保协议全文（违约金、追偿安排、争议解决条款） 明确代偿后的追偿路径与法律救」（字段：gaps）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12354145 P1 转载声明",
-     "evidence": {
-      "doc_id": "hkex_12354145",
-      "page": 1,
-      "quote": "第13.10B條由海爾智家股份有限公司作出"
-     }
+     "basis": "R-I10.4 命中词「争议解决」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外担保（为控股子公司提供担保；A股公告按13.10B条转载）」（来源：港股·披露易 2026-09-30）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外担保（为控股子公司提供担保；A股公告按13.10B条转载）」（来源：港股·披露易 2026-09-30）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「海外監管公告-業務發展最新情況」（来源：港股·披露易 2026-09-30）",
+     "text": "披露渠道原始分类：披露易 headline「海外監管公告-業務發展最新情況」（来源：港股·披露易 2026-09-30）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -4036,6 +5232,24 @@
      "layer": "analysis",
      "basis": "hkex_12354145 P7 余额表及P5 净利润数据"
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "融资与担保：上市公司控股子公司为其全资子公司融资提供连带责任保证，无反担保、无其他股东按比例担保",
+     "basis": "hkex_12354145 P3、P6 担保协议主要内容及内部决策程序"
+    },
+    {
+     "text": "在股东会批准的312亿元年度额度内实施",
+     "basis": "hkex_12354145 P3、P6 担保协议主要内容及内部决策程序"
+    },
+    {
+     "text": "交易分类：均为对控股（孙）公司的担保，不存在为控股股东、实际控制人及其关联人提供担保的情形，不构成关联/关连交易，无需独立股东批准",
+     "basis": "hkex_12354145 P7 声明段落"
+    },
+    {
+     "text": "信息披露：A股临2026-059号公告经港股上市规则13.10B条以海外监管公告形式转载",
+     "basis": "hkex_12354145 P1 转载声明"
+    }
    ]
   },
   {
@@ -4088,10 +5302,67 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "证监会境外发行备案为 H 股发行上市的制度性前置程序；本公告仅载「经香港联交所批准」及发售结果，未载备案办理表述【未披露，以证监会备案公示为准】；H股持续披露义务；发行上市情况需按期向证监会报告",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "本公告仅载「经香港联交所批准」及发售结果，未载备案办理表述【未披露，以证监会备案公示为准】",
+     "text": "本公告仅载「经香港联交所批准」及发售结果，未载备案办理表述【未披露，以证监会备案公示为准】",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "复核原文 PDF（2026-10-23）：全文仅有联交所批准表述，无证监会备案字样；前置程序属制度要求（境外上市备案管理办法），非本公告披露内容",
-     "code": "I1"
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「彤程新材料集团：H股发行上市」（字段：title_fact）",
+     "text": "语料提及「彤程新材料集团：H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "证监会境外发行备案为 H 股发行上市的制度性前置程序",
+     "text": "证监会境外发行备案为 H 股发行上市的制度性前置程序",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "H股持续披露义务",
+     "text": "H股持续披露义务",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「H股后市流动性与破发风险；募集资金海外投向执行；港元敞口」（字段：watch_points）",
+     "text": "语料提及「H股后市流动性与破发风险；募集资金海外投向执行；港元敞口」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-30）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-30）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -4158,7 +5429,13 @@
      "note": "删除无原文支撑的「证监会备案已完成」表述，改标【未披露】/analysis 并写明依据；挂议题码 I1"
     }
    ],
-   "update_type_latest": "修正"
+   "update_type_latest": "修正",
+   "legal_notes_unmapped": [
+    {
+     "text": "发行上市情况需按期向证监会报告",
+     "basis": "复核原文 PDF（2026-10-23）：全文仅有联交所批准表述，无证监会备案字样；前置程序属制度要求（境外上市备案管理办法），非本公告披露内容"
+    }
+   ]
   },
   {
    "event_id": "E-026",
@@ -4210,10 +5487,112 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "证监会境外上市备案为 H 股发行上市的制度性前置程序；本公告仅载「经香港联交所批准」及发售结果，未载备案办理表述【未披露，以证监会备案公示为准】；H股持续披露义务；募投若涉境外建厂需另行 ODI 备案（分析提示，原文未载）",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「持续披露义务；募投若涉境外建厂需另行ODI备案」（字段：db.③法务关注（）",
+     "text": "语料提及「持续披露义务；募投若涉境外建厂需另行ODI备案」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "复核原文 PDF（2026-10-23）：全文仅有联交所批准表述，无证监会备案字样；前置程序属制度要求（境外上市备案管理办法），非本公告披露内容",
-     "code": "I1"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "募投若涉境外建厂需另行 ODI 备案（分析提示，原文未载）",
+     "text": "募投若涉境外建厂需另行 ODI 备案（分析提示，原文未载）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "语料提及「证监会备案前置完成；H股持续披露义务；募投若涉」（字段：db.③法务关注（）",
+     "text": "语料提及「证监会备案前置完成；H股持续披露义务；募投若涉」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "证监会境外上市备案为 H 股发行上市的制度性前置程序",
+     "text": "证监会境外上市备案为 H 股发行上市的制度性前置程序",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "本公告仅载「经香港联交所批准」及发售结果，未载备案办理表述【未披露，以证监会备案公示为准】",
+     "text": "本公告仅载「经香港联交所批准」及发售结果，未载备案办理表述【未披露，以证监会备案公示为准】",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「深圳市景旺电子：H股发行上市」（字段：title_fact）",
+     "text": "语料提及「深圳市景旺电子：H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "H股持续披露义务",
+     "text": "H股持续披露义务",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「募集资金用途分项、基石投资者、承销团未在本公」（字段：gaps）",
+     "text": "语料提及「募集资金用途分项、基石投资者、承销团未在本公」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-30）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-30）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「关注海外基地对欧美客户的关税规避价值与订单转移」（字段：practice_notes）",
+     "text": "语料提及「关注海外基地对欧美客户的关税规避价值与订单转移」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.2",
+     "issue": "原产地与转运规避",
+     "trigger_fact": "语料提及「关注海外基地对欧美客户的关税规避价值与订单转移」（字段：practice_notes）",
+     "text": "语料提及「关注海外基地对欧美客户的关税规避价值与订单转移」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.2 命中词「规避」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -4332,9 +5711,13 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "欧盟GMP、药物警戒（QPPV制度）、FMD药品追溯合规；各成员国上市许可维护；塞尔维亚注册在审；数据保护与GDP合规",
-     "layer": "analysis",
-     "basis": "入库分析基于《四川汇宇制药 2026-10-01：自愿披露公司产品获得境外上市许可的公告》披露原文生成（法务关注维度）"
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「自愿披露（产品获境外上市许可）」（来源：A股·巨潮 2026-10-01）",
+     "text": "披露渠道原始分类：巨潮公告类型「自愿披露（产品获境外上市许可）」（来源：A股·巨潮 2026-10-01）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -4391,7 +5774,25 @@
      "note": "产品出口（药品国际注册申报）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "欧盟GMP、药物警戒（QPPV制度）、FMD药品追溯合规",
+     "basis": "入库分析基于《四川汇宇制药 2026-10-01：自愿披露公司产品获得境外上市许可的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "各成员国上市许可维护",
+     "basis": "入库分析基于《四川汇宇制药 2026-10-01：自愿披露公司产品获得境外上市许可的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "塞尔维亚注册在审",
+     "basis": "入库分析基于《四川汇宇制药 2026-10-01：自愿披露公司产品获得境外上市许可的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "数据保护与GDP合规",
+     "basis": "入库分析基于《四川汇宇制药 2026-10-01：自愿披露公司产品获得境外上市许可的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-028",
@@ -4646,100 +6047,211 @@
    },
    "legal_triggers": [
     {
-     "code": "I2.1",
-     "text": "澳大利亚FIRB外资审查：签约公告将「兖煤澳洲就本次收购获得FIRB批准」列为先决条件；完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「B批准；③中国对外投资监管审批：国家发改委、山东省商务厅、国家市场监督管理总局」（字段：terms.conditions_precedent）",
+     "text": "语料提及「B批准；③中国对外投资监管审批：国家发改委、山东省商务厅、国家市场监督管理总局」（字段：terms.conditions_precedent）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12105020 P13先决条件清单；hkex_12354762全文无审批结果字样（2026-10-26逐字核对）",
-     "evidence": {
-      "doc_id": "hkex_12105020",
-      "page": 13,
-      "quote": "兗煤澳洲就本次收購獲得 FIRB 批准"
-     }
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I1",
-     "text": "境内ODI程序：签约公告列中国对外投资监管审批（国家发改委、山东省商务厅、国家市场监督管理总局）为先决条件，并约定买方未取得该审批时4,000万美元定金归卖方作为唯一补偿；各项审批实际办理结果未披露",
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "语料提及「告、兖煤澳洲ASX披露、国家发改委/商务部备案公示」（字段：gaps）",
+     "text": "语料提及「告、兖煤澳洲ASX披露、国家发改委/商务部备案公示」（字段：gaps）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12105020 P13–P14；完成公告未逐项确认，不能因交割完成倒推",
-     "evidence": {
-      "doc_id": "hkex_12105020",
-      "page": 13,
-      "quote": "國家發展和改革委員會"
-     }
+     "basis": "R-I1.2 命中词「商务部备案」→ 商务部境外投资备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I3.1",
-     "text": "竞争申报：ACCC审查列为先决条件（认定无需申报，或裁定可无条件/按买方合理接受条件进行且审查期满无异议），另需境外合并管制许可；实际审查过程与结果未披露",
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "语料提及「总局；某些境外合并管制机构——均列为先决条件；各审批实际通过情况未逐项公告」（字段：terms.approvals）",
+     "text": "语料提及「总局；某些境外合并管制机构——均列为先决条件；各审批实际通过情况未逐项公告」（字段：terms.approvals）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12105020 P13先决条件清单",
-     "evidence": {
-      "doc_id": "hkex_12105020",
-      "page": 13,
-      "quote": "ACCC 認定該交易無需申報"
-     }
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I3.3",
-     "text": "上市规则分类：公告标为「须予披露交易」",
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "澳大利亚FIRB外资审查：签约公告将「兖煤澳洲就本次收购获得FIRB批准」列为先决条件",
+     "text": "澳大利亚FIRB外资审查：签约公告将「兖煤澳洲就本次收购获得FIRB批准」列为先决条件",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "境内ODI程序：签约公告列中国对外投资监管审批（国家发改委、山东省商务厅、国家市场监督管理总局）为先决条件，并约定买方未取得该审批时4,000万美元定金归卖方作为唯一补偿",
+     "text": "境内ODI程序：签约公告列中国对外投资监管审批（国家发改委、山东省商务厅、国家市场监督管理总局）为先决条件，并约定买方未取得该审批时4,000万美元定金归卖方作为唯一补偿",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "竞争申报：ACCC审查列为先决条件（认定无需申报，或裁定可无条件/按买方合理接受条件进行且审查期满无异议），另需境外合并管制许可",
+     "text": "竞争申报：ACCC审查列为先决条件（认定无需申报，或裁定可无条件/按买方合理接受条件进行且审查期满无异议），另需境外合并管制许可",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "先决条件与长停止日：签约公告附录1已披露（ACCC/FIRB/中国ODI三部门/境外合并管制/三井优先购买权",
+     "text": "先决条件与长停止日：签约公告附录1已披露（ACCC/FIRB/中国ODI三部门/境外合并管制/三井优先购买权",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "交易已于2026-10-01完成，先于长停止日",
+     "text": "交易已于2026-10-01完成，先于长停止日",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.2",
+     "issue": "价款调整/或有对价",
+     "trigger_fact": "语料提及「调整），另附最高5.5亿美元煤价挂钩或有付款」（字段：title_fact）",
+     "text": "语料提及「调整），另附最高5.5亿美元煤价挂钩或有付款」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.2 命中词「或有」→ 价款调整/或有对价；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.2",
+     "issue": "价款调整/或有对价",
+     "trigger_fact": "或有对价：合计不超5.5亿美元，交割后首五年内任一年基准煤价（普氏PLVHA00指数年度均值）超225美元/吨（名义值）即触发，支付超出部分可归属收入的30%",
+     "text": "或有对价：合计不超5.5亿美元，交割后首五年内任一年基准煤价（普氏PLVHA00指数年度均值）超225美元/吨（名义值）即触发，支付超出部分可归属收入的30%",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=并购；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=并购；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "语料提及「SPA全文（陈述保证细则、赔偿上限、争议解决、税费条款） 摘要未载税费与争议解决」（字段：gaps）",
+     "text": "语料提及「SPA全文（陈述保证细则、赔偿上限、争议解决、税费条款） 摘要未载税费与争议解决」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.4 命中词「争议解决」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.5",
+     "issue": "合资治理/僵局/退出",
+     "trigger_fact": "语料提及「0%权益人；影响JV治理与产量分成 合资企业协定（未公开）、三井方面披露、兖」（字段：gaps）",
+     "text": "语料提及「0%权益人；影响JV治理与产量分成 合资企业协定（未公开）、三井方面披露、兖」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.5 命中词「合资」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I12.2",
+     "issue": "境外行政处罚与整改",
+     "trigger_fact": "语料提及「生重大不利变化（MAC）且未能在协定整改框架内修正，买方可终止；④许可延期后」（字段：terms.breach）",
+     "text": "语料提及「生重大不利变化（MAC）且未能在协定整改框架内修正，买方可终止；④许可延期后」（字段：terms.breach）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I12.2 命中词「整改」→ 行政处罚与整改；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "标的/项目位于澳大利亚（geo 字段），事项类型=并购；FIRB 审查在已核语料中有提及",
+     "text": "标的/项目位于澳大利亚（geo 字段），事项类型=并购；FIRB 审查在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.1-geo：受审查法域+投资类事项→FIRB 核查点；机制名为法域常识标注"
+    },
+    {
+     "issue_code": "I2.3",
+     "issue": "土地/矿权/特许权",
+     "trigger_fact": "语料提及「认审批结果，不能因交割完成倒推审批；采矿权与环保许可承继；银团贷款担保结构未披」（字段：db.③法务关注（）",
+     "text": "语料提及「认审批结果，不能因交割完成倒推审批；采矿权与环保许可承继；银团贷款担保结构未披」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.3 命中词「采矿权」→ 土地/矿权/特许权；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.1",
+     "issue": "经营者集中申报（多法域）",
+     "trigger_fact": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "text": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I3.1-mt：并购事项→反垄断申报核查点；无原文不推断"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组签约（境外控股子公司签署红隼集团100%股权买卖协定）」（来源：港股·披露易 2026-04-14）",
+     "text": "披露渠道原始分类：巨潮公告类型「并购重组签约（境外控股子公司签署红隼集团100%股权买卖协定）」（来源：港股·披露易 2026-04-14）",
      "status": "disclosed_cleared",
-     "layer": "analysis",
-     "basis": "公告标题明示，联交所须予披露交易类别",
-     "evidence": {
-      "doc_id": "hkex_12354762",
-      "page": 1,
-      "quote": "須予披露交易"
-     }
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     },
     {
-     "code": "I10.1",
-     "text": "先决条件与长停止日：签约公告附录1已披露（ACCC/FIRB/中国ODI三部门/境外合并管制/三井优先购买权；2026-11-30前达成或豁免，可协商延至2027-02-28）；交易已于2026-10-01完成，先于长停止日",
-     "status": "disclosed",
-     "layer": "analysis",
-     "basis": "hkex_12105020 P13–P14附录1条款摘要",
-     "evidence": {
-      "doc_id": "hkex_12105020",
-      "page": 14,
-      "quote": "上述條件須於 2026 年 11 月 30 日或之前獲達成或豁免"
-     }
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「公告及通告 - [主要交易 / 復牌]」（来源：港股·披露易 2026-04-14）",
+     "text": "披露渠道原始分类：披露易 headline「公告及通告 - [主要交易 / 復牌]」（来源：港股·披露易 2026-04-14）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     },
     {
-     "code": "I10.2",
-     "text": "或有对价：合计不超5.5亿美元，交割后首五年内任一年基准煤价（普氏PLVHA00指数年度均值）超225美元/吨（名义值）即触发，支付超出部分可归属收入的30%；首个触发年度结果待观察",
-     "status": "disclosed_pending",
-     "layer": "analysis",
-     "basis": "hkex_12354762 P2＋hkex_12105020 P2–P3（指数定义与30%分成比例）",
-     "evidence": {
-      "doc_id": "hkex_12354762",
-      "page": 2,
-      "quote": "最高總額為5.5億美元的或有付款是否支付"
-     }
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组进展（境外控股子公司完成煤矿收购）」（来源：港股·披露易 2026-10-01）",
+     "text": "披露渠道原始分类：巨潮公告类型「并购重组进展（境外控股子公司完成煤矿收购）」（来源：港股·披露易 2026-10-01）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     },
     {
-     "code": "I10.3",
-     "text": "收购融资：首付由兖煤澳洲可用现金＋首次提取五年期12亿美元银团收购贷款组合支付，另落实2亿美元5年期承诺营运资金融资；贷款人、担保与财务契约未披露",
-     "status": "disclosed_pending",
-     "layer": "analysis",
-     "basis": "hkex_12354762 P2＋hkex_12105020 P2",
-     "evidence": {
-      "doc_id": "hkex_12105020",
-      "page": 2,
-      "quote": "已獲得 2 億美元 5 年期承諾營運資金融資"
-     }
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「須予披露的交易」（来源：港股·披露易 2026-10-01）",
+     "text": "披露渠道原始分类：披露易 headline「須予披露的交易」（来源：港股·披露易 2026-10-01）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     },
     {
-     "code": "I10.4",
-     "text": "救济限制：买方未取得中国对外投资监管审批时，4,000万美元定金为卖方唯一补偿——买方监管审批失败的违约敞口以定金为上限",
-     "status": "disclosed",
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「保许可承继；银团贷款担保结构未披露；制裁风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「保许可承继；银团贷款担保结构未披露；制裁风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12105020 P14定金条款",
-     "evidence": {
-      "doc_id": "hkex_12105020",
-      "page": 14,
-      "quote": "如兗煤澳洲未能取得對外投資監管審批，訂金 將作為唯一向賣方的補償方式"
-     }
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「果，不能因交割完成倒推审批；采矿权与环保许可承继；银团贷款担保结构未披露；制」（字段：db.③法务关注（）",
+     "text": "语料提及「果，不能因交割完成倒推审批；采矿权与环保许可承继；银团贷款担保结构未披露；制」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -5000,6 +6512,44 @@
      "layer": "analysis",
      "basis": "hkex_12105020 P2–P3或有对价机制"
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "完成公告宣布交割但未逐项确认FIRB审批结果——批准/豁免的具体内容与附加条件未直接披露，不能倒推",
+     "basis": "hkex_12105020 P13先决条件清单；hkex_12354762全文无审批结果字样（2026-10-26逐字核对）"
+    },
+    {
+     "text": "各项审批实际办理结果未披露",
+     "basis": "hkex_12105020 P13–P14；完成公告未逐项确认，不能因交割完成倒推"
+    },
+    {
+     "text": "实际审查过程与结果未披露",
+     "basis": "hkex_12105020 P13先决条件清单"
+    },
+    {
+     "text": "上市规则分类：公告标为「须予披露交易」",
+     "basis": "公告标题明示，联交所须予披露交易类别"
+    },
+    {
+     "text": "2026-11-30前达成或豁免，可协商延至2027-02-28）",
+     "basis": "hkex_12105020 P13–P14附录1条款摘要"
+    },
+    {
+     "text": "首个触发年度结果待观察",
+     "basis": "hkex_12354762 P2＋hkex_12105020 P2–P3（指数定义与30%分成比例）"
+    },
+    {
+     "text": "收购融资：首付由兖煤澳洲可用现金＋首次提取五年期12亿美元银团收购贷款组合支付，另落实2亿美元5年期承诺营运资金融资",
+     "basis": "hkex_12354762 P2＋hkex_12105020 P2"
+    },
+    {
+     "text": "贷款人、担保与财务契约未披露",
+     "basis": "hkex_12354762 P2＋hkex_12105020 P2"
+    },
+    {
+     "text": "救济限制：买方未取得中国对外投资监管审批时，4,000万美元定金为卖方唯一补偿——买方监管审批失败的违约敞口以定金为上限",
+     "basis": "hkex_12105020 P14定金条款"
+    }
    ]
   },
   {
@@ -5042,9 +6592,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "终止属股东会授权董事会全权处理事项，程序合规；已完成的证监会备案随终止失效，重启需重新备案",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "语料提及「事会全权处理事项，程序合规；已完成的证监会备案随终止失效，重启需重新备案」（字段：db.③法务关注（）",
+     "text": "语料提及「事会全权处理事项，程序合规；已完成的证监会备案随终止失效，重启需重新备案」（字段：db.③法务关注（）",
+     "status": "disclosed_cleared",
      "layer": "analysis",
-     "basis": "入库分析基于《博瑞生物医药（苏州） 2026-10-01：博瑞医药关于终止发行H股股票并在香港联合交易》披露原文生成（法务关注维度）"
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「博瑞生物医药（苏州）：终止H股发行上市」（字段：title_fact）",
+     "text": "语料提及「博瑞生物医药（苏州）：终止H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「无募资到位；关注在研管线资金投入与A股再融」（字段：practice_notes）",
+     "text": "语料提及「无募资到位；关注在研管线资金投入与A股再融」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市终止（H股发行终止）」（来源：A股·巨潮 2026-10-01）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市终止（H股发行终止）」（来源：A股·巨潮 2026-10-01）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -5101,7 +6682,13 @@
      "note": "终止H股发行上市（前次申报到期，不再继续申报加期）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "终止属股东会授权董事会全权处理事项，程序合规",
+     "basis": "入库分析基于《博瑞生物医药（苏州） 2026-10-01：博瑞医药关于终止发行H股股票并在香港联合交易》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-030",
@@ -5147,9 +6734,49 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "欧盟反补贴税适用税率；数据跨境（智能驾驶数据回传）合规；实体清单风险低",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「经营数据（月度/季度交付量）」（来源：美股·EDGAR 2026-10-02）",
+     "text": "披露渠道原始分类：巨潮公告类型「经营数据（月度/季度交付量）」（来源：美股·EDGAR 2026-10-02）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「；数据跨境（智能驾驶数据回传）合规；实体清单风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「；数据跨境（智能驾驶数据回传）合规；实体清单风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《NIO Inc.（蔚来） 2026-10-02：6-K：NIO Provides Septe》披露原文生成（法务关注维度）"
+     "basis": "R-I4.1 命中词「实体清单」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I6.1",
+     "issue": "数据出境（安全评估/标准合同/认证）",
+     "trigger_fact": "语料提及「欧盟反补贴税适用税率；数据跨境（智能驾驶数据回传）合规；实体清单风」（字段：db.③法务关注（）",
+     "text": "语料提及「欧盟反补贴税适用税率；数据跨境（智能驾驶数据回传）合规；实体清单风」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I6.1 命中词「数据跨境」→ 数据出境/个人信息；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「价格竞争；欧洲反补贴关税（欧盟对华BEV反补贴税）影响出口；」（字段：watch_points）",
+     "text": "语料提及「价格竞争；欧洲反补贴关税（欧盟对华BEV反补贴税）影响出口；」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "欧盟反补贴税适用税率",
+     "text": "欧盟反补贴税适用税率",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -5252,9 +6879,58 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "欧盟反补贴税适用；GDPR数据合规（智能驾驶）；FCPA/制裁风险低",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「经营数据（月度/季度交付量＋海外基础设施进展）」（来源：美股·EDGAR 2026-10-02）",
+     "text": "披露渠道原始分类：巨潮公告类型「经营数据（月度/季度交付量＋海外基础设施进展）」（来源：美股·EDGAR 2026-10-02）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「PR数据合规（智能驾驶）；FCPA/制裁风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「PR数据合规（智能驾驶）；FCPA/制裁风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《XPeng Inc.（小鹏汽车） 2026-10-02：6-K：XPENG Announces Ve》披露原文生成（法务关注维度）"
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I6.1",
+     "issue": "数据出境（安全评估/标准合同/认证）",
+     "trigger_fact": "语料提及「欧盟反补贴税适用；GDPR数据合规（智能驾驶）；FCPA/制裁风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「欧盟反补贴税适用；GDPR数据合规（智能驾驶）；FCPA/制裁风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I6.1 命中词「数据合规」→ 数据出境/个人信息；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I6.2",
+     "issue": "东道国个人信息法（GDPR 等）",
+     "trigger_fact": "语料提及「欧盟反补贴税适用；GDPR数据合规（智能驾驶）；FCPA/制裁」（字段：db.③法务关注（）",
+     "text": "语料提及「欧盟反补贴税适用；GDPR数据合规（智能驾驶）；FCPA/制裁」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I6.2 命中词「GDPR」→ 东道国个人信息法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「欧盟反补贴关税；海外渠道建设投入；国内价格战延续」（字段：watch_points）",
+     "text": "语料提及「欧盟反补贴关税；海外渠道建设投入；国内价格战延续」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "欧盟反补贴税适用",
+     "text": "欧盟反补贴税适用",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -5501,44 +7177,94 @@
    },
    "legal_triggers": [
     {
-     "code": "I3.3",
-     "text": "上市规则分类：公告标为「主要交易」",
-     "status": "disclosed_cleared",
-     "layer": "analysis",
-     "basis": "公告标题明示，属联交所主要交易类别（通常须经股东批准，程序见2026-04-24通函）",
-     "evidence": {
-      "doc_id": "hkex_12365982",
-      "page": 1,
-      "quote": "主要交易"
-     }
-    },
-    {
-     "code": "I10.1",
-     "text": "先决条件：购股协议项下所有交割条件已获达成；具体条件清单（是否含监管批准）未载于本公告",
-     "status": "disclosed_cleared",
-     "layer": "analysis",
-     "basis": "hkex_12365982 P1 明示全部交割条件达成；条件内容须回查前期公告及通函",
-     "evidence": {
-      "doc_id": "hkex_12365982",
-      "page": 1,
-      "quote": "購股協議項下的所有交割條件已獲達成"
-     }
-    },
-    {
-     "code": "I2.1",
-     "text": "东道国外资审查（标的为欧洲上市公司，涉德国/欧盟外资审查可能）：本公告未提及任何审批事项，不能倒推审批完成或豁免",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「受让股份的直接持有主体 判断ODI路径与税务结构 通函及后续披露」（字段：gaps）",
+     "text": "语料提及「受让股份的直接持有主体 判断ODI路径与税务结构 通函及后续披露」（字段：gaps）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12365982 全文无审批字样（2026-10-26 逐字核对）",
-     "evidence": null
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I1",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "境内ODI/出境程序：未披露",
      "text": "境内ODI/出境程序：未披露",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "公告未提及；收购主体与资金来源未载于本公告，须回查通函",
-     "evidence": null
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=并购；商务部境外投资备案在已核语料中未提及",
+     "text": "事项类型=并购；商务部境外投资备案在已核语料中未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "先决条件：购股协议项下所有交割条件已获达成",
+     "text": "先决条件：购股协议项下所有交割条件已获达成",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.5",
+     "issue": "合资治理/僵局/退出",
+     "trigger_fact": "语料提及「董事会席位与治理安排、是否有增持/一致行动安排」（字段：watch_points）",
+     "text": "语料提及「董事会席位与治理安排、是否有增持/一致行动安排」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.5 命中词「董事会席位」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.1",
+     "issue": "经营者集中申报（多法域）",
+     "trigger_fact": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "text": "事项类型=并购；经营者集中申报义务是否触发，已核语料未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I3.1-mt：并购事项→反垄断申报核查点；无原文不推断"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组进展（收购境外上市公司股权交割完成）」（来源：港股·披露易 2026-10-07）",
+     "text": "披露渠道原始分类：巨潮公告类型「并购重组进展（收购境外上市公司股权交割完成）」（来源：港股·披露易 2026-10-07）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「主要交易」（来源：港股·披露易 2026-10-07）",
+     "text": "披露渠道原始分类：披露易 headline「主要交易」（来源：港股·披露易 2026-10-07）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「务（德国WpHG投票权通知）；制裁/出口管制风险低；关注后续增持触发的要约收购义」（字段：db.③法务关注（）",
+     "text": "语料提及「务（德国WpHG投票权通知）；制裁/出口管制风险低；关注后续增持触发的要约收购义」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「披露义务（德国WpHG投票权通知）；制裁/出口管制风险低；关注后续增持触发的」（字段：db.③法务关注（）",
+     "text": "语料提及「披露义务（德国WpHG投票权通知）；制裁/出口管制风险低；关注后续增持触发的」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -5704,6 +7430,20 @@
      "layer": "analysis",
      "basis": "hkex_12365982 未载对价与资金安排"
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "上市规则分类：公告标为「主要交易」",
+     "basis": "公告标题明示，属联交所主要交易类别（通常须经股东批准，程序见2026-04-24通函）"
+    },
+    {
+     "text": "具体条件清单（是否含监管批准）未载于本公告",
+     "basis": "hkex_12365982 P1 明示全部交割条件达成；条件内容须回查前期公告及通函"
+    },
+    {
+     "text": "东道国外资审查（标的为欧洲上市公司，涉德国/欧盟外资审查可能）：本公告未提及任何审批事项，不能倒推审批完成或豁免",
+     "basis": "hkex_12365982 全文无审批字样（2026-10-26 逐字核对）"
+    }
    ]
   },
   {
@@ -5756,9 +7496,58 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "备案通知书12个月有效期约束；完成后15个工作日内向证监会报告发行情况；《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "语料提及「关于发行境外上市股份（H股）获得中国证监会备案的公告」（字段：sources.file）",
+     "text": "语料提及「关于发行境外上市股份（H股）获得中国证监会备案的公告」（字段：sources.file）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《广州若羽臣科技 2026-10-08：关于发行境外上市股份（H股）获得中国证监会备》披露原文生成（法务关注维度）"
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「广州若羽臣科技：H股发行上市推进」（字段：title_fact）",
+     "text": "语料提及「广州若羽臣科技：H股发行上市推进」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「保荐人、募资用途、发行时间表未披露。」（字段：gaps）",
+     "text": "语料提及「保荐人、募资用途、发行时间表未披露。」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市进展（证监会备案获批）」（来源：A股·巨潮 2026-10-08）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市进展（证监会备案获批）」（来源：A股·巨潮 2026-10-08）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「国合函〔2026〕2325 号」（字段：sources.quotes）",
+     "text": "语料提及「国合函〔2026〕2325 号」（字段：sources.quotes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「232」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -5815,7 +7604,25 @@
      "note": "H股发行上市推进（备案通知书国合函〔2026〕2325号）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "备案通知书12个月有效期约束",
+     "basis": "入库分析基于《广州若羽臣科技 2026-10-08：关于发行境外上市股份（H股）获得中国证监会备》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "完成后15个工作日内向证监会报告发行情况",
+     "basis": "入库分析基于《广州若羽臣科技 2026-10-08：关于发行境外上市股份（H股）获得中国证监会备》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《广州若羽臣科技 2026-10-08：关于发行境外上市股份（H股）获得中国证监会备》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《广州若羽臣科技 2026-10-08：关于发行境外上市股份（H股）获得中国证监会备》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-034",
@@ -5867,9 +7674,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《广州天赐高新材料 2026-10-08：关于刊发境外上市外资股（H股）发行聆讯后资料》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「广州天赐高新材料：H股发行上市推进」（字段：title_fact）",
+     "text": "语料提及「广州天赐高新材料：H股发行上市推进」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「发行规模、募资用途、基石投资者待招股书披露。」（字段：gaps）",
+     "text": "语料提及「发行规模、募资用途、基石投资者待招股书披露。」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市进展（刊发聆讯后资料集）」（来源：A股·巨潮 2026-10-08）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市进展（刊发聆讯后资料集）」（来源：A股·巨潮 2026-10-08）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -5926,7 +7764,17 @@
      "note": "H股发行上市推进（2026-09-03上市聆讯已举行，刊发聆讯后资料集）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《广州天赐高新材料 2026-10-08：关于刊发境外上市外资股（H股）发行聆讯后资料》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《广州天赐高新材料 2026-10-08：关于刊发境外上市外资股（H股）发行聆讯后资料》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-035",
@@ -5978,9 +7826,67 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "斯洛伐克主体注销的税务与法律清算；摩洛哥投资许可、工业区政策与优惠申请；航空AS9100及客户特种工艺认证迁移；重新办理ODI备案",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「准入不确定性外溢风险；摩洛哥项目重走ODI审批周期；航空供应链客户认证与特种工」（字段：watch_points）",
+     "text": "语料提及「准入不确定性外溢风险；摩洛哥项目重走ODI审批周期；航空供应链客户认证与特种工」（字段：watch_points）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《贵州航宇科技发展 2026-10-09：关于变更海外生产基地建设地点的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "重新办理ODI备案",
+     "text": "重新办理ODI备案",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中未提及",
+     "text": "事项类型=设厂；商务部境外投资备案在已核语料中未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I2.4",
+     "issue": "投资优惠与园区协议义务",
+     "trigger_fact": "语料提及「摩洛哥选址的具体园区与用地安排未定；欧洲客户认证（特种工」（字段：gaps）",
+     "text": "语料提及「摩洛哥选址的具体园区与用地安排未定；欧洲客户认证（特种工」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.4 命中词「园区」→ 投资优惠与园区义务；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资要素变更（海外生产基地建设地点由斯洛伐克变更为摩洛哥）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资要素变更（海外生产基地建设地点由斯洛伐克变更为摩洛哥）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「摩洛哥近欧物流＋欧盟关税优惠；目标客户为欧美航空发动机/燃机」（字段：practice_notes）",
+     "text": "语料提及「摩洛哥近欧物流＋欧盟关税优惠；目标客户为欧美航空发动机/燃机」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.2",
+     "issue": "原产地与转运规避",
+     "trigger_fact": "语料提及「罗罗体系），认证壁垒高；关注欧盟对摩原产地规则收紧动向」（字段：practice_notes）",
+     "text": "语料提及「罗罗体系），认证壁垒高；关注欧盟对摩原产地规则收紧动向」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.2 命中词「原产地」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -6041,7 +7947,21 @@
      "note": "建厂（海外锻造生产基地选址变更）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "斯洛伐克主体注销的税务与法律清算",
+     "basis": "入库分析基于《贵州航宇科技发展 2026-10-09：关于变更海外生产基地建设地点的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "摩洛哥投资许可、工业区政策与优惠申请",
+     "basis": "入库分析基于《贵州航宇科技发展 2026-10-09：关于变更海外生产基地建设地点的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "航空AS9100及客户特种工艺认证迁移",
+     "basis": "入库分析基于《贵州航宇科技发展 2026-10-09：关于变更海外生产基地建设地点的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-036",
@@ -6093,9 +8013,58 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "英国公司注册已完成；VAT注册、纺织品标签/阻燃等强制标准、EPR生产者责任；GDPR数据合规",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "事项类型=设厂，涉及境内主体对外投资；ODI 发改委备案/核准在已核语料中未提及",
+     "text": "事项类型=设厂，涉及境内主体对外投资；ODI 发改委备案/核准在已核语料中未提及",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《苏州太湖雪丝绸 2026-10-09：关于境外全资孙公司完成注册的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1-mt：事项类型∈{设厂/并购/合资}→境内出境监管链路核查点；原文未载明办理状态，不推断"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "text": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I2.1",
+     "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+     "trigger_fact": "标的/项目位于英国（geo 字段），事项类型=设厂；NSIA 审查在已核语料中未提及办理状态",
+     "text": "标的/项目位于英国（geo 字段），事项类型=设厂；NSIA 审查在已核语料中未提及办理状态",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.1-geo：受审查法域+投资类事项→NSIA 核查点；机制名为法域常识标注"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外全资孙公司完成注册）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外全资孙公司完成注册）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I6.1",
+     "issue": "数据出境（安全评估/标准合同/认证）",
+     "trigger_fact": "语料提及「强制标准、EPR生产者责任；GDPR数据合规」（字段：db.③法务关注（）",
+     "text": "语料提及「强制标准、EPR生产者责任；GDPR数据合规」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I6.1 命中词「数据合规」→ 数据出境/个人信息；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I6.2",
+     "issue": "东道国个人信息法（GDPR 等）",
+     "trigger_fact": "语料提及「/阻燃等强制标准、EPR生产者责任；GDPR数据合规」（字段：db.③法务关注（）",
+     "text": "语料提及「/阻燃等强制标准、EPR生产者责任；GDPR数据合规」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I6.2 命中词「GDPR」→ 东道国个人信息法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -6156,7 +8125,17 @@
      "note": "新设子公司（跨境电商/零售实体）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "英国公司注册已完成",
+     "basis": "入库分析基于《苏州太湖雪丝绸 2026-10-09：关于境外全资孙公司完成注册的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "VAT注册、纺织品标签/阻燃等强制标准、EPR生产者责任",
+     "basis": "入库分析基于《苏州太湖雪丝绸 2026-10-09：关于境外全资孙公司完成注册的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-037",
@@ -6208,9 +8187,67 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "ODI（发改/商务/外汇）备案与泰国BOI投资优惠申请；泰国劳工法与外籍员工配额；MEMS相关专利的海外布局与侵权防御",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「ODI（发改/商务/外汇）备案与泰国BOI」（字段：db.③法务关注（）",
+     "text": "语料提及「ODI（发改/商务/外汇）备案与泰国BOI」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《共达电声 2026-10-09：关于拟设立境外二级子公司的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "text": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I11.2",
+     "issue": "商标与专利布局",
+     "trigger_fact": "语料提及「国劳工法与外籍员工配额；MEMS相关专利的海外布局与侵权防御」（字段：db.③法务关注（）",
+     "text": "语料提及「国劳工法与外籍员工配额；MEMS相关专利的海外布局与侵权防御」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I11.2 命中词「专利」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I2.4",
+     "issue": "投资优惠与园区协议义务",
+     "trigger_fact": "语料提及「（发改/商务/外汇）备案与泰国BOI投资优惠申请；泰国劳工法与外籍员工配额；ME」（字段：db.③法务关注（）",
+     "text": "语料提及「（发改/商务/外汇）备案与泰国BOI投资优惠申请；泰国劳工法与外籍员工配额；ME」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I2.4 命中词「投资优惠」→ 投资优惠与园区义务；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I2.4",
+     "issue": "投资优惠与园区协议义务",
+     "trigger_fact": "ODI（发改/商务/外汇）备案与泰国BOI投资优惠申请",
+     "text": "ODI（发改/商务/外汇）备案与泰国BOI投资优惠申请",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资（拟设立境外二级子公司并实施项目建设）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资（拟设立境外二级子公司并实施项目建设）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「境内外审批不确定；国际贸易环境与关税变化；产能利用率与订单转移节奏错配；」（字段：watch_points）",
+     "text": "语料提及「境内外审批不确定；国际贸易环境与关税变化；产能利用率与订单转移节奏错配；」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -6271,7 +8308,13 @@
      "note": "新设子公司＋建设（电声元器件研发制造基地）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "泰国劳工法与外籍员工配额",
+     "basis": "入库分析基于《共达电声 2026-10-09：关于拟设立境外二级子公司的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-038",
@@ -6323,9 +8366,58 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "ODI项目备案；中非基金作为国家级股东的治理条款（随售/反稀释/项目分成）执行边界；埃及劳工、税务、环保合规；优先股赎回安排或构成隐性债务义务",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「ODI项目备案；中非基金作为国家级股东的治」（字段：db.③法务关注（）",
+     "text": "语料提及「ODI项目备案；中非基金作为国家级股东的治」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《昆明川金诺化工 2026-10-09：关于境外全资子公司川金诺国际有限公司向中非发》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "语料提及「《认购协议》先决条件未满足、交易时间不确定；优先股含回购」（字段：watch_points）",
+     "text": "语料提及「《认购协议》先决条件未满足、交易时间不确定；优先股含回购」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「特殊分配权）需与项目ROE匹配；美元募资匹配美元开支、汇率敞口小；公司资本金」（字段：practice_notes）",
+     "text": "语料提及「特殊分配权）需与项目ROE匹配；美元募资匹配美元开支、汇率敞口小；公司资本金」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资（境外子公司引入战略投资者：向中非发展基金发行优先股）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资（境外子公司引入战略投资者：向中非发展基金发行优先股）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「项目分成）执行边界；埃及劳工、税务、环保合规；优先股赎回安排或构成隐性债务义」（字段：db.③法务关注（）",
+     "text": "语料提及「项目分成）执行边界；埃及劳工、税务、环保合规；优先股赎回安排或构成隐性债务义」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -6386,7 +8478,17 @@
      "note": "增资/引入战投（发行优先股募资投向埃及项目）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "中非基金作为国家级股东的治理条款（随售/反稀释/项目分成）执行边界",
+     "basis": "入库分析基于《昆明川金诺化工 2026-10-09：关于境外全资子公司川金诺国际有限公司向中非发》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "优先股赎回安排或构成隐性债务义务",
+     "basis": "入库分析基于《昆明川金诺化工 2026-10-09：关于境外全资子公司川金诺国际有限公司向中非发》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-039",
@@ -6438,9 +8540,76 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "ODI备案（商务/发改/外汇）与越南投资许可、土地厂房购置合规；出口管制风险低；晶振专利（温补/差分技术）海外布局",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「ODI备案（商务/发改/外汇）与越南投资许」（字段：db.③法务关注（）",
+     "text": "语料提及「ODI备案（商务/发改/外汇）与越南投资许」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《泰晶科技 2026-10-09：关于对外投资设立境外全资子公司并建设生产基地》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "ODI备案（商务/发改/外汇）与越南投资许可、土地厂房购置合规",
+     "text": "ODI备案（商务/发改/外汇）与越南投资许可、土地厂房购置合规",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "text": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I11.2",
+     "issue": "商标与专利布局",
+     "trigger_fact": "语料提及「地厂房购置合规；出口管制风险低；晶振专利（温补/差分技术）海外布局」（字段：db.③法务关注（）",
+     "text": "语料提及「地厂房购置合规；出口管制风险低；晶振专利（温补/差分技术）海外布局」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I11.2 命中词「专利」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资（设立境外全资子公司并建设生产基地）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资（设立境外全资子公司并建设生产基地）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「）与越南投资许可、土地厂房购置合规；出口管制风险低；晶振专利（温补/差分技术）海」（字段：db.③法务关注（）",
+     "text": "语料提及「）与越南投资许可、土地厂房购置合规；出口管制风险低；晶振专利（温补/差分技术）海」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「（三星/立讯/歌尔链）就近配套机会；关税规避价值取决于美国是否将对华元件关税」（字段：practice_notes）",
+     "text": "语料提及「（三星/立讯/歌尔链）就近配套机会；关税规避价值取决于美国是否将对华元件关税」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.2",
+     "issue": "原产地与转运规避",
+     "trigger_fact": "语料提及「星/立讯/歌尔链）就近配套机会；关税规避价值取决于美国是否将对华元件关税延伸」（字段：practice_notes）",
+     "text": "语料提及「星/立讯/歌尔链）就近配套机会；关税规避价值取决于美国是否将对华元件关税延伸」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.2 命中词「规避」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -6682,36 +8851,40 @@
    },
    "legal_triggers": [
     {
-     "code": "I13.1",
-     "text": "跨市场披露同步：回购结果已刊登于公司网站及德国联邦公报（仅德文版本），并同步发布A股提示性公告",
-     "status": "disclosed_cleared",
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「一次A股类别股东会、D股类别股东会、H股类别股东会审议通过特别授权回购不超过」（字段：terms.approvals）",
+     "text": "语料提及「一次A股类别股东会、D股类别股东会、H股类别股东会审议通过特别授权回购不超过」（字段：terms.approvals）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225596438 P1结果刊载表述",
-     "evidence": {
-      "doc_id": "1225596438",
-      "page": 1,
-      "quote": "以及德国联邦公报"
-     }
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I13.2",
-     "text": "H股：本次回购对象为D股，不涉及H股发行或回购；H股类别股东会仅参与授权审议",
-     "status": "not_applicable",
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "H股：本次回购对象为D股，不涉及H股发行或回购",
+     "text": "H股：本次回购对象为D股，不涉及H股发行或回购",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225596438 授权议案经H股类别股东会审议，回购标的为D股",
-     "evidence": null
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I2",
-     "text": "德国市场规则：结果按德国要求在德国联邦公报（仅德文版本）刊登；要约适用的德国/欧盟具体规则条款未载于本公告",
-     "status": "disclosed_cleared",
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "H股类别股东会仅参与授权审议",
+     "text": "H股类别股东会仅参与授权审议",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225596438 P1联邦公报刊登事实",
-     "evidence": {
-      "doc_id": "1225596438",
-      "page": 1,
-      "quote": "刊登了本次自愿公开回购 D 股的结果"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外股份回购（D股自愿公开回购，全部注销）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外股份回购（D股自愿公开回购，全部注销）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -6864,6 +9037,20 @@
      "layer": "analysis",
      "basis": "1225596438 授权上限与回购数量"
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "跨市场披露同步：回购结果已刊登于公司网站及德国联邦公报（仅德文版本），并同步发布A股提示性公告",
+     "basis": "1225596438 P1结果刊载表述"
+    },
+    {
+     "text": "德国市场规则：结果按德国要求在德国联邦公报（仅德文版本）刊登",
+     "basis": "1225596438 P1联邦公报刊登事实"
+    },
+    {
+     "text": "要约适用的德国/欧盟具体规则条款未载于本公告",
+     "basis": "1225596438 P1联邦公报刊登事实"
+    }
    ]
   },
   {
@@ -6912,9 +9099,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《汉威科技 2026-10-09：关于发行境外上市股份（H股）备案申请材料获中》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「汉威科技集团：H股发行上市推进」（字段：title_fact）",
+     "text": "语料提及「汉威科技集团：H股发行上市推进」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「发行规模、保荐人、募资用途未披露。」（字段：gaps）",
+     "text": "语料提及「发行规模、保荐人、募资用途未披露。」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市进展（备案申请材料获证监会接收）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市进展（备案申请材料获证监会接收）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -6977,7 +9195,17 @@
      "note": "引文与原文 PDF 逐字核对修正（页码/繁简/括号/截断），事实表述不变（validate 引文回原文比对发现）"
     }
    ],
-   "update_type_latest": "修正"
+   "update_type_latest": "修正",
+   "legal_notes_unmapped": [
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《汉威科技 2026-10-09：关于发行境外上市股份（H股）备案申请材料获中》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《汉威科技 2026-10-09：关于发行境外上市股份（H股）备案申请材料获中》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-042",
@@ -7025,9 +9253,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《深圳新宙邦科技 2026-10-09：关于香港联交所审议公司发行境外上市外资股（H》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「深圳新宙邦科技：H股发行上市推进」（字段：title_fact）",
+     "text": "语料提及「深圳新宙邦科技：H股发行上市推进」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「发行规模、募资用途未披露。」（字段：gaps）",
+     "text": "语料提及「发行规模、募资用途未披露。」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市进展（联交所上市聆讯）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市进展（联交所上市聆讯）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -7080,7 +9339,17 @@
      "note": "H股发行上市推进（10-08上市聆讯，10-09收到审阅信函）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《深圳新宙邦科技 2026-10-09：关于香港联交所审议公司发行境外上市外资股（H》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《深圳新宙邦科技 2026-10-09：关于香港联交所审议公司发行境外上市外资股（H》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-043",
@@ -7128,9 +9397,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《深圳市绿联科技 2026-10-09：关于香港联交所审议公司发行境外上市股份（H股》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「深圳市绿联科技：H股发行上市推进」（字段：title_fact）",
+     "text": "语料提及「深圳市绿联科技：H股发行上市推进」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「发行规模、募资用途、保荐人身份未披露。」（字段：gaps）",
+     "text": "语料提及「发行规模、募资用途、保荐人身份未披露。」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市进展（联交所上市聆讯）」（来源：A股·巨潮 2026-10-09）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市进展（联交所上市聆讯）」（来源：A股·巨潮 2026-10-09）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -7183,7 +9483,17 @@
      "note": "H股发行上市推进（10-08上市聆讯，10-09独家保荐人收到审阅信函）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《深圳市绿联科技 2026-10-09：关于香港联交所审议公司发行境外上市股份（H股》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《深圳市绿联科技 2026-10-09：关于香港联交所审议公司发行境外上市股份（H股》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-044",
@@ -7235,9 +9545,31 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "INVIMA注册维持、西班牙语标签与上市后监督；FDA 510(k)已有；各国经销协议的质量与合规责任划分",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「自愿披露（医疗器械海外注册证）」（来源：A股·巨潮 2026-10-10）",
+     "text": "披露渠道原始分类：巨潮公告类型「自愿披露（医疗器械海外注册证）」（来源：A股·巨潮 2026-10-10）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I7.4",
+     "issue": "产品认证（CE/FCC/药械注册等）",
+     "trigger_fact": "语料提及「哥伦比亚（此前已获美国FDA 510(k)及泰国、印度、韩国、巴」（字段：geo）",
+     "text": "语料提及「哥伦比亚（此前已获美国FDA 510(k)及泰国、印度、韩国、巴」（字段：geo）",
+     "status": "disclosed_cleared",
      "layer": "analysis",
-     "basis": "入库分析基于《赛诺医疗科学技术 2026-10-10：关于公司产品在海外获得注册证的自愿性披露公告》披露原文生成（法务关注维度）"
+     "basis": "R-I7.4 命中词「FDA」→ 产品认证；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.4",
+     "issue": "产品认证（CE/FCC/药械注册等）",
+     "trigger_fact": "FDA 510(k)已有",
+     "text": "FDA 510(k)已有",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -7298,7 +9630,17 @@
      "note": "产品出口（冠脉介入器械注册）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "INVIMA注册维持、西班牙语标签与上市后监督",
+     "basis": "入库分析基于《赛诺医疗科学技术 2026-10-10：关于公司产品在海外获得注册证的自愿性披露公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "各国经销协议的质量与合规责任划分",
+     "basis": "入库分析基于《赛诺医疗科学技术 2026-10-10：关于公司产品在海外获得注册证的自愿性披露公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-045",
@@ -7350,16 +9692,67 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "ODI 发改委备案：公司已收到广东省发展和改革委员会出具的《境外投资项目备案通知书》，对并购粤丰环保7.22%股权项目予以备案；尚需关注反垄断申报与港交所收购守则程序（公告未逐项载明）",
-     "layer": "disclosed",
-     "basis": "公告标题即《…收到广东省发展和改革委员会〈境外投资项目备案通知书〉的公告》，正文载「予以备案」（raw/1225600386.txt P1）",
-     "code": "I1.1",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「广东发改委ODI备案已取得；尚需反垄断、港交所」（字段：db.③法务关注（）",
+     "text": "语料提及「广东发改委ODI备案已取得；尚需反垄断、港交所」（字段：db.③法务关注（）",
      "status": "disclosed_cleared",
-     "evidence": {
-      "doc_id": "1225600386",
-      "page": 1,
-      "quote": "公司收到了广东省发展和改革委员会出具的《境外投资项目备案通知书》"
-     }
+     "layer": "analysis",
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=并购；商务部境外投资备案在已核语料中未提及",
+     "text": "事项类型=并购；商务部境外投资备案在已核语料中未提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「配套募资不超过12亿元；本次备案对应现金购买」（字段：scale）",
+     "text": "语料提及「配套募资不超过12亿元；本次备案对应现金购买」（字段：scale）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.1",
+     "issue": "经营者集中申报（多法域）",
+     "trigger_fact": "尚需关注反垄断申报与港交所收购守则程序（公告未逐项载明）",
+     "text": "尚需关注反垄断申报与港交所收购守则程序（公告未逐项载明）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「并购重组进展（跨境并购取得境外投资项目备案）」（来源：A股·巨潮 2026-10-12）",
+     "text": "披露渠道原始分类：巨潮公告类型「并购重组进展（跨境并购取得境外投资项目备案）」（来源：A股·巨潮 2026-10-12）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「中国香港（标的粤丰环保电力为港股上市固废企业）」（字段：geo）",
+     "text": "语料提及「中国香港（标的粤丰环保电力为港股上市固废企业）」（字段：geo）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "ODI 发改委备案：公司已收到广东省发展和改革委员会出具的《境外投资项目备案通知书》，对并购粤丰环保7.22%股权项目予以备案",
+     "text": "ODI 发改委备案：公司已收到广东省发展和改革委员会出具的《境外投资项目备案通知书》，对并购粤丰环保7.22%股权项目予以备案",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -7607,36 +10000,76 @@
    },
    "legal_triggers": [
     {
-     "code": "I13",
-     "text": "资本市场发行口径：144A/S规例豁免路径，不在香港、美国公开发售，不向关连人士配售；公司拟寻求建议票据于联交所上市",
-     "status": "disclosed_cleared",
-     "layer": "analysis",
-     "basis": "hkex_12369276 P3 发售限制及上市段落",
-     "evidence": {
-      "doc_id": "hkex_12369276",
-      "page": 3,
-      "quote": "本公司擬尋求將建議票據於聯交所上市"
-     }
-    },
-    {
-     "code": "I10.3",
-     "text": "融资与担保：票据为发行人直接发行的优先票据，公告未载明是否存在子公司担保或增信安排",
+     "issue_code": "I1.3",
+     "issue": "外汇 ODI 登记及资金汇出",
+     "trigger_fact": "语料提及「境外发债的外汇登记（外债备案）；144A/Reg S口」（字段：db.③法务关注（）",
+     "text": "语料提及「境外发债的外汇登记（外债备案）；144A/Reg S口」（字段：db.③法务关注（）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "两份公告均无担保/维好条款表述",
-     "evidence": null
+     "basis": "R-I1.3 命中词「外汇登记」→ 外汇 ODI 登记及汇出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I3.3",
-     "text": "上市规则交易分类：发债不构成须予公布交易；公告明确不向关连人士配售，排除14A章关连交易",
-     "status": "not_applicable",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=发债；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=发债；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12369276 P2 排除关连人士配售表述",
-     "evidence": {
-      "doc_id": "hkex_12369276",
-      "page": 2,
-      "quote": "建議票據亦不會向本公司的任何關連人士配售"
-     }
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "语料提及「士发售；不在香港、美国或任何其他司法管辖区公开发售，不向关连人士配售；拟于联」（字段：geo）",
+     "text": "语料提及「士发售；不在香港、美国或任何其他司法管辖区公开发售，不向关连人士配售；拟于联」（字段：geo）",
+     "status": "disclosed_pending",
+     "layer": "analysis",
+     "basis": "R-I10.4 命中词「管辖」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.5",
+     "issue": "合资治理/僵局/退出",
+     "trigger_fact": "语料提及「国际市场：144A口径向美境内合资格机构买家及S规例离岸向非美籍人士发」（字段：geo）",
+     "text": "语料提及「国际市场：144A口径向美境内合资格机构买家及S规例离岸向非美籍人士发」（字段：geo）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.5 命中词「合资」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「各系列票据募集资金净额与逐项用途分配未在完成公告列示（」（字段：db.未披露事项）",
+     "text": "语料提及「各系列票据募集资金净额与逐项用途分配未在完成公告列示（」（字段：db.未披露事项）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外融资（全球中期票据计划下建议发行票据）」（来源：港股·披露易 2026-10-12）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外融资（全球中期票据计划下建议发行票据）」（来源：港股·披露易 2026-10-12）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「發行債務證券」（来源：港股·披露易 2026-10-12）",
+     "text": "披露渠道原始分类：披露易 headline「發行債務證券」（来源：港股·披露易 2026-10-12）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「S口径（公告称无意在美国公开发售）；制裁风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「S口径（公告称无意在美国公开发售）；制裁风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -7797,6 +10230,28 @@
      "text": "发行所得款项净额及用途未在完成公告列示，对净债务与流动性的实际影响待中期/年度报告确认",
      "layer": "analysis",
      "basis": "完成公告通篇未载所得款项用途段落"
+    }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "资本市场发行口径：144A/S规例豁免路径，不在香港、美国公开发售，不向关连人士配售",
+     "basis": "hkex_12369276 P3 发售限制及上市段落"
+    },
+    {
+     "text": "公司拟寻求建议票据于联交所上市",
+     "basis": "hkex_12369276 P3 发售限制及上市段落"
+    },
+    {
+     "text": "融资与担保：票据为发行人直接发行的优先票据，公告未载明是否存在子公司担保或增信安排",
+     "basis": "两份公告均无担保/维好条款表述"
+    },
+    {
+     "text": "上市规则交易分类：发债不构成须予公布交易",
+     "basis": "hkex_12369276 P2 排除关连人士配售表述"
+    },
+    {
+     "text": "公告明确不向关连人士配售，排除14A章关连交易",
+     "basis": "hkex_12369276 P2 排除关连人士配售表述"
     }
    ]
   },
@@ -7988,52 +10443,94 @@
    },
    "legal_triggers": [
     {
-     "code": "I3.3",
-     "text": "上市规则与授权边界：配售在2025年年度股东会一般性授权项下完成，新增股份占扩大后H股16.60%、总股本4.77%，且无承配人成为主要股东",
-     "status": "disclosed_cleared",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "语料提及「纳证券交易所债券上市批准；尚待：中国证监会备案（公告载「随后将…完成」备案）」（字段：terms.approvals）",
+     "text": "语料提及「纳证券交易所债券上市批准；尚待：中国证监会备案（公告载「随后将…完成」备案）」（字段：terms.approvals）",
+     "status": "disclosed_pending",
      "layer": "analysis",
-     "basis": "1225605853 P1一般性授权依据及摊薄比例、无主要股东表述",
-     "evidence": {
-      "doc_id": "1225605853",
-      "page": 1,
-      "quote": "约占经配发及发行配售股份扩大后的已发行 H 股总数 16.60%及已发行股份总数 4.77%"
-     }
+     "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I1",
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "trigger_fact": "境内出境监管：中国证监会备案为交割后义务，公告称随后将完成备案，截至公告日尚未完成",
      "text": "境内出境监管：中国证监会备案为交割后义务，公告称随后将完成备案，截至公告日尚未完成",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225605853 P2「三、中国证监会备案」节「随后将…完成」表述",
-     "evidence": {
-      "doc_id": "1225605853",
-      "page": 2,
-      "quote": "本公司随后将遵守中国证监会规定并完成与配售事项及债券发行有关的中国证监会备案"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I13.3",
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "语料提及「配售事项全部先决条件已达成（包括取得香港联交所上市委员会」（字段：terms.conditions_precedent）",
+     "text": "语料提及「配售事项全部先决条件已达成（包括取得香港联交所上市委员会」（字段：terms.conditions_precedent）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.2",
+     "issue": "价款调整/或有对价",
+     "trigger_fact": "或有摊薄：债券转换与否取决于持有人，悉数转换情景下H股总数增至147,091,341股、A股占比降至65.20%",
+     "text": "或有摊薄：债券转换与否取决于持有人，悉数转换情景下H股总数增至147,091,341股、A股占比降至65.20%",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「科技完成配售18,446,000股新H股（配售价105.16港元/股，净额约」（字段：title_fact）",
+     "text": "语料提及「科技完成配售18,446,000股新H股（配售价105.16港元/股，净额约」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "上市规则与授权边界：配售在2025年年度股东会一般性授权项下完成，新增股份占扩大后H股16.60%、总股本4.77%，且无承配人成为主要股东",
+     "text": "上市规则与授权边界：配售在2025年年度股东会一般性授权项下完成，新增股份占扩大后H股16.60%、总股本4.77%，且无承配人成为主要股东",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「美云服务商资本开支周期）对产能消化与募资使用效率的影响」（字段：watch_points）",
+     "text": "语料提及「美云服务商资本开支周期）对产能消化与募资使用效率的影响」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "募集资金使用：净额约15%用于一般企业用途及补充营运资金（7%偿还短期银行贷款约4.5748亿港元、5%一般企业开支、3%贸易应付款项管理），其余衔接招股章程光模块产能投向（800G/1.6T等）",
      "text": "募集资金使用：净额约15%用于一般企业用途及补充营运资金（7%偿还短期银行贷款约4.5748亿港元、5%一般企业开支、3%贸易应付款项管理），其余衔接招股章程光模块产能投向（800G/1.6T等）",
-     "status": "disclosed_cleared",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225605853 P2「四、配售事项及认购债券所得款项」节载明分项用途与金额",
-     "evidence": {
-      "doc_id": "1225605853",
-      "page": 2,
-      "quote": "所得款项净额中约 15%将用于一般企业用途及补充本公司的营运资金"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I10.2",
-     "text": "或有摊薄：债券转换与否取决于持有人，悉数转换情景下H股总数增至147,091,341股、A股占比降至65.20%；票面利率、期限与赎回/回售条款未载于本公告",
-     "status": "disclosed_pending",
-     "layer": "analysis",
-     "basis": "1225605853 P3股权结构表三情景；条款缺口见临2026-050号公告（本公告未附）",
-     "evidence": {
-      "doc_id": "1225605853",
-      "page": 3,
-      "quote": "紧随配售事项完成及债券按初步转换价每股 H 股 128.82 港元获悉数转换后"
-     }
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外融资完成（配售H股＋可转换债券）」（来源：A股·巨潮 2026-10-15）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外融资完成（配售H股＋可转换债券）」（来源：A股·巨潮 2026-10-15）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -8200,6 +10697,12 @@
      "basis": "1225605853 P4披露控股股东稀释后比例已低于10%，债券转换将进一步摊薄（P3情景表）",
      "evidence": null
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "票面利率、期限与赎回/回售条款未载于本公告",
+     "basis": "1225605853 P3股权结构表三情景；条款缺口见临2026-050号公告（本公告未附）"
+    }
    ]
   },
   {
@@ -8242,9 +10745,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《宁波江丰电子材料 2026-10-15：关于筹划发行H股股票并上市相关事项的提示性公》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「宁波江丰电子材料：筹划H股发行上市」（字段：title_fact）",
+     "text": "语料提及「宁波江丰电子材料：筹划H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「境外募资用途（海外产能/研发/并购）待方案披」（字段：practice_notes）",
+     "text": "语料提及「境外募资用途（海外产能/研发/并购）待方案披」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市筹划（董事会通过H股发行议案）」（来源：A股·巨潮 2026-10-15）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市筹划（董事会通过H股发行议案）」（来源：A股·巨潮 2026-10-15）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -8301,7 +10835,17 @@
      "note": "筹划H股发行上市（10-14董事会审议通过相关议案）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《宁波江丰电子材料 2026-10-15：关于筹划发行H股股票并上市相关事项的提示性公》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《宁波江丰电子材料 2026-10-15：关于筹划发行H股股票并上市相关事项的提示性公》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-049",
@@ -8539,72 +11083,130 @@
    },
    "legal_triggers": [
     {
-     "code": "I3.3",
-     "text": "上市规则交易分类：认购事项构成第14.29条视作出售、激励计划构成第14.32A条可能出售、杭州经韬认购权按第14.74(1)条视同悉数行使，合并计算最高适用百分比率超5%但低于25%，构成须予披露交易，豁免通函及股东批准",
-     "status": "disclosed_cleared",
-     "layer": "analysis",
-     "basis": "hkex_12374838 P2「《上市規則》之涵義」节：分类与豁免均由公告明示",
-     "evidence": {
-      "doc_id": "hkex_12374838",
-      "page": 2,
-      "quote": "認購事項根據《上市規則》第14.29 條構成本公司視作出售馬赫心科技的股權"
-     }
-    },
-    {
-     "code": "I10.1",
-     "text": "先决条件：两份认购协议的交割均以先决条件达成或豁免为前提，公告日期尚未交割；未披露最后期限日（long stop date）",
-     "status": "disclosed_pending",
-     "layer": "analysis",
-     "basis": "hkex_12374838 P4–P6先决条件清单及「完成須待先決條件獲達成及╱或豁免後方可作實」表述",
-     "evidence": {
-      "doc_id": "hkex_12374838",
-      "page": 2,
-      "quote": "認購事項的完成須待先決條件獲達成及╱或豁免後方可作實"
-     }
-    },
-    {
-     "code": "I10.2",
-     "text": "或有安排：杭州经韬认购权为或有追加认购（最高5亿元），行使与否由杭州经韬额外投资者而非本集团决定，可能或可能不会获行使",
-     "status": "disclosed_pending",
-     "layer": "analysis",
-     "basis": "hkex_12374838 P3认购权条款及失效条件；P2「杭州經韜認購權可能或可能不會獲行使」",
-     "evidence": {
-      "doc_id": "hkex_12374838",
-      "page": 3,
-      "quote": "可於2026 年12 月31 日前，按隱含購買價每單位註冊資本人民幣23.35元"
-     }
-    },
-    {
-     "code": "I10.3",
-     "text": "融资担保：公告明示概无就交易事项提供或须提供任何担保或抵押",
-     "status": "disclosed_cleared",
-     "layer": "analysis",
-     "basis": "hkex_12374838 P5付款节末句明示无担保抵押",
-     "evidence": {
-      "doc_id": "hkex_12374838",
-      "page": 5,
-      "quote": "概無就交易事項提供或須提供任何擔保或抵押"
-     }
-    },
-    {
-     "code": "I13.1",
-     "text": "两地披露同步：Nasdaq/HKEX双重上市主体同日（2026-10-16）以6-K新闻稿及联交所公告同步披露，6-K指引投资者参阅联交所公告全文",
-     "status": "disclosed_cleared",
-     "layer": "analysis",
-     "basis": "sec_000110465926116411 P1日期及指引句 vs hkex_12374838公告日期2026-10-16，两份文件同日发出",
-     "evidence": {
-      "doc_id": "sec_000110465926116411",
-      "page": 1,
-      "quote": "on the website of The Stock Exchange of Hong Kong Limited"
-     }
-    },
-    {
-     "code": "I1",
-     "text": "境内监管：认购价款支付至马赫心科技境内银行账户，增资涉及境内工商变更登记；公告未披露任何发改/商务/外汇部门审批要求，仅将「监管及第三方批准」笼统列为先决条件",
+     "issue_code": "I1.4",
+     "issue": "国资境外投资监管",
+     "trigger_fact": "语料提及「穿透核查投资者LP背景：本轮含国资背景LP（奇绩创坛三期66%合伙权益」（字段：practice_notes）",
+     "text": "语料提及「穿透核查投资者LP背景：本轮含国资背景LP（奇绩创坛三期66%合伙权益」（字段：practice_notes）",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12374838 P4先决条件(c)仅笼统称「所需的所有監管及第三方批准」，未指明具体审批机关；P5付款至境内指定银行账户",
-     "evidence": null
+     "basis": "R-I1.4 命中词「国资」→ 国资境外投资监管；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "语料提及「各投资者于所有先决条件达成后10个营业日内（且不迟于协议日」（字段：terms.payment）",
+     "text": "语料提及「各投资者于所有先决条件达成后10个营业日内（且不迟于协议日」（字段：terms.payment）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "先决条件：两份认购协议的交割均以先决条件达成或豁免为前提，公告日期尚未交割",
+     "text": "先决条件：两份认购协议的交割均以先决条件达成或豁免为前提，公告日期尚未交割",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "公告未披露任何发改/商务/外汇部门审批要求，仅将「监管及第三方批准」笼统列为先决条件",
+     "text": "公告未披露任何发改/商务/外汇部门审批要求，仅将「监管及第三方批准」笼统列为先决条件",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.2",
+     "issue": "价款调整/或有对价",
+     "trigger_fact": "或有安排：杭州经韬认购权为或有追加认购（最高5亿元），行使与否由杭州经韬额外投资者而非本集团决定，可能或可能不会获行使",
+     "text": "或有安排：杭州经韬认购权为或有追加认购（最高5亿元），行使与否由杭州经韬额外投资者而非本集团决定，可能或可能不会获行使",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "语料提及「认购协议的违约责任、适用法律与争议解决条款 先决条件未达成或一方违约时的救」（字段：gaps）",
+     "text": "语料提及「认购协议的违约责任、适用法律与争议解决条款 先决条件未达成或一方违约时的救」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.4 命中词「争议解决」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I11.2",
+     "issue": "商标与专利布局",
+     "trigger_fact": "语料提及「心科技现有财务数据与集团拟转让资产/知识产权的作价明细 150亿元投前估值的支撑」（字段：gaps）",
+     "text": "语料提及「心科技现有财务数据与集团拟转让资产/知识产权的作价明细 150亿元投前估值的支撑」（字段：gaps）",
+     "status": "disclosed_pending",
+     "layer": "analysis",
+     "basis": "R-I11.2 命中词「知识产权」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I12.1",
+     "issue": "境外诉讼仲裁",
+     "trigger_fact": "语料提及「条件：无限制性法律/判决/禁令及未决诉讼仲裁、马赫心股东及董事会批准、监管及」（字段：terms.conditions_precedent）",
+     "text": "语料提及「条件：无限制性法律/判决/禁令及未决诉讼仲裁、马赫心股东及董事会批准、监管及」（字段：terms.conditions_precedent）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I12.1 命中词「诉讼」→ 境外诉讼仲裁；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.1",
+     "issue": "两地/多地披露同步",
+     "trigger_fact": "同一事项经 2 个市场渠道披露：港股·披露易、美股·EDGAR",
+     "text": "同一事项经 2 个市场渠道披露：港股·披露易、美股·EDGAR",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I13.1-src：来源渠道数≥2（sources 字段计数）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「子公司融资（芯片与域控制器业务增资扩股）」（来源：美股·EDGAR 2026-10-16）",
+     "text": "披露渠道原始分类：巨潮公告类型「子公司融资（芯片与域控制器业务增资扩股）」（来源：美股·EDGAR 2026-10-16）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外上市主体旗下芯片业务股权融资）」（来源：港股·披露易 2026-10-16）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外上市主体旗下芯片业务股权融资）」（来源：港股·披露易 2026-10-16）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「須予披露的交易」（来源：港股·披露易 2026-10-16）",
+     "text": "披露渠道原始分类：披露易 headline「須予披露的交易」（来源：港股·披露易 2026-10-16）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「收入利润及资产，芯片业务商业化进度与出口管制环境（先进制程流片）需持续跟踪」（字段：watch_points）",
+     "text": "语料提及「收入利润及资产，芯片业务商业化进度与出口管制环境（先进制程流片）需持续跟踪」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -8810,6 +11412,28 @@
       "quote": "其尚未展開實質性商業營運，因此並無錄得任何收入或利潤"
      }
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "上市规则交易分类：认购事项构成第14.29条视作出售、激励计划构成第14.32A条可能出售、杭州经韬认购权按第14.74(1)条视同悉数行使，合并计算最高适用百分比率超5%但低于25%，构成须予披露交易，豁免通函及股东批准",
+     "basis": "hkex_12374838 P2「《上市規則》之涵義」节：分类与豁免均由公告明示"
+    },
+    {
+     "text": "未披露最后期限日（long stop date）",
+     "basis": "hkex_12374838 P4–P6先决条件清单及「完成須待先決條件獲達成及╱或豁免後方可作實」表述"
+    },
+    {
+     "text": "融资担保：公告明示概无就交易事项提供或须提供任何担保或抵押",
+     "basis": "hkex_12374838 P5付款节末句明示无担保抵押"
+    },
+    {
+     "text": "两地披露同步：Nasdaq/HKEX双重上市主体同日（2026-10-16）以6-K新闻稿及联交所公告同步披露，6-K指引投资者参阅联交所公告全文",
+     "basis": "sec_000110465926116411 P1日期及指引句 vs hkex_12374838公告日期2026-10-16，两份文件同日发出"
+    },
+    {
+     "text": "境内监管：认购价款支付至马赫心科技境内银行账户，增资涉及境内工商变更登记",
+     "basis": "hkex_12374838 P4先决条件(c)仅笼统称「所需的所有監管及第三方批准」，未指明具体审批机关；P5付款至境内指定银行账户"
+    }
    ]
   },
   {
@@ -8862,9 +11486,22 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "14A.54(1)重新遵守公告及独立股东批准；独立董事委员会+嘉林资本任独立财务顾问",
-     "layer": "analysis",
-     "basis": "入库分析基于《长城汽车 2026-10-16：修订持续关连交易之年度上限》披露原文生成（法务关注维度）"
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「持续关连交易（修订向董事长联系人采购产品的年度上限）」（来源：港股·披露易 2026-10-16）",
+     "text": "披露渠道原始分类：巨潮公告类型「持续关连交易（修订向董事长联系人采购产品的年度上限）」（来源：港股·披露易 2026-10-16）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「持續關連交易」（来源：港股·披露易 2026-10-16）",
+     "text": "披露渠道原始分类：披露易 headline「持續關連交易」（来源：港股·披露易 2026-10-16）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -8921,7 +11558,17 @@
      "note": "修订年度上限（补充协议二调高采购上限）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "14A.54(1)重新遵守公告及独立股东批准",
+     "basis": "入库分析基于《长城汽车 2026-10-16：修订持续关连交易之年度上限》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "独立董事委员会+嘉林资本任独立财务顾问",
+     "basis": "入库分析基于《长城汽车 2026-10-16：修订持续关连交易之年度上限》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-051",
@@ -8967,9 +11614,49 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "美国双反关税、UFLPA供应链溯源；东南亚产能的美方认定风险；出口管制低",
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「业绩预告（境内上市子公司前三季度预亏）」（来源：美股·EDGAR 2026-10-16）",
+     "text": "披露渠道原始分类：巨潮公告类型「业绩预告（境内上市子公司前三季度预亏）」（来源：美股·EDGAR 2026-10-16）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「应链溯源；东南亚产能的美方认定风险；出口管制低」（字段：db.③法务关注（）",
+     "text": "语料提及「应链溯源；东南亚产能的美方认定风险；出口管制低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《JinkoSolar Holding Co., Ltd.（晶科能源） 2026-10-16：6-K：控股子公司晶科能源（江西）2026年》披露原文生成（法务关注维度）"
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「外市场（美国/中东/欧洲）组件价格与关税；新兴市场出货占比」（字段：practice_notes）",
+     "text": "语料提及「外市场（美国/中东/欧洲）组件价格与关税；新兴市场出货占比」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "美国双反关税、UFLPA供应链溯源",
+     "text": "美国双反关税、UFLPA供应链溯源",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I9.4",
+     "issue": "强迫劳动（UFLPA 等）供应链尽调",
+     "trigger_fact": "语料提及「；减值与处置安排；美国对华光伏双反与UFLPA执行」（字段：watch_points）",
+     "text": "语料提及「；减值与处置安排；美国对华光伏双反与UFLPA执行」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.4 命中词「UFLPA」→ 强迫劳动供应链尽调；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -9026,7 +11713,13 @@
      "note": "业绩预告（净亏损区间披露）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "东南亚产能的美方认定风险",
+     "basis": "入库分析基于《JinkoSolar Holding Co., Ltd.（晶科能源） 2026-10-16：6-K：控股子公司晶科能源（江西）2026年》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-052",
@@ -9078,9 +11771,22 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "泰国BOI投资优惠与外资准入（汽车部件允许全资）；保密协议下的信息披露合规；产品责任与召回体系",
+     "issue_code": "I2.4",
+     "issue": "投资优惠与园区协议义务",
+     "trigger_fact": "语料提及「泰国BOI投资优惠与外资准入（汽车部件允许全资）；保密」（字段：db.③法务关注（）",
+     "text": "语料提及「泰国BOI投资优惠与外资准入（汽车部件允许全资）；保密」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《浙江天成自控 2026-10-17：关于海外子公司收到客户项目定点通知的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I2.4 命中词「投资优惠」→ 投资优惠与园区义务；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「经营事件（海外子公司获客户项目定点）」（来源：A股·巨潮 2026-10-17）",
+     "text": "披露渠道原始分类：巨潮公告类型「经营事件（海外子公司获客户项目定点）」（来源：A股·巨潮 2026-10-17）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -9141,7 +11847,17 @@
      "note": "签约（乘用车座椅总成项目定点）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "保密协议下的信息披露合规",
+     "basis": "入库分析基于《浙江天成自控 2026-10-17：关于海外子公司收到客户项目定点通知的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "产品责任与召回体系",
+     "basis": "入库分析基于《浙江天成自控 2026-10-17：关于海外子公司收到客户项目定点通知的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-053",
@@ -9183,9 +11899,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《苏州联讯仪器 2026-10-17：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「苏州联讯仪器：筹划H股发行上市」（字段：title_fact）",
+     "text": "语料提及「苏州联讯仪器：筹划H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「境外募资用途待披露」（字段：practice_notes）",
+     "text": "语料提及「境外募资用途待披露」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市筹划（董事会通过H股发行议案）」（来源：A股·巨潮 2026-10-17）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市筹划（董事会通过H股发行议案）」（来源：A股·巨潮 2026-10-17）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -9244,7 +11991,17 @@
      "note": "引文与原文 PDF 逐字核对修正（页码/繁简/括号/截断），事实表述不变（validate 引文回原文比对发现）"
     }
    ],
-   "update_type_latest": "修正"
+   "update_type_latest": "修正",
+   "legal_notes_unmapped": [
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《苏州联讯仪器 2026-10-17：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《苏州联讯仪器 2026-10-17：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-054",
@@ -9286,9 +12043,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《深圳嘉立创科技 2026-10-17：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「深圳嘉立创科技集团：筹划H股发行上市」（字段：title_fact）",
+     "text": "语料提及「深圳嘉立创科技集团：筹划H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「海外业务拓展与募资衔接待披露」（字段：practice_notes）",
+     "text": "语料提及「海外业务拓展与募资衔接待披露」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市筹划（董事会通过H股发行议案）」（来源：A股·巨潮 2026-10-17）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市筹划（董事会通过H股发行议案）」（来源：A股·巨潮 2026-10-17）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -9347,7 +12135,17 @@
      "note": "引文与原文 PDF 逐字核对修正（页码/繁简/括号/截断），事实表述不变（validate 引文回原文比对发现）"
     }
    ],
-   "update_type_latest": "修正"
+   "update_type_latest": "修正",
+   "legal_notes_unmapped": [
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《深圳嘉立创科技 2026-10-17：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《深圳嘉立创科技 2026-10-17：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-055",
@@ -9514,48 +12312,112 @@
    },
    "legal_triggers": [
     {
-     "code": "I2",
-     "text": "东道国准入：在尼日利亚、埃塞俄比亚承接工程涉及当地承包资质、劳工、税务登记等准入事项，公告未披露相关安排",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "1225610572全文仅披露项目建设地点与业主背景，未载两国承包资质/注册安排",
-     "evidence": null
-    },
-    {
-     "code": "I7",
-     "text": "贸易海关：分包范围含钢结构材料采购、制作加工、运输及安装，跨境交付涉及出口报关与东道国进口清关、关税安排，公告未披露贸易条款（如Incoterms）与清关责任划分",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "1225610572 P2分包工程范围条款，未载运输与清关责任",
-     "evidence": {
-      "doc_id": "1225610572",
-      "page": 2,
-      "quote": "分包工程范围：钢结构材料采购、制作加工、运输及安装"
-     }
-    },
-    {
-     "code": "I10.4",
-     "text": "争议解决：合同适用法律与争议解决方式（诉讼/仲裁及机构）未披露",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "1225610572披露的四项主要条款不含适用法律与争议解决",
-     "evidence": null
-    },
-    {
-     "code": "I10.3",
-     "text": "融资担保：公告未披露预付款保函、履约保函等担保安排",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "1225610572全文无保函/担保字样",
-     "evidence": null
-    },
-    {
-     "code": "I1",
+     "issue_code": "I1.6",
+     "issue": "对外承包工程/劳务合作资格",
+     "trigger_fact": "境内出境监管：对外工程承包项下的跨境收付汇、对外承包工程相关管理手续未披露",
      "text": "境内出境监管：对外工程承包项下的跨境收付汇、对外承包工程相关管理手续未披露",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "1225610572全文未提及备案或收付汇安排",
-     "evidence": null
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=销售合同；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=销售合同；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "语料提及「合同适用法律、争议解决方式及业主付款担保（保函/母公司信用」（字段：gaps）",
+     "text": "语料提及「合同适用法律、争议解决方式及业主付款担保（保函/母公司信用」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.4 命中词「争议解决」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "争议解决：合同适用法律与争议解决方式（诉讼/仲裁及机构）未披露",
+     "text": "争议解决：合同适用法律与争议解决方式（诉讼/仲裁及机构）未披露",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I11.2",
+     "issue": "商标与专利布局",
+     "trigger_fact": "语料提及「款；制裁与出口管制风险低；钢结构设计知识产权随工程输出需合同约定保护」（字段：db.③法务关注（）",
+     "text": "语料提及「款；制裁与出口管制风险低；钢结构设计知识产权随工程输出需合同约定保护」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I11.2 命中词「知识产权」→ 商标与专利；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I12.1",
+     "issue": "境外诉讼仲裁",
+     "trigger_fact": "语料提及「关清关合规；合同适用法律与争议解决（仲裁）条款；制裁与出口管制风险低；钢结构」（字段：db.③法务关注（）",
+     "text": "语料提及「关清关合规；合同适用法律与争议解决（仲裁）条款；制裁与出口管制风险低；钢结构」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I12.1 命中词「仲裁」→ 境外诉讼仲裁；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「重大合同（海外项目签约）」（来源：A股·巨潮 2026-10-20）",
+     "text": "披露渠道原始分类：巨潮公告类型「重大合同（海外项目签约）」（来源：A股·巨潮 2026-10-20）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「用法律与争议解决（仲裁）条款；制裁与出口管制风险低；钢结构设计知识产权随工程输出」（字段：db.③法务关注（）",
+     "text": "语料提及「用法律与争议解决（仲裁）条款；制裁与出口管制风险低；钢结构设计知识产权随工程输出」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「合同适用法律与争议解决（仲裁）条款；制裁与出口管制风险低；钢结构设计知识产权」（字段：db.③法务关注（）",
+     "text": "语料提及「合同适用法律与争议解决（仲裁）条款；制裁与出口管制风险低；钢结构设计知识产权」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "语料提及「Incoterms、目的港清关责任、关税承担与安装阶段当地用工/签证安排」（字段：practice_notes）",
+     "text": "语料提及「Incoterms、目的港清关责任、关税承担与安装阶段当地用工/签证安排」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.1 命中词「关税」→ 关税/贸易救济；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.1",
+     "issue": "关税/301/232/反倾销反补贴",
+     "trigger_fact": "贸易海关：分包范围含钢结构材料采购、制作加工、运输及安装，跨境交付涉及出口报关与东道国进口清关、关税安排，公告未披露贸易条款（如Incoterms）与清关责任划分",
+     "text": "贸易海关：分包范围含钢结构材料采购、制作加工、运输及安装，跨境交付涉及出口报关与东道国进口清关、关税安排，公告未披露贸易条款（如Incoterms）与清关责任划分",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I8.1",
+     "issue": "常设机构与转让定价",
+     "trigger_fact": "语料提及「包资质、税务与用工安排 东道国准入与常设机构税务风险直接影响项目利润 公司海外经」（字段：gaps）",
+     "text": "语料提及「包资质、税务与用工安排 东道国准入与常设机构税务风险直接影响项目利润 公司海外经」（字段：gaps）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I8.1 命中词「常设机构」→ 常设机构/转让定价；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -9714,6 +12576,16 @@
       "quote": "建成后将成为东非地区规模最大的现代化化肥生产基地"
      }
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "东道国准入：在尼日利亚、埃塞俄比亚承接工程涉及当地承包资质、劳工、税务登记等准入事项，公告未披露相关安排",
+     "basis": "1225610572全文仅披露项目建设地点与业主背景，未载两国承包资质/注册安排"
+    },
+    {
+     "text": "融资担保：公告未披露预付款保函、履约保函等担保安排",
+     "basis": "1225610572全文无保函/担保字样"
+    }
    ]
   },
   {
@@ -9766,9 +12638,76 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "跨境资金出境（ODI项下股东借款/外债登记）；阿联酋自由区公司与电站合规（劳工、税务、环保）；PPA长期合同义务；与EDF对等治理安排；制裁与出口管制风险低",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「跨境资金出境（ODI项下股东借款/外债登记）；阿联酋自由」（字段：db.③法务关注（）",
+     "text": "语料提及「跨境资金出境（ODI项下股东借款/外债登记）；阿联酋自由」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《晶科电力科技 2026-10-21：关于为境外合资公司提供财务资助的公告》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「ODI」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料含「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I10.5",
+     "issue": "合资治理/僵局/退出",
+     "trigger_fact": "语料提及「合资公司2025年度净亏10,284.8」（字段：watch_points）",
+     "text": "语料提及「合资公司2025年度净亏10,284.8」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I10.5 命中词「合资」→ 合资治理/退出；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资/财务资助（境外合资公司股东借款）」（来源：A股·巨潮 2026-10-21）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资/财务资助（境外合资公司股东借款）」（来源：A股·巨潮 2026-10-21）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「同义务；与EDF对等治理安排；制裁与出口管制风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「同义务；与EDF对等治理安排；制裁与出口管制风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「长期合同义务；与EDF对等治理安排；制裁与出口管制风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「长期合同义务；与EDF对等治理安排；制裁与出口管制风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「酋自由区公司与电站合规（劳工、税务、环保）；PPA长期合同义务；与EDF对等」（字段：db.③法务关注（）",
+     "text": "语料提及「酋自由区公司与电站合规（劳工、税务、环保）；PPA长期合同义务；与EDF对等」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "阿联酋自由区公司与电站合规（劳工、税务、环保）",
+     "text": "阿联酋自由区公司与电站合规（劳工、税务、环保）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     }
    ],
    "watch_points": [
@@ -9829,7 +12768,17 @@
      "note": "股东借款（对境外合资公司财务资助，用于置换存量银行贷款）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "PPA长期合同义务",
+     "basis": "入库分析基于《晶科电力科技 2026-10-21：关于为境外合资公司提供财务资助的公告》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "与EDF对等治理安排",
+     "basis": "入库分析基于《晶科电力科技 2026-10-21：关于为境外合资公司提供财务资助的公告》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-057",
@@ -9881,23 +12830,58 @@
    "terms": null,
    "legal_triggers": [
     {
-     "code": "I13.1",
-     "text": "多地披露同步：境外控股子公司兖煤澳洲（澳交所YAL/联交所03668）发布季度运营数据，A股母公司同日以临时公告（临2026-077）转发主要数据——A股/港股/澳股三地披露义务联动",
-     "status": "disclosed",
+     "issue_code": "I2.3",
+     "issue": "土地/矿权/特许权",
+     "trigger_fact": "语料提及「澳元汇率折算敞口；销量下滑；澳洲资源特许权使用费与环保、原住民遗产合规；中澳关」（字段：watch_points）",
+     "text": "语料提及「澳元汇率折算敞口；销量下滑；澳洲资源特许权使用费与环保、原住民遗产合规；中澳关」（字段：watch_points）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "公告编号「临2026-077」及首段对子公司公告的转述（raw/1225612269.txt P1）",
-     "evidence": {
-      "doc_id": "1225612269",
-      "page": 1,
-      "quote": "境外控股子公司发布 2026 年第三季度产量销量"
-     }
+     "basis": "R-I2.3 命中词「特许权」→ 土地/矿权/特许权；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I2.3",
-     "text": "矿业资产持续运营本身不新增审批触发；本披露为存量资产运营数据，未涉及矿权/特许权变动",
-     "status": "not_applicable",
+     "issue_code": "I2.3",
+     "issue": "土地/矿权/特许权",
+     "trigger_fact": "本披露为存量资产运营数据，未涉及矿权/特许权变动",
+     "text": "本披露为存量资产运营数据，未涉及矿权/特许权变动",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "公告全文仅为产量/销量/价格数据表，无任何矿权、审批、交易事项表述（2026-10-26 逐页复核 raw/1225612269.txt 共2页）"
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「经营数据（境外控股子公司运营数据）」（来源：A股·巨潮 2026-10-21）",
+     "text": "披露渠道原始分类：巨潮公告类型「经营数据（境外控股子公司运营数据）」（来源：A股·巨潮 2026-10-21）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I4.1",
+     "issue": "美国 EAR/实体清单/FDPR",
+     "trigger_fact": "语料提及「港两地上市的信息披露同步义务；制裁与出口管制风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「港两地上市的信息披露同步义务；制裁与出口管制风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「护；澳港两地上市的信息披露同步义务；制裁与出口管制风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「护；澳港两地上市的信息披露同步义务；制裁与出口管制风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「口；销量下滑；澳洲资源特许权使用费与环保、原住民遗产合规；中澳关系变化」（字段：watch_points）",
+     "text": "语料提及「口；销量下滑；澳洲资源特许权使用费与环保、原住民遗产合规；中澳关系变化」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -9974,7 +12958,17 @@
      "note": "删除执业提示中无原文或外部来源支撑的断言（「与必和必拓、嘉能可同列澳洲煤炭市占率前三」「客户为日韩印…长协」「2025年税后利润-64%」）；执业提示改为口径核查动作并补引文；法律触发点由模板式枚举改为与本披露直接相关的两地披露同步（I13.1 disclosed）+矿权不适用说明"
     }
    ],
-   "update_type_latest": "修正"
+   "update_type_latest": "修正",
+   "legal_notes_unmapped": [
+    {
+     "text": "多地披露同步：境外控股子公司兖煤澳洲（澳交所YAL/联交所03668）发布季度运营数据，A股母公司同日以临时公告（临2026-077）转发主要数据——A股/港股/澳股三地披露义务联动",
+     "basis": "公告编号「临2026-077」及首段对子公司公告的转述（raw/1225612269.txt P1）"
+    },
+    {
+     "text": "矿业资产持续运营本身不新增审批触发",
+     "basis": "公告全文仅为产量/销量/价格数据表，无任何矿权、审批、交易事项表述（2026-10-26 逐页复核 raw/1225612269.txt 共2页）"
+    }
+   ]
   },
   {
    "event_id": "E-058",
@@ -10219,52 +13213,58 @@
    },
    "legal_triggers": [
     {
-     "code": "I3.3",
-     "text": "第14A章关连交易：买方为控股股东（持约68.37%）；适用百分比率超过0.1%但少于5%，须遵守申报及公告规定，获豁免独立股东批准",
-     "status": "disclosed_cleared",
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "语料提及「对价由集团公司于所有先决条件满足后30个工作日内以现金方式一次性」（字段：terms.payment）",
+     "text": "语料提及「对价由集团公司于所有先决条件满足后30个工作日内以现金方式一次性」（字段：terms.payment）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12378281 P1、P7 上市规则的影响",
-     "evidence": {
-      "doc_id": "hkex_12378281",
-      "page": 1,
-      "quote": "出售事項須遵守申報及公告規定，但獲豁免遵守獨立股東批准的規定"
-     }
+     "basis": "R-I10.1 命中词「先决条件」→ 先决条件与长停止日；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     },
     {
-     "code": "I10.1",
+     "issue_code": "I10.1",
+     "issue": "先决条件与长停止日",
+     "trigger_fact": "先决条件含财政部、金融监管总局等外部批准/备案（保险公司股权变更审批），并设签署后180日长停止日，逾期协议自动终止",
      "text": "先决条件含财政部、金融监管总局等外部批准/备案（保险公司股权变更审批），并设签署后180日长停止日，逾期协议自动终止",
-     "status": "disclosed_pending",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12378281 P3 先决条件(c)及长停止条款；公告未载批准已取得",
-     "evidence": {
-      "doc_id": "hkex_12378281",
-      "page": 3,
-      "quote": "取得中國財政部、金融監管總局等 全部必要的外部批准及/或備案"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I10.2",
+     "issue_code": "I10.2",
+     "issue": "价款调整/或有对价",
+     "trigger_fact": "或有对价：固定现金对价按评估值厘定，无或有对价或价格调整机制",
      "text": "或有对价：固定现金对价按评估值厘定，无或有对价或价格调整机制",
-     "status": "not_applicable",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12378281 P2 代价及支付条款",
-     "evidence": {
-      "doc_id": "hkex_12378281",
-      "page": 2,
-      "quote": "該代價乃根據評估師按照收益法對養老險公司股東全部權益"
-     }
+     "basis": "旧轮入库分析文本归码（legal_map 关键词映射）；原文处理状态未核查"
     },
     {
-     "code": "I13",
-     "text": "收益法评估构成上市规则第14.61条盈利预测：申报会计师德勤已按14.60A(2)出具鉴证报告，董事会按14.60A(3)确认盈利预测经适当及审慎查询",
-     "status": "disclosed_cleared",
+     "issue_code": "I10.4",
+     "issue": "争议解决与适用法",
+     "trigger_fact": "语料提及「款与公告摘要是否一致（尤其违约责任、争议解决等未披露条款）」（字段：watch_points）",
+     "text": "语料提及「款与公告摘要是否一致（尤其违约责任、争议解决等未披露条款）」（字段：watch_points）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "hkex_12378281 P6-P7、附录二、附录三",
-     "evidence": {
-      "doc_id": "hkex_12378281",
-      "page": 6,
-      "quote": "評估構成上市規則第14.61條下的盈利預測"
-     }
+     "basis": "R-I10.4 命中词「争议解决」→ 争议解决与适用法；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「资产出售（向控股股东出售附属公司股权，关连交易）」（来源：港股·披露易 2026-10-21）",
+     "text": "披露渠道原始分类：巨潮公告类型「资产出售（向控股股东出售附属公司股权，关连交易）」（来源：港股·披露易 2026-10-21）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：披露易 headline「關連交易」（来源：港股·披露易 2026-10-21）",
+     "text": "披露渠道原始分类：披露易 headline「關連交易」（来源：港股·披露易 2026-10-21）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -10407,6 +13407,20 @@
      "layer": "analysis",
      "basis": "hkex_12378281 P6 出售事项的理由与利益"
     }
+   ],
+   "legal_notes_unmapped": [
+    {
+     "text": "第14A章关连交易：买方为控股股东（持约68.37%）",
+     "basis": "hkex_12378281 P1、P7 上市规则的影响"
+    },
+    {
+     "text": "适用百分比率超过0.1%但少于5%，须遵守申报及公告规定，获豁免独立股东批准",
+     "basis": "hkex_12378281 P1、P7 上市规则的影响"
+    },
+    {
+     "text": "收益法评估构成上市规则第14.61条盈利预测：申报会计师德勤已按14.60A(2)出具鉴证报告，董事会按14.60A(3)确认盈利预测经适当及审慎查询",
+     "basis": "hkex_12378281 P6-P7、附录二、附录三"
+    }
    ]
   },
   {
@@ -10449,9 +13463,40 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批；24个月股东会决议有效期内择机发行",
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《奥士康科技 2026-10-21：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+     "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "trigger_fact": "语料提及「奥士康科技：筹划H股发行上市」（字段：title_fact）",
+     "text": "语料提及「奥士康科技：筹划H股发行上市」（字段：title_fact）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I13.3",
+     "issue": "募集资金境外使用",
+     "trigger_fact": "语料提及「AI服务器板等高阶产能的境外募资安排待披露」（字段：practice_notes）",
+     "text": "语料提及「AI服务器板等高阶产能的境外募资安排待披露」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I13.3 命中词「募资」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市筹划（董事会通过H股发行议案）」（来源：A股·巨潮 2026-10-21）",
+     "text": "披露渠道原始分类：巨潮公告类型「境外上市筹划（董事会通过H股发行议案）」（来源：A股·巨潮 2026-10-21）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
     }
    ],
    "watch_points": [
@@ -10510,7 +13555,17 @@
      "note": "引文与原文 PDF 逐字核对修正（页码/繁简/括号/截断），事实表述不变（validate 引文回原文比对发现）"
     }
    ],
-   "update_type_latest": "修正"
+   "update_type_latest": "修正",
+   "legal_notes_unmapped": [
+    {
+     "text": "《境内企业境外发行证券和上市管理试行办法》备案程序＋香港联交所/证监会审批",
+     "basis": "入库分析基于《奥士康科技 2026-10-21：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "24个月股东会决议有效期内择机发行",
+     "basis": "入库分析基于《奥士康科技 2026-10-21：关于筹划发行H股股票并在香港联合交易所有限公》披露原文生成（法务关注维度）"
+    }
+   ]
   },
   {
    "event_id": "E-060",
@@ -10562,9 +13617,58 @@
    "terms": null,
    "legal_triggers": [
     {
-     "text": "境内ODI备案（发改委/商务/外汇）办理进度未披露；摩洛哥投资准入与穆罕默德六世丹吉尔科技城优惠政策条件；欧盟CBAM及化学品法规（REACH）对轮胎出口的合规要求；制裁风险低",
+     "issue_code": "I1.1",
+     "issue": "ODI 发改委备案/核准",
+     "trigger_fact": "语料提及「境内ODI备案（发改委/商务/外汇）办理进度未披露；摩洛哥」（字段：db.③法务关注（）",
+     "text": "语料提及「境内ODI备案（发改委/商务/外汇）办理进度未披露；摩洛哥」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（法务关注维度）"
+     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I1.2",
+     "issue": "商务部境外投资备案",
+     "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "text": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I1.2-mt：同上规则组"
+    },
+    {
+     "issue_code": "I3.3",
+     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外子公司完成注册登记）」（来源：A股·巨潮 2026-10-22）",
+     "text": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外子公司完成注册登记）」（来源：A股·巨潮 2026-10-22）",
+     "status": "disclosed_cleared",
+     "layer": "disclosed",
+     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）"
+    },
+    {
+     "issue_code": "I5.1",
+     "issue": "OFAC SDN/50% 规则",
+     "trigger_fact": "语料提及「（REACH）对轮胎出口的合规要求；制裁风险低」（字段：db.③法务关注（）",
+     "text": "语料提及「（REACH）对轮胎出口的合规要求；制裁风险低」（字段：db.③法务关注（）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I5.1 命中词「制裁」→ 制裁名单风险；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I7.2",
+     "issue": "原产地与转运规避",
+     "trigger_fact": "语料提及「轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则；竞争面对森麒麟等同址中资与米其」（字段：practice_notes）",
+     "text": "语料提及「轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则；竞争面对森麒麟等同址中资与米其」（字段：practice_notes）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I7.2 命中词「原产地」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+    },
+    {
+     "issue_code": "I9.3",
+     "issue": "环保、原住民/社区权益",
+     "trigger_fact": "语料提及「加投资规模未披露；摩洛哥劳工、税务与环保合规成本；欧美贸易政策变动；注册资本」（字段：watch_points）",
+     "text": "语料提及「加投资规模未披露；摩洛哥劳工、税务与环保合规成本；欧美贸易政策变动；注册资本」（字段：watch_points）",
+     "status": "not_disclosed",
+     "layer": "analysis",
+     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
     }
    ],
    "watch_points": [
@@ -10625,7 +13729,17 @@
      "note": "境外设企（全资二级子公司注册落地）"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "新增",
+   "legal_notes_unmapped": [
+    {
+     "text": "摩洛哥投资准入与穆罕默德六世丹吉尔科技城优惠政策条件",
+     "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（法务关注维度）"
+    },
+    {
+     "text": "欧盟CBAM及化学品法规（REACH）对轮胎出口的合规要求",
+     "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（法务关注维度）"
+    }
+   ]
   }
  ],
  "docs": {
