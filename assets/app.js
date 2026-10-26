@@ -73,7 +73,8 @@
 
   /* ── 事件派生索引 ── */
   // 国家归一（看板矩阵/筛选用）：取 geo 文本「（」前第一段、按全半角分隔符拆分后
-  // 首个非「中国」的国家/地区（出海语境下中国为来源地）；多国事项计入首列国，口径在矩阵下注明
+  // 首个非「中国」的国家/地区（出海语境下中国为来源地）；多国事项计入首列国，口径在矩阵下注明。
+  // 附加归一：剥离「：」后口径说明；城市/港口级表述按国名前缀归一（埃及亚历山大省阿拉伯堡市→埃及）
   var GEO_SKIP = { "全球": "多国/全球", "海外": "多国/全球", "境外": "多国/全球", "国际市场": "多国/全球" };
   function countryOf(geoText) {
     if (!geoText) return "未披露";
@@ -84,9 +85,16 @@
     for (var i = 0; i < parts.length; i++) {
       if (parts[i] !== "中国" && parts[i] !== "中国大陆") { c = parts[i]; break; }
     }
-    if (c.indexOf("澳大利亚") === 0 && c !== "澳大利亚") c = "澳大利亚";
-    if (GEO_SKIP[c]) return GEO_SKIP[c];
+    // 剥离「：口径说明」尾巴（如「国际市场：144A口径向美境内…发售」→ 国际市场 → 多国/全球）
+    c = c.split(/[：:]/)[0].trim();
     if (c === "香港" || c === "中国香港") return "中国香港";
+    if (GEO_SKIP[c]) return GEO_SKIP[c];
+    // 城市/港口级表述归一到国名（如「埃及亚历山大省阿拉伯堡市」→ 埃及、「中国上海」→ 中国）
+    var GEO_PREFIX = ["澳大利亚", "埃及", "中国"];
+    for (var j = 0; j < GEO_PREFIX.length; j++) {
+      var k = GEO_PREFIX[j];
+      if (c !== k && c.indexOf(k) === 0) { c = k; break; }
+    }
     return c;
   }
   // 金额解析：scale 文本首个「数字+万/亿+币种」→ {val(亿), cur}；无则 null（不推测）
@@ -686,7 +694,7 @@
       + e.parties.map(function (p) {
         return '<div class="sec"><span class="sk">' + esc(p.role) + " " + layerBadge(p.layer || "disclosed") + '</span>' + esc(p.name)
           + (p.relation_to_listed ? ' <span class="dim">（' + esc(p.relation_to_listed) + "）</span>" : "")
-          + (p.stake_pct != null ? ' <span class="dim">持股 ' + esc(String(p.stake_pct)) + "%</span>" : "")
+          + (p.stake_pct != null ? ' <span class="dim">持股 ' + esc(String(p.stake_pct)) + (typeof p.stake_pct === "number" ? "%" : "") + "</span>" : "")
           + (p.basis ? ' <span class="dim">（' + esc(p.basis) + "）</span>" : "") + evHtml(p.evidence) + "</div>";
       }).join("")
       + (e.holding_chain && e.holding_chain.text ? '<div class="sec"><span class="sk">持股链 ' + layerBadge(e.holding_chain.layer || "disclosed") + "</span>"

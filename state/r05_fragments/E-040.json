@@ -1,146 +1,347 @@
 {
-  "event_id": "E-040",
-  "title_fact": {
-    "text": "海尔智家确定自愿公开回购境外上市外资股（D股）79,392,362股（约占公司总股本0.853%），该等回购股份将全部注销",
-    "layer": "disclosed",
-    "basis": "1225596438 重要内容提示",
-    "evidence": {"doc_id": "1225596438", "page": 1, "quote": "定自愿公开回购境外上市外资股（D股）79,392,362股，该等回购股份将全部\n注销"}
+ "event_id": "E-040",
+ "title_fact": {
+  "text": "海尔智家确定自愿公开回购境外上市外资股（D股）79,392,362股（约占公司总股本0.853%），该等回购股份将全部注销",
+  "layer": "disclosed",
+  "basis": "1225596438 重要内容提示",
+  "evidence": {
+   "doc_id": "1225596438",
+   "page": 1,
+   "quote": "定自愿公开回购境外上市外资股（D股）79,392,362股，该等回购股份将全部\n注销"
+  }
+ },
+ "importance": {
+  "level": "A",
+  "reason": "跨市场（A/H/D）上市主体对境外上市外资股实施自愿公开回购并注销，回购规模79,392,362股、减少总股本0.853%，涉及德国市场披露程序与公司D股市场存续安排",
+  "layer": "analysis",
+  "basis": "1225596438 回购数量与占比、结果刊载德国联邦公报"
+ },
+ "holding_chain": {
+  "text": "回购主体即上市主体海尔智家股份有限公司，直接回购并注销自身境外上市外资股（D股）79,392,362股，无中间持股结构",
+  "layer": "disclosed",
+  "basis": "1225596438 P1 公告首段",
+  "evidence": {
+   "doc_id": "1225596438",
+   "page": 1,
+   "quote": "确定自愿公开回购境外上市外资股（D股）79,392,362股"
+  }
+ },
+ "parties": [
+  {
+   "name": "海尔智家股份有限公司",
+   "role": "上市主体",
+   "relation_to_listed": null,
+   "stake_pct": null,
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "海尔智家股份有限公司"
+   },
+   "basis": null
   },
-  "importance": {
-    "level": "A",
-    "reason": "跨市场（A/H/D）上市主体对境外上市外资股实施自愿公开回购并注销，回购规模79,392,362股、减少总股本0.853%，涉及德国市场披露程序与公司D股市场存续安排",
-    "layer": "analysis",
-    "basis": "1225596438 回购数量与占比、结果刊载德国联邦公报"
+  {
+   "name": "D股股东（回购要约对象）",
+   "role": "合作方/交易对手",
+   "relation_to_listed": "公司境外上市外资股（D股）持有人；回购结果已刊登于公司网站及德国联邦公报（仅德文版本）",
+   "stake_pct": null,
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "刊登了本次自愿公开回购 D 股的结果"
+   },
+   "basis": null
+  }
+ ],
+ "geo": {
+  "text": "德国（境外上市外资股D股上市地；回购结果刊载于德国联邦公报）",
+  "layer": "disclosed",
+  "evidence": {
+   "doc_id": "1225596438",
+   "page": 1,
+   "quote": "以及德国联邦公报"
+  }
+ },
+ "matter_type": {
+  "value": "回购",
+  "layer": "analysis",
+  "basis": "公告为自愿公开回购境外上市外资股（D股）并注销；原'融资'归类不准，更正为回购"
+ },
+ "stage_current": "实施（回购数量已确定，待注销）",
+ "stage_chain": [
+  {
+   "date": "2026-06-24",
+   "stage": "授权",
+   "doc_id": "1225596438",
+   "note": "2025年年度股东会及2026年第一次A股/D股/H股类别股东会审议通过特别授权回购不超过已发行D股股份总数30%的议案",
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "提请股东会特别授权回购不超过已发行 D 股股份\n总数 30%相关事宜的议案"
+   }
   },
-  "holding_chain": null,
-  "parties": [
+  {
+   "date": "2026-09-03",
+   "stage": "启动要约",
+   "doc_id": "1225596438",
+   "note": "披露《关于自愿公开回购境外上市外资股（D股）的提示性公告》，启动D股回购要约",
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "公司启动 D 股\n回购要约事宜"
+   }
+  },
+  {
+   "date": "2026-09-29",
+   "stage": "要约截止",
+   "doc_id": "1225596438",
+   "note": "回购要约接受期届满（2026-09-04 00:00至2026-09-29 24:00，欧洲中部夏令时）",
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "至 2026 年 9 月 29 日 24:00（欧洲中部夏令时）结束"
+   }
+  },
+  {
+   "date": "2026-10-09",
+   "stage": "数量确定",
+   "doc_id": "1225596438",
+   "note": "确定回购D股79,392,362股（约占总股本0.853%）并将全部注销，结果已刊载公司网站及德国联邦公报；截至公告出具日尚未注销",
+   "layer": "disclosed",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "截至本公告出具日，前述回购 D 股尚未注销"
+   }
+  }
+ ],
+ "scale": {
+  "text": "回购D股79,392,362股，约占公司总股本的0.853%；要约价格与回购资金总额未载于本公告",
+  "layer": "disclosed",
+  "evidence": {
+   "doc_id": "1225596438",
+   "page": 1,
+   "quote": "约占公司总股本的 0.853%"
+  }
+ },
+ "terms": {
+  "completeness": "仅摘要条款",
+  "completeness_basis": "本公告仅载回购数量、占比、注销安排及要约接受期；要约价格、资金安排等条款载于2026-09-03提示性公告及德国市场要约文件，未在本公告披露",
+  "fields": {
+   "payment": {
+    "value": null,
+    "evidence": null
+   },
+   "conditions_precedent": {
+    "value": null,
+    "evidence": null
+   },
+   "approvals": {
+    "value": "2026年6月24日公司2025年年度股东会、2026年第一次A股类别股东会、D股类别股东会、H股类别股东会审议通过特别授权回购不超过已发行D股股份总数30%的议案",
+    "evidence": {
+     "doc_id": "1225596438",
+     "page": 1,
+     "quote": "公司 2025 年年度股东会、2026 年第一次 A 股类别股东\n会"
+    }
+   },
+   "contingent": {
+    "value": null,
+    "evidence": null
+   },
+   "completion_adjustment": {
+    "value": null,
+    "evidence": null
+   },
+   "deposit": {
+    "value": null,
+    "evidence": null
+   },
+   "long_stop_date": {
+    "value": "回购要约接受期至2026年9月29日24:00（欧洲中部夏令时）结束，已届满",
+    "evidence": {
+     "doc_id": "1225596438",
+     "page": 1,
+     "quote": "至 2026 年 9 月 29 日 24:00（欧洲中部夏令时）结束"
+    }
+   },
+   "breach": {
+    "value": null,
+    "evidence": null
+   },
+   "reps_warranties": {
+    "value": null,
+    "evidence": null
+   },
+   "transition": {
+    "value": null,
+    "evidence": null
+   },
+   "tax": {
+    "value": null,
+    "evidence": null
+   },
+   "dispute_resolution": {
+    "value": null,
+    "evidence": null
+   }
+  }
+ },
+ "legal_triggers": [
+  {
+   "code": "I13.1",
+   "text": "跨市场披露同步：回购结果已刊登于公司网站及德国联邦公报（仅德文版本），并同步发布A股提示性公告",
+   "status": "disclosed_cleared",
+   "layer": "analysis",
+   "basis": "1225596438 P1结果刊载表述",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "以及德国联邦公报"
+   }
+  },
+  {
+   "code": "I13.2",
+   "text": "H股：本次回购对象为D股，不涉及H股发行或回购；H股类别股东会仅参与授权审议",
+   "status": "not_applicable",
+   "layer": "analysis",
+   "basis": "1225596438 授权议案经H股类别股东会审议，回购标的为D股",
+   "evidence": null
+  },
+  {
+   "code": "I2",
+   "text": "德国市场规则：结果按德国要求在德国联邦公报（仅德文版本）刊登；要约适用的德国/欧盟具体规则条款未载于本公告",
+   "status": "disclosed_cleared",
+   "layer": "analysis",
+   "basis": "1225596438 P1联邦公报刊登事实",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "刊登了本次自愿公开回购 D 股的结果"
+   }
+  }
+ ],
+ "impact": [
+  {
+   "text": "回购股份全部注销后公司总股本将减少约0.853%",
+   "layer": "disclosed",
+   "basis": "1225596438 注销安排与占比",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "该等回购 D 股将全部注销"
+   }
+  },
+  {
+   "text": "截至公告出具日回购D股尚未注销，待注销完成后公司将披露股份变动情况",
+   "layer": "disclosed",
+   "basis": "1225596438 后续披露安排",
+   "evidence": {
+    "doc_id": "1225596438",
+    "page": 1,
+    "quote": "待注销完成后公司将披露股份变动情\n况"
+   }
+  },
+  {
+   "text": "注销将相应提升每股收益等每股指标；本次回购量占已发行D股的比例及授权额度（不超30%）的余量，影响后续是否继续回购乃至退出D股市场的判断",
+   "layer": "analysis",
+   "basis": "1225596438 授权上限与回购数量"
+  }
+ ],
+ "watch_points": [
+  {
+   "text": "注销程序完成时点及德国市场持续披露义务",
+   "layer": "analysis",
+   "basis": "1225596438 载明尚未注销"
+  },
+  {
+   "text": "要约价格与回购资金总额未披露，无法测算资金占用与财务影响",
+   "layer": "analysis",
+   "basis": "1225596438 全文无价格与金额"
+  },
+  {
+   "text": "授权上限为已发行D股30%，关注公司后续是否继续回购或完全退出D股市场",
+   "layer": "analysis",
+   "basis": "1225596438 授权议案范围"
+  }
+ ],
+ "gaps": [
+  {
+   "item": "回购要约价格及资金总额",
+   "why": "测算回购资金占用与财务影响",
+   "where": "2026-09-03提示性公告及公司网站/德国联邦公报的德文要约文件与结果公告",
+   "layer": "analysis",
+   "basis": "本公告未载"
+  },
+  {
+   "item": "注销完成时间表",
+   "why": "确定股本变动与每股指标调整时点",
+   "where": "注销完成后的股份变动公告",
+   "layer": "analysis",
+   "basis": "本公告未载"
+  },
+  {
+   "item": "德国要约文件适用的具体规则与条款全文",
+   "why": "跨市场回购的合规依据与中小股东保护安排",
+   "where": "公司网站投资者关系页及Bundesanzeiger德文版本",
+   "layer": "analysis",
+   "basis": "本公告仅载结果刊载事实"
+  }
+ ],
+ "practice_notes": [
+  {
+   "text": "核对A股公告与德国联邦公报德文版结果公告的股数、比例、截止时点一致性，两地口径差异应在底稿留痕",
+   "layer": "analysis",
+   "basis": "1225596438 结果同时刊载于公司网站与德国联邦公报"
+  },
+  {
+   "text": "要约接受期以欧洲中部夏令时为准，统计接受量与判断截止时点须做时区换算",
+   "layer": "analysis",
+   "basis": "1225596438 接受期2026-09-04 00:00至2026-09-29 24:00（欧洲中部夏令时）"
+  },
+  {
+   "text": "注销完成前总股本仍包含回购股份，估值模型与每股指标更新须以股份变动公告为准，不得提前按注销后口径计算",
+   "layer": "analysis",
+   "basis": "1225596438 截至公告日尚未注销"
+  },
+  {
+   "text": "以特别授权上限（已发行D股30%）核对实际回购量，测算授权额度余量，作为后续回购是否需重新授权的判断依据",
+   "layer": "analysis",
+   "basis": "1225596438 授权议案与回购数量"
+  }
+ ],
+ "sources": [
+  {
+   "doc_id": "1225596438",
+   "channel": "A股·巨潮",
+   "file": "关于确定自愿公开回购境外上市外资股（D股）数量的提示性公告",
+   "date": "2026-10-09",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225596438.PDF",
+   "new_info": "确定回购D股数量79,392,362股（约占总股本0.853%）并将全部注销；结果已刊载公司网站及德国联邦公报；截至公告日尚未注销",
+   "quotes": [
     {
-      "name": "海尔智家股份有限公司",
-      "role": "上市主体",
-      "relation_to_listed": null,
-      "stake_pct": null,
-      "layer": "disclosed",
-      "evidence": {"doc_id": "1225596438", "page": 1, "quote": "海尔智家股份有限公司"},
-      "basis": null
+     "text": "定自愿公开回购境外上市外资股（D股）79,392,362股，该等回购股份将全部",
+     "page": 1
     },
     {
-      "name": "D股股东（回购要约对象）",
-      "role": "合作方/交易对手",
-      "relation_to_listed": "公司境外上市外资股（D股）持有人；回购结果已刊登于公司网站及德国联邦公报（仅德文版本）",
-      "stake_pct": null,
-      "layer": "disclosed",
-      "evidence": {"doc_id": "1225596438", "page": 1, "quote": "刊登了本次自愿公开回购 D 股的结果"},
-      "basis": null
-    }
-  ],
-  "geo": {
-    "text": "德国（境外上市外资股D股上市地；回购结果刊载于德国联邦公报）",
-    "layer": "disclosed",
-    "evidence": {"doc_id": "1225596438", "page": 1, "quote": "以及德国联邦公报"}
-  },
-  "matter_type": {
-    "value": "回购",
-    "layer": "analysis",
-    "basis": "公告为自愿公开回购境外上市外资股（D股）并注销；原'融资'归类不准，更正为回购"
-  },
-  "stage_current": "实施（回购数量已确定，待注销）",
-  "stage_chain": [
-    {
-      "date": "2026-06-24",
-      "stage": "授权",
-      "doc_id": "1225596438",
-      "note": "2025年年度股东会及2026年第一次A股/D股/H股类别股东会审议通过特别授权回购不超过已发行D股股份总数30%的议案",
-      "layer": "disclosed",
-      "evidence": {"doc_id": "1225596438", "page": 1, "quote": "提请股东会特别授权回购不超过已发行 D 股股份\n总数 30%相关事宜的议案"}
+     "text": "约占公司总股本的 0.853%",
+     "page": 1
     },
     {
-      "date": "2026-09-03",
-      "stage": "启动要约",
-      "doc_id": "1225596438",
-      "note": "披露《关于自愿公开回购境外上市外资股（D股）的提示性公告》，启动D股回购要约",
-      "layer": "disclosed",
-      "evidence": {"doc_id": "1225596438", "page": 1, "quote": "公司启动 D 股\n回购要约事宜"}
-    },
-    {
-      "date": "2026-09-29",
-      "stage": "要约截止",
-      "doc_id": "1225596438",
-      "note": "回购要约接受期届满（2026-09-04 00:00至2026-09-29 24:00，欧洲中部夏令时）",
-      "layer": "disclosed",
-      "evidence": {"doc_id": "1225596438", "page": 1, "quote": "至 2026 年 9 月 29 日 24:00（欧洲中部夏令时）结束"}
-    },
-    {
-      "date": "2026-10-09",
-      "stage": "数量确定",
-      "doc_id": "1225596438",
-      "note": "确定回购D股79,392,362股（约占总股本0.853%）并将全部注销，结果已刊载公司网站及德国联邦公报；截至公告出具日尚未注销",
-      "layer": "disclosed",
-      "evidence": {"doc_id": "1225596438", "page": 1, "quote": "截至本公告出具日，前述回购 D 股尚未注销"}
+     "text": "至 2026 年 9 月 29 日 24:00（欧洲中部夏令时）结束",
+     "page": 1
     }
-  ],
-  "scale": {
-    "text": "回购D股79,392,362股，约占公司总股本的0.853%；要约价格与回购资金总额未载于本公告",
-    "layer": "disclosed",
-    "evidence": {"doc_id": "1225596438", "page": 1, "quote": "约占公司总股本的 0.853%"}
-  },
-  "terms": {
-    "completeness": "仅摘要条款",
-    "completeness_basis": "本公告仅载回购数量、占比、注销安排及要约接受期；要约价格、资金安排等条款载于2026-09-03提示性公告及德国市场要约文件，未在本公告披露",
-    "fields": {
-      "payment": {"value": null, "evidence": null},
-      "conditions_precedent": {"value": null, "evidence": null},
-      "approvals": {"value": "2026年6月24日公司2025年年度股东会、2026年第一次A股类别股东会、D股类别股东会、H股类别股东会审议通过特别授权回购不超过已发行D股股份总数30%的议案", "evidence": {"doc_id": "1225596438", "page": 1, "quote": "公司 2025 年年度股东会、2026 年第一次 A 股类别股东\n会"}},
-      "contingent": {"value": null, "evidence": null},
-      "completion_adjustment": {"value": null, "evidence": null},
-      "deposit": {"value": null, "evidence": null},
-      "long_stop_date": {"value": "回购要约接受期至2026年9月29日24:00（欧洲中部夏令时）结束，已届满", "evidence": {"doc_id": "1225596438", "page": 1, "quote": "至 2026 年 9 月 29 日 24:00（欧洲中部夏令时）结束"}},
-      "breach": {"value": null, "evidence": null},
-      "reps_warranties": {"value": null, "evidence": null},
-      "transition": {"value": null, "evidence": null},
-      "tax": {"value": null, "evidence": null},
-      "dispute_resolution": {"value": null, "evidence": null}
-    }
-  },
-  "legal_triggers": [
-    {"code": "I13.1", "text": "跨市场披露同步：回购结果已刊登于公司网站及德国联邦公报（仅德文版本），并同步发布A股提示性公告", "status": "disclosed_cleared", "layer": "analysis", "basis": "1225596438 P1结果刊载表述", "evidence": {"doc_id": "1225596438", "page": 1, "quote": "以及德国联邦公报"}},
-    {"code": "I13.2", "text": "H股：本次回购对象为D股，不涉及H股发行或回购；H股类别股东会仅参与授权审议", "status": "not_applicable", "layer": "analysis", "basis": "1225596438 授权议案经H股类别股东会审议，回购标的为D股", "evidence": null},
-    {"code": "I2", "text": "德国市场规则：结果按德国要求在德国联邦公报（仅德文版本）刊登；要约适用的德国/欧盟具体规则条款未载于本公告", "status": "disclosed_cleared", "layer": "analysis", "basis": "1225596438 P1联邦公报刊登事实", "evidence": {"doc_id": "1225596438", "page": 1, "quote": "刊登了本次自愿公开回购 D 股的结果"}}
-  ],
-  "impact": [
-    {"text": "回购股份全部注销后公司总股本将减少约0.853%", "layer": "disclosed", "basis": "1225596438 注销安排与占比", "evidence": {"doc_id": "1225596438", "page": 1, "quote": "该等回购 D 股将全部注销"}},
-    {"text": "截至公告出具日回购D股尚未注销，待注销完成后公司将披露股份变动情况", "layer": "disclosed", "basis": "1225596438 后续披露安排", "evidence": {"doc_id": "1225596438", "page": 1, "quote": "待注销完成后公司将披露股份变动情\n况"}},
-    {"text": "注销将相应提升每股收益等每股指标；本次回购量占已发行D股的比例及授权额度（不超30%）的余量，影响后续是否继续回购乃至退出D股市场的判断", "layer": "analysis", "basis": "1225596438 授权上限与回购数量"}
-  ],
-  "watch_points": [
-    {"text": "注销程序完成时点及德国市场持续披露义务", "layer": "analysis", "basis": "1225596438 载明尚未注销"},
-    {"text": "要约价格与回购资金总额未披露，无法测算资金占用与财务影响", "layer": "analysis", "basis": "1225596438 全文无价格与金额"},
-    {"text": "授权上限为已发行D股30%，关注公司后续是否继续回购或完全退出D股市场", "layer": "analysis", "basis": "1225596438 授权议案范围"}
-  ],
-  "gaps": [
-    {"item": "回购要约价格及资金总额", "why": "测算回购资金占用与财务影响", "where": "2026-09-03提示性公告及公司网站/德国联邦公报的德文要约文件与结果公告", "layer": "analysis", "basis": "本公告未载"},
-    {"item": "注销完成时间表", "why": "确定股本变动与每股指标调整时点", "where": "注销完成后的股份变动公告", "layer": "analysis", "basis": "本公告未载"},
-    {"item": "德国要约文件适用的具体规则与条款全文", "why": "跨市场回购的合规依据与中小股东保护安排", "where": "公司网站投资者关系页及Bundesanzeiger德文版本", "layer": "analysis", "basis": "本公告仅载结果刊载事实"}
-  ],
-  "practice_notes": [
-    {"text": "核对A股公告与德国联邦公报德文版结果公告的股数、比例、截止时点一致性，两地口径差异应在底稿留痕", "layer": "analysis", "basis": "1225596438 结果同时刊载于公司网站与德国联邦公报"},
-    {"text": "要约接受期以欧洲中部夏令时为准，统计接受量与判断截止时点须做时区换算", "layer": "analysis", "basis": "1225596438 接受期2026-09-04 00:00至2026-09-29 24:00（欧洲中部夏令时）"},
-    {"text": "注销完成前总股本仍包含回购股份，估值模型与每股指标更新须以股份变动公告为准，不得提前按注销后口径计算", "layer": "analysis", "basis": "1225596438 截至公告日尚未注销"},
-    {"text": "以特别授权上限（已发行D股30%）核对实际回购量，测算授权额度余量，作为后续回购是否需重新授权的判断依据", "layer": "analysis", "basis": "1225596438 授权议案与回购数量"}
-  ],
-  "sources": [
-    {
-      "doc_id": "1225596438",
-      "channel": "A股·巨潮",
-      "file": "关于确定自愿公开回购境外上市外资股（D股）数量的提示性公告",
-      "date": "2026-10-09",
-      "url": "http://static.cninfo.com.cn/finalpage/2026-10-09/1225596438.PDF",
-      "new_info": "确定回购D股数量79,392,362股（约占总股本0.853%）并将全部注销；结果已刊载公司网站及德国联邦公报；截至公告日尚未注销",
-      "quotes": [
-        {"text": "定自愿公开回购境外上市外资股（D股）79,392,362股，该等回购股份将全部", "page": 1},
-        {"text": "约占公司总股本的 0.853%", "page": 1},
-        {"text": "至 2026 年 9 月 29 日 24:00（欧洲中部夏令时）结束", "page": 1}
-      ]
-    }
-  ],
-  "source_diff": null
+   ]
+  }
+ ],
+ "source_diff": null,
+ "changelog_add": {
+  "date": "2026-10-26",
+  "type": "修正",
+  "doc_id": "1225596438",
+  "note": "补持股链字段：回购主体即上市主体、直接注销自身D股，无中间持股结构，证据1225596438 P1（R05四审补齐）"
+ }
 }
