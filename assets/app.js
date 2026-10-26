@@ -663,7 +663,7 @@
       + (e.geo && e.geo.text ? pill(e.geo.text.length > 36 ? e.geo.text.slice(0, 36) + "…" : e.geo.text) : "") + favBtn("event", e.event_id) + "</div>"
       + '<div style="margin-top:8px;font-size:12.5px;display:flex;gap:16px;flex-wrap:wrap">'
       + '<span class="dim">更新日期 ' + esc((e.changelog && e.changelog.length ? e.changelog[e.changelog.length - 1].date : (latest ? latest.date : "—"))) + "</span>"
-      + (latest ? '<a href="' + esc(latest.url) + '" target="_blank" rel="noopener">查看原文（' + esc(latest.channel || "") + " " + esc(latest.date) + "）↗</a>" : "")
+      + (latest ? '<a href="' + esc(latest.url) + '#page=1" target="_blank" rel="noopener">查看原文（' + esc(latest.channel || "") + " " + esc(latest.date) + "）↗</a>" : "")
       + "</div>"
       + '<div class="note" style="margin-top:10px">' + layerBadge(e.title_fact ? e.title_fact.layer : "analysis")
       + (e.title_fact && e.title_fact.basis ? " 依据：" + esc(e.title_fact.basis) : "") + "</div>"
@@ -781,7 +781,7 @@
     main += '<div class="panel"><div class="sech"><span class="sno">⑪</span><h2>来源</h2><span class="note">' + e.sources.length + " 份披露文件；引文链接带 #page 可定位原文页</span></div>"
       + '<div class="evlist">' + e.sources.map(function (s) {
         return '<div class="ev"><span class="pg">' + esc(s.date) + '</span><span class="qt">'
-          + chTag({ "渠道": s.channel }) + " <b>" + esc(s.file) + '</b>　<a href="' + esc(s.url) + '" target="_blank" rel="noopener">原文 ↗</a>'
+          + chTag({ "渠道": s.channel }) + " <b>" + esc(s.file) + '</b>　<a href="' + esc(s.url) + '#page=1" target="_blank" rel="noopener">原文 ↗</a>'
           + (s.new_info ? '<div class="dim" style="font-size:12px;margin-top:2px">本来源新增信息：' + esc(s.new_info) + "</div>" : "")
           + (s.quotes || []).map(function (q) {
             return '<div class="evi"><div class="qt">「' + esc(q.text) + '」</div><div class="ops"><a href="' + esc(s.url) + "#page=" + (q.page || 1) + '" target="_blank" rel="noopener">定位 P' + (q.page || "?") + " ↗</a><button data-copy='" + esc(q.text) + "'>复制引文</button></div></div>";

@@ -13,5 +13,35 @@
   "ok": true,
   "status": 200,
   "ts": "2026-10-26"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-09-24/1225578867.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-26"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-10-12/1225600386.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-26"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-09-25/1225580847.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-26"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-09-24/1225578878.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-26"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-10-22/1225613826.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-26"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-09-22/1225574483.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-26"
  }
 }
