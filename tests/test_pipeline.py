@@ -77,6 +77,29 @@ class PipelineTests(unittest.TestCase):
                 self.assertNotIn('retry',json.loads(dbpath.read_text())['collected']['scanned'])
                 self.assertTrue((root/'state/pending/retry.json').exists())
 
+    def test_download_failure_survives_source_disappearance_without_count_inflation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root/'state').mkdir()
+            dbpath=root/'state/db.json'; cfgpath=root/'state/config.json'
+            dbpath.write_text(json.dumps({'collected':{'scanned':[],'kept':[],'excluded':[]},
+                'cursor':{'last_id':'0'},'disclosures':[],'batches':[],'tracked':[],'exceptions':[]}))
+            cfgpath.write_text('{"keywords":[]}')
+            candidate = {'announcementId':'download-retry','secName':'测试','title':'候选',
+                         'time':int(datetime.datetime(2026,10,22,tzinfo=run_once.TZ).timestamp()*1000)}
+            with patch.multiple(run_once,ROOT=str(root),DB_PATH=str(dbpath),CFG_PATH=str(cfgpath)), patch.object(run_once,'rebuild',return_value=0), patch('pipeline_state.write_manifest'), patch.object(sys,'argv',['run_once.py','--date','2026-10-22']), patch.object(run_once.cninfo,'fetch_announcement',side_effect=RuntimeError('download failed')):
+                with patch.object(run_once.cninfo,'search',return_value=[candidate]):
+                    self.assertEqual(run_once.main(),1)
+                self.assertTrue((root/'state/pending/download-retry.json').exists())
+                with patch.object(run_once.cninfo,'search',return_value=[]):
+                    self.assertEqual(run_once.main(),1)
+            batch=json.loads(dbpath.read_text())['batches'][0]
+            self.assertEqual(batch['scanned'],1)
+            self.assertEqual(batch['candidate_attempts'],2)
+            self.assertEqual(batch['failed'],1)
+            self.assertEqual(batch['failed_attempts'],2)
+            self.assertEqual(batch['retry_ids'],['download-retry'])
+
     def test_backfill_batch_not_in_daily(self):
         self.assertEqual(build_data.batch_day({'id':'B-20261027'}),('backfill','20261027'))
         self.assertEqual(build_data.batch_day({'id':'B-20261022-0800'}),('daily','20261022'))

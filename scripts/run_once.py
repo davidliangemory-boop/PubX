@@ -119,8 +119,15 @@ def main():
     tracked_new = []
     notes_inc, notes_exc = [], {}
 
+    # 下载之前即保存候选；源站短暂消失不应丢失失败重试任务。
     for c in cands:
         aid = c["announcementId"]
+        pending_path = Path(ROOT, 'state/pending', aid + '.json')
+        pending_path.parent.mkdir(parents=True, exist_ok=True)
+        if not pending_path.exists():
+            pending_path.write_text(json.dumps({"doc_id": aid, "candidate": c,
+                "raw_path": "raw/" + aid + ".txt", "batch_id": batch_id,
+                "status": "awaiting_raw"}, ensure_ascii=False, indent=2))
         try:
             raw_path = os.path.join(ROOT, "raw", aid + ".txt")
             got = {"pages": Path(raw_path).read_text(encoding="utf-8").split("\f")} if os.path.exists(raw_path) else cninfo.fetch_announcement(c, WORK)
@@ -132,6 +139,9 @@ def main():
             print(f" [fail] {aid} {e}")
             continue
         pages = got["pages"]
+        pending = load(pending_path)
+        pending.update(status='awaiting_analysis', steps=['extract_facts', 'legal_map', 'judge'])
+        pending_path.write_text(json.dumps(pending, ensure_ascii=False, indent=2))
         # 默认由 Kimi Code 直接读取原文；结果文件未就绪时保持可重试，不消费主键。
         review_dir = os.path.join(ROOT, "state", "analysis")
         os.makedirs(review_dir, exist_ok=True)
@@ -267,7 +277,12 @@ def main():
     if existing:
         # 同一自然日多轮运行合并进同一日批次：累加计数、追加说明，不另立批次
         existing["time"] = now_str()
-        existing["scanned"] = existing.get("scanned", 0) + len(cands)
+        # scanned 是去重候选数，attempts 是处理尝试数；不能因待审重跑膨胀。
+        previous_ids = set(existing.get("candidate_ids", []))
+        existing.setdefault("legacy_scanned", existing.get("scanned", 0) if not previous_ids else 0)
+        existing["candidate_ids"] = sorted(previous_ids | {c["announcementId"] for c in cands})
+        existing["scanned"] = existing["legacy_scanned"] + len(existing["candidate_ids"])
+        existing["candidate_attempts"] = existing.get("candidate_attempts", 0) + len(cands)
         existing["kept"] = existing.get("kept", 0) + len(kept)
         existing["excluded"] = existing.get("excluded", 0) + len(excluded_ids)
         # failed 为当前未解决候选，失败尝试数另列，避免同一资料重跑膨胀。
@@ -287,6 +302,9 @@ def main():
         db["batches"].insert(0, {
             "id": batch_id, "time": now_str(), "window": window,
             "source": "巨潮资讯", "scanned": len(cands), "kept": len(kept),
+            "candidate_ids": sorted({c["announcementId"] for c in cands}),
+            "candidate_attempts": len(cands), "legacy_scanned": 0,
+            "scan_scope": "窗口内去重候选数（含待审及失败）；不是源站全部公告数；旧批无法恢复主键的计数另列legacy_scanned",
             "excluded": len(excluded_ids), "failed": len(failed),
             "items": kept, "note": note + "。", "runs": 1,
             "retry_ids": failed, "failed_attempts": len(failed),

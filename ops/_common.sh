@@ -5,7 +5,16 @@ OPS_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 REPO="${PUBX_REPO:-$(cd "$OPS_DIR/.." && pwd)}"
 LOGD="${PUBX_LOG_DIR:-/tmp/pubx-ops-logs}"
 run_job() {
-  local name="$1" promptfile="$2" prompt engine rc=0
+  local name="$1" promptfile="$2" prompt engine rc=0 dry="${PUBX_DRY_RUN:-0}"
+  shift 2
+  while (( $# )); do
+    case "$1" in
+      --dry-run) dry=1 ;;
+      --help|-h) echo '用法：run_daily.sh 或 run_weekly_exportcontrol.sh [--dry-run]；PUBX_ENGINE 指定运行器，认证由仓库外管理。'; return 0 ;;
+      *) echo "不支持的参数：$1（单日采集请调用 scripts/*_pull.py --date YYYY-MM-DD）" >&2; return 2 ;;
+    esac
+    shift
+  done
   mkdir -p "$LOGD"
   cd "$REPO"
   exec 9>"${PUBX_LOCK_FILE:-/tmp/pubx-ops.lock}"
@@ -13,7 +22,7 @@ run_job() {
   export TZ=Asia/Shanghai
   prompt="$(cat "$OPS_DIR/prompts/_rules.md" "$OPS_DIR/prompts/$promptfile")
 运行参数：今天(北京时间)=$(date +%F)；scan_date=$(date -d yesterday +%F)；week_since=$(date -d '6 days ago' +%F)；日批次=D-$(date -d yesterday +%Y%m%d)；周批次=W-$(date +%G%V)。仓库=$REPO。禁止 git commit/push/stash/reset。"
-  if [[ "${PUBX_DRY_RUN:-0}" == 1 ]]; then
+  if [[ "$dry" == 1 ]]; then
     printf '%s\n' "$prompt"
     return 0
   fi

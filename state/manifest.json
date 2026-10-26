@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-27T00:47:47.346972+08:00",
-  "script_commit": "51d28e0da3cb34f0e7d2fa295bb244aaddc73492",
+  "generated_at": "2026-10-27T00:55:38.477392+08:00",
+  "script_commit": "5361bf7c236e6d6e2317c4709288421d87434ea1",
   "script_sha256": {
     "scripts/analyze.py": "1f48df62377189baaf3a398a0b8a4963e27c63ae24517b76e3a016836a72057c",
     "scripts/backfill_pull.py": "517d00fa0b7aef3dc084d39f73dc6f2e3a602117a9671aaf5872e2515e7322d3",
@@ -13,12 +13,12 @@
     "scripts/hkex_market_pull.py": "6855ec58eaba3307cba27dba128d8b7b73ff98dae31306805156d4be45eaa3b2",
     "scripts/hkex_pull.py": "b1c6cfe1175af67dc3563361a46dfc2e1a6fc4b404906b8a272fd234a43acd88",
     "scripts/legal_map.py": "0a40f08694aa9a9c39954b0b00a6238cadc5dcd6eb3d7d3fa275d46e951d21a2",
-    "scripts/pipeline_state.py": "7b2b544b37203238803f579f4d18a618205a58f09c1e3f1afdb1721b6ea519e2",
+    "scripts/pipeline_state.py": "09924534e6d00e3afafe23ea9ad9179609afcd726a7c9223a9bfc4a62a83b31e",
     "scripts/r05_apply.py": "b0c81fc502e008ffa22f6b39457ed557888bef50737533413c2184d726a08b1f",
     "scripts/r05_verify.py": "30dad804dd0a1b777d5b3fc2c2d8249785831d8e5786b6ebacde7fe6c5d33ddd",
     "scripts/recover_state.py": "ae144d6a40c09bb30a9950373a889ef99c5674a5634ec3628ab10047c6ecde27",
     "scripts/replay_batches.py": "86d6906aaad4233796a97475826c4cc2454e048dc6ab3fbac88d2683528f2f3f",
-    "scripts/run_once.py": "e0235762f5080c22f8acfb84ee16f1a55f136f4561038dd3d9cc20f141f2494f",
+    "scripts/run_once.py": "b3076139c9431c02a614308d6633d5117c8f4769ea051423182d4ec2c32b4e6f",
     "scripts/schema.py": "c4343c3a6b3929c84ea9188de1eadfb82d00a6e7f5b719dd5db8308a86e66f60",
     "scripts/sdn_screen.py": "92ae514f082ddd08453ef695ed3b4b116d204dd4242f9c0a54adfbe2d08a0ee7",
     "scripts/sec_market_pull.py": "1097e1f7de1e5f4c96fae9a2e8c9483bf85000454ef5f4d3dc1309a8ddd47b99",
@@ -27,18 +27,18 @@
     "scripts/validate.py": "0a105e3d94716e66f54c4bada9be3ac5a54519015af70252bc65444dc7534c2a",
     "scripts/watch_updates.py": "65ca438b2fb0f0bfc12748ec0635ed95f0a7f1cc4462ca05cb20a3805e1cba6e"
   },
-  "prompt_version": "R08-P5-R4-20261027",
+  "prompt_version": "R08-P5-R5-20261027",
   "model": "未记录（构建不代表已执行模型分析）",
   "batch_id": "D-20261022",
   "analysis_mode": "Kimi Code 直接读取原文；人工审核结果文件入库，无需 API key",
   "prompt_sha256": {
-    "ops/prompts/_rules.md": "221dab90e0d17bef400e031d52d5e9993a8c7309dca3c10d3a9d38503468d896",
+    "ops/prompts/_rules.md": "c8285eebff30701a4d6bb8ed890ca0f8a4a919fe8967133ee2b42c66db1b5e72",
     "ops/prompts/backfill.md": "ee822a6325a29720126efbe482b77927e00aa5dab2c65b5dd51c8b61cf9b967f",
-    "ops/prompts/daily.md": "7e0c90574350306f4b3bce30ecdd1ae83b18178b5d5a7b7e5c3d2ed9ac2196ac",
+    "ops/prompts/daily.md": "cfd003b9dc8b769149158825496b00f7380ac1349bc43107f0cdaef7294d80d6",
     "ops/prompts/history_backfill.md": "405d7fffdf2710f228af58948ede09ddc75066e331518838b26659b3875b2793",
-    "ops/prompts/weekly_exportcontrol.md": "bc0667052ad5ca62261d2f9d467775aec75d824b6c8316636b0efd3386d7d0f1"
+    "ops/prompts/weekly_exportcontrol.md": "4b8565acbfeb3d8968f32394c124883809c3770cab2f206406c32eab948e310e"
   },
   "pending_review": [],
   "scope": "出海信批；美股、港股、出口管制各自批次与统计见独立数据文件",
-  "source_audit": "reports/P5-round4-source-audit.json"
+  "source_audit": "reports/P5-round5-source-audit.json"
 }

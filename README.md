@@ -84,7 +84,6 @@ git diff --name-only | python3 scripts/sync_guard.py -         # 校验一次提
 | 更新频率 | 日批次（D-YYYYMMDD） | 每交易日日批次（D-YYYYMMDD），回溯补入单列（B-YYYYMMDD） |
 
 模式二部署：仓库根目录即站点；Pages Source 选 GitHub Actions；保留 `.github/workflows/ingest.yml`
-（不要加会响应 repository_dispatch 的第二个 workflow）。任务侧配置 `state/github_repo.txt` 与
-`state/github_token.txt`（classic PAT，repo 范围）。
+（不要加会响应 repository_dispatch 的第二个 workflow）。运行器在仓库外管理认证；不得将任何 token 写入仓库或日志。当前 ops 只采集、审核、验证与构建，提交及发布由调度方执行。
 
 迭代记录：v1–v3 见 CHANGELOG.md；v4（六轮：信息层级/工作台布局/渠道字段/检索机制/真实数据/打磨验证）见 迭代记录v4.md。

@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TZ = dt.timezone(dt.timedelta(hours=8))
-PROMPT_VERSION = 'R08-P5-R4-20261027'
+PROMPT_VERSION = 'R08-P5-R5-20261027'
 
 def write_manifest(batch_id=None, model=None):
     path = ROOT / 'state/manifest.json'
@@ -26,9 +26,10 @@ def write_manifest(batch_id=None, model=None):
         obj = json.loads(item.read_text())
         if obj.get('status') not in ('ingested', 'excluded'):
             pending.append({'doc_id': obj.get('doc_id'), 'batch_id': obj.get('batch_id'),
-                            'status': obj.get('status'), 'raw_path': obj.get('raw_path')})
+                            'status': obj.get('status'), 'raw_path': obj.get('raw_path'),
+                            'raw_available': bool(obj.get('raw_path')) and (ROOT / obj['raw_path']).is_file()})
     prior['pending_review'] = pending
     prior['scope'] = '出海信批；美股、港股、出口管制各自批次与统计见独立数据文件'
-    prior['source_audit'] = 'reports/P5-round4-source-audit.json'
+    prior['source_audit'] = 'reports/P5-round5-source-audit.json'
     path.write_text(json.dumps(prior, ensure_ascii=False, indent=2)+'\n')
     return prior

@@ -5,7 +5,7 @@
 
 0. 同步与分工（防覆盖，最重要）：
    - 你在运行参数给出的仓库内运行（调度方负责预先同步；不得覆盖现有工作区）；scripts/ 以仓库版本为准。分析（extract_facts/legal_map/judge）由你（Kimi Code）直接读原文完成，不调用 MOONSHOT API。
-   - 本任务仅允许更新：state/** 与 assets/data.js、assets/us_data.js、assets/hk_data.js、assets/export_data.js。
+   - 本任务允许保存真实原文缓存 raw/**，并更新 state/** 与 assets/data.js、assets/us_data.js、assets/hk_data.js、assets/export_data.js。
    - 严禁改写 index.html、assets/app.js、assets/style.css、scripts/**、docs/**、README.md（前端与脚本由仓库维护方改）。如认为脚本需修改，写入 state/exceptions 留言，不要自行推送。
    - 不要 git commit/push/stash/reset，由外部调度方审阅后提交；不要写入任何 token。
 1. 采集：
@@ -41,3 +41,5 @@ R08 可执行衔接：
 任务 B 已于 2026-10-27 撤销，不运行 ops/run_backfill.sh，不创建 03:30 定时任务。--backfill-days 20 仅保留为手动采集能力。
 
 问题级分析组织：公司/项目 → issue_code + 问题 → 触发事实（doc_id/page/quote）→ 已披露处理状态 → 信息缺口 → 判断及 basis → 可执行核查动作。每个问题逐一回答，未适用的列明理由；不能由“交割完成”倒推具体审批完成。
+
+扫描统计：候选按主键去重；重跑次数与候选处理尝试数单列，不能累加成新增扫描数。raw/** 是原文留存交接的一部分，由调度方审阅，禁止以摘录或分析拼造缓存。

@@ -67,3 +67,9 @@ run_once 的自动检索入口目前是巨潮。观察名单 HKEX/SEC 需按 pro
 - 进展的新增/变化字段留在 `changelog.diff` 与 `source_doc_ids`，既有事实不被覆盖；详情“字段变化与原值留痕”可展开核查。只有有理由的 correction 替换事实并存 old/new。
 - 拒绝空来源、空事件 ID、来源主键重复及非法更新类型；拒绝发生在修改 store 前。
 - 本轮重新打开精工、安踏、红隼三份 PDF，核查记录为 reports/P5-round4-source-audit.json。未新增事件；核查报告不冒充当日日批。
+
+## 第 5 轮接续纪律
+
+- 下载原文前即保存 `state/pending/<doc_id>.json`，`awaiting_raw` 表示尚未取得原文。即使下次源站未返回该候选，也从缓存接续同一窗口。
+- 巨潮日批 `scanned` 为主键去重候选数，`candidate_ids` 保存审计主键；`candidate_attempts` 为处理尝试数。旧批无候选主键时保留原值于 `legacy_scanned`，不能声称已无损去重旧扫描历史。
+- `ops/run_daily.sh --dry-run`、`ops/run_weekly_exportcontrol.sh --dry-run` 可预览完整任务提示；未知参数退出 2，避免误以为参数生效。认证在仓库外管理。原文 `raw/**` 与数据一并交接，不由定时运行器提交。
