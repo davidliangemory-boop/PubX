@@ -1,0 +1,283 @@
+{
+ "date": "2026-10-27",
+ "event_id": "E-060",
+ "original_disclosure": {
+  "序号": "63",
+  "披露日期与时间": "2026-10-22",
+  "公司全称": "贵州轮胎股份有限公司",
+  "股票代码": "000589.SZ",
+  "公告标题": "关于境外（摩洛哥）全资二级子公司完成注册登记的公告",
+  "公告类型": "对外投资进展（境外子公司完成注册登记）",
+  "涉及国家/地区": "摩洛哥（穆罕默德六世丹吉尔科技城）",
+  "来源链接": "http://static.cninfo.com.cn/finalpage/2026-10-22/1225613826.PDF",
+  "动作类型": "境外设企（全资二级子公司注册落地）",
+  "动作阶段": "实施（注册登记完成，生产基地建设前期）",
+  "投资金额": "注册资本99,000摩洛哥迪拉姆（约9,000欧元）；项目总投资额未在本公告披露",
+  "合作方": "无（经全资子公司贵州前进轮胎投资有限责任公司100%持股，无外部合作方；不构成关联交易）",
+  "出海模式归类": "产能出海（海外建厂：第二海外生产基地的主体落地；公司此前已有越南生产基地）",
+  "盈利方式": "轮胎及其他橡胶制品的制造和销售（尚未投产，盈利待基地建成后实现）",
+  "本地化深度": "制造本地化推进中（从越南基地到摩洛哥基地，海外制造布局由单点变多点）；尚未涉及研发本地化",
+  "对主营业务的战略价值": "“国际化、智能化、绿色化、高端化”战略下的第二海外生产基地主体落地；摩洛哥面向欧洲、非洲市场的区位与自贸协定优势，有望绕开欧美对华轮胎贸易壁垒",
+  "对营收结构与利润的预期影响": "当期无收入贡献；注册资本极小（约9,000欧元），后续增资与产能爬坡节奏决定营收贡献时点",
+  "是否构成第二增长曲线": "是（候选）——海外产能占比提升是全钢/半钢轮胎企业毛利率与抗贸易壁垒能力的核心变量",
+  "主要风险与不确定性": "建设周期与追加投资规模未披露；摩洛哥劳工、税务与环保合规成本；欧美贸易政策变动；注册资本与实缴进度之间的资金安排未披露",
+  "同行业可比出海案例（公司+时间+做法+成效）": "玲珑轮胎——塞尔维亚基地投产并推进埃及项目可研；赛轮轮胎——越南/柬埔寨/墨西哥/印尼多基地；森麒麟——摩洛哥丹吉尔基地（同为科技城选址）已形成产能",
+  "与本公司动作的异同": "与森麒麟同选址丹吉尔科技城，路径相近但节奏更晚；贵州轮胎以“增资前进投资→下设二级子公司”两层结构落地，与玲珑直接持股略有差异",
+  "先发/后发位置判断": "后发：摩洛哥轮胎基地赛道已有森麒麟等先行者，公司处跟随位，需以差异化产品（商用车胎强项）卡位",
+  "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": "进入方式：绿地投资建厂；目标客户为欧洲/非洲替换胎与配套市场；关注欧盟对华轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则；竞争面对森麒麟等同址中资与米其林等本地产能",
+  "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": "注册资本仅约9,000欧元，大额资本开支待后续公告；自有资金增资前进投资，关注后续增资规模与迪拉姆/欧元汇率敞口；海外收入占比将随投产提升",
+  "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": "境内ODI备案（发改委/商务/外汇）办理进度未披露；摩洛哥投资准入与穆罕默德六世丹吉尔科技城优惠政策条件；欧盟CBAM及化学品法规（REACH）对轮胎出口的合规要求；制裁风险低",
+  "_aid": "1225613826",
+  "摘录": [
+   {
+    "text": "摩洛哥全资二级子公司注册登记等相关手续已办理完毕",
+    "page": 1
+   },
+   {
+    "text": "ADVANCE TYRE MOROCCO SAS",
+    "page": 1
+   },
+   {
+    "text": "99,000 摩洛哥迪拉姆（约9,000 欧元）",
+    "page": 1
+   }
+  ],
+  "未披露事项": "项目总投资额、规划产能、建设周期、ODI备案进度均未披露。",
+  "阶段组": "实施",
+  "渠道": "A股·巨潮"
+ },
+ "source_checks": [
+  {
+   "event_id": "E-028",
+   "http": 200,
+   "pdf_parsed": true,
+   "local_pdf": "/tmp/r12v5-hkex_12105020.pdf",
+   "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0414/2026041400557_c.pdf",
+   "doc_id": "hkex_12105020",
+   "checked_facts": "P1首付18.5亿美元、收购集团100%间接持煤矿80%；P3其余20%由三井持有；P13先决条件不是批准结果。"
+  },
+  {
+   "event_id": "E-055",
+   "http": 200,
+   "pdf_parsed": true,
+   "local_pdf": "/tmp/r12v5-1225610572.pdf",
+   "url": "https://static.cninfo.com.cn/finalpage/2026-10-20/1225610572.PDF",
+   "doc_id": "1225610572",
+   "checked_facts": "P1中标金额7,273.35万美元/约4.86亿元/营收2.33%，正文另称成功签约；按R12保留中标阶段并说明双措辞。"
+  },
+  {
+   "event_id": "E-060",
+   "http": 200,
+   "pdf_parsed": true,
+   "local_pdf": "/tmp/r12v5-1225613826.pdf",
+   "url": "https://static.cninfo.com.cn/finalpage/2026-10-22/1225613826.PDF",
+   "doc_id": "1225613826",
+   "checked_facts": "P1登记日2026-10-19、前进投资100%持股、资本99,000迪拉姆约9,000欧元；未载投资总额与开工投产节点。"
+  }
+ ],
+ "scope": "远程打开三份原文，核对主体、金额和阶段；不表示全库分析均核实",
+ "a_grade_cache_checks": [
+  {
+   "event_id": "E-013",
+   "current_evidence_checked": 24,
+   "failures": 0
+  },
+  {
+   "event_id": "E-015",
+   "current_evidence_checked": 14,
+   "failures": 0
+  },
+  {
+   "event_id": "E-018",
+   "current_evidence_checked": 16,
+   "failures": 0
+  },
+  {
+   "event_id": "E-024",
+   "current_evidence_checked": 15,
+   "failures": 0
+  },
+  {
+   "event_id": "E-028",
+   "current_evidence_checked": 29,
+   "failures": 0
+  },
+  {
+   "event_id": "E-032",
+   "current_evidence_checked": 13,
+   "failures": 0
+  },
+  {
+   "event_id": "E-040",
+   "current_evidence_checked": 14,
+   "failures": 0
+  },
+  {
+   "event_id": "E-046",
+   "current_evidence_checked": 13,
+   "failures": 0
+  },
+  {
+   "event_id": "E-047",
+   "current_evidence_checked": 17,
+   "failures": 0
+  },
+  {
+   "event_id": "E-049",
+   "current_evidence_checked": 23,
+   "failures": 0
+  },
+  {
+   "event_id": "E-055",
+   "current_evidence_checked": 12,
+   "failures": 0
+  },
+  {
+   "event_id": "E-058",
+   "current_evidence_checked": 21,
+   "failures": 0
+  }
+ ],
+ "navigation": [
+  {
+   "from": "/",
+   "href": "#/event/E-060",
+   "h1": 1,
+   "source_pages": 10
+  },
+  {
+   "from": "/",
+   "href": "#/event/E-046",
+   "h1": 1,
+   "source_pages": 19
+  },
+  {
+   "from": "/",
+   "href": "#/event/E-028",
+   "h1": 1,
+   "source_pages": 42
+  },
+  {
+   "from": "/",
+   "href": "#/event/E-055",
+   "h1": 1,
+   "source_pages": 17
+  },
+  {
+   "from": "/",
+   "href": "#/event/E-057",
+   "h1": 1,
+   "source_pages": 8
+  },
+  {
+   "from": "events",
+   "href": "#/event/E-060",
+   "h1": 1,
+   "source_pages": 10
+  },
+  {
+   "from": "events",
+   "href": "#/event/E-046",
+   "h1": 1,
+   "source_pages": 19
+  },
+  {
+   "from": "events",
+   "href": "#/event/E-059",
+   "h1": 1,
+   "source_pages": 3
+  },
+  {
+   "from": "events",
+   "href": "#/event/E-058",
+   "h1": 1,
+   "source_pages": 24
+  },
+  {
+   "from": "events",
+   "href": "#/event/E-057",
+   "h1": 1,
+   "source_pages": 8
+  },
+  {
+   "from": "board",
+   "href": "#/event/E-013",
+   "h1": 1,
+   "source_pages": 31
+  },
+  {
+   "from": "board",
+   "href": "#/event/E-050",
+   "h1": 1,
+   "source_pages": 4
+  },
+  {
+   "from": "board",
+   "href": "#/event/E-049",
+   "h1": 1,
+   "source_pages": 31
+  },
+  {
+   "from": "board",
+   "href": "#/event/E-046",
+   "h1": 1,
+   "source_pages": 19
+  },
+  {
+   "from": "board",
+   "href": "#/event/E-028",
+   "h1": 1,
+   "source_pages": 42
+  },
+  {
+   "from": "issues",
+   "href": "#/event/E-005",
+   "h1": 1,
+   "source_pages": 5
+  },
+  {
+   "from": "issues",
+   "href": "#/event/E-007",
+   "h1": 1,
+   "source_pages": 4
+  },
+  {
+   "from": "issues",
+   "href": "#/event/E-008",
+   "h1": 1,
+   "source_pages": 5
+  },
+  {
+   "from": "issues",
+   "href": "#/event/E-011",
+   "h1": 1,
+   "source_pages": 5
+  },
+  {
+   "from": "issues",
+   "href": "#/event/E-013",
+   "h1": 1,
+   "source_pages": 31
+  }
+ ],
+ "screenshots": {
+  "before": "/workspace/kc/shots/R12-review5-before-valid",
+  "after": "/workspace/kc/shots/R12-review5-final",
+  "latest": "/workspace/kc/shots/R12-review5-final-latest",
+  "routes": 11,
+  "widths": [
+   1440,
+   390
+  ],
+  "overflow": false,
+  "js_errors": 0,
+  "h1_per_route": 1,
+  "expanded_review_rows": 4,
+  "viewed": [
+   "before-valid/d_home.png",
+   "before-valid/m_event_E-060.png",
+   "final/m_event_E-060.png",
+   "final-latest/review-390.png"
+  ]
+ }
+}

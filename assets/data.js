@@ -10,22 +10,22 @@ window.DB = {
    "涉及国家/地区": "摩洛哥（穆罕默德六世丹吉尔科技城）",
    "来源链接": "https://static.cninfo.com.cn/finalpage/2026-10-22/1225613826.PDF",
    "动作类型": "境外设企（全资二级子公司注册落地）",
-   "动作阶段": "实施（注册登记完成，生产基地建设前期）",
+   "动作阶段": "实施（2026-10-19完成注册登记；开工与投产状态未披露）",
    "投资金额": "注册资本99,000摩洛哥迪拉姆（约9,000欧元）；项目总投资额未在本公告披露",
-   "合作方": "无（经全资子公司贵州前进轮胎投资有限责任公司100%持股，无外部合作方；不构成关联交易）",
-   "出海模式归类": "产能出海（海外建厂：第二海外生产基地的主体落地；公司此前已有越南生产基地）",
-   "盈利方式": "轮胎及其他橡胶制品的制造和销售（尚未投产，盈利待基地建成后实现）",
-   "本地化深度": "制造本地化推进中（从越南基地到摩洛哥基地，海外制造布局由单点变多点）；尚未涉及研发本地化",
-   "对主营业务的战略价值": "“国际化、智能化、绿色化、高端化”战略下的第二海外生产基地主体落地；摩洛哥面向欧洲、非洲市场的区位与自贸协定优势，有望绕开欧美对华轮胎贸易壁垒",
-   "对营收结构与利润的预期影响": "当期无收入贡献；注册资本极小（约9,000欧元），后续增资与产能爬坡节奏决定营收贡献时点",
-   "是否构成第二增长曲线": "是（候选）——海外产能占比提升是全钢/半钢轮胎企业毛利率与抗贸易壁垒能力的核心变量",
-   "主要风险与不确定性": "建设周期与追加投资规模未披露；摩洛哥劳工、税务与环保合规成本；欧美贸易政策变动；注册资本与实缴进度之间的资金安排未披露",
-   "同行业可比出海案例（公司+时间+做法+成效）": "玲珑轮胎——塞尔维亚基地投产并推进埃及项目可研；赛轮轮胎——越南/柬埔寨/墨西哥/印尼多基地；森麒麟——摩洛哥丹吉尔基地（同为科技城选址）已形成产能",
-   "与本公司动作的异同": "与森麒麟同选址丹吉尔科技城，路径相近但节奏更晚；贵州轮胎以“增资前进投资→下设二级子公司”两层结构落地，与玲珑直接持股略有差异",
-   "先发/后发位置判断": "后发：摩洛哥轮胎基地赛道已有森麒麟等先行者，公司处跟随位，需以差异化产品（商用车胎强项）卡位",
-   "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": "进入方式：绿地投资建厂；目标客户为欧洲/非洲替换胎与配套市场；关注欧盟对华轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则；竞争面对森麒麟等同址中资与米其林等本地产能",
-   "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": "注册资本仅约9,000欧元，大额资本开支待后续公告；自有资金增资前进投资，关注后续增资规模与迪拉姆/欧元汇率敞口；海外收入占比将随投产提升",
-   "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": "境内ODI备案（发改委/商务/外汇）办理进度未披露；摩洛哥投资准入与穆罕默德六世丹吉尔科技城优惠政策条件；欧盟CBAM及化学品法规（REACH）对轮胎出口的合规要求；制裁风险低",
+   "合作方": "前进投资100%持股；外部交易对手及关联交易判断【未披露】",
+   "出海模式归类": "【未披露】",
+   "盈利方式": "【未披露】",
+   "本地化深度": "【未披露】",
+   "对主营业务的战略价值": "【披露】推进第二海外生产基地相关工作；依据1225613826 P1。",
+   "对营收结构与利润的预期影响": "【未披露】",
+   "是否构成第二增长曲线": "【未披露】",
+   "主要风险与不确定性": "【未披露】",
+   "同行业可比出海案例（公司+时间+做法+成效）": "【未披露】",
+   "与本公司动作的异同": "【未披露】",
+   "先发/后发位置判断": "【未披露】",
+   "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": "【未披露】",
+   "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": "【未披露】",
+   "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": "【系统分析】授权办理审批备案不等于已办理完成；依据1225613826 P1，具体办理结果【未披露】。",
    "_aid": "1225613826",
    "摘录": [
     {
@@ -42,7 +42,7 @@ window.DB = {
     }
    ],
    "未披露事项": "项目总投资额、规划产能、建设周期、ODI备案进度均未披露。",
-   "阶段组": "实施",
+   "阶段组": "投产/运营",
    "渠道": "A股·巨潮"
   },
   {
@@ -4744,9 +4744,8 @@ window.DB = {
      "P45"
     ],
     "partners": [
-     "不构成关联交易",
-     "无外部合作方",
-     "无（经全资子公司贵州前进轮胎投资有限责任公司100%持股"
+     "前进投资100%持股",
+     "外部交易对手及关联交易判断【未披露】"
     ],
     "fund_types": [
      "其他"
@@ -7087,18 +7086,6 @@ window.DB = {
     ]
    },
    {
-    "name": "不构成关联交易",
-    "project_cnt": 2,
-    "companies": [
-     "贵州轮胎股份有限公司",
-     "长江精工钢结构（集团）股份有限公司"
-    ],
-    "projects": [
-     "P02",
-     "P45"
-    ]
-   },
-   {
     "name": "无关联关系",
     "project_cnt": 2,
     "companies": [
@@ -7196,6 +7183,16 @@ window.DB = {
    },
    {
     "name": "分包主体：长江精工（上海）建筑科技有限公司",
+    "project_cnt": 1,
+    "companies": [
+     "长江精工钢结构（集团）股份有限公司"
+    ],
+    "projects": [
+     "P02"
+    ]
+   },
+   {
+    "name": "不构成关联交易",
     "project_cnt": 1,
     "companies": [
      "长江精工钢结构（集团）股份有限公司"
@@ -7895,7 +7892,7 @@ window.DB = {
     ]
    },
    {
-    "name": "无（经全资子公司贵州前进轮胎投资有限责任公司100%持股",
+    "name": "前进投资100%持股",
     "project_cnt": 1,
     "companies": [
      "贵州轮胎股份有限公司"
@@ -7905,7 +7902,7 @@ window.DB = {
     ]
    },
    {
-    "name": "无外部合作方",
+    "name": "外部交易对手及关联交易判断【未披露】",
     "project_cnt": 1,
     "companies": [
      "贵州轮胎股份有限公司"
@@ -12446,52 +12443,6 @@ window.DB = {
     "project": "P45",
     "company": "贵州轮胎股份有限公司",
     "region": "摩洛哥",
-    "category": "税务合规",
-    "cond": "设立实体、取得所得或在目标国构成常设机构",
-    "req": "完成目标国税务登记与申报；关注中国受控外国企业规则与税收协定待遇",
-    "basis": "《企业所得税法》第45条（受控外国企业）；中国与目标国税收协定",
-    "material": "税务登记、转让定价文档、协定待遇备案",
-    "evidence": [
-     {
-      "aid": "1225613826",
-      "text": "摩洛哥全资二级子公司注册登记等相关手续已办理完毕",
-      "page": 1
-     }
-    ],
-    "owner": "",
-    "due": "",
-    "review": "每批次扫描复核",
-    "status": "已识别",
-    "gap": ""
-   },
-   {
-    "id": "C173",
-    "project": "P45",
-    "company": "贵州轮胎股份有限公司",
-    "region": "摩洛哥",
-    "category": "劳工与环保",
-    "cond": "建厂、运营及并购后雇用当地员工",
-    "req": "遵守目标国劳动用工、社保、安全生产与环保许可要求",
-    "basis": "目标国劳动法、环境保护法规（以属地要求为准）",
-    "material": "用工合同、环评批复、安全许可",
-    "evidence": [
-     {
-      "aid": "1225613826",
-      "text": "摩洛哥全资二级子公司注册登记等相关手续已办理完毕",
-      "page": 1
-     }
-    ],
-    "owner": "",
-    "due": "",
-    "review": "每批次扫描复核",
-    "status": "已识别",
-    "gap": ""
-   },
-   {
-    "id": "C174",
-    "project": "P45",
-    "company": "贵州轮胎股份有限公司",
-    "region": "摩洛哥",
     "category": "知识产权",
     "cond": "品牌、技术进入目标国市场",
     "req": "通过马德里体系/巴黎公约/PCT 完成商标专利布局，监控侵权",
@@ -12511,7 +12462,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C175",
+    "id": "C173",
     "project": "P46",
     "company": "博瑞生物医药（苏州）股份有限公司",
     "region": "中国香港",
@@ -12528,7 +12479,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C176",
+    "id": "C174",
     "project": "P47",
     "company": "彤程新材料集团股份有限公司",
     "region": "中国香港",
@@ -12545,7 +12496,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C177",
+    "id": "C175",
     "project": "P48",
     "company": "深圳市景旺电子股份有限公司",
     "region": "中国香港",
@@ -12562,7 +12513,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C178",
+    "id": "C176",
     "project": "P49",
     "company": "罗博特科智能科技股份有限公司",
     "region": "中国香港",
@@ -12579,7 +12530,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C179",
+    "id": "C177",
     "project": "P50",
     "company": "山东墨龙石油机械股份有限公司",
     "region": "中国香港",
@@ -12596,7 +12547,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C180",
+    "id": "C178",
     "project": "P51",
     "company": "中源家居股份有限公司",
     "region": "美国",
@@ -12613,7 +12564,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C181",
+    "id": "C179",
     "project": "P51",
     "company": "中源家居股份有限公司",
     "region": "美国",
@@ -12630,7 +12581,7 @@ window.DB = {
     "gap": "待补充证据：注册证书 / 登记回执"
    },
    {
-    "id": "C182",
+    "id": "C180",
     "project": "P51",
     "company": "中源家居股份有限公司",
     "region": "美国",
@@ -12653,7 +12604,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C183",
+    "id": "C181",
     "project": "P52",
     "company": "星环信息科技（上海）股份有限公司",
     "region": "中国香港",
@@ -12670,7 +12621,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C184",
+    "id": "C182",
     "project": "P53",
     "company": "深圳中富电路股份有限公司",
     "region": "泰国",
@@ -12679,6 +12630,52 @@ window.DB = {
     "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
     "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
     "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [
+     {
+      "aid": "1225575435",
+      "text": "增加投资不超过人民币 5 亿元（或等值外币）",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C183",
+    "project": "P53",
+    "company": "深圳中富电路股份有限公司",
+    "region": "泰国",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [
+     {
+      "aid": "1225575435",
+      "text": "增加投资不超过人民币 5 亿元（或等值外币）",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C184",
+    "project": "P53",
+    "company": "深圳中富电路股份有限公司",
+    "region": "泰国",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
     "evidence": [
      {
       "aid": "1225575435",
@@ -12697,52 +12694,6 @@ window.DB = {
     "project": "P53",
     "company": "深圳中富电路股份有限公司",
     "region": "泰国",
-    "category": "境外投资备案（商务）",
-    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
-    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
-    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
-    "material": "备案表、境外企业章程、投资主体证书",
-    "evidence": [
-     {
-      "aid": "1225575435",
-      "text": "增加投资不超过人民币 5 亿元（或等值外币）",
-      "page": 1
-     }
-    ],
-    "owner": "",
-    "due": "",
-    "review": "每批次扫描复核",
-    "status": "已识别",
-    "gap": ""
-   },
-   {
-    "id": "C186",
-    "project": "P53",
-    "company": "深圳中富电路股份有限公司",
-    "region": "泰国",
-    "category": "ODI 外汇登记",
-    "cond": "境内机构境外直接投资外汇收支",
-    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
-    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
-    "material": "业务登记凭证、资金来源证明、备案文件",
-    "evidence": [
-     {
-      "aid": "1225575435",
-      "text": "增加投资不超过人民币 5 亿元（或等值外币）",
-      "page": 1
-     }
-    ],
-    "owner": "",
-    "due": "",
-    "review": "每批次扫描复核",
-    "status": "已识别",
-    "gap": ""
-   },
-   {
-    "id": "C187",
-    "project": "P53",
-    "company": "深圳中富电路股份有限公司",
-    "region": "泰国",
     "category": "上市公司审议与披露",
     "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
     "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
@@ -12756,7 +12707,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C188",
+    "id": "C186",
     "project": "P53",
     "company": "深圳中富电路股份有限公司",
     "region": "泰国",
@@ -12773,7 +12724,7 @@ window.DB = {
     "gap": "待补充证据：注册证书 / 登记回执"
    },
    {
-    "id": "C189",
+    "id": "C187",
     "project": "P54",
     "company": "青岛酷特智能股份有限公司",
     "region": "韩国",
@@ -12782,6 +12733,52 @@ window.DB = {
     "req": "实行备案管理的，投资主体通过在线平台提交备案申请；地方企业由省级发改委备案",
     "basis": "《企业境外投资管理办法》（国家发展改革委令第11号，2018-03-01施行）",
     "material": "备案申请表、投资主体营业执照、董事会决议、尽调/可研、资金来源说明",
+    "evidence": [
+     {
+      "aid": "1225571378",
+      "text": "拟以现金收购SEOK JOO HYUNG、SONG SEE YONG控制的韩国apM集团内部分运营公司的控股权",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C188",
+    "project": "P54",
+    "company": "青岛酷特智能股份有限公司",
+    "region": "韩国",
+    "category": "境外投资备案（商务）",
+    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
+    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
+    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
+    "material": "备案表、境外企业章程、投资主体证书",
+    "evidence": [
+     {
+      "aid": "1225571378",
+      "text": "拟以现金收购SEOK JOO HYUNG、SONG SEE YONG控制的韩国apM集团内部分运营公司的控股权",
+      "page": 1
+     }
+    ],
+    "owner": "",
+    "due": "",
+    "review": "每批次扫描复核",
+    "status": "已识别",
+    "gap": ""
+   },
+   {
+    "id": "C189",
+    "project": "P54",
+    "company": "青岛酷特智能股份有限公司",
+    "region": "韩国",
+    "category": "ODI 外汇登记",
+    "cond": "境内机构境外直接投资外汇收支",
+    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
+    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
+    "material": "业务登记凭证、资金来源证明、备案文件",
     "evidence": [
      {
       "aid": "1225571378",
@@ -12800,52 +12797,6 @@ window.DB = {
     "project": "P54",
     "company": "青岛酷特智能股份有限公司",
     "region": "韩国",
-    "category": "境外投资备案（商务）",
-    "cond": "境内企业新设、并购及其他方式取得境外企业权益",
-    "req": "报省级商务主管部门备案，领取《企业境外投资证书》",
-    "basis": "《境外投资管理办法》（商务部令2014年第3号）",
-    "material": "备案表、境外企业章程、投资主体证书",
-    "evidence": [
-     {
-      "aid": "1225571378",
-      "text": "拟以现金收购SEOK JOO HYUNG、SONG SEE YONG控制的韩国apM集团内部分运营公司的控股权",
-      "page": 1
-     }
-    ],
-    "owner": "",
-    "due": "",
-    "review": "每批次扫描复核",
-    "status": "已识别",
-    "gap": ""
-   },
-   {
-    "id": "C191",
-    "project": "P54",
-    "company": "青岛酷特智能股份有限公司",
-    "region": "韩国",
-    "category": "ODI 外汇登记",
-    "cond": "境内机构境外直接投资外汇收支",
-    "req": "银行凭发改委/商务备案直接办理外汇登记，无需外汇局事前核准",
-    "basis": "《关于进一步简化和改进直接投资外汇管理政策的通知》（汇发〔2015〕13号）",
-    "material": "业务登记凭证、资金来源证明、备案文件",
-    "evidence": [
-     {
-      "aid": "1225571378",
-      "text": "拟以现金收购SEOK JOO HYUNG、SONG SEE YONG控制的韩国apM集团内部分运营公司的控股权",
-      "page": 1
-     }
-    ],
-    "owner": "",
-    "due": "",
-    "review": "每批次扫描复核",
-    "status": "已识别",
-    "gap": ""
-   },
-   {
-    "id": "C192",
-    "project": "P54",
-    "company": "青岛酷特智能股份有限公司",
-    "region": "韩国",
     "category": "上市公司审议与披露",
     "cond": "上市公司实施境外投资、担保、资助达到披露或审议标准",
     "req": "按章程权限经董事会/股东大会审议，及时履行临时公告义务，持续披露进展",
@@ -12859,7 +12810,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C193",
+    "id": "C191",
     "project": "P54",
     "company": "青岛酷特智能股份有限公司",
     "region": "韩国",
@@ -12876,7 +12827,7 @@ window.DB = {
     "gap": "待补充证据：注册证书 / 登记回执"
    },
    {
-    "id": "C194",
+    "id": "C192",
     "project": "P54",
     "company": "青岛酷特智能股份有限公司",
     "region": "韩国",
@@ -12899,7 +12850,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C195",
+    "id": "C193",
     "project": "P54",
     "company": "青岛酷特智能股份有限公司",
     "region": "韩国",
@@ -12922,7 +12873,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C196",
+    "id": "C194",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -12945,7 +12896,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C197",
+    "id": "C195",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -12968,7 +12919,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C198",
+    "id": "C196",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -12991,7 +12942,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C199",
+    "id": "C197",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -13008,7 +12959,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C200",
+    "id": "C198",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -13025,7 +12976,7 @@ window.DB = {
     "gap": "待补充证据：注册证书 / 登记回执"
    },
    {
-    "id": "C201",
+    "id": "C199",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -13042,7 +12993,7 @@ window.DB = {
     "gap": "待补充证据：许可证 / 注册证"
    },
    {
-    "id": "C202",
+    "id": "C200",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -13059,7 +13010,7 @@ window.DB = {
     "gap": "待补充证据：税务登记 / 申报回执"
    },
    {
-    "id": "C203",
+    "id": "C201",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -13076,7 +13027,7 @@ window.DB = {
     "gap": "待补充证据：环评批复 / 用工登记"
    },
    {
-    "id": "C204",
+    "id": "C202",
     "project": "P55",
     "company": "山东联科科技股份有限公司",
     "region": "新加坡",
@@ -13093,7 +13044,7 @@ window.DB = {
     "gap": "待补充证据：注册证书 / 受理通知"
    },
    {
-    "id": "C205",
+    "id": "C203",
     "project": "P56",
     "company": "浙江华海药业股份有限公司",
     "region": "未标明",
@@ -13116,7 +13067,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C206",
+    "id": "C204",
     "project": "P56",
     "company": "浙江华海药业股份有限公司",
     "region": "未标明",
@@ -13139,7 +13090,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C207",
+    "id": "C205",
     "project": "P56",
     "company": "浙江华海药业股份有限公司",
     "region": "未标明",
@@ -13162,7 +13113,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C208",
+    "id": "C206",
     "project": "P56",
     "company": "浙江华海药业股份有限公司",
     "region": "未标明",
@@ -13185,7 +13136,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C209",
+    "id": "C207",
     "project": "P57",
     "company": "湖南军信环保股份有限公司",
     "region": "中国香港",
@@ -13208,7 +13159,7 @@ window.DB = {
     "gap": ""
    },
    {
-    "id": "C210",
+    "id": "C208",
     "project": "P58",
     "company": "联想集团有限公司",
     "region": "中国香港",
@@ -13225,7 +13176,7 @@ window.DB = {
     "gap": "待补充证据：公告原文与决议"
    },
    {
-    "id": "C211",
+    "id": "C209",
     "project": "P59",
     "company": "翱捷科技股份有限公司",
     "region": "中国香港",
@@ -14187,11 +14138,6 @@ window.DB = {
      "name": "香港公开发售10%＋国际发售90%"
     },
     {
-     "id": "partner:不构成关联交易",
-     "kind": "partner",
-     "name": "不构成关联交易"
-    },
-    {
      "id": "partner:无关联关系",
      "kind": "partner",
      "name": "无关联关系"
@@ -14240,6 +14186,11 @@ window.DB = {
      "id": "partner:分包主体：长江精工（上海）建筑科技有限公司",
      "kind": "partner",
      "name": "分包主体：长江精工（上海）建筑科技有"
+    },
+    {
+     "id": "partner:不构成关联交易",
+     "kind": "partner",
+     "name": "不构成关联交易"
     },
     {
      "id": "partner:Ltd 50%",
@@ -14587,14 +14538,14 @@ window.DB = {
      "name": "独家保荐人（未列名"
     },
     {
-     "id": "partner:无（经全资子公司贵州前进轮胎投资有限责任公司100%持股",
+     "id": "partner:前进投资100%持股",
      "kind": "partner",
-     "name": "无（经全资子公司贵州前进轮胎投资有限"
+     "name": "前进投资100%持股"
     },
     {
-     "id": "partner:无外部合作方",
+     "id": "partner:外部交易对手及关联交易判断【未披露】",
      "kind": "partner",
-     "name": "无外部合作方"
+     "name": "外部交易对手及关联交易判断【未披露】"
     },
     {
      "id": "partner:控股股东及一致行动人持股由55.95%摊薄至52.16%",
@@ -15675,20 +15626,20 @@ window.DB = {
     {
      "id": "compliance:C172",
      "kind": "compliance",
-     "name": "税务合规",
+     "name": "知识产权",
      "status": "已识别"
     },
     {
      "id": "compliance:C173",
      "kind": "compliance",
-     "name": "劳工与环保",
-     "status": "已识别"
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
     },
     {
      "id": "compliance:C174",
      "kind": "compliance",
-     "name": "知识产权",
-     "status": "已识别"
+     "name": "上市公司审议与披露",
+     "status": "待跟踪"
     },
     {
      "id": "compliance:C175",
@@ -15717,197 +15668,185 @@ window.DB = {
     {
      "id": "compliance:C179",
      "kind": "compliance",
-     "name": "上市公司审议与披露",
+     "name": "目标国公司注册",
      "status": "待跟踪"
     },
     {
      "id": "compliance:C180",
      "kind": "compliance",
-     "name": "上市公司审议与披露",
-     "status": "待跟踪"
+     "name": "制裁与出口管制",
+     "status": "已识别"
     },
     {
      "id": "compliance:C181",
      "kind": "compliance",
-     "name": "目标国公司注册",
+     "name": "上市公司审议与披露",
      "status": "待跟踪"
     },
     {
      "id": "compliance:C182",
      "kind": "compliance",
-     "name": "制裁与出口管制",
+     "name": "境外投资备案（发改）",
      "status": "已识别"
     },
     {
      "id": "compliance:C183",
      "kind": "compliance",
-     "name": "上市公司审议与披露",
-     "status": "待跟踪"
+     "name": "境外投资备案（商务）",
+     "status": "已识别"
     },
     {
      "id": "compliance:C184",
      "kind": "compliance",
-     "name": "境外投资备案（发改）",
+     "name": "ODI 外汇登记",
      "status": "已识别"
     },
     {
      "id": "compliance:C185",
      "kind": "compliance",
-     "name": "境外投资备案（商务）",
-     "status": "已识别"
-    },
-    {
-     "id": "compliance:C186",
-     "kind": "compliance",
-     "name": "ODI 外汇登记",
-     "status": "已识别"
-    },
-    {
-     "id": "compliance:C187",
-     "kind": "compliance",
      "name": "上市公司审议与披露",
      "status": "待跟踪"
     },
     {
-     "id": "compliance:C188",
+     "id": "compliance:C186",
      "kind": "compliance",
      "name": "目标国公司注册",
      "status": "待跟踪"
     },
     {
-     "id": "compliance:C189",
+     "id": "compliance:C187",
      "kind": "compliance",
      "name": "境外投资备案（发改）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C188",
+     "kind": "compliance",
+     "name": "境外投资备案（商务）",
+     "status": "已识别"
+    },
+    {
+     "id": "compliance:C189",
+     "kind": "compliance",
+     "name": "ODI 外汇登记",
      "status": "已识别"
     },
     {
      "id": "compliance:C190",
      "kind": "compliance",
-     "name": "境外投资备案（商务）",
-     "status": "已识别"
-    },
-    {
-     "id": "compliance:C191",
-     "kind": "compliance",
-     "name": "ODI 外汇登记",
-     "status": "已识别"
-    },
-    {
-     "id": "compliance:C192",
-     "kind": "compliance",
      "name": "上市公司审议与披露",
      "status": "待跟踪"
     },
     {
-     "id": "compliance:C193",
+     "id": "compliance:C191",
      "kind": "compliance",
      "name": "目标国公司注册",
      "status": "待跟踪"
     },
     {
-     "id": "compliance:C194",
+     "id": "compliance:C192",
      "kind": "compliance",
      "name": "税务合规",
      "status": "已识别"
     },
     {
-     "id": "compliance:C195",
+     "id": "compliance:C193",
      "kind": "compliance",
      "name": "劳工与环保",
      "status": "已识别"
     },
     {
-     "id": "compliance:C196",
+     "id": "compliance:C194",
      "kind": "compliance",
      "name": "境外投资备案（发改）",
      "status": "已识别"
     },
     {
-     "id": "compliance:C197",
+     "id": "compliance:C195",
      "kind": "compliance",
      "name": "境外投资备案（商务）",
      "status": "已识别"
     },
     {
-     "id": "compliance:C198",
+     "id": "compliance:C196",
      "kind": "compliance",
      "name": "ODI 外汇登记",
      "status": "已识别"
     },
     {
-     "id": "compliance:C199",
+     "id": "compliance:C197",
      "kind": "compliance",
      "name": "上市公司审议与披露",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C198",
+     "kind": "compliance",
+     "name": "目标国公司注册",
+     "status": "待跟踪"
+    },
+    {
+     "id": "compliance:C199",
+     "kind": "compliance",
+     "name": "行业准入与许可",
      "status": "待跟踪"
     },
     {
      "id": "compliance:C200",
      "kind": "compliance",
-     "name": "目标国公司注册",
+     "name": "税务合规",
      "status": "待跟踪"
     },
     {
      "id": "compliance:C201",
      "kind": "compliance",
-     "name": "行业准入与许可",
+     "name": "劳工与环保",
      "status": "待跟踪"
     },
     {
      "id": "compliance:C202",
      "kind": "compliance",
-     "name": "税务合规",
+     "name": "知识产权",
      "status": "待跟踪"
     },
     {
      "id": "compliance:C203",
      "kind": "compliance",
-     "name": "劳工与环保",
-     "status": "待跟踪"
-    },
-    {
-     "id": "compliance:C204",
-     "kind": "compliance",
-     "name": "知识产权",
-     "status": "待跟踪"
-    },
-    {
-     "id": "compliance:C205",
-     "kind": "compliance",
      "name": "上市公司审议与披露",
      "status": "已识别"
     },
     {
-     "id": "compliance:C206",
+     "id": "compliance:C204",
      "kind": "compliance",
      "name": "目标国公司注册",
      "status": "已识别"
     },
     {
-     "id": "compliance:C207",
+     "id": "compliance:C205",
      "kind": "compliance",
      "name": "行业准入与许可",
      "status": "已识别"
     },
     {
-     "id": "compliance:C208",
+     "id": "compliance:C206",
      "kind": "compliance",
      "name": "知识产权",
      "status": "已识别"
     },
     {
-     "id": "compliance:C209",
+     "id": "compliance:C207",
      "kind": "compliance",
      "name": "上市公司审议与披露",
      "status": "已识别"
     },
     {
-     "id": "compliance:C210",
+     "id": "compliance:C208",
      "kind": "compliance",
      "name": "上市公司审议与披露",
      "status": "待跟踪"
     },
     {
-     "id": "compliance:C211",
+     "id": "compliance:C209",
      "kind": "compliance",
      "name": "上市公司审议与披露",
      "status": "已识别"
@@ -17161,18 +17100,6 @@ window.DB = {
      "date": ""
     },
     {
-     "s": "partner:不构成关联交易",
-     "t": "project:P02",
-     "type": "合作/交易",
-     "date": ""
-    },
-    {
-     "s": "partner:不构成关联交易",
-     "t": "project:P45",
-     "type": "合作/交易",
-     "date": ""
-    },
-    {
      "s": "partner:无关联关系",
      "t": "project:P07",
      "type": "合作/交易",
@@ -17246,6 +17173,12 @@ window.DB = {
     },
     {
      "s": "partner:分包主体：长江精工（上海）建筑科技有限公司",
+     "t": "project:P02",
+     "type": "合作/交易",
+     "date": ""
+    },
+    {
+     "s": "partner:不构成关联交易",
      "t": "project:P02",
      "type": "合作/交易",
      "date": ""
@@ -17665,13 +17598,13 @@ window.DB = {
      "date": ""
     },
     {
-     "s": "partner:无（经全资子公司贵州前进轮胎投资有限责任公司100%持股",
+     "s": "partner:前进投资100%持股",
      "t": "project:P45",
      "type": "合作/交易",
      "date": ""
     },
     {
-     "s": "partner:无外部合作方",
+     "s": "partner:外部交易对手及关联交易判断【未披露】",
      "t": "project:P45",
      "type": "合作/交易",
      "date": ""
@@ -18872,43 +18805,43 @@ window.DB = {
     },
     {
      "s": "compliance:C173",
-     "t": "project:P45",
-     "type": "审批/合规",
-     "date": ""
-    },
-    {
-     "s": "compliance:C174",
-     "t": "project:P45",
-     "type": "审批/合规",
-     "date": ""
-    },
-    {
-     "s": "compliance:C175",
      "t": "project:P46",
      "type": "审批/合规",
      "date": ""
     },
     {
-     "s": "compliance:C176",
+     "s": "compliance:C174",
      "t": "project:P47",
      "type": "审批/合规",
      "date": ""
     },
     {
-     "s": "compliance:C177",
+     "s": "compliance:C175",
      "t": "project:P48",
      "type": "审批/合规",
      "date": ""
     },
     {
-     "s": "compliance:C178",
+     "s": "compliance:C176",
      "t": "project:P49",
      "type": "审批/合规",
      "date": ""
     },
     {
-     "s": "compliance:C179",
+     "s": "compliance:C177",
      "t": "project:P50",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C178",
+     "t": "project:P51",
+     "type": "审批/合规",
+     "date": ""
+    },
+    {
+     "s": "compliance:C179",
+     "t": "project:P51",
      "type": "审批/合规",
      "date": ""
     },
@@ -18920,19 +18853,19 @@ window.DB = {
     },
     {
      "s": "compliance:C181",
-     "t": "project:P51",
+     "t": "project:P52",
      "type": "审批/合规",
      "date": ""
     },
     {
      "s": "compliance:C182",
-     "t": "project:P51",
+     "t": "project:P53",
      "type": "审批/合规",
      "date": ""
     },
     {
      "s": "compliance:C183",
-     "t": "project:P52",
+     "t": "project:P53",
      "type": "审批/合规",
      "date": ""
     },
@@ -18956,13 +18889,13 @@ window.DB = {
     },
     {
      "s": "compliance:C187",
-     "t": "project:P53",
+     "t": "project:P54",
      "type": "审批/合规",
      "date": ""
     },
     {
      "s": "compliance:C188",
-     "t": "project:P53",
+     "t": "project:P54",
      "type": "审批/合规",
      "date": ""
     },
@@ -18998,13 +18931,13 @@ window.DB = {
     },
     {
      "s": "compliance:C194",
-     "t": "project:P54",
+     "t": "project:P55",
      "type": "审批/合规",
      "date": ""
     },
     {
      "s": "compliance:C195",
-     "t": "project:P54",
+     "t": "project:P55",
      "type": "审批/合规",
      "date": ""
     },
@@ -19052,13 +18985,13 @@ window.DB = {
     },
     {
      "s": "compliance:C203",
-     "t": "project:P55",
+     "t": "project:P56",
      "type": "审批/合规",
      "date": ""
     },
     {
      "s": "compliance:C204",
-     "t": "project:P55",
+     "t": "project:P56",
      "type": "审批/合规",
      "date": ""
     },
@@ -19076,30 +19009,18 @@ window.DB = {
     },
     {
      "s": "compliance:C207",
-     "t": "project:P56",
-     "type": "审批/合规",
-     "date": ""
-    },
-    {
-     "s": "compliance:C208",
-     "t": "project:P56",
-     "type": "审批/合规",
-     "date": ""
-    },
-    {
-     "s": "compliance:C209",
      "t": "project:P57",
      "type": "审批/合规",
      "date": ""
     },
     {
-     "s": "compliance:C210",
+     "s": "compliance:C208",
      "t": "project:P58",
      "type": "审批/合规",
      "date": ""
     },
     {
-     "s": "compliance:C211",
+     "s": "compliance:C209",
      "t": "project:P59",
      "type": "审批/合规",
      "date": ""
@@ -20770,7 +20691,7 @@ window.DB = {
   "cursor": "2026-10-02",
   "done": false
  },
- "synced": "2026-10-27 00:05",
+ "synced": "2026-10-27 00:12",
  "events": [
   {
    "event_id": "E-001",
@@ -26444,6 +26365,17 @@ window.DB = {
       "quote": "三井集團可以在規定期限內行使優先購買權"
      },
      "basis": null
+    },
+    {
+     "name": "三井红隼煤炭投资有限公司（Mitsui Kestrel Coal Investment Pty Ltd）",
+     "role": "合资企业其余权益人",
+     "stake_pct": 20,
+     "layer": "disclosed",
+     "evidence": {
+      "doc_id": "hkex_12105020",
+      "page": 3,
+      "quote": "其餘 20%權益由三井紅隼煤炭投資有限公司"
+     }
     }
    ],
    "geo": {
@@ -26793,11 +26725,11 @@ window.DB = {
      "basis": "hkex_12354762全文无审批结果字样"
     },
     {
-     "item": "三井集团在红隼JV的确切权益比例与治理条款",
-     "why": "签约公告仅披露其优先购买权/受让人批准权，未逐字点名其为20%权益人；影响JV治理与产量分成",
+     "item": "三井持有20%权益对应的合资治理条款",
+     "why": "签约公告P3已明确三井持有其余20%权益；董事席位、表决、僵局与退出安排仍未在所核公告披露。",
      "where": "合资企业协定（未公开）、三井方面披露、兖煤澳洲ASX公告",
      "layer": "analysis",
-     "basis": "hkex_12105020 P13脚注27＋P14优先购买权条款"
+     "basis": "hkex_12105020 P3持股链、P14优先购买权条款；已知比例不再列为缺口。"
     },
     {
      "item": "或有对价逐年计算底稿（可归属销量、实际实现价格系数）与拨备计量",
@@ -26843,9 +26775,9 @@ window.DB = {
      "basis": "hkex_12105020 P14定金条款"
     },
     {
-     "text": "收购在产矿JV权益时，须查明JV其余权益人及其优先购买权——本案签约公告披露三井集团优先购买权/受让人批准权条款，交割前须取得其放弃或批准，交割后核查其权益比例与治理条款",
+     "text": "收购在产矿JV权益时，将已披露持股比例与未披露治理安排分开：本案三井持有其余20%权益，仍需核查优先购买权处置结果、表决与退出条款。",
      "layer": "analysis",
-     "basis": "hkex_12105020 P14「三井集團的優先購買權」"
+     "basis": "hkex_12105020 P3明确20%权益，P14列优先购买权；两公告未逐项载处置结果。"
     }
    ],
    "sources": [
@@ -27486,6 +27418,353 @@ window.DB = {
      "layer": "analysis",
      "basis": "重新打开完成公告P1；「須予披露交易」为原文标题，巨潮内部分类不能冒充港股原始类别，未远程核实的签约分类不作为当前已核事实。",
      "note": "保留源数据与历史旧值；仅修订当前议题，不改变事件数。"
+    },
+    {
+     "date": "2026-10-27",
+     "batch_id": "D-20261027",
+     "type": "修正",
+     "change": "correction",
+     "review": "R12-5",
+     "fields": [
+      "parties",
+      "gaps",
+      "practice_notes"
+     ],
+     "old_value": {
+      "parties": [
+       {
+        "name": "兖矿能源集团股份有限公司",
+        "role": "上市主体",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "兗礦能源集團股份有限公司"
+        },
+        "basis": null
+       },
+       {
+        "name": "兖煤澳大利亚有限公司（兖煤澳洲公司，ASX:YAL/03668.HK）",
+        "role": "收购方",
+        "relation_to_listed": "上市公司控股子公司",
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "本公司控股子公司兗煤澳大利亞有限公司"
+        },
+        "basis": null
+       },
+       {
+        "name": "EMR Capital Advisors Pty Ltd、Kestrel Coal (EMR) Limited、Adaro Capital Limited（ACL）（合称「卖方」）",
+        "role": "卖方",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "Adaro Capital Limited（「ACL」）（合稱「賣方」）"
+        },
+        "basis": null
+       },
+       {
+        "name": "ACL 及 EMR Capital Management Limited（红隼集团认股权证出售方）",
+        "role": "卖方",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "ACL 和 EMR Capital Management Limited 為紅隼集團認股權證的出售方"
+        },
+        "basis": null
+       },
+       {
+        "name": "红隼煤矿合资企业（Kestrel Joint Venture，经红隼集团100%股权间接持有80%权益）",
+        "role": "标的",
+        "relation_to_listed": null,
+        "stake_pct": 80,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "紅隼煤礦合資企業（Kestrel Joint Venture"
+        },
+        "basis": null
+       },
+       {
+        "name": "五年期12亿美元银团（贷款人未具名）",
+        "role": "融资方",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 2,
+         "quote": "首次提取五年期12億美元銀團收購貸款"
+        },
+        "basis": null
+       },
+       {
+        "name": "三井集团（红隼煤矿合资企业优先购买权人；可在规定期限内行使、放弃或为合资企业协定批准兖煤澳洲作为受让人）",
+        "role": "标的相关方",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12105020",
+         "page": 14,
+         "quote": "三井集團可以在規定期限內行使優先購買權"
+        },
+        "basis": null
+       }
+      ],
+      "gaps": [
+       {
+        "item": "各先决条件批复的具体内容与附加条件（FIRB/ACCC/国家发改委/山东省商务厅/市监总局）",
+        "why": "完成公告未逐项确认审批结果；附加条件可能构成持续监管义务",
+        "where": "FIRB/ACCC公告、兖煤澳洲ASX披露、国家发改委/商务部备案公示",
+        "layer": "analysis",
+        "basis": "hkex_12354762全文无审批结果字样"
+       },
+       {
+        "item": "三井集团在红隼JV的确切权益比例与治理条款",
+        "why": "签约公告仅披露其优先购买权/受让人批准权，未逐字点名其为20%权益人；影响JV治理与产量分成",
+        "where": "合资企业协定（未公开）、三井方面披露、兖煤澳洲ASX公告",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P13脚注27＋P14优先购买权条款"
+       },
+       {
+        "item": "或有对价逐年计算底稿（可归属销量、实际实现价格系数）与拨备计量",
+        "why": "决定5.5亿美元或有付款的实际触发金额与会计处理",
+        "where": "交易文件、兖煤澳洲年报或有负债附注",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P3仅给出示例计算"
+       },
+       {
+        "item": "五年期12亿美元银团贷款的贷款人、担保与财务契约",
+        "why": "影响集团债务约束与再融资风险",
+        "where": "贷款协议、兖煤澳洲年报借款附注",
+        "layer": "analysis",
+        "basis": "两公告均仅披露期限与金额"
+       },
+       {
+        "item": "SPA全文（陈述保证细则、赔偿上限、争议解决、税费条款）",
+        "why": "摘要未载税费与争议解决；W&I保险范围与除外责任影响索赔路径",
+        "where": "交易文件（未公开）",
+        "layer": "analysis",
+        "basis": "hkex_12105020附录1为主要条款摘要，非全文"
+       }
+      ],
+      "practice_notes": [
+       {
+        "text": "完成公告仅摘要时，必须回查签约公告（本案2026-04-14）核对先决条件、审批条款与陈述保证——不能仅凭「成功完成」认定审批无残留义务；本案签约公告附录1即载明ACCC/FIRB/中国ODI三部门先决条件，完成公告只字未提",
+        "layer": "analysis",
+        "basis": "两公告逐字比对（2026-10-26）"
+       },
+       {
+        "text": "商品价挂钩或有对价：从签约公告确认基准指数定义（本案＝普氏PLVHA00年度均值）、门槛价（225美元/吨名义值）与分成比例（30%），交割后立即建立年度监测台账并明确拨备政策",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P2–P3或有对价机制"
+       },
+       {
+        "text": "「暂定调整」字眼=交割后调整未了：核对完成时净债务及营运资金的最终确认时间表、对账争议机制，并勾稽定金（本案4,000万美元，计息）在首付中的扣减",
+        "layer": "analysis",
+        "basis": "hkex_12354762 P1–P2「其他暫定調整」＋hkex_12105020 P14定金计息"
+       },
+       {
+        "text": "审批失败定金作唯一补偿=反向分手费上限：评估定金（本案4,000万美元）及「唯一补偿」约定对买方监管审批失败敞口的封顶作用，并注意定金计息条款",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P14定金条款"
+       },
+       {
+        "text": "收购在产矿JV权益时，须查明JV其余权益人及其优先购买权——本案签约公告披露三井集团优先购买权/受让人批准权条款，交割前须取得其放弃或批准，交割后核查其权益比例与治理条款",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P14「三井集團的優先購買權」"
+       }
+      ]
+     },
+     "new_value": {
+      "parties": [
+       {
+        "name": "兖矿能源集团股份有限公司",
+        "role": "上市主体",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "兗礦能源集團股份有限公司"
+        },
+        "basis": null
+       },
+       {
+        "name": "兖煤澳大利亚有限公司（兖煤澳洲公司，ASX:YAL/03668.HK）",
+        "role": "收购方",
+        "relation_to_listed": "上市公司控股子公司",
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "本公司控股子公司兗煤澳大利亞有限公司"
+        },
+        "basis": null
+       },
+       {
+        "name": "EMR Capital Advisors Pty Ltd、Kestrel Coal (EMR) Limited、Adaro Capital Limited（ACL）（合称「卖方」）",
+        "role": "卖方",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "Adaro Capital Limited（「ACL」）（合稱「賣方」）"
+        },
+        "basis": null
+       },
+       {
+        "name": "ACL 及 EMR Capital Management Limited（红隼集团认股权证出售方）",
+        "role": "卖方",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "ACL 和 EMR Capital Management Limited 為紅隼集團認股權證的出售方"
+        },
+        "basis": null
+       },
+       {
+        "name": "红隼煤矿合资企业（Kestrel Joint Venture，经红隼集团100%股权间接持有80%权益）",
+        "role": "标的",
+        "relation_to_listed": null,
+        "stake_pct": 80,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 1,
+         "quote": "紅隼煤礦合資企業（Kestrel Joint Venture"
+        },
+        "basis": null
+       },
+       {
+        "name": "五年期12亿美元银团（贷款人未具名）",
+        "role": "融资方",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12354762",
+         "page": 2,
+         "quote": "首次提取五年期12億美元銀團收購貸款"
+        },
+        "basis": null
+       },
+       {
+        "name": "三井集团（红隼煤矿合资企业优先购买权人；可在规定期限内行使、放弃或为合资企业协定批准兖煤澳洲作为受让人）",
+        "role": "标的相关方",
+        "relation_to_listed": null,
+        "stake_pct": null,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12105020",
+         "page": 14,
+         "quote": "三井集團可以在規定期限內行使優先購買權"
+        },
+        "basis": null
+       },
+       {
+        "name": "三井红隼煤炭投资有限公司（Mitsui Kestrel Coal Investment Pty Ltd）",
+        "role": "合资企业其余权益人",
+        "stake_pct": 20,
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "hkex_12105020",
+         "page": 3,
+         "quote": "其餘 20%權益由三井紅隼煤炭投資有限公司"
+        }
+       }
+      ],
+      "gaps": [
+       {
+        "item": "各先决条件批复的具体内容与附加条件（FIRB/ACCC/国家发改委/山东省商务厅/市监总局）",
+        "why": "完成公告未逐项确认审批结果；附加条件可能构成持续监管义务",
+        "where": "FIRB/ACCC公告、兖煤澳洲ASX披露、国家发改委/商务部备案公示",
+        "layer": "analysis",
+        "basis": "hkex_12354762全文无审批结果字样"
+       },
+       {
+        "item": "三井持有20%权益对应的合资治理条款",
+        "why": "签约公告P3已明确三井持有其余20%权益；董事席位、表决、僵局与退出安排仍未在所核公告披露。",
+        "where": "合资企业协定（未公开）、三井方面披露、兖煤澳洲ASX公告",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P3持股链、P14优先购买权条款；已知比例不再列为缺口。"
+       },
+       {
+        "item": "或有对价逐年计算底稿（可归属销量、实际实现价格系数）与拨备计量",
+        "why": "决定5.5亿美元或有付款的实际触发金额与会计处理",
+        "where": "交易文件、兖煤澳洲年报或有负债附注",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P3仅给出示例计算"
+       },
+       {
+        "item": "五年期12亿美元银团贷款的贷款人、担保与财务契约",
+        "why": "影响集团债务约束与再融资风险",
+        "where": "贷款协议、兖煤澳洲年报借款附注",
+        "layer": "analysis",
+        "basis": "两公告均仅披露期限与金额"
+       },
+       {
+        "item": "SPA全文（陈述保证细则、赔偿上限、争议解决、税费条款）",
+        "why": "摘要未载税费与争议解决；W&I保险范围与除外责任影响索赔路径",
+        "where": "交易文件（未公开）",
+        "layer": "analysis",
+        "basis": "hkex_12105020附录1为主要条款摘要，非全文"
+       }
+      ],
+      "practice_notes": [
+       {
+        "text": "完成公告仅摘要时，必须回查签约公告（本案2026-04-14）核对先决条件、审批条款与陈述保证——不能仅凭「成功完成」认定审批无残留义务；本案签约公告附录1即载明ACCC/FIRB/中国ODI三部门先决条件，完成公告只字未提",
+        "layer": "analysis",
+        "basis": "两公告逐字比对（2026-10-26）"
+       },
+       {
+        "text": "商品价挂钩或有对价：从签约公告确认基准指数定义（本案＝普氏PLVHA00年度均值）、门槛价（225美元/吨名义值）与分成比例（30%），交割后立即建立年度监测台账并明确拨备政策",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P2–P3或有对价机制"
+       },
+       {
+        "text": "「暂定调整」字眼=交割后调整未了：核对完成时净债务及营运资金的最终确认时间表、对账争议机制，并勾稽定金（本案4,000万美元，计息）在首付中的扣减",
+        "layer": "analysis",
+        "basis": "hkex_12354762 P1–P2「其他暫定調整」＋hkex_12105020 P14定金计息"
+       },
+       {
+        "text": "审批失败定金作唯一补偿=反向分手费上限：评估定金（本案4,000万美元）及「唯一补偿」约定对买方监管审批失败敞口的封顶作用，并注意定金计息条款",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P14定金条款"
+       },
+       {
+        "text": "收购在产矿JV权益时，将已披露持股比例与未披露治理安排分开：本案三井持有其余20%权益，仍需核查优先购买权处置结果、表决与退出条款。",
+        "layer": "analysis",
+        "basis": "hkex_12105020 P3明确20%权益，P14列优先购买权；两公告未逐项载处置结果。"
+       }
+      ]
+     },
+     "doc_id": "hkex_12105020",
+     "page": 3,
+     "layer": "analysis",
+     "summary": "红隼：签约公告P3已载三井持有其余20%，补权益人并撤回“比例未披露”缺口，治理条款仍待核。",
+     "basis": "本轮远程打开签约公告P3，原文明示其餘20%權益由三井紅隼煤炭投資有限公司持有。",
+     "note": "不将完成公告未载明扩大为所有已收录公告均未披露。"
     }
    ],
    "update_type_latest": "修正",
@@ -34684,23 +34963,48 @@ window.DB = {
   {
    "event_id": "E-060",
    "title_fact": {
-    "text": "贵州轮胎：境外设企",
+    "text": "贵州轮胎摩洛哥全资二级子公司10月19日完成注册，注册资本99,000迪拉姆（约9,000欧元）",
     "layer": "disclosed",
-    "basis": "1225613826 动作类型/公告标题"
+    "evidence": {
+     "doc_id": "1225613826",
+     "page": 1,
+     "quote": "登记日期：2026 年 10 月 19 日"
+    }
    },
    "status": "活跃",
    "parties": [
     {
      "name": "贵州轮胎股份有限公司",
-     "role": "披露主体",
+     "role": "上市主体",
      "layer": "disclosed",
-     "basis": "1225613826"
+     "evidence": {
+      "doc_id": "1225613826",
+      "page": 1,
+      "quote": "贵州轮胎股份有限公司"
+     }
     },
     {
-     "name": "无（经全资子公司贵州前进轮胎投资有限责任公司100%持股，无外部合作方；不构成关联交易）",
-     "role": "合作方/交易对手",
+     "name": "贵州前进轮胎投资有限责任公司",
+     "role": "直接持股方",
+     "relation_to_listed": "全资子公司",
      "layer": "disclosed",
-     "basis": "1225613826 合作方字段"
+     "evidence": {
+      "doc_id": "1225613826",
+      "page": 1,
+      "quote": "贵州前进轮胎投资有限责任公司"
+     }
+    },
+    {
+     "name": "ADVANCE TYRE MOROCCO SAS",
+     "role": "境外二级子公司",
+     "stake_pct": 100,
+     "relation_to_listed": "前进投资100%持股",
+     "layer": "disclosed",
+     "evidence": {
+      "doc_id": "1225613826",
+      "page": 1,
+      "quote": "前进投资 100%持股"
+     }
     }
    ],
    "geo": {
@@ -34716,11 +35020,16 @@ window.DB = {
    "stage_current": "实施",
    "stage_chain": [
     {
+     "date": "2026-10-19",
      "stage": "实施",
-     "date": "2026-10-22",
      "doc_id": "1225613826",
-     "note": "实施（注册登记完成，生产基地建设前期）",
-     "layer": "disclosed"
+     "note": "注册登记完成；公告披露日为10月22日，不能由注册完成推断工厂开工或投产。",
+     "layer": "disclosed",
+     "evidence": {
+      "doc_id": "1225613826",
+      "page": 1,
+      "quote": "登记日期：2026 年 10 月 19 日"
+     }
     }
    ],
    "scale": {
@@ -34731,93 +35040,49 @@ window.DB = {
    "terms": null,
    "legal_triggers": [
     {
-     "issue_code": "I1.1",
-     "issue": "ODI 发改委备案/核准",
-     "trigger_fact": "语料提及「…发改委/商务/外汇…」（字段：db.③法务关注）",
-     "text": "语料提及「…发改委/商务/外汇…」（字段：db.③法务关注）",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
-    },
-    {
      "issue_code": "I1.2",
      "issue": "商务部境外投资备案",
-     "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
-     "text": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+     "trigger_fact": "公司授权办理本次投资审批备案手续，公告未逐项列明机构及办理结果。",
+     "text": "授权办理手续不等于备案已完成；商务备案办理状态【未披露】。",
      "status": "not_disclosed",
      "layer": "analysis",
-     "basis": "R-I1.2-mt：同上规则组"
-    },
-    {
-     "issue_code": "I2.2",
-     "issue": "行业准入及负面清单",
-     "trigger_fact": "摩洛哥投资准入与穆罕默德六世丹吉尔科技城优惠政策条件",
-     "text": "摩洛哥投资准入与穆罕默德六世丹吉尔科技城优惠政策条件",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「投资准入」→ I2.2）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
-    },
-    {
-     "issue_code": "I3.3",
-     "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
-     "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外子公司完成注册登记）」（来源：A股·巨潮 2026-10-22）",
-     "text": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外子公司完成注册登记）」（来源：A股·巨潮 2026-10-22）",
-     "status": "not_applicable",
-     "layer": "disclosed",
-     "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
-    },
-    {
-     "issue_code": "I7.1",
-     "issue": "关税/301/232/反倾销反补贴",
-     "trigger_fact": "欧盟CBAM及化学品法规（REACH）对轮胎出口的合规要求",
-     "text": "欧盟CBAM及化学品法规（REACH）对轮胎出口的合规要求",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "旧轮入库分析文本归码（命中词「CBAM」→ I7.1）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
-    },
-    {
-     "issue_code": "I7.2",
-     "issue": "原产地与转运规避",
-     "trigger_fact": "语料提及「…关注欧盟对华轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则…」（字段：practice_notes）",
-     "text": "语料提及「…关注欧盟对华轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则…」（字段：practice_notes）",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "R-I7.2 命中词「原产地」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
-    },
-    {
-     "issue_code": "I9.3",
-     "issue": "环保、原住民/社区权益",
-     "trigger_fact": "语料提及「…税务与环保合规成本…」（字段：watch_points）",
-     "text": "语料提及「…税务与环保合规成本…」（字段：watch_points）",
-     "status": "not_disclosed",
-     "layer": "analysis",
-     "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+     "basis": "1225613826 P1载授权办理审批备案；仅注册登记被明确记为完成，不由此推断境内备案结果。",
+     "evidence": {
+      "doc_id": "1225613826",
+      "page": 1,
+      "quote": "向有关机构办理审批备案等具体手续"
+     }
     }
    ],
    "watch_points": [
     {
-     "text": "建设周期与追加投资规模未披露；摩洛哥劳工、税务与环保合规成本；欧美贸易政策变动；注册资本与实缴进度之间的资金安排未披露",
+     "text": "后续公告是否披露增资/实缴、总投资与产能、开工及投产节点；收到新披露后延续本事件，逐项追加证据，避免将注册资本误作项目投资。",
      "layer": "analysis",
-     "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（主要风险与不确定性维度）"
+     "basis": "1225613826 P1仅列注册信息和拟以自有资金增资路径。"
     }
    ],
    "gaps": [
     {
-     "text": "项目总投资额、规划产能、建设周期、ODI备案进度均未披露。",
+     "text": "总投资、规划产能、建设周期、实际缴款与各审批备案结果【未披露】；欧洲/非洲客户、贸易优惠和收入贡献无法由本公告确认。",
      "layer": "analysis",
-     "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（未披露事项维度）"
+     "basis": "1225613826 P1全文范围；P2为落款。"
     }
    ],
    "practice_notes": [
     {
-     "text": "进入方式：绿地投资建厂；目标客户为欧洲/非洲替换胎与配套市场；关注欧盟对华轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则；竞争面对森麒麟等同址中资与米其林等本地产能",
+     "text": "主体：分别核查上市公司、前进投资、摩洛哥二级子公司三个层级；100%为前进投资直接持股，不宜把上市公司写成直接持有人。",
      "layer": "analysis",
-     "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（商务关注维度）"
+     "basis": "1225613826 P1设立路径及股权结构第7项。"
     },
     {
-     "text": "注册资本仅约9,000欧元，大额资本开支待后续公告；自有资金增资前进投资，关注后续增资规模与迪拉姆/欧元汇率敞口；海外收入占比将随投产提升",
+     "text": "资金：注册资本约9,000欧元仅是法定资本口径，不能代替基地总投资、实际缴款或资本开支；后续披露逐项记录金额、币种和日期。",
      "layer": "analysis",
-     "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（财务关注维度）"
+     "basis": "1225613826 P1第6项仅列注册资本；首段载自有资金增资路径。"
+    },
+    {
+     "text": "程序：把注册、投资备案、开工和投产分别追踪。当前仅能确认10月19日注册完成；客户地区、贸易优惠适用及竞争排名均无本公告依据。",
+     "layer": "analysis",
+     "basis": "1225613826 P1全文仅载主体设立路径及7项登记信息。"
     }
    ],
    "sources": [
@@ -34850,9 +35115,264 @@ window.DB = {
      "type": "新增",
      "doc_id": "1225613826",
      "note": "境外设企（全资二级子公司注册落地）"
+    },
+    {
+     "date": "2026-10-27",
+     "batch_id": "D-20261027",
+     "type": "修正",
+     "change": "correction",
+     "review": "R12-5",
+     "fields": [
+      "title_fact",
+      "parties",
+      "stage_chain",
+      "legal_triggers",
+      "practice_notes",
+      "watch_points",
+      "gaps"
+     ],
+     "old_value": {
+      "title_fact": {
+       "text": "贵州轮胎：境外设企",
+       "layer": "disclosed",
+       "basis": "1225613826 动作类型/公告标题"
+      },
+      "parties": [
+       {
+        "name": "贵州轮胎股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225613826"
+       },
+       {
+        "name": "无（经全资子公司贵州前进轮胎投资有限责任公司100%持股，无外部合作方；不构成关联交易）",
+        "role": "合作方/交易对手",
+        "layer": "disclosed",
+        "basis": "1225613826 合作方字段"
+       }
+      ],
+      "stage_chain": [
+       {
+        "stage": "实施",
+        "date": "2026-10-22",
+        "doc_id": "1225613826",
+        "note": "实施（注册登记完成，生产基地建设前期）",
+        "layer": "disclosed"
+       }
+      ],
+      "legal_triggers": [
+       {
+        "issue_code": "I1.1",
+        "issue": "ODI 发改委备案/核准",
+        "trigger_fact": "语料提及「…发改委/商务/外汇…」（字段：db.③法务关注）",
+        "text": "语料提及「…发改委/商务/外汇…」（字段：db.③法务关注）",
+        "status": "not_disclosed",
+        "layer": "analysis",
+        "basis": "R-I1.1 命中词「发改委」→ ODI 发改委备案/核准；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+       },
+       {
+        "issue_code": "I1.2",
+        "issue": "商务部境外投资备案",
+        "trigger_fact": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+        "text": "事项类型=设厂；商务部境外投资备案在已核语料中有提及",
+        "status": "not_disclosed",
+        "layer": "analysis",
+        "basis": "R-I1.2-mt：同上规则组"
+       },
+       {
+        "issue_code": "I2.2",
+        "issue": "行业准入及负面清单",
+        "trigger_fact": "摩洛哥投资准入与穆罕默德六世丹吉尔科技城优惠政策条件",
+        "text": "摩洛哥投资准入与穆罕默德六世丹吉尔科技城优惠政策条件",
+        "status": "not_disclosed",
+        "layer": "analysis",
+        "basis": "旧轮入库分析文本归码（命中词「投资准入」→ I2.2）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+       },
+       {
+        "issue_code": "I3.3",
+        "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+        "trigger_fact": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外子公司完成注册登记）」（来源：A股·巨潮 2026-10-22）",
+        "text": "披露渠道原始分类：巨潮公告类型「对外投资进展（境外子公司完成注册登记）」（来源：A股·巨潮 2026-10-22）",
+        "status": "not_applicable",
+        "layer": "disclosed",
+        "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+       },
+       {
+        "issue_code": "I7.1",
+        "issue": "关税/301/232/反倾销反补贴",
+        "trigger_fact": "欧盟CBAM及化学品法规（REACH）对轮胎出口的合规要求",
+        "text": "欧盟CBAM及化学品法规（REACH）对轮胎出口的合规要求",
+        "status": "not_disclosed",
+        "layer": "analysis",
+        "basis": "旧轮入库分析文本归码（命中词「CBAM」→ I7.1）；片段未载处理状态，按纪律一律 not_disclosed，不推断"
+       },
+       {
+        "issue_code": "I7.2",
+        "issue": "原产地与转运规避",
+        "trigger_fact": "语料提及「…关注欧盟对华轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则…」（字段：practice_notes）",
+        "text": "语料提及「…关注欧盟对华轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则…」（字段：practice_notes）",
+        "status": "not_disclosed",
+        "layer": "analysis",
+        "basis": "R-I7.2 命中词「原产地」→ 原产地与转运；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+       },
+       {
+        "issue_code": "I9.3",
+        "issue": "环保、原住民/社区权益",
+        "trigger_fact": "语料提及「…税务与环保合规成本…」（字段：watch_points）",
+        "text": "语料提及「…税务与环保合规成本…」（字段：watch_points）",
+        "status": "not_disclosed",
+        "layer": "analysis",
+        "basis": "R-I9.3 命中词「环保」→ 环保/社区权益；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+       }
+      ],
+      "practice_notes": [
+       {
+        "text": "进入方式：绿地投资建厂；目标客户为欧洲/非洲替换胎与配套市场；关注欧盟对华轮胎双反税与摩洛哥-欧盟自贸安排下的原产地规则；竞争面对森麒麟等同址中资与米其林等本地产能",
+        "layer": "analysis",
+        "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（商务关注维度）"
+       },
+       {
+        "text": "注册资本仅约9,000欧元，大额资本开支待后续公告；自有资金增资前进投资，关注后续增资规模与迪拉姆/欧元汇率敞口；海外收入占比将随投产提升",
+        "layer": "analysis",
+        "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（财务关注维度）"
+       }
+      ],
+      "watch_points": [
+       {
+        "text": "建设周期与追加投资规模未披露；摩洛哥劳工、税务与环保合规成本；欧美贸易政策变动；注册资本与实缴进度之间的资金安排未披露",
+        "layer": "analysis",
+        "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（主要风险与不确定性维度）"
+       }
+      ],
+      "gaps": [
+       {
+        "text": "项目总投资额、规划产能、建设周期、ODI备案进度均未披露。",
+        "layer": "analysis",
+        "basis": "入库分析基于《贵州轮胎 2026-10-22：关于境外（摩洛哥）全资二级子公司完成注册登记》披露原文生成（未披露事项维度）"
+       }
+      ]
+     },
+     "new_value": {
+      "title_fact": {
+       "text": "贵州轮胎摩洛哥全资二级子公司10月19日完成注册，注册资本99,000迪拉姆（约9,000欧元）",
+       "layer": "disclosed",
+       "evidence": {
+        "doc_id": "1225613826",
+        "page": 1,
+        "quote": "登记日期：2026 年 10 月 19 日"
+       }
+      },
+      "parties": [
+       {
+        "name": "贵州轮胎股份有限公司",
+        "role": "上市主体",
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "1225613826",
+         "page": 1,
+         "quote": "贵州轮胎股份有限公司"
+        }
+       },
+       {
+        "name": "贵州前进轮胎投资有限责任公司",
+        "role": "直接持股方",
+        "relation_to_listed": "全资子公司",
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "1225613826",
+         "page": 1,
+         "quote": "贵州前进轮胎投资有限责任公司"
+        }
+       },
+       {
+        "name": "ADVANCE TYRE MOROCCO SAS",
+        "role": "境外二级子公司",
+        "stake_pct": 100,
+        "relation_to_listed": "前进投资100%持股",
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "1225613826",
+         "page": 1,
+         "quote": "前进投资 100%持股"
+        }
+       }
+      ],
+      "stage_chain": [
+       {
+        "date": "2026-10-19",
+        "stage": "实施",
+        "doc_id": "1225613826",
+        "note": "注册登记完成；公告披露日为10月22日，不能由注册完成推断工厂开工或投产。",
+        "layer": "disclosed",
+        "evidence": {
+         "doc_id": "1225613826",
+         "page": 1,
+         "quote": "登记日期：2026 年 10 月 19 日"
+        }
+       }
+      ],
+      "legal_triggers": [
+       {
+        "issue_code": "I1.2",
+        "issue": "商务部境外投资备案",
+        "trigger_fact": "公司授权办理本次投资审批备案手续，公告未逐项列明机构及办理结果。",
+        "text": "授权办理手续不等于备案已完成；商务备案办理状态【未披露】。",
+        "status": "not_disclosed",
+        "layer": "analysis",
+        "basis": "1225613826 P1载授权办理审批备案；仅注册登记被明确记为完成，不由此推断境内备案结果。",
+        "evidence": {
+         "doc_id": "1225613826",
+         "page": 1,
+         "quote": "向有关机构办理审批备案等具体手续"
+        }
+       }
+      ],
+      "practice_notes": [
+       {
+        "text": "主体：分别核查上市公司、前进投资、摩洛哥二级子公司三个层级；100%为前进投资直接持股，不宜把上市公司写成直接持有人。",
+        "layer": "analysis",
+        "basis": "1225613826 P1设立路径及股权结构第7项。"
+       },
+       {
+        "text": "资金：注册资本约9,000欧元仅是法定资本口径，不能代替基地总投资、实际缴款或资本开支；后续披露逐项记录金额、币种和日期。",
+        "layer": "analysis",
+        "basis": "1225613826 P1第6项仅列注册资本；首段载自有资金增资路径。"
+       },
+       {
+        "text": "程序：把注册、投资备案、开工和投产分别追踪。当前仅能确认10月19日注册完成；客户地区、贸易优惠适用及竞争排名均无本公告依据。",
+        "layer": "analysis",
+        "basis": "1225613826 P1全文仅载主体设立路径及7项登记信息。"
+       }
+      ],
+      "watch_points": [
+       {
+        "text": "后续公告是否披露增资/实缴、总投资与产能、开工及投产节点；收到新披露后延续本事件，逐项追加证据，避免将注册资本误作项目投资。",
+        "layer": "analysis",
+        "basis": "1225613826 P1仅列注册信息和拟以自有资金增资路径。"
+       }
+      ],
+      "gaps": [
+       {
+        "text": "总投资、规划产能、建设周期、实际缴款与各审批备案结果【未披露】；欧洲/非洲客户、贸易优惠和收入贡献无法由本公告确认。",
+        "layer": "analysis",
+        "basis": "1225613826 P1全文范围；P2为落款。"
+       }
+      ]
+     },
+     "doc_id": "1225613826",
+     "page": 1,
+     "layer": "analysis",
+     "summary": "贵州轮胎：登记日改为10月19日；分列间接持股链与注册资本，移除无来源贸易规则、客户及收入预测。",
+     "basis": "重新打开1225613826 PDF P1，明确列登记日期、资本与股权结构，未载贸易适用或收入预测。",
+     "note": "注册完成不等于开工投产或投资备案完成；历史分析保留在旧值中供审计。"
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "修正",
+   "legal_review": {
+    "date": "2026-10-27",
+    "locked": true,
+    "basis": "R12第五轮远程原文逐页复核；不再从旧分析自动派生贸易规则及行政分类议题。"
+   }
   }
  ],
  "event_docs": {
@@ -35541,7 +36061,7 @@ window.DB = {
   "practice_hints_note": "通用核查提示（analysis 层）：依据议题码定义的常规执业动作，非针对个案的结论；个案处理状态以各事件法律问题总表为准"
  },
  "validate": {
-  "generated": "2026-10-27 00:03",
+  "generated": "2026-10-27 00:10",
   "summary": {
    "ERROR": 0,
    "WARN": 1,
@@ -35835,7 +36355,7 @@ window.DB = {
   }
  },
  "build": {
-  "time": "2026-10-27 00:05",
+  "time": "2026-10-27 00:12",
   "batch": "D-20261022",
   "events": 60
  }
