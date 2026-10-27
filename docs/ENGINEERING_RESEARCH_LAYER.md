@@ -48,3 +48,10 @@
 SEC exhibit-first 仅读现有 state 文本与附件结构，无网络抓取。附件按编号、描述判断性质并标 analysis，保留核心标志、来源 doc_id 与 EDGAR 链接；没有附件 URL 时明确链接为 filing/index，不伪造附件地址。正则仅摘取原文附近的 termination fee、outside date、per-share consideration、principal、interest、maturity；未定位到附件的条款保留在 extracted_filing_terms，不归因到某协议。merger_agreement_terms / credit_agreement_terms 为「未抽取」占位。当前 us_market 无结构化 exhibit 字段，raw_manifest 仅缓存指针，不把指针当正文。
 
 HK 从标题、摘要、category codes/excerpt 派生 Ch14、14A、持续关连、年度上限、百分比率、IFA 名称/结论、独立股东批准、收购守则条款及清洗豁免；仅显示可匹配文本，缺项明确「未披露/未抽取」，不据此断言发行人未披露。海外监管公告重印仅在相同发行人、同日、去除明确前缀后标题完全相同才去重，避免跨交易误合并。
+
+## P0.6 全文抽取层（2026-10-27）
+- `scripts/extract_research_terms.py`：读本机 `raw/hkex_market/*.txt`（港股通函/关连/主要交易 PDF 前 80 页 pdftotext）与 `raw/sec_exhibits/`（8-K Item 1.01/2.01/2.03 的 EX-2.1/10.1/10.2）→ `state/research_extracts.json`（入 git，约 180 KB；raw 仍不入 git）。CI 构建只读该 json。
+- 港股：ifa_name（释义「獨立財務顧問」指…）、ifa_conclusion（吾等認為…公平合理＋建议投票，排除「是否公平合理」设问句）、percent_ratio、annual_cap、whitewash；每项带原文 quote/来源/置信度，无原文则保持 未抽取。
+- SEC：merger_agreement_terms（终止费/Outside Date/Exchange Ratio/每股对价（排除面值）/MAE/go-shop/no-shop/适用法）、credit_agreement_terms（本金/利率/到期/财务契约/担保/转换价）；Securities Purchase Agreement 归融资，不归并购。
+- 覆盖：港股 581 份全文 → 277 份有抽取（% 比率 252、IFA 名 51、IFA 结论 18、年度上限 54、清洗豁免 6）；SEC 181 份 8-K → 177 索引、123 份附件全文 → 30 份有条款（11 并购、19 融资；19 份含实质条款）。
+- 待办：IFA 函件分段定位（区分 IBC 与 IFA 原话）、SEC S-4/DEFM14A/SC TO 附件、终止费/Outside Date 召回偏低、每日 ingest 增量拉取 raw（目前为本机一次性拉取）。

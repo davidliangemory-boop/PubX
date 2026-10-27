@@ -7,6 +7,19 @@ from difflib import SequenceMatcher
 from pathlib import Path
 from research_schema import FIELDS, field, make_event
 ROOT = Path(__file__).resolve().parents[1]
+_X = ROOT / 'state' / 'research_extracts.json'
+EXTRACTS = json.loads(_X.read_text()) if _X.exists() else {'hk': {}, 'us': {}}
+
+def full_text_overlay(spec, docs, store, keymap):
+    """P0.6: overlay conservative full-text extracts (quote + source + confidence); never overwrite with blanks."""
+    for d in docs:
+        x = store.get(str(d.get('doc_id', d.get('id'))))
+        if not x: continue
+        for k, v in x.items():
+            if k.startswith('_') or k not in keymap: continue
+            v = dict(v, source_doc=d.get('doc_id', d.get('id')), source_url=d.get('url', ''))
+            spec[keymap[k]] = field(v, 'disclosed')
+    return spec
 
 def load(name):
     return json.loads((ROOT / 'state' / (name + '.json')).read_text())
@@ -192,13 +205,18 @@ def derive_market(market, docs):
             a = next((x.get('amount') for x in reversed(dd) if known(x.get('amount'))), None)
             e['consideration'] = field(a, 'disclosed') if a else field('PDF首页未抽取', 'undisclosed')
             txt = ' '.join(x['title'] + ' ' + x['excerpt'] for x in ss)
-            e['specialty'] = hk_specialty(dd)
+            e['specialty'] = full_text_overlay(hk_specialty(dd), dd, EXTRACTS['hk'], {k: k for k in ('ifa_name','ifa_conclusion','percent_ratio','annual_cap','whitewash')})
         else:
             aa = [a for d in dd for a in amounts(d)]
             e['exhibits'] = exhibit_rows(dd)
             e['amounts'] = aa
             e['consideration'] = field([a for a in aa if not a['excluded_from_deal']], 'analysis') if aa else field()
             e['specialty'] = {'merger_agreement_terms': field('未抽取', 'undisclosed'), 'credit_agreement_terms': field('未抽取', 'undisclosed'), 'extracted_filing_terms': field([extract_terms(' '.join(clean(v) for v in d.values() if isinstance(v,str))) for d in dd], 'disclosed'), 'form_items': field([{'form':x['form'], 'items':x['items']} for x in ss], 'disclosed')}
+            for d in dd:
+                for k, v in (EXTRACTS['us'].get(d.get('id')) or {}).items():
+                    if not k.startswith('_') and v:
+                        e['specialty'][k] = field(v, 'disclosed')
+                        e['importance'] = min(100, e['importance'] + 10)
         enrich(e)
         out.append(e)
     return out

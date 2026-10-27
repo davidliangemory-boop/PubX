@@ -31,7 +31,7 @@
     if(pending[key]) return pending[key];
     var file=window.PUBX_EVENTS_INDEX.markets[pick.market].files.find(function(f){return f.part===pick.part;});
     pending[key]=new Promise(function(resolve,reject){
-      var script=document.createElement('script'); script.src='./assets/'+file.name+'?v=20261027p05';
+      var script=document.createElement('script'); script.src='./assets/'+file.name+'?v=20261027p06';
       script.onload=function(){resolve();};
       script.onerror=function(){delete pending[key];script.remove();reject(new Error('事件数据加载失败'));};
       document.head.appendChild(script);
