@@ -1,16 +1,11 @@
 {
- "generated": "2026-10-27 21:52",
+ "generated": "2026-10-27 22:30",
  "summary": {
   "ERROR": 0,
   "WARN": 1,
-  "SKIP": 1
+  "SKIP": 0
  },
  "issues": [
-  {
-   "check": "引文回原文",
-   "level": "SKIP",
-   "detail": "无 raw/ 原文缓存目录，跳过子串比对（采集脚本落地原文后自动启用）"
-  },
   {
    "check": "批次命名",
    "level": "WARN",

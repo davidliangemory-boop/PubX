@@ -10,7 +10,7 @@ Built outbound depth: before deep 14 / brief 64 (live c2; 10 overlays demoted by
 Remaining gaps for R2: key_metrics still 0 on 15 events (filings without numeric terms: terminations, H-share filings); operating_background mostly absent; next-thinnest cohort (score ≥8.9) not touched.
 Event ids: see /tmp/r1_after.txt list in commit message.
 
-## Round 2 (2026-10-27, ?v=20261027d3)
+## Round 2 (2026-10-27, ?v=20261027d4)
 Cohort: the 41 overlays not touched in R1 (next-thinnest audit tail + previously deep ones still under gold density); gold E-013 untouched.
 - Summaries: all 41 now 338–541 chars (R1-untouched briefs were 207–265).
 - operating_background added from raw filings: now present on 36/41 (was ~25).

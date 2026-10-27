@@ -9,7 +9,7 @@
 
 <script>
 // Single cache fingerprint for initial assets and every lazy-loaded asset.
-window.PUBX_BUILD = '20261027d3';
+window.PUBX_BUILD = '20261027d4';
 window.pubxAsset = function (name) { return './assets/' + name + '?v=' + window.PUBX_BUILD; };
 ['style.css','page_us.css','page_ex.css'].forEach(function (name) {
   document.write('<link rel="stylesheet" href="' + window.pubxAsset(name) + '">');
