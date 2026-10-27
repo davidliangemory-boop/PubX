@@ -60,6 +60,7 @@ run_job() {
     git add -A state assets/*data.js && git commit -qm "$name $(date +%F) [ops]" && \
       (git push -q origin HEAD:main || (git pull --rebase -q origin main && git push -q origin HEAD:main)) && \
       echo "PUSHED $(git rev-parse --short HEAD)"
+  command -v gh >/dev/null && gh -R davidliangemory-boop/PubX workflow run ingest.yml >/dev/null 2>&1 && echo "PAGES_DISPATCHED" || echo "WARN Pages 未自动触发，请手动 gh workflow run ingest.yml"
     echo "ELAPSED $(( $(date +%s)-t0 ))s"
   else
     echo '完成验证与构建；结果留在工作区，提交/发布由调度方负责（或加 --publish / PUBX_PUBLISH=1）。'
