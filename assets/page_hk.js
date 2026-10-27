@@ -70,9 +70,20 @@
     history.replaceState(null, "", "#/hk-market" + (s ? "?" + s : ""));
   }
 
-  /* ── 本次更新带（日批次；最新批次无新增时指向最近有新增的批次） ── */
+  /* ── 本次更新带（按扫描日取最新日批/回溯批；忽略未完成的历史滚动 H- 窗） ── */
   function bandHtml() {
-    var bs = batches();
+    var bs = batches().slice().filter(function (x) {
+      var id = String(x.batch_id || "");
+      if (id.charAt(0) === "H") return false; /* 历史滚动窗不占更新带 */
+      return true;
+    }).sort(function (a, b) {
+      return String(a.date || "") < String(b.date || "") ? -1 : 1;
+    });
+    if (!bs.length) {
+      bs = batches().slice().sort(function (a, b) {
+        return String(a.date || "") < String(b.date || "") ? -1 : 1;
+      });
+    }
     if (!bs.length) return "";
     var latest = bs[bs.length - 1];
     var b = latest;
