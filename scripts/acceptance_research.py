@@ -10,6 +10,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PACKS = [json.loads((ROOT / 'research' / name).read_text()) for name in
          ('outbound_e013.json', 'us_eqt_range.json')]
+# Hand-calibrated outbound overlays (gold-density catch-up); E-013 stays PACKS[0].
+PACKS += [json.loads(p.read_text()) for p in sorted((ROOT / 'research').glob('outbound_*.json'))
+          if p.name != 'outbound_e013.json']
 EQT_DOCS = {
     'usm_000119312526431025', 'usm_000121390026112245',
     'usm_000121390026112242', 'usm_000121390026112513',
