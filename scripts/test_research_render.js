@@ -13,6 +13,9 @@ for(const [key,rows] of Object.entries(window.PUBX_EVENT_PARTS)){
     const html=window.PubXResearch.render('event',row.event_id.value,new URLSearchParams()).html;
     assert(!bad.test(html.replace(/<[^>]+>/g,'')),row.event_id.value);
     assert(!/A ·|B ·|C ·|<h[23][^>]*>交易条款|判断与条件方案/.test(html));
+    for(const section of html.matchAll(/<section[^>]*data-module="([^"]+)"[^>]*><h2>[^<]*<\/h2>([\s\S]*?)<\/section>/g)) {
+      assert(section[2].replace(/<[^>]+>/g,'').trim(),row.event_id.value+': empty '+section[1]);
+    }
     for(const alias of row.aliases||[]) assert.strictEqual(window.PubXResearch.render('event',alias,new URLSearchParams()).html,html,alias);
     count++;
   }
@@ -34,7 +37,7 @@ window.PUBX_EVENT_PARTS.hk_all=original;
 console.log('rendered article and library checks:',count);
 
 const rich=JSON.parse(JSON.stringify(dirty));
-rich.research={title:'示例',kicker:'签约',summary:['摘要'],key_metrics:[1,2,3,4,5].map(n=>({label:'数字'+n,value:String(n)})),meaning:{financial:['财务影响']},comparables:[{title:'类案',why:'结构相同',lesson:'关注审批'}],industry_context:[{text:'行业数据',url:'https://example.org/report',date:'2026-01-01'}],watch_items:['审批结果'],timeline:[{date:'2026-01-01',text:'签约'}],research_sources:[{title:'公告',url:'https://example.org/source',date:'2026-01-01'}],depth:'brief'};
+rich.research={title:'示例',kicker:'签约',summary:['摘要'],key_metrics:[1,2,3,4,5].map(n=>({label:'数字'+n,value:String(n)})),meaning:{financial:['财务影响']},comparables:[{title:'类案',why:'结构相同',lesson:'关注审批'}],industry_context:[{text:'行业数据',sample:'行业样本',basis:'统计口径',url:'https://example.org/report',date:'2026-01-01'}],watch_items:['审批结果'],timeline:[{date:'2026-01-01',text:'签约'}],research_sources:[{title:'公告',url:'https://example.org/source',date:'2026-01-01'}],depth:'brief'};
 window.PUBX_EVENT_PARTS.hk_all=[rich];
 html=window.PubXResearch.render('event','HK-test',new URLSearchParams()).html;
 let position=-1;
@@ -122,3 +125,30 @@ assert(!html.includes('空槽位'));assert(!html.includes('<h3>外部资料</h3>
 assert(/<details class="research-attachments">/.test(html));assert(!/<details[^>]*open/.test(html));
 window.PUBX_EVENT_PARTS.hk_all=original;
 console.log('Round 2 slots, disclosure distinctions and source layers passed');
+
+// Round 3: scoped industry rows, actual implications, and existing amount explanations.
+rich.research={title:'第三轮',key_metrics:[{label:'对价',value:'75亿港元'}],
+  comparables:[{title:'有效案例',why:'相同结构',lesson:'融资影响成本'},{title:'缺少启示',why:'行业相同'}],
+  comparison_notes:['比较说明'],
+  industry_context:[{text:'完整行业数字',sample:'券商样本',date:'2026-01-01',basis:'PB中位数'},
+    ...['sample','date','basis'].map(key=>{const row={text:'不完整行业数字',sample:'样本',date:'2026-01-01',basis:'口径'};delete row[key];return row;})],
+  watch_items:[{text:'媒体估算75亿港元与公告现金需求存在口径差异，未计入借出股份。',sources:['notice']}],
+  research_sources:[{id:'notice',title:'原始公告',url:'https://example.org/notice'}],
+  meaning:{financial:['融资增加利息支出'],investment:['审批决定完成时间']}};
+window.PUBX_EVENT_PARTS.hk_all=[rich];
+html=window.PubXResearch.render('event','HK-test',new URLSearchParams()).html;
+for(const text of ['对本案意味着什么','融资影响成本','完整行业数字','花多少钱、钱从哪来、报表影响','价格是否合理、完成概率与催化'])assert(html.includes(text),text);
+for(const text of ['缺少启示','不完整行业数字','解决什么问题、业务/组织怎么变'])assert(!html.includes(text),text);
+assert(html.indexOf('data-module="cash"')>html.indexOf('data-module="metrics"'));
+assert(html.indexOf('data-module="cash"')<html.indexOf('data-module="comparables"'));
+assert(html.match(/data-module="cash"[\s\S]*?https:\/\/example.org\/notice/));
+rich.research.watch_items=['关注媒体报道与审批进展'];
+rich.research.comparables=[{title:'缺少启示',why:'行业相同'}];
+rich.research.industry_context=[{text:'无口径数字'}];
+html=window.PubXResearch.render('event','HK-test',new URLSearchParams()).html;
+for(const key of ['cash','comparables','industry'])assert(!html.includes('data-module="'+key+'"'),key);
+rich.research.cash_explanation=[{text:'公告既有现金解释',sources:['notice']}];
+assert(window.PubXResearch.render('event','HK-test',new URLSearchParams()).html.includes('公告既有现金解释'));
+window.PUBX_EVENT_PARTS.hk_all=original;
+assert.strictEqual(bootstrap.window.PUBX_BUILD,'20261027d3');
+console.log('Round 3 implications, industry scope, amount hook and analysis prompts passed');

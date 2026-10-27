@@ -44,3 +44,26 @@ class PublishStructureTest(unittest.TestCase):
             with patch.object(validate, 'ROOT', tmp), patch.object(validate, 'ISSUES', []):
                 validate.check_publish_display()
                 self.assertFalse(any(level == 'ERROR' for _, level, _ in validate.ISSUES))
+
+class RoundThreeTest(unittest.TestCase):
+    def test_rows_require_real_implications_and_industry_scope(self):
+        import copy
+        raw = dict(comparables=[dict(title='无启示', why='相似'), dict(title='有效', why='相同结构', lesson='融资影响成本')],
+                   industry_context=[dict(text='行业均值', sample='全样本', date='2026-01-01', basis='PB中位数')])
+        before = copy.deepcopy(raw)
+        out = finalize_research(raw)
+        self.assertEqual([c['title'] for c in out['comparables']], ['有效'])
+        self.assertEqual(len(out['industry_context']), 1)
+        for key in ('sample', 'date', 'basis'):
+            incomplete = copy.deepcopy(raw)
+            del incomplete['industry_context'][0][key]
+            self.assertEqual(finalize_research(incomplete)['industry_context'], [])
+        self.assertEqual(raw, before)
+
+    def test_amount_hook_preserves_existing_text_and_sources(self):
+        watch = dict(text='媒体估算75亿港元与公告现金需求存在口径差异，未计入借出股份。', sources=['notice'])
+        self.assertEqual(finalize_research(dict(watch_items=[watch]))['cash_explanation'], [watch])
+        explicit = dict(text='现金加设备作价', sources=['original'])
+        self.assertEqual(finalize_research(dict(cash_explanation=[explicit], watch_items=[watch]))['cash_explanation'], [explicit])
+        for text in ('公告金额75亿港元', '关注媒体报道与审批进展', '媒体与公告金额相同'):
+            self.assertNotIn('cash_explanation', finalize_research(dict(watch_items=[text])))

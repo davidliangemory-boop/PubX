@@ -67,8 +67,31 @@ def publish_object(value):
     return publish_text(value)
 
 
+def amount_explanations(research):
+    """Surface existing explanations only; never infer an amount conflict."""
+    cash = research.get('cash_explanation', [])
+    if isinstance(cash, str):
+        cash = [cash]
+    if cash:
+        return cash
+    return [item for item in research.get('watch_items', [])
+            if isinstance((text := item if isinstance(item, str) else item.get('text', '')), str)
+            and re.search(r'媒体|报道|新聞|新闻', text)
+            and re.search(r'公告', text)
+            and re.search(r'金额|金額|对价|估值|现金|億|亿|美元|港元', text)
+            and re.search(r'差异|差額|差额|不同|不一致|口径|估算|未计入|没有计入|不能', text)]
+
+
 def finalize_research(research):
     r = publish_object(research)
+    r['comparables'] = [c for c in r.get('comparables', [])
+                        if c.get('lesson') and (c.get('why') if not c.get('dimension')
+                        else c.get('this_case') and c.get('peer'))]
+    r['industry_context'] = [c for c in r.get('industry_context', [])
+                             if all(c.get(k) for k in ('text', 'sample', 'date', 'basis'))]
+    explanations = amount_explanations(r)
+    if explanations:
+        r['cash_explanation'] = explanations
     refs = r.get('research_sources', [])
     has_core = any(s.get('label') == '公告事实' and s.get('url') for s in refs)
     chain = len(r.get('timeline', [])) >= 2

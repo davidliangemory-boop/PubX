@@ -47,6 +47,11 @@
   function paragraphs(rows) { return (Array.isArray(rows)?rows:[]).filter(function(x){return typeof x==='string'||x.text;}).map(function(x){return '<p>'+esc(typeof x==='string'?x:x.text)+(x.sources?citations(x.sources):'')+'</p>';}).join(''); }
   function moduleHTML(key,title,body) { return body ? '<section class="research-section" data-module="'+key+'"><h2>'+title+'</h2>'+body+'</section>' : ''; }
   function metrics(rows,limit) { return (rows||[]).filter(function(x){return x.label && x.value !== undefined && x.value !== '' && typeof x.value!=='object';}).slice(0,limit).map(function(x){return '<div class="research-metric"><span>'+esc(x.label)+'</span><strong>'+esc(x.value)+citations(x.sources)+(x.source_urls||[]).map(function(url){return ' '+link(url,'原文');}).join('')+'</strong>'+(x.note?'<small>'+esc(x.note)+'</small>':'')+'</div>';}).join(''); }
+  function amountExplanations(r) {
+    var cash=typeof r.cash_explanation==='string'?[r.cash_explanation]:(r.cash_explanation||[]);
+    if(cash.length) return cash;
+    return (r.watch_items||[]).filter(function(item){var t=typeof item==='string'?item:item.text||'';return /媒体|报道|新聞|新闻/.test(t)&&/公告/.test(t)&&/金额|金額|对价|估值|现金|億|亿|美元|港元/.test(t)&&/差异|差額|差额|不同|不一致|口径|估算|未计入|没有计入|不能/.test(t);});
+  }
   // All research uses the same article layout; empty regions disappear.
   function deepDetail(e,r) {
     sourceMap={}; (r.research_sources||[]).forEach(function(s,i){if(s.id)sourceMap[s.id]=Object.assign({},s,{citationIndex:i+1});});
@@ -57,18 +62,18 @@
     h+=moduleHTML('summary','事件摘要',paragraphs(r.summary));
     var coreRows=(r.metric_slots||r.key_metrics||[]).filter(function(x){return x.label&&x.value !== undefined&&x.value !== ''&&typeof x.value!=='object';});
     h+=moduleHTML('metrics','核心交易数据',coreRows.length?'<div class="research-metrics">'+metrics(coreRows,r.metric_slots?coreRows.length:6)+'</div>':'');
-    h+=moduleHTML('cash','现金需求与报道金额',paragraphs(r.cash_explanation));
+    h+=moduleHTML('cash','现金需求与报道金额',paragraphs(amountExplanations(r)));
     h+=moduleHTML('background','经营背景',paragraphs(r.operating_background));
     h+=moduleHTML('maturity','项目成熟度',paragraphs(r.project_maturity));
     var rows=(r.comparables||[]).filter(function(c){return c.dimension&&c.this_case&&c.peer&&c.lesson;});
-    var table=rows.length?'<table><thead><tr><th>维度</th><th>本案</th><th>类案</th><th>对判断的影响</th></tr></thead><tbody>'+rows.map(function(c){return '<tr><td>'+esc(c.dimension)+'</td><td>'+esc(c.this_case)+'</td><td>'+esc(c.title)+'：'+esc(c.peer)+'</td><td>'+esc(c.lesson)+citations(c.sources)+'</td></tr>';}).join('')+'</tbody></table>':'';
-    h+=moduleHTML('comparables','类案对比 · 本站分析',table+(r.comparables||[]).filter(function(c){return !c.dimension&&c.why&&c.lesson;}).map(function(c){return '<p>'+esc(c.title||'')+'：'+esc(c.why)+'；'+esc(c.lesson)+citations(c.sources)+'</p>';}).join('')+paragraphs(r.comparison_notes));
-    h+=moduleHTML('industry','行业对比',(r.industry_context||[]).filter(function(c){return c.text;}).map(function(c){
+    var table=rows.length?'<table><thead><tr><th>维度</th><th>本案</th><th>类案</th><th>对本案意味着什么</th></tr></thead><tbody>'+rows.map(function(c){return '<tr><td>'+esc(c.dimension)+'</td><td>'+esc(c.this_case)+'</td><td>'+esc(c.title)+'：'+esc(c.peer)+'</td><td>'+esc(c.lesson)+citations(c.sources)+'</td></tr>';}).join('')+'</tbody></table>':'';
+    h+=moduleHTML('comparables','类案对比 · 本站分析',table+(r.comparables||[]).filter(function(c){return !c.dimension&&c.why&&c.lesson;}).map(function(c){return '<p>'+esc(c.title||'')+'：'+esc(c.why)+'；对本案意味着什么：'+esc(c.lesson)+citations(c.sources)+'</p>';}).join('')+((table||(r.comparables||[]).some(function(c){return !c.dimension&&c.why&&c.lesson;}))?paragraphs(r.comparison_notes):''));
+    h+=moduleHTML('industry','行业对比',(r.industry_context||[]).filter(function(c){return c.text&&c.sample&&c.date&&c.basis;}).map(function(c){
       var meta=['sample','date','basis'].map(function(k,i){return c[k]?'<p>'+['样本：','日期：','口径：'][i]+esc(c[k])+'</p>':'';}).join('');
       return (c.title?'<h3>'+esc(c.title)+'</h3>':'')+meta+paragraphs([c])+(c.url?'<p>'+link(c.url,'查看原文')+'</p>':'');
     }).join(''));
     var body='',meaning=r.meaning||{};
-    ['financial','strategy','investment'].forEach(function(k,i){var p=(meaning[k]||[]).map(function(x){var p=paragraphs([x]);return p?'<li>'+p+'</li>':'';}).join('');if(p)body+='<h3>'+['财务意义','战略意义','投资意义'][i]+'</h3><ul>'+p+'</ul>';});
+    ['financial','strategy','investment'].forEach(function(k,i){var p=(meaning[k]||[]).map(function(x){var p=paragraphs([x]);return p?'<li>'+p+'</li>':'';}).join('');if(p)body+='<h3>'+['财务意义','战略意义','投资意义'][i]+'</h3><p class="muted research-prompt">'+['花多少钱、钱从哪来、报表影响','解决什么问题、业务/组织怎么变','价格是否合理、完成概率与催化'][i]+'</p><ul>'+p+'</ul>';});
     h+=moduleHTML('meaning','财务、战略与投资意义 · 本站分析',body);
     h+=moduleHTML('watch','待观察',paragraphs(r.watch_items));
     h+=moduleHTML('timeline','时间线',(r.timeline||[]).filter(function(t){return t.text;}).map(function(t){return '<p><time>'+esc(t.date)+'</time> '+esc(t.text)+'</p>';}).join(''));
@@ -94,6 +99,7 @@
     if(mode==='ongoing'||mode==='tracking') data=data.filter(function(e){return !/完成|终止/.test(val(e,'stage'));});
     if(mode==='comps') data=data.filter(function(e){return (clean(e.research||{}).comparables||[]).length;});
     var h='<h1>'+esc(m==='hk'?'港股':m==='us'?'SEC':'出海信披')+' · 事件库</h1><p>共 '+data.length+' 个事件</p>';
+    if(mode==='overview'){var deep=data.filter(function(e){return e.research&&e.research.depth==='deep';}).length;h+='<p class="muted">公开资料深读 '+deep+' · 公告速览 '+(data.length-deep)+'</p>';}
     if(mode==='method') return h+'<p>公告速览基于已有结构化资料；事实以链接原文为准。本站分析单独标示，文件数量不代表实质进展。</p>';
     data.sort(function(a,b){return (b.importance||0)-(a.importance||0)||String(val(b,'disclosure_date')).localeCompare(String(val(a,'disclosure_date')));});
     var page=Math.max(1,parseInt(qs.get('page'),10)||1), size=40, start=(page-1)*size;
