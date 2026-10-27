@@ -32,11 +32,11 @@ def prepare_research(e):
     def text(key): return publish_text(e.get(key))
     sources = e.get('sources', {}).get('value') or []
     # Explicit substantive roles only; file counts and routine notices are not progress.
-    substantive = sorted([s for s in sources if s.get('role') in
-        ('首次公告', '正式协议', '通函', '投票结果', '完成', '终止', '审批')], key=lambda s:s.get('date',''))
+    substantive = sorted([s for s in sources if (s.get('document_type') in ('首次方案公告','补充或条件进展','通函','IFA意见','股东大会或法院会议结果','完成或终止') if s.get('document_type') else s.get('role') in
+        ('首次公告', '正式协议', '通函', '投票结果', '完成', '终止', '审批'))], key=lambda s:s.get('date',''))
     timeline = [dict(date=publish_text(s.get('date')), text=publish_text(s.get('title') or s.get('file')))
                 for s in substantive if publish_text(s.get('title') or s.get('file'))]
-    stage = publish_text(substantive[-1].get('role')) if substantive else ''
+    stage = publish_text(substantive[-1].get('document_type') or substantive[-1].get('role')) if substantive else ''
     metrics = [dict(label=label, value=value) for key,label in
         [('consideration','交易规模'),('ownership_before','交易前持股'),('ownership_after','交易后持股')]
         if (value := text(key))]

@@ -1,0 +1,287 @@
+{
+  "event_id": "US-c8cbe727cfeec8",
+  "title": "EQT拟以全股票交易收购Range Resources",
+  "depth": "deep",
+  "updated_at": "2026-10-26",
+  "stage": "已签合并协议；待股东及监管批准",
+  "kicker": "双方董事会已批准，预计2027年第一季度完成；股东及监管批准仍待取得",
+  "latest_change": "2026年10月25日签署协议，10月26日双方披露并发布联合新闻稿。",
+  "summary": [
+    "EQT与Range Resources签署合并协议，每股Range普通股拟换取0.987股EQT普通股，零碎股以现金结算。按公告前股价估算，隐含股权价值约129亿美元、较Range公告前收盘价溢价约20.6%。交易完成后，EQT原股东与Range原股东预计分别持有合并公司约73%和27%；双方股东和监管批准仍是交割条件，管理层预计于2027年第一季度完成。",
+    "约129亿美元是随EQT股价变化的隐含股权价值，并非固定现金报价。Reuters按公告前股价计算得到约128.3亿美元。股价时点与采用的股数口径会影响隐含总额，合同锁定的是换股比例，不能把这些概数视为两套固定报价。超过500亿美元指合并后公司的备考企业价值，包含双方业务及债务口径，不能写成收购Range的现金支出，也不能与目标股权价值相加。",
+    "管理层提出两年内实现3.25亿美元基础年化协同，来自总部、运营与商品营销；超过6亿美元的长期协同路径还依赖开发及基础设施优化与营销改善。上述均为前瞻性目标，年化运行水平不等于交割首年现金收益。新闻稿提出按当时期货曲线预计未来五年累计自由现金流约200亿美元，属于非GAAP前瞻性测算，不能作为历史现金或确定回报。"
+  ],
+  "card_summary": "EQT拟按每股Range换0.987股EQT合并，隐含股权价值约129亿美元；3.25亿美元基础年化协同为管理层前瞻性目标。",
+  "key_metrics": [
+    {
+      "label": "隐含股权价值",
+      "value": "约129亿美元；随EQT股价变化"
+    },
+    {
+      "label": "换股比例",
+      "value": "每股Range换0.987股EQT"
+    },
+    {
+      "label": "公告溢价",
+      "value": "约20.6%；公告前收盘价口径"
+    },
+    {
+      "label": "合并后持股",
+      "value": "EQT原股东约73%；Range约27%"
+    },
+    {
+      "label": "基础年化协同",
+      "value": "3.25亿美元；两年内目标，前瞻性"
+    },
+    {
+      "label": "预计交割",
+      "value": "2027年第一季度；前瞻性"
+    }
+  ],
+  "operating_background": [
+    {
+      "text": "本案把阿巴拉契亚天然气资源与EQT的中游基础设施、营销平台进一步结合。投资者材料列示备考净产量超过9 Bcfe/日、约88%为天然气，拥有超过3,700英里管线；资源开发库存超过30年为管理层内部测算。Bcfe包含液体折气，不等于纯天然气产量，开发库存也不等同已探明储量寿命。",
+      "sources": [
+        "eqt_deck"
+      ]
+    },
+    {
+      "text": "管理层预计无杠杆自由现金流盈亏平衡气价降至每百万英热单位2美元以下，并以更低杠杆描述合并后的财务轮廓。这些是模型与前瞻性非GAAP指标，依赖商品价格、资本开支及运营假设；它们解释交易意图，不能当成已实现降本或获授信用评级。",
+      "sources": [
+        "eqt_deck"
+      ]
+    },
+    {
+      "text": "Reuters在2026年10月26日公告时报道，EQT盘前下跌约3.3%，Range盘前上涨约10.8%。这是公告时点的市场反应，不能当作此后的成交价；目标股涨幅低于公告溢价也不能单独解释为交易失败概率，还包含收购方股票价格变化。",
+      "sources": [
+        "market_news"
+      ]
+    }
+  ],
+  "comparables": [
+    {
+      "title": "Chesapeake–Southwestern（后更名Expand Energy）",
+      "dimension": "同天然气细分行业、全股票整合",
+      "this_case": "每股Range换0.987股EQT；阿巴拉契亚资源与中游平台结合",
+      "peer": "2024年公告股权价值约74亿美元；换股比例0.0867；覆盖阿巴拉契亚与Haynesville",
+      "why": "同为美国天然气生产商全股票整合，并寻求规模、低成本及需求市场连接",
+      "lesson": "天然气整合可以扩大销售与开发选择，但跨盆地组合与本案同盆地资源整合的协同来源不同，不能直接套用估值倍数",
+      "sources": [
+        "expand_announce",
+        "eqt_deck"
+      ]
+    },
+    {
+      "title": "Chesapeake–Southwestern（后更名Expand Energy）",
+      "dimension": "公告与交割的区别",
+      "this_case": "预计2027年第一季度交割；双方股东及监管批准为条件",
+      "peer": "2024-01签署协议，2024-10-01完成合并；股东收到股票而非固定现金",
+      "why": "同为固定换股比例交易，需要股东与监管程序",
+      "lesson": "交割预期有时间风险，目标股东继续承担收购方股价及天然气周期风险",
+      "sources": [
+        "expand_close",
+        "eqt_8k"
+      ]
+    }
+  ],
+  "comparison_notes": [
+    {
+      "text": "Chesapeake–Southwestern案例说明，全股票整合能够保留股东对天然气上行周期的敞口，同时用规模和资产组合支持开发选择。其业务覆盖Haynesville与阿巴拉契亚，EQT–Range更强调阿巴拉契亚资源与中游、营销协同；比较重点是成本和需求通道如何改善，而不是交易总额大小。该案2024年10月完成也说明，公告目标与实际交割是不同阶段，审批时间不能直接照搬。",
+      "sources": [
+        "expand_announce",
+        "expand_close",
+        "eqt_deck"
+      ]
+    }
+  ],
+  "industry_context": [
+    {
+      "title": "供给与LNG需求同时扩张",
+      "text": "EIA 2026年10月预测美国干气产量由2025年的107.64增至2026年的112.20及2027年的116.13 Bcf/日，LNG出口从17.6增至18.6 Bcf/日。需求增长有供给响应，不能由LNG增长直接推出天然气涨价；阿巴拉契亚企业仍要落实输送与销售能力。",
+      "sample": "美国全国干气产量与LNG出口；非阿巴拉契亚单一盆地",
+      "date": "2026-10-06",
+      "basis": "2026—2027年度预测，单位Bcf/日；干气与Bcfe产量不可混用",
+      "url": "https://www.eia.gov/outlooks/steo/archives/oct26.pdf",
+      "sources": [
+        "eia_oct"
+      ],
+      "label": "财务数据"
+    },
+    {
+      "title": "数据中心与电力需求",
+      "text": "EIA指出数据中心推动电力需求增长，需求快于基准情景时可能增加化石燃料发电。但电力负荷并非等量天然气需求，还取决于发电结构、并网、管道与供气合同；本案资源规模能否转成高回报订单，要看长期供气协议与实现售价。",
+      "sample": "美国电力需求及数据中心加速情景",
+      "date": "2026-03-12",
+      "basis": "情景分析；不能把电力用量直接折算成EQT新增销量",
+      "url": "https://www.eia.gov/TODAYINENERGY/detail.php?id=67344",
+      "sources": [
+        "eia_power"
+      ],
+      "label": "财务数据"
+    }
+  ],
+  "meaning": {
+    "financial": [
+      {
+        "text": "全股票对价减少为收购股权筹措巨额现金的需求，但EQT原股东比例降至约73%；总利润或总现金流增长不等于每股收益增厚，仍要覆盖新发股份带来的分母扩大。",
+        "sources": [
+          "eqt_8k"
+        ]
+      },
+      {
+        "text": "基础年化协同3.25亿美元约为129亿美元股权价值的2.5%（本站粗算），这不是投资收益率。实现期限、一次性整合支出及税项都会影响净现金贡献，不能直接按年化目标计入首年利润。",
+        "sources": [
+          "eqt_release"
+        ]
+      },
+      {
+        "text": "备考企业价值超过500亿美元代表合并业务规模，不能视作交易付款。管理层五年自由现金流及低杠杆预测依赖期货曲线，气价、套保和资本开支变化会改变债务偿还空间。",
+        "sources": [
+          "eqt_release",
+          "eqt_deck"
+        ]
+      }
+    ],
+    "strategy": [
+      {
+        "text": "Range资源加入EQT的中游与营销平台，有机会把钻井库存、输送安排和长期供气合同统一规划；价值应表现为更低的单位综合成本和更好的销售净回值。",
+        "sources": [
+          "eqt_deck"
+        ]
+      },
+      {
+        "text": "液体产品使收入来源更分散，但NGL也有自身价格和加工运输约束；液体增量不能简单视作对天然气周期的完全对冲。",
+        "sources": [
+          "eqt_deck"
+        ]
+      },
+      {
+        "text": "LNG及数据中心电力需求提供长期客户机会，真正的执行条件是管道能力、客户信用、合同期限与资本回报。管理层超过6亿美元长期协同路径还未等同已经签约的收入。",
+        "sources": [
+          "eqt_release",
+          "eqt_deck"
+        ]
+      }
+    ],
+    "investment": [
+      {
+        "text": "固定的是0.987换股比例，目标股东最终获得股票价值随EQT股价变化；约20.6%为公告时溢价，不能视作持有至交割的保底收益。",
+        "sources": [
+          "eqt_8k",
+          "market_news"
+        ]
+      },
+      {
+        "text": "监管与双方股东批准决定交易是否完成，S-4及联合委托书将补充交易背景、财务预测和投票信息；合并协议及425重复披露不代表取得新的批准。",
+        "sources": [
+          "eqt_8k",
+          "merger"
+        ]
+      },
+      {
+        "text": "协同兑现与商品周期必须分开检验。若气价上升掩盖成本改善，不能把全部现金流增长归功于交易；应持续比较单位成本、每股自由现金流及净债务。",
+        "sources": [
+          "eqt_deck",
+          "eia_oct"
+        ]
+      }
+    ]
+  },
+  "watch_items": [
+    "S-4何时生效，双方股东何时表决？监管审查是否要求资产处置或其他补救？",
+    "两年内3.25亿美元年化协同如何分年兑现，一次性整合费用及资本开支是多少？",
+    "合并后每股EPS/FCF能否增厚，使用什么气价、套保、税率与新增股份假设？",
+    "中游利用率、管道约束及长期供气合同能否支持营销协同，而非仅扩大产量？",
+    "2027年第一季度交割目标是否维持？若延迟或交易终止，对双方股价与资本计划有什么影响？"
+  ],
+  "timeline": [
+    {
+      "date": "2026-10-25",
+      "text": "双方签署合并协议，董事会一致批准"
+    },
+    {
+      "date": "2026-10-26",
+      "text": "双方8-K及EX-2.1披露；联合新闻稿、425及投资者演示解释同一交易"
+    },
+    {
+      "date": "2027-Q1",
+      "text": "管理层预计交割窗口；前瞻性，取决于股东与监管等条件"
+    }
+  ],
+  "research_sources": [
+    {
+      "id": "eqt_8k",
+      "title": "EQT 8-K：合并协议及交割条件",
+      "url": "https://www.sec.gov/Archives/edgar/data/33213/000121390026112242/ea0309601-8k425_eqtcorp.htm",
+      "date": "2026-10-26",
+      "label": "公告事实"
+    },
+    {
+      "id": "range_8k",
+      "title": "Range 8-K：同一合并交易",
+      "url": "https://www.sec.gov/Archives/edgar/data/315852/000119312526431025/d161989d8k.htm",
+      "date": "2026-10-26",
+      "label": "公告事实"
+    },
+    {
+      "id": "merger",
+      "title": "EX-2.1：2026-10-25合并协议",
+      "url": "https://www.sec.gov/Archives/edgar/data/33213/000121390026112242/ea030960101ex2-1.htm",
+      "date": "2026-10-26",
+      "label": "公告事实"
+    },
+    {
+      "id": "eqt_release",
+      "title": "EQT与Range联合新闻稿：协同及现金流预测（前瞻性）",
+      "url": "https://ir.eqt.com/newsroom/news-releases/news-release-details/2026/EQT-Announces-Strategic-Acquisition-of-Range-Resources-Creating-Americas-Undisputed-Natural-Gas-Champion/default.aspx",
+      "date": "2026-10-26",
+      "label": "公告事实"
+    },
+    {
+      "id": "eqt_deck",
+      "title": "425电话会及投资者演示（第29—46页）：备考资产、成本与协同（前瞻性）",
+      "url": "https://ir.rangeresources.com/static-files/c71411f3-b085-49f4-ba97-0340e2217a40",
+      "date": "2026-10-26",
+      "label": "公告事实"
+    },
+    {
+      "id": "eia_oct",
+      "title": "EIA 2026年10月短期能源展望",
+      "url": "https://www.eia.gov/outlooks/steo/archives/oct26.pdf",
+      "date": "2026-10-06",
+      "label": "财务数据"
+    },
+    {
+      "id": "eia_power",
+      "title": "EIA：数据中心需求加速情景与化石发电",
+      "url": "https://www.eia.gov/TODAYINENERGY/detail.php?id=67344",
+      "date": "2026-03-12",
+      "label": "财务数据"
+    },
+    {
+      "id": "expand_announce",
+      "title": "Chesapeake–Southwestern公告及交易条款",
+      "url": "https://investors.expandenergy.com/static-files/26c3f70f-0840-4d06-8ce2-ab4a66bc448c",
+      "date": "2024-01-11",
+      "label": "公告事实"
+    },
+    {
+      "id": "expand_close",
+      "title": "Expand Energy完成合并8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/895126/000110465924104976/tm2425151d1_8k.htm",
+      "date": "2024-10-01",
+      "label": "公告事实"
+    },
+    {
+      "id": "market_news",
+      "title": "Reuters：隐含股权价值、溢价及公告时盘前反应",
+      "url": "https://live.euronext.com/en/financial-news/eqt-buy-range-resources-13-billion-deal-create-top-us-gas-producer",
+      "date": "2026-10-26",
+      "label": "新闻观点"
+    }
+  ],
+  "boundaries": [
+    "本站分析截至2026-10-27检索；协同、库存年限、盈亏平衡气价、未来现金流及杠杆为管理层前瞻性或备考非GAAP信息，均不作为已实现业绩。",
+    "约129亿美元为隐含股权价值概数；Reuters按公告前股价计算约128.3亿美元、每股54.91美元及约20.6%溢价。企业价值为合并后公司口径。EPS/FCF增厚不填入缺乏可核验假设的百分比。"
+  ]
+}

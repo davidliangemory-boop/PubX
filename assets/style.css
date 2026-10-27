@@ -398,3 +398,9 @@ body.compact .trendgrid, body.compact .evgrid, body.compact .projgrid { padding:
 .research-numbers small{display:block}.research-card{padding:20px 0;border-bottom:1px solid var(--line,#dce1e8)}
 .research-card h2{font-size:20px}.research-card p{max-width:850px;line-height:1.8}
 @media(max-width:600px){.research-numbers{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.research-numbers>div{padding:12px}.research-numbers dd{font-size:17px}.research-ref{white-space:normal}.research-article{margin-top:16px}}
+
+/* Phase B: readable comparison columns without expanding the page viewport. */
+.research-section table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; }
+.research-section th, .research-section td { white-space: normal; overflow-wrap: anywhere; vertical-align: top; padding: 10px 8px; border: 1px solid var(--line); }
+.research-attachments { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; }
+.research-attachments summary { cursor: pointer; color: var(--muted); }

@@ -30,7 +30,7 @@
     if(pending[key]) return pending[key];
     var file=window.PUBX_EVENTS_INDEX.markets[pick.market].files.find(function(f){return f.part===pick.part;});
     pending[key]=new Promise(function(resolve,reject){
-      var script=document.createElement('script'); script.src='./assets/'+file.name+'?v=20261027a1';
+      var script=document.createElement('script'); script.src='./assets/'+file.name+'?v=20261027b2';
       script.onload=function(){resolve();};
       script.onerror=function(){delete pending[key];script.remove();reject(new Error('事件数据加载失败'));};
       document.head.appendChild(script);
@@ -44,29 +44,59 @@
     if (x && typeof x === 'object') { var out={}; Object.keys(x).forEach(function(k){var v=clean(x[k]);if(v && (!Array.isArray(v)||v.length)) out[k]=v;});return out; }
     return typeof x === 'number' ? x : '';
   }
-  function paragraphs(rows) { return (Array.isArray(rows)?rows:[]).filter(function(x){return typeof x==='string';}).map(function(x){return '<p>'+esc(x)+'</p>';}).join(''); }
+  var sourceMap = {};
+  function citations(ids) { return (ids||[]).filter(function(id){return sourceMap[id]&&sourceMap[id].url;}).map(function(id){return ' '+link(sourceMap[id].url,'〔'+(sourceMap[id].citationIndex||sourceMap[id].title)+'〕');}).join(''); }
+  function paragraphs(rows) { return (Array.isArray(rows)?rows:[]).filter(function(x){return typeof x==='string'||x.text;}).map(function(x){return '<p>'+esc(typeof x==='string'?x:x.text)+(x.sources?citations(x.sources):'')+'</p>';}).join(''); }
   function moduleHTML(key,title,body) { return body ? '<section class="research-section" data-module="'+key+'"><h2>'+title+'</h2>'+body+'</section>' : ''; }
   function metrics(rows,limit) { return (rows||[]).filter(function(x){return x.label && x.value && typeof x.value!=='object';}).slice(0,limit).map(function(x){return '<div class="research-metric"><span>'+esc(x.label)+'</span><strong>'+esc(x.value)+'</strong>'+(x.note?'<small>'+esc(x.note)+'</small>':'')+'</div>';}).join(''); }
+  // Acceptance articles opt in; announcement briefs retain their existing view.
+  function deepDetail(e,r) {
+    sourceMap={}; (r.research_sources||[]).forEach(function(s,i){if(s.id)sourceMap[s.id]=Object.assign({},s,{citationIndex:i+1});});
+    document.title=r.title+' · PubX';
+    var h='<article class="research-article"><h1>'+esc(r.title)+'</h1>';
+    h+=moduleHTML('status','当前状态',paragraphs([r.kicker]));
+    h+=moduleHTML('summary','事件摘要',paragraphs(r.summary));
+    h+=moduleHTML('metrics','核心交易数据',metrics(r.key_metrics,6));
+    h+=moduleHTML('background','经营背景',paragraphs(r.operating_background));
+    h+=moduleHTML('maturity','项目成熟度',paragraphs(r.project_maturity));
+    var rows=(r.comparables||[]).filter(function(c){return c.dimension&&c.this_case&&c.peer&&c.lesson;});
+    var table=rows.length?'<table><thead><tr><th>维度</th><th>本案</th><th>类案</th><th>对判断的影响</th></tr></thead><tbody>'+rows.map(function(c){return '<tr><td>'+esc(c.dimension)+'</td><td>'+esc(c.this_case)+'</td><td>'+esc(c.title)+'：'+esc(c.peer)+'</td><td>'+esc(c.lesson)+citations(c.sources)+'</td></tr>';}).join('')+'</tbody></table>':'';
+    h+=moduleHTML('comparables','类案对比 · 本站分析',table+paragraphs(r.comparison_notes));
+    h+=moduleHTML('industry','行业对比',(r.industry_context||[]).map(function(c){return '<h3>'+esc(c.title||'')+'</h3><p>样本：'+esc(c.sample||'')+'</p><p>日期：'+esc(c.date||'')+'</p><p>口径：'+esc(c.basis||'')+'</p>'+paragraphs([c]);}).join(''));
+    var body='',meaning=r.meaning||{};
+    ['financial','strategy','investment'].forEach(function(k,i){var p=paragraphs(meaning[k]);if(p)body+='<h3>'+['财务意义','战略意义','投资意义'][i]+'</h3>'+p;});
+    h+=moduleHTML('meaning','财务、战略与投资意义 · 本站分析',body);
+    h+=moduleHTML('watch','待观察',paragraphs(r.watch_items));
+    h+=moduleHTML('timeline','时间线',(r.timeline||[]).map(function(t){return '<p><time>'+esc(t.date)+'</time> '+esc(t.text)+'</p>';}).join(''));
+    h+=moduleHTML('sources','来源与分析边界',(r.research_sources||[]).filter(function(s){return s.url&&s.date;}).map(function(s,i){return '<p>〔'+(i+1)+'〕'+esc(s.label)+' · '+link(s.url,s.title)+' · '+esc(s.date)+'</p>';}).join('')+paragraphs(r.boundaries));
+    var attachments=(r.attachments||[]).filter(function(s){return s.title&&s.url;});
+    if(attachments.length) h+='<details class="research-attachments"><summary>Rule 22等辅助附件（'+attachments.length+'）</summary>'+attachments.map(function(s){return '<p>'+esc(s.date||'')+' '+link(s.url,s.title)+'</p>';}).join('')+'</details>';
+    return h+'</article>';
+  }
   function detail(e) {
     var r=clean(e.research||{}), h='<article class="research-article">';
+    if(r.depth==='deep') return deepDetail(e,r);
+    sourceMap={}; (r.research_sources||[]).forEach(function(s){if(s.id)sourceMap[s.id]=s;});
     document.title=(r.title||'事件研究')+' · PubX';
     if(r.title) h+='<h1>'+esc(r.title)+'</h1>';
     h+=moduleHTML('status','当前状态及最新实质变化',paragraphs([r.kicker,r.latest_change].filter(Boolean)));
     h+=moduleHTML('summary','事件摘要',paragraphs(r.summary));
-    h+=moduleHTML('metrics','关键数字',metrics(r.key_metrics,5));
+    h+=moduleHTML('metrics','关键数字',metrics(r.key_metrics,6));
     var meaning=r.meaning||{}, body='';
     ['financial','strategy','investment'].forEach(function(k,i){var p=paragraphs(meaning[k]);if(p)body+='<h3>'+['财务','战略','投资'][i]+'</h3>'+p;});
     h+=moduleHTML('meaning','财务、战略与投资意义 · 本站分析',body);
-    h+=moduleHTML('comparables','类案对比 · 本站分析',(r.comparables||[]).filter(function(c){return c.why && c.lesson;}).map(function(c){return '<p>'+esc(c.title||'')+'：'+esc(c.why)+'；'+esc(c.lesson)+'</p>';}).join(''));
-    h+=moduleHTML('industry','行业对比 · 外部信息',(r.industry_context||[]).filter(function(c){return c.text&&c.url&&c.date;}).map(function(c){return '<p>'+link(c.url,c.text)+' · '+esc(c.date)+'</p>';}).join(''));
+    h+=moduleHTML('comparables','类案对比 · 本站分析',(r.comparables||[]).filter(function(c){return c.why && c.lesson;}).map(function(c){return c.dimension ? '<table><thead><tr><th>维度</th><th>本案</th><th>类案</th><th>对判断的影响</th></tr></thead><tbody><tr><td>'+esc(c.dimension)+'</td><td>'+esc(c.this_case)+'</td><td>'+esc(c.title)+'：'+esc(c.peer)+'</td><td>'+esc(c.lesson)+'</td></tr></tbody></table><p>可比原因：'+esc(c.why)+citations(c.sources)+'</p>' : '<p>'+esc(c.title||'')+'：'+esc(c.why)+'；'+esc(c.lesson)+'</p>';}).join(''));
+    h+=moduleHTML('industry','行业对比 · 外部信息',(r.industry_context||[]).filter(function(c){return c.text&&(c.sample||(c.url&&c.date));}).map(function(c){return '<p>'+esc(c.label||'')+' · '+esc(c.sample||'')+(c.date?' · '+esc(c.date):'')+'</p><p>'+link(c.url,c.text)+citations(c.sources)+'</p>';}).join(''));
     h+=moduleHTML('watch','会改变判断的关键变量',paragraphs(r.watch_items));
     h+=moduleHTML('timeline','事件时间线',(r.timeline||[]).filter(function(t){return t.text;}).map(function(t){return '<p><time>'+esc(t.date||'')+'</time> '+esc(t.text)+'</p>';}).join(''));
     h+=moduleHTML('sources','来源与分析边界',(r.research_sources||[]).filter(function(s){return s.title&&s.url;}).map(function(s){return '<p>'+esc(s.label||'')+' · '+link(s.url,s.title)+(s.date?' · '+esc(s.date):'')+'</p>';}).join('')+paragraphs(r.boundaries));
+    var attachments=(r.attachments||[]).filter(function(s){return s.title&&s.url;});
+    if(attachments.length) h+='<details class="research-attachments"><summary>Rule 22等辅助附件（'+attachments.length+'）</summary>'+attachments.map(function(s){return '<p>'+esc(s.date||'')+' '+link(s.url,s.title)+'</p>';}).join('')+'</details>';
     return h+'</article>';
   }
   function card(e) {
     var r=clean(e.research||{});
-    return '<section class="research-card">'+(r.title?'<h2>'+link('#/event/'+val(e,'event_id'),r.title)+'</h2>':'')+(r.stage?'<span class="pill">'+esc(r.stage)+'</span>':'')+'<span class="pill">'+(r.depth==='deep'?'公开资料深读':'公告速览')+'</span>'+paragraphs((r.summary||[]).slice(0,1))+'<div class="research-metrics">'+metrics(r.key_metrics,3)+'</div>'+(r.latest_change?'<p class="research-latest">'+esc(r.latest_change)+'</p>':'')+'</section>';
+    return '<section class="research-card">'+(r.title?'<h2>'+link('#/event/'+val(e,'event_id'),r.title)+'</h2>':'')+(r.stage?'<span class="pill">'+esc(r.stage)+'</span>':'')+'<span class="pill">'+(r.depth==='deep'?'公开资料深读':'公告速览')+'</span>'+paragraphs(r.card_summary?[r.card_summary]:(r.summary||[]).slice(0,1))+'<div class="research-metrics">'+metrics(r.key_metrics,3)+'</div>'+(r.latest_change?'<p class="research-latest">'+esc(r.latest_change)+'</p>':'')+'</section>';
   }
   function library(m,qs) {
     var mode=qs.get('v') || 'events', data=window.PUBX_EVENTS[m].slice();

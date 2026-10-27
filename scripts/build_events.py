@@ -6,6 +6,8 @@ import re
 from difflib import SequenceMatcher
 from pathlib import Path
 from research_schema import FIELDS, field, make_event, prepare_research
+from hk_research import classify_document, curated_docs, enrich_research, template_fields, AUX, CORE
+from acceptance_research import merge_eqt_events, enrich_acceptance
 ROOT = Path(__file__).resolve().parents[1]
 _X = ROOT / 'state' / 'research_extracts.json'
 EXTRACTS = json.loads(_X.read_text()) if _X.exists() else {'hk': {}, 'us': {}}
@@ -145,6 +147,7 @@ def source(d, market):
 
 def derive_market(market, docs):
     groups = []
+    auxiliary = []
     buckets = {}
     seen_docs = set()
     reprints = set()
@@ -165,14 +168,28 @@ def derive_market(market, docs):
             if issuer and canonical and key in reprints:
                 continue
             reprints.add(key)
-        typ = category(t)
+        if market == 'hk':
+            s['document_type'] = d.get('document_type') or classify_document(s['title'])
+            s['material_layer'] = d.get('material_layer', '核心文件' if s['document_type'] == CORE else '进展文件')
+            if s['document_type'] == AUX:
+                auxiliary.append((issuer, s, d))
+                continue
+        typ = '收购守则/私有化' if d.get('research_chain') else category(t)
         stream = 'external' if external else 'capital_markets' if market == 'us' and (re.match(r'424B|FWP', d.get('form', '')) or re.search(r'structured note|autocall|linked note', t, re.I)) else 'material'
         family = re.sub(r'/A$', '', d.get('form', ''))
         counter = clean(d.get('counterparty')) if known(d.get('counterparty')) else ''
         match = None
         bucket_key = (issuer, stream, typ)
-        for g in reversed(buckets.get(bucket_key, [])):
-            if g['issuer'] != issuer or not issuer or g['stream'] != stream or g['type'] != typ:
+        candidates = list(buckets.get(bucket_key, []))
+        if market == 'hk' and s['document_type'] not in (CORE, '企业资料'):
+            candidates += [g for g in groups if g not in candidates and g['issuer'] == issuer and g['stream'] == stream]
+        for g in reversed(candidates):
+            if d.get('research_chain') and g.get('chain') == d['research_chain']:
+                match = g
+                break
+            if (g.get('chain') or d.get('research_chain')) and g.get('chain') != d.get('research_chain'):
+                continue
+            if g['issuer'] != issuer or not issuer or g['stream'] != stream or (g['type'] != typ and not (market == 'hk' and s['document_type'] not in (CORE, '企业资料'))):
                 continue
             limit = 90 if market == 'hk' else 120 if counter else 30
             if days(g['sources'][-1]['date'], s['date']) > limit:
@@ -181,31 +198,43 @@ def derive_market(market, docs):
             refs = any(re.sub(r'\D', '', x['date']) in re.sub(r'\D', '', t) or (x['date'][:4]+'年'+str(int(x['date'][5:7]))+'月'+str(int(x['date'][8:10]))+'日') in t for x in g['sources'] if len(x['date']) == 10)
             accession_ref = any(x.get('accession') and x['accession'] in t for x in g['sources'])
             shared = counter and counter == g['counter']
-            if market == 'hk' and (refs or similarity >= .72) or market == 'us' and family == g['family'] and (shared or accession_ref or similarity >= .95 and len(norm(s['title'])) > 60 and typ != '其他重大事项'):
+            if market == 'hk' and (refs or g['type'] == typ and similarity >= .72) or market == 'us' and family == g['family'] and (shared or accession_ref or similarity >= .95 and len(norm(s['title'])) > 60 and typ != '其他重大事项'):
                 match = g
                 break
         if match is None:
-            match = dict(issuer=issuer, type=typ, stream=stream, family=family, counter=counter, sources=[], docs=[])
+            match = dict(issuer=issuer, type=typ, stream=stream, family=family, counter=counter, sources=[], docs=[], chain=d.get('research_chain'))
             groups.append(match)
             buckets.setdefault(bucket_key, []).append(match)
         # Overseas reprints with identical normalized titles/date collapse within a chain.
         if not any(norm(x['title']) == norm(s['title']) and x['date'] == s['date'] for x in match['sources']):
             match['sources'].append(s)
             match['docs'].append(d)
+    for issuer, s, d in auxiliary:
+        candidates = [g for g in groups if g['issuer'] == issuer and g['type'] == '收购守则/私有化' and days(g['sources'][-1]['date'],s['date']) <= 180]
+        if len(candidates) == 1:
+            candidates[0]['sources'].append(s)
+            candidates[0]['docs'].append(d)
     out = []
     for g in groups:
         ss, dd = g['sources'], g['docs']
+        if market == 'hk':
+            dd = [d for d in dd if (d.get('document_type') or classify_document(clean(d.get('title')))) != AUX]
         if ss[0]['role'] == '其他':
             ss[0]['role'] = '首次公告'
-        last = ss[-1]
-        eid = market.upper() + '-' + hashlib.sha1((g['issuer'] + clean(ss[0]['doc_id'])).encode()).hexdigest()[:14]
-        e = make_event(event_id=eid, market=market, issuer_id=g['issuer'], entity_id=g['issuer'], event_type=g['type'], stage='完成公告（范围待核）' if last['role'] == '完成' else last['role'], status='终止' if last['role'] == '终止' else '跟踪中', disclosure_date=field(ss[0]['date'], 'disclosed'), parties=field([dd[0].get('stock_name', dd[0].get('company', ''))], 'external' if g['stream']=='external' else 'disclosed'), sources=field(ss, 'external' if g['stream']=='external' else 'disclosed'), target=field(g['counter'], 'disclosed') if g['counter'] else field(), disclosure_changes=field([dict(date=x['date'], change=x['role']) for x in ss], 'analysis'))
-        e.update(title=ss[0]['title'], stream=g['stream'], importance=min(100, len(ss)*5 + (30 if g['type'] in ['并购','收购守则/私有化','非常重大交易'] else 0)))
+        ss.sort(key=lambda x:x['date'])
+        core = [s for s in ss if s.get('document_type') not in (AUX, '企业资料')] if market == 'hk' else ss
+        if not core:
+            continue
+        last = core[-1]
+        first = next((s for s in core if s.get('document_type') == CORE), core[0])
+        eid = market.upper() + '-' + hashlib.sha1((g['issuer'] + clean(first['doc_id'])).encode()).hexdigest()[:14]
+        e = make_event(event_id=eid, market=market, issuer_id=g['issuer'], entity_id=g['issuer'], event_type=g['type'], stage='完成公告（范围待核）' if last['role'] == '完成' else last['role'], status='终止' if last['role'] == '终止' else '跟踪中', disclosure_date=field(first['date'], 'disclosed'), parties=field([dd[0].get('stock_name', dd[0].get('company', ''))], 'external' if g['stream']=='external' else 'disclosed'), sources=field(ss, 'external' if g['stream']=='external' else 'disclosed'), target=field(g['counter'], 'disclosed') if g['counter'] else field(), disclosure_changes=field([dict(date=x['date'], change=x['role']) for x in ss], 'analysis'))
+        e.update(title=first['title'], stream=g['stream'], importance=min(100, len(core)*5 + (30 if g['type'] in ['并购','收购守则/私有化','非常重大交易'] else 0)))
         if market == 'hk':
             a = next((x.get('amount') for x in reversed(dd) if known(x.get('amount'))), None)
             e['consideration'] = field(a, 'disclosed') if a else field('PDF首页未抽取', 'undisclosed')
             txt = ' '.join(x['title'] + ' ' + x['excerpt'] for x in ss)
-            e['specialty'] = full_text_overlay(hk_specialty(dd), dd, EXTRACTS['hk'], {k: k for k in ('ifa_name','ifa_conclusion','percent_ratio','annual_cap','whitewash')})
+            e['specialty'] = full_text_overlay({**hk_specialty(dd), **template_fields(dd)}, dd, EXTRACTS['hk'], {k: k for k in ('ifa_name','ifa_conclusion','percent_ratio','annual_cap','whitewash')})
         else:
             aa = [a for d in dd for a in amounts(d)]
             e['exhibits'] = exhibit_rows(dd)
@@ -307,10 +336,14 @@ def us_documents():
 
 
 def build():
-    data = dict(hk=derive_market('hk',list(load('hk_market')['docs'].values())), us=derive_market('us',us_documents()), outbound=outbound(), meta={'schema_version':1,'method':'规则聚类；字段 provenance；不替代原文审阅','source':'state/*.json','network':False})
+    data = dict(hk=derive_market('hk',curated_docs(list(load('hk_market')['docs'].values()))), us=derive_market('us',us_documents()), outbound=outbound(), meta={'schema_version':1,'method':'规则聚类；字段 provenance；不替代原文审阅','source':'state/*.json','network':False})
+    data['us'] = merge_eqt_events(data['us'])
     for market in ('outbound', 'hk', 'us'):
         for event in data[market]:
             prepare_research(event)
+            if market == 'hk':
+                enrich_research(event)
+            enrich_acceptance(event)
     manifest = {'built_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'markets': {}}
     for market in ('outbound','hk','us'):
         parts = [('material', [e for e in data[market] if e['stream']=='material']), ('capital', [e for e in data[market] if e['stream']=='capital_markets'])] if market=='us' else [('all',data[market])]
