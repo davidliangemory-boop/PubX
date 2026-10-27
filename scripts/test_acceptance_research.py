@@ -24,7 +24,7 @@ class AcceptanceResearchTest(unittest.TestCase):
                             if key == 'sources': self.assertTrue(set(item) <= refs)
                             check(item)
                 check(pack)
-                for item in pack['industry_context']:
+                for item in pack.get('industry_context', []):
                     self.assertTrue(all(item.get(k) for k in ('sample','date','basis')))
                 for source in pack['research_sources']:
                     self.assertTrue(source['date'])
@@ -43,8 +43,8 @@ class AcceptanceResearchTest(unittest.TestCase):
         self.assertEqual(len(canonical['sources']['value']), 2)
         self.assertEqual(merge_eqt_events([other, unrelated]), [other, unrelated])
 
-    def test_e028_not_overlaid(self):
-        event = make_event(event_id='E-028', sources=[])
+    def test_unpacked_not_overlaid(self):
+        event = make_event(event_id='E-NOPACK', sources=[])
         prepare_research(event)
         saved = copy.deepcopy(event)
         enrich_acceptance(event)

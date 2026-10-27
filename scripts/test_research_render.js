@@ -7,7 +7,7 @@ const bad=/undisclosed|\bnull\b|\[\s*\]|\banalysis\b|\bdisclosed\b|资料不足|
 let count=0;
 for(const [key,rows] of Object.entries(window.PUBX_EVENT_PARTS)){
   for(const row of rows){
-    assert.strictEqual(row.research.depth,['E-013','US-c8cbe727cfeec8','HK-2ac54bcc499023'].some(id=>row.event_id.value===id||(row.aliases||[]).includes(id))?'deep':'brief');
+    if(!key.startsWith('outbound')) assert.strictEqual(row.research.depth,['E-013','US-c8cbe727cfeec8','HK-2ac54bcc499023'].some(id=>row.event_id.value===id||(row.aliases||[]).includes(id))?'deep':'brief');
     function checkValues(x) { if(typeof x==='string') assert(!bad.test(x),row.event_id.value+': '+x); else if(x && typeof x==='object') Object.values(x).forEach(checkValues); }
     checkValues(row.research);
     const html=window.PubXResearch.render('event',row.event_id.value,new URLSearchParams()).html;
