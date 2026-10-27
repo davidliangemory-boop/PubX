@@ -2114,8 +2114,11 @@
     else if (name === "company2") { redirectTo("#/cos"); return; }
     else { section = "cn"; sub = "#/"; html = vHome(); }
 
+    var research = window.PubXResearch && window.PubXResearch.render(name, param, qs);
+    if (research) { html = research.html; section = research.market === "outbound" ? "cn" : research.market; }
     view.innerHTML = html;
     setSub(section, sub);
+    if (window.PubXResearch && section === "cn") document.getElementById("subnav").innerHTML = window.PubXResearch.nav("outbound");
     document.querySelectorAll(".mainnav a").forEach(function (a) {
       a.classList.toggle("on", (a.getAttribute("data-r") || "cn") === section);
     });
@@ -2131,8 +2134,8 @@
         else { var p0 = $("iss-" + icode.split(".")[0]); if (p0) p0.scrollIntoView(); }
       }
     }
-    if (name === "us" && window.render_us) { window.render_us($("usroot")); }
-    if (name === "hk-market" && window.bind_hk) window.bind_hk();
+    if (!research && name === "us" && window.render_us) { window.render_us($("usroot")); }
+    if (!research && name === "hk-market" && window.bind_hk) window.bind_hk();
     if (name === "export") { if (window.bind_ex) { window.bind_ex(view, EXC.col, qs); } else { exBody(); } }
     if (name === "cos") { cosRows(""); var ci = $("coq"); if (ci) ci.addEventListener("input", function (e) { cosRows(e.target.value); }); }
     if (name === "topics") { document.querySelectorAll("[data-tpv]").forEach(function (a) { a.addEventListener("click", function () { TPV.v = a.getAttribute("data-tpv"); view.innerHTML = vTopics(); routeBindTopics(); tpBody(); }); }); tpBody(); }

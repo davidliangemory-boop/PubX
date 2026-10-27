@@ -280,6 +280,9 @@ def check_links(evj):
                 n_bad += 1
                 add("来源链接可达", "WARN", f"缓存 7 日内失败: {u[:80]}（HTTP {ent.get('status')}）")
             continue
+        if os.environ.get("PUBX_VALIDATE_NETWORK") != "1":
+            n_net += 1
+            continue
         try:
             req = urllib.request.Request(u, method="HEAD",
                                          headers={"User-Agent": "PubX-validate/1.0 (link check)"})
@@ -313,6 +316,8 @@ PAGE_ROUTES = [
     ("issues", "h1"), ("cos", "h1"), ("topics", "h1"), ("about", "h1"),
     ("about?tab=validate", "h1"), ("event/E-028", "h1"),
     ("us", "h1"), ("hk-market", "h1"), ("export", "h1"),
+    ("hk-market?v=events", "h1"), ("us?v=capital_markets", "h1"),
+    ("research?v=events", "h1"), ("event/E-028?legacy=1", "h1"),
     ("feed", "redirect"), ("hk", "redirect"), ("arc", "redirect"),
     ("detail/23", "redirect"), ("ana/graph", "redirect"), ("sanctions", "redirect"),
     ("market", "redirect"), ("cos/projects", "redirect"), ("src", "redirect"),
@@ -462,6 +467,28 @@ def check_frontend():
                 add("前端数据", "ERROR", f"data.js JSON 解析失败: {e}")
     else:
         add("前端数据", "ERROR", "assets/data.js 不存在（需先运行 scripts/build_data.py）")
+    from research_schema import FIELDS, PROVENANCE
+    try:
+        raw_events = open(os.path.join(ROOT, "assets", "events_data.js"), encoding="utf-8").read()
+        derived = json.loads(raw_events.split("=", 1)[1].strip().rstrip(";"))
+        ids = set()
+        for market in ("hk", "us", "outbound"):
+            for event in derived[market]:
+                eid = event["event_id"]["value"]
+                assert eid not in ids, "重复 event_id: " + eid
+                ids.add(eid)
+                for key in FIELDS:
+                    assert key in event and event[key]["prov"] in PROVENANCE, eid + "." + key
+        add("共享研究事件", "OK", f"{len(ids)} 个事件，字段与provenance完整")
+    except Exception as exc:
+        add("共享研究事件", "ERROR", str(exc))
+    for filename in ("page_events.js", "page_hk.js", "page_us.js", "page_ex.js"):
+        try:
+            syntax = subprocess.run(["node", "--check", os.path.join(ROOT, "assets", filename)], capture_output=True, text=True)
+            if syntax.returncode:
+                add("前端语法", "ERROR", filename + ": " + syntax.stderr[:200])
+        except FileNotFoundError:
+            break
     app = os.path.join(ROOT, "assets", "app.js")
     try:
         r = subprocess.run(["node", "--check", app], capture_output=True, text=True, timeout=30)

@@ -25,7 +25,7 @@ ALLOW = [
 DENY = [
     "raw/*",              # PDF/HTML/TXT 原文缓存：本地保留，git 只存 state/raw_manifest.json 指针
     "*.pdf", "*.html", "*.htm",
-    "assets/*data.js",    # 由 ingest.yml 在 CI 内从 state/ 构建
+    "assets/*data.js",    # 含 events_data.js；由 ingest.yml 在 CI 内从 state/ 构建
     "state/tmp/*",
 ]
 

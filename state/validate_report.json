@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27 17:26",
+ "generated": "2026-10-27 18:24",
  "summary": {
   "ERROR": 0,
   "WARN": 1,
@@ -18,7 +18,7 @@
    768,
    1280
   ],
-  "routes_checked": 22,
+  "routes_checked": 26,
   "links_checked": 150,
   "failed": 0,
   "results": [
@@ -201,6 +201,62 @@
     },
     "js_errors": [],
     "final": "#/export",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/hk-market?v=events",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/hk-market?v=events",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/us?v=capital_markets",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/us?v=capital_markets",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/research?v=events",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/research?v=events",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/event/E-028?legacy=1",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/event/E-028?legacy=1",
     "empty": false,
     "ok": true
    },

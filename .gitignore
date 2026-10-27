@@ -15,3 +15,5 @@ state/*token*
 raw/
 # 前端数据产物由 ingest.yml 在 CI 里从 state/ 现场构建，不进 main 历史
 assets/*data.js
+# Shared research event layer (CI build artifact)
+assets/events_data.js
