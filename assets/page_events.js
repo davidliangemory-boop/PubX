@@ -46,16 +46,17 @@
   function citations(ids) { return (ids||[]).filter(function(id){return sourceMap[id]&&sourceMap[id].url;}).map(function(id){return ' '+link(sourceMap[id].url,'〔'+(sourceMap[id].citationIndex||sourceMap[id].title)+'〕');}).join(''); }
   function paragraphs(rows) { return (Array.isArray(rows)?rows:[]).filter(function(x){return typeof x==='string'||x.text;}).map(function(x){return '<p>'+esc(typeof x==='string'?x:x.text)+(x.sources?citations(x.sources):'')+'</p>';}).join(''); }
   function moduleHTML(key,title,body) { return body ? '<section class="research-section" data-module="'+key+'"><h2>'+title+'</h2>'+body+'</section>' : ''; }
-  function metrics(rows,limit) { return (rows||[]).filter(function(x){return x.label && x.value !== undefined && x.value !== '' && typeof x.value!=='object';}).slice(0,limit).map(function(x){return '<div class="research-metric"><span>'+esc(x.label)+'</span><strong>'+esc(x.value)+citations(x.sources)+'</strong>'+(x.note?'<small>'+esc(x.note)+'</small>':'')+'</div>';}).join(''); }
+  function metrics(rows,limit) { return (rows||[]).filter(function(x){return x.label && x.value !== undefined && x.value !== '' && typeof x.value!=='object';}).slice(0,limit).map(function(x){return '<div class="research-metric"><span>'+esc(x.label)+'</span><strong>'+esc(x.value)+citations(x.sources)+(x.source_urls||[]).map(function(url){return ' '+link(url,'原文');}).join('')+'</strong>'+(x.note?'<small>'+esc(x.note)+'</small>':'')+'</div>';}).join(''); }
   // All research uses the same article layout; empty regions disappear.
   function deepDetail(e,r) {
     sourceMap={}; (r.research_sources||[]).forEach(function(s,i){if(s.id)sourceMap[s.id]=Object.assign({},s,{citationIndex:i+1});});
     document.title=(r.title||'事件研究')+' · PubX';
     var h='<article class="research-article">'+(r.title?'<h1>'+esc(r.title)+'</h1>':'');
     h+=moduleHTML('status','当前状态',paragraphs([r.kicker,r.latest_change].filter(function(x,i,a){return x && a.indexOf(x)===i;})));
+    ['first_disclosure','latest_document','latest_substantive'].forEach(function(key,i){var d=r[key];if(d&&d.title)h+='<p class="research-disclosure">'+['首次披露','最新文件','最新实质变化'][i]+'：'+esc(d.date||'')+' '+link(d.url,d.title)+'</p>';});
     h+=moduleHTML('summary','事件摘要',paragraphs(r.summary));
-    var coreRows=(r.key_metrics||[]).filter(function(x){return x.label&&x.value !== undefined&&x.value !== ''&&typeof x.value!=='object';}).slice(0,6);
-    h+=moduleHTML('metrics','核心交易数据',coreRows.length?'<div class="research-metrics">'+metrics(coreRows,6)+'</div>':'');
+    var coreRows=(r.metric_slots||r.key_metrics||[]).filter(function(x){return x.label&&x.value !== undefined&&x.value !== ''&&typeof x.value!=='object';});
+    h+=moduleHTML('metrics','核心交易数据',coreRows.length?'<div class="research-metrics">'+metrics(coreRows,r.metric_slots?coreRows.length:6)+'</div>':'');
     h+=moduleHTML('cash','现金需求与报道金额',paragraphs(r.cash_explanation));
     h+=moduleHTML('background','经营背景',paragraphs(r.operating_background));
     h+=moduleHTML('maturity','项目成熟度',paragraphs(r.project_maturity));
@@ -71,7 +72,8 @@
     h+=moduleHTML('meaning','财务、战略与投资意义 · 本站分析',body);
     h+=moduleHTML('watch','待观察',paragraphs(r.watch_items));
     h+=moduleHTML('timeline','时间线',(r.timeline||[]).filter(function(t){return t.text;}).map(function(t){return '<p><time>'+esc(t.date)+'</time> '+esc(t.text)+'</p>';}).join(''));
-    h+=moduleHTML('sources','来源与分析边界',(r.research_sources||[]).filter(function(s){return s.title&&s.url;}).map(function(s,i){return '<p>〔'+(i+1)+'〕'+(s.label?esc(s.label)+' · ':'')+link(s.url,s.title)+' · '+esc(s.date||'')+'</p>';}).join('')+paragraphs(r.boundaries));
+    var layers=r.source_layers||[{label:'核心文件',sources:r.research_sources||[]}];
+    h+=moduleHTML('sources','事件资料包',layers.map(function(layer){var body=(layer.sources||[]).filter(function(s){return s.title&&s.url;}).map(function(s){return '<p>'+(s.label?esc(s.label)+' · ':'')+link(s.url,s.title)+' · '+esc(s.date||'')+'</p>';}).join('');return body?'<div class="research-source-layer"><h3>'+esc(layer.label)+'</h3>'+body+'</div>':'';}).join('')+paragraphs(r.boundaries));
     var attachments=(r.attachments||[]).filter(function(s){return s.title&&s.url;});
     if(attachments.length) h+='<details class="research-attachments"><summary>Rule 22等辅助附件（'+attachments.length+'）</summary>'+attachments.map(function(s){return '<p>'+esc(s.date||'')+' '+link(s.url,s.title)+'</p>';}).join('')+'</details>';
     return h+'</article>';

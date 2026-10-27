@@ -2,9 +2,9 @@
 import json
 import re
 from research_schema import publish_text, publish_lines
+from research_structure import is_substantive
 
 CORE = {'首次方案公告', '通函', '完成或终止', '首次公告', '正式协议'}
-AUX = {'辅助材料', '辅助材料/Rule 22', 'Rule22等辅助材料', '企业资料'}
 
 
 def prune(value):
@@ -21,7 +21,7 @@ def brief(event):
         return r
     sources = event.get('sources', {}).get('value') or []
     sources = sorted(sources, key=lambda s: (s.get('date', ''), s.get('doc_id', '')))
-    substantive = [s for s in sources if s.get('document_type') not in AUX]
+    substantive = [s for s in sources if is_substantive(s)]
     refs = []
     for s in sources:
         title = next((t for key in ('title', 'file', 'form', 'doc_id') if (t := publish_text(s.get(key)))), '')
@@ -108,7 +108,7 @@ def write_candidates(events, path):
     for e in events:
         result = eligibility(e)
         dates = [s.get('date', '') for s in e.get('sources', {}).get('value') or []
-                 if s.get('document_type') not in AUX and re.fullmatch(r'\d{4}-\d{2}-\d{2}', s.get('date', ''))]
+                 if is_substantive(s) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', s.get('date', ''))]
         rows.append(dict(event_id=e['event_id']['value'], market=e['market']['value'],
                          title=e['research'].get('title', e['title']), materiality=materiality(e),
                          latest_date=max(dates, default=''), **result))

@@ -49,7 +49,7 @@ window.PUBX_EVENT_PARTS.hk_all=original;
 const gold=window.PubXResearch.render('event',gjai.event_id.value,new URLSearchParams()).html;
 for(const text of ['3港元','44.2%','1.8倍PB','126.15','海通国际','恒生银行','0.51','12.42','本站分析','财务数据','新闻观点','公告事实','<details','维度']) assert(gold.includes(text),text);
 assert(!bad.test(gold.replace(/<[^>]+>/g,'')));
-assert.strictEqual((gold.match(/class="research-metric"/g)||[]).length,6);
+assert(gjai.research.metric_slots.length>0);
 assert(!/规则22|規則22/.test(gjai.research.latest_change));
 console.log('GJAI deep page and folded attachments passed:',gjai.event_id.value);
 
@@ -62,7 +62,7 @@ for(const id of acceptance){
   const html=window.PubXResearch.render('event',id,new URLSearchParams()).html;
   for(const key of ['status','summary','metrics','background','comparables','industry','meaning','watch','timeline','sources'])assert(html.includes('data-module="'+key+'"'),id+': '+key);
   assert(html.includes('样本：')&&html.includes('日期：')&&html.includes('口径：'),id);
-  assert((html.match(/class="research-metric"/g)||[]).length<=6);
+  assert((html.match(/class="research-metric"/g)||[]).length>0);
   assert(!bad.test(html.replace(/<[^>]+>/g,'')),id);
   let position=-1;
   for(const key of ['background','comparables','industry','meaning','watch','timeline','sources']){const next=html.indexOf('data-module="'+key+'"');assert(next>position,id+': '+key);position=next;}
@@ -107,8 +107,18 @@ console.log('Round 1 market navigation and article routing passed');
 const writes=[];
 const bootstrap={window:{},document:{write:html=>writes.push(html)}};
 for(const match of fs.readFileSync('index.html','utf8').matchAll(/<script>([\s\S]*?)<\/script>/g)) vm.runInNewContext(match[1],bootstrap);
-assert.strictEqual(bootstrap.window.PUBX_BUILD,'20261027d0');
+assert(/^\d{8}d\d+$/.test(bootstrap.window.PUBX_BUILD));
 assert.strictEqual(writes.length,12);
 for(const html of writes) assert(html.includes('?v='+bootstrap.window.PUBX_BUILD),html);
-assert.strictEqual(bootstrap.window.pubxAsset('events_hk.js'),'./assets/events_hk.js?v=20261027d0');
+assert.strictEqual(bootstrap.window.pubxAsset('events_hk.js'),'./assets/events_hk.js?v='+bootstrap.window.PUBX_BUILD);
 console.log('Shared initial/lazy cache fingerprint passed');
+
+// Round 2: all populated template slots survive; empty slots/layers disappear.
+rich.research={title:'结构测试',metric_slots:[{label:'要约价',value:'3港元',source_urls:['https://example.org/price']},{label:'协同',value:'3亿美元',note:'前瞻'},{label:'空槽位',value:''}],source_layers:[{label:'核心文件',sources:[{title:'协议',url:'https://example.org/agreement'}]},{label:'外部资料',sources:[]}],first_disclosure:{date:'2026-01-01',title:'首次公告',url:'https://example.org/first'},latest_document:{date:'2026-03-01',title:'Rule 22',url:'https://example.org/aux'},latest_substantive:{date:'2026-02-01',title:'审批',url:'https://example.org/approval'},attachments:[{title:'Rule 22',url:'https://example.org/aux'}]};
+window.PUBX_EVENT_PARTS.hk_all=[rich];
+html=window.PubXResearch.render('event','HK-test',new URLSearchParams()).html;
+for(const text of ['要约价','3港元','https://example.org/price','前瞻','事件资料包','核心文件','首次披露','最新文件','最新实质变化']) assert(html.includes(text),text);
+assert(!html.includes('空槽位'));assert(!html.includes('<h3>外部资料</h3>'));
+assert(/<details class="research-attachments">/.test(html));assert(!/<details[^>]*open/.test(html));
+window.PUBX_EVENT_PARTS.hk_all=original;
+console.log('Round 2 slots, disclosure distinctions and source layers passed');

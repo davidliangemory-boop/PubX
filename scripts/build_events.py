@@ -354,6 +354,8 @@ def build():
             calibration = ROOT / "research" / (event["event_id"]["value"] + ".json")
             if market == "hk" and calibration.exists():
                 event["research"] = json.loads(calibration.read_text())
+            from research_structure import project_structure
+            project_structure(event)
             event['research'] = finalize_research(event['research'])
     write_candidates([e for market in ("outbound", "hk", "us") for e in data[market]], ROOT / "state/deep_candidates.json")
     manifest = {'built_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'markets': {}}

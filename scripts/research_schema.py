@@ -56,10 +56,6 @@ def document_role(source):
     return '交易通讯' if source.get('form') == '425' else '公告'
 
 
-SUBSTANTIVE = {'首次公告','首次方案公告','正式协议','通函','IFA','IFA意见',
-               '投票结果','股东大会或法院会议结果','完成','终止','完成或终止',
-               '审批','补充公告','补充或条件进展','延迟寄发','公告'}
-
 
 def publish_object(value):
     """Final projection after market overlays, preserving zero and dropping empty records."""
@@ -96,7 +92,8 @@ def prepare_research(e):
     sources = e.get('sources', {}).get('value') or []
     for source in sources:
         source['research_role'] = document_role(source)
-    substantive = sorted([s for s in sources if s['research_role'] in SUBSTANTIVE], key=lambda s:s.get('date',''))
+    from research_structure import is_substantive
+    substantive = sorted([s for s in sources if is_substantive(s)], key=lambda s:s.get('date',''))
     # Earliest collected substantive disclosure, never a contract-signing date or annual report.
     dates = [s.get('date') for s in substantive if re.fullmatch(r'\d{4}-\d{2}-\d{2}', s.get('date') or '')]
     if dates:
