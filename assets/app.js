@@ -2024,7 +2024,8 @@
     }).join("");
   }
   function redirectTo(h) { location.replace(h); }
-  function route() {
+  async function route() {
+    var requestedHash=location.hash;
     var hraw = location.hash.replace(/^#/, "") || "/";
     var hpath = hraw.split("?")[0];
     var qs = new URLSearchParams(hraw.split("?")[1] || "");
@@ -2114,6 +2115,11 @@
     else if (name === "company2") { redirectTo("#/cos"); return; }
     else { section = "cn"; sub = "#/"; html = vHome(); }
 
+    if(window.PubXResearch) {
+      try { await window.PubXResearch.ensure(name, param, qs); }
+      catch (err) { console.warn(err); }
+      if(location.hash!==requestedHash) return;
+    }
     var research = window.PubXResearch && window.PubXResearch.render(name, param, qs);
     if (research) { html = research.html; section = research.market === "outbound" ? "cn" : research.market; }
     view.innerHTML = html;

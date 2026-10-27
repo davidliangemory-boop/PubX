@@ -54,6 +54,79 @@ def amounts(d):
             result.append(row)
     return result[:12]
 
+def extract_terms(text):
+    patterns = {
+        'termination_fee': r'(?:termination|break.up) fee[^.;]{0,100}',
+        'outside_date': r'(?:outside date|long.stop date)[^.;]{0,100}',
+        'per_share_consideration': r'(?:\$[\d,.]+\s*(?:in cash\s*)?per share|per.share consideration[^.;]{0,80})',
+        'principal': r'(?:\$[\d,.]+(?:\s*(?:million|billion))?\s*(?:aggregate )?principal|principal amount[^.;]{0,80})',
+        'interest_rate': r'(?:interest rate[^.;]{0,70}|\d+(?:\.\d+)?%\s*(?:per annum|interest))',
+        'maturity': r'(?:maturity date|matures? on)[^.;]{0,90}',
+    }
+    return {k: field(m.group(0), 'disclosed') for k, pat in patterns.items() if (m := re.search(pat, text, re.I))}
+
+
+def exhibit_rows(docs):
+    rows = []
+    def walk(obj):
+        if isinstance(obj, dict):
+            if any(k in obj for k in ('number','exhibit_no','type','url','href','description','text')):
+                yield obj
+            for k,v in obj.items():
+                if re.fullmatch(r'(?:EX-)?\d{1,2}\.\d+',k,re.I):
+                    yield dict(v, number=k) if isinstance(v,dict) else {'number':k, 'url':v} if isinstance(v,str) and v.startswith('http') else {'number':k,'text':clean(v)}
+                elif isinstance(v,(dict,list)):
+                    yield from walk(v)
+        elif isinstance(obj, list):
+            for v in obj:
+                yield from walk(v)
+    for d in docs:
+        candidates = []
+        for k, v in d.items():
+            if 'exhibit' in k.lower():
+                candidates.extend(walk(v))
+        text = ' '.join(clean(d.get(k)) for k in ('summary', 'text', '正文首段'))
+        text += ' ' + ' '.join(clean(v) for v in (d.get('item_quotes') or {}).values())
+        for m in re.finditer(r'\bExhibit\s+(\d{1,2}\.\d+)\b', text, re.I):
+            candidates.append({'number': m.group(1), 'text': text[max(0,m.start()-40):m.end()+220]})
+        for x in candidates:
+            number = clean(x.get('number') or x.get('exhibit_no') or x.get('type'))
+            number = re.sub(r'^EX-', '', number, flags=re.I)
+            desc = ' '.join(clean(x.get(k)) for k in ('title','description','text','summary'))
+            nature = next((label for pat,label in [
+                (r'voting|support agreement','Voting/Support Agreement'),
+                (r'legal opinion|legality|opinion of counsel','Legal Opinion'),
+                (r'merger|purchase agreement','Merger/Purchase Agreement'),
+                (r'credit agreement','Credit Agreement'),
+                (r'press release','Press Release')]
+                if re.search(pat,desc,re.I)), {'2.1':'Merger/Purchase Agreement','10.1':'Material Contract','99.1':'Press Release'}.get(number,'未抽取'))
+            url = x.get('url') or x.get('href') or d.get('index_url') or d.get('url','')
+            row = dict(number=number or '未抽取', nature=field(nature,'analysis'), core=number.startswith(('2.','10.')) or 'Agreement' in nature,
+                       terms=extract_terms(desc), url=url, link_scope='exhibit' if x.get('url') or x.get('href') else 'filing index / filing', doc_id=d.get('id',d.get('doc_id')))
+            if row not in rows:
+                rows.append(row)
+    return rows
+
+
+def hk_specialty(docs):
+    txt = ' '.join(' '.join(clean(d.get(k)) for k in ('title','summary','excerpt','headline_raw','cat_codes','cat6_sub')) for d in docs)
+    def hit(pat):
+        m = re.search(pat,txt,re.I)
+        return field(m.group(0),'disclosed') if m else field('未披露/未抽取','undisclosed')
+    return {
+        'ch14_class': hit(r'反收購|反收购|reverse takeover|非常重大(?:收購|出售|收购)|very substantial (?:acquisition|disposal)|主要交易|major transaction|須予披露|须予披露|discloseable transaction'),
+        'ch14a_connected': hit(r'關連交易|关连交易|connected transactions?'),
+        'continuing_connected': hit(r'持續關連交易|持续关连交易|continuing connected transactions?'),
+        'annual_cap': hit(r'(?:年度上限|全年上限|annual caps?)[^。;；]{0,65}'),
+        'percent_ratio': hit(r'(?:百分比率|百分比比率|percentage ratios?)[^。;；]{0,45}?\d+(?:\.\d+)?\s*%'),
+        'ifa_name': hit(r'(?:獨立財務顧問|独立财务顾问|independent financial advis[eo]r)\s*[:：]\s*[^，,。;；]{2,60}'),
+        'ifa_conclusion': hit(r'公平合理|公平及合理|fair and reasonable'),
+        'independent_shareholder_approval': hit(r'(?:獨立股東|独立股东|independent shareholders)[^。;；]{0,55}(?:批准|approval)'),
+        'takeovers_rule': hit(r'(?:收購守則|收购守则|Takeovers Code)[^。;；]{0,45}(?:第\s*\d+(?:\.\d+)?\s*條|Rule\s*\d+(?:\.\d+)?)'),
+        'whitewash': hit(r'清洗豁免|whitewash waiver'),
+    }
+
+
 def source(d, market):
     return dict(doc_id=d.get('doc_id', d.get('id')), date=d.get('pub_date', d.get('filing_date', d.get('date', '')))[:10], title=clean(d.get('title', d.get('summary', d.get('form'))))[:220], url=d.get('url', ''), role=role(clean(d.get('title', d.get('summary')))), excerpt=clean(d.get('excerpt', d.get('summary')))[:280], form=d.get('form'), items=d.get('items', []), accession=d.get('accession'), exhibits={k:v for k,v in d.items() if 'exhibit' in k.lower()})
 
@@ -61,6 +134,7 @@ def derive_market(market, docs):
     groups = []
     buckets = {}
     seen_docs = set()
+    reprints = set()
     for d in sorted(docs, key=lambda x: clean(x.get('pub_date', x.get('filing_date', x.get('date'))))):
         s = source(d, market)
         doc_key = s['doc_id'] or s['url']
@@ -71,6 +145,13 @@ def derive_market(market, docs):
         t = s['title'] + ' ' + clean(d.get('headline_raw')) + ' ' + clean(d.get('excerpt', d.get('summary')))[:500]
         issuer = clean(d.get('stock_code') or d.get('stock_name')) if market == 'hk' else clean(d.get('cik'))
         external = market == 'hk' and ('sfc' in clean(s['doc_id']).lower() or d.get('layer') == 'external')
+        if market == 'hk':
+            # Remove only the explicit reprint wrapper, preserving transaction text.
+            canonical = norm(re.sub(r'^(?:海外監管公告|海外监管公告|overseas regulatory announcement)\s*[-—:：–]*\s*', '', s['title'], flags=re.I))
+            key = (issuer, s['date'], canonical)
+            if issuer and canonical and key in reprints:
+                continue
+            reprints.add(key)
         typ = category(t)
         stream = 'external' if external else 'capital_markets' if market == 'us' and (re.match(r'424B|FWP', d.get('form', '')) or re.search(r'structured note|autocall|linked note', t, re.I)) else 'material'
         family = re.sub(r'/A$', '', d.get('form', ''))
@@ -111,12 +192,13 @@ def derive_market(market, docs):
             a = next((x.get('amount') for x in reversed(dd) if known(x.get('amount'))), None)
             e['consideration'] = field(a, 'disclosed') if a else field('PDF首页未抽取', 'undisclosed')
             txt = ' '.join(x['title'] + ' ' + x['excerpt'] for x in ss)
-            e['specialty'] = {k: field(v, 'analysis') if v else field() for k,v in {'Ch14': g['type'] if g['type'] in ['须予披露交易','主要交易','非常重大交易'] else None, '14A': '涉及关连交易' if re.search(r'關連|关连|connected', txt, re.I) else None, 'IFA': '存在IFA文件' if any(x['role']=='IFA' for x in ss) else None, 'takeovers': '涉及收购守则/私有化' if g['type']=='收购守则/私有化' else None, 'shareholder_approval': '存在投票结果，需核对决议' if any(x['role']=='投票结果' for x in ss) else None}.items()}
+            e['specialty'] = hk_specialty(dd)
         else:
             aa = [a for d in dd for a in amounts(d)]
+            e['exhibits'] = exhibit_rows(dd)
             e['amounts'] = aa
             e['consideration'] = field([a for a in aa if not a['excluded_from_deal']], 'analysis') if aa else field()
-            e['specialty'] = {'form_items': field([{'form':x['form'], 'items':x['items']} for x in ss], 'disclosed')}
+            e['specialty'] = {'merger_agreement_terms': field('未抽取', 'undisclosed'), 'credit_agreement_terms': field('未抽取', 'undisclosed'), 'extracted_filing_terms': field([extract_terms(' '.join(clean(v) for v in d.values() if isinstance(v,str))) for d in dd], 'disclosed'), 'form_items': field([{'form':x['form'], 'items':x['items']} for x in ss], 'disclosed')}
         enrich(e)
         out.append(e)
     return out
@@ -179,9 +261,47 @@ def outbound():
         if len(scored)<3: e['information_gaps']['value'].append('同库有效类案不足3条，不以无关事件补齐')
     return out
 
+def us_documents():
+    # Optional local snapshots and manifest metadata only; never fetch raw pointers.
+    docs = {}
+    for path in sorted((ROOT/'state').glob('us_market/*.json')) + sorted((ROOT/'state').glob('us_market*.json')):
+        payload = json.loads(path.read_text())
+        for d in payload.get('entries', []):
+            key = d.get('id') or d.get('accession') or d.get('url')
+            if key:
+                docs[key] = {**docs.get(key, {}), **d}
+    manifest = load('raw_manifest')
+    records = manifest.values() if isinstance(manifest,dict) else manifest
+    by_id = {}
+    for record in records:
+        if isinstance(record,dict) and any('exhibit' in k.lower() for k in record):
+            for key in ('doc_id','id','accession','url'):
+                if record.get(key):
+                    by_id[record[key]] = record
+    for d in docs.values():
+        for key in ('doc_id','id','accession','url'):
+            record = by_id.get(d.get(key))
+            if record:
+                for name,value in record.items():
+                    if 'exhibit' in name.lower():
+                        d.setdefault(name,value)
+    return list(docs.values())
+
+
 def build():
-    data = dict(hk=derive_market('hk',list(load('hk_market')['docs'].values())), us=derive_market('us',load('us_market')['entries']), outbound=outbound(), meta={'schema_version':1,'method':'规则聚类；字段 provenance；不替代原文审阅','source':'state/*.json','network':False})
-    (ROOT/'assets/events_data.js').write_text('window.PUBX_EVENTS = '+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
+    data = dict(hk=derive_market('hk',list(load('hk_market')['docs'].values())), us=derive_market('us',us_documents()), outbound=outbound(), meta={'schema_version':1,'method':'规则聚类；字段 provenance；不替代原文审阅','source':'state/*.json','network':False})
+    manifest = {'built_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'markets': {}}
+    for market in ('outbound','hk','us'):
+        parts = [('material', [e for e in data[market] if e['stream']=='material']), ('capital', [e for e in data[market] if e['stream']=='capital_markets'])] if market=='us' else [('all',data[market])]
+        manifest['markets'][market] = {'count':len(data[market]), 'files':[]}
+        for part, rows in parts:
+            name = 'events_'+market+('_'+part if market=='us' else '')+'.js'
+            manifest['markets'][market]['files'].append({'name':name,'part':part,'count':len(rows)})
+            (ROOT/'assets'/name).write_text('window.PUBX_EVENT_PARTS=window.PUBX_EVENT_PARTS||{};window.PUBX_EVENT_PARTS['+json.dumps(market+'_'+part)+']='+json.dumps(rows,ensure_ascii=False,separators=(',',':'))+';\n')
+    # Direct event links choose a US shard without downloading the other stream.
+    manifest['us_capital_ids'] = [e['event_id']['value'] for e in data['us'] if e['stream']=='capital_markets']
+    (ROOT/'assets/events_index.js').write_text('window.PUBX_EVENTS_INDEX='+json.dumps(manifest,ensure_ascii=False,separators=(',',':'))+';\n')
+    (ROOT/'assets/events_data.js').unlink(missing_ok=True)
     print('research events:', {k:len(data[k]) for k in ['hk','us','outbound']})
     return data
 

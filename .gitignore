@@ -17,3 +17,5 @@ raw/
 assets/*data.js
 # Shared research event layer (CI build artifact)
 assets/events_data.js
+
+assets/events_*.js

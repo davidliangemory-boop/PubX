@@ -23,8 +23,8 @@ import export_pull as ex
 ex.emit_js(ex.load_state())
 print("export_data.js 已生成")
 run("scripts/build_events.py")
-for f in ("data.js", "hk_data.js", "us_data.js", "export_data.js", "events_data.js"):
+for f in ("data.js", "hk_data.js", "us_data.js", "export_data.js", "events_index.js", "events_outbound.js", "events_hk.js", "events_us_material.js", "events_us_capital.js"):
     p = os.path.join(ROOT, "assets", f)
     if not os.path.exists(p) or os.path.getsize(p) < 100:
         sys.exit(f"缺少或为空：assets/{f}")
-print("build_site：5 个数据产物齐全")
+print("build_site：全部数据产物齐全")

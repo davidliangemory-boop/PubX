@@ -25,7 +25,8 @@ ALLOW = [
 DENY = [
     "raw/*",              # PDF/HTML/TXT 原文缓存：本地保留，git 只存 state/raw_manifest.json 指针
     "*.pdf", "*.html", "*.htm",
-    "assets/*data.js",    # 含 events_data.js；由 ingest.yml 在 CI 内从 state/ 构建
+    "assets/*data.js",    # 由 ingest.yml 在 CI 内从 state/ 构建
+    "assets/events_*.js", # 分市场研究事件与索引同为 CI 产物
     "state/tmp/*",
 ]
 
@@ -51,7 +52,7 @@ def why(path):
     p = path.replace(os.sep, "/").lstrip("./")
     if p.startswith("raw/") or p.endswith((".pdf", ".html", ".htm")):
         return "原文缓存不进 git（只推 state/raw_manifest.json 指针）"
-    if fnmatch.fnmatch(p, "assets/*data.js"):
+    if fnmatch.fnmatch(p, "assets/*data.js") or fnmatch.fnmatch(p, "assets/events_*.js"):
         return "数据产物由 ingest.yml 在 CI 构建，不再提交"
     for prefix, owner in OWNERSHIP.items():
         if path == prefix or path.startswith(prefix.rstrip("/") + "/"):

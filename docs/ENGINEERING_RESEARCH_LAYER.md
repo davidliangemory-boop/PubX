@@ -2,7 +2,7 @@
 
 ## 架构与边界
 
-采集层保持市场独立：出海 `state/db.json` 与 `state/events.json`、HK `state/hk_market.json`、SEC `state/us_market.json`。不反向改写采集分类、不抓取网络、不改 raw。`scripts/build_events.py` 通过 `research_schema.py` 在构建时派生 `assets/events_data.js`，暴露 `window.PUBX_EVENTS={hk,us,outbound,meta}`。产物由 CI 重建，沿用 `assets/*data.js` 忽略与 sync_guard 拒绝提交规则。以后可按市场拆为 events_*.js，或并入 data.js；P0 使用一个独立文件，摘录限长、列表分页。
+采集层保持市场独立：出海 `state/db.json` 与 `state/events.json`、HK `state/hk_market.json`、SEC `state/us_market.json`。不反向改写采集分类、不抓取网络、不改 raw。`scripts/build_events.py` 通过 `research_schema.py` 在构建时派生 分市场 `assets/events_*.js`，由 `events_index.js` 提供计数、文件名、构建时间与 US 直达详情分片索引。产物由 CI 重建，沿用 `assets/*data.js` 忽略与 sync_guard 拒绝提交规则。页面通过动态 script 按当前市场加载，兼容 Pages 与 file://；US material / capital 独立分片，默认仅加载 material。index 不再预载事件全集。
 
 共享对象的每个标准字段均为 `{value,prov}`。prov 为 disclosed（已收录原文事实）、external（外部来源）、analysis（规则或研究判断）、undisclosed（当前材料未提取，不能宣称发行人未披露）、na（有依据的不适用）。来源数组保留 doc_id、日期、链接；分析不等同于事实。顶层 title、stream、importance、specialty 为界面辅助属性；specialty 的业务字段同样带 provenance。
 
@@ -40,3 +40,11 @@
 ## 验证与运行
 
 `python3 scripts/build_site.py && python3 scripts/validate.py`。validate检查标准字段、来源标签和跨市场事件ID唯一性，并保留原校验；默认链接检查只读本地缓存，显式 `PUBX_VALIDATE_NETWORK=1` 才请求网络。所有新增JS运行 `node --check`。构建产物不得提交，sync_guard仍拒绝events_data.js（接受构建不代表接受推送）。
+
+## 20261027p05
+
+构建生成 events_outbound.js、events_hk.js、events_us_material.js、events_us_capital.js 与 events_index.js；全部由 assets/events_*.js 忽略，不提交。app.js 统一协调研究路由及 HK/US 标签页，等待当前分片并防止异步导航覆盖新路由；加载失败回退原页面，后续导航可重试。
+
+SEC exhibit-first 仅读现有 state 文本与附件结构，无网络抓取。附件按编号、描述判断性质并标 analysis，保留核心标志、来源 doc_id 与 EDGAR 链接；没有附件 URL 时明确链接为 filing/index，不伪造附件地址。正则仅摘取原文附近的 termination fee、outside date、per-share consideration、principal、interest、maturity；未定位到附件的条款保留在 extracted_filing_terms，不归因到某协议。merger_agreement_terms / credit_agreement_terms 为「未抽取」占位。当前 us_market 无结构化 exhibit 字段，raw_manifest 仅缓存指针，不把指针当正文。
+
+HK 从标题、摘要、category codes/excerpt 派生 Ch14、14A、持续关连、年度上限、百分比率、IFA 名称/结论、独立股东批准、收购守则条款及清洗豁免；仅显示可匹配文本，缺项明确「未披露/未抽取」，不据此断言发行人未披露。海外监管公告重印仅在相同发行人、同日、去除明确前缀后标题完全相同才去重，避免跨交易误合并。

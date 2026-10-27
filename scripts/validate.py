@@ -469,8 +469,16 @@ def check_frontend():
         add("前端数据", "ERROR", "assets/data.js 不存在（需先运行 scripts/build_data.py）")
     from research_schema import FIELDS, PROVENANCE
     try:
-        raw_events = open(os.path.join(ROOT, "assets", "events_data.js"), encoding="utf-8").read()
-        derived = json.loads(raw_events.split("=", 1)[1].strip().rstrip(";"))
+        manifest = json.loads(open(os.path.join(ROOT, "assets", "events_index.js"), encoding="utf-8").read().split("=",1)[1].strip().rstrip(";"))
+        derived = {}
+        for market, info in manifest['markets'].items():
+            derived[market] = []
+            for entry in info['files']:
+                raw = open(os.path.join(ROOT, "assets", entry['name']), encoding="utf-8").read()
+                rows = json.loads(raw.split(";",1)[1].split("=",1)[1].strip().rstrip(";"))
+                assert len(rows) == entry['count'], entry['name']
+                derived[market].extend(rows)
+            assert len(derived[market]) == info['count'], market
         ids = set()
         for market in ("hk", "us", "outbound"):
             for event in derived[market]:
@@ -482,7 +490,7 @@ def check_frontend():
         add("共享研究事件", "OK", f"{len(ids)} 个事件，字段与provenance完整")
     except Exception as exc:
         add("共享研究事件", "ERROR", str(exc))
-    for filename in ("page_events.js", "page_hk.js", "page_us.js", "page_ex.js"):
+    for filename in ("page_events.js", "page_hk.js", "page_us.js", "page_ex.js", "events_index.js", "events_outbound.js", "events_hk.js", "events_us_material.js", "events_us_capital.js"):
         try:
             syntax = subprocess.run(["node", "--check", os.path.join(ROOT, "assets", filename)], capture_output=True, text=True)
             if syntax.returncode:

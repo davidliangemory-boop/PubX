@@ -15,7 +15,29 @@
     if(m==='outbound') return '<nav class="subnav">'+cn.map(function(s,i){return link(['#/','#/research?v=events','#/cos','#/topics?view=regions','#/research?v=comps','#/board','#/issues','#/about'][i],s);}).join(' ｜ ')+'</nav>';
     return '<nav class="subnav">'+labels.map(function (s,i) { return link('#/'+base+'?'+(m==='us'?(i===2?'legacy=1':'v='+ (i===1?'capital_markets':'events')):'v='+keys[i]),s); }).join(' ｜ ')+'</nav>';
   }
-  function all() { var d=window.PUBX_EVENTS; return d ? d.hk.concat(d.us,d.outbound) : []; }
+  function all() { var d=window.PUBX_EVENTS; return d ? (d.hk||[]).concat(d.us||[],d.outbound||[]) : []; }
+  var pending = {};
+  function selection(name,id,qs) {
+    var m=name==='hk-market'?'hk':name==='us'?'us':name==='research'?'outbound':name==='event'?(/^HK-/.test(id)?'hk':/^US-/.test(id)?'us':'outbound'):null;
+    if(!m || qs.get('legacy')==='1') return null;
+    var index=window.PUBX_EVENTS_INDEX;
+    var capital=name==='event'?(index.us_capital_ids||[]).indexOf(id)>=0:qs.get('v')==='capital_markets';
+    return {market:m,part:m==='us'?(capital?'capital':'material'):'all'};
+  }
+  function ensure(name,id,qs) {
+    var pick=selection(name,id,qs); if(!pick) return Promise.resolve();
+    var key=pick.market+'_'+pick.part;
+    if(window.PUBX_EVENT_PARTS && window.PUBX_EVENT_PARTS[key]) return Promise.resolve();
+    if(pending[key]) return pending[key];
+    var file=window.PUBX_EVENTS_INDEX.markets[pick.market].files.find(function(f){return f.part===pick.part;});
+    pending[key]=new Promise(function(resolve,reject){
+      var script=document.createElement('script'); script.src='./assets/'+file.name+'?v=20261027p05';
+      script.onload=function(){resolve();};
+      script.onerror=function(){delete pending[key];script.remove();reject(new Error('事件数据加载失败'));};
+      document.head.appendChild(script);
+    });
+    return pending[key];
+  }
   function detail(e) {
     var m=val(e,'market'), sources=val(e,'sources') || [];
     var h=nav(m)+'<h1>'+esc(e.title)+'</h1><p>事件详情 → 事实与条款 → 四维透视 → 类案比较 → 判断与方案 → 持续跟踪</p>';
@@ -24,7 +46,7 @@
     var terms=['target','geography','consideration','payment_structure','ownership_before','ownership_after','control_result','financing','conditions_precedent','approvals','long_stop_date','termination','governance','event_date','disclosure_date','event_subtype','stage','status'];
     var labels=['标的','地域','对价','支付结构','交易前持股','交易后持股','控制权结果','融资','先决条件','审批','长停止日','终止','治理','事件日期','首次披露','子类型','阶段','状态'];
     h+='<section class="sec"><h2>C · 交易条款</h2>'+terms.map(function(k,i){return '<p><b>'+labels[i]+'</b> '+badge(e[k])+'</p>';}).join('')+'<h3>市场专属字段</h3>'+Object.keys(e.specialty || {}).map(function(k){return '<p>'+esc(k)+' '+badge(e.specialty[k])+'</p>';}).join('')+'</section>';
-    if(m==='us') h+='<section class="sec"><h3>Exhibits · 协议优先 2.1 / 10.1 / 99.1</h3><table><thead><tr><th>申报</th><th>已收录附件</th></tr></thead><tbody>'+sources.map(function(s){return '<tr><td>'+esc(s.accession)+'</td><td>'+esc(Object.keys(s.exhibits || {}).length?text(s.exhibits):'记录未收录附件清单；待核对 filing index')+'</td></tr>';}).join('')+'</tbody></table></section>';
+    if(m==='us') h+='<section class="sec"><h3>Exhibits · 协议优先</h3><table><thead><tr><th>附件 / 核心</th><th>文件性质 [analysis]</th><th>已抽取条款 [disclosed]</th><th>EDGAR</th></tr></thead><tbody>'+(e.exhibits||[]).map(function(x){return '<tr><td>'+esc(x.number)+(x.core?' · 核心':'')+'</td><td>'+badge(x.nature)+'</td><td>'+esc(Object.keys(x.terms).length?text(x.terms):'未抽取')+'</td><td>'+link(x.url,x.link_scope)+'</td></tr>';}).join('')+'</tbody></table>'+((e.exhibits||[]).length?'':'<p>未收录附件清单；未抽取，待核对 filing index。</p>')+'</section>';
     h+='<section class="sec"><h2>D · 四维透视</h2>'+['financial_analysis','investment_analysis','strategy_analysis','legal_analysis'].map(function(k,i){return '<h3>'+['财务','投资','战略','法律（仅事实触发）'][i]+'</h3><p>'+badge(e[k])+'</p>';}).join('')+'<details><summary>未触发法律议题</summary>未触发不代表不存在；待原文证据后再纳入。</details><p>'+badge(e.information_gaps)+'</p></section>';
     h+='<section class="sec"><h2>E · 类案比较</h2>'+((val(e,'comparables') || []).map(function(c){return '<p>'+link('#/event/'+c.event_id,c.event_id)+' · '+esc(c.why)+'</p>';}).join('') || '<p>同库可比证据不足，待人工补充。</p>')+'</section>';
     h+='<section class="sec"><h2>F · 判断与条件方案</h2><table><thead><tr><th>触发条件</th><th>行动</th><th>依据</th></tr></thead><tbody>'+(val(e,'action_plan') || []).map(function(r){return '<tr><td>'+esc(r.condition)+'</td><td>'+esc(r.action)+'</td><td>'+esc(r.basis)+' [analysis]</td></tr>';}).join('')+'</tbody></table></section><section class="sec"><h2>G · 持续跟踪</h2><p>'+badge(e.disclosure_changes)+'</p><p>'+badge(e.next_milestones)+'</p></section>';
@@ -49,5 +71,5 @@
     var base='#/'+(m==='hk'?'hk-market':m==='us'?'us':'research')+'?v='+encodeURIComponent(mode)+'&page=';
     return h+'<p>'+(page>1?link(base+(page-1),'上一页'):'')+' · '+page+' / '+Math.max(1,Math.ceil(data.length/size))+' · '+(start+size<data.length?link(base+(page+1),'下一页'):'')+'</p>';
   }
-  window.PubXResearch={nav:nav, render:function(name,id,qs){if(!window.PUBX_EVENTS || qs.get('legacy')==='1') return null; if(name==='event'){var e=all().find(function(e){return val(e,'event_id')===id;}); return e?{html:'<div style="overflow-wrap:anywhere;min-width:0">'+detail(e)+'</div>',market:val(e,'market')}:null;} var m=name==='hk-market'?'hk':name==='us'?'us':name==='research'?'outbound':null; return m?{html:'<div style="overflow-wrap:anywhere;min-width:0">'+library(m,qs)+'</div>',market:m}:null;}};
+  window.PubXResearch={nav:nav, ensure:ensure, render:function(name,id,qs){var pick=selection(name,id,qs); if(!pick) return null; var rows=(window.PUBX_EVENT_PARTS||{})[pick.market+'_'+pick.part]; if(!rows) return null; window.PUBX_EVENTS=window.PUBX_EVENTS||{}; window.PUBX_EVENTS[pick.market]=rows; if(name==='event'){var e=all().find(function(e){return val(e,'event_id')===id;}); return e?{html:'<div style="overflow-wrap:anywhere;min-width:0">'+detail(e)+'</div>',market:val(e,'market')}:null;} var m=name==='hk-market'?'hk':name==='us'?'us':name==='research'?'outbound':null; return m?{html:'<div style="overflow-wrap:anywhere;min-width:0">'+library(m,qs)+'</div>',market:m}:null;}};
 })();

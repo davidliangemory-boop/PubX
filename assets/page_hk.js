@@ -1,3 +1,4 @@
+// Research event payload loading is owned by app.js / PubXResearch.ensure; legacy views remain synchronous.
 /* ═════════ PubX 港股（HKEX）全量重大事项页 #/hk-market ═════════
    独立模块：数据 window.HKDB（assets/hk_data.js，由 scripts/hkex_market_pull.py 生成）。
    与「出海信批归纳」数据文件、统计口径互不混用。

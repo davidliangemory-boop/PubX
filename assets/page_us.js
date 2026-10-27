@@ -1,3 +1,4 @@
+// Research event payload loading is owned by app.js / PubXResearch.ensure; legacy views remain synchronous.
 /* PubX 美股（SEC）全量重大事项页 —— 独立分页面 #/us
  * 数据：assets/us_data.js（window.US_DATA，由 scripts/sec_market_pull.py 生成，按需懒加载）
  * 口径：EDGAR 全量，不分中企外企；与「出海信批归纳」数据文件、统计互不混用。
