@@ -1,6 +1,8 @@
 """Regression cases for event boundaries and misleading SEC dollar amounts."""
 import unittest
-from build_events import derive_market, amounts, exhibit_rows, hk_specialty
+from pathlib import Path
+from build_events import derive_market, amounts, exhibit_rows, hk_specialty, attach_research, publishable
+from research_schema import make_event, field
 
 class ResearchEventsTest(unittest.TestCase):
     def test_hk_same_issuer_distinct_transactions(self):
@@ -33,5 +35,32 @@ class ResearchEventsTest(unittest.TestCase):
     def test_sec_streams(self):
         docs=[dict(id='a',cik='1',form='424B2',filing_date='2026-01-01'),dict(id='b',cik='1',form='8-K',filing_date='2026-01-02')]
         self.assertEqual({e['stream'] for e in derive_market('us',docs)}, {'material','capital_markets'})
+
+    def test_publication_layer_hides_schema_placeholders(self):
+        for value in [None, '', [], {}, '未披露/未抽取', '待核实 / 信息缺口', '资料不足']:
+            self.assertFalse(publishable(value), value)
+        event=make_event(event_id='TEST-1',market='hk',issuer_id='00001',event_type='并购',stage='跟踪中',
+                         disclosure_date=field('2026-10-27','disclosed'),parties=field(['测试公司'],'disclosed'),
+                         sources=field([{'date':'2026-10-27','title':'测试公告','url':'https://example.com/a'}],'disclosed'))
+        event.update(title='测试事件',stream='material',importance=1)
+        attach_research(event)
+        self.assertEqual(event['research']['depth'],'brief')
+        self.assertNotIn('未披露', ''.join(event['research']['summary']))
+        self.assertTrue(event['research']['watch_items'])
+
+    def test_curated_public_research_and_alias(self):
+        for event_id in ['E-013','HK-d590f0b9b638bc','US-dc5bcce0ffaace','US-c8cbe727cfeec8']:
+            event=make_event(event_id=event_id,market='us' if event_id.startswith('US-') else 'hk' if event_id.startswith('HK-') else 'outbound')
+            event.update(title='原始标题',stream='material',importance=1)
+            attach_research(event)
+            self.assertEqual(event['research']['depth'],'deep')
+            self.assertTrue(event['research']['summary'])
+            self.assertTrue(event['research']['comparables'])
+            self.assertTrue(event['research']['industry_context'])
+
+    def test_frontend_does_not_render_raw_schema_dump(self):
+        js=(Path(__file__).resolve().parents[1]/'assets/page_events.js').read_text()
+        for token in ['JSON.stringify', "function badge", '未披露/未抽取', 'A · 决策摘要', 'C · 交易条款']:
+            self.assertNotIn(token, js)
 
 if __name__=='__main__': unittest.main()

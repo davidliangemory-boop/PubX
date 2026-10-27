@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-27",
+  "aliases": {
+    "US-3d8626c7e284ea": "US-dc5bcce0ffaace",
+    "US-c8cbe727cfeec8": "US-dc5bcce0ffaace",
+    "US-771a3c9f83e6dc": "US-dc5bcce0ffaace",
+    "US-9b2dd1f34597ab": "US-dc5bcce0ffaace",
+    "US-cff57d9e3455bb": "US-dc5bcce0ffaace"
+  },
+  "briefs": {
+    "E-013": {
+      "title": "龙佰集团拟以1.6亿澳元切入西澳矿砂项目",
+      "kicker": "仍处意向阶段；最终交易文件签署期限已由10月7日延至10月31日",
+      "summary": [
+        "龙佰集团拟以约2,000万澳元现金和作价约1.4亿澳元的机器设备，换取Image Resources旗下Durack与Yandanooka矿砂项目约80%权益。交易可采用项目公司股权收购或非法人合资安排，最终结构、对价和权益比例仍取决于尽调、估值和正式协议。",
+        "这不是一笔已经完成的矿权收购。两个项目尚未取得采矿许可、也未投产；Image Resources股东批准、澳大利亚FIRB审查及可能适用的ACCC审批仍是关键门槛。龙佰集团已是Image Resources第一大股东，且董事长在对方任董事，因此交易同时具有产业协同与关联交易属性。"
+      ],
+      "key_metrics": [
+        {"label": "拟投入", "value": "A$1.60亿", "note": "现金A$0.20亿＋设备作价A$1.40亿"},
+        {"label": "拟取得权益", "value": "约80%", "note": "最终比例尚未锁定"},
+        {"label": "项目资源量", "value": "9,470万吨", "note": "Durack 3,770万吨；Yandanooka 5,700万吨"},
+        {"label": "签约期限", "value": "2026-10-31", "note": "已延期一次，仍可书面延长"}
+      ],
+      "meaning": {
+        "financial": [
+          "当期损益影响有限，真正的财务变量是后续建矿资本开支、设备估值以及投产后的单位矿砂成本。",
+          "Image Resources披露的2025年基准价显示锆英砂、钛铁矿和金红石同比走弱；若价格低迷延续，资源安全的战略价值与项目回报率可能背离。"
+        ],
+        "strategy": [
+          "交易把龙佰集团从钛白粉、海绵钛制造进一步推向海外上游资源端，可降低关键原料外购和供应中断风险。",
+          "以设备作价占大部分对价，说明公司不仅在买资源，也在尝试输出矿山开发与选矿能力；能否把设备价值转化为可运营产能是核心执行问题。"
+        ],
+        "investment": [
+          "短期催化不是意向协议本身，而是正式协议、FIRB结果、采矿许可与可行性研究参数。",
+          "投资者应把A$1.6亿视为拟议出资口径，而不是已支付收购价；现金支出仅约A$2,000万，但设备资产的机会成本和后续开发支出不能忽略。"
+        ]
+      },
+      "comparables": [
+        {
+          "name": "Image Resources—Murray Zircon交易（2015）",
+          "comparison": "同一澳洲矿砂平台、同样涉及中国背景产业方和FIRB；当年FIRB批准是Boonanarring推进开发的重要节点。",
+          "signal": "历史批准不能替代本次审查，但说明监管结果与项目落地时间直接相关。",
+          "url": "https://www.miningweekly.com/article/firb-approval-granted-for-image-transaction-2015-08-07/"
+        },
+        {
+          "name": "Sheffield—Yansteel Thunderbird合资（2020）",
+          "comparison": "中国钢企以约A$1.43亿取得西澳大型矿砂项目50%权益并通过FIRB，结构上同属资源换资本与产业协同。",
+          "signal": "正式协议、融资和监管批准通常比宣布合作更能验证项目可执行性。",
+          "url": "https://www.abc.net.au/news/2020-12-16/kimberley-sand-mine-gets-chinese-buy-in-approval/12986100"
+        }
+      ],
+      "industry_context": [
+        {
+          "title": "资源长期逻辑仍在",
+          "text": "澳大利亚资源与能源季度报告预计，矿砂、稀土等其他关键矿产出口收入到2030—31年将上升；交通电气化、数据中心和机器人构成中期需求支撑。",
+          "url": "https://www.industry.gov.au/publications/resources-and-energy-quarterly-june-2026"
+        },
+        {
+          "title": "短期价格与开工压力明显",
+          "text": "Image Resources年报显示2025年锆英砂、钛铁矿、金红石基准价均低于2024年；Iluka也因需求疲弱暂停Cataby与SR2生产。项目价值需要用保守价格情景检验。",
+          "url": "https://www.iluka.com/media/tp5ar1yp/18feb26-iluka-full-year-results-to-31-december-2025.pdf"
+        }
+      ],
+      "watch_items": [
+        "10月31日前是否签署具有约束力的最终交易文件，以及是否再次延期",
+        "FIRB、可能适用的ACCC审批及Image Resources股东批准",
+        "采矿许可、土地准入、可行性研究及最终投资决定",
+        "设备作价依据、后续开发资本开支和产品包销安排"
+      ],
+      "research_sources": [
+        {"label": "龙佰集团首次公告", "type": "公告事实", "date": "2026-09-24", "url": "https://static.cninfo.com.cn/finalpage/2026-09-24/1225578713.PDF"},
+        {"label": "龙佰集团进展公告", "type": "公告事实", "date": "2026-10-10", "url": "https://static.cninfo.com.cn/finalpage/2026-10-10/1225598484.PDF"},
+        {"label": "Image Resources 2025年报", "type": "公司报告", "date": "2026-04", "url": "https://financialfilings.com/filings/image-resources-nl/annual-report/2026/37786843/"},
+        {"label": "Yandanooka项目资料", "type": "公司资料", "url": "https://imageres.com.au/projects/yandanooka/"},
+        {"label": "澳大利亚关键矿产展望", "type": "行业报告", "date": "2026-06", "url": "https://www.industry.gov.au/publications/resources-and-energy-quarterly-june-2026"},
+        {"label": "澳洲外资交易跟踪", "type": "专业报告", "url": "https://www.pwc.com.au/asia-practice/bridging-continents-series/foreign-investment-framework-australia.html"}
+      ]
+    },
+    "HK-d590f0b9b638bc": {
+      "title": "国泰海通推进国泰君安国际私有化，国资程序已完成",
+      "kicker": "上海国资审批、评估及备案已完成；国家发改委程序仍待满足",
+      "summary": [
+        "国泰海通金融控股拟以协议安排方式私有化国泰君安国际，每股注销价为3港元现金且为最终价格。该价格较首次公告前收市价溢价44.2%，对应公司披露的2025年末账面价值约1.8倍；完成后国泰君安国际将撤销上市地位。",
+        "10月16日公告确认上海市国资委审批、评估及备案程序已经完成，交易从“方案宣布”进入先决条件逐项兑现阶段，但国家发改委程序仍未完成。页面把后续规则22证券交易披露视为交易透明度材料，不误判为私有化的新进展。",
+        "财务背景并非困境纾困：国泰君安国际2026年上半年收入与归母利润分别同比增长37%和23%。对母集团而言，这更像是以确定溢价收回境外金融平台、减少上市层级并强化资源协同。"
+      ],
+      "key_metrics": [
+        {"label": "注销价", "value": "HK$3.00/股", "note": "现金，最终价格"},
+        {"label": "公告溢价", "value": "44.2%", "note": "较首次公告前收市价"},
+        {"label": "隐含估值", "value": "约1.8× P/B", "note": "基于2025年末账面价值"},
+        {"label": "最高现金需求", "value": "约HK$126.15亿", "note": "含潜在摊薄后的上限情形"}
+      ],
+      "meaning": {
+        "financial": [
+          "交易以兴业银行融资安排覆盖现金需求，母集团需要权衡融资成本与私有化后全部利润、资本和协同收益。",
+          "标的2026年上半年增长较快，但杠杆水平也上升；私有化后母集团承担的资产负债表波动将更集中。"
+        ],
+        "strategy": [
+          "撤销独立上市可减少双重治理和信息披露成本，并使跨境券商、财富管理与投行业务更直接纳入国泰海通整体部署。",
+          "要约人已拥有约73.92%权益，私有化重点不是取得初始控制权，而是收回少数股东权益和上市平台。"
+        ],
+        "investment": [
+          "对国泰君安国际股东，回报主要取决于方案通过与交割概率，3港元为最终价格限制了加价预期。",
+          "对母公司投资者，关键是融资成本、整合后的资本效率和香港业务增长能否覆盖溢价；单看交易完成不足以证明协同兑现。"
+        ]
+      },
+      "comparables": [
+        {
+          "name": "海通国际私有化（2023）",
+          "comparison": "同为中资券商境外平台私有化，注销价1.52港元、公告溢价约114%，最高现金需求约34.7亿港元；当时标的处于亏损状态。",
+          "signal": "本案溢价较低但估值倍数更高，说明定价基础更偏向盈利恢复与平台质量，而非困境折价修复。",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2023/1006/2023100601477.pdf"
+        },
+        {
+          "name": "汇丰私有化恒生银行（2025）",
+          "comparison": "同为已控股金融平台的协议安排私有化，作价155港元、30日均价溢价约33%、约1.8倍P/B，由汇丰自有资金支付。",
+          "signal": "两案P/B接近，但融资来源、业务模式与协同路径不同；本案更应观察券商周期与集团整合效率。",
+          "url": "https://www.hsbc.com/news-and-views/news/media-releases/2025/hsbc-proposes-to-privatise-hang-seng-bank-by-scheme-of-arrangement"
+        }
+      ],
+      "industry_context": [
+        {
+          "title": "香港证券业景气回升",
+          "text": "交易所活动、融资与财富管理环境改善，为券商盈利修复提供行业背景；这使本案不能简单类比亏损期券商私有化。",
+          "url": "https://www.info.gov.hk/gia/general/202603/18/P2026031800328.htm"
+        },
+        {
+          "title": "估值比较需统一口径",
+          "text": "市场报道对港股券商平均或中位P/B的样本口径差异较大。本站只把1.8倍作为交易自身披露口径，不把单一行业均值当作公允价值结论。",
+          "url": "https://www.jiemian.com/article/14893094.html"
+        }
+      ],
+      "watch_items": [
+        "国家发改委相关程序是否完成，以及先决条件是否在10月31日前全部达成",
+        "计划文件、法院会议及股东大会时间表",
+        "法院批准、计划生效与撤销上市的最终日期",
+        "母集团融资成本及私有化后的业务整合安排"
+      ],
+      "research_sources": [
+        {"label": "私有化首次联合公告", "type": "公告事实", "date": "2026-08-07", "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0807/2026080700859.pdf"},
+        {"label": "先决条件最新进展", "type": "公告事实", "date": "2026-10-16", "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1016/2026101601350.pdf"},
+        {"label": "2026年中期业绩", "type": "公司报告", "date": "2026-08-17", "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0817/2026081700562.pdf"},
+        {"label": "私有化交易报道", "type": "新闻报道", "url": "https://www.jiemian.com/article/14893094.html"},
+        {"label": "香港证券业数据", "type": "行业资料", "date": "2026-03-18", "url": "https://www.info.gov.hk/gia/general/202603/18/P2026031800328.htm"}
+      ]
+    },
+    "US-dc5bcce0ffaace": {
+      "title": "EQT以全股票方式收购Range Resources",
+      "kicker": "双方已签署合并协议；预计2027年一季度完成，尚待股东及监管批准",
+      "summary": [
+        "EQT将以每股Range换0.987股EQT的固定换股比例收购Range Resources。按公告前价格计算，Range隐含价值约129亿美元、每股54.91美元，溢价约20.6%；合并后EQT与Range原股东预计分别持有73%和27%。",
+        "这笔交易把上游天然气资源、3,700英里中游设施和超过100亿立方英尺/日的营销能力放进同一平台。公司预计两年内实现3.25亿美元基础年化协同，长期协同路径超过6亿美元，并称按近期远期曲线五年累计自由现金流约200亿美元。以上均为管理层前瞻指标，不应当作已经实现的收益。",
+        "市场逻辑是押注LNG出口、发电及AI数据中心带来的需求增长，同时用更长库存和低于2美元/MMBtu的无杠杆自由现金流盈亏平衡增强周期韧性。交易价值最终取决于监管、整合和气价，而不是规模排名本身。"
+      ],
+      "key_metrics": [
+        {"label": "隐含股权价值", "value": "约US$129亿", "note": "全股票交易"},
+        {"label": "换股比例", "value": "0.987×", "note": "每股Range换EQT股份"},
+        {"label": "公告溢价", "value": "约20.6%", "note": "较公告前一交易日收盘价"},
+        {"label": "基础年化协同", "value": "US$3.25亿", "note": "公司目标：两年内"}
+      ],
+      "meaning": {
+        "financial": [
+          "全股票支付降低即时现金和新增债务压力，但把交易价值转化为换股后的每股现金流、协同兑现和相对股价风险。",
+          "公司给出的五年约200亿美元自由现金流和低于2美元/MMBtu盈亏平衡均依赖价格与执行假设，评估时应拆分基础业务与协同增量。"
+        ],
+        "strategy": [
+          "Range补充西南宾夕法尼亚优质天然气与NGL资产，和EQT既有上游、中游及营销平台形成地域与价值链协同。",
+          "EQT继2024年收购Equitrans后再次扩张，战略从纵向整合进一步走向同盆地横向集中，议价、调度和长期供气能力增强。"
+        ],
+        "investment": [
+          "Range股东获得溢价并继续持有合并公司27%权益；EQT股东则承担股份摊薄、整合和协同兑现风险。",
+          "短期关键指标是两家公司股东投票、反垄断审查与换股价差；中期则应跟踪单位成本、资本开支纪律、杠杆和每股自由现金流。"
+        ]
+      },
+      "comparables": [
+        {
+          "name": "Chesapeake—Southwestern（2024）",
+          "comparison": "同为大型全股票天然气合并，交易价值约74亿美元，并以扩大库存、营销和每股自由现金流为核心逻辑。",
+          "signal": "监管周期和协同兑现是天然气同业整合的主要验证点；规模扩张需要最终落实到每股回报。",
+          "url": "https://investors.expandenergy.com/news-releases/news-release-details/chesapeake-energy-corporation-and-southwestern-energy-combine"
+        },
+        {
+          "name": "EQT—Equitrans（2024）",
+          "comparison": "EQT以超过350亿美元企业价值完成纵向一体化，目标是把上游钻井库存与中游设施结合。",
+          "signal": "本案建立在上一轮纵向整合之上；连续大型交易提高了平台协同上限，也提高管理层整合负荷。",
+          "url": "https://ir.eqt.com/investor-relations/news/news-release-details/2024/EQT-Announces-Transformative-Acquisition-of-Equitrans-Midstream/default.aspx"
+        }
+      ],
+      "industry_context": [
+        {
+          "title": "天然气产量与需求同步扩张",
+          "text": "美国能源信息署预计2026及2027年天然气产量继续创新高，增量主要来自Appalachia、Haynesville与Permian。供给增长意味着需求上行并不自动转化为更高气价。",
+          "url": "https://www.eia.gov/todayinenergy/detail.php?id=67166"
+        },
+        {
+          "title": "并购逻辑从价格押注转向资本与平台能力",
+          "text": "行业研究把天然气需求、LNG、数据中心电力和资本效率列为新一轮并购驱动。对本案而言，营销、管道和合同化需求能力与储量规模同样重要。",
+          "url": "https://www.deloitte.com/us/en/insights/industry/oil-and-gas/mergers-and-acquisitions-in-oil-and-gas.html"
+        }
+      ],
+      "watch_items": [
+        "EQT股份发行批准与Range股东对合并协议的表决",
+        "监管许可及合并登记声明、联合委托书中的交易风险与财务预测",
+        "3.25亿美元基础协同的分项、实现成本与两年兑现进度",
+        "气价、LNG与电力需求变化对五年自由现金流目标的敏感性"
+      ],
+      "research_sources": [
+        {"label": "Range 8-K与合并协议", "type": "监管文件", "date": "2026-10-26", "url": "https://www.sec.gov/Archives/edgar/data/315852/000119312526431025/d161989d8k.htm"},
+        {"label": "EQT与Range联合公告", "type": "公司公告", "date": "2026-10-26", "url": "https://ir.eqt.com/newsroom/news-releases/news-release-details/2026/EQT-Announces-Strategic-Acquisition-of-Range-Resources-Creating-Americas-Undisputed-Natural-Gas-Champion/default.aspx"},
+        {"label": "交易投资者演示", "type": "公司报告", "date": "2026-10-26", "url": "https://s205.q4cdn.com/630272887/files/doc_downloads/2026/EQT-and-Range-Combine-to-Create-America-s-Natural-Gas-Champion.pdf"},
+        {"label": "Reuters交易报道", "type": "新闻报道", "date": "2026-10-26", "url": "https://www.reuters.com/business/eqt-buy-range-resources-over-50-billion-deal-2026-10-26/"},
+        {"label": "EIA美国天然气产量展望", "type": "行业资料", "date": "2026-02", "url": "https://www.eia.gov/todayinenergy/detail.php?id=67166"}
+      ]
+    }
+  }
+}
