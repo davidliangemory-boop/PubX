@@ -49,8 +49,7 @@ window.PUBX_EVENT_PARTS.hk_all=original;
 const gold=window.PubXResearch.render('event',gjai.event_id.value,new URLSearchParams()).html;
 for(const text of ['3港元','44.2%','1.8倍PB','126.15','海通国际','恒生银行','0.51','12.42','本站分析','财务数据','新闻观点','公告事实','<details','维度']) assert(gold.includes(text),text);
 assert(!bad.test(gold.replace(/<[^>]+>/g,'')));
-const goldMetrics=gold.split('data-module="metrics"')[1].split('</section>')[0];
-assert.strictEqual((goldMetrics.match(/<tr><td>/g)||[]).length,6);
+assert.strictEqual((gold.match(/class="research-metric"/g)||[]).length,6);
 assert(!/规则22|規則22/.test(gjai.research.latest_change));
 console.log('GJAI deep page and folded attachments passed:',gjai.event_id.value);
 
