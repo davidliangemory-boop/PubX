@@ -28,3 +28,21 @@ Re-audit of all 77 outbound overlays vs gold (E-013 untouched). Overlay depth: b
 - industry_context added only where raw has figures, every item with sample/date/basis (e.g. E-001, E-005, E-008, E-012, E-018, E-025, E-026, E-030, E-049, E-050, E-057).
 - project_maturity added: E-006, E-016, E-027, E-028, E-031, E-036. Summaries paragraph 2 rewritten for 进展/为何重要 on ~55 files.
 Remaining gaps (R4): key_metrics still 0 on ~14 (E-002/003/007/029/034/041/042/043/054, several E-D/E-H filings — no numeric terms in raw); no outbound peer for E-017/024/032/040/044/045/051/052/055/056/058; industry data absent on most; E-035/E-037 now 1–2 metrics.
+
+## Round 4 (2026-10-27, ?v=20261027d6) — final push on remaining gaps
+- Real outbound peers added (only from other outbound overlays, numbers from their own filings): E-055 (vs E-014, E-009 — overseas operating contracts at 2.33% vs 6.16%/1.53% of revenue), E-044 (vs E-027 — own-product overseas registration), E-045 ↔ E-032 (cross-border acquisition of listed-target stakes; ODI filing vs completed transfer).
+- Still no true peer in outbound set or raw: E-017, E-024, E-040, E-051, E-052, E-056, E-058 — left empty.
+- Single-node timelines: raw/ grep by issuer found no later filings for E-054, E-009, E-014, E-015, E-016, E-027, E-033, E-045, E-D-…hkex_12382424, E-D-…626427, E-D-…627271, E-H-…586743, E-H-…619598 — left as brief.
+- E-035 (one row: ≤€105m ≈ RMB 862m cap, phased cash) and E-037 (US$30m cash = registered capital, not additive; 100% via HK sub) re-checked against filings 1225597383 / 1225597906: correct, unchanged.
+- key_metrics left empty on ~14 filings with no numeric terms; no industry_context added (no cited external source on disk). Depth unchanged: deep 36 / brief 42.
+
+## ROLLUP — 出海信披金样深抠 R1→R4
+| Round | Live | Depth (deep/brief) | Gained |
+|---|---|---|---|
+| Base | c2 | 14/64 (built: 1 deep, tags lost) | — |
+| R1 | d1 | 27/51 | Depth tags preserved in build; 36 thin events: summaries 186–265 → 312–480 chars, 28 real comps, timelines extended, project_maturity ×9 |
+| R2 | d4 | 33/45 | The other 41: summaries 338–541 chars, operating_background 36/41, maturity on mine/plant assets, new comps; 8 new deep |
+| R3 | d5 | 36/42 | All 77: F/S/I meaning tied to disclosed numbers, watch items as "variable → view change"; key_metrics from raw on 15; duplicate metrics merged; comps on ~14; industry_context only where raw has sample/date/basis (~11) |
+| R4 | d6 | 36/42 | 4 more real peer comps (E-055, E-044, E-045, E-032); E-035/E-037 verified; confirmed no further raw for single-node timelines |
+
+Hard limits: to go further we need new source material (later filings, counterparty/host-regulator docs, industry reports). Without it, more gold-standard density would mean making things up.
