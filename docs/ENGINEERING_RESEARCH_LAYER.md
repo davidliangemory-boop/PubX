@@ -1,27 +1,18 @@
-# 共享研究事件层（P0.7，2026-10-27）
+# 共享研究事件层（P0，2026-10-27）
 
 ## 架构与边界
 
 采集层保持市场独立：出海 `state/db.json` 与 `state/events.json`、HK `state/hk_market.json`、SEC `state/us_market.json`。不反向改写采集分类、不抓取网络、不改 raw。`scripts/build_events.py` 通过 `research_schema.py` 在构建时派生 分市场 `assets/events_*.js`，由 `events_index.js` 提供计数、文件名、构建时间与 US 直达详情分片索引。产物由 CI 重建，沿用 `assets/*data.js` 忽略与 sync_guard 拒绝提交规则。页面通过动态 script 按当前市场加载，兼容 Pages 与 file://；US material / capital 独立分片，默认仅加载 material。index 不再预载事件全集。
 
-共享对象的每个标准字段均为 `{value,prov}`。prov 为 disclosed（已收录原文事实）、external（外部来源）、analysis（规则或研究判断）、undisclosed（当前材料未提取，不能宣称发行人未披露）、na（有依据的不适用）。来源数组保留 doc_id、日期、链接；分析不等同于事实。结构化字段服务于检索、计算和审阅，不再等同于前台页面结构。
-
-构建时为每个事件附加顶层 `research` 发布对象：`title`、`kicker`、`summary`、`key_metrics`、`meaning`（财务/战略/投资）、`comparables`、`industry_context`、`watch_items`、`research_sources`、`depth`。全量事件从现有公告生成简报；经公开检索和人工编辑的重点事件由 `state/public_research.json` 覆盖为深读。页面只消费有内容的发布字段，不显示 null、空数组或“未披露/未抽取”等机器占位。
+共享对象的每个标准字段均为 `{value,prov}`。prov 为 disclosed（已收录原文事实）、external（外部来源）、analysis（规则或研究判断）、undisclosed（当前材料未提取，不能宣称发行人未披露）、na（有依据的不适用）。来源数组保留 doc_id、日期、链接；分析不等同于事实。顶层 title、stream、importance、specialty 为界面辅助属性；specialty 的业务字段同样带 provenance。
 
 标准字段全集：event_id、market、issuer_id、entity_id、event_type、event_subtype、stage、status、event_date、disclosure_date、parties、target、geography、consideration、payment_structure、ownership_before、ownership_after、control_result、financing、conditions_precedent、approvals、long_stop_date、termination、governance、sources、disclosure_changes、financial_analysis、investment_analysis、strategy_analysis、legal_analysis、comparables、action_plan、information_gaps、next_milestones。
 
 ## 页面流
 
-市场总览 → 事件研究库 → 事件摘要 → 关键数字 → 财务/战略/投资意义 → 类案与行业对比 → 关键变量 → 来源。
+市场总览 → 事件库 → 事件详情 → 事实与条款 → 四维透视 → 类案比较 → 判断与方案 → 持续跟踪。
 
-三市场复用 `page_events.js` 的研究型详情和摘要卡，事件路由 `#/event/<id>`；出海旧详情 `?legacy=1`。派生数据缺失时回退原页面。港股子导航为市场总览、事件库、发行人、在途交易、收购与私有化、融资与资本运作、监管执法、类案、方法；SEC 默认重大事件，可切资本市场流水与旧文件视图；出海导航为市场总览、事件库、企业档案、国家与产业、类案研究、项目跟踪、法律议题、方法与来源。
-
-## P0.7 研究型发布层
-
-- 目标从“把字段展示完整”改为“用户能否在一分钟内理解事件和商业意义”。结构化字段继续保留，但默认不渲染空值、provenance 代码、原始 JSON、通用行动模板或无依据类案。
-- 深读采用三级证据：公告/监管文件确认事实，公司报告补足财务与经营背景，新闻/行业报告/类案解释估值、周期及市场反应。所有外部材料保留可访问链接；分析区统一标识“本站分析”。
-- 首批深读覆盖出海龙佰集团西澳矿砂项目、港股国泰君安国际私有化、美国EQT收购Range Resources。其余事件先生成不含占位的公告速览，后续可通过同一覆盖文件逐条升级。
-- 类案必须说明“为什么可比”和“对本案的启示”；行业对比必须给出周期或基准信息。没有足够证据时整个模块隐藏，不以“信息不足”占位。
+三市场复用 `page_events.js` 详情模板，事件路由 `#/event/<id>`；出海旧详情 `?legacy=1`。派生数据缺失时回退原页面。港股子导航为市场总览、事件库、发行人、在途交易、收购与私有化、融资与资本运作、监管执法、类案、方法；SEC 默认重大事件，可切资本市场流水与旧文件视图；出海导航为市场总览、事件库、企业档案、国家与产业、类案研究、项目跟踪、法律议题、方法与来源。
 
 ## 本轮交付与后续
 

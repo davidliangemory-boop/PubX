@@ -9,8 +9,6 @@ from research_schema import FIELDS, field, make_event
 ROOT = Path(__file__).resolve().parents[1]
 _X = ROOT / 'state' / 'research_extracts.json'
 EXTRACTS = json.loads(_X.read_text()) if _X.exists() else {'hk': {}, 'us': {}}
-_R = ROOT / 'state' / 'public_research.json'
-PUBLIC_RESEARCH = json.loads(_R.read_text()) if _R.exists() else {'briefs': {}, 'aliases': {}}
 
 def full_text_overlay(spec, docs, store, keymap):
     """P0.6: overlay conservative full-text extracts (quote + source + confidence); never overwrite with blanks."""
@@ -33,157 +31,6 @@ def clean(x):
 
 def known(x):
     return bool(x) and not re.search(r'未披露|不适用|^—$|^未知$', clean(x))
-
-def publishable(x):
-    """True only for content that is useful to a reader, not a schema placeholder."""
-    if isinstance(x, dict) and 'value' in x:
-        return publishable(x.get('value'))
-    if x is None or x is False:
-        return False
-    if isinstance(x, str):
-        return bool(x.strip()) and not re.search(r'未披露|未抽取|待核实|信息缺口|资料不足|^null$|^\[\]$', x, re.I)
-    if isinstance(x, (list, tuple)):
-        return any(publishable(v) for v in x)
-    if isinstance(x, dict):
-        return any(publishable(v) for v in x.values())
-    return True
-
-def display_value(x, limit=180):
-    """Make a short human sentence from a known field without exposing JSON."""
-    if isinstance(x, dict) and 'value' in x:
-        return display_value(x.get('value'), limit)
-    if isinstance(x, str):
-        return x.strip()[:limit]
-    if isinstance(x, dict):
-        for key in ('text', 'name', 'amount', 'value', 'title'):
-            if publishable(x.get(key)):
-                return display_value(x[key], limit)
-        return ''
-    if isinstance(x, (list, tuple)):
-        values = [display_value(v, 80) for v in x]
-        return '；'.join(v for v in values if v)[:limit]
-    return str(x)[:limit] if publishable(x) else ''
-
-def analysis_points(x):
-    if isinstance(x, dict) and 'value' in x:
-        return analysis_points(x.get('value'))
-    if isinstance(x, str):
-        return [x.strip()] if publishable(x) else []
-    if isinstance(x, (list, tuple)):
-        out = []
-        for value in x:
-            if isinstance(value, str) and publishable(value):
-                out.append(value.strip())
-            elif isinstance(value, dict):
-                text = display_value(value, 260)
-                if text:
-                    out.append(text)
-        return out
-    return []
-
-def fallback_research(e):
-    """Publication view for every event; deliberately smaller than the data model."""
-    value = lambda key: e.get(key, {}).get('value') if isinstance(e.get(key), dict) else e.get(key)
-    market = value('market')
-    date = display_value(value('disclosure_date'), 20)
-    stage = display_value(value('stage'), 60)
-    event_type = display_value(value('event_type'), 60)
-    who = display_value(value('parties'), 100) or display_value(value('entity_id'), 100) or display_value(value('issuer_id'), 60)
-    target = display_value(value('target'), 100)
-    geography = display_value(value('geography'), 100)
-    consideration = display_value(value('consideration'), 180)
-    title = e.get('title') or '事件研究摘要'
-    if len(title) > 92:
-        title = title[:89] + '…'
-
-    lead = '，'.join(x for x in [date, who] if x)
-    lead = (lead + ('披露' if lead else '') + (event_type or '重大事项') + '，当前' + (stage or '仍在跟踪中') + '。')
-    facts = []
-    if target:
-        facts.append('交易对象或标的为' + target)
-    if geography:
-        facts.append('事项涉及' + geography)
-    if consideration:
-        facts.append('当前材料可识别的金额或支付信息为：' + consideration)
-    sources = value('sources') or []
-    if sources:
-        last = sources[-1]
-        last_date = last.get('date', '')
-        last_role = last.get('role') or '披露文件'
-        facts.append('最新收录材料为' + (last_date + '的' if last_date else '') + last_role)
-    summary = [lead]
-    if facts:
-        summary.append('；'.join(facts[:3]) + '。')
-
-    metrics = []
-    for label, item, note in [
-        ('首次收录', date, '以当前事件链所收录材料为准'),
-        ('当前阶段', stage, ''),
-        ('涉及地区', geography, ''),
-        ('金额/支付', consideration, '')]:
-        if item:
-            metrics.append({'label': label, 'value': item, 'note': note})
-
-    meaning = {
-        'financial': analysis_points(e.get('financial_analysis')),
-        'strategy': analysis_points(e.get('strategy_analysis')),
-        'investment': analysis_points(e.get('investment_analysis')),
-    }
-    raw_comparables = value('comparables') or []
-    comparables = []
-    for item in raw_comparables[:4]:
-        if not isinstance(item, dict) or not item.get('event_id') or not item.get('why'):
-            continue
-        comparables.append({'name': item['event_id'], 'event_id': item['event_id'], 'comparison': item['why'], 'signal': '仅作为同库检索入口，需结合交易规模、阶段和行业进一步核对。'})
-
-    terminal = bool(re.search(r'完成|终止|撤回', stage))
-    if terminal:
-        watch = ['后续财务报告是否量化该事项对收入、利润、现金流或资产负债表的实际影响']
-    elif market == 'us':
-        watch = ['后续SEC文件是否补充核心协议、审批条件、财务预测或交割时间']
-    elif market == 'hk':
-        watch = ['下一份实质公告是否更新对价、股东批准、监管程序或完成范围']
-    else:
-        watch = ['后续公告是否确认正式协议、审批结果、资金安排与实际交割范围']
-
-    research_sources = []
-    for item in sources:
-        if not item.get('url'):
-            continue
-        research_sources.append({
-            'label': item.get('title') or item.get('file') or item.get('doc_id') or '原始文件',
-            'type': '监管文件' if market in ('hk', 'us') else '公司公告',
-            'date': item.get('date', ''),
-            'url': item['url'],
-        })
-    return {
-        'title': title,
-        'kicker': (stage or '持续跟踪') + (' · ' + date if date else ''),
-        'summary': summary,
-        'key_metrics': metrics[:4],
-        'meaning': meaning,
-        'comparables': comparables,
-        'industry_context': [],
-        'watch_items': watch,
-        'research_sources': research_sources,
-        'depth': 'brief',
-        'updated_at': date,
-    }
-
-def attach_research(e):
-    event_id = e['event_id']['value']
-    canonical = PUBLIC_RESEARCH.get('aliases', {}).get(event_id, event_id)
-    overlay = PUBLIC_RESEARCH.get('briefs', {}).get(canonical)
-    research = fallback_research(e)
-    if overlay:
-        for key, value in overlay.items():
-            research[key] = value
-        research['depth'] = 'deep'
-        research['updated_at'] = PUBLIC_RESEARCH.get('updated_at')
-        if canonical != event_id:
-            research['canonical_event_id'] = canonical
-    e['research'] = research
-    return e
 
 def norm(s):
     return re.sub(r'[^\w\u4e00-\u9fff]', '', s.lower())
@@ -375,10 +222,14 @@ def derive_market(market, docs):
     return out
 
 def enrich(e):
-    # Keep the analytical schema available to machines, but never manufacture rows
-    # merely so every field looks populated. The publication layer decides what is useful.
-    gaps = [x for x in (e['information_gaps']['value'] or []) if publishable(x)]
-    e['information_gaps'] = field(gaps, 'analysis') if gaps else field()
+    gaps = ['待核全文、交割范围及条款']
+    for k in ['financial_analysis', 'investment_analysis', 'strategy_analysis', 'legal_analysis']:
+        if e[k]['value'] is None:
+            e[k] = field([], 'undisclosed')
+            gaps.append(k + '：资料不足')
+    e['information_gaps'] = field(gaps + (e['information_gaps']['value'] or []), 'analysis')
+    e['next_milestones'] = field(['核对后续公告、审批及交割范围；无公告不推定已完成'], 'analysis')
+    e['action_plan'] = field([{'condition':'若取得协议/通函全文', 'action':'核对对价、先决条件及长停止日', 'basis':'信息缺口'}, {'condition':'若出现完成公告', 'action':'逐项核对资产与股权交割范围', 'basis':'完成不等于全部交割'}], 'analysis')
 
 def outbound():
     rows = {d['_aid']:d for d in load('db')['disclosures']}
@@ -425,9 +276,7 @@ def outbound():
             if any(w in a and w in b for w in ['煤','光伏','银行','电力','医药','钢','矿','汽车']): why.append('产业关键词相同')
             if why: scored.append({'event_id':other['event_id']['value'], 'score':len(why), 'why':'；'.join(why)})
         e['comparables']=field(sorted(scored,key=lambda x:(-x['score'],x['event_id']))[:8], 'analysis')
-        if len(scored)<3:
-            gaps = e['information_gaps']['value'] or []
-            e['information_gaps'] = field(gaps + ['同库有效类案不足3条，不以无关事件补齐'], 'analysis')
+        if len(scored)<3: e['information_gaps']['value'].append('同库有效类案不足3条，不以无关事件补齐')
     return out
 
 def us_documents():
@@ -458,10 +307,7 @@ def us_documents():
 
 
 def build():
-    data = dict(hk=derive_market('hk',list(load('hk_market')['docs'].values())), us=derive_market('us',us_documents()), outbound=outbound(), meta={'schema_version':2,'method':'规则聚类＋研究摘要发布层；公开报道经人工核实；不替代原文审阅','source':'state/*.json + state/public_research.json','network':False})
-    for market in ('outbound', 'hk', 'us'):
-        for event in data[market]:
-            attach_research(event)
+    data = dict(hk=derive_market('hk',list(load('hk_market')['docs'].values())), us=derive_market('us',us_documents()), outbound=outbound(), meta={'schema_version':1,'method':'规则聚类；字段 provenance；不替代原文审阅','source':'state/*.json','network':False})
     manifest = {'built_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'markets': {}}
     for market in ('outbound','hk','us'):
         parts = [('material', [e for e in data[market] if e['stream']=='material']), ('capital', [e for e in data[market] if e['stream']=='capital_markets'])] if market=='us' else [('all',data[market])]
