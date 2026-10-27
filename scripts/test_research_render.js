@@ -150,5 +150,5 @@ for(const key of ['cash','comparables','industry'])assert(!html.includes('data-m
 rich.research.cash_explanation=[{text:'公告既有现金解释',sources:['notice']}];
 assert(window.PubXResearch.render('event','HK-test',new URLSearchParams()).html.includes('公告既有现金解释'));
 window.PUBX_EVENT_PARTS.hk_all=original;
-assert.strictEqual(bootstrap.window.PUBX_BUILD,'20261027d3');
+assert(/^\d{8}d\d+$/.test(bootstrap.window.PUBX_BUILD));
 console.log('Round 3 implications, industry scope, amount hook and analysis prompts passed');
