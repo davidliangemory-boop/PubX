@@ -336,10 +336,13 @@ def check_pages(report):
     import http.server
     import socket
     import threading
-    sock = socket.socket()
-    sock.bind(("127.0.0.1", 0))
-    port = sock.getsockname()[1]
-    sock.close()
+    try:
+        with socket.socket() as sock:
+            sock.bind(("127.0.0.1", 0))
+            port = sock.getsockname()[1]
+    except PermissionError:
+        add("页面检查", "SKIP", "环境禁止本地 HTTP socket，跳过浏览器检查")
+        return
     handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=ROOT)
     # 静默请求日志，避免污染 validate 输出
     class QuietHandler(http.server.SimpleHTTPRequestHandler):

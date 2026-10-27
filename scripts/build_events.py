@@ -5,7 +5,7 @@ import json
 import re
 from difflib import SequenceMatcher
 from pathlib import Path
-from research_schema import FIELDS, field, make_event
+from research_schema import FIELDS, field, make_event, prepare_research
 ROOT = Path(__file__).resolve().parents[1]
 _X = ROOT / 'state' / 'research_extracts.json'
 EXTRACTS = json.loads(_X.read_text()) if _X.exists() else {'hk': {}, 'us': {}}
@@ -308,6 +308,9 @@ def us_documents():
 
 def build():
     data = dict(hk=derive_market('hk',list(load('hk_market')['docs'].values())), us=derive_market('us',us_documents()), outbound=outbound(), meta={'schema_version':1,'method':'规则聚类；字段 provenance；不替代原文审阅','source':'state/*.json','network':False})
+    for market in ('outbound', 'hk', 'us'):
+        for event in data[market]:
+            prepare_research(event)
     manifest = {'built_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'markets': {}}
     for market in ('outbound','hk','us'):
         parts = [('material', [e for e in data[market] if e['stream']=='material']), ('capital', [e for e in data[market] if e['stream']=='capital_markets'])] if market=='us' else [('all',data[market])]
