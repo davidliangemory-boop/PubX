@@ -50,6 +50,9 @@ def enrich_acceptance(event):
         return
     event['research'] = copy.deepcopy({k: v for k, v in pack.items() if k != 'event_id'})
     event['title'] = pack['title']
+    if pack['event_id'].startswith('E-') and event['research'].get('depth') == 'deep':
+        # Reviewed outbound gold-density overlays: overlay intent wins over generic eligibility.
+        event['research']['curated'] = 'outbound'
     # All merged filings and reviewed exhibits remain accessible from one page.
     if pack['event_id'].startswith('US-'):
         refs = event['research']['research_sources']

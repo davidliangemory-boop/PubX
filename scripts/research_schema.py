@@ -80,7 +80,13 @@ def finalize_research(research):
     financials = bool(r.get('operating_background')) or any(s.get('label') == '财务数据' for s in refs)
     meaning = sum(any(len(x if isinstance(x,str) else x.get('text','')) >= 20 for x in r.get('meaning',{}).get(k,[])) for k in ('financial','strategy','investment'))
     summary_length = sum(len(x if isinstance(x, str) else x.get('text', '')) for x in r.get('summary', []))
-    r['depth'] = 'deep' if (summary_length >= 300 and has_core and chain and comparable and financials and meaning >= 2) else 'brief'
+    standard = summary_length >= 300 and has_core and chain and comparable and financials and meaning >= 2
+    # Reviewed outbound gold overlays: intent wins when gold-core modules exist.
+    curated_ok = (r.get('curated') == 'outbound' and r.get('depth') == 'deep' and summary_length >= 300
+                  and has_core and comparable and meaning >= 2
+                  and (chain or financials or bool(r.get('project_maturity'))))
+    r['depth'] = 'deep' if (standard or curated_ok) else 'brief'
+    r.pop('curated', None)
     r['key_metrics'] = r.get('key_metrics', [])[:6]
     return r
 
