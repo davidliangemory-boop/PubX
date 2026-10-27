@@ -8,6 +8,7 @@ from pathlib import Path
 from research_schema import FIELDS, field, make_event, prepare_research, finalize_research, document_role
 from hk_research import classify_document, curated_docs, enrich_research, template_fields, AUX, CORE
 from acceptance_research import merge_eqt_events, enrich_acceptance
+from research_brief import brief, write_candidates
 ROOT = Path(__file__).resolve().parents[1]
 _X = ROOT / 'state' / 'research_extracts.json'
 EXTRACTS = json.loads(_X.read_text()) if _X.exists() else {'hk': {}, 'us': {}}
@@ -347,7 +348,12 @@ def build():
             if market == 'hk':
                 enrich_research(event)
             enrich_acceptance(event)
+            brief(event)
+            calibration = ROOT / "research" / (event["event_id"]["value"] + ".json")
+            if market == "hk" and calibration.exists():
+                event["research"] = json.loads(calibration.read_text())
             event['research'] = finalize_research(event['research'])
+    write_candidates([e for market in ("outbound", "hk", "us") for e in data[market]], ROOT / "state/deep_candidates.json")
     manifest = {'built_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'markets': {}}
     for market in ('outbound','hk','us'):
         parts = [('material', [e for e in data[market] if e['stream']=='material']), ('capital', [e for e in data[market] if e['stream']=='capital_markets'])] if market=='us' else [('all',data[market])]
