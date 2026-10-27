@@ -375,6 +375,7 @@ def check_pages(report):
                     if w == PAGE_WIDTHS[0]:
                         row["h1"] = pg.evaluate('document.querySelectorAll("h1").length')
                         row["final"] = pg.evaluate("location.hash")
+                        row["banned"] = pg.evaluate("/\\b(null|undisclosed|analysis|disclosed)\\b|\\[\\s*\\]|未披露|未抽取|资料不足/i.test(Array.from(document.querySelectorAll('.research-article,.research-card')).map(el=>el.innerText).join(' '))")
                         row["empty"] = pg.evaluate(
                             'document.getElementById("view").textContent.trim().length < 10')
                         row["js_errors"] = errs
@@ -410,6 +411,8 @@ def check_pages(report):
     n_bad = 0
     for r in results:
         bad = []
+        if r.get("banned"):
+            bad.append("渲染文本含禁用占位值")
         if r["expect"] == "h1":
             if r["h1"] != 1:
                 bad.append(f"H1 数={r['h1']}")
@@ -444,11 +447,29 @@ def check_pages(report):
         f"{len(results)} 条路由 × {len(PAGE_WIDTHS)} 宽度：H1/溢出/JS报错/旧路由跳转；站内链接 {min(len(all_links), 150)} 条；失败 {n_bad}")
 
 
+def check_publish_display():
+    from publish_display import display_strings
+    from research_schema import BANNED
+    import glob
+    for path in glob.glob(os.path.join(ROOT, 'assets', '*data.js')) + glob.glob(os.path.join(ROOT, 'assets', 'events_*.js')):
+        with open(path, encoding='utf-8') as handle:
+            raw = handle.read()
+        try:
+            payload = raw.split(';', 1)[1].split('=', 1)[1] if 'window.PUBX_EVENT_PARTS=' in raw else raw.split('=', 1)[1]
+            data = json.loads(payload.strip().rstrip(';'))
+            bad = ['.'.join(keys) for keys, value in display_strings(data) if BANNED.search(value)]
+            add('发布展示值', 'ERROR' if bad else 'OK', os.path.basename(path) + ': ' + (', '.join(bad[:5]) if bad else '无禁用占位值'))
+        except Exception as exc:
+            add('发布展示值', 'ERROR', os.path.basename(path) + ': ' + str(exc))
+
+
 def check_frontend():
     """index.html 引用的静态资源存在；data.js 可解析；app.js 语法检查（有 node 时）。"""
     idx = os.path.join(ROOT, "index.html")
     html = open(idx, encoding="utf-8").read()
-    for m in re.findall(r'(?:src|href)="(\./[^"#?]+)"', html):
+    resources = re.findall(r'(?:src|href)="(\./[^"#?]+)"', html)
+    resources += ['./assets/' + name for name in re.findall(r"'([a-z_]+\.(?:js|css))'", html)]
+    for m in resources:
         p = os.path.join(ROOT, m[2:])
         if not os.path.exists(p):
             add("前端资源", "ERROR", f"index.html 引用不存在: {m}")
@@ -714,6 +735,7 @@ def main():
     check_links(evj)
     check_export()
     check_frontend()
+    check_publish_display()
 
     n_err = sum(1 for _, lv, _ in ISSUES if lv == "ERROR")
     n_warn = sum(1 for _, lv, _ in ISSUES if lv == "WARN")

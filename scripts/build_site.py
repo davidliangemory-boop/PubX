@@ -22,6 +22,8 @@ print("hk_data.js 已生成")
 import export_pull as ex
 ex.emit_js(ex.load_state())
 print("export_data.js 已生成")
+from publish_display import sanitize_legacy_assets
+sanitize_legacy_assets(ROOT)
 run("scripts/build_events.py")
 for f in ("data.js", "hk_data.js", "us_data.js", "export_data.js", "events_index.js", "events_outbound.js", "events_hk.js", "events_us_material.js", "events_us_capital.js"):
     p = os.path.join(ROOT, "assets", f)

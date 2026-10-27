@@ -339,6 +339,8 @@ def us_documents():
     return list(docs.values())
 
 
+from publish_display import sanitize
+
 def build():
     data = dict(hk=derive_market('hk',curated_docs(list(load('hk_market')['docs'].values()))), us=derive_market('us',us_documents()), outbound=outbound(), meta={'schema_version':1,'method':'规则聚类；字段 provenance；不替代原文审阅','source':'state/*.json','network':False})
     data['us'] = merge_eqt_events(data['us'])
@@ -361,7 +363,7 @@ def build():
         for part, rows in parts:
             name = 'events_'+market+('_'+part if market=='us' else '')+'.js'
             manifest['markets'][market]['files'].append({'name':name,'part':part,'count':len(rows)})
-            (ROOT/'assets'/name).write_text('window.PUBX_EVENT_PARTS=window.PUBX_EVENT_PARTS||{};window.PUBX_EVENT_PARTS['+json.dumps(market+'_'+part)+']='+json.dumps(rows,ensure_ascii=False,separators=(',',':'))+';\n')
+            (ROOT/'assets'/name).write_text('window.PUBX_EVENT_PARTS=window.PUBX_EVENT_PARTS||{};window.PUBX_EVENT_PARTS['+json.dumps(market+'_'+part)+']='+json.dumps(sanitize(rows),ensure_ascii=False,separators=(',',':'))+';\n')
     # Direct event links choose a US shard without downloading the other stream.
     manifest['us_capital_ids'] = [route for e in data['us'] if e['stream']=='capital_markets' for route in [e['event_id']['value']] + e.get('aliases', [])]
     (ROOT/'assets/events_index.js').write_text('window.PUBX_EVENTS_INDEX='+json.dumps(manifest,ensure_ascii=False,separators=(',',':'))+';\n')

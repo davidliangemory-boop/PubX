@@ -1,11 +1,16 @@
 {
- "generated": "2026-10-27 18:44",
+ "generated": "2026-10-27 21:52",
  "summary": {
   "ERROR": 0,
   "WARN": 1,
-  "SKIP": 0
+  "SKIP": 1
  },
  "issues": [
+  {
+   "check": "引文回原文",
+   "level": "SKIP",
+   "detail": "无 raw/ 原文缓存目录，跳过子串比对（采集脚本落地原文后自动启用）"
+  },
   {
    "check": "批次命名",
    "level": "WARN",
@@ -34,6 +39,7 @@
     "js_errors": [],
     "final": "#/",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -46,8 +52,9 @@
      "1280": false
     },
     "js_errors": [],
-    "final": "#/events",
+    "final": "#/research?v=events",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -60,8 +67,9 @@
      "1280": false
     },
     "js_errors": [],
-    "final": "#/events?view=table",
+    "final": "#/research?v=events",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -76,6 +84,7 @@
     "js_errors": [],
     "final": "#/board",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -90,6 +99,7 @@
     "js_errors": [],
     "final": "#/issues",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -104,6 +114,7 @@
     "js_errors": [],
     "final": "#/cos",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -118,6 +129,7 @@
     "js_errors": [],
     "final": "#/topics",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -132,6 +144,7 @@
     "js_errors": [],
     "final": "#/about",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -146,6 +159,7 @@
     "js_errors": [],
     "final": "#/about?tab=validate",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -160,6 +174,7 @@
     "js_errors": [],
     "final": "#/event/E-028",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -174,6 +189,7 @@
     "js_errors": [],
     "final": "#/us",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -188,6 +204,7 @@
     "js_errors": [],
     "final": "#/hk-market",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -202,6 +219,7 @@
     "js_errors": [],
     "final": "#/export",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -216,6 +234,7 @@
     "js_errors": [],
     "final": "#/hk-market?v=events",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -230,6 +249,7 @@
     "js_errors": [],
     "final": "#/us?v=capital_markets",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -244,6 +264,7 @@
     "js_errors": [],
     "final": "#/research?v=events",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -258,6 +279,7 @@
     "js_errors": [],
     "final": "#/event/E-028?legacy=1",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -270,8 +292,9 @@
      "1280": false
     },
     "js_errors": [],
-    "final": "#/events",
+    "final": "#/research?v=events",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -284,8 +307,9 @@
      "1280": false
     },
     "js_errors": [],
-    "final": "#/events?view=hk",
+    "final": "#/research?v=events",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -298,8 +322,9 @@
      "1280": false
     },
     "js_errors": [],
-    "final": "#/events?view=table",
+    "final": "#/research?v=events",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -314,6 +339,7 @@
     "js_errors": [],
     "final": "#/event/E-060",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -328,6 +354,7 @@
     "js_errors": [],
     "final": "#/topics?view=regions",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -342,6 +369,7 @@
     "js_errors": [],
     "final": "#/export?col=watch",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -356,6 +384,7 @@
     "js_errors": [],
     "final": "#/us",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -368,8 +397,9 @@
      "1280": false
     },
     "js_errors": [],
-    "final": "#/events",
+    "final": "#/research?v=events",
     "empty": false,
+    "banned": false,
     "ok": true
    },
    {
@@ -384,6 +414,7 @@
     "js_errors": [],
     "final": "#/about",
     "empty": false,
+    "banned": false,
     "ok": true
    }
   ],

@@ -1,7 +1,7 @@
 // Research event payload loading is owned by app.js / PubXResearch.ensure; legacy views remain synchronous.
 /* ═════════ PubX 港股（HKEX）全量重大事项页 #/hk-market ═════════
    独立模块：数据 window.HKDB（assets/hk_data.js，由 scripts/hkex_market_pull.py 生成）。
-   与「出海信批归纳」数据文件、统计口径互不混用。
+   与「出海信披归纳」数据文件、统计口径互不混用。
    app.js 仅以 window.render_hk(qs) / window.bind_hk() 两个钩子调用本文件。 */
 (function () {
   "use strict";
@@ -425,7 +425,7 @@
     h += '<div class="panel"><div class="panel-h"><h2>口径说明</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
       + "本页口径：<b>披露易全市场标题检索（stockId=-1，不分中企外企）</b>＋ SFC 执法新闻（external）；"
       + "事项分六类：" + CAT6.join("、") + "（由港交所二级类别码规则映射）；例行授权说明函件、认可集体投资计划（ETF/杠杆产品）文件等入库但单列<b>「常规程序」</b>，不进六类统计。"
-      + "本页与「出海信批归纳」（仅中企）及美股、出口管制分页面的数据文件、统计口径<b>互不混用</b>；"
+      + "本页与「出海信披归纳」（仅中企）及美股、出口管制分页面的数据文件、统计口径<b>互不混用</b>；"
       + "中国关联仅为标签（名称/标题弱启发式），不作筛选前提；披露阶段为系统规则推断（analysis，依据类别码与标题关键词），非港交所原文表述。</div></div>";
     h += bandHtml();
     h += spotlightHtml();

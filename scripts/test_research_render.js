@@ -90,3 +90,25 @@ for (const depth of ['brief','deep']) {
   assert(!/<p><\/p>|<h3><\/h3>/.test(article));
 }
 window.PUBX_EVENT_PARTS.hk_all=original;
+
+// Round 1: legacy parameters cannot select a field matrix for event details.
+for (const id of acceptance) {
+  const article=window.PubXResearch.render('event',id,new URLSearchParams('legacy=1'));
+  assert(article && article.html.includes('research-article'),id);
+}
+for (const market of ['outbound','hk','us']) {
+  const nav=window.PubXResearch.nav(market);
+  assert.strictEqual((nav.split('<details')[0].match(/<a /g)||[]).length,4,market);
+  assert(nav.includes('<summary>更多</summary>'),market);
+}
+console.log('Round 1 market navigation and article routing passed');
+
+// Initial styles/scripts share the same fingerprint used by lazy resource helpers.
+const writes=[];
+const bootstrap={window:{},document:{write:html=>writes.push(html)}};
+for(const match of fs.readFileSync('index.html','utf8').matchAll(/<script>([\s\S]*?)<\/script>/g)) vm.runInNewContext(match[1],bootstrap);
+assert.strictEqual(bootstrap.window.PUBX_BUILD,'20261027d0');
+assert.strictEqual(writes.length,12);
+for(const html of writes) assert(html.includes('?v='+bootstrap.window.PUBX_BUILD),html);
+assert.strictEqual(bootstrap.window.pubxAsset('events_hk.js'),'./assets/events_hk.js?v=20261027d0');
+console.log('Shared initial/lazy cache fingerprint passed');

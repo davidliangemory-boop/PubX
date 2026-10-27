@@ -73,15 +73,14 @@ def publish_object(value):
 
 def finalize_research(research):
     r = publish_object(research)
-    if r.get('depth') == 'deep':
-        refs = r.get('research_sources', [])
-        has_core = any(s.get('label') == '公告事实' and s.get('url') for s in refs)
-        chain = len(r.get('timeline', [])) >= 2
-        comparable = any(c.get('lesson') and (c.get('why') or c.get('dimension')) for c in r.get('comparables', []))
-        financials = bool(r.get('operating_background')) or any(s.get('label') == '财务数据' for s in refs)
-        meaning = sum(any(len(x if isinstance(x,str) else x.get('text','')) >= 20 for x in r.get('meaning',{}).get(k,[])) for k in ('financial','strategy','investment'))
-        if not (has_core and chain and comparable and financials and meaning >= 2):
-            r['depth'] = 'brief'
+    refs = r.get('research_sources', [])
+    has_core = any(s.get('label') == '公告事实' and s.get('url') for s in refs)
+    chain = len(r.get('timeline', [])) >= 2
+    comparable = any(c.get('lesson') and (c.get('why') or c.get('dimension')) for c in r.get('comparables', []))
+    financials = bool(r.get('operating_background')) or any(s.get('label') == '财务数据' for s in refs)
+    meaning = sum(any(len(x if isinstance(x,str) else x.get('text','')) >= 20 for x in r.get('meaning',{}).get(k,[])) for k in ('financial','strategy','investment'))
+    summary_length = sum(len(x if isinstance(x, str) else x.get('text', '')) for x in r.get('summary', []))
+    r['depth'] = 'deep' if (summary_length >= 300 and has_core and chain and comparable and financials and meaning >= 2) else 'brief'
     r['key_metrics'] = r.get('key_metrics', [])[:6]
     return r
 

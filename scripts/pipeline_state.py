@@ -29,7 +29,7 @@ def write_manifest(batch_id=None, model=None):
                             'status': obj.get('status'), 'raw_path': obj.get('raw_path'),
                             'raw_available': bool(obj.get('raw_path')) and (ROOT / obj['raw_path']).is_file()})
     prior['pending_review'] = pending
-    prior['scope'] = '出海信批；美股、港股、出口管制各自批次与统计见独立数据文件'
+    prior['scope'] = '出海信披；美股、港股、出口管制各自批次与统计见独立数据文件'
     prior['source_audit'] = 'reports/P5-round5-source-audit.json'
     path.write_text(json.dumps(prior, ensure_ascii=False, indent=2)+'\n')
     return prior

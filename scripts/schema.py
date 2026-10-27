@@ -14,7 +14,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ── 模块（分页面）定义：数据文件、统计口径互不混用 ──
 MODULES = {
     "cn_outbound": {
-        "name": "出海信批归纳",
+        "name": "出海信披归纳",
         "route": "#/",
         "files": ["state/events.json", "state/db.json"],
         "scope": "仅中企出海相关披露（巨潮 / 披露易 / EDGAR 中概名单）",

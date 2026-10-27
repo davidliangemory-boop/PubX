@@ -1,7 +1,7 @@
 # PubX 统一事件 Schema（event schema v1，四模块共用骨架）
 
 > 版本：2026-10-23 ｜ 代码实现：`scripts/schema.py` ｜ 校验：`scripts/validate.py`
-> 纪律：`null` = 已核原文但未披露（页面显示【未披露】）；`"unknown"` = 尚未核查；禁止虚构。
+> 纪律：`null` = 已核原文但未披露（发布投影不渲染占位值）；`"unknown"` = 尚未核查；禁止虚构。
 
 ## 1. 模块（module）与数据文件
 
@@ -9,7 +9,7 @@
 
 | module | 分页面 | 数据文件 | 口径 |
 |---|---|---|---|
-| `cn_outbound` | 出海信批归纳（#/ 及 7 个二级页） | `state/events.json` + `state/db.json` | 仅中企出海相关披露（巨潮 / 披露易 / EDGAR 中概名单） |
+| `cn_outbound` | 出海信披归纳（#/research?v=events） | `state/events.json` + `state/db.json` | 仅中企出海相关披露（巨潮 / 披露易 / EDGAR 中概名单） |
 | `us_market` | 美股 SEC（#/us） | `state/events_us.json`（采集未上线） | SEC EDGAR 全量，不分中外企 |
 | `hk_market` | 港股 HKEX（#/hk-market） | `state/events_hk.json`（采集未上线） | HKEX 披露易全量，不分中外企 |
 | `export_control` | 出口管制（#/export） | `state/events_export.json`（采集未上线） | BIS / OFAC / UFLPA：执法案例、清单、规则更新 |

@@ -4,9 +4,17 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>企业出海情报台 · PubX</title>
-<link rel="stylesheet" href="./assets/style.css?v=20261027c2"/>
-<link rel="stylesheet" href="./assets/page_us.css?v=20261027c2"/>
-<link rel="stylesheet" href="./assets/page_ex.css?v=20261027c2"/>
+
+
+
+<script>
+// Single cache fingerprint for initial assets and every lazy-loaded asset.
+window.PUBX_BUILD = '20261027d0';
+window.pubxAsset = function (name) { return './assets/' + name + '?v=' + window.PUBX_BUILD; };
+['style.css','page_us.css','page_ex.css'].forEach(function (name) {
+  document.write('<link rel="stylesheet" href="' + window.pubxAsset(name) + '">');
+});
+</script>
 </head>
 <body>
 
@@ -28,9 +36,9 @@
   </div>
   <div class="wrap mainnav-row">
     <nav class="mainnav" id="mainnav">
-      <a href="#/" data-r="cn">出海信批归纳</a>
-      <a href="#/us" data-r="us">美股·SEC</a>
-      <a href="#/hk-market" data-r="hk">港股·HKEX</a>
+      <a href="#/research?v=events" data-r="cn">出海信披归纳</a>
+      <a href="#/us?v=events" data-r="us">美股·SEC</a>
+      <a href="#/hk-market?v=events" data-r="hk">港股·HKEX</a>
       <a href="#/export" data-r="export">出口管制</a>
     </nav>
     <span class="synctime" id="sideSync">—</span>
@@ -56,14 +64,10 @@
 <div class="mask" id="mask"></div>
 <aside class="drawer" id="drawer"></aside>
 
-<script src="./assets/data.js?v=20261027c2"></script>
-<script src="./assets/page_us.js?v=20261027c2"></script>
-<script src="./assets/hk_data.js?v=20261027c2"></script>
-<script src="./assets/page_hk.js?v=20261027c2"></script>
-<script src="./assets/export_data.js?v=20261027c2"></script>
-<script src="./assets/page_ex.js?v=20261027c2"></script>
-<script src="./assets/events_index.js?v=20261027c2"></script>
-<script src="./assets/page_events.js?v=20261027c2"></script>
-<script src="./assets/app.js?v=20261027c2"></script>
+<script>
+['data.js','page_us.js','hk_data.js','page_hk.js','export_data.js','page_ex.js','events_index.js','page_events.js','app.js'].forEach(function (name) {
+  document.write('<script src="' + window.pubxAsset(name) + '"><\/script>');
+});
+</script>
 </body>
 </html>

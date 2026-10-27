@@ -48,7 +48,7 @@ def sec_code(item):
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="出海信批日批次：采集、原文缓存、Kimi Code审核结果入库")
+    parser = argparse.ArgumentParser(description="出海信披日批次：采集、原文缓存、Kimi Code审核结果入库")
     parser.add_argument("--date", type=datetime.date.fromisoformat)
     parser.add_argument("--backfill-days", type=int, default=20)
     parser.add_argument("--dry-run", action="store_true")

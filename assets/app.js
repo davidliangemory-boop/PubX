@@ -1,8 +1,8 @@
 /* 出海情报台 · PubX — P1 版：一级导航四分页面
-   出海信批归纳（#/，仅中企；二级：总览/事件库/事件详情/法律议题/企业档案/专题研究/项目看板/方法与来源）
+   出海信披归纳（#/，仅中企；二级：总览/事件库/事件详情/法律议题/企业档案/专题研究/项目看板/方法与来源）
    美股SEC #/us · 港股HKEX #/hk-market（全量不分中外企，骨架）· 出口管制 #/export（BIS/OFAC/UFLPA + 观察名单比对）
    四分页面数据文件、统计口径互不混用。
-   纪律：原文未载 → null 显示【未披露】；未核查 → unknown；叙事字段分层 disclosed/external/analysis。 */
+   纪律：源数据保留结构化状态；发布投影过滤占位值；叙事区分公告事实、外部信息与本站分析。 */
 (function () {
   "use strict";
   var D = DB.disclosures || [];
@@ -1215,17 +1215,17 @@
     var name = isUS ? "美股（SEC）" : "港股（HKEX）";
     var src = isUS ? "SEC EDGAR" : "HKEX 披露易";
     var ch = isUS ? "美股·EDGAR" : "港股·披露易";
-    // 「出海信批归纳」模块内该渠道的存量（中企口径），仅作指引，不并入本页统计
+    // 「出海信披归纳」模块内该渠道的存量（中企口径），仅作指引，不并入本页统计
     var n = D.filter(function (r) { return chOf(r) === ch; }).length;
     var h = '<div class="ph"><h1>' + name + '</h1><span class="sub">本页回答：' + src + " 全量披露中，最近有哪些交易、融资、运营、法律与战略重大事项</span></div>";
     h += '<div class="panel"><div class="panel-h"><h2>口径说明</h2></div><div class="panel-b" style="line-height:1.9;font-size:13px">'
       + "本页口径：<b>" + src + " 全量披露，不分中企外企</b>；事项分六类：" + MKT_CATS.join("、") + "。"
-      + "本页与「出海信批归纳」（仅中企）及其他分页面的数据文件、统计口径<b>互不混用</b>。</div></div>";
+      + "本页与「出海信披归纳」（仅中企）及其他分页面的数据文件、统计口径<b>互不混用</b>。</div></div>";
     h += '<div class="panel"><div class="panel-b" style="padding:34px 24px;text-align:center">'
       + '<div style="font-size:15px;font-weight:700;margin-bottom:8px">数据采集尚未上线</div>'
       + '<div class="note" style="max-width:560px;margin:0 auto;line-height:1.9">' + src + " 全量采集（不分中外企）尚未接入，本页暂无任何数据，不展示推测或占位内容。<br/>"
-      + "中企出海相关的" + (isUS ? "美股" : "港股") + "披露已收录于「出海信批归纳」模块（当前 " + n + " 条，中企口径，与本页全量口径不混用）。</div>"
-      + '<div style="margin-top:16px"><a class="btn primary" href="#/events?ch=' + encodeURIComponent(ch) + '">去「出海信批归纳」查看' + (isUS ? "美股" : "港股") + "披露</a></div></div></div>";
+      + "中企出海相关的" + (isUS ? "美股" : "港股") + "披露已收录于「出海信披归纳」模块（当前 " + n + " 条，中企口径，与本页全量口径不混用）。</div>"
+      + '<div style="margin-top:16px"><a class="btn primary" href="#/events?ch=' + encodeURIComponent(ch) + '">去「出海信披归纳」查看' + (isUS ? "美股" : "港股") + "披露</a></div></div></div>";
     h += '<div class="feedch"><h2>栏目（上线后按此六类组织）</h2><span class="note">栏目 → 源表单/类别映射为口径设计说明，采集上线后生效</span></div><div class="cards3">'
       + MKT_CATS.map(function (c) {
         return '<div class="stat"><div class="n" style="font-size:15px">' + esc(c) + '</div><div class="d" style="color:var(--ink-3)">数据采集尚未上线</div>'
@@ -1843,7 +1843,7 @@
       (DB.batches || []).forEach(function (b) { ["scanned", "kept", "excluded", "failed"].forEach(function (k) { tot[k] += b[k] || 0; }); });
       var lm = DB.legal_map || {};
       box.innerHTML = '<div class="statstrip">'
-        + statCard(span, "收录披露日期范围", "库内 " + D.length + " 条披露（出海信批归纳模块）；非全市场口径")
+        + statCard(span, "收录披露日期范围", "库内 " + D.length + " 条披露（出海信披归纳模块）；非全市场口径")
         + statCard(tot.scanned, "累计扫描（批次合计）", "各批次 scanned 求和；跨批次窗口重叠，非去重值")
         + statCard(tot.kept, "累计收录", "kept 合计；命中率低属正常（关键词召回+人工门控）")
         + statCard(tot.excluded, "累计剔除", "门控剔除：非出海相关 / 噪声类别 / 程序性公告")
@@ -2010,7 +2010,7 @@
     out.querySelectorAll("[data-close]").forEach(function (a) { a.addEventListener("click", closeSearch); });
   }
 
-  /* ═════════ 路由（一级四分页面 + 出海信批归纳 7 个二级页 + 旧路由 301 式重定向） ═════════ */
+  /* ═════════ 路由（一级四分页面 + 出海信披归纳 7 个二级页 + 旧路由 301 式重定向） ═════════ */
   function setSub(section, cur) {
     var SUBS = {
       cn: [["#/", "总览"], ["#/events", "事件库"], ["#/issues", "法律议题"], ["#/cos", "企业档案"],
@@ -2031,6 +2031,7 @@
     var qs = new URLSearchParams(hraw.split("?")[1] || "");
     var parts = hpath.split("/").filter(Boolean);
     var name = parts[0] || "home", param = parts[1] ? decodeURIComponent(parts[1]) : null;
+    if (name === 'events' && qs.get('legacy') !== '1') { redirectTo('#/research?v=events'); return; }
     closeSearch();
     var html, section = "cn", sub = "#/";
     if (name === "events") {
@@ -2047,7 +2048,7 @@
       if (!F.cols.length) F.cols = EV_COLS_DEFAULT.slice();
       html = vEvents();
     }
-    else if (name === "event") { section = "cn"; sub = "#/events"; html = vEvent(param || ""); }
+    else if (name === "event") { section = "cn"; sub = "#/events"; html = "<h1>事件研究</h1><p>正在载入研究资料…</p>"; }
     else if (name === "issues") { section = "cn"; sub = "#/issues"; html = vIssues(); }
     else if (name === "board") { section = "cn"; sub = "#/board"; html = vBoard(); }
     else if (name === "cos") {
@@ -2076,7 +2077,7 @@
       section = "us"; sub = "";
       html = window.render_us ? '<div id="usroot"></div>' : vMarket("us");
     }
-    else if (name === "hk-market") { section = "hk"; sub = ""; html = window.render_hk ? window.render_hk(qs) : vMarket("hk"); }
+    else if (name === "hk-market") { section = "hk"; sub = ""; html = qs.get("legacy") === "1" && window.render_hk ? window.render_hk(qs) : "<h1>港股事件研究</h1>"; }
     else if (name === "export") {
       section = "export"; EXC.col = qs.get("col") || "enforcement";
       sub = "#/export?col=" + EXC.col;
@@ -2117,20 +2118,20 @@
 
     if(window.PubXResearch) {
       try { await window.PubXResearch.ensure(name, param, qs); }
-      catch (err) { console.warn(err); }
+      catch (err) { console.warn(err); view.innerHTML = "<h1>事件研究</h1><p>研究资料加载失败，请刷新重试。</p>"; return; }
       if(location.hash!==requestedHash) return;
     }
     var research = window.PubXResearch && window.PubXResearch.render(name, param, qs);
     if (research) { html = research.html; section = research.market === "outbound" ? "cn" : research.market; }
     view.innerHTML = html;
     setSub(section, sub);
-    if (window.PubXResearch && section === "cn") document.getElementById("subnav").innerHTML = window.PubXResearch.nav("outbound");
+    if (window.PubXResearch && section !== "export") subnav.innerHTML = window.PubXResearch.nav(section === "cn" ? "outbound" : section);
     document.querySelectorAll(".mainnav a").forEach(function (a) {
       a.classList.toggle("on", (a.getAttribute("data-r") || "cn") === section);
     });
     window.scrollTo(0, 0);
     // 绑定
-    if (name === "events") { bindEvents(); evRows(); }
+    if (!research && name === "events") { bindEvents(); evRows(); }
     if (name === "issues") {
       // 深链：#/issues?code=I1.1（或旧式 #/issues/I2）→ 展开对应二级议题并定位
       var icode = qs.get("code") || param || "";

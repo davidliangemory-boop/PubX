@@ -57,6 +57,7 @@ class BriefTest(unittest.TestCase):
 
     def test_all_published_briefs(self):
         root = Path(__file__).resolve().parents[1]
+        reviewed = {r.get('event_id'): r.get('summary') for path in (root/'research').glob('outbound_*.json') if (r := json.loads(path.read_text())).get('event_id')}
         count = 0
         for p in (root/'assets').glob('events_*.js'):
             if p.name == 'events_index.js': continue
@@ -67,7 +68,11 @@ class BriefTest(unittest.TestCase):
                 if r['depth'] != 'brief': continue
                 count += 1
                 self.assertTrue(r.get('research_sources'), e['event_id'])
-                self.assertTrue(150 <= len(''.join(r['summary'])) <= 300, e['event_id'])
+                # A reviewed article can be downgraded without truncating its research copy.
+                length = len(''.join(r['summary']))
+                self.assertGreaterEqual(length, 150, e['event_id'])
+                if length > 300:
+                    self.assertEqual(r['summary'], reviewed.get(e['event_id']['value']), e['event_id'])
                 self.assertLessEqual(len(r.get('key_metrics', [])), 6)
                 def check(x):
                     if isinstance(x, dict):

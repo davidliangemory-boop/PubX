@@ -9,12 +9,12 @@
    - 严禁改写 index.html、assets/app.js、assets/style.css、scripts/**、docs/**、README.md（前端与脚本由仓库维护方改）。如认为脚本需修改，写入 state/exceptions 留言，不要自行推送。
    - 不要 git commit/push/stash/reset，由外部调度方审阅后提交；不要写入任何 token。
 1. 采集：
-   a) 出海信批：python3 scripts/run_once.py 拉取巨潮中企新披露；HKEX/SEC 另按每日任务执行对应 pull，IR 仅在已配置且实际核查时记覆盖，原文存 raw/{doc_id}.txt（记 sha256）；对观察名单补检“进展/完成/终止/延期/更正”公告。
+   a) 出海信披：python3 scripts/run_once.py 拉取巨潮中企新披露；HKEX/SEC 另按每日任务执行对应 pull，IR 仅在已配置且实际核查时记覆盖，原文存 raw/{doc_id}.txt（记 sha256）；对观察名单补检“进展/完成/终止/延期/更正”公告。
    b) 美股：python3 scripts/sec_market_pull.py（EDGAR daily-index 增量，accession 去重）→ state/us_market*。
    c) 港股：python3 scripts/hkex_market_pull.py（披露易全市场分类增量，NEWS_ID 去重）→ state/hk_market*。
    d) 出口管制：python3 scripts/export_pull.py（Federal Register 实体清单/EAR 规则、OFAC Recent Actions/执法、BIS 执法新闻、DHS UFLPA Entity List、CBP UFLPA）→ state/export*；同时更新 SDN 等名单版本、条目数、sha。
    （脚本名以仓库 README 为准。）
-2. 门控（出海信批）：只保留境外投资、设厂、并购、合资、销售/EPC、融资担保、退出、诉讼、监管、境外上市事项；排除理由写入批次日志。美股/港股全量收录融资、投并购、运营、法律（诉讼/处罚）、对外投资、经营战略重大事项，不限中企。
+2. 门控（出海信披）：只保留境外投资、设厂、并购、合资、销售/EPC、融资担保、退出、诉讼、监管、境外上市事项；排除理由写入批次日志。美股/港股全量收录融资、投并购、运营、法律（诉讼/处罚）、对外投资、经营战略重大事项，不限中企。
 3. 先比对既有数据再入库（各模块各自去重）。对每份新披露判定：
    - 重复：主键已收或无新信息 → 只追加 sources，不新建；
    - 进展：同公司同标的阶段前移或新增事实 → 追加 stage_chain 与 changelog，不改写已核事实；

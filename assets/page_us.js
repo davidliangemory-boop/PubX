@@ -1,7 +1,7 @@
 // Research event payload loading is owned by app.js / PubXResearch.ensure; legacy views remain synchronous.
 /* PubX 美股（SEC）全量重大事项页 —— 独立分页面 #/us
  * 数据：assets/us_data.js（window.US_DATA，由 scripts/sec_market_pull.py 生成，按需懒加载）
- * 口径：EDGAR 全量，不分中企外企；与「出海信批归纳」数据文件、统计互不混用。
+ * 口径：EDGAR 全量，不分中企外企；与「出海信披归纳」数据文件、统计互不混用。
  * 暴露 window.render_us(root)，由 app.js 路由分发调用。
  */
 (function () {
@@ -170,7 +170,7 @@
       if (!window.__us_data_loading) {
         window.__us_data_loading = true;
         var s = document.createElement("script");
-        s.src = "./assets/us_data.js";
+        s.src = window.pubxAsset("us_data.js");
         s.onload = function () { render(); };
         s.onerror = function () {
           root.innerHTML = '<div class="panel"><div class="panel-b"><div class="empty">'
@@ -367,7 +367,7 @@
       + "%（高频低信号，多为结构化票据定价，可用筛选栏「隐藏 424B 定价补充」剔除；属任务白名单口径，默认保留）。"
       + "<br/><b>分层</b>：一句话事项/金额/证据句为原文正则抽取（disclosed）；类别/子类/中国关联为系统规则推断（analysis，依据=表格类型+Item 编号+关键词）。"
       + "中国关联仅作标签：<b>是</b>=CIK 命中出海观察名单或公司名含中国地名/中概关键词；<b>未知</b>=未进一步核查，不代表「否」。"
-      + "本页与「出海信批归纳」（仅中企）及港股、出口管制分页面的数据文件、统计口径<b>互不混用</b>。"
+      + "本页与「出海信披归纳」（仅中企）及港股、出口管制分页面的数据文件、统计口径<b>互不混用</b>。"
       + "<br/><b>批次记录</b>（日批次 D-=按日采集 / 回溯 B-=历史补入）："
       + (batches.length ? batches.map(function (b) {
           var ds = Object.keys(b.dates || {}).map(function (d) {

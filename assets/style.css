@@ -404,3 +404,8 @@ body.compact .trendgrid, body.compact .evgrid, body.compact .projgrid { padding:
 .research-section th, .research-section td { white-space: normal; overflow-wrap: anywhere; vertical-align: top; padding: 10px 8px; border: 1px solid var(--line); }
 .research-attachments { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; }
 .research-attachments summary { cursor: pointer; color: var(--muted); }
+
+/* Keep secondary research destinations outside the primary market path. */
+.nav-more { display:inline-block; position:relative; margin-left:12px; }
+.nav-more summary { cursor:pointer; }
+.nav-more[open] { padding:8px; background:var(--paper, #fff); border:1px solid var(--line); }
