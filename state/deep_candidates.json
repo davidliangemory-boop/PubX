@@ -1,0 +1,698 @@
+{
+  "eligible_count": 3,
+  "ranking": "materiality descending, latest source date descending, event_id descending",
+  "candidates": [
+    {
+      "event_id": "HK-2ac54bcc499023",
+      "market": "hk",
+      "title": "国泰海通拟私有化国泰君安国际",
+      "materiality": 95,
+      "latest_date": "2026-10-16",
+      "eligible": true,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": true,
+        "financials": true,
+        "substantive_meaning": true
+      },
+      "reason": "具备core_filings；具备stage_chain；具备comparable；具备financials；具备substantive_meaning"
+    },
+    {
+      "event_id": "US-c8cbe727cfeec8",
+      "market": "us",
+      "title": "EQT拟换股收购Range",
+      "materiality": 85,
+      "latest_date": "2026-10-26",
+      "eligible": true,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": true,
+        "financials": true,
+        "substantive_meaning": true
+      },
+      "reason": "具备core_filings；具备stage_chain；具备comparable；具备financials；具备substantive_meaning"
+    },
+    {
+      "event_id": "E-013",
+      "market": "outbound",
+      "title": "龙佰集团拟投资西澳两矿砂项目",
+      "materiality": 85,
+      "latest_date": "2026-10-10",
+      "eligible": true,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": true,
+        "financials": true,
+        "substantive_meaning": true
+      },
+      "reason": "具备core_filings；具备stage_chain；具备comparable；具备financials；具备substantive_meaning"
+    }
+  ],
+  "review_queue": [
+    {
+      "event_id": "HK-2ac54bcc499023",
+      "market": "hk",
+      "title": "国泰海通拟私有化国泰君安国际",
+      "materiality": 95,
+      "latest_date": "2026-10-16",
+      "eligible": true,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": true,
+        "financials": true,
+        "substantive_meaning": true
+      },
+      "reason": "具备core_filings；具备stage_chain；具备comparable；具备financials；具备substantive_meaning"
+    },
+    {
+      "event_id": "HK-84b8d88d4807d1",
+      "market": "hk",
+      "title": "联洋智能重组通函延迟寄发",
+      "materiality": 91,
+      "latest_date": "2026-10-26",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-2b74cc51e4499c",
+      "market": "hk",
+      "title": "魏华平就恒益控股3,000万股部分要约寄发文件",
+      "materiality": 91,
+      "latest_date": "2026-10-14",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-f081ac419397a4",
+      "market": "hk",
+      "title": "(1)上市委員會有關取消上市地位之決定；(2)覆核權及對決定之覆核要求；及(3)繼續暫停買賣",
+      "materiality": 90,
+      "latest_date": "2026-10-26",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-269221b71fc890",
+      "market": "hk",
+      "title": "聯合公佈 (1)買賣協議； (2)新富證券有限公司為及代表要約人可能作出的強制性無條件現金要 約，以收購本公司全部已發行股份（要約人及╱或其一致行動人士已擁 有及╱或已同意收購者除外）； (3)委任獨立財務顧問； 及 (4)恢復買賣",
+      "materiality": 90,
+      "latest_date": "2026-10-26",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-38b691cefb4141",
+      "market": "hk",
+      "title": "聯合公告 - (1) 內資股要約人提出附帶先決條件的自願現金部分要約以收購本公司已發行股本中的1,244,831,880股內資股；(2) 聯席財務顧問代表H股要約人提出附帶先決條件的自願現金部分要約以收購本公司已發行股本中的2,955,171,120股H股；及 (3) 恢復買賣",
+      "materiality": 90,
+      "latest_date": "2026-10-23",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-fa479aa9ec4610",
+      "market": "hk",
+      "title": "新百利融资刊发现金要约综合文件",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-7b0299a7cb2fb9",
+      "market": "hk",
+      "title": "信源企业现金要约新增不可撤回承诺",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-3a17b3681a3169",
+      "market": "hk",
+      "title": "新百利融資控股有限公司已發行的購股權的粉紅色購股權要約接納及註銷表格",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-36b5225c327503",
+      "market": "hk",
+      "title": "內幕消息： (1)上市覆核委員會有關取消上市地位的決定；及 (2)取消上市地位",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-0efd8e26077fec",
+      "market": "hk",
+      "title": "上市委員會關於取消上市地位之決定",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-20461d1627f169",
+      "market": "hk",
+      "title": "聯合公告 延遲寄發綜合文件",
+      "materiality": 90,
+      "latest_date": "2026-10-21",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-e86fb45fe68e8d",
+      "market": "hk",
+      "title": "聯合公告 - 延遲寄發有關 W.F GROUP LIMITED建議根據開曼群島公司法 第86條以協議安排方式將茂業國際控股有限公司私有化 的計劃文件",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-ae6d908cf8fd68",
+      "market": "hk",
+      "title": "聯合公告 (1)浤博資本有限公司代表VICTOR XU LIMITED提出強制性無條件現金要約以收購智中國際控股有限公司全部已發行股份（VICTOR XU LIMITED、其最終實益擁有人或彼等任何一方一致行動人士已擁有或同意將予收購者除外）截止 (2)要約結果 (3)結算要約及 (4)本公司公眾持股量",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-9e84d951a856bb",
+      "market": "hk",
+      "title": "有關可能強制性有條件現金要約以收購 雲智匯科技服務有限公司 - 每月更新",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-887423e59f300b",
+      "market": "hk",
+      "title": "委任獨立財務顧問",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-2258d0c3cad263",
+      "market": "hk",
+      "title": "根據收購守則規則3.7 作出的每月更新公告",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-fb1377ba2e2e67",
+      "market": "hk",
+      "title": "公告有關(1)建議根據公司法第99條以計劃安排方式進行創維集團有限公司之附先決條件股份回購(2)建議由創維集團有限公司分派創維光伏股份(3)有關存續安排之特別交易及(4)建議撤銷創維集團有限公司之上市地位之每月更新資料",
+      "materiality": 90,
+      "latest_date": "2026-10-16",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-a764b2f030e739",
+      "market": "hk",
+      "title": "由高鉦証券有限公司代表龔海林 提出無條件自願現金部分要約 以收購福壽園國際集團有限公司 （股份代號：1448） （於開曼群島註冊成立之有限公司） 最多115,000,000股股份 (1)於截止日期之接納程度；及 (2)部分要約截止",
+      "materiality": 90,
+      "latest_date": "2026-10-16",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-912fad9d8ec923",
+      "market": "hk",
+      "title": "聯合公告 延遲寄發計劃文件",
+      "materiality": 90,
+      "latest_date": "2026-10-16",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    }
+  ],
+  "hk_review_queue": [
+    {
+      "event_id": "HK-2ac54bcc499023",
+      "market": "hk",
+      "title": "国泰海通拟私有化国泰君安国际",
+      "materiality": 95,
+      "latest_date": "2026-10-16",
+      "eligible": true,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": true,
+        "financials": true,
+        "substantive_meaning": true
+      },
+      "reason": "具备core_filings；具备stage_chain；具备comparable；具备financials；具备substantive_meaning"
+    },
+    {
+      "event_id": "HK-84b8d88d4807d1",
+      "market": "hk",
+      "title": "联洋智能重组通函延迟寄发",
+      "materiality": 91,
+      "latest_date": "2026-10-26",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-2b74cc51e4499c",
+      "market": "hk",
+      "title": "魏华平就恒益控股3,000万股部分要约寄发文件",
+      "materiality": 91,
+      "latest_date": "2026-10-14",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-f081ac419397a4",
+      "market": "hk",
+      "title": "(1)上市委員會有關取消上市地位之決定；(2)覆核權及對決定之覆核要求；及(3)繼續暫停買賣",
+      "materiality": 90,
+      "latest_date": "2026-10-26",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-269221b71fc890",
+      "market": "hk",
+      "title": "聯合公佈 (1)買賣協議； (2)新富證券有限公司為及代表要約人可能作出的強制性無條件現金要 約，以收購本公司全部已發行股份（要約人及╱或其一致行動人士已擁 有及╱或已同意收購者除外）； (3)委任獨立財務顧問； 及 (4)恢復買賣",
+      "materiality": 90,
+      "latest_date": "2026-10-26",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-38b691cefb4141",
+      "market": "hk",
+      "title": "聯合公告 - (1) 內資股要約人提出附帶先決條件的自願現金部分要約以收購本公司已發行股本中的1,244,831,880股內資股；(2) 聯席財務顧問代表H股要約人提出附帶先決條件的自願現金部分要約以收購本公司已發行股本中的2,955,171,120股H股；及 (3) 恢復買賣",
+      "materiality": 90,
+      "latest_date": "2026-10-23",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-fa479aa9ec4610",
+      "market": "hk",
+      "title": "新百利融资刊发现金要约综合文件",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-7b0299a7cb2fb9",
+      "market": "hk",
+      "title": "信源企业现金要约新增不可撤回承诺",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": true,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；具备stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-3a17b3681a3169",
+      "market": "hk",
+      "title": "新百利融資控股有限公司已發行的購股權的粉紅色購股權要約接納及註銷表格",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-36b5225c327503",
+      "market": "hk",
+      "title": "內幕消息： (1)上市覆核委員會有關取消上市地位的決定；及 (2)取消上市地位",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-0efd8e26077fec",
+      "market": "hk",
+      "title": "上市委員會關於取消上市地位之決定",
+      "materiality": 90,
+      "latest_date": "2026-10-22",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-20461d1627f169",
+      "market": "hk",
+      "title": "聯合公告 延遲寄發綜合文件",
+      "materiality": 90,
+      "latest_date": "2026-10-21",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-e86fb45fe68e8d",
+      "market": "hk",
+      "title": "聯合公告 - 延遲寄發有關 W.F GROUP LIMITED建議根據開曼群島公司法 第86條以協議安排方式將茂業國際控股有限公司私有化 的計劃文件",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-ae6d908cf8fd68",
+      "market": "hk",
+      "title": "聯合公告 (1)浤博資本有限公司代表VICTOR XU LIMITED提出強制性無條件現金要約以收購智中國際控股有限公司全部已發行股份（VICTOR XU LIMITED、其最終實益擁有人或彼等任何一方一致行動人士已擁有或同意將予收購者除外）截止 (2)要約結果 (3)結算要約及 (4)本公司公眾持股量",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-9e84d951a856bb",
+      "market": "hk",
+      "title": "有關可能強制性有條件現金要約以收購 雲智匯科技服務有限公司 - 每月更新",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-887423e59f300b",
+      "market": "hk",
+      "title": "委任獨立財務顧問",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-2258d0c3cad263",
+      "market": "hk",
+      "title": "根據收購守則規則3.7 作出的每月更新公告",
+      "materiality": 90,
+      "latest_date": "2026-10-20",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-fb1377ba2e2e67",
+      "market": "hk",
+      "title": "公告有關(1)建議根據公司法第99條以計劃安排方式進行創維集團有限公司之附先決條件股份回購(2)建議由創維集團有限公司分派創維光伏股份(3)有關存續安排之特別交易及(4)建議撤銷創維集團有限公司之上市地位之每月更新資料",
+      "materiality": 90,
+      "latest_date": "2026-10-16",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-a764b2f030e739",
+      "market": "hk",
+      "title": "由高鉦証券有限公司代表龔海林 提出無條件自願現金部分要約 以收購福壽園國際集團有限公司 （股份代號：1448） （於開曼群島註冊成立之有限公司） 最多115,000,000股股份 (1)於截止日期之接納程度；及 (2)部分要約截止",
+      "materiality": 90,
+      "latest_date": "2026-10-16",
+      "eligible": false,
+      "checks": {
+        "core_filings": true,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "具备core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    },
+    {
+      "event_id": "HK-912fad9d8ec923",
+      "market": "hk",
+      "title": "聯合公告 延遲寄發計劃文件",
+      "materiality": 90,
+      "latest_date": "2026-10-16",
+      "eligible": false,
+      "checks": {
+        "core_filings": false,
+        "stage_chain": false,
+        "comparable": false,
+        "financials": false,
+        "substantive_meaning": false
+      },
+      "reason": "待补core_filings；待补stage_chain；待补comparable；待补financials；待补substantive_meaning"
+    }
+  ]
+}
