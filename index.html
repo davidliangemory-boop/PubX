@@ -9,7 +9,7 @@
 
 <script>
 // Single cache fingerprint for initial assets and every lazy-loaded asset.
-window.PUBX_BUILD = '20261027d7';
+window.PUBX_BUILD = '20261028d1';
 window.pubxAsset = function (name) { return './assets/' + name + '?v=' + window.PUBX_BUILD; };
 ['style.css','page_us.css','page_ex.css'].forEach(function (name) {
   document.write('<link rel="stylesheet" href="' + window.pubxAsset(name) + '">');
@@ -65,7 +65,7 @@ window.pubxAsset = function (name) { return './assets/' + name + '?v=' + window.
 <aside class="drawer" id="drawer"></aside>
 
 <script>
-['data.js','page_us.js','hk_data.js','page_hk.js','export_data.js','page_ex.js','events_index.js','page_events.js','app.js'].forEach(function (name) {
+['data.js','page_us.js','hk_data.js','page_hk.js','export_data.js','page_ex.js','events_index.js','page_ia.js','page_events.js','app.js'].forEach(function (name) {
   document.write('<script src="' + window.pubxAsset(name) + '"><\/script>');
 });
 </script>

@@ -60,36 +60,39 @@ def tips(event, issuer_index):
     out = []
     iid = publish_text(event.get('issuer_id'))
     base = {'hk': 'hk-market', 'us': 'us', 'outbound': 'research'}[market]
-    # 国别 / 法域
+    # 监管路径（港美）/ 国别（仅出海）：港美按公司资本运作组织，不做东道国叙事
+    countries = []
     if market == 'hk':
-        out.append(dict(kind='国别', label='上市地', value='香港联交所' + ('｜' + iid if iid and re.fullmatch(r'\d{4,5}', iid) else '')))
+        out.append(dict(kind='监管路径', label='上市地', value='香港联交所' + ('｜' + iid if iid and re.fullmatch(r'\d{4,5}', iid) else '')))
     if market == 'us':
         forms = [publish_text(s.get('form')).upper() for s in sources]
         for pat, label in US_FORMS:
             if any(re.match(pat, f) for f in forms):
-                out.append(dict(kind='国别', label='申报身份', value=label))
+                out.append(dict(kind='监管路径', label='申报路径', value=label, href='#/us?v=regulatory'))
                 break
-    geo = publish_text(event.get('geography'))
-    countries = [geo] if geo else []
-    countries += [name for name, pat in COUNTRIES if re.search(pat, blob, re.I) and name not in countries]
-    home = {'hk': '香港', 'us': '美国'}.get(market)
-    countries = [c for c in countries if c != home]
-    if countries:
-        out.append(dict(kind='国别', label='文件提及国家/地区', value='、'.join(countries[:5]), href='#/' + base + '?v=events&geo=' + countries[0]))
+    if market == 'outbound':
+        geo = publish_text(event.get('geography'))
+        countries = [geo] if geo else []
+        countries += [name for name, pat in COUNTRIES if re.search(pat, blob, re.I) and name not in countries]
+        if countries:
+            out.append(dict(kind='国别', label='文件提及国家/地区', value='、'.join(countries[:5]), href='#/' + base + '?v=events&geo=' + countries[0]))
+    PK = '交易进度' if market in ('hk', 'us') else '进度'
+    TK = '运作类型' if market in ('hk', 'us') else '类型'
+    CK = '公司' if market in ('hk', 'us') else '公司档案'
     # 进度
     stage = publish_text(event.get('stage')) or publish_text(r.get('stage'))
     from research_structure import is_substantive
     sub = [s for s in sources if is_substantive(s) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', str(s.get('date', '')))]
     if stage and stage != '其他':
-        out.append(dict(kind='进度', label='阶段', value=stage))
+        out.append(dict(kind=PK, label='阶段', value=stage, **({'href': '#/' + base + '?v=progress&stage=' + stage} if market in ('hk', 'us') else {})))
     if sub:
         dates = sorted(s['date'] for s in sub)
-        out.append(dict(kind='进度', label='实质文件', value=f'{len(sub)} 份｜{dates[0]}' + (f' → {dates[-1]}' if dates[-1] != dates[0] else '')))
+        out.append(dict(kind=PK, label='实质文件', value=f'{len(sub)} 份｜{dates[0]}' + (f' → {dates[-1]}' if dates[-1] != dates[0] else '')))
     if market == 'outbound' and r.get('project_maturity'):
         out.append(dict(kind='进度', label='项目成熟度', value='见下方项目成熟度', href='#/board'))
     lsd = publish_text(event.get('long_stop_date'))
     if lsd:
-        out.append(dict(kind='进度', label='最后截止日', value=lsd))
+        out.append(dict(kind=PK, label='最后截止日', value=lsd))
     # 文件类型线索
     cues = []
     if market == 'us':
@@ -100,18 +103,21 @@ def tips(event, issuer_index):
         cues = [label for pat, label in HK_CUES if re.search(pat, titles)]
     typ = publish_text(event.get('event_type'))
     if typ and typ != '其他重大事项':
-        out.append(dict(kind='类型', label='事件类型', value=typ, href='#/' + base + '?v=events&type=' + typ))
+        out.append(dict(kind=TK, label='事件类型', value=typ, href='#/' + base + ('?v=types&type=' if market in ('hk', 'us') else '?v=events&type=') + typ))
     for c in cues[:4]:
-        out.append(dict(kind='类型', label='文件线索', value=c))
+        if market in ('hk', 'us'):
+            out.append(dict(kind='监管路径', label='文件线索', value=c, href='#/' + base + '?v=regulatory'))
+        else:
+            out.append(dict(kind='类型', label='文件线索', value=c))
     # 公司档案
     if iid:
         peers = [e for e in issuer_index.get((market, iid), []) if e is not event]
         name = (publish_lines_first(event.get('parties')) or iid)
         val = name + (f'｜另有 {len(peers)} 个事件' if peers else '｜本站首个事件')
-        out.append(dict(kind='公司档案', label='发行人', value=val, href='#/' + base + '?v=events&issuer=' + iid))
+        out.append(dict(kind=CK, label='发行人', value=val, href='#/' + base + ('?v=companies&issuer=' if market in ('hk', 'us') else '?v=events&issuer=') + iid))
         for p in sorted(peers, key=lambda e: publish_text(e.get('disclosure_date')), reverse=True)[:3]:
             t = p['research'].get('title') or publish_text(p.get('title'))
-            out.append(dict(kind='公司档案', label='同一发行人', value=(publish_text(p.get('disclosure_date')) + ' ' + t)[:70], href='#/event/' + p['event_id']['value']))
+            out.append(dict(kind=CK, label='同一发行人', value=(publish_text(p.get('disclosure_date')) + ' ' + t)[:70], href='#/event/' + p['event_id']['value']))
     if market == 'outbound':
         out.append(dict(kind='公司档案', label='企业档案', value='查看主体事件链', href='#/cos'))
     r['tips'] = [t for t in out if t.get('value')]
@@ -119,8 +125,6 @@ def tips(event, issuer_index):
         qs = list(WATCH.get(typ, WATCH['其他重大事项']))
         if lsd:
             qs.insert(0, f'最后截止日 {lsd} 前先决条件能否全部满足，是否延期？')
-        if countries and any(c not in ('中国内地', '香港', '美国') for c in countries):
-            qs.append('涉及' + '、'.join(c for c in countries if c not in ('中国内地', '香港', '美国'))[:20] + '的部分是否需要当地审批或外资审查？')
         r['watch_items'] = [dict(text=q, kind='question') for q in qs]
 
 

@@ -2,6 +2,7 @@ const fs=require('fs'),vm=require('vm'),assert=require('assert');
 global.window={};global.document={title:''};
 vm.runInThisContext(fs.readFileSync('assets/events_index.js','utf8'));
 for(const market of Object.values(window.PUBX_EVENTS_INDEX.markets)) for(const file of market.files) vm.runInThisContext(fs.readFileSync('assets/'+file.name,'utf8'));
+vm.runInThisContext(fs.readFileSync('assets/page_ia.js','utf8'));
 vm.runInThisContext(fs.readFileSync('assets/page_events.js','utf8'));
 const bad=/undisclosed|\bnull\b|\[\s*\]|\banalysis\b|\bdisclosed\b|资料不足|未抽取|未披露|暂无/i;
 let count=0;
@@ -101,9 +102,18 @@ for (const id of acceptance) {
 }
 for (const market of ['outbound','hk','us']) {
   const nav=window.PubXResearch.nav(market);
-  assert.strictEqual((nav.split('<details')[0].match(/<a /g)||[]).length,4,market);
-  assert(nav.includes('<summary>更多</summary>'),market);
+  assert.strictEqual((nav.match(/<a /g)||[]).length-(market==='outbound'?0:1),8,market);
+  assert(!nav.includes('更多'),market);
+  if(market!=='outbound') assert(!/国别|管辖/.test(nav)&&nav.includes('企业档案')&&nav.includes('交易进度')&&nav.includes('运作类型')&&nav.includes('监管议题'),market);
 }
+for (const [route,market] of [['hk-market','hk'],['us','us']]) for (const v of ['overview','companies','progress','types','regulatory']) {
+  const out=window.PubXResearch.render(route,null,new URLSearchParams('v='+v));
+  assert(out && out.market===market && /<table|research-metric|ia-chips/.test(out.html),route+v);
+  assert(!/国别|管辖/.test(out.html),route+v);
+}
+const hkIssuer=window.PUBX_EVENT_PARTS.hk_all[0].issuer_id.value;
+assert(window.PubXResearch.render('hk-market',null,new URLSearchParams('v=companies&issuer='+hkIssuer)).html.includes('事件链'));
+for (const e of window.PUBX_EVENT_PARTS.hk_all.concat(window.PUBX_EVENT_PARTS.us_material)) assert(!(e.research.tips||[]).some(t=>t.kind==='国别'),e.event_id.value);
 console.log('Round 1 market navigation and article routing passed');
 
 // Initial styles/scripts share the same fingerprint used by lazy resource helpers.
@@ -111,7 +121,7 @@ const writes=[];
 const bootstrap={window:{},document:{write:html=>writes.push(html)}};
 for(const match of fs.readFileSync('index.html','utf8').matchAll(/<script>([\s\S]*?)<\/script>/g)) vm.runInNewContext(match[1],bootstrap);
 assert(/^\d{8}d\d+$/.test(bootstrap.window.PUBX_BUILD));
-assert.strictEqual(writes.length,12);
+assert.strictEqual(writes.length,13);
 for(const html of writes) assert(html.includes('?v='+bootstrap.window.PUBX_BUILD),html);
 assert.strictEqual(bootstrap.window.pubxAsset('events_hk.js'),'./assets/events_hk.js?v='+bootstrap.window.PUBX_BUILD);
 console.log('Shared initial/lazy cache fingerprint passed');
