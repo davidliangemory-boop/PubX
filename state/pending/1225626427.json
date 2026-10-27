@@ -1,0 +1,24 @@
+{
+  "doc_id": "1225626427",
+  "candidate": {
+    "announcementId": "1225626427",
+    "time": 1793030400000,
+    "secCode": "688553",
+    "secName": "汇宇制药",
+    "title": "自愿披露公司产品获得境外上市许可的公告",
+    "adjunctUrl": "finalpage/2026-10-27/1225626427.PDF",
+    "keywords": [
+      "境外",
+      "境外上市"
+    ]
+  },
+  "raw_path": "raw/1225626427.txt",
+  "batch_id": "D-20261027",
+  "status": "ingested",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

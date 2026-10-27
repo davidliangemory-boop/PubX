@@ -1,0 +1,26 @@
+{
+  "doc_id": "1225621945",
+  "candidate": {
+    "announcementId": "1225621945",
+    "time": 1792971968000,
+    "secCode": "002384",
+    "secName": "东山精密",
+    "title": "关于境外上市股份（H股）公开发行价格的公告",
+    "adjunctUrl": "finalpage/2026-10-26/1225621945.PDF",
+    "keywords": [
+      "境外",
+      "境外上市",
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225621945.txt",
+  "batch_id": "D-20261026",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "ingested",
+  "event_id": "E-D-20261026-1225621945",
+  "sha256": "b63af9dcf2906cd1fa3b210b37e5c66e927fd4c849dcc622e76322a4ac4aa060"
+}

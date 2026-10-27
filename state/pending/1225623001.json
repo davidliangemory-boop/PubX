@@ -1,0 +1,22 @@
+{
+  "doc_id": "1225623001",
+  "candidate": {
+    "announcementId": "1225623001",
+    "time": 1793030400000,
+    "secCode": "600662",
+    "secName": "外服控股",
+    "title": "上海外服控股集团股份有限公司章程（2026年10月修订）",
+    "adjunctUrl": "finalpage/2026-10-27/1225623001.PDF",
+    "keywords": [
+      "海外"
+    ]
+  },
+  "raw_path": "raw/1225623001.txt",
+  "batch_id": "D-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis"
+}

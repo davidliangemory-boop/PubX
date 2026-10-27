@@ -1,0 +1,27 @@
+{
+  "doc_id": "1225624745",
+  "candidate": {
+    "announcementId": "1225624745",
+    "time": 1793030400000,
+    "secCode": "300735",
+    "secName": "光弘科技",
+    "title": "关于境外子公司变更记账本位币的公告",
+    "adjunctUrl": "finalpage/2026-10-27/1225624745.PDF",
+    "keywords": [
+      "境外",
+      "境外子公司"
+    ]
+  },
+  "raw_path": "raw/1225624745.txt",
+  "batch_id": "D-20261027",
+  "status": "excluded",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "境外子公司记账本位币会计政策变更，未披露新投资、融资、退出、诉讼或监管审批动作。",
+  "reviewed_at": "2026-10-27T16:26:40.082703",
+  "sha256": "6519e43994b70b74827b993b38294aa66a6978492a8b77f3d31f662888a1f901"
+}

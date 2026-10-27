@@ -1,0 +1,40 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": false,
+    "category": "其他无关",
+    "reason": "仅召开季度业绩说明会通知。"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "门控触发事实",
+        "value": "业绩说明会",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "hkex_12382915",
+          "page": 2,
+          "quote": "业绩说明会"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "status": "not_applicable",
+        "text": "仅为门控分类，不作未披露法律状态的推断。",
+        "layer": "analysis",
+        "basis": "hkex_12382915 P2：业绩说明会；完整原文核查"
+      }
+    ],
+    "judge": [
+      {
+        "text": "仅召开季度业绩说明会通知。",
+        "layer": "analysis",
+        "basis": "hkex_12382915 P2：业绩说明会；完整原文核查"
+      }
+    ]
+  },
+  "reason": "仅召开季度业绩说明会通知。"
+}

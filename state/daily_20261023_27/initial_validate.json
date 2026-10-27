@@ -1,0 +1,501 @@
+{
+ "generated": "2026-10-27 15:53",
+ "summary": {
+  "ERROR": 32,
+  "WARN": 2,
+  "SKIP": 0
+ },
+ "issues": [
+  {
+   "check": "引文回原文",
+   "level": "WARN",
+   "detail": "9 份带引文来源无原文缓存（抓取失败/未抓），未比对"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-039: 无原文缓存 1225615370「已完成越南全资子公司的注册登记手续…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-039: 无原文缓存 1225615370「同意公司在越南投资…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-039: 无原文缓存 1225615370「同意公司在越南投资…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617098: 无原文缓存 1225617098「全额无条件、不可撤销的次级担保…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617098: 无原文缓存 1225617098「上市地点：新加坡证券交易所…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617420: 无原文缓存 1225617420「尚需经过发改委…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617420: 无原文缓存 1225617420「商务主管部…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617420: 无原文缓存 1225617420「外汇主管部门…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617420: 无原文缓存 1225617420「许可证编号为 540/564/DIESDM-G.ST…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617420: 无原文缓存 1225617420「本协议签署后 180 日内…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617420: 无原文缓存 1225617420「储量保证与补偿…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617420: 无原文缓存 1225617420「本协议适用香港特别行政区法律…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617420: 无原文缓存 1225617420「环境许可证…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617216: 无原文缓存 1225617216「尚需履行境内外相关主管部门的审批…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617216: 无原文缓存 1225617216「满足当地入渔核心准入条件…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617216: 无原文缓存 1225617216「和美渔业拟委派 4 名董事…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617671: 无原文缓存 1225617671「尚需取得中国证券监督管理委员会…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225617671: 无原文缓存 1225617671「重新递交了发行境外上市股…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225619598: 无原文缓存 1225619598「发改委…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225619598: 无原文缓存 1225619598「商务部门…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225619598: 无原文缓存 1225619598「外汇管理部门…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225619598: 无原文缓存 1225619598「境外当地投资许可和企业登记…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225621125: 无原文缓存 1225621125「该信函不构成正式的…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225621125: 无原文缓存 1225621125「正在申请发行境外上市股…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225620428: 无原文缓存 1225620428「《境外投资项目备案通…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225620428: 无原文缓存 1225620428「《企业境外投资证书》…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225620428: 无原文缓存 1225620428「已完成在国家外汇管理局分支机构的备案…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225620428: 无原文缓存 1225620428「相关黄金权力许可…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225620428: 无原文缓存 1225620428「但对 OMIKRON 不构成控制…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225586743: 无原文缓存 1225586743「具体额度以…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "E-H-20261027-1225586743: 无原文缓存 1225586743「跨境人民币资金余缺调剂…」"
+  },
+  {
+   "check": "字段级 evidence 回原文",
+   "level": "ERROR",
+   "detail": "evidence 核验 278 处：命中 247 / 失败 31"
+  },
+  {
+   "check": "批次命名",
+   "level": "WARN",
+   "detail": "16 条存量批次为旧命名（B-YYYYMMDD-HHMM / B-BF-* 等）；原始记录保留，构建层 build_data.py 已聚合为日批次视图 batches_daily"
+  }
+ ],
+ "pages": {
+  "widths": [
+   375,
+   768,
+   1280
+  ],
+  "routes_checked": 22,
+  "links_checked": 150,
+  "failed": 0,
+  "results": [
+   {
+    "route": "#/",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/events",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/events",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/events?view=table",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/events?view=table",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/board",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/board",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/issues",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/issues",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/cos",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/cos",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/topics",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/topics",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/about",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/about",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/about?tab=validate",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/about?tab=validate",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/event/E-028",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/event/E-028",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/us",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/us",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/hk-market",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/hk-market",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/export",
+    "expect": "h1",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/export",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/feed",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/events",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/hk",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/events?view=hk",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/arc",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/events?view=table",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/detail/23",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/event/E-047",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/ana/graph",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/topics?view=regions",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/sanctions",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/export?col=watch",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/market",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/us",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/cos/projects",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/events",
+    "empty": false,
+    "ok": true
+   },
+   {
+    "route": "#/src",
+    "expect": "redirect",
+    "h1": 1,
+    "overflow": {
+     "375": false,
+     "768": false,
+     "1280": false
+    },
+    "js_errors": [],
+    "final": "#/about",
+    "empty": false,
+    "ok": true
+   }
+  ],
+  "dead_links": []
+ }
+}

@@ -1,0 +1,308 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "batch_id": "D-20261027",
+  "gate": {
+    "include": true,
+    "category": "listing_abroad",
+    "reason": "蓝色光标董事会同意终止H股发行上市"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "决议日期",
+        "value": "2026-10-26",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225622034",
+          "page": 1,
+          "quote": "于 2026 年 10 月 26 日"
+        }
+      },
+      {
+        "field": "终止状态",
+        "value": "终止H股发行上市",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225622034",
+          "page": 1,
+          "quote": "同意公司终止发行 H 股"
+        }
+      },
+      {
+        "field": "股东会",
+        "value": "无需提交股东会审议",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225622034",
+          "page": 1,
+          "quote": "无需提交股东会审议"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "同意公司终止发行 H 股",
+        "disclosed_status": "董事会已同意终止，本次属于股东会授权范围。",
+        "status": "disclosed_pending",
+        "information_gap": "已提交申请的撤回办理及终止费用未披露。",
+        "judgment": "董事会已同意终止，本次属于股东会授权范围。",
+        "verification_action": "核查撤回手续及中介终止文件。",
+        "text": "董事会已同意终止，本次属于股东会授权范围。",
+        "layer": "analysis",
+        "basis": "1225622034 P1：同意公司终止发行 H 股",
+        "evidence": {
+          "doc_id": "1225622034",
+          "page": 1,
+          "quote": "同意公司终止发行 H 股"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "推翻继续推进本次H股发行上市的事项判断；经营影响为公司陈述，未独立核验。",
+        "layer": "analysis",
+        "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+      },
+      {
+        "text": "信息缺口：已提交申请的撤回办理及终止费用未披露。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "北京蓝色光标数据科技集团股份有限公司",
+      "公告类型": "关于终止发行H股股票并于香港联合交易所有限公司上市的公告",
+      "涉及国家/地区": "中国香港",
+      "动作类型": "listing_abroad",
+      "动作阶段": "终止",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "于 2026 年 10 月 26 日",
+      "同意公司终止发行 H 股",
+      "无需提交股东会审议"
+    ],
+    "undisclosed": "已提交申请的撤回办理及终止费用未披露。"
+  },
+  "event": {
+    "event_id": "E-D-20261027-1225622034",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "蓝色光标董事会同意终止H股发行上市",
+      "layer": "disclosed",
+      "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+    },
+    "status": "终止",
+    "parties": [
+      {
+        "name": "北京蓝色光标数据科技集团股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225622034完整原文"
+      }
+    ],
+    "geo": {
+      "text": "中国香港",
+      "layer": "disclosed",
+      "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+    },
+    "matter_type": {
+      "value": "listing_abroad",
+      "layer": "analysis",
+      "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+    },
+    "stage_current": "终止",
+    "stage_chain": [
+      {
+        "stage": "终止",
+        "date": "2026-10-27",
+        "doc_id": "1225622034",
+        "note": "蓝色光标董事会同意终止H股发行上市",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "同意公司终止发行 H 股",
+        "disclosed_status": "董事会已同意终止，本次属于股东会授权范围。",
+        "status": "disclosed_pending",
+        "information_gap": "已提交申请的撤回办理及终止费用未披露。",
+        "judgment": "董事会已同意终止，本次属于股东会授权范围。",
+        "verification_action": "核查撤回手续及中介终止文件。",
+        "text": "董事会已同意终止，本次属于股东会授权范围。",
+        "layer": "analysis",
+        "basis": "1225622034 P1：同意公司终止发行 H 股",
+        "evidence": {
+          "doc_id": "1225622034",
+          "page": 1,
+          "quote": "同意公司终止发行 H 股"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "推翻继续推进本次H股发行上市的事项判断；经营影响为公司陈述，未独立核验。",
+        "layer": "analysis",
+        "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "已提交申请的撤回办理及终止费用未披露。",
+        "why": "关系实际履行及监管状态",
+        "where": "公司后续披露及交易文件",
+        "layer": "analysis",
+        "basis": "1225622034完整原文"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "核查撤回手续及中介终止文件。",
+        "layer": "analysis",
+        "basis": "1225622034 P1：同意公司终止发行 H 股"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225622034",
+        "channel": "A股·巨潮",
+        "file": "关于终止发行H股股票并于香港联合交易所有限公司上市的公告",
+        "date": "2026-10-27",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225622034.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "于 2026 年 10 月 26 日"
+          },
+          {
+            "page": 1,
+            "text": "同意公司终止发行 H 股"
+          },
+          {
+            "page": 1,
+            "text": "无需提交股东会审议"
+          }
+        ],
+        "sha256": "fde1a704007e81f4f0bf4fb9af64f4d9a3254741bf5e16b00fd961ebe6cf896d"
+      }
+    ],
+    "source_diff": null,
+    "changelog": [],
+    "status_code": "terminated"
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "核对既有事件主体、标的与原文，未找到同一事项。",
+  "case_update": {
+    "summary": "蓝色光标董事会同意终止H股发行上市",
+    "check": "推翻继续推进本次H股发行上市的事项判断；经营影响为公司陈述，未独立核验。"
+  }
+}

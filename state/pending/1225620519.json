@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "bc265fdd8e614c2166f3a2c66815a5bfa6c2b461768c7bdeaf36201def5682c2"
+  "status": "excluded",
+  "sha256": "bc265fdd8e614c2166f3a2c66815a5bfa6c2b461768c7bdeaf36201def5682c2",
+  "reason": "仅董事名单与职务。",
+  "reviewed_at": "2026-10-27T16:26:40.079626"
 }

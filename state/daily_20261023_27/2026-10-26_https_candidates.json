@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-26",
+  "complete": true,
+  "candidates": [
+    {
+      "announcementId": "1225621910",
+      "time": 1792944000000,
+      "secCode": "300450",
+      "secName": "先导智能",
+      "title": "H股公告-翌日披露报表",
+      "adjunctUrl": "finalpage/2026-10-26/1225621910.PDF",
+      "keywords": [
+        "H股"
+      ]
+    },
+    {
+      "announcementId": "1225621945",
+      "time": 1792971968000,
+      "secCode": "002384",
+      "secName": "东山精密",
+      "title": "关于境外上市股份（H股）公开发行价格的公告",
+      "adjunctUrl": "finalpage/2026-10-26/1225621945.PDF",
+      "keywords": [
+        "境外",
+        "境外上市",
+        "H股"
+      ]
+    },
+    {
+      "announcementId": "1225624714",
+      "time": 1793011571000,
+      "secCode": "300757",
+      "secName": "罗博特科",
+      "title": "关于公司境外上市外资股（H股）调入港股通标的证券名单的公告",
+      "adjunctUrl": "finalpage/2026-10-26/1225624714.PDF",
+      "keywords": [
+        "境外",
+        "境外上市",
+        "H股"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[warn] 检索失败 出海 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 国际市场 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外市场 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 国外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 跨境 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 一带一路 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外建厂 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外建厂 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外工厂 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外产能 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外基地 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外项目 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外项目 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外并购 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 跨境并购 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外投资 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外投资 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外子公司 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外签约 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外订单 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外工程 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外工程 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 国际化 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 全球化 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外上市 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 H股 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 GDR 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 ODI 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外放款 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 内保外贷 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外发债 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 外汇登记 第1页: HTTP Error 500: Internal Server Error
+ [fail] 检索未完成，仍接续本窗口缓存候选：检索不完整，禁止记作成功零新增：出海 page=1: HTTP Error 500: Internal Server Error; 海外 page=1: HTTP Error 500: Internal Server Error; 境外 page=1: HTTP Error 500: Internal Server Error; 国际市场 page=1: HTTP Error 500: Internal Server Error; 海外市场 page=1: HTTP Error 500: Internal Server Error; 国外 page=1: HTTP Error 500: Internal Server Error; 跨境 page=1: HTTP Error 500: Internal Server Error; 一带一路 page=1: HTTP Error 500: Internal Server Error; 海外建厂 page=1: HTTP Error 500: Internal Server Error; 境外建厂 page=1: HTTP Error 500: Internal Server Error; 海外工厂 page=1: HTTP Error 500: Internal Server Error; 海外产能 page=1: HTTP Error 500: Internal Server Error; 海外基地 page=1: HTTP Error 500: Internal Server Error; 海外项目 page=1: HTTP Error 500: Internal Server Error; 境外项目 page=1: HTTP Error 500: Internal Server Error; 海外并购 page=1: HTTP Error 500: Internal Server Error; 跨境并购 page=1: HTTP Error 500: Internal Server Error; 境外投资 page=1: HTTP Error 500: Internal Server Error; 海外投资 page=1: HTTP Error 500: Internal Server Error; 境外子公司 page=1: HTTP Error 500: Internal Server Error; 海外签约 page=1: HTTP Error 500: Internal Server Error; 海外订单 page=1: HTTP Error 500: Internal Server Error; 境外工程 page=1: HTTP Error 500: Internal Server Error; 海外工程 page=1: HTTP Error 500: Internal Server Error; 国际化 page=1: HTTP Error 500: Internal Server Error; 全球化 page=1: HTTP Error 500: Internal Server Error; 境外上市 page=1: HTTP Error 500: Internal Server Error; H股 page=1: HTTP Error 500: Internal Server Error; GDR page=1: HTTP Error 500: Internal Server Error; ODI page=1: HTTP Error 500: Internal Server Error; 境外放款 page=1: HTTP Error 500: Internal Server Error; 内保外贷 page=1: HTTP Error 500: Internal Server Error; 海外发债 page=1: HTTP Error 500: Internal Server Error; 外汇登记 page=1: HTTP Error 500: Internal Server Error
+窗口 2026-10-27~2026-10-27，命中 18 条新候选
+ [gate:收] 晶合集成 晶合集成关于公司股东增持公司H股股份计划公告 — 境外投资
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225626796.json
+ [gate:收] 中国银行 H股公告-海外监管公告-中国银行股份有限公司400亿美元中期票据计划下通过迪拜分行发行的票据在纳斯达克迪拜交易所上市之通告 — 境外融资
+ [fail] event_merge 1225623482: 目标事件不存在
+ [gate:排] 中<em>国外</em>运 关于为控股子公司提供担保的公告 — 其他无关
+ [gate:排] 光弘科技 关于境外子公司变更记账本位币的公告 — 其他无关
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225623001.json
+ [gate:排] 大金重工 关于公司董事长提议回购公司H股的提示性公告 — 资本运作
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225625549.json
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225623903.json
+ [gate:排] 中国人保 H股公告 — 其他无关
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225627378.json
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225627377.json
+ [gate:排] 奥比中光 环境、社会及管治（ESG）管理制度（草案）（H股发行并上市后适用） — 纯制度文件
+ [gate:收] 龙迅股份 龙迅股份关于发行境外上市股份（H股）获得中国证监会备案的公告 — listing_abroad
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225624416.json
+ [gate:排] 拓斯达 内部审计制度（H股发行上市后适用） — 纯制度文件
+ [gate:收] 蓝色光标 关于终止发行H股股票并于香港联合交易所有限公司上市的公告 — listing_abroad
+ [gate:收] 汇宇制药 自愿披露公司产品获得境外上市许可的公告 — 监管及境外销售
+批次 D-20261027：收录4 排除6 失败8
+validate：ERROR 0 · WARN 1 · SKIP 0 → state/validate_report.json
+data.js 已生成：77 条披露，8 个案例，18 个批次；派生：70公司/71项目/21区域/102资金/249合规/598图谱节点

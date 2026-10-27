@@ -1,0 +1,25 @@
+{
+  "doc_id": "1225621910",
+  "candidate": {
+    "announcementId": "1225621910",
+    "time": 1792944000000,
+    "secCode": "300450",
+    "secName": "先导智能",
+    "title": "H股公告-翌日披露报表",
+    "adjunctUrl": "finalpage/2026-10-26/1225621910.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225621910.txt",
+  "batch_id": "D-20261026",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "excluded",
+  "reason": "仅A股限制性股票激励归属与库存股转让。",
+  "reviewed_at": "2026-10-27T16:26:40.080270",
+  "sha256": "44877686f7f77eb3240af5470f2694ebb6584047405c68ab0d19f2d78dbf658f"
+}

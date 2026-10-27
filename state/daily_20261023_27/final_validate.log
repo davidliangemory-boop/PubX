@@ -1,0 +1,3 @@
+validate：ERROR 2 · WARN 1 · SKIP 0 → state/validate_report.json
+  [ERROR] 页面检查: #/issues: H1 数=0；页面空白；JS报错:f.match is not a function
+  [ERROR] 页面检查: 22 条路由 × 3 宽度：H1/溢出/JS报错/旧路由跳转；站内链接 150 条；失败 1

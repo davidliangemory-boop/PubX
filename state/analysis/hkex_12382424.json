@@ -1,0 +1,358 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "batch_id": "D-20261026",
+  "gate": {
+    "include": true,
+    "category": "境外融资",
+    "reason": "美团拟国际发售人民币优先票据，金额及利率尚未确定"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "发行本金",
+        "value": null,
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "hkex_12382424",
+          "page": 1,
+          "quote": "本金總額"
+        }
+      },
+      {
+        "field": "利率",
+        "value": null,
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "hkex_12382424",
+          "page": 1,
+          "quote": "尚未釐定"
+        }
+      },
+      {
+        "field": "用途",
+        "value": "现有离岸债务再融资及一般企业用途",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "hkex_12382424",
+          "page": 2,
+          "quote": "現有離岸債務的再融資"
+        }
+      },
+      {
+        "field": "合同状态",
+        "value": "未订立具约束力协议",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "hkex_12382424",
+          "page": 2,
+          "quote": "概無就建議票據發行訂立具約束力協議"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I10.3",
+        "issue": "融资与担保（含母公司担保、财务资助）",
+        "question": "融资与担保（含母公司担保、财务资助）的处理状态及后续核查是什么？",
+        "trigger_fact": "概無就建議票據發行訂立具約束力協議",
+        "disclosed_status": "拟发行尚未订立具约束力协议，本金、利率待定。",
+        "status": "disclosed_pending",
+        "information_gap": "发行规模、利率、交割及付款日期未披露。",
+        "judgment": "拟发行尚未订立具约束力协议，本金、利率待定。",
+        "verification_action": "核对购买协议、定价公告与发行交割公告。",
+        "text": "拟发行尚未订立具约束力协议，本金、利率待定。",
+        "layer": "analysis",
+        "basis": "hkex_12382424 P2：概無就建議票據發行訂立具約束力協議",
+        "evidence": {
+          "doc_id": "hkex_12382424",
+          "page": 2,
+          "quote": "概無就建議票據發行訂立具約束力協議"
+        }
+      },
+      {
+        "issue_code": "I13.1",
+        "issue": "两地/多地披露同步",
+        "question": "两地/多地披露同步的处理状态及后续核查是什么？",
+        "trigger_fact": "向聯交所提出申請",
+        "disclosed_status": "拟按专业投资者债券上市方式申请，未载批准。",
+        "status": "disclosed_pending",
+        "information_gap": "发行规模、利率、交割及付款日期未披露。",
+        "judgment": "拟按专业投资者债券上市方式申请，未载批准。",
+        "verification_action": "核查正式上市文件及专业投资者销售限制。",
+        "text": "拟按专业投资者债券上市方式申请，未载批准。",
+        "layer": "analysis",
+        "basis": "hkex_12382424 P2：向聯交所提出申請",
+        "evidence": {
+          "doc_id": "hkex_12382424",
+          "page": 2,
+          "quote": "向聯交所提出申請"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持拟融资判断；市况及投资者兴趣影响完成可能，不能记作已募资。",
+        "layer": "analysis",
+        "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+      },
+      {
+        "text": "信息缺口：发行规模、利率、交割及付款日期未披露。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "美团",
+      "公告类型": "建議發行人民幣優先票據",
+      "涉及国家/地区": "开曼群岛/中国香港",
+      "动作类型": "境外融资",
+      "动作阶段": "拟发行、未订约",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "本金總額",
+      "尚未釐定",
+      "現有離岸債務的再融資",
+      "概無就建議票據發行訂立具約束力協議"
+    ],
+    "undisclosed": "发行规模、利率、交割及付款日期未披露。"
+  },
+  "event": {
+    "event_id": "E-D-20261026-hkex_12382424",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "美团拟国际发售人民币优先票据，金额及利率尚未确定",
+      "layer": "disclosed",
+      "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+    },
+    "status": "活跃",
+    "parties": [
+      {
+        "name": "美团",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "hkex_12382424完整原文"
+      }
+    ],
+    "geo": {
+      "text": "开曼群岛/中国香港",
+      "layer": "disclosed",
+      "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+    },
+    "matter_type": {
+      "value": "境外融资",
+      "layer": "analysis",
+      "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+    },
+    "stage_current": "拟发行、未订约",
+    "stage_chain": [
+      {
+        "stage": "拟发行、未订约",
+        "date": "2026-10-26",
+        "doc_id": "hkex_12382424",
+        "note": "美团拟国际发售人民币优先票据，金额及利率尚未确定",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I10.3",
+        "issue": "融资与担保（含母公司担保、财务资助）",
+        "question": "融资与担保（含母公司担保、财务资助）的处理状态及后续核查是什么？",
+        "trigger_fact": "概無就建議票據發行訂立具約束力協議",
+        "disclosed_status": "拟发行尚未订立具约束力协议，本金、利率待定。",
+        "status": "disclosed_pending",
+        "information_gap": "发行规模、利率、交割及付款日期未披露。",
+        "judgment": "拟发行尚未订立具约束力协议，本金、利率待定。",
+        "verification_action": "核对购买协议、定价公告与发行交割公告。",
+        "text": "拟发行尚未订立具约束力协议，本金、利率待定。",
+        "layer": "analysis",
+        "basis": "hkex_12382424 P2：概無就建議票據發行訂立具約束力協議",
+        "evidence": {
+          "doc_id": "hkex_12382424",
+          "page": 2,
+          "quote": "概無就建議票據發行訂立具約束力協議"
+        }
+      },
+      {
+        "issue_code": "I13.1",
+        "issue": "两地/多地披露同步",
+        "question": "两地/多地披露同步的处理状态及后续核查是什么？",
+        "trigger_fact": "向聯交所提出申請",
+        "disclosed_status": "拟按专业投资者债券上市方式申请，未载批准。",
+        "status": "disclosed_pending",
+        "information_gap": "发行规模、利率、交割及付款日期未披露。",
+        "judgment": "拟按专业投资者债券上市方式申请，未载批准。",
+        "verification_action": "核查正式上市文件及专业投资者销售限制。",
+        "text": "拟按专业投资者债券上市方式申请，未载批准。",
+        "layer": "analysis",
+        "basis": "hkex_12382424 P2：向聯交所提出申請",
+        "evidence": {
+          "doc_id": "hkex_12382424",
+          "page": 2,
+          "quote": "向聯交所提出申請"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持拟融资判断；市况及投资者兴趣影响完成可能，不能记作已募资。",
+        "layer": "analysis",
+        "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "发行规模、利率、交割及付款日期未披露。",
+        "why": "关系实际履行及监管状态",
+        "where": "公司后续披露及交易文件",
+        "layer": "analysis",
+        "basis": "hkex_12382424完整原文"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "核对购买协议、定价公告与发行交割公告。",
+        "layer": "analysis",
+        "basis": "hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+      },
+      {
+        "text": "核查正式上市文件及专业投资者销售限制。",
+        "layer": "analysis",
+        "basis": "hkex_12382424 P2：向聯交所提出申請"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "hkex_12382424",
+        "channel": "港股·披露易",
+        "file": "建議發行人民幣優先票據",
+        "date": "2026-10-26",
+        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1026/2026102600026_c.pdf",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "本金總額"
+          },
+          {
+            "page": 1,
+            "text": "尚未釐定"
+          },
+          {
+            "page": 2,
+            "text": "現有離岸債務的再融資"
+          },
+          {
+            "page": 2,
+            "text": "概無就建議票據發行訂立具約束力協議"
+          }
+        ],
+        "sha256": "d352e9b45a2294f50e09809d24adcd2732fb68f9d7934c35c4e8d92022f5bd23"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "核对既有事件主体、标的与原文，未找到同一事项。",
+  "case_update": {
+    "summary": "美团拟国际发售人民币优先票据，金额及利率尚未确定",
+    "check": "维持拟融资判断；市况及投资者兴趣影响完成可能，不能记作已募资。"
+  }
+}

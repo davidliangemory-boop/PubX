@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "5acfd52b7629e582eac2d73320a54876bff825b5b8c7df3b6d72af4ddb3f91e3"
+  "status": "excluded",
+  "sha256": "5acfd52b7629e582eac2d73320a54876bff825b5b8c7df3b6d72af4ddb3f91e3",
+  "reason": "仅回购H股注销，无新增出海投资或业务动作。",
+  "reviewed_at": "2026-10-27T16:26:40.077060"
 }

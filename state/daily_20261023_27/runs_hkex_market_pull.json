@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026-10-26",
+    "script": "hkex_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:54:56.275293+00:00",
+    "log": "state/daily_20261023_27/2026-10-26_hkex_market_pull.log"
+  },
+  {
+    "date": "2026-10-27",
+    "script": "hkex_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:57:37.495604+00:00",
+    "log": "state/daily_20261023_27/2026-10-27_hkex_market_pull.log"
+  },
+  {
+    "date": "2026-10-23",
+    "script": "hkex_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:58:23.673001+00:00",
+    "log": "state/daily_20261023_27/2026-10-23_hkex_market_pull.log"
+  },
+  {
+    "date": "2026-10-24",
+    "script": "hkex_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T08:07:39.754466+00:00",
+    "log": "state/daily_20261023_27/2026-10-24_hkex_market_pull.log"
+  },
+  {
+    "date": "2026-10-25",
+    "script": "hkex_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T08:08:14.764256+00:00",
+    "log": "state/daily_20261023_27/2026-10-25_hkex_market_pull.log"
+  }
+]

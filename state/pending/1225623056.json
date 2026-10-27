@@ -1,0 +1,26 @@
+{
+  "doc_id": "1225623056",
+  "candidate": {
+    "announcementId": "1225623056",
+    "time": 1793030400000,
+    "secCode": "300607",
+    "secName": "拓斯达",
+    "title": "内部审计制度（H股发行上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-27/1225623056.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225623056.txt",
+  "batch_id": "D-20261027",
+  "status": "excluded",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "内部审计制度，未披露具体出海实质事项。",
+  "reviewed_at": "2026-10-27T16:26:40.081537",
+  "sha256": "26feca01b7dbc1a101487cca00180018e8aff4b1b12272be7694a62432dde481"
+}

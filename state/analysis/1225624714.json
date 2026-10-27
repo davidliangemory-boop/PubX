@@ -1,0 +1,277 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "batch_id": "D-20261026",
+  "gate": {
+    "include": true,
+    "category": "listing_abroad",
+    "reason": "罗博特科H股10月26日起纳入沪港通及深港通标的名单"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "纳入日期",
+        "value": "2026-10-26",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225624714",
+          "page": 1,
+          "quote": "10 月 26 日起调入沪港通及深港通"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "标的证券名单",
+        "disclosed_status": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+        "status": "disclosed_pending",
+        "information_gap": "对交易流动性和投资者结构的实际影响未披露。",
+        "judgment": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+        "verification_action": "核对两所港股通名单和实际实施日期。",
+        "text": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+        "layer": "analysis",
+        "basis": "1225624714 P1：标的证券名单",
+        "evidence": {
+          "doc_id": "1225624714",
+          "page": 1,
+          "quote": "标的证券名单"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持上市完成判断；潜在流动性改善只是公司预期。",
+        "layer": "analysis",
+        "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+      },
+      {
+        "text": "信息缺口：对交易流动性和投资者结构的实际影响未披露。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "罗博特科智能科技股份有限公司",
+      "公告类型": "关于公司境外上市外资股（H股）调入港股通标的证券名单的公告",
+      "涉及国家/地区": "中国香港",
+      "动作类型": "listing_abroad",
+      "动作阶段": "上市完成、纳入港股通",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "10 月 26 日起调入沪港通及深港通"
+    ],
+    "undisclosed": "对交易流动性和投资者结构的实际影响未披露。"
+  },
+  "event": {
+    "event_id": "E-019",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "罗博特科H股10月26日起纳入沪港通及深港通标的名单",
+      "layer": "disclosed",
+      "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+    },
+    "status": "活跃",
+    "parties": [
+      {
+        "name": "罗博特科智能科技股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225624714完整原文"
+      }
+    ],
+    "geo": {
+      "text": "中国香港",
+      "layer": "disclosed",
+      "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+    },
+    "matter_type": {
+      "value": "listing_abroad",
+      "layer": "analysis",
+      "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+    },
+    "stage_current": "上市完成、纳入港股通",
+    "stage_chain": [
+      {
+        "stage": "上市完成、纳入港股通",
+        "date": "2026-10-26",
+        "doc_id": "1225624714",
+        "note": "罗博特科H股10月26日起纳入沪港通及深港通标的名单",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "标的证券名单",
+        "disclosed_status": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+        "status": "disclosed_pending",
+        "information_gap": "对交易流动性和投资者结构的实际影响未披露。",
+        "judgment": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+        "verification_action": "核对两所港股通名单和实际实施日期。",
+        "text": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+        "layer": "analysis",
+        "basis": "1225624714 P1：标的证券名单",
+        "evidence": {
+          "doc_id": "1225624714",
+          "page": 1,
+          "quote": "标的证券名单"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持上市完成判断；潜在流动性改善只是公司预期。",
+        "layer": "analysis",
+        "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "对交易流动性和投资者结构的实际影响未披露。",
+        "why": "关系实际履行及监管状态",
+        "where": "公司后续披露及交易文件",
+        "layer": "analysis",
+        "basis": "1225624714完整原文"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "核对两所港股通名单和实际实施日期。",
+        "layer": "analysis",
+        "basis": "1225624714 P1：标的证券名单"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225624714",
+        "channel": "A股·巨潮",
+        "file": "关于公司境外上市外资股（H股）调入港股通标的证券名单的公告",
+        "date": "2026-10-26",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-26/1225624714.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "10 月 26 日起调入沪港通及深港通"
+          }
+        ],
+        "sha256": "a1ae2449f0fe5a63ceb2f6003b2e25a381b1005f4115ab8970ee77b6dbc6141a"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "progress",
+  "target_id": "E-019",
+  "reason": "与既有事件相同标的，新增明确事实，保留原事实。",
+  "case_update": {
+    "summary": "罗博特科H股10月26日起纳入沪港通及深港通标的名单",
+    "check": "维持上市完成判断；潜在流动性改善只是公司预期。"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "doc_id": "1225624566",
+  "candidate": {
+    "announcementId": "1225624566",
+    "time": 1793030400000,
+    "secCode": "688322",
+    "secName": "奥比中光",
+    "title": "环境、社会及管治（ESG）管理制度（草案）（H股发行并上市后适用）",
+    "adjunctUrl": "finalpage/2026-10-27/1225624566.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225624566.txt",
+  "batch_id": "D-20261027",
+  "status": "excluded",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "ESG通用管理制度，不是实际境外处罚、项目或监管进展。",
+  "reviewed_at": "2026-10-27T16:26:40.082540",
+  "sha256": "fcc579df29d9c8c041882e7f545594749f71674ca2f8fea9a5967aa8391a8c44"
+}

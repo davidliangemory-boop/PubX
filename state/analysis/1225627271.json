@@ -1,0 +1,343 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "batch_id": "D-20261027",
+  "gate": {
+    "include": true,
+    "category": "listing_abroad",
+    "reason": "龙迅股份获证监会境外发行上市备案，拟发行不超过23,878,000股H股"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "备案通知",
+        "value": "国合函〔2026〕2438号",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225627271",
+          "page": 1,
+          "quote": "国合函〔2026〕2438 号"
+        }
+      },
+      {
+        "field": "发行股数上限",
+        "value": 23878000,
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225627271",
+          "page": 1,
+          "quote": "不超过 23,878,000 股"
+        }
+      },
+      {
+        "field": "其他监管",
+        "value": "尚需取得香港相关批准、核准或备案",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225627271",
+          "page": 2,
+          "quote": "尚需取得香港证券及期货事务监察委员会"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I1.5",
+        "issue": "境外上市证监会备案（含全流通）",
+        "question": "境外上市证监会备案（含全流通）的处理状态及后续核查是什么？",
+        "trigger_fact": "备案通知书",
+        "disclosed_status": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+        "status": "disclosed_pending",
+        "information_gap": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+        "judgment": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+        "verification_action": "跟踪备案有效期及完成后15个工作日内报告要求。",
+        "text": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+        "layer": "analysis",
+        "basis": "1225627271 P1：备案通知书",
+        "evidence": {
+          "doc_id": "1225627271",
+          "page": 1,
+          "quote": "备案通知书"
+        }
+      },
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "尚需取得香港证券及期货事务监察委员会",
+        "disclosed_status": "本次香港监管及联交所程序仍待取得。",
+        "status": "disclosed_pending",
+        "information_gap": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+        "judgment": "本次香港监管及联交所程序仍待取得。",
+        "verification_action": "核查正式上市批准、定价及发行结果。",
+        "text": "本次香港监管及联交所程序仍待取得。",
+        "layer": "analysis",
+        "basis": "1225627271 P2：尚需取得香港证券及期货事务监察委员会",
+        "evidence": {
+          "doc_id": "1225627271",
+          "page": 2,
+          "quote": "尚需取得香港证券及期货事务监察委员会"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持境外上市尚未完成判断；备案与香港上市批准分别记录。",
+        "layer": "analysis",
+        "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+      },
+      {
+        "text": "信息缺口：备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "龙迅半导体（合肥）股份有限公司",
+      "公告类型": "龙迅股份关于发行境外上市股份（H股）获得中国证监会备案的公告",
+      "涉及国家/地区": "中国香港",
+      "动作类型": "listing_abroad",
+      "动作阶段": "已获境内备案、境外审批待取得",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "国合函〔2026〕2438 号",
+      "不超过 23,878,000 股",
+      "尚需取得香港证券及期货事务监察委员会"
+    ],
+    "undisclosed": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。"
+  },
+  "event": {
+    "event_id": "E-D-20261027-1225627271",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "龙迅股份获证监会境外发行上市备案，拟发行不超过23,878,000股H股",
+      "layer": "disclosed",
+      "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+    },
+    "status": "活跃",
+    "parties": [
+      {
+        "name": "龙迅半导体（合肥）股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225627271完整原文"
+      }
+    ],
+    "geo": {
+      "text": "中国香港",
+      "layer": "disclosed",
+      "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+    },
+    "matter_type": {
+      "value": "listing_abroad",
+      "layer": "analysis",
+      "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+    },
+    "stage_current": "已获境内备案、境外审批待取得",
+    "stage_chain": [
+      {
+        "stage": "已获境内备案、境外审批待取得",
+        "date": "2026-10-27",
+        "doc_id": "1225627271",
+        "note": "龙迅股份获证监会境外发行上市备案，拟发行不超过23,878,000股H股",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I1.5",
+        "issue": "境外上市证监会备案（含全流通）",
+        "question": "境外上市证监会备案（含全流通）的处理状态及后续核查是什么？",
+        "trigger_fact": "备案通知书",
+        "disclosed_status": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+        "status": "disclosed_pending",
+        "information_gap": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+        "judgment": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+        "verification_action": "跟踪备案有效期及完成后15个工作日内报告要求。",
+        "text": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+        "layer": "analysis",
+        "basis": "1225627271 P1：备案通知书",
+        "evidence": {
+          "doc_id": "1225627271",
+          "page": 1,
+          "quote": "备案通知书"
+        }
+      },
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "尚需取得香港证券及期货事务监察委员会",
+        "disclosed_status": "本次香港监管及联交所程序仍待取得。",
+        "status": "disclosed_pending",
+        "information_gap": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+        "judgment": "本次香港监管及联交所程序仍待取得。",
+        "verification_action": "核查正式上市批准、定价及发行结果。",
+        "text": "本次香港监管及联交所程序仍待取得。",
+        "layer": "analysis",
+        "basis": "1225627271 P2：尚需取得香港证券及期货事务监察委员会",
+        "evidence": {
+          "doc_id": "1225627271",
+          "page": 2,
+          "quote": "尚需取得香港证券及期货事务监察委员会"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持境外上市尚未完成判断；备案与香港上市批准分别记录。",
+        "layer": "analysis",
+        "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+        "why": "关系实际履行及监管状态",
+        "where": "公司后续披露及交易文件",
+        "layer": "analysis",
+        "basis": "1225627271完整原文"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "跟踪备案有效期及完成后15个工作日内报告要求。",
+        "layer": "analysis",
+        "basis": "1225627271 P1：备案通知书"
+      },
+      {
+        "text": "核查正式上市批准、定价及发行结果。",
+        "layer": "analysis",
+        "basis": "1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225627271",
+        "channel": "A股·巨潮",
+        "file": "龙迅股份关于发行境外上市股份（H股）获得中国证监会备案的公告",
+        "date": "2026-10-27",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225627271.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "国合函〔2026〕2438 号"
+          },
+          {
+            "page": 1,
+            "text": "不超过 23,878,000 股"
+          },
+          {
+            "page": 2,
+            "text": "尚需取得香港证券及期货事务监察委员会"
+          }
+        ],
+        "sha256": "bb36173c68ec2580f4e12aa39f0ff218fd7db680ce0a5aff7cfe60d99e535945"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "核对既有事件主体、标的与原文，未找到同一事项。",
+  "case_update": {
+    "summary": "龙迅股份获证监会境外发行上市备案，拟发行不超过23,878,000股H股",
+    "check": "维持境外上市尚未完成判断；备案与香港上市批准分别记录。"
+  }
+}

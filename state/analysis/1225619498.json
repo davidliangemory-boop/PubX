@@ -1,0 +1,316 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": true,
+    "category": "境外融资",
+    "reason": "赤峰黄金翌日披露报表确认同笔310,902,731股H股发行"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "新增H股数",
+        "value": 310902731,
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619498",
+          "page": 1,
+          "quote": "310,902,731"
+        }
+      },
+      {
+        "field": "发行价",
+        "value": "29.82港元",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619498",
+          "page": 1,
+          "quote": "29.82"
+        }
+      },
+      {
+        "field": "发行日期",
+        "value": "2026-10-22",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619498",
+          "page": 1,
+          "quote": "2026年10月22日"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "issue": "两地/多地披露同步",
+        "question": "两地/多地披露同步的已披露状态与后续核查是什么？",
+        "trigger_fact": "戰略投資協議",
+        "disclosed_status": "报表与A股公告同笔新增H股发行相互印证。",
+        "status": "disclosed_pending",
+        "information_gap": "本报表不增加已核核心事实；其他具体审批文件未载。",
+        "judgment": "报表与A股公告同笔新增H股发行相互印证。不能扩展为未载明程序已完成。",
+        "verification_action": "保留来源，核对中英文披露差异。",
+        "text": "报表与A股公告同笔新增H股发行相互印证。",
+        "layer": "analysis",
+        "basis": "1225619498 P1：戰略投資協議",
+        "evidence": {
+          "doc_id": "1225619498",
+          "page": 1,
+          "quote": "戰略投資協議"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持：股数、发行价与已核发行方公告一致，追加来源并记重复，不新建事件。",
+        "layer": "analysis",
+        "basis": "1225619498 P1：310,902,731；1225619498 P1：29.82；1225619498 P1：2026年10月22日"
+      },
+      {
+        "text": "信息缺口：报表没有新增具体境外审批文件。",
+        "layer": "analysis",
+        "basis": "1225619498完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "赤峰吉隆黄金矿业集团股份有限公司",
+      "公告类型": "赤峰黄金H股市场公告",
+      "涉及国家/地区": "中国香港",
+      "动作类型": "境外融资",
+      "动作阶段": "交割完成",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "310,902,731",
+      "29.82",
+      "2026年10月22日"
+    ],
+    "undisclosed": "报表没有新增具体境外审批文件。"
+  },
+  "event": {
+    "event_id": "E-D-20261023-1225617035",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "赤峰黄金翌日披露报表确认同笔310,902,731股H股发行",
+      "layer": "disclosed",
+      "basis": "1225619498 P1：310,902,731；1225619498 P1：29.82；1225619498 P1：2026年10月22日"
+    },
+    "status": "完成",
+    "parties": [
+      {
+        "name": "赤峰吉隆黄金矿业集团股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225619498完整原文"
+      },
+      {
+        "name": "紫金黄金（集团）有限公司",
+        "role": "交易相关方",
+        "layer": "disclosed",
+        "basis": "1225619498完整原文"
+      }
+    ],
+    "geo": {
+      "text": "中国香港",
+      "layer": "disclosed",
+      "basis": "1225619498 P1：310,902,731；1225619498 P1：29.82；1225619498 P1：2026年10月22日"
+    },
+    "matter_type": {
+      "value": "境外融资",
+      "layer": "analysis",
+      "basis": "1225619498 P1：310,902,731；1225619498 P1：29.82；1225619498 P1：2026年10月22日"
+    },
+    "stage_current": "交割完成",
+    "stage_chain": [
+      {
+        "stage": "交割完成",
+        "date": "2026-10-24",
+        "doc_id": "1225619498",
+        "note": "赤峰黄金翌日披露报表确认同笔310,902,731股H股发行",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I13.1",
+        "issue": "两地/多地披露同步",
+        "question": "两地/多地披露同步的已披露状态与后续核查是什么？",
+        "trigger_fact": "戰略投資協議",
+        "disclosed_status": "报表与A股公告同笔新增H股发行相互印证。",
+        "status": "disclosed_pending",
+        "information_gap": "本报表不增加已核核心事实；其他具体审批文件未载。",
+        "judgment": "报表与A股公告同笔新增H股发行相互印证。不能扩展为未载明程序已完成。",
+        "verification_action": "保留来源，核对中英文披露差异。",
+        "text": "报表与A股公告同笔新增H股发行相互印证。",
+        "layer": "analysis",
+        "basis": "1225619498 P1：戰略投資協議",
+        "evidence": {
+          "doc_id": "1225619498",
+          "page": 1,
+          "quote": "戰略投資協議"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619498 完整原文；事项为境外融资"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持：股数、发行价与已核发行方公告一致，追加来源并记重复，不新建事件。",
+        "layer": "analysis",
+        "basis": "1225619498 P1：310,902,731；1225619498 P1：29.82；1225619498 P1：2026年10月22日"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "报表没有新增具体境外审批文件。",
+        "why": "影响后续监管与履行状态核实",
+        "where": "公司后续公告及对应交易文件",
+        "layer": "analysis",
+        "basis": "1225619498 P1：310,902,731；1225619498 P1：29.82；1225619498 P1：2026年10月22日"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "保留来源，核对中英文披露差异。",
+        "layer": "analysis",
+        "basis": "1225619498 P1：戰略投資協議"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225619498",
+        "channel": "A股·巨潮",
+        "file": "赤峰黄金H股市场公告",
+        "date": "2026-10-24",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619498.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "310,902,731"
+          },
+          {
+            "page": 1,
+            "text": "29.82"
+          },
+          {
+            "page": 1,
+            "text": "2026年10月22日"
+          }
+        ],
+        "sha256": "4aab38047543c1233708bc4127ad5ae6bbd78df16c4eec500fc4bc775a0cc1a5"
+      }
+    ],
+    "source_diff": {
+      "text": "紫金方说明10月22日收到确认；赤峰方说明过户日10月21日、10月22日收到确认，收函日和登记日分别保留。",
+      "layer": "analysis",
+      "basis": "1225617035 P1；1225617077 P2-P3"
+    },
+    "changelog": []
+  },
+  "update_type": "duplicate",
+  "target_id": "E-D-20261023-1225617035",
+  "reason": "同笔发行、同日完成、同发行价29.82港元，无新增核心事实。",
+  "case_update": {
+    "summary": "赤峰黄金翌日披露报表确认同笔310,902,731股H股发行",
+    "check": "维持：股数、发行价与已核发行方公告一致，追加来源并记重复，不新建事件。"
+  }
+}

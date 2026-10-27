@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "29e4fa81ae9292c60f2d4109c53f3adf8408e516ec2bef8429d21c09c73f17a5"
+  "status": "excluded",
+  "sha256": "29e4fa81ae9292c60f2d4109c53f3adf8408e516ec2bef8429d21c09c73f17a5",
+  "reason": "仅更换公司秘书及授权代表。",
+  "reviewed_at": "2026-10-27T16:26:40.075872"
 }

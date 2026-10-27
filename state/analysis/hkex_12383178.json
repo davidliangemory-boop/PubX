@@ -1,0 +1,40 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": false,
+    "category": "其他无关",
+    "reason": "董事辞任，未披露出海投资、融资或境外项目变动。"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "门控触发事实",
+        "value": "董事辭任",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "hkex_12383178",
+          "page": 1,
+          "quote": "董事辭任"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "status": "not_applicable",
+        "text": "仅为门控分类，不作未披露法律状态的推断。",
+        "layer": "analysis",
+        "basis": "hkex_12383178 P1：董事辭任；完整原文核查"
+      }
+    ],
+    "judge": [
+      {
+        "text": "董事辞任，未披露出海投资、融资或境外项目变动。",
+        "layer": "analysis",
+        "basis": "hkex_12383178 P1：董事辭任；完整原文核查"
+      }
+    ]
+  },
+  "reason": "董事辞任，未披露出海投资、融资或境外项目变动。"
+}

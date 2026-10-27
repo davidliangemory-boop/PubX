@@ -1,0 +1,292 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "batch_id": "D-20261026",
+  "gate": {
+    "include": true,
+    "category": "listing_abroad",
+    "reason": "东山精密确定H股最终发行价86.80港元，预计10月28日上市"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "H股发行价",
+        "value": "86.80港元/股",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225621945",
+          "page": 1,
+          "quote": "每股 86.80 港元"
+        }
+      },
+      {
+        "field": "预计上市日",
+        "value": "2026-10-28",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225621945",
+          "page": 1,
+          "quote": "预计于 2026 年 10 月 28 日"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "公司已确定本次 H 股发行的最终价格",
+        "disclosed_status": "已确定最终价格，上市时间仍为预计。",
+        "status": "disclosed_pending",
+        "information_gap": "发行股数、净募资和最终挂牌结果未披露。",
+        "judgment": "已确定最终价格，上市时间仍为预计。",
+        "verification_action": "核对最终配售及挂牌公告。",
+        "text": "已确定最终价格，上市时间仍为预计。",
+        "layer": "analysis",
+        "basis": "1225621945 P1：公司已确定本次 H 股发行的最终价格",
+        "evidence": {
+          "doc_id": "1225621945",
+          "page": 1,
+          "quote": "公司已确定本次 H 股发行的最终价格"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持待挂牌判断：定价不等于发行交割完成。",
+        "layer": "analysis",
+        "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+      },
+      {
+        "text": "信息缺口：发行股数、净募资和最终挂牌结果未披露。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "苏州东山精密制造股份有限公司",
+      "公告类型": "关于境外上市股份（H股）公开发行价格的公告",
+      "涉及国家/地区": "中国香港",
+      "动作类型": "listing_abroad",
+      "动作阶段": "已定价、待上市",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "每股 86.80 港元",
+      "预计于 2026 年 10 月 28 日"
+    ],
+    "undisclosed": "发行股数、净募资和最终挂牌结果未披露。"
+  },
+  "event": {
+    "event_id": "E-D-20261026-1225621945",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "东山精密确定H股最终发行价86.80港元，预计10月28日上市",
+      "layer": "disclosed",
+      "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+    },
+    "status": "活跃",
+    "parties": [
+      {
+        "name": "苏州东山精密制造股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225621945完整原文"
+      }
+    ],
+    "geo": {
+      "text": "中国香港",
+      "layer": "disclosed",
+      "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+    },
+    "matter_type": {
+      "value": "listing_abroad",
+      "layer": "analysis",
+      "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+    },
+    "stage_current": "已定价、待上市",
+    "stage_chain": [
+      {
+        "stage": "已定价、待上市",
+        "date": "2026-10-26",
+        "doc_id": "1225621945",
+        "note": "东山精密确定H股最终发行价86.80港元，预计10月28日上市",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "公司已确定本次 H 股发行的最终价格",
+        "disclosed_status": "已确定最终价格，上市时间仍为预计。",
+        "status": "disclosed_pending",
+        "information_gap": "发行股数、净募资和最终挂牌结果未披露。",
+        "judgment": "已确定最终价格，上市时间仍为预计。",
+        "verification_action": "核对最终配售及挂牌公告。",
+        "text": "已确定最终价格，上市时间仍为预计。",
+        "layer": "analysis",
+        "basis": "1225621945 P1：公司已确定本次 H 股发行的最终价格",
+        "evidence": {
+          "doc_id": "1225621945",
+          "page": 1,
+          "quote": "公司已确定本次 H 股发行的最终价格"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持待挂牌判断：定价不等于发行交割完成。",
+        "layer": "analysis",
+        "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "发行股数、净募资和最终挂牌结果未披露。",
+        "why": "关系实际履行及监管状态",
+        "where": "公司后续披露及交易文件",
+        "layer": "analysis",
+        "basis": "1225621945完整原文"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "核对最终配售及挂牌公告。",
+        "layer": "analysis",
+        "basis": "1225621945 P1：公司已确定本次 H 股发行的最终价格"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225621945",
+        "channel": "A股·巨潮",
+        "file": "关于境外上市股份（H股）公开发行价格的公告",
+        "date": "2026-10-26",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-26/1225621945.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "每股 86.80 港元"
+          },
+          {
+            "page": 1,
+            "text": "预计于 2026 年 10 月 28 日"
+          }
+        ],
+        "sha256": "b63af9dcf2906cd1fa3b210b37e5c66e927fd4c849dcc622e76322a4ac4aa060"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "核对既有事件主体、标的与原文，未找到同一事项。",
+  "case_update": {
+    "summary": "东山精密确定H股最终发行价86.80港元，预计10月28日上市",
+    "check": "维持待挂牌判断：定价不等于发行交割完成。"
+  }
+}

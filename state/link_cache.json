@@ -68,5 +68,30 @@
   "ok": true,
   "status": 200,
   "ts": "2026-10-27"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-10-23/1225617671.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619498.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
+ },
+ "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1007/2026100701670_c.pdf": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
+ },
+ "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1001/2026100100008_c.pdf": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
+ },
+ "https://static.cninfo.com.cn/finalpage/2026-09-30/1225586714.PDF": {
+  "ok": true,
+  "status": 200,
+  "ts": "2026-10-27"
  }
 }

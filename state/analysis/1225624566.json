@@ -1,0 +1,40 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": false,
+    "category": "纯制度文件",
+    "reason": "ESG通用管理制度，不是实际境外处罚、项目或监管进展。"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "门控触发事实",
+        "value": "管理制度",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225624566",
+          "page": 1,
+          "quote": "管理制度"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "status": "not_applicable",
+        "text": "仅为门控分类，不作未披露法律状态的推断。",
+        "layer": "analysis",
+        "basis": "1225624566 P1：管理制度；完整原文核查"
+      }
+    ],
+    "judge": [
+      {
+        "text": "ESG通用管理制度，不是实际境外处罚、项目或监管进展。",
+        "layer": "analysis",
+        "basis": "1225624566 P1：管理制度；完整原文核查"
+      }
+    ]
+  },
+  "reason": "ESG通用管理制度，不是实际境外处罚、项目或监管进展。"
+}

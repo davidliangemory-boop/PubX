@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026-10-26",
+    "script": "run_once",
+    "returncode": "timeout_5s_after_repeated_endpoint_failures",
+    "note": "external bounded retry; incomplete"
+  },
+  {
+    "date": "2026-10-27",
+    "script": "run_once",
+    "returncode": "timeout_5s_after_repeated_endpoint_failures",
+    "note": "external bounded retry; incomplete"
+  },
+  {
+    "date": "2026-10-23",
+    "script": "run_once",
+    "returncode": "timeout_5s_after_repeated_endpoint_failures",
+    "note": "external bounded retry; incomplete"
+  },
+  {
+    "date": "2026-10-24",
+    "script": "run_once",
+    "returncode": "timeout_5s_after_repeated_endpoint_failures",
+    "note": "external bounded retry; incomplete"
+  },
+  {
+    "date": "2026-10-25",
+    "script": "run_once",
+    "returncode": "timeout_5s_after_repeated_endpoint_failures",
+    "note": "external bounded retry; incomplete"
+  }
+]

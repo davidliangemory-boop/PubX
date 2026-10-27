@@ -1,0 +1,22 @@
+{
+  "doc_id": "1225626796",
+  "candidate": {
+    "announcementId": "1225626796",
+    "time": 1793030400000,
+    "secCode": "688249",
+    "secName": "晶合集成",
+    "title": "H股公告-截至2026年9月30日止三个月未经审计业绩公布",
+    "adjunctUrl": "finalpage/2026-10-27/1225626796.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225626796.txt",
+  "batch_id": "D-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis"
+}

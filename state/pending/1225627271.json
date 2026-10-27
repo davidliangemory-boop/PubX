@@ -1,0 +1,25 @@
+{
+  "doc_id": "1225627271",
+  "candidate": {
+    "announcementId": "1225627271",
+    "time": 1793030400000,
+    "secCode": "688486",
+    "secName": "龙迅股份",
+    "title": "龙迅股份关于发行境外上市股份（H股）获得中国证监会备案的公告",
+    "adjunctUrl": "finalpage/2026-10-27/1225627271.PDF",
+    "keywords": [
+      "境外",
+      "境外上市",
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225627271.txt",
+  "batch_id": "D-20261027",
+  "status": "ingested",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

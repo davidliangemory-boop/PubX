@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026-10-26",
+    "script": "sec_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:54:56.274565+00:00",
+    "log": "state/daily_20261023_27/2026-10-26_sec_market_pull.log"
+  },
+  {
+    "date": "2026-10-27",
+    "script": "sec_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T08:06:39.402273+00:00",
+    "log": "state/daily_20261023_27/2026-10-27_sec_market_pull.log"
+  },
+  {
+    "date": "2026-10-23",
+    "script": "sec_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T08:10:41.545309+00:00",
+    "log": "state/daily_20261023_27/2026-10-23_sec_market_pull.log"
+  },
+  {
+    "date": "2026-10-24",
+    "script": "sec_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T08:20:19.209172+00:00",
+    "log": "state/daily_20261023_27/2026-10-24_sec_market_pull.log"
+  },
+  {
+    "date": "2026-10-25",
+    "script": "sec_market_pull",
+    "returncode": 0,
+    "start": "2026-10-27T08:24:34.904828+00:00",
+    "log": "state/daily_20261023_27/2026-10-25_sec_market_pull.log"
+  }
+]

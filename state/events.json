@@ -1,8 +1,8 @@
 {
  "meta": {
   "generated": "初始迁移（migrate_events.py）",
-  "doc_count": 74,
-  "event_count": 68,
+  "doc_count": 88,
+  "event_count": 78,
   "merge_groups": 3,
   "rules_ver": 1,
   "legal_map": {
@@ -12,7 +12,7 @@
    "triggers": 385,
    "legacy_unmapped": 29
   },
-  "last_match_batch": "H-20261027"
+  "last_match_batch": "D-20261027"
  },
  "events": [
   {
@@ -3860,13 +3860,20 @@
     "layer": "analysis",
     "basis": "按公告类型/标题关键词归类（设厂/并购/合资/销售/融资/退出/诉讼/监管）"
    },
-   "stage_current": "完成",
+   "stage_current": "上市完成、纳入港股通",
    "stage_chain": [
     {
      "stage": "完成",
      "date": "2026-09-29",
      "doc_id": "1225588611",
      "note": "完成（2026-09-29挂牌，代号03757）",
+     "layer": "disclosed"
+    },
+    {
+     "stage": "上市完成、纳入港股通",
+     "date": "2026-10-26",
+     "doc_id": "1225624714",
+     "note": "罗博特科H股10月26日起纳入沪港通及深港通标的名单",
      "layer": "disclosed"
     }
    ],
@@ -3988,6 +3995,20 @@
        "page": 1
       }
      ]
+    },
+    {
+     "doc_id": "1225624714",
+     "channel": "A股·巨潮",
+     "file": "关于公司境外上市外资股（H股）调入港股通标的证券名单的公告",
+     "date": "2026-10-26",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-26/1225624714.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "10 月 26 日起调入沪港通及深港通"
+      }
+     ],
+     "sha256": "a1ae2449f0fe5a63ceb2f6003b2e25a381b1005f4115ab8970ee77b6dbc6141a"
     }
    ],
    "source_diff": null,
@@ -3997,9 +4018,330 @@
      "type": "新增",
      "doc_id": "1225588611",
      "note": "H股发行上市（全球发售11,876,000股，行使超额配股权前）"
+    },
+    {
+     "date": "2026-10-26",
+     "type": "进展",
+     "batch_id": "D-20261026",
+     "doc_id": "1225624714",
+     "note": "与既有事件相同标的，新增明确事实，保留原事实。",
+     "reason": "与既有事件相同标的，新增明确事实，保留原事实。",
+     "diff": {
+      "module": {
+       "old": null,
+       "new": "cn_outbound"
+      },
+      "title_fact": {
+       "old": {
+        "text": "罗博特科智能科技：H股发行上市",
+        "layer": "disclosed",
+        "basis": "1225588611 动作类型/公告标题"
+       },
+       "new": {
+        "text": "罗博特科H股10月26日起纳入沪港通及深港通标的名单",
+        "layer": "disclosed",
+        "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+       }
+      },
+      "status": {
+       "old": "完成",
+       "new": "活跃"
+      },
+      "parties": {
+       "old": [
+        {
+         "name": "罗博特科智能科技股份有限公司",
+         "role": "披露主体",
+         "layer": "disclosed",
+         "basis": "1225588611"
+        },
+        {
+         "name": "香港公开发售10%＋国际发售90%",
+         "role": "合作方/交易对手",
+         "layer": "disclosed",
+         "basis": "1225588611 合作方字段"
+        }
+       ],
+       "new": [
+        {
+         "name": "罗博特科智能科技股份有限公司",
+         "role": "披露主体",
+         "layer": "disclosed",
+         "basis": "1225624714完整原文"
+        }
+       ]
+      },
+      "geo": {
+       "old": {
+        "text": "中国香港",
+        "layer": "disclosed",
+        "basis": "1225588611"
+       },
+       "new": {
+        "text": "中国香港",
+        "layer": "disclosed",
+        "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+       }
+      },
+      "matter_type": {
+       "old": {
+        "value": "融资",
+        "layer": "analysis",
+        "basis": "按公告类型/标题关键词归类（设厂/并购/合资/销售/融资/退出/诉讼/监管）"
+       },
+       "new": {
+        "value": "listing_abroad",
+        "layer": "analysis",
+        "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+       }
+      },
+      "scale": {
+       "old": {
+        "text": "发售价436.00港元/股，净筹约49.61亿港元",
+        "layer": "disclosed",
+        "basis": "1225588611 投资金额字段"
+       },
+       "new": null
+      },
+      "legal_triggers": {
+       "old": [
+        {
+         "issue_code": "I1.5",
+         "issue": "境外上市证监会备案（含全流通）",
+         "trigger_fact": "语料提及「证监会备案…」（字段：db.③法务关注）",
+         "text": "语料提及「证监会备案…」（字段：db.③法务关注）",
+         "status": "not_disclosed",
+         "layer": "analysis",
+         "basis": "R-I1.5 命中词「证监会备案」→ 境外上市证监会备案；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+        },
+        {
+         "issue_code": "I10.3",
+         "issue": "融资与担保（含母公司担保、财务资助）",
+         "trigger_fact": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+         "text": "事项类型=融资；涉及融资/担保安排（语料未含，按事项类型「银团/担保/授信/贷款」字样）",
+         "status": "not_disclosed",
+         "layer": "analysis",
+         "basis": "R-I10.3-mt：融资/担保类事项→I10.3；担保结构、财务契约以原文为准"
+        },
+        {
+         "issue_code": "I13.2",
+         "issue": "H 股/D 股/GDR",
+         "trigger_fact": "语料提及「罗博特科智能科技：H股发行上市」（字段：title_fact）",
+         "text": "语料提及「罗博特科智能科技：H股发行上市」（字段：title_fact）",
+         "status": "not_disclosed",
+         "layer": "analysis",
+         "basis": "R-I13.2 命中词「H股」→ H股/D股/GDR；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed"
+        },
+        {
+         "issue_code": "I13.3",
+         "issue": "募集资金境外使用",
+         "trigger_fact": "语料提及「募集资金用途分项…」（字段：gaps）",
+         "text": "语料提及「募集资金用途分项…」（字段：gaps）",
+         "status": "not_disclosed",
+         "layer": "analysis",
+         "basis": "R-I13.3 命中词「募集资金」→ 募集资金境外使用；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+        },
+        {
+         "issue_code": "I2.1",
+         "issue": "外资审查（FIRB/CFIUS/EU FDI/NSIA/AWV 等）",
+         "trigger_fact": "语料提及「…半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪」（字段：db.③法务关注）",
+         "text": "语料提及「…半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪」（字段：db.③法务关注）",
+         "status": "not_disclosed",
+         "layer": "analysis",
+         "basis": "R-I2.1 命中词「外资审查」→ 东道国外资审查；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+        },
+        {
+         "issue_code": "I3.3",
+         "issue": "关联交易/上市规则交易分类（须予披露、主要交易等）",
+         "trigger_fact": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-29）",
+         "text": "披露渠道原始分类：巨潮公告类型「境外上市完成（H股主板挂牌）」（来源：A股·巨潮 2026-09-29）",
+         "status": "not_applicable",
+         "layer": "disclosed",
+         "basis": "R-I3.3-raw：raw_category 逐源保留，不作归一改写（Vault 双层分类做法）；分类信息本身无审批状态含义，故 not_applicable，不得读作「已通过」"
+        },
+        {
+         "issue_code": "I4.1",
+         "issue": "美国 EAR/实体清单/FDPR",
+         "trigger_fact": "语料提及「…半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪」（字段：db.③法务关注）",
+         "text": "语料提及「…半导体设备跨境并购涉出口管制与外资审查的既往合规安排需持续跟踪」（字段：db.③法务关注）",
+         "status": "not_disclosed",
+         "layer": "analysis",
+         "basis": "R-I4.1 命中词「出口管制」→ 出口管制；处理状态按命中上下文判定，无审批/备案处理字样即 not_disclosed；注意：命中自前序入库分析文本（analysis 层），非原文直接表述"
+        }
+       ],
+       "new": [
+        {
+         "issue_code": "I13.2",
+         "issue": "H 股/D 股/GDR",
+         "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+         "trigger_fact": "标的证券名单",
+         "disclosed_status": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+         "status": "disclosed_pending",
+         "information_gap": "对交易流动性和投资者结构的实际影响未披露。",
+         "judgment": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+         "verification_action": "核对两所港股通名单和实际实施日期。",
+         "text": "本次新增港股通可投资范围事实，既有H股上市完成事实不变。",
+         "layer": "analysis",
+         "basis": "1225624714 P1：标的证券名单",
+         "evidence": {
+          "doc_id": "1225624714",
+          "page": 1,
+          "quote": "标的证券名单"
+         }
+        }
+       ]
+      },
+      "issue_not_applicable": {
+       "old": null,
+       "new": [
+        {
+         "issue_code": "I1",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I2",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I3",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I4",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I5",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I6",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I7",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I8",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I9",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I10",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I11",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        },
+        {
+         "issue_code": "I12",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        }
+       ]
+      },
+      "watch_points": {
+       "old": [
+        {
+         "text": "高发行价的后市波动；ficonTEC整合与商誉风险；光伏设备行业周期",
+         "layer": "analysis",
+         "basis": "入库分析基于《罗博特科智能科技 2026-09-29：罗博特科关于境外上市外资股（H股）挂牌并上市》披露原文生成（主要风险与不确定性维度）"
+        }
+       ],
+       "new": [
+        {
+         "text": "维持上市完成判断；潜在流动性改善只是公司预期。",
+         "layer": "analysis",
+         "basis": "1225624714 P1：10 月 26 日起调入沪港通及深港通"
+        }
+       ]
+      },
+      "gaps": {
+       "old": [
+        {
+         "text": "募集资金用途分项、基石投资者、承销团未在本公告披露。",
+         "layer": "analysis",
+         "basis": "入库分析基于《罗博特科智能科技 2026-09-29：罗博特科关于境外上市外资股（H股）挂牌并上市》披露原文生成（未披露事项维度）"
+        }
+       ],
+       "new": [
+        {
+         "item": "对交易流动性和投资者结构的实际影响未披露。",
+         "why": "关系实际履行及监管状态",
+         "where": "公司后续披露及交易文件",
+         "layer": "analysis",
+         "basis": "1225624714完整原文"
+        }
+       ]
+      },
+      "practice_notes": {
+       "old": [
+        {
+         "text": "关注海外光电子/半导体设备客户拓展与德国子公司协同",
+         "layer": "analysis",
+         "basis": "入库分析基于《罗博特科智能科技 2026-09-29：罗博特科关于境外上市外资股（H股）挂牌并上市》披露原文生成（商务关注维度）"
+        },
+        {
+         "text": "净筹约49.61亿港元；关注跨境并购后续资金投入与汇率敞口",
+         "layer": "analysis",
+         "basis": "入库分析基于《罗博特科智能科技 2026-09-29：罗博特科关于境外上市外资股（H股）挂牌并上市》披露原文生成（财务关注维度）"
+        }
+       ],
+       "new": [
+        {
+         "text": "核对两所港股通名单和实际实施日期。",
+         "layer": "analysis",
+         "basis": "1225624714 P1：标的证券名单"
+        }
+       ]
+      }
+     },
+     "source_doc_ids": [
+      "1225624714"
+     ]
     }
    ],
-   "update_type_latest": "新增"
+   "update_type_latest": "进展"
   },
   {
    "event_id": "E-020",
@@ -17345,6 +17687,3082 @@
     "end": "2026-10-25"
    },
    "update_type_latest": "新增"
+  },
+  {
+   "event_id": "E-D-20261027-1225625852",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "华勤通讯香港拟在三个月内增持晶合集成1,500万至2,500万股H股",
+    "layer": "disclosed",
+    "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+   },
+   "status": "活跃",
+   "parties": [
+    {
+     "name": "合肥晶合集成电路股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "name": "华勤通讯香港有限公司",
+     "role": "交易相关方",
+     "layer": "disclosed",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "name": "华勤技术股份有限公司",
+     "role": "交易相关方",
+     "layer": "disclosed",
+     "basis": "1225625852完整原文"
+    }
+   ],
+   "geo": {
+    "text": "中国香港",
+    "layer": "disclosed",
+    "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+   },
+   "matter_type": {
+    "value": "境外投资",
+    "layer": "analysis",
+    "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+   },
+   "stage_current": "增持计划、待实施",
+   "stage_chain": [
+    {
+     "stage": "增持计划、待实施",
+     "date": "2026-10-27",
+     "doc_id": "1225625852",
+     "note": "华勤通讯香港拟在三个月内增持晶合集成1,500万至2,500万股H股",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+     "trigger_fact": "不设价格上限",
+     "disclosed_status": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+     "status": "disclosed_pending",
+     "information_gap": "实际成交金额、股数、完成日期及所需资金安排细节未披露。",
+     "judgment": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+     "verification_action": "跟踪增持成交与权益披露；核对一致行动人持股变化。",
+     "text": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+     "layer": "analysis",
+     "basis": "1225625852 P2：不设价格上限",
+     "evidence": {
+      "doc_id": "1225625852",
+      "page": 2,
+      "quote": "不设价格上限"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I1",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I10",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "维持待实施判断；计划股数不能记作已买入，且不将股东投资记成公司收到融资。",
+     "layer": "analysis",
+     "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "实际成交金额、股数、完成日期及所需资金安排细节未披露。",
+     "why": "关系实际履行及监管状态",
+     "where": "公司后续披露及交易文件",
+     "layer": "analysis",
+     "basis": "1225625852完整原文"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "跟踪增持成交与权益披露；核对一致行动人持股变化。",
+     "layer": "analysis",
+     "basis": "1225625852 P2：不设价格上限"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225625852",
+     "channel": "A股·巨潮",
+     "file": "晶合集成关于公司股东增持公司H股股份计划公告",
+     "date": "2026-10-27",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625852.PDF",
+     "quotes": [
+      {
+       "page": 2,
+       "text": "1,500 万股～2,500 万股"
+      },
+      {
+       "page": 2,
+       "text": "2027 年 1 月 26 日"
+      },
+      {
+       "page": 2,
+       "text": "自有资金"
+      }
+     ],
+     "sha256": "efd960308d61f738a012d659e3bb8a80516e7aa50406715eef4103f42609f073"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-27",
+     "type": "新增",
+     "batch_id": "D-20261027",
+     "doc_id": "1225625852",
+     "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+    }
+   ],
+   "update_type_latest": "新增"
+  },
+  {
+   "event_id": "E-D-20261027-1225627271",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "龙迅股份获证监会境外发行上市备案，拟发行不超过23,878,000股H股",
+    "layer": "disclosed",
+    "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+   },
+   "status": "活跃",
+   "parties": [
+    {
+     "name": "龙迅半导体（合肥）股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225627271完整原文"
+    }
+   ],
+   "geo": {
+    "text": "中国香港",
+    "layer": "disclosed",
+    "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+   },
+   "matter_type": {
+    "value": "listing_abroad",
+    "layer": "analysis",
+    "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+   },
+   "stage_current": "已获境内备案、境外审批待取得",
+   "stage_chain": [
+    {
+     "stage": "已获境内备案、境外审批待取得",
+     "date": "2026-10-27",
+     "doc_id": "1225627271",
+     "note": "龙迅股份获证监会境外发行上市备案，拟发行不超过23,878,000股H股",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "question": "境外上市证监会备案（含全流通）的处理状态及后续核查是什么？",
+     "trigger_fact": "备案通知书",
+     "disclosed_status": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+     "status": "disclosed_pending",
+     "information_gap": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+     "judgment": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+     "verification_action": "跟踪备案有效期及完成后15个工作日内报告要求。",
+     "text": "公司已收到证监会备案通知；通知不构成投资价值或材料真实性保证。",
+     "layer": "analysis",
+     "basis": "1225627271 P1：备案通知书",
+     "evidence": {
+      "doc_id": "1225627271",
+      "page": 1,
+      "quote": "备案通知书"
+     }
+    },
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+     "trigger_fact": "尚需取得香港证券及期货事务监察委员会",
+     "disclosed_status": "本次香港监管及联交所程序仍待取得。",
+     "status": "disclosed_pending",
+     "information_gap": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+     "judgment": "本次香港监管及联交所程序仍待取得。",
+     "verification_action": "核查正式上市批准、定价及发行结果。",
+     "text": "本次香港监管及联交所程序仍待取得。",
+     "layer": "analysis",
+     "basis": "1225627271 P2：尚需取得香港证券及期货事务监察委员会",
+     "evidence": {
+      "doc_id": "1225627271",
+      "page": 2,
+      "quote": "尚需取得香港证券及期货事务监察委员会"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I10",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "维持境外上市尚未完成判断；备案与香港上市批准分别记录。",
+     "layer": "analysis",
+     "basis": "1225627271 P1：国合函〔2026〕2438 号；1225627271 P1：不超过 23,878,000 股；1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "备案通知具体出具日、最终发行规模、定价和挂牌时间未披露。",
+     "why": "关系实际履行及监管状态",
+     "where": "公司后续披露及交易文件",
+     "layer": "analysis",
+     "basis": "1225627271完整原文"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "跟踪备案有效期及完成后15个工作日内报告要求。",
+     "layer": "analysis",
+     "basis": "1225627271 P1：备案通知书"
+    },
+    {
+     "text": "核查正式上市批准、定价及发行结果。",
+     "layer": "analysis",
+     "basis": "1225627271 P2：尚需取得香港证券及期货事务监察委员会"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225627271",
+     "channel": "A股·巨潮",
+     "file": "龙迅股份关于发行境外上市股份（H股）获得中国证监会备案的公告",
+     "date": "2026-10-27",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225627271.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "国合函〔2026〕2438 号"
+      },
+      {
+       "page": 1,
+       "text": "不超过 23,878,000 股"
+      },
+      {
+       "page": 2,
+       "text": "尚需取得香港证券及期货事务监察委员会"
+      }
+     ],
+     "sha256": "bb36173c68ec2580f4e12aa39f0ff218fd7db680ce0a5aff7cfe60d99e535945"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-27",
+     "type": "新增",
+     "batch_id": "D-20261027",
+     "doc_id": "1225627271",
+     "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+    }
+   ],
+   "update_type_latest": "新增"
+  },
+  {
+   "event_id": "E-D-20261027-1225622034",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "蓝色光标董事会同意终止H股发行上市",
+    "layer": "disclosed",
+    "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+   },
+   "status": "终止",
+   "parties": [
+    {
+     "name": "北京蓝色光标数据科技集团股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225622034完整原文"
+    }
+   ],
+   "geo": {
+    "text": "中国香港",
+    "layer": "disclosed",
+    "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+   },
+   "matter_type": {
+    "value": "listing_abroad",
+    "layer": "analysis",
+    "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+   },
+   "stage_current": "终止",
+   "stage_chain": [
+    {
+     "stage": "终止",
+     "date": "2026-10-27",
+     "doc_id": "1225622034",
+     "note": "蓝色光标董事会同意终止H股发行上市",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+     "trigger_fact": "同意公司终止发行 H 股",
+     "disclosed_status": "董事会已同意终止，本次属于股东会授权范围。",
+     "status": "disclosed_pending",
+     "information_gap": "已提交申请的撤回办理及终止费用未披露。",
+     "judgment": "董事会已同意终止，本次属于股东会授权范围。",
+     "verification_action": "核查撤回手续及中介终止文件。",
+     "text": "董事会已同意终止，本次属于股东会授权范围。",
+     "layer": "analysis",
+     "basis": "1225622034 P1：同意公司终止发行 H 股",
+     "evidence": {
+      "doc_id": "1225622034",
+      "page": 1,
+      "quote": "同意公司终止发行 H 股"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I1",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I10",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "推翻继续推进本次H股发行上市的事项判断；经营影响为公司陈述，未独立核验。",
+     "layer": "analysis",
+     "basis": "1225622034 P1：于 2026 年 10 月 26 日；1225622034 P1：同意公司终止发行 H 股；1225622034 P1：无需提交股东会审议"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "已提交申请的撤回办理及终止费用未披露。",
+     "why": "关系实际履行及监管状态",
+     "where": "公司后续披露及交易文件",
+     "layer": "analysis",
+     "basis": "1225622034完整原文"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "核查撤回手续及中介终止文件。",
+     "layer": "analysis",
+     "basis": "1225622034 P1：同意公司终止发行 H 股"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225622034",
+     "channel": "A股·巨潮",
+     "file": "关于终止发行H股股票并于香港联合交易所有限公司上市的公告",
+     "date": "2026-10-27",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225622034.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "于 2026 年 10 月 26 日"
+      },
+      {
+       "page": 1,
+       "text": "同意公司终止发行 H 股"
+      },
+      {
+       "page": 1,
+       "text": "无需提交股东会审议"
+      }
+     ],
+     "sha256": "fde1a704007e81f4f0bf4fb9af64f4d9a3254741bf5e16b00fd961ebe6cf896d"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-27",
+     "type": "新增",
+     "batch_id": "D-20261027",
+     "doc_id": "1225622034",
+     "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+    }
+   ],
+   "status_code": "terminated",
+   "update_type_latest": "新增"
+  },
+  {
+   "event_id": "E-D-20261027-1225626427",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "汇宇制药地西他滨获意大利、唑来膦酸获葡萄牙上市许可",
+    "layer": "disclosed",
+    "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+   },
+   "status": "活跃",
+   "parties": [
+    {
+     "name": "四川汇宇制药股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "name": "Seacross (Europe) Pharma Ltd.",
+     "role": "交易相关方",
+     "layer": "disclosed",
+     "basis": "1225626427完整原文"
+    }
+   ],
+   "geo": {
+    "text": "意大利/葡萄牙",
+    "layer": "disclosed",
+    "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+   },
+   "matter_type": {
+    "value": "监管及境外销售",
+    "layer": "analysis",
+    "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+   },
+   "stage_current": "已获产品上市许可、销售筹备",
+   "stage_chain": [
+    {
+     "stage": "已获产品上市许可、销售筹备",
+     "date": "2026-10-27",
+     "doc_id": "1225626427",
+     "note": "汇宇制药地西他滨获意大利、唑来膦酸获葡萄牙上市许可",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I7.4",
+     "issue": "产品认证（CE/FCC/药械注册等）",
+     "question": "产品认证（CE/FCC/药械注册等）的处理状态及后续核查是什么？",
+     "trigger_fact": "上市许可",
+     "disclosed_status": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+     "status": "disclosed_pending",
+     "information_gap": "获批确切日期、上市定价、销售规模及收入未披露。",
+     "judgment": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+     "verification_action": "核对对应国家批准文件并跟踪销售准备及许可维护。",
+     "text": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+     "layer": "analysis",
+     "basis": "1225626427 P1：上市许可",
+     "evidence": {
+      "doc_id": "1225626427",
+      "page": 1,
+      "quote": "上市许可"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I1",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I10",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    },
+    {
+     "issue_code": "I13",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "维持许可与商业化分开判断；既有E-027为法国注射用紫杉醇，产品不同，本次独立建档。",
+     "layer": "analysis",
+     "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "获批确切日期、上市定价、销售规模及收入未披露。",
+     "why": "关系实际履行及监管状态",
+     "where": "公司后续披露及交易文件",
+     "layer": "analysis",
+     "basis": "1225626427完整原文"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "核对对应国家批准文件并跟踪销售准备及许可维护。",
+     "layer": "analysis",
+     "basis": "1225626427 P1：上市许可"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225626427",
+     "channel": "A股·巨潮",
+     "file": "自愿披露公司产品获得境外上市许可的公告",
+     "date": "2026-10-27",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225626427.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "051570012"
+      },
+      {
+       "page": 1,
+       "text": "5942214"
+      },
+      {
+       "page": 2,
+       "text": "公司已开展产品上市销售的前期准备工作"
+      }
+     ],
+     "sha256": "f84ce3c11213cf3f057ec40d2840346765981f9427cf446cd313599010ad7e3f"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-27",
+     "type": "新增",
+     "batch_id": "D-20261027",
+     "doc_id": "1225626427",
+     "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+    }
+   ],
+   "update_type_latest": "新增"
+  },
+  {
+   "event_id": "E-D-20261023-1225617035",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权",
+    "layer": "disclosed",
+    "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+   },
+   "status": "完成",
+   "parties": [
+    {
+     "name": "紫金矿业集团股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225617035完整原文"
+    },
+    {
+     "name": "紫金黄金（集团）有限公司",
+     "role": "交易相关方",
+     "layer": "disclosed",
+     "basis": "1225617035完整原文"
+    },
+    {
+     "name": "赤峰吉隆黄金矿业集团股份有限公司",
+     "role": "交易相关方",
+     "layer": "disclosed",
+     "basis": "1225617035完整原文"
+    }
+   ],
+   "geo": {
+    "text": "中国香港",
+    "layer": "disclosed",
+    "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+   },
+   "matter_type": {
+    "value": "并购",
+    "layer": "analysis",
+    "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+   },
+   "stage_current": "交割完成",
+   "stage_chain": [
+    {
+     "stage": "交割完成",
+     "date": "2026-10-23",
+     "doc_id": "1225617035",
+     "note": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权",
+     "layer": "disclosed"
+    },
+    {
+     "stage": "交割完成",
+     "date": "2026-10-23",
+     "doc_id": "1225617077",
+     "note": "赤峰黄金披露A股过户及新增H股发行完成，募集资金总额约92.72亿港元",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "question": "H 股/D 股/GDR的已披露状态与后续核查是什么？",
+     "trigger_fact": "经香港联合交易所有限公司",
+     "disclosed_status": "H股发行及交割完成，原文明示上市委员会批准。",
+     "status": "disclosed_pending",
+     "information_gap": "批准函具体条件及其他监管程序未载。",
+     "judgment": "H股发行及交割完成，原文明示上市委员会批准。不能扩展为未载明程序已完成。",
+     "verification_action": "索取H股上市批准函，逐项核对适用条件；不由交割倒推ODI或反垄断完成。",
+     "text": "H股发行及交割完成，原文明示上市委员会批准。",
+     "layer": "analysis",
+     "basis": "1225617035 P1：经香港联合交易所有限公司",
+     "evidence": {
+      "doc_id": "1225617035",
+      "page": 1,
+      "quote": "经香港联合交易所有限公司"
+     }
+    },
+    {
+     "issue_code": "I10.5",
+     "issue": "合资治理/僵局/退出",
+     "question": "合资治理/僵局/退出的已披露状态与后续核查是什么？",
+     "trigger_fact": "公司取得赤峰黄金的控制权",
+     "disclosed_status": "公司取得控制权，拟推动董事会改选。",
+     "status": "disclosed_pending",
+     "information_gap": "董事会改选时间及落地治理安排未载。",
+     "judgment": "公司取得控制权，拟推动董事会改选。不能扩展为未载明程序已完成。",
+     "verification_action": "跟踪董事会改选和投后治理文件。",
+     "text": "公司取得控制权，拟推动董事会改选。",
+     "layer": "analysis",
+     "basis": "1225617035 P1：公司取得赤峰黄金的控制权",
+     "evidence": {
+      "doc_id": "1225617035",
+      "page": 1,
+      "quote": "公司取得赤峰黄金的控制权"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I1",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225617035 完整原文；事项为并购"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "维持交割完成的事实判断；整合增效为公司预期，不能当作已实现收益。",
+     "layer": "analysis",
+     "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "未披露交易价款及具体审批文件清单；A股登记确认收函日与过户日须分开核对。",
+     "why": "影响后续监管与履行状态核实",
+     "where": "公司后续公告及对应交易文件",
+     "layer": "analysis",
+     "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "索取H股上市批准函，逐项核对适用条件；不由交割倒推ODI或反垄断完成。",
+     "layer": "analysis",
+     "basis": "1225617035 P1：经香港联合交易所有限公司"
+    },
+    {
+     "text": "跟踪董事会改选和投后治理文件。",
+     "layer": "analysis",
+     "basis": "1225617035 P1：公司取得赤峰黄金的控制权"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225617035",
+     "channel": "A股·巨潮",
+     "file": "紫金矿业集团股份有限公司关于协议受让赤峰吉隆黄金矿业集团股份有限公司A股及认购其定向增发H股完成交割的公告",
+     "date": "2026-10-23",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-23/1225617035.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "241,925,746"
+      },
+      {
+       "page": 1,
+       "text": "310,902,731"
+      },
+      {
+       "page": 1,
+       "text": "25.85%"
+      },
+      {
+       "page": 1,
+       "text": "经香港联合交易所有限公司"
+      }
+     ],
+     "sha256": "49e4831acbd974636bfaab9b1cc20d53dbb81f5f4b241d6a9e008fb78945ff38"
+    },
+    {
+     "doc_id": "1225617077",
+     "channel": "A股·巨潮",
+     "file": "赤峰黄金关于股东协议转让公司股份完成过户登记、根据特别授权配售新增发行H股暨公司控股股东、实际控制人变更的公告",
+     "date": "2026-10-23",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-23/1225617077.PDF",
+     "quotes": [
+      {
+       "page": 2,
+       "text": "发行价格为 29.82 港元/股"
+      },
+      {
+       "page": 4,
+       "text": "本次 H 股发行所得款项总额约为 92.72 亿港元"
+      },
+      {
+       "page": 4,
+       "text": "估计约为 91.80 亿港元"
+      },
+      {
+       "page": 3,
+       "text": "过户时间为 2026 年"
+      },
+      {
+       "page": 2,
+       "text": "上杭县财政局成为公司实际控制人"
+      }
+     ],
+     "sha256": "9705ff0edd9d798580e1e56b7a88a63cc069626b662edf068589b158316f37bf"
+    },
+    {
+     "doc_id": "1225619498",
+     "channel": "A股·巨潮",
+     "file": "赤峰黄金H股市场公告",
+     "date": "2026-10-24",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619498.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "310,902,731"
+      },
+      {
+       "page": 1,
+       "text": "29.82"
+      },
+      {
+       "page": 1,
+       "text": "2026年10月22日"
+      }
+     ],
+     "sha256": "4aab38047543c1233708bc4127ad5ae6bbd78df16c4eec500fc4bc775a0cc1a5"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-23",
+     "type": "新增",
+     "batch_id": "D-20261023",
+     "doc_id": "1225617035",
+     "note": "核对既有68个事件，未找到赤峰黄金控制权收购同一事项。"
+    },
+    {
+     "date": "2026-10-23",
+     "type": "进展",
+     "batch_id": "D-20261023",
+     "doc_id": "1225617077",
+     "note": "同一A股受让及310,902,731股H股认购事项，发行方补充融资及治理新事实。",
+     "reason": "同一A股受让及310,902,731股H股认购事项，发行方补充融资及治理新事实。",
+     "diff": {
+      "title_fact": {
+       "old": {
+        "text": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权",
+        "layer": "disclosed",
+        "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+       },
+       "new": {
+        "text": "赤峰黄金披露A股过户及新增H股发行完成，募集资金总额约92.72亿港元",
+        "layer": "disclosed",
+        "basis": "1225617077 P2：发行价格为 29.82 港元/股；1225617077 P4：本次 H 股发行所得款项总额约为 92.72 亿港元；1225617077 P4：估计约为 91.80 亿港元；1225617077 P3：过户时间为 2026 年；1225617077 P2：上杭县财政局成为公司实际控制人"
+       }
+      },
+      "parties": {
+       "old": [
+        {
+         "name": "紫金矿业集团股份有限公司",
+         "role": "披露主体",
+         "layer": "disclosed",
+         "basis": "1225617035完整原文"
+        },
+        {
+         "name": "紫金黄金（集团）有限公司",
+         "role": "交易相关方",
+         "layer": "disclosed",
+         "basis": "1225617035完整原文"
+        },
+        {
+         "name": "赤峰吉隆黄金矿业集团股份有限公司",
+         "role": "交易相关方",
+         "layer": "disclosed",
+         "basis": "1225617035完整原文"
+        }
+       ],
+       "new": [
+        {
+         "name": "赤峰吉隆黄金矿业集团股份有限公司",
+         "role": "披露主体",
+         "layer": "disclosed",
+         "basis": "1225617077完整原文"
+        },
+        {
+         "name": "紫金黄金（集团）有限公司",
+         "role": "交易相关方",
+         "layer": "disclosed",
+         "basis": "1225617077完整原文"
+        },
+        {
+         "name": "紫金矿业集团股份有限公司",
+         "role": "交易相关方",
+         "layer": "disclosed",
+         "basis": "1225617077完整原文"
+        }
+       ]
+      },
+      "geo": {
+       "old": {
+        "text": "中国香港",
+        "layer": "disclosed",
+        "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+       },
+       "new": {
+        "text": "中国香港",
+        "layer": "disclosed",
+        "basis": "1225617077 P2：发行价格为 29.82 港元/股；1225617077 P4：本次 H 股发行所得款项总额约为 92.72 亿港元；1225617077 P4：估计约为 91.80 亿港元；1225617077 P3：过户时间为 2026 年；1225617077 P2：上杭县财政局成为公司实际控制人"
+       }
+      },
+      "matter_type": {
+       "old": {
+        "value": "并购",
+        "layer": "analysis",
+        "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+       },
+       "new": {
+        "value": "并购及境外融资",
+        "layer": "analysis",
+        "basis": "1225617077 P2：发行价格为 29.82 港元/股；1225617077 P4：本次 H 股发行所得款项总额约为 92.72 亿港元；1225617077 P4：估计约为 91.80 亿港元；1225617077 P3：过户时间为 2026 年；1225617077 P2：上杭县财政局成为公司实际控制人"
+       }
+      },
+      "legal_triggers": {
+       "old": [
+        {
+         "issue_code": "I13.2",
+         "issue": "H 股/D 股/GDR",
+         "question": "H 股/D 股/GDR的已披露状态与后续核查是什么？",
+         "trigger_fact": "经香港联合交易所有限公司",
+         "disclosed_status": "H股发行及交割完成，原文明示上市委员会批准。",
+         "status": "disclosed_pending",
+         "information_gap": "批准函具体条件及其他监管程序未载。",
+         "judgment": "H股发行及交割完成，原文明示上市委员会批准。不能扩展为未载明程序已完成。",
+         "verification_action": "索取H股上市批准函，逐项核对适用条件；不由交割倒推ODI或反垄断完成。",
+         "text": "H股发行及交割完成，原文明示上市委员会批准。",
+         "layer": "analysis",
+         "basis": "1225617035 P1：经香港联合交易所有限公司",
+         "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "经香港联合交易所有限公司"
+         }
+        },
+        {
+         "issue_code": "I10.5",
+         "issue": "合资治理/僵局/退出",
+         "question": "合资治理/僵局/退出的已披露状态与后续核查是什么？",
+         "trigger_fact": "公司取得赤峰黄金的控制权",
+         "disclosed_status": "公司取得控制权，拟推动董事会改选。",
+         "status": "disclosed_pending",
+         "information_gap": "董事会改选时间及落地治理安排未载。",
+         "judgment": "公司取得控制权，拟推动董事会改选。不能扩展为未载明程序已完成。",
+         "verification_action": "跟踪董事会改选和投后治理文件。",
+         "text": "公司取得控制权，拟推动董事会改选。",
+         "layer": "analysis",
+         "basis": "1225617035 P1：公司取得赤峰黄金的控制权",
+         "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "公司取得赤峰黄金的控制权"
+         }
+        }
+       ],
+       "new": [
+        {
+         "issue_code": "I13.3",
+         "issue": "募集资金境外使用",
+         "question": "募集资金境外使用的已披露状态与后续核查是什么？",
+         "trigger_fact": "公司现有海外矿山业务",
+         "disclosed_status": "拟将资金用于现有海外矿山、优质海外矿业资产收购及一般公司用途。",
+         "status": "disclosed_pending",
+         "information_gap": "各项目金额分配和资金实际投放时间未载。",
+         "judgment": "拟将资金用于现有海外矿山、优质海外矿业资产收购及一般公司用途。不能扩展为未载明程序已完成。",
+         "verification_action": "跟踪募集资金使用报告和后续海外收购披露。",
+         "text": "拟将资金用于现有海外矿山、优质海外矿业资产收购及一般公司用途。",
+         "layer": "analysis",
+         "basis": "1225617077 P4：公司现有海外矿山业务",
+         "evidence": {
+          "doc_id": "1225617077",
+          "page": 4,
+          "quote": "公司现有海外矿山业务"
+         }
+        },
+        {
+         "issue_code": "I10.5",
+         "issue": "合资治理/僵局/退出",
+         "question": "合资治理/僵局/退出的已披露状态与后续核查是什么？",
+         "trigger_fact": "18 个月内",
+         "disclosed_status": "新控股股东承诺权益变动完成起18个月不转让。",
+         "status": "disclosed_pending",
+         "information_gap": "后续董事会重组及各项目整合安排待核。",
+         "judgment": "新控股股东承诺权益变动完成起18个月不转让。不能扩展为未载明程序已完成。",
+         "verification_action": "核对锁定承诺起算日及董事会改选公告。",
+         "text": "新控股股东承诺权益变动完成起18个月不转让。",
+         "layer": "analysis",
+         "basis": "1225617077 P5：18 个月内",
+         "evidence": {
+          "doc_id": "1225617077",
+          "page": 5,
+          "quote": "18 个月内"
+         }
+        }
+       ]
+      },
+      "issue_not_applicable": {
+       "old": [
+        {
+         "issue_code": "I1",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I2",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I3",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I4",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I5",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I6",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I7",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I8",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I9",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I11",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        },
+        {
+         "issue_code": "I12",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617035 完整原文；事项为并购"
+        }
+       ],
+       "new": [
+        {
+         "issue_code": "I1",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I2",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I3",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I4",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I5",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I6",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I7",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I8",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I9",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I11",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        },
+        {
+         "issue_code": "I12",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225617077 完整原文；事项为并购及境外融资"
+        }
+       ]
+      },
+      "watch_points": {
+       "old": [
+        {
+         "text": "维持交割完成的事实判断；整合增效为公司预期，不能当作已实现收益。",
+         "layer": "analysis",
+         "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+        }
+       ],
+       "new": [
+        {
+         "text": "维持交割完成判断；补充融资规模、发行价和控制人变更，不改写紫金来源已核事实。",
+         "layer": "analysis",
+         "basis": "1225617077 P2：发行价格为 29.82 港元/股；1225617077 P4：本次 H 股发行所得款项总额约为 92.72 亿港元；1225617077 P4：估计约为 91.80 亿港元；1225617077 P3：过户时间为 2026 年；1225617077 P2：上杭县财政局成为公司实际控制人"
+        }
+       ]
+      },
+      "gaps": {
+       "old": [
+        {
+         "item": "未披露交易价款及具体审批文件清单；A股登记确认收函日与过户日须分开核对。",
+         "why": "影响后续监管与履行状态核实",
+         "where": "公司后续公告及对应交易文件",
+         "layer": "analysis",
+         "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+        }
+       ],
+       "new": [
+        {
+         "item": "资金使用分配及具体海外项目审批未披露。",
+         "why": "影响后续监管与履行状态核实",
+         "where": "公司后续公告及对应交易文件",
+         "layer": "analysis",
+         "basis": "1225617077 P2：发行价格为 29.82 港元/股；1225617077 P4：本次 H 股发行所得款项总额约为 92.72 亿港元；1225617077 P4：估计约为 91.80 亿港元；1225617077 P3：过户时间为 2026 年；1225617077 P2：上杭县财政局成为公司实际控制人"
+        }
+       ]
+      },
+      "practice_notes": {
+       "old": [
+        {
+         "text": "索取H股上市批准函，逐项核对适用条件；不由交割倒推ODI或反垄断完成。",
+         "layer": "analysis",
+         "basis": "1225617035 P1：经香港联合交易所有限公司"
+        },
+        {
+         "text": "跟踪董事会改选和投后治理文件。",
+         "layer": "analysis",
+         "basis": "1225617035 P1：公司取得赤峰黄金的控制权"
+        }
+       ],
+       "new": [
+        {
+         "text": "跟踪募集资金使用报告和后续海外收购披露。",
+         "layer": "analysis",
+         "basis": "1225617077 P4：公司现有海外矿山业务"
+        },
+        {
+         "text": "核对锁定承诺起算日及董事会改选公告。",
+         "layer": "analysis",
+         "basis": "1225617077 P5：18 个月内"
+        }
+       ]
+      },
+      "source_diff": {
+       "old": null,
+       "new": {
+        "text": "紫金方说明10月22日收到确认；赤峰方说明过户日10月21日、10月22日收到确认，收函日和登记日分别保留。",
+        "layer": "analysis",
+        "basis": "1225617035 P1；1225617077 P2-P3"
+       }
+      }
+     },
+     "source_doc_ids": [
+      "1225617077"
+     ]
+    },
+    {
+     "date": "2026-10-24",
+     "type": "重复",
+     "batch_id": "D-20261024",
+     "doc_id": "1225619498",
+     "note": "同笔发行、同日完成、同发行价29.82港元，无新增核心事实。"
+    }
+   ],
+   "update_type_latest": "重复"
+  },
+  {
+   "event_id": "E-D-20261024-1225619052",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "中交建担保的CCCI Treasure 5亿美元永续证券发出赎回通知，计划12月22日赎回",
+    "layer": "disclosed",
+    "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+   },
+   "status": "活跃",
+   "parties": [
+    {
+     "name": "中国交通建设股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225619052完整原文"
+    },
+    {
+     "name": "CCCI Treasure Limited",
+     "role": "交易相关方",
+     "layer": "disclosed",
+     "basis": "1225619052完整原文"
+    }
+   ],
+   "geo": {
+    "text": "英属维尔京群岛/中国香港",
+    "layer": "disclosed",
+    "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+   },
+   "matter_type": {
+    "value": "境外融资退出",
+    "layer": "analysis",
+    "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+   },
+   "stage_current": "已发赎回通知、待赎回",
+   "stage_chain": [
+    {
+     "stage": "已发赎回通知、待赎回",
+     "date": "2026-10-24",
+     "doc_id": "1225619052",
+     "note": "中交建担保的CCCI Treasure 5亿美元永续证券发出赎回通知，计划12月22日赎回",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "question": "融资与担保（含母公司担保、财务资助）的已披露状态与后续核查是什么？",
+     "trigger_fact": "贖 回 全 部 證 券",
+     "disclosed_status": "已发出通知，拟于12月22日按本金加应计未付票息赎回。",
+     "status": "disclosed_pending",
+     "information_gap": "赎回资金落实及实际兑付结果未载。",
+     "judgment": "已发出通知，拟于12月22日按本金加应计未付票息赎回。不能扩展为未载明程序已完成。",
+     "verification_action": "跟踪兑付确认，核对担保解除与债务注销文件。",
+     "text": "已发出通知，拟于12月22日按本金加应计未付票息赎回。",
+     "layer": "analysis",
+     "basis": "1225619052 P2：贖 回 全 部 證 券",
+     "evidence": {
+      "doc_id": "1225619052",
+      "page": 2,
+      "quote": "贖 回 全 部 證 券"
+     }
+    },
+    {
+     "issue_code": "I13.1",
+     "issue": "两地/多地披露同步",
+     "question": "两地/多地披露同步的已披露状态与后续核查是什么？",
+     "trigger_fact": "申 請 撤 回",
+     "disclosed_status": "赎回完成后将申请撤回证券上市。",
+     "status": "disclosed_pending",
+     "information_gap": "撤回上市尚为未来动作。",
+     "judgment": "赎回完成后将申请撤回证券上市。不能扩展为未载明程序已完成。",
+     "verification_action": "核对完成赎回及撤销上市公告。",
+     "text": "赎回完成后将申请撤回证券上市。",
+     "layer": "analysis",
+     "basis": "1225619052 P2：申 請 撤 回",
+     "evidence": {
+      "doc_id": "1225619052",
+      "page": 2,
+      "quote": "申 請 撤 回"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I1",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619052 完整原文；事项为境外融资退出"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "维持待履行判断：发出赎回通知不等于已兑付，未偿本金仍为5亿美元。",
+     "layer": "analysis",
+     "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "实际赎回、资金安排及撤销上市批准未披露。",
+     "why": "影响后续监管与履行状态核实",
+     "where": "公司后续公告及对应交易文件",
+     "layer": "analysis",
+     "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "跟踪兑付确认，核对担保解除与债务注销文件。",
+     "layer": "analysis",
+     "basis": "1225619052 P2：贖 回 全 部 證 券"
+    },
+    {
+     "text": "核对完成赎回及撤销上市公告。",
+     "layer": "analysis",
+     "basis": "1225619052 P2：申 請 撤 回"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225619052",
+     "channel": "A股·巨潮",
+     "file": "中国交建H股公告",
+     "date": "2026-10-24",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619052.PDF",
+     "quotes": [
+      {
+       "page": 2,
+       "text": "500,000,000美 元"
+      },
+      {
+       "page": 1,
+       "text": "3.650%"
+      },
+      {
+       "page": 2,
+       "text": "2026 年 12 月 22 日"
+      },
+      {
+       "page": 1,
+       "text": "XS2102905168"
+      }
+     ],
+     "sha256": "17e07039903cdeac187954ab64e7c23629e6fad56e0f50805f7762ffb7c7e2c5"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-24",
+     "type": "新增",
+     "batch_id": "D-20261024",
+     "doc_id": "1225619052",
+     "note": "既有事件无CCCI Treasure该ISIN证券赎回事项。"
+    }
+   ],
+   "update_type_latest": "新增"
+  },
+  {
+   "event_id": "E-D-20261024-1225619286",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "中坚科技董事会决定终止H股发行及香港主板上市",
+    "layer": "disclosed",
+    "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+   },
+   "status": "终止",
+   "parties": [
+    {
+     "name": "浙江中坚科技股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225619286完整原文"
+    }
+   ],
+   "geo": {
+    "text": "中国香港",
+    "layer": "disclosed",
+    "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+   },
+   "matter_type": {
+    "value": "listing_abroad",
+    "layer": "analysis",
+    "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+   },
+   "stage_current": "终止",
+   "stage_chain": [
+    {
+     "stage": "终止",
+     "date": "2026-10-24",
+     "doc_id": "1225619286",
+     "note": "中坚科技董事会决定终止H股发行及香港主板上市",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "question": "H 股/D 股/GDR的已披露状态与后续核查是什么？",
+     "trigger_fact": "公司董事会同意终止发行 H 股",
+     "disclosed_status": "董事会同意终止H股发行及主板上市。",
+     "status": "disclosed_pending",
+     "information_gap": "撤回申请办理时间及费用未载。",
+     "judgment": "董事会同意终止H股发行及主板上市。不能扩展为未载明程序已完成。",
+     "verification_action": "核查香港联交所撤回手续及中介终止安排。",
+     "text": "董事会同意终止H股发行及主板上市。",
+     "layer": "analysis",
+     "basis": "1225619286 P1：公司董事会同意终止发行 H 股",
+     "evidence": {
+      "doc_id": "1225619286",
+      "page": 1,
+      "quote": "公司董事会同意终止发行 H 股"
+     }
+    },
+    {
+     "issue_code": "I1.5",
+     "issue": "境外上市证监会备案（含全流通）",
+     "question": "境外上市证监会备案（含全流通）的已披露状态与后续核查是什么？",
+     "trigger_fact": "并获中国证券监督管理委员会接收",
+     "disclosed_status": "仅载此前备案申请材料获接收，未载备案完成。",
+     "status": "disclosed_pending",
+     "information_gap": "终止上市相关境内备案通知或报告状态未载。",
+     "judgment": "仅载此前备案申请材料获接收，未载备案完成。不能扩展为未载明程序已完成。",
+     "verification_action": "核对终止事项向证监会报告及备案流程处理文件。",
+     "text": "仅载此前备案申请材料获接收，未载备案完成。",
+     "layer": "analysis",
+     "basis": "1225619286 P2：并获中国证券监督管理委员会接收",
+     "evidence": {
+      "doc_id": "1225619286",
+      "page": 2,
+      "quote": "并获中国证券监督管理委员会接收"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I10",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225619286 完整原文；事项为listing_abroad"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "推翻继续推进本次上市的事项判断：董事会已明确终止；未来择机再申报只是可能性。",
+     "layer": "analysis",
+     "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "撤回手续完成时间、费用及未来再申报时间未披露。",
+     "why": "影响后续监管与履行状态核实",
+     "where": "公司后续公告及对应交易文件",
+     "layer": "analysis",
+     "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "核查香港联交所撤回手续及中介终止安排。",
+     "layer": "analysis",
+     "basis": "1225619286 P1：公司董事会同意终止发行 H 股"
+    },
+    {
+     "text": "核对终止事项向证监会报告及备案流程处理文件。",
+     "layer": "analysis",
+     "basis": "1225619286 P2：并获中国证券监督管理委员会接收"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225619286",
+     "channel": "A股·巨潮",
+     "file": "关于终止发行H股股票并于香港联合交易所有限公司主板上市的公告",
+     "date": "2026-10-24",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619286.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "第五届董事会第三十一次会议"
+      },
+      {
+       "page": 1,
+       "text": "公司董事会同意终止发行 H 股"
+      },
+      {
+       "page": 2,
+       "text": "并获中国证券监督管理委员会接收"
+      }
+     ],
+     "sha256": "459d1e4de271779643d538844c758ce3658c11c6d29be595e40fa9641edeed44"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-24",
+     "type": "新增",
+     "batch_id": "D-20261024",
+     "doc_id": "1225619286",
+     "note": "无同一事项既有事件，首次建档即为终止状态，不能虚构前序事件以标失效。"
+    }
+   ],
+   "status_code": "terminated",
+   "update_type_latest": "新增"
+  },
+  {
+   "event_id": "E-D-20261024-1225620956",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "中国银行迪拜分行20亿元人民币1.60%票据申请香港上市，预计10月26日生效",
+    "layer": "disclosed",
+    "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+   },
+   "status": "活跃",
+   "parties": [
+    {
+     "name": "中国银行股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225620956完整原文"
+    },
+    {
+     "name": "中国银行股份有限公司迪拜分行",
+     "role": "交易相关方",
+     "layer": "disclosed",
+     "basis": "1225620956完整原文"
+    }
+   ],
+   "geo": {
+    "text": "阿联酋/中国香港",
+    "layer": "disclosed",
+    "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+   },
+   "matter_type": {
+    "value": "境外融资",
+    "layer": "analysis",
+    "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+   },
+   "stage_current": "获准迪拜上市交易",
+   "stage_chain": [
+    {
+     "stage": "上市申请、预计批准生效",
+     "date": "2026-10-24",
+     "doc_id": "1225620956",
+     "note": "中国银行迪拜分行20亿元人民币1.60%票据申请香港上市，预计10月26日生效",
+     "layer": "disclosed"
+    },
+    {
+     "stage": "获准迪拜上市交易",
+     "date": "2026-10-27",
+     "doc_id": "1225623482",
+     "note": "中行迪拜分行20亿元人民币票据获准在纳斯达克迪拜交易所交易",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "question": "融资与担保（含母公司担保、财务资助）的已披露状态与后续核查是什么？",
+     "trigger_fact": "2,000,000,000人民幣1.60釐利率票據",
+     "disclosed_status": "迪拜分行本次发行20亿元人民币票据，400亿美元为计划上限。",
+     "status": "disclosed_pending",
+     "information_gap": "完整偿付、违约及担保条款未在公告载明。",
+     "judgment": "迪拜分行本次发行20亿元人民币票据，400亿美元为计划上限。不能扩展为未载明程序已完成。",
+     "verification_action": "取得定价补充文件，区分本次本金与计划上限。",
+     "text": "迪拜分行本次发行20亿元人民币票据，400亿美元为计划上限。",
+     "layer": "analysis",
+     "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據",
+     "evidence": {
+      "doc_id": "1225620956",
+      "page": 1,
+      "quote": "2,000,000,000人民幣1.60釐利率票據"
+     }
+    },
+    {
+     "issue_code": "I13.1",
+     "issue": "两地/多地披露同步",
+     "question": "两地/多地披露同步的已披露状态与后续核查是什么？",
+     "trigger_fact": "預計票據上市及買賣的批准",
+     "disclosed_status": "公告仅预期10月26日上市批准生效。",
+     "status": "disclosed_pending",
+     "information_gap": "本公告不证明后续实际上市。",
+     "judgment": "公告仅预期10月26日上市批准生效。不能扩展为未载明程序已完成。",
+     "verification_action": "核对10月26日实际上市和交易状态。",
+     "text": "公告仅预期10月26日上市批准生效。",
+     "layer": "analysis",
+     "basis": "1225620956 P2：預計票據上市及買賣的批准",
+     "evidence": {
+      "doc_id": "1225620956",
+      "page": 2,
+      "quote": "預計票據上市及買賣的批准"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I1",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225620956 完整原文；事项为境外融资"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "维持待核实际上市状态；不能把预计批准生效写成已上市，亦不能把400亿美元计划上限写成本次发行额。",
+     "layer": "analysis",
+     "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "完整票据条款及实际上市结果待核。",
+     "why": "影响后续监管与履行状态核实",
+     "where": "公司后续公告及对应交易文件",
+     "layer": "analysis",
+     "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "取得定价补充文件，区分本次本金与计划上限。",
+     "layer": "analysis",
+     "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據"
+    },
+    {
+     "text": "核对10月26日实际上市和交易状态。",
+     "layer": "analysis",
+     "basis": "1225620956 P2：預計票據上市及買賣的批准"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225620956",
+     "channel": "A股·巨潮",
+     "file": "H股公告-中国银行股份有限公司400亿美元中期票据计划下通过迪拜分行发行的票据在香港联合交易所上市之通告",
+     "date": "2026-10-24",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225620956.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "2,000,000,000人民幣1.60釐利率票據"
+      },
+      {
+       "page": 1,
+       "text": "1.60釐"
+      },
+      {
+       "page": 1,
+       "text": "於2028年到期"
+      },
+      {
+       "page": 1,
+       "text": "40,000,000,000美元"
+      },
+      {
+       "page": 2,
+       "text": "預計票據上市及買賣的批准"
+      }
+     ],
+     "sha256": "50f83bb3e2444ed83a0553d53fd8b0328692c76c5a0ed9e80fe263b3f71edfc9"
+    },
+    {
+     "doc_id": "1225623482",
+     "channel": "A股·巨潮",
+     "file": "H股公告-海外监管公告-中国银行股份有限公司400亿美元中期票据计划下通过迪拜分行发行的票据在纳斯达克迪拜交易所上市之通告",
+     "date": "2026-10-27",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225623482.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "2,000,000,000人民幣1.60釐利率票據"
+      },
+      {
+       "page": 1,
+       "text": "票據已於2026年"
+      },
+      {
+       "page": 1,
+       "text": "迪拜交易所進行交易"
+      }
+     ],
+     "sha256": "304f9e2ee00d404d80d1099d9d856cb167937f64cfbb3d6d11a221764892c8f5"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-24",
+     "type": "新增",
+     "batch_id": "D-20261024",
+     "doc_id": "1225620956",
+     "note": "既有事件没有迪拜分行该笔2028年到期人民币票据事项。"
+    },
+    {
+     "date": "2026-10-27",
+     "type": "进展",
+     "batch_id": "D-20261027",
+     "doc_id": "1225623482",
+     "note": "与既有事件相同标的，新增明确事实，保留原事实。",
+     "reason": "与既有事件相同标的，新增明确事实，保留原事实。",
+     "diff": {
+      "title_fact": {
+       "old": {
+        "text": "中国银行迪拜分行20亿元人民币1.60%票据申请香港上市，预计10月26日生效",
+        "layer": "disclosed",
+        "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+       },
+       "new": {
+        "text": "中行迪拜分行20亿元人民币票据获准在纳斯达克迪拜交易所交易",
+        "layer": "disclosed",
+        "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+       }
+      },
+      "parties": {
+       "old": [
+        {
+         "name": "中国银行股份有限公司",
+         "role": "披露主体",
+         "layer": "disclosed",
+         "basis": "1225620956完整原文"
+        },
+        {
+         "name": "中国银行股份有限公司迪拜分行",
+         "role": "交易相关方",
+         "layer": "disclosed",
+         "basis": "1225620956完整原文"
+        }
+       ],
+       "new": [
+        {
+         "name": "中国银行股份有限公司",
+         "role": "披露主体",
+         "layer": "disclosed",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "name": "中国银行股份有限公司迪拜分行",
+         "role": "交易相关方",
+         "layer": "disclosed",
+         "basis": "1225623482完整原文"
+        }
+       ]
+      },
+      "geo": {
+       "old": {
+        "text": "阿联酋/中国香港",
+        "layer": "disclosed",
+        "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+       },
+       "new": {
+        "text": "阿联酋/中国香港",
+        "layer": "disclosed",
+        "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+       }
+      },
+      "matter_type": {
+       "old": {
+        "value": "境外融资",
+        "layer": "analysis",
+        "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+       },
+       "new": {
+        "value": "境外融资",
+        "layer": "analysis",
+        "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+       }
+      },
+      "legal_triggers": {
+       "old": [
+        {
+         "issue_code": "I10.3",
+         "issue": "融资与担保（含母公司担保、财务资助）",
+         "question": "融资与担保（含母公司担保、财务资助）的已披露状态与后续核查是什么？",
+         "trigger_fact": "2,000,000,000人民幣1.60釐利率票據",
+         "disclosed_status": "迪拜分行本次发行20亿元人民币票据，400亿美元为计划上限。",
+         "status": "disclosed_pending",
+         "information_gap": "完整偿付、违约及担保条款未在公告载明。",
+         "judgment": "迪拜分行本次发行20亿元人民币票据，400亿美元为计划上限。不能扩展为未载明程序已完成。",
+         "verification_action": "取得定价补充文件，区分本次本金与计划上限。",
+         "text": "迪拜分行本次发行20亿元人民币票据，400亿美元为计划上限。",
+         "layer": "analysis",
+         "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據",
+         "evidence": {
+          "doc_id": "1225620956",
+          "page": 1,
+          "quote": "2,000,000,000人民幣1.60釐利率票據"
+         }
+        },
+        {
+         "issue_code": "I13.1",
+         "issue": "两地/多地披露同步",
+         "question": "两地/多地披露同步的已披露状态与后续核查是什么？",
+         "trigger_fact": "預計票據上市及買賣的批准",
+         "disclosed_status": "公告仅预期10月26日上市批准生效。",
+         "status": "disclosed_pending",
+         "information_gap": "本公告不证明后续实际上市。",
+         "judgment": "公告仅预期10月26日上市批准生效。不能扩展为未载明程序已完成。",
+         "verification_action": "核对10月26日实际上市和交易状态。",
+         "text": "公告仅预期10月26日上市批准生效。",
+         "layer": "analysis",
+         "basis": "1225620956 P2：預計票據上市及買賣的批准",
+         "evidence": {
+          "doc_id": "1225620956",
+          "page": 2,
+          "quote": "預計票據上市及買賣的批准"
+         }
+        }
+       ],
+       "new": [
+        {
+         "issue_code": "I13.1",
+         "issue": "两地/多地披露同步",
+         "question": "两地/多地披露同步的处理状态及后续核查是什么？",
+         "trigger_fact": "獲准在納斯達克",
+         "disclosed_status": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+         "status": "disclosed_pending",
+         "information_gap": "本公告没有确认香港上市实际生效或补充完整票据契约。",
+         "judgment": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+         "verification_action": "核对迪拜上市记录，并另查香港联交所的实际上市记录。",
+         "text": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+         "layer": "analysis",
+         "basis": "1225623482 P1：獲准在納斯達克",
+         "evidence": {
+          "doc_id": "1225623482",
+          "page": 1,
+          "quote": "獲准在納斯達克"
+         }
+        }
+       ]
+      },
+      "issue_not_applicable": {
+       "old": [
+        {
+         "issue_code": "I1",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I2",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I3",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I4",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I5",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I6",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I7",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I8",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I9",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I11",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        },
+        {
+         "issue_code": "I12",
+         "status": "not_applicable",
+         "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225620956 完整原文；事项为境外融资"
+        }
+       ],
+       "new": [
+        {
+         "issue_code": "I1",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I2",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I3",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I4",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I5",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I6",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I7",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I8",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I9",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I10",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I11",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        },
+        {
+         "issue_code": "I12",
+         "status": "not_applicable",
+         "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        }
+       ]
+      },
+      "watch_points": {
+       "old": [
+        {
+         "text": "维持待核实际上市状态；不能把预计批准生效写成已上市，亦不能把400亿美元计划上限写成本次发行额。",
+         "layer": "analysis",
+         "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+        }
+       ],
+       "new": [
+        {
+         "text": "修正事项阶段：新增明确的迪拜交易许可；维持香港上市仍须独立核实的判断。",
+         "layer": "analysis",
+         "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+        }
+       ]
+      },
+      "gaps": {
+       "old": [
+        {
+         "item": "完整票据条款及实际上市结果待核。",
+         "why": "影响后续监管与履行状态核实",
+         "where": "公司后续公告及对应交易文件",
+         "layer": "analysis",
+         "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據；1225620956 P1：1.60釐；1225620956 P1：於2028年到期；1225620956 P1：40,000,000,000美元；1225620956 P2：預計票據上市及買賣的批准"
+        }
+       ],
+       "new": [
+        {
+         "item": "本公告没有确认香港上市实际生效或补充完整票据契约。",
+         "why": "关系实际履行及监管状态",
+         "where": "公司后续披露及交易文件",
+         "layer": "analysis",
+         "basis": "1225623482完整原文"
+        }
+       ]
+      },
+      "practice_notes": {
+       "old": [
+        {
+         "text": "取得定价补充文件，区分本次本金与计划上限。",
+         "layer": "analysis",
+         "basis": "1225620956 P1：2,000,000,000人民幣1.60釐利率票據"
+        },
+        {
+         "text": "核对10月26日实际上市和交易状态。",
+         "layer": "analysis",
+         "basis": "1225620956 P2：預計票據上市及買賣的批准"
+        }
+       ],
+       "new": [
+        {
+         "text": "核对迪拜上市记录，并另查香港联交所的实际上市记录。",
+         "layer": "analysis",
+         "basis": "1225623482 P1：獲准在納斯達克"
+        }
+       ]
+      }
+     },
+     "source_doc_ids": [
+      "1225623482"
+     ]
+    }
+   ],
+   "update_type_latest": "进展"
+  },
+  {
+   "event_id": "E-D-20261026-1225621945",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "东山精密确定H股最终发行价86.80港元，预计10月28日上市",
+    "layer": "disclosed",
+    "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+   },
+   "status": "活跃",
+   "parties": [
+    {
+     "name": "苏州东山精密制造股份有限公司",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "1225621945完整原文"
+    }
+   ],
+   "geo": {
+    "text": "中国香港",
+    "layer": "disclosed",
+    "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+   },
+   "matter_type": {
+    "value": "listing_abroad",
+    "layer": "analysis",
+    "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+   },
+   "stage_current": "已定价、待上市",
+   "stage_chain": [
+    {
+     "stage": "已定价、待上市",
+     "date": "2026-10-26",
+     "doc_id": "1225621945",
+     "note": "东山精密确定H股最终发行价86.80港元，预计10月28日上市",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I13.2",
+     "issue": "H 股/D 股/GDR",
+     "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+     "trigger_fact": "公司已确定本次 H 股发行的最终价格",
+     "disclosed_status": "已确定最终价格，上市时间仍为预计。",
+     "status": "disclosed_pending",
+     "information_gap": "发行股数、净募资和最终挂牌结果未披露。",
+     "judgment": "已确定最终价格，上市时间仍为预计。",
+     "verification_action": "核对最终配售及挂牌公告。",
+     "text": "已确定最终价格，上市时间仍为预计。",
+     "layer": "analysis",
+     "basis": "1225621945 P1：公司已确定本次 H 股发行的最终价格",
+     "evidence": {
+      "doc_id": "1225621945",
+      "page": 1,
+      "quote": "公司已确定本次 H 股发行的最终价格"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I1",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I10",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "维持待挂牌判断：定价不等于发行交割完成。",
+     "layer": "analysis",
+     "basis": "1225621945 P1：每股 86.80 港元；1225621945 P1：预计于 2026 年 10 月 28 日"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "发行股数、净募资和最终挂牌结果未披露。",
+     "why": "关系实际履行及监管状态",
+     "where": "公司后续披露及交易文件",
+     "layer": "analysis",
+     "basis": "1225621945完整原文"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "核对最终配售及挂牌公告。",
+     "layer": "analysis",
+     "basis": "1225621945 P1：公司已确定本次 H 股发行的最终价格"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "1225621945",
+     "channel": "A股·巨潮",
+     "file": "关于境外上市股份（H股）公开发行价格的公告",
+     "date": "2026-10-26",
+     "url": "https://static.cninfo.com.cn/finalpage/2026-10-26/1225621945.PDF",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "每股 86.80 港元"
+      },
+      {
+       "page": 1,
+       "text": "预计于 2026 年 10 月 28 日"
+      }
+     ],
+     "sha256": "b63af9dcf2906cd1fa3b210b37e5c66e927fd4c849dcc622e76322a4ac4aa060"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-26",
+     "type": "新增",
+     "batch_id": "D-20261026",
+     "doc_id": "1225621945",
+     "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+    }
+   ],
+   "update_type_latest": "新增"
+  },
+  {
+   "event_id": "E-D-20261026-hkex_12382424",
+   "module": "cn_outbound",
+   "title_fact": {
+    "text": "美团拟国际发售人民币优先票据，金额及利率尚未确定",
+    "layer": "disclosed",
+    "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+   },
+   "status": "活跃",
+   "parties": [
+    {
+     "name": "美团",
+     "role": "披露主体",
+     "layer": "disclosed",
+     "basis": "hkex_12382424完整原文"
+    }
+   ],
+   "geo": {
+    "text": "开曼群岛/中国香港",
+    "layer": "disclosed",
+    "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+   },
+   "matter_type": {
+    "value": "境外融资",
+    "layer": "analysis",
+    "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+   },
+   "stage_current": "拟发行、未订约",
+   "stage_chain": [
+    {
+     "stage": "拟发行、未订约",
+     "date": "2026-10-26",
+     "doc_id": "hkex_12382424",
+     "note": "美团拟国际发售人民币优先票据，金额及利率尚未确定",
+     "layer": "disclosed"
+    }
+   ],
+   "scale": null,
+   "terms": null,
+   "legal_triggers": [
+    {
+     "issue_code": "I10.3",
+     "issue": "融资与担保（含母公司担保、财务资助）",
+     "question": "融资与担保（含母公司担保、财务资助）的处理状态及后续核查是什么？",
+     "trigger_fact": "概無就建議票據發行訂立具約束力協議",
+     "disclosed_status": "拟发行尚未订立具约束力协议，本金、利率待定。",
+     "status": "disclosed_pending",
+     "information_gap": "发行规模、利率、交割及付款日期未披露。",
+     "judgment": "拟发行尚未订立具约束力协议，本金、利率待定。",
+     "verification_action": "核对购买协议、定价公告与发行交割公告。",
+     "text": "拟发行尚未订立具约束力协议，本金、利率待定。",
+     "layer": "analysis",
+     "basis": "hkex_12382424 P2：概無就建議票據發行訂立具約束力協議",
+     "evidence": {
+      "doc_id": "hkex_12382424",
+      "page": 2,
+      "quote": "概無就建議票據發行訂立具約束力協議"
+     }
+    },
+    {
+     "issue_code": "I13.1",
+     "issue": "两地/多地披露同步",
+     "question": "两地/多地披露同步的处理状态及后续核查是什么？",
+     "trigger_fact": "向聯交所提出申請",
+     "disclosed_status": "拟按专业投资者债券上市方式申请，未载批准。",
+     "status": "disclosed_pending",
+     "information_gap": "发行规模、利率、交割及付款日期未披露。",
+     "judgment": "拟按专业投资者债券上市方式申请，未载批准。",
+     "verification_action": "核查正式上市文件及专业投资者销售限制。",
+     "text": "拟按专业投资者债券上市方式申请，未载批准。",
+     "layer": "analysis",
+     "basis": "hkex_12382424 P2：向聯交所提出申請",
+     "evidence": {
+      "doc_id": "hkex_12382424",
+      "page": 2,
+      "quote": "向聯交所提出申請"
+     }
+    }
+   ],
+   "issue_not_applicable": [
+    {
+     "issue_code": "I1",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I2",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I3",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I4",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I5",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I6",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I7",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I8",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I9",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I11",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    },
+    {
+     "issue_code": "I12",
+     "status": "not_applicable",
+     "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    }
+   ],
+   "watch_points": [
+    {
+     "text": "维持拟融资判断；市况及投资者兴趣影响完成可能，不能记作已募资。",
+     "layer": "analysis",
+     "basis": "hkex_12382424 P1：本金總；hkex_12382424 P1：尚未釐定；hkex_12382424 P2：現有離岸債務的再融資；hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+    }
+   ],
+   "gaps": [
+    {
+     "item": "发行规模、利率、交割及付款日期未披露。",
+     "why": "关系实际履行及监管状态",
+     "where": "公司后续披露及交易文件",
+     "layer": "analysis",
+     "basis": "hkex_12382424完整原文"
+    }
+   ],
+   "practice_notes": [
+    {
+     "text": "核对购买协议、定价公告与发行交割公告。",
+     "layer": "analysis",
+     "basis": "hkex_12382424 P2：概無就建議票據發行訂立具約束力協議"
+    },
+    {
+     "text": "核查正式上市文件及专业投资者销售限制。",
+     "layer": "analysis",
+     "basis": "hkex_12382424 P2：向聯交所提出申請"
+    }
+   ],
+   "sources": [
+    {
+     "doc_id": "hkex_12382424",
+     "channel": "港股·披露易",
+     "file": "建議發行人民幣優先票據",
+     "date": "2026-10-26",
+     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1026/2026102600026_c.pdf",
+     "quotes": [
+      {
+       "page": 1,
+       "text": "本金總額"
+      },
+      {
+       "page": 1,
+       "text": "尚未釐定"
+      },
+      {
+       "page": 2,
+       "text": "現有離岸債務的再融資"
+      },
+      {
+       "page": 2,
+       "text": "概無就建議票據發行訂立具約束力協議"
+      }
+     ],
+     "sha256": "d352e9b45a2294f50e09809d24adcd2732fb68f9d7934c35c4e8d92022f5bd23"
+    }
+   ],
+   "source_diff": null,
+   "changelog": [
+    {
+     "date": "2026-10-26",
+     "type": "新增",
+     "batch_id": "D-20261026",
+     "doc_id": "hkex_12382424",
+     "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+    }
+   ],
+   "update_type_latest": "新增"
   }
  ],
  "docs": {
@@ -17708,6 +21126,62 @@
   "1225586743": {
    "event_id": "E-H-20261027-1225586743",
    "date": "2026-09-29"
+  },
+  "1225625852": {
+   "event_id": "E-D-20261027-1225625852",
+   "date": "2026-10-27"
+  },
+  "1225627271": {
+   "event_id": "E-D-20261027-1225627271",
+   "date": "2026-10-27"
+  },
+  "1225622034": {
+   "event_id": "E-D-20261027-1225622034",
+   "date": "2026-10-27"
+  },
+  "1225626427": {
+   "event_id": "E-D-20261027-1225626427",
+   "date": "2026-10-27"
+  },
+  "1225617035": {
+   "event_id": "E-D-20261023-1225617035",
+   "date": "2026-10-23"
+  },
+  "1225617077": {
+   "event_id": "E-D-20261023-1225617035",
+   "date": "2026-10-23"
+  },
+  "1225619052": {
+   "event_id": "E-D-20261024-1225619052",
+   "date": "2026-10-24"
+  },
+  "1225619286": {
+   "event_id": "E-D-20261024-1225619286",
+   "date": "2026-10-24"
+  },
+  "1225619498": {
+   "event_id": "E-D-20261023-1225617035",
+   "date": "2026-10-24"
+  },
+  "1225620956": {
+   "event_id": "E-D-20261024-1225620956",
+   "date": "2026-10-24"
+  },
+  "1225621945": {
+   "event_id": "E-D-20261026-1225621945",
+   "date": "2026-10-26"
+  },
+  "1225624714": {
+   "event_id": "E-019",
+   "date": "2026-10-26"
+  },
+  "hkex_12382424": {
+   "event_id": "E-D-20261026-hkex_12382424",
+   "date": "2026-10-26"
+  },
+  "1225623482": {
+   "event_id": "E-D-20261024-1225620956",
+   "date": "2026-10-27"
   }
  }
 }

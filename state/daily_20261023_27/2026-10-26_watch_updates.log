@@ -1,0 +1,11 @@
+[warn] 检索失败 天通股份 第1页: HTTP Error 500: Internal Server Error
+Traceback (most recent call last):
+  File "/workspace/kc/repo/scripts/watch_updates.py", line 29, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "/workspace/kc/repo/scripts/watch_updates.py", line 20, in main
+    for row in cninfo.search(start.isoformat(), end.isoformat(), [company]):
+               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/kc/repo/scripts/cninfo.py", line 90, in search
+    raise RuntimeError("检索不完整，禁止记作成功零新增：" + "; ".join(failures))
+RuntimeError: 检索不完整，禁止记作成功零新增：天通股份 page=1: HTTP Error 500: Internal Server Error

@@ -12,12 +12,13 @@
     ]
   },
   "raw_path": "raw/1225619052.txt",
-  "batch_id": "H-20261027",
+  "batch_id": "D-20261024",
   "steps": [
     "extract_facts",
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "17e07039903cdeac187954ab64e7c23629e6fad56e0f50805f7762ffb7c7e2c5"
+  "status": "ingested",
+  "sha256": "17e07039903cdeac187954ab64e7c23629e6fad56e0f50805f7762ffb7c7e2c5",
+  "event_id": "E-D-20261024-1225619052"
 }

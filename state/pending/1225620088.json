@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "43435b00f7de551e1db654c201567bfb3c90d5bf180267252bb21f0bc886b5b9"
+  "status": "excluded",
+  "sha256": "43435b00f7de551e1db654c201567bfb3c90d5bf180267252bb21f0bc886b5b9",
+  "reason": "2027年向境内新疆风能及其联系人销售框架，原文未载境外标的或业务。",
+  "reviewed_at": "2026-10-27T16:26:40.078630"
 }

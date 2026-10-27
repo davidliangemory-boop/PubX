@@ -1,0 +1,26 @@
+{
+  "doc_id": "1225625936",
+  "candidate": {
+    "announcementId": "1225625936",
+    "time": 1793030400000,
+    "secCode": "601319",
+    "secName": "中国人保",
+    "title": "H股公告",
+    "adjunctUrl": "finalpage/2026-10-27/1225625936.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225625936.txt",
+  "batch_id": "D-20261027",
+  "status": "excluded",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "仅董事名单及委员会角色。",
+  "reviewed_at": "2026-10-27T16:26:40.082962",
+  "sha256": "b237fb11cee8dac76f86ea648e619c26c719e106af6f89286b3e5bf1f74d6260"
+}

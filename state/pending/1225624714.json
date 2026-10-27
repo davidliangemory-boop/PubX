@@ -1,0 +1,26 @@
+{
+  "doc_id": "1225624714",
+  "candidate": {
+    "announcementId": "1225624714",
+    "time": 1793011571000,
+    "secCode": "300757",
+    "secName": "罗博特科",
+    "title": "关于公司境外上市外资股（H股）调入港股通标的证券名单的公告",
+    "adjunctUrl": "finalpage/2026-10-26/1225624714.PDF",
+    "keywords": [
+      "境外",
+      "境外上市",
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225624714.txt",
+  "batch_id": "D-20261026",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "ingested",
+  "event_id": "E-019",
+  "sha256": "a1ae2449f0fe5a63ceb2f6003b2e25a381b1005f4115ab8970ee77b6dbc6141a"
+}

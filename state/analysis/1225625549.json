@@ -1,0 +1,40 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": false,
+    "category": "其他无关",
+    "reason": "赎回对象为境内优先股（360025），不是境外融资退出。"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "门控触发事实",
+        "value": "境內優先股",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225625549",
+          "page": 1,
+          "quote": "境內優先股"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "status": "not_applicable",
+        "text": "仅作门控分类；不推断未披露法律办理状态。",
+        "layer": "analysis",
+        "basis": "1225625549 P1：境內優先股；完整原文核查"
+      }
+    ],
+    "judge": [
+      {
+        "text": "赎回对象为境内优先股（360025），不是境外融资退出。",
+        "layer": "analysis",
+        "basis": "1225625549 P1：境內優先股；完整原文核查"
+      }
+    ]
+  },
+  "reason": "赎回对象为境内优先股（360025），不是境外融资退出。"
+}

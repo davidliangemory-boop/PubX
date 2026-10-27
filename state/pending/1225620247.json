@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "382f967837672a1c3e9ddfe585344a335208dd9280384af2c645fe7de1173c26"
+  "status": "excluded",
+  "sha256": "382f967837672a1c3e9ddfe585344a335208dd9280384af2c645fe7de1173c26",
+  "reason": "仅修订H股上市后生效的章程与会议制度，不证明上市申请阶段前移。",
+  "reviewed_at": "2026-10-27T16:26:40.078801"
 }

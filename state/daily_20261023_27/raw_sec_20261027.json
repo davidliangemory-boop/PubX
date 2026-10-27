@@ -1,0 +1,100 @@
+{
+ "pulled_at": "2026-10-27T15:56:06",
+ "since": "2026-10-25",
+ "count": 5,
+ "new_count": 0,
+ "retained_count": 5,
+ "items": [
+  {
+   "raw_path": "raw/sec_000110465926118589.txt",
+   "sha256": "435c0e745b556cde3880b2790a8b864e63ceb62f67389a899f9f1080525d57e0",
+   "exhibit_filenames": [
+    "tm2628263d1_ex99d1.htm"
+   ],
+   "ticker": "ZTO",
+   "cik": "1677250",
+   "name": "中通快递",
+   "form": "6-K",
+   "filed": "2026-10-26",
+   "accepted_at_cn": "2026-10-26T18:13:50+08:00",
+   "accession": "0001104659-26-118589",
+   "items": "",
+   "desc": "FORM 6-K",
+   "url": "https://www.sec.gov/Archives/edgar/data/1677250/000110465926118589/tm2628263d1_6k.htm",
+   "index": "https://www.sec.gov/Archives/edgar/data/1677250/000110465926118589/"
+  },
+  {
+   "raw_path": "raw/sec_000110465926118618.txt",
+   "sha256": "c8bbf382bde36b4bc4dbeb376ebefa028ba08b0014d4c5385789e1111944f424",
+   "exhibit_filenames": [
+    "tm2628190d1_ex99-1.htm"
+   ],
+   "ticker": "MNSO",
+   "cik": "1815846",
+   "name": "名创优品",
+   "form": "6-K",
+   "filed": "2026-10-26",
+   "accepted_at_cn": "2026-10-26T20:01:33+08:00",
+   "accession": "0001104659-26-118618",
+   "items": "",
+   "desc": "FORM 6-K",
+   "url": "https://www.sec.gov/Archives/edgar/data/1815846/000110465926118618/tm2628190d1_6k.htm",
+   "index": "https://www.sec.gov/Archives/edgar/data/1815846/000110465926118618/"
+  },
+  {
+   "raw_path": "raw/sec_000110465926118304.txt",
+   "sha256": "764137fa8c9399f8388c93611fafc22525cb1d61ffa40e400aa97934ae43b8ff",
+   "exhibit_filenames": [
+    "tm2628191d1_ex99-1.htm"
+   ],
+   "ticker": "JKS",
+   "cik": "1481513",
+   "name": "晶科能源",
+   "form": "6-K",
+   "filed": "2026-10-23",
+   "accepted_at_cn": "2026-10-23T20:33:45+08:00",
+   "accession": "0001104659-26-118304",
+   "items": "",
+   "desc": "FORM 6-K",
+   "url": "https://www.sec.gov/Archives/edgar/data/1481513/000110465926118304/tm2628191d1_6k.htm",
+   "index": "https://www.sec.gov/Archives/edgar/data/1481513/000110465926118304/"
+  },
+  {
+   "raw_path": "raw/sec_000162828026066969.txt",
+   "sha256": "457bf11273731a9d5a23ab2d9fa884a933aa95ca84e1db2187c378cc8f4622b6",
+   "exhibit_filenames": [
+    "corporatedeck_vfinal4.htm"
+   ],
+   "ticker": "ZLAB",
+   "cik": "1704292",
+   "name": "再鼎医药",
+   "form": "8-K",
+   "filed": "2026-10-23",
+   "accepted_at_cn": "2026-10-23T18:06:22+08:00",
+   "accession": "0001628280-26-066969",
+   "items": "1.01,3.02,7.01,8.01,9.01",
+   "desc": "8-K",
+   "url": "https://www.sec.gov/Archives/edgar/data/1704292/000162828026066969/zlab-20261022.htm",
+   "index": "https://www.sec.gov/Archives/edgar/data/1704292/000162828026066969/"
+  },
+  {
+   "raw_path": "raw/sec_000110465926118472.txt",
+   "sha256": "ce4e8906d9eaa735d24a97db51a4019439e003aff71fdaf129b011ad2a3320f8",
+   "exhibit_filenames": [
+    "tm2628183d1_ex99-1.htm"
+   ],
+   "ticker": "BZ",
+   "cik": "1842827",
+   "name": "看准网",
+   "form": "6-K",
+   "filed": "2026-10-23",
+   "accepted_at_cn": "2026-10-24T04:07:23+08:00",
+   "accession": "0001104659-26-118472",
+   "items": "",
+   "desc": "FORM 6-K",
+   "url": "https://www.sec.gov/Archives/edgar/data/1842827/000110465926118472/tm2628183d1_6k.htm",
+   "index": "https://www.sec.gov/Archives/edgar/data/1842827/000110465926118472/"
+  }
+ ],
+ "errors": []
+}

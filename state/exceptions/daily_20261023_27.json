@@ -1,0 +1,60 @@
+{
+  "task": "daily_20261023_20261027",
+  "recorded_at": "2026-10-27T16:16:01.357556+08:00",
+  "issues": [
+    {
+      "type": "cninfo_http_endpoint",
+      "detail": "仓库cninfo.BASE使用http接口；五日run_once/watch_updates实际出现HTTP 500。独立HTTPS同接口170组分页查询全部成功，真实响应及候选已另存state/daily_20261023_27；不改写scripts，原命令collection_complete=false保留。",
+      "maintainer_action": "请维护方将检索入口HTTPS化并审阅重跑；本任务未修改脚本。"
+    },
+    {
+      "type": "raw_cache_recovery",
+      "detail": "初始validate ERROR=32，涉及9份存量原文缓存缺失；已从原公告URL重新下载完整PDF并提取，未用分析拼造。后续run_once自检ERROR=0。"
+    },
+    {
+      "type": "sec_attachment_scope",
+      "detail": "sec_pull.parse_primary默认只缓存首个EX-99附件。已另从EDGAR full-submission取回全部EX文本，保留完整submission及分文档页码，未修改scripts。",
+      "maintainer_action": "请维护方扩展附件提取，附件未全部审核时不得把seen标为分析完成。"
+    },
+    {
+      "type": "lifecycle_contract",
+      "detail": "用户机器值terminated与仓库schema仅允许活跃/完成/终止存在差异。新发现且无前序事件的终止事项首次建档，event.status按event v2契约保留终止，并增设status_code=terminated；未伪造前序事件或自动判为withdrawn。",
+      "maintainer_action": "请统一状态枚举；本轮不修改schema或event_merge。"
+    },
+    {
+      "type": "IR_not_covered",
+      "detail": "本轮未配置及实际核查IR来源，未覆盖。"
+    },
+    {
+      "type": "watchlist_comparison_pending",
+      "detail": "本地仅见SDN既有结果元数据（2026-10-20版本、19471条），无完整SDN/实体清单/UFLPA名单缓存可独立复核新增主体。本轮按指示不采集出口管制，新增主体名单比对待核，不声称无风险或命中。"
+    },
+    {
+      "type": "manual_ingestion_fallback",
+      "detail": "原run_once HTTP检索持续失败；精确命令重试未完成。对已完整读取且三步审核通过的候选，直接调用仓库event_merge.merge归并，并同步db披露与D日批。该接续未冒充原命令成功；待审条目未入库，所有日批collection_complete=false。"
+    },
+    {
+      "type": "validation_failed",
+      "detail": {
+        "ERROR": 2,
+        "WARN": 1,
+        "SKIP": 0
+      },
+      "result": "停止构建"
+    },
+    {
+      "type": "frontend_data_contract_fixed",
+      "detail": "最终校验发现trigger_fact对象导致议题页f.match报错。已将本轮state/analysis、events及生成数据中的trigger_fact规范为原文引文字符串，独立evidence保留；未改动前端和脚本。",
+      "result": {
+        "ERROR": 0,
+        "WARN": 1,
+        "SKIP": 0
+      }
+    }
+  ],
+  "final_validation": {
+    "ERROR": 0,
+    "WARN": 1,
+    "SKIP": 0
+  }
+}

@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "d9daf3f0fd594f6b879af7021c26ba45bdb840c1d44971f95febf4578dcbbf77"
+  "status": "excluded",
+  "sha256": "d9daf3f0fd594f6b879af7021c26ba45bdb840c1d44971f95febf4578dcbbf77",
+  "reason": "仅季度业绩董事会会议日期调整。",
+  "reviewed_at": "2026-10-27T16:26:40.078126"
 }

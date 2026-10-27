@@ -1,0 +1,23 @@
+{
+  "doc_id": "1225622034",
+  "candidate": {
+    "announcementId": "1225622034",
+    "time": 1793030400000,
+    "secCode": "300058",
+    "secName": "蓝色光标",
+    "title": "关于终止发行H股股票并于香港联合交易所有限公司上市的公告",
+    "adjunctUrl": "finalpage/2026-10-27/1225622034.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225622034.txt",
+  "batch_id": "D-20261027",
+  "status": "ingested",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "run_once_2026-10-23": "interrupted_during_repeated_HTTP500_search",
+  "watch_https": "interrupted_if_not_completed; retain per-date completed outputs",
+  "replay_waiter": "cancelled_before_execution",
+  "reason": "preserve partial results and finish required validation; no interrupted window marked complete"
+}

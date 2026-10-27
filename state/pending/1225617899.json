@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "438e8b8de752e8a4425a2782483b3956d4c84d7c46bf7d3cbd1d7b34cfd60a9c"
+  "status": "excluded",
+  "sha256": "438e8b8de752e8a4425a2782483b3956d4c84d7c46bf7d3cbd1d7b34cfd60a9c",
+  "reason": "股东会投票及中期股息派付，未披露具体境外投资、融资或项目事项。",
+  "reviewed_at": "2026-10-27T16:26:40.077285"
 }

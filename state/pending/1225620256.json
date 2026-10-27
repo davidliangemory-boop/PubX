@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "15c4ccb5531acf0ccd53a455f1da0742a265c37f666f3f8267af4491f1402144"
+  "status": "excluded",
+  "sha256": "15c4ccb5531acf0ccd53a455f1da0742a265c37f666f3f8267af4491f1402144",
+  "reason": "仅修订上市后适用的内部治理制度。",
+  "reviewed_at": "2026-10-27T16:26:40.079236"
 }

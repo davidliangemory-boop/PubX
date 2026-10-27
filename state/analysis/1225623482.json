@@ -1,0 +1,313 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "batch_id": "D-20261027",
+  "gate": {
+    "include": true,
+    "category": "境外融资",
+    "reason": "中行迪拜分行20亿元人民币票据获准在纳斯达克迪拜交易所交易"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "本次票据本金",
+        "value": "人民币2,000,000,000元",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225623482",
+          "page": 1,
+          "quote": "2,000,000,000人民幣1.60釐利率票據"
+        }
+      },
+      {
+        "field": "获准交易日期",
+        "value": "2026-10-26",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225623482",
+          "page": 1,
+          "quote": "票據已於2026年"
+        }
+      },
+      {
+        "field": "交易场所",
+        "value": "纳斯达克迪拜交易所",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225623482",
+          "page": 1,
+          "quote": "迪拜交易所進行交易"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "issue": "两地/多地披露同步",
+        "question": "两地/多地披露同步的处理状态及后续核查是什么？",
+        "trigger_fact": "獲准在納斯達克",
+        "disclosed_status": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+        "status": "disclosed_pending",
+        "information_gap": "本公告没有确认香港上市实际生效或补充完整票据契约。",
+        "judgment": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+        "verification_action": "核对迪拜上市记录，并另查香港联交所的实际上市记录。",
+        "text": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+        "layer": "analysis",
+        "basis": "1225623482 P1：獲准在納斯達克",
+        "evidence": {
+          "doc_id": "1225623482",
+          "page": 1,
+          "quote": "獲准在納斯達克"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "修正事项阶段：新增明确的迪拜交易许可；维持香港上市仍须独立核实的判断。",
+        "layer": "analysis",
+        "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+      },
+      {
+        "text": "信息缺口：本公告没有确认香港上市实际生效或补充完整票据契约。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "中国银行股份有限公司",
+      "公告类型": "H股公告-海外监管公告-中国银行股份有限公司400亿美元中期票据计划下通过迪拜分行发行的票据在纳斯达克迪拜交易所上市之通告",
+      "涉及国家/地区": "阿联酋/中国香港",
+      "动作类型": "境外融资",
+      "动作阶段": "获准迪拜上市交易",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "2,000,000,000人民幣1.60釐利率票據",
+      "票據已於2026年",
+      "迪拜交易所進行交易"
+    ],
+    "undisclosed": "本公告没有确认香港上市实际生效或补充完整票据契约。"
+  },
+  "event": {
+    "event_id": "E-D-20261024-1225620956",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "中行迪拜分行20亿元人民币票据获准在纳斯达克迪拜交易所交易",
+      "layer": "disclosed",
+      "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+    },
+    "status": "活跃",
+    "parties": [
+      {
+        "name": "中国银行股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "name": "中国银行股份有限公司迪拜分行",
+        "role": "交易相关方",
+        "layer": "disclosed",
+        "basis": "1225623482完整原文"
+      }
+    ],
+    "geo": {
+      "text": "阿联酋/中国香港",
+      "layer": "disclosed",
+      "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+    },
+    "matter_type": {
+      "value": "境外融资",
+      "layer": "analysis",
+      "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+    },
+    "stage_current": "获准迪拜上市交易",
+    "stage_chain": [
+      {
+        "stage": "获准迪拜上市交易",
+        "date": "2026-10-27",
+        "doc_id": "1225623482",
+        "note": "中行迪拜分行20亿元人民币票据获准在纳斯达克迪拜交易所交易",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I13.1",
+        "issue": "两地/多地披露同步",
+        "question": "两地/多地披露同步的处理状态及后续核查是什么？",
+        "trigger_fact": "獲准在納斯達克",
+        "disclosed_status": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+        "status": "disclosed_pending",
+        "information_gap": "本公告没有确认香港上市实际生效或补充完整票据契约。",
+        "judgment": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+        "verification_action": "核对迪拜上市记录，并另查香港联交所的实际上市记录。",
+        "text": "新增迪拜官方名单展示与交易许可事实，不能证明香港上市申请实际完成。",
+        "layer": "analysis",
+        "basis": "1225623482 P1：獲准在納斯達克",
+        "evidence": {
+          "doc_id": "1225623482",
+          "page": 1,
+          "quote": "獲准在納斯達克"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "修正事项阶段：新增明确的迪拜交易许可；维持香港上市仍须独立核实的判断。",
+        "layer": "analysis",
+        "basis": "1225623482 P1：2,000,000,000人民幣1.60釐利率票據；1225623482 P1：票據已於2026年；1225623482 P1：迪拜交易所進行交易"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "本公告没有确认香港上市实际生效或补充完整票据契约。",
+        "why": "关系实际履行及监管状态",
+        "where": "公司后续披露及交易文件",
+        "layer": "analysis",
+        "basis": "1225623482完整原文"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "核对迪拜上市记录，并另查香港联交所的实际上市记录。",
+        "layer": "analysis",
+        "basis": "1225623482 P1：獲准在納斯達克"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225623482",
+        "channel": "A股·巨潮",
+        "file": "H股公告-海外监管公告-中国银行股份有限公司400亿美元中期票据计划下通过迪拜分行发行的票据在纳斯达克迪拜交易所上市之通告",
+        "date": "2026-10-27",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225623482.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "2,000,000,000人民幣1.60釐利率票據"
+          },
+          {
+            "page": 1,
+            "text": "票據已於2026年"
+          },
+          {
+            "page": 1,
+            "text": "迪拜交易所進行交易"
+          }
+        ],
+        "sha256": "304f9e2ee00d404d80d1099d9d856cb167937f64cfbb3d6d11a221764892c8f5"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "progress",
+  "target_id": "E-D-20261024-1225620956",
+  "reason": "与既有事件相同标的，新增明确事实，保留原事实。",
+  "case_update": {
+    "summary": "中行迪拜分行20亿元人民币票据获准在纳斯达克迪拜交易所交易",
+    "check": "修正事项阶段：新增明确的迪拜交易许可；维持香港上市仍须独立核实的判断。"
+  }
+}

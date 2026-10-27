@@ -1,0 +1,22 @@
+{
+  "doc_id": "1225627377",
+  "candidate": {
+    "announcementId": "1225627377",
+    "time": 1793030400000,
+    "secCode": "601995",
+    "secName": "中金公司",
+    "title": "中金公司H股公告（持续关连交易）",
+    "adjunctUrl": "finalpage/2026-10-27/1225627377.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225627377.txt",
+  "batch_id": "D-20261027",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "status": "awaiting_analysis"
+}

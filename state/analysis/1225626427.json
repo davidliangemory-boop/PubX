@@ -1,0 +1,313 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "batch_id": "D-20261027",
+  "gate": {
+    "include": true,
+    "category": "监管及境外销售",
+    "reason": "汇宇制药地西他滨获意大利、唑来膦酸获葡萄牙上市许可"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "注射用地西他滨许可",
+        "value": "意大利051570012",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225626427",
+          "page": 1,
+          "quote": "051570012"
+        }
+      },
+      {
+        "field": "唑来膦酸注射液许可",
+        "value": "葡萄牙5942214、5942222",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225626427",
+          "page": 1,
+          "quote": "5942214"
+        }
+      },
+      {
+        "field": "商业化",
+        "value": "销售前期准备",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225626427",
+          "page": 2,
+          "quote": "公司已开展产品上市销售的前期准备工作"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I7.4",
+        "issue": "产品认证（CE/FCC/药械注册等）",
+        "question": "产品认证（CE/FCC/药械注册等）的处理状态及后续核查是什么？",
+        "trigger_fact": "上市许可",
+        "disclosed_status": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+        "status": "disclosed_pending",
+        "information_gap": "获批确切日期、上市定价、销售规模及收入未披露。",
+        "judgment": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+        "verification_action": "核对对应国家批准文件并跟踪销售准备及许可维护。",
+        "text": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+        "layer": "analysis",
+        "basis": "1225626427 P1：上市许可",
+        "evidence": {
+          "doc_id": "1225626427",
+          "page": 1,
+          "quote": "上市许可"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持许可与商业化分开判断；既有E-027为法国注射用紫杉醇，产品不同，本次独立建档。",
+        "layer": "analysis",
+        "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+      },
+      {
+        "text": "信息缺口：获批确切日期、上市定价、销售规模及收入未披露。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "四川汇宇制药股份有限公司",
+      "公告类型": "自愿披露公司产品获得境外上市许可的公告",
+      "涉及国家/地区": "意大利/葡萄牙",
+      "动作类型": "监管及境外销售",
+      "动作阶段": "已获产品上市许可、销售筹备",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "051570012",
+      "5942214",
+      "公司已开展产品上市销售的前期准备工作"
+    ],
+    "undisclosed": "获批确切日期、上市定价、销售规模及收入未披露。"
+  },
+  "event": {
+    "event_id": "E-D-20261027-1225626427",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "汇宇制药地西他滨获意大利、唑来膦酸获葡萄牙上市许可",
+      "layer": "disclosed",
+      "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+    },
+    "status": "活跃",
+    "parties": [
+      {
+        "name": "四川汇宇制药股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "name": "Seacross (Europe) Pharma Ltd.",
+        "role": "交易相关方",
+        "layer": "disclosed",
+        "basis": "1225626427完整原文"
+      }
+    ],
+    "geo": {
+      "text": "意大利/葡萄牙",
+      "layer": "disclosed",
+      "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+    },
+    "matter_type": {
+      "value": "监管及境外销售",
+      "layer": "analysis",
+      "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+    },
+    "stage_current": "已获产品上市许可、销售筹备",
+    "stage_chain": [
+      {
+        "stage": "已获产品上市许可、销售筹备",
+        "date": "2026-10-27",
+        "doc_id": "1225626427",
+        "note": "汇宇制药地西他滨获意大利、唑来膦酸获葡萄牙上市许可",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I7.4",
+        "issue": "产品认证（CE/FCC/药械注册等）",
+        "question": "产品认证（CE/FCC/药械注册等）的处理状态及后续核查是什么？",
+        "trigger_fact": "上市许可",
+        "disclosed_status": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+        "status": "disclosed_pending",
+        "information_gap": "获批确切日期、上市定价、销售规模及收入未披露。",
+        "judgment": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+        "verification_action": "核对对应国家批准文件并跟踪销售准备及许可维护。",
+        "text": "本次两项产品分别获意大利和葡萄牙许可，不等于德国在审注册获批或实际销售。",
+        "layer": "analysis",
+        "basis": "1225626427 P1：上市许可",
+        "evidence": {
+          "doc_id": "1225626427",
+          "page": 1,
+          "quote": "上市许可"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      },
+      {
+        "issue_code": "I13",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持许可与商业化分开判断；既有E-027为法国注射用紫杉醇，产品不同，本次独立建档。",
+        "layer": "analysis",
+        "basis": "1225626427 P1：051570012；1225626427 P1：5942214；1225626427 P2：公司已开展产品上市销售的前期准备工作"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "获批确切日期、上市定价、销售规模及收入未披露。",
+        "why": "关系实际履行及监管状态",
+        "where": "公司后续披露及交易文件",
+        "layer": "analysis",
+        "basis": "1225626427完整原文"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "核对对应国家批准文件并跟踪销售准备及许可维护。",
+        "layer": "analysis",
+        "basis": "1225626427 P1：上市许可"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225626427",
+        "channel": "A股·巨潮",
+        "file": "自愿披露公司产品获得境外上市许可的公告",
+        "date": "2026-10-27",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225626427.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "051570012"
+          },
+          {
+            "page": 1,
+            "text": "5942214"
+          },
+          {
+            "page": 2,
+            "text": "公司已开展产品上市销售的前期准备工作"
+          }
+        ],
+        "sha256": "f84ce3c11213cf3f057ec40d2840346765981f9427cf446cd313599010ad7e3f"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "核对既有事件主体、标的与原文，未找到同一事项。",
+  "case_update": {
+    "summary": "汇宇制药地西他滨获意大利、唑来膦酸获葡萄牙上市许可",
+    "check": "维持许可与商业化分开判断；既有E-027为法国注射用紫杉醇，产品不同，本次独立建档。"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": false,
+    "category": "其他无关",
+    "reason": "仅董事名单与职务。"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "门控触发事实",
+        "value": "董事會成員名單及其職務",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225620519",
+          "page": 1,
+          "quote": "董事會成員名單及其職務"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "status": "not_applicable",
+        "text": "仅为门控分类，不作未披露法律状态的推断。",
+        "layer": "analysis",
+        "basis": "1225620519 P1：董事會成員名單及其職務；完整原文核查"
+      }
+    ],
+    "judge": [
+      {
+        "text": "仅董事名单与职务。",
+        "layer": "analysis",
+        "basis": "1225620519 P1：董事會成員名單及其職務；完整原文核查"
+      }
+    ]
+  },
+  "reason": "仅董事名单与职务。"
+}

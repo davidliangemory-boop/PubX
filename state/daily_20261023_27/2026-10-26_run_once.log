@@ -1,0 +1,51 @@
+[warn] 检索失败 出海 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 国际市场 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外市场 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 国外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 跨境 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 一带一路 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外建厂 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 出海 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 国际市场 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外市场 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 国外 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 跨境 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 一带一路 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外建厂 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外建厂 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外工厂 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外产能 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外基地 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外项目 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外项目 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外并购 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 跨境并购 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外投资 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外投资 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外子公司 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外签约 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外订单 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外工程 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外工程 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 国际化 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 全球化 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外上市 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 H股 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 GDR 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 ODI 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 境外放款 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 内保外贷 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 海外发债 第1页: HTTP Error 500: Internal Server Error
+[warn] 检索失败 外汇登记 第1页: HTTP Error 500: Internal Server Error
+ [fail] 检索未完成，仍接续本窗口缓存候选：检索不完整，禁止记作成功零新增：出海 page=1: HTTP Error 500: Internal Server Error; 海外 page=1: HTTP Error 500: Internal Server Error; 境外 page=1: HTTP Error 500: Internal Server Error; 国际市场 page=1: HTTP Error 500: Internal Server Error; 海外市场 page=1: HTTP Error 500: Internal Server Error; 国外 page=1: HTTP Error 500: Internal Server Error; 跨境 page=1: HTTP Error 500: Internal Server Error; 一带一路 page=1: HTTP Error 500: Internal Server Error; 海外建厂 page=1: HTTP Error 500: Internal Server Error; 境外建厂 page=1: HTTP Error 500: Internal Server Error; 海外工厂 page=1: HTTP Error 500: Internal Server Error; 海外产能 page=1: HTTP Error 500: Internal Server Error; 海外基地 page=1: HTTP Error 500: Internal Server Error; 海外项目 page=1: HTTP Error 500: Internal Server Error; 境外项目 page=1: HTTP Error 500: Internal Server Error; 海外并购 page=1: HTTP Error 500: Internal Server Error; 跨境并购 page=1: HTTP Error 500: Internal Server Error; 境外投资 page=1: HTTP Error 500: Internal Server Error; 海外投资 page=1: HTTP Error 500: Internal Server Error; 境外子公司 page=1: HTTP Error 500: Internal Server Error; 海外签约 page=1: HTTP Error 500: Internal Server Error; 海外订单 page=1: HTTP Error 500: Internal Server Error; 境外工程 page=1: HTTP Error 500: Internal Server Error; 海外工程 page=1: HTTP Error 500: Internal Server Error; 国际化 page=1: HTTP Error 500: Internal Server Error; 全球化 page=1: HTTP Error 500: Internal Server Error; 境外上市 page=1: HTTP Error 500: Internal Server Error; H股 page=1: HTTP Error 500: Internal Server Error; GDR page=1: HTTP Error 500: Internal Server Error; ODI page=1: HTTP Error 500: Internal Server Error; 境外放款 page=1: HTTP Error 500: Internal Server Error; 内保外贷 page=1: HTTP Error 500: Internal Server Error; 海外发债 page=1: HTTP Error 500: Internal Server Error; 外汇登记 page=1: HTTP Error 500: Internal Server Error
+窗口 2026-10-26~2026-10-26，命中 3 条新候选
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225621945.json
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225621910.json
+ [pending] Kimi Code 请读原文后写入 /workspace/kc/repo/state/analysis/1225624714.json
+批次 D-20261026：收录0 排除0 失败3
+validate：ERROR 0 · WARN 1 · SKIP 0 → state/validate_report.json
+data.js 已生成：73 条披露，7 个案例，17 个批次；派生：67公司/67项目/21区域/102资金/240合规/578图谱节点

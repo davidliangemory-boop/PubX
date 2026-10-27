@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "db00109c446174ab70c67e872c0056a85b7ece5a44963231a266de739b617807"
+  "status": "excluded",
+  "sha256": "db00109c446174ab70c67e872c0056a85b7ece5a44963231a266de739b617807",
+  "reason": "调整H股每手买卖单位，不是新发行或境外业务事项。",
+  "reviewed_at": "2026-10-27T16:26:40.079770"
 }

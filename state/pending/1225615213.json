@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "f446032805b77454cebfad29e99f62dd3efa5e68d75b63ffa211911861d5e67d"
+  "status": "excluded",
+  "sha256": "f446032805b77454cebfad29e99f62dd3efa5e68d75b63ffa211911861d5e67d",
+  "reason": "仅A股激励股份回购注销，未披露出海实质动作。",
+  "reviewed_at": "2026-10-27T16:26:40.075007"
 }

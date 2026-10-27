@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-27T04:51:31.967705+08:00",
-  "script_commit": "f3240c73db53dfe03fe4e114d80a9217381f654b",
+  "generated_at": "2026-10-27T16:32:13.332635+08:00",
+  "script_commit": "c6f761f83a28ea23eb9c4ee26071c9ae53cf575d",
   "script_sha256": {
     "scripts/analyze.py": "1f48df62377189baaf3a398a0b8a4963e27c63ae24517b76e3a016836a72057c",
     "scripts/backfill_pull.py": "517d00fa0b7aef3dc084d39f73dc6f2e3a602117a9671aaf5872e2515e7322d3",
@@ -27,14 +27,15 @@
     "scripts/validate.py": "0a105e3d94716e66f54c4bada9be3ac5a54519015af70252bc65444dc7534c2a",
     "scripts/watch_updates.py": "65ca438b2fb0f0bfc12748ec0635ed95f0a7f1cc4462ca05cb20a3805e1cba6e"
   },
-  "prompt_version": "R08-task-D-20261027",
+  "prompt_version": "R08-P5-R5-20261027",
   "model": "GPT-6",
-  "batch_id": "H-20261027",
-  "analysis_mode": "GPT-6直接读取原文完成已入库9份公告的extract_facts→legal_map→judge；其余候选尚待审核，无API调用",
+  "batch_id": "D-20261027",
+  "analysis_mode": "Kimi Code 直接读取原文；人工审核结果文件入库，无需 API key",
   "prompt_sha256": {
     "ops/prompts/_rules.md": "c8285eebff30701a4d6bb8ed890ca0f8a4a919fe8967133ee2b42c66db1b5e72",
     "ops/prompts/backfill.md": "ee822a6325a29720126efbe482b77927e00aa5dab2c65b5dd51c8b61cf9b967f",
     "ops/prompts/daily.md": "cfd003b9dc8b769149158825496b00f7380ac1349bc43107f0cdaef7294d80d6",
+    "ops/prompts/daily_catchup_20261027.md": "40e60b0dacfd15bfdbac3b1ade68dee3409c86f610da5327572951ce6267d469",
     "ops/prompts/history_backfill.md": "daace44c99c642a539bbf032d64bd1d009c5530c7b319b8240f780a77571337a",
     "ops/prompts/weekly_exportcontrol.md": "4b8565acbfeb3d8968f32394c124883809c3770cab2f206406c32eab948e310e"
   },
@@ -44,63 +45,63 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225582675.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225583746",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225583746.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225583765",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225583765.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225583767",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225583767.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225583847",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225583847.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225584427",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225584427.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225584435",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225584435.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225584473",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225584473.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225584782",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225584782.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225584815",
@@ -114,98 +115,98 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225584849.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225584909",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225584909.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225584980",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225584980.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225584981",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225584981.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585075",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585075.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585081",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585081.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585092",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585092.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585148",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585148.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585155",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585155.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585259",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585259.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585282",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585282.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585382",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585382.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585513",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585513.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585699",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585699.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225585709",
@@ -219,21 +220,21 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225585846.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225586203",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225586203.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225586640",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225586640.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225586714",
@@ -247,119 +248,119 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587081.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587170",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587170.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587492",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587492.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587747",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587747.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587769",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587769.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587828",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587828.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587830",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587830.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587835",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587835.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587836",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587836.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587841",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587841.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587842",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587842.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587843",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587843.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587846",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587846.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587869",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587869.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225587906",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225587906.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225588044",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225588044.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225588140",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225588140.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225588722",
@@ -380,196 +381,196 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225588871.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589071",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589071.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589331",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589331.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589533",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589533.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589564",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589564.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589642",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589642.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589807",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589807.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589809",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589809.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589810",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589810.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589854",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589854.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589866",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589866.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589888",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589888.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589908",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589908.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589909",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589909.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589957",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589957.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225589969",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225589969.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590009",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590009.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590214",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590214.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590228",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590228.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590302",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590302.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590303",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590303.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590308",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590308.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590313",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590313.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590316",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590316.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590454",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590454.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590455",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590455.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590456",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590456.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590541",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590541.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590543",
@@ -583,77 +584,77 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590578.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590585",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590585.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590593",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590593.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590595",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590595.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590609",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590609.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590622",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590622.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590749",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590749.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590890",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590890.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590933",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590933.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225590971",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225590971.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591127",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591127.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591131",
@@ -667,665 +668,665 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591139.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591335",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591335.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591347",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591347.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591355",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591355.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591493",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591493.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591508",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591508.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591598",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591598.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225591783",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225591783.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595306",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595306.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595313",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595313.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595315",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595315.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595317",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595317.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595319",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595319.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595320",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595320.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595328",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595328.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595339",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595339.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595345",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595345.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595348",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595348.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595351",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595351.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595355",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595355.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595360",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595360.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595369",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595369.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595383",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595383.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595384",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595384.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595385",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595385.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595386",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595386.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595387",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595387.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595388",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595388.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595390",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595390.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595394",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595394.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595395",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595395.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595396",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595396.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595398",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595398.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595403",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595403.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595405",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595405.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595406",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595406.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595408",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595408.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595435",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595435.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595447",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595447.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595449",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595449.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595450",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595450.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595452",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595452.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595527",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595527.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595528",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595528.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595530",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595530.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595592",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595592.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595594",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595594.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595595",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595595.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595667",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595667.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595669",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595669.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595991",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595991.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595992",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595992.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595993",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595993.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595994",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595994.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595995",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595995.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225595997",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225595997.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596000",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596000.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596002",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596002.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596003",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596003.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596005",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596005.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596020",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596020.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596030",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596030.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596031",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596031.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596033",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596033.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596034",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596034.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596054",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596054.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596092",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596092.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596110",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596110.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596126",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596126.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596127",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596127.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596145",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596145.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596168",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596168.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596172",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596172.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596203",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596203.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596299",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596299.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596331",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596331.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596426",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596426.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596495",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596495.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596535",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596535.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596540",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596540.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596909",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596909.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596921",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596921.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596932",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596932.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596943",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596943.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596949",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596949.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596976",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596976.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225596991",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225596991.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597006",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597006.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597184",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597184.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597185",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597185.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597212",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597212.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597247",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597247.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597404",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597404.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597467",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597467.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597503",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597503.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597575",
@@ -1339,91 +1340,91 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597755.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225597828",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225597828.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225598239",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225598239.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225598385",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225598385.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225598819",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225598819.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225598826",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225598826.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225598834",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225598834.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225598853",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225598853.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225598992",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225598992.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225599115",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225599115.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225599126",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225599126.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225599153",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225599153.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225599203",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225599203.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225599348",
@@ -1437,112 +1438,112 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225599438.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225599936",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225599936.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225600384",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225600384.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225600731",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225600731.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225600732",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225600732.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225600733",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225600733.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601009",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601009.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601015",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601015.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601181",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601181.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601280",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601280.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601326",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601326.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601364",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601364.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601457",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601457.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601502",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601502.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601554",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601554.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601757",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601757.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225601887",
@@ -1556,7 +1557,7 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225601989.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602021",
@@ -1570,119 +1571,119 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602026.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602046",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602046.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602082",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602082.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602101",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602101.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602199",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602199.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602838",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602838.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602848",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602848.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602874",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602874.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225602932",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225602932.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603025",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603025.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603064",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603064.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603070",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603070.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603077",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603077.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603132",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603132.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603238",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603238.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603371",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603371.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603403",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603403.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603414",
@@ -1696,175 +1697,175 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603527.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603637",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603637.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225603806",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225603806.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604229",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604229.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604407",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604407.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604545",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604545.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604549",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604549.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604668",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604668.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604669",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604669.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604673",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604673.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604723",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604723.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604738",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604738.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604884",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604884.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604890",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604890.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604908",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604908.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604968",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604968.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225604986",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225604986.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605061",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605061.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605096",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605096.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605182",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605182.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605265",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605265.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605270",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605270.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605432",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605432.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605529",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605529.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605729",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605729.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605784",
@@ -1878,273 +1879,273 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605785.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605787",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605787.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605788",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605788.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605789",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605789.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605790",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605790.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605791",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605791.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605792",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605792.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605793",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605793.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605794",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605794.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605796",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605796.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605797",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605797.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605798",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605798.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605799",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605799.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605800",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605800.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605801",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605801.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605802",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605802.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605803",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605803.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605805",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605805.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605806",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605806.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605807",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605807.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605808",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605808.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605810",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605810.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605812",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605812.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605813",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605813.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605815",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605815.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605816",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605816.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605817",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605817.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605818",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605818.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605819",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605819.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605820",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605820.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605823",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605823.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605824",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605824.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605825",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605825.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605826",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605826.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605827",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605827.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605828",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605828.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605829",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605829.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605830",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605830.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605838",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605838.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225605853",
@@ -2158,413 +2159,413 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225605976.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606266",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606266.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606276",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606276.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606277",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606277.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606286",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606286.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606289",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606289.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606313",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606313.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606328",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606328.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606330",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606330.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606331",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606331.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606334",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606334.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606396",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606396.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606423",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606423.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606433",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606433.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606671",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606671.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606727",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606727.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606732",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606732.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225606771",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225606771.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607046",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607046.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607047",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607047.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607059",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607059.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607190",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607190.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607231",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607231.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607250",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607250.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607344",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607344.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607431",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607431.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607499",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607499.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607661",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607661.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225607707",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225607707.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608003",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608003.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608066",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608066.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608212",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608212.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608235",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608235.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608267",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608267.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608274",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608274.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608278",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608278.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608283",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608283.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608306",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608306.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608320",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608320.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608441",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608441.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608452",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608452.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608518",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608518.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608519",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608519.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608526",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608526.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608630",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608630.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608634",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608634.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608638",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608638.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608702",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608702.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608729",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608729.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608734",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608734.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608843",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608843.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608863",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608863.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225608866",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225608866.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609015",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609015.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609066",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609066.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609155",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609155.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609166",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609166.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609227",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609227.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609231",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609231.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609307",
@@ -2578,112 +2579,112 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609322.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609363",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609363.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609390",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609390.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609504",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609504.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609727",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609727.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609728",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609728.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609864",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609864.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609865",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609865.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609867",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609867.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609868",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609868.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609872",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609872.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609873",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609873.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609874",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609874.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609875",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609875.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609877",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609877.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609878",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609878.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609879",
@@ -2697,273 +2698,273 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609883.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609884",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609884.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609887",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609887.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609890",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609890.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609891",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609891.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609892",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609892.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609893",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609893.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609895",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609895.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609896",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609896.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225609897",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225609897.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225610056",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225610056.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225610639",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225610639.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611030",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611030.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611272",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611272.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611578",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611578.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611731",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611731.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611819",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611819.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611887",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611887.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611964",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611964.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611965",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611965.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611974",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611974.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225611980",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225611980.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612003",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612003.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612034",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612034.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612104",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612104.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612114",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612114.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612275",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612275.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612320",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612320.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612369",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612369.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612373",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612373.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612416",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612416.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612437",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612437.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612560",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612560.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612596",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612596.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612597",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612597.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612910",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612910.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612911",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612911.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225612912",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225612912.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613069",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613069.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613124",
@@ -2977,210 +2978,182 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613128.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613129",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613129.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613130",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613130.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613131",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613131.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613132",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613132.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613133",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613133.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613134",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613134.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613135",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613135.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613136",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613136.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613137",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613137.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613138",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613138.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613139",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613139.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613140",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613140.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613141",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613141.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613142",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613142.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613143",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613143.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613144",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613144.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613145",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613145.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613147",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613147.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613148",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613148.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613149",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613149.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613150",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613150.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613151",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613151.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613152",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613152.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225613421",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225613421.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225614696",
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225614696.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225615213",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225615213.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225615862",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225615862.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225616059",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225616059.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225616074",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225616074.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225616577",
@@ -3201,91 +3174,7 @@
       "batch_id": "H-20261027",
       "status": "awaiting_analysis",
       "raw_path": "raw/1225616988.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225617035",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225617035.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225617077",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225617077.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225617096",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225617096.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225617899",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225617899.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225619052",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225619052.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225619286",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225619286.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225619498",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225619498.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225619548",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225619548.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225619631",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225619631.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225619792",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225619792.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225620088",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225620088.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225620247",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225620247.txt",
-      "raw_available": true
+      "raw_available": false
     },
     {
       "doc_id": "1225620250",
@@ -3295,57 +3184,29 @@
       "raw_available": true
     },
     {
-      "doc_id": "1225620254",
-      "batch_id": "H-20261027",
+      "doc_id": "1225623001",
+      "batch_id": "D-20261027",
       "status": "awaiting_analysis",
-      "raw_path": "raw/1225620254.txt",
+      "raw_path": "raw/1225623001.txt",
       "raw_available": true
     },
     {
-      "doc_id": "1225620256",
-      "batch_id": "H-20261027",
+      "doc_id": "1225626796",
+      "batch_id": "D-20261027",
       "status": "awaiting_analysis",
-      "raw_path": "raw/1225620256.txt",
+      "raw_path": "raw/1225626796.txt",
       "raw_available": true
     },
     {
-      "doc_id": "1225620258",
-      "batch_id": "H-20261027",
+      "doc_id": "1225627377",
+      "batch_id": "D-20261027",
       "status": "awaiting_analysis",
-      "raw_path": "raw/1225620258.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225620519",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225620519.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225620894",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225620894.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225620956",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225620956.txt",
-      "raw_available": true
-    },
-    {
-      "doc_id": "1225621563",
-      "batch_id": "H-20261027",
-      "status": "awaiting_analysis",
-      "raw_path": "raw/1225621563.txt",
+      "raw_path": "raw/1225627377.txt",
       "raw_available": true
     }
   ],
   "scope": "出海信批；美股、港股、出口管制各自批次与统计见独立数据文件",
-  "source_audit": "state/history_runs/H-20261027/source_review_audit.json",
+  "source_audit": "reports/P5-round5-source-audit.json",
   "history_window": {
     "start": "2026-09-26",
     "end": "2026-10-25"

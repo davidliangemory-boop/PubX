@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026-10-26",
+    "script": "sec_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:54:56.276320+00:00",
+    "log": "state/daily_20261023_27/2026-10-26_sec_pull.log"
+  },
+  {
+    "date": "2026-10-27",
+    "script": "sec_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:55:13.080897+00:00",
+    "log": "state/daily_20261023_27/2026-10-27_sec_pull.log"
+  },
+  {
+    "date": "2026-10-23",
+    "script": "sec_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:55:25.978603+00:00",
+    "log": "state/daily_20261023_27/2026-10-23_sec_pull.log"
+  },
+  {
+    "date": "2026-10-24",
+    "script": "sec_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:55:41.583865+00:00",
+    "log": "state/daily_20261023_27/2026-10-24_sec_pull.log"
+  },
+  {
+    "date": "2026-10-25",
+    "script": "sec_pull",
+    "returncode": 0,
+    "start": "2026-10-27T07:55:54.434846+00:00",
+    "log": "state/daily_20261023_27/2026-10-25_sec_pull.log"
+  }
+]

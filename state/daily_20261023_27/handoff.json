@@ -1,0 +1,680 @@
+{
+  "batch_ids": [
+    "D-20261026",
+    "D-20261027",
+    "D-20261023",
+    "D-20261024",
+    "D-20261025"
+  ],
+  "window": "2026-10-23至2026-10-27，各日北京时间00:00–24:00；10月27日数据截至实际抓取时点",
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "generated_at": "2026-10-27T16:27:54.872455+08:00",
+  "dates": [
+    {
+      "date": "2026-10-26",
+      "batch_id": "D-20261026",
+      "complete": false,
+      "a_share_unique_candidates": 3,
+      "a_share_new_events": 1,
+      "outbound_all_channels_new_events": 2,
+      "outbound_ingested_documents": 7,
+      "candidate_attempts": 3,
+      "a_share_pending": [],
+      "us_new_events": 358,
+      "us_index_scans": {
+        "2026-10-25": {
+          "status": "周末（EDGAR 无日索引）"
+        },
+        "2026-10-26": {
+          "status": "ok",
+          "scanned": 3545,
+          "whitelist_hits": 1098,
+          "new_filings": 1098,
+          "doc_fetched": 1016,
+          "kept": 358
+        }
+      },
+      "us_errors": [],
+      "us_complete": true,
+      "hk_scanned": 297,
+      "hk_new_events": 155,
+      "hk_errors": [],
+      "hk_pull_complete": true
+    },
+    {
+      "date": "2026-10-27",
+      "batch_id": "D-20261027",
+      "complete": false,
+      "a_share_unique_candidates": 18,
+      "a_share_new_events": 4,
+      "outbound_all_channels_new_events": 4,
+      "outbound_ingested_documents": 8,
+      "candidate_attempts": 18,
+      "a_share_pending": [
+        {
+          "doc_id": "1225623001",
+          "title": "上海外服控股集团股份有限公司章程（2026年10月修订）",
+          "raw_path": "raw/1225623001.txt",
+          "sha256": "2e72a1f3c0c442e96c3ebb7014c9f994d87afae211b799d36fff525beb450e73",
+          "reason": "全文三步审核尚未完成"
+        },
+        {
+          "doc_id": "1225626796",
+          "title": "H股公告-截至2026年9月30日止三个月未经审计业绩公布",
+          "raw_path": "raw/1225626796.txt",
+          "sha256": "900475d509f5b05e9ee261b0ee0258fbdc3c3b55de2fe0ddf17d584d9ee4458a",
+          "reason": "全文三步审核尚未完成"
+        },
+        {
+          "doc_id": "1225627377",
+          "title": "中金公司H股公告（持续关连交易）",
+          "raw_path": "raw/1225627377.txt",
+          "sha256": "b5cd8e1fde997eac1a914be90caa7f95c4a77d332c6f78d0832c9b03519a46a5",
+          "reason": "全文三步审核尚未完成"
+        }
+      ],
+      "us_new_events": 610,
+      "us_index_scans": {
+        "2026-10-26": {
+          "status": "ok",
+          "scanned": 3545,
+          "whitelist_hits": 1098,
+          "new_filings": 740,
+          "doc_fetched": 658,
+          "kept": 610
+        },
+        "2026-10-27": {
+          "status": "索引未发布（403/404，T+1 正常态）"
+        }
+      },
+      "us_errors": [],
+      "us_complete": false,
+      "hk_scanned": 36,
+      "hk_new_events": 14,
+      "hk_errors": [],
+      "hk_pull_complete": true
+    },
+    {
+      "date": "2026-10-23",
+      "batch_id": "D-20261023",
+      "complete": false,
+      "a_share_unique_candidates": 16,
+      "a_share_new_events": 1,
+      "outbound_all_channels_new_events": 1,
+      "outbound_ingested_documents": 2,
+      "candidate_attempts": 0,
+      "a_share_pending": [
+        {
+          "doc_id": "1225616577",
+          "title": "山东黄金矿业股份有限公司2026年第四次临时股东会、2026年第一次A股类别股东会、2026年第一次H股类别股东会会议资料",
+          "raw_path": "raw/1225616577.txt",
+          "sha256": "1eb9badb0595e1013dbbde4c2de6097a5943b306c73b149b73d7dde28199571c",
+          "reason": "全文三步审核尚未完成"
+        },
+        {
+          "doc_id": "1225616591",
+          "title": "山东黄金矿业股份有限公司关于召开2026年第四次临时股东会、2026年第一次A股类别股东会及2026年第一次H股类别股东会的通知",
+          "raw_path": "raw/1225616591.txt",
+          "sha256": "50d17f592197b39a0b9878691e98e874f40b6a26e3e830c0ff69c4797a3967a4",
+          "reason": "全文三步审核尚未完成"
+        }
+      ],
+      "us_new_events": 321,
+      "us_index_scans": {
+        "2026-10-22": {
+          "status": "ok",
+          "scanned": 3105,
+          "whitelist_hits": 978,
+          "new_filings": 0,
+          "doc_fetched": 0,
+          "kept": 0
+        },
+        "2026-10-23": {
+          "status": "ok",
+          "scanned": 3408,
+          "whitelist_hits": 982,
+          "new_filings": 982,
+          "doc_fetched": 921,
+          "kept": 321
+        }
+      },
+      "us_errors": [],
+      "us_complete": true,
+      "hk_scanned": 423,
+      "hk_new_events": 199,
+      "hk_errors": [],
+      "hk_pull_complete": true
+    },
+    {
+      "date": "2026-10-24",
+      "batch_id": "D-20261024",
+      "complete": false,
+      "a_share_unique_candidates": 18,
+      "a_share_new_events": 3,
+      "outbound_all_channels_new_events": 3,
+      "outbound_ingested_documents": 4,
+      "candidate_attempts": 0,
+      "a_share_pending": [
+        {
+          "doc_id": "1225620250",
+          "title": "公司章程（H股草案）",
+          "raw_path": "raw/1225620250.txt",
+          "sha256": "88a8ce82aae351ec303eba20306dfc846f336483d47031288b49d701ff098bba",
+          "reason": "全文三步审核尚未完成"
+        }
+      ],
+      "us_new_events": 600,
+      "us_index_scans": {
+        "2026-10-23": {
+          "status": "ok",
+          "scanned": 3408,
+          "whitelist_hits": 982,
+          "new_filings": 661,
+          "doc_fetched": 600,
+          "kept": 600
+        },
+        "2026-10-24": {
+          "status": "周末（EDGAR 无日索引）"
+        }
+      },
+      "us_errors": [],
+      "us_complete": true,
+      "hk_scanned": 0,
+      "hk_new_events": 0,
+      "hk_errors": [],
+      "hk_pull_complete": true
+    },
+    {
+      "date": "2026-10-25",
+      "batch_id": "D-20261025",
+      "complete": false,
+      "a_share_unique_candidates": 0,
+      "a_share_new_events": 0,
+      "outbound_all_channels_new_events": 0,
+      "outbound_ingested_documents": 0,
+      "candidate_attempts": 0,
+      "a_share_pending": [],
+      "us_new_events": 0,
+      "us_index_scans": {
+        "2026-10-24": {
+          "status": "周末（EDGAR 无日索引）"
+        },
+        "2026-10-25": {
+          "status": "周末（EDGAR 无日索引）"
+        }
+      },
+      "us_errors": [],
+      "us_complete": true,
+      "hk_scanned": 34,
+      "hk_new_events": 12,
+      "hk_errors": [],
+      "hk_pull_complete": true
+    }
+  ],
+  "outbound_updates": {
+    "新增": [
+      {
+        "date": "2026-10-26",
+        "event_id": "E-D-20261026-1225621945",
+        "title": "东山精密确定H股最终发行价86.80港元，预计10月28日上市",
+        "doc_id": "1225621945",
+        "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-D-20261026-hkex_12382424",
+        "title": "美团拟国际发售人民币优先票据，金额及利率尚未确定",
+        "doc_id": "hkex_12382424",
+        "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+      },
+      {
+        "date": "2026-10-27",
+        "event_id": "E-D-20261027-1225625852",
+        "title": "华勤通讯香港拟在三个月内增持晶合集成1,500万至2,500万股H股",
+        "doc_id": "1225625852",
+        "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+      },
+      {
+        "date": "2026-10-27",
+        "event_id": "E-D-20261027-1225627271",
+        "title": "龙迅股份获证监会境外发行上市备案，拟发行不超过23,878,000股H股",
+        "doc_id": "1225627271",
+        "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+      },
+      {
+        "date": "2026-10-27",
+        "event_id": "E-D-20261027-1225622034",
+        "title": "蓝色光标董事会同意终止H股发行上市",
+        "doc_id": "1225622034",
+        "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+      },
+      {
+        "date": "2026-10-27",
+        "event_id": "E-D-20261027-1225626427",
+        "title": "汇宇制药地西他滨获意大利、唑来膦酸获葡萄牙上市许可",
+        "doc_id": "1225626427",
+        "note": "核对既有事件主体、标的与原文，未找到同一事项。"
+      },
+      {
+        "date": "2026-10-23",
+        "event_id": "E-D-20261023-1225617035",
+        "title": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权",
+        "doc_id": "1225617035",
+        "note": "核对既有68个事件，未找到赤峰黄金控制权收购同一事项。"
+      },
+      {
+        "date": "2026-10-24",
+        "event_id": "E-D-20261024-1225619052",
+        "title": "中交建担保的CCCI Treasure 5亿美元永续证券发出赎回通知，计划12月22日赎回",
+        "doc_id": "1225619052",
+        "note": "既有事件无CCCI Treasure该ISIN证券赎回事项。"
+      },
+      {
+        "date": "2026-10-24",
+        "event_id": "E-D-20261024-1225619286",
+        "title": "中坚科技董事会决定终止H股发行及香港主板上市",
+        "doc_id": "1225619286",
+        "note": "无同一事项既有事件，首次建档即为终止状态，不能虚构前序事件以标失效。"
+      },
+      {
+        "date": "2026-10-24",
+        "event_id": "E-D-20261024-1225620956",
+        "title": "中国银行迪拜分行20亿元人民币1.60%票据申请香港上市，预计10月26日生效",
+        "doc_id": "1225620956",
+        "note": "既有事件没有迪拜分行该笔2028年到期人民币票据事项。"
+      }
+    ],
+    "进展": [
+      {
+        "date": "2026-10-26",
+        "event_id": "E-019",
+        "title": "罗博特科H股10月26日起纳入沪港通及深港通标的名单",
+        "doc_id": "1225624714",
+        "note": "与既有事件相同标的，新增明确事实，保留原事实。"
+      },
+      {
+        "date": "2026-10-27",
+        "event_id": "E-D-20261024-1225620956",
+        "title": "中行迪拜分行20亿元人民币票据获准在纳斯达克迪拜交易所交易",
+        "doc_id": "1225623482",
+        "note": "与既有事件相同标的，新增明确事实，保留原事实。"
+      },
+      {
+        "date": "2026-10-23",
+        "event_id": "E-D-20261023-1225617035",
+        "title": "赤峰黄金披露A股过户及新增H股发行完成，募集资金总额约92.72亿港元",
+        "doc_id": "1225617077",
+        "note": "同一A股受让及310,902,731股H股认购事项，发行方补充融资及治理新事实。"
+      }
+    ],
+    "重复": [
+      {
+        "date": "2026-10-24",
+        "event_id": "E-D-20261023-1225617035",
+        "title": "赤峰黄金翌日披露报表确认同笔310,902,731股H股发行",
+        "doc_id": "1225619498",
+        "note": "同笔发行、同日完成、同发行价29.82港元，无新增核心事实。"
+      }
+    ],
+    "修正": [
+      {
+        "date": "2026-10-26",
+        "event_id": "E-028",
+        "title": "兖煤澳洲2026-10-01完成收购红隼集团100%股权从而间接取得红隼煤矿80%权益，首付现金对价18.5亿美元（扣4,000万美元定金并作完成调整），另附最高5.5亿美元煤价挂钩或有付款",
+        "doc_id": "hkex_12354762",
+        "note": "R12：I2.1 / 首付摘录页码：历史记录曾推断FIRB已完成、首付摘录P2 → not_disclosed / analysis；首付P1；完成公告P1–P2未逐项载明审批结果；首付18.5亿美元原句位于P1，当前页码复核正确。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-028",
+        "title": "兖煤澳洲2026-10-01完成收购红隼集团100%股权从而间接取得红隼煤矿80%权益，首付现金对价18.5亿美元（扣4,000万美元定金并作完成调整），另附最高5.5亿美元煤价挂钩或有付款",
+        "doc_id": "hkex_12105020",
+        "note": "R12第三轮：合同整改并非监管处罚；竞争审批不是未提及；历史先决条件不能当作当前未完成状态。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-028",
+        "title": "兖煤澳洲2026-10-01完成收购红隼集团100%股权从而间接取得红隼煤矿80%权益，首付现金对价18.5亿美元（扣4,000万美元定金并作完成调整），另附最高5.5亿美元煤价挂钩或有付款",
+        "doc_id": "hkex_12354762",
+        "note": "R12第三轮：拆开公司披露与后续结算分析，保留证据页码。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-055",
+        "title": "精工钢构中标尼日利亚及埃塞俄比亚丹格特化肥厂项目，中标总金额7,273.35万美元（约4.86亿元，占最近一期经审计营收2.33%）",
+        "doc_id": "1225610572",
+        "note": "R12：stage_current / title_fact：中标/签约 → 中标；按R12统一展示为重要内容提示的中标口径；P1正文亦载「近日，公司成功签约」，保留阶段链说明，不据此补造单独签署日。另修正主体代码601778为原文600496。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-057",
+        "title": "兖煤澳洲2026年Q3权益商品煤产量940万吨、销量900万吨，平均实现价格170澳元/吨",
+        "doc_id": "1225612269",
+        "note": "R12：#3 对主营业务的战略价值：澳洲基地为公司三大煤炭基地之一、核心效益利润源与产业接续基地；红隼并购落地后冶金煤占比由16%提升至22%，产品结构优化 → 【系统分析】本次披露为既有澳洲资产产销量与售价数据，可用于后续季度经营比较；依据为本公告P1数据表，不据此推断红隼收购后的产品结构。；逐页核对1225612269全文，未见冶金煤占比16%→22%；删除跨事件挪用数字。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-057",
+        "title": "兖煤澳洲2026年Q3权益商品煤产量940万吨、销量900万吨，平均实现价格170澳元/吨",
+        "doc_id": "1225612269",
+        "note": "R12：#3 对营收结构与利润的预期影响：Q3量稳价升（均价+21%）但销量-16%，当季收入或受销量拖累；参照2025年兖煤澳洲营收59.49亿澳元、税后利润4.4亿澳元（同比-64%），煤价周期主导盈利波动 → 【系统分析】Q3售价同比上升21%、权益销量同比下降16%；仅据P1不能确定收入或利润变化，成本及利润【未披露】。；本公告未提供所述外部排名、历史回收率或财务数字及其来源，撤除无来源断言。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-057",
+        "title": "兖煤澳洲2026年Q3权益商品煤产量940万吨、销量900万吨，平均实现价格170澳元/吨",
+        "doc_id": "1225612269",
+        "note": "R12：#3 同行业可比出海案例（公司+时间+做法+成效）：横向参照：紫金矿业、洛阳钼业——全球矿业并购整合＋本地化运营（铜、钴、金），以并购快速获取资源并叠加管理输出实现扭亏/增产；煤炭行业内兖煤澳洲本身即唯一标杆（国内唯一拥有海外大型煤矿资产的上市煤企） → 【未披露】；本公告未提供所述外部排名、历史回收率或财务数字及其来源，撤除无来源断言。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-057",
+        "title": "兖煤澳洲2026年Q3权益商品煤产量940万吨、销量900万吨，平均实现价格170澳元/吨",
+        "doc_id": "1225612269",
+        "note": "R12：#3 与本公司动作的异同：与紫金/洛钼同为资源并购整合，但兖澳为控股型＋两地上市资本平台，投资回收已近完成（股权投资回收率92%），现金回流确定性更高 → 【未披露】；本公告未提供所述外部排名、历史回收率或财务数字及其来源，撤除无来源断言。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-057",
+        "title": "兖煤澳洲2026年Q3权益商品煤产量940万吨、销量900万吨，平均实现价格170澳元/吨",
+        "doc_id": "1225612269",
+        "note": "R12：#3 先发/后发位置判断：绝对先发：2004年进入澳大利亚，完成八次重大国际并购，深耕逾20年，稀缺性行业领先 → 【未披露】；本公告未提供所述外部排名、历史回收率或财务数字及其来源，撤除无来源断言。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-057",
+        "title": "兖煤澳洲2026年Q3权益商品煤产量940万吨、销量900万吨，平均实现价格170澳元/吨",
+        "doc_id": "1225612269",
+        "note": "R12：#3 ①商务关注（市场进入/渠道客户/竞争/关税贸易政策）：客户为日韩印及东南亚钢铁/电力企业，长协与现货结合；竞争格局：与必和必拓、嘉能可同列澳洲煤炭市占率前三；关注亚太钢铁需求、冶金煤贸易流与印尼等竞争供给 → 【系统分析】关注后续季度产销量及实现价格；依据为本公告P1运营数据表，客户地区、长协比例及市占率【未披露】。；本公告未提供所述外部排名、历史回收率或财务数字及其来源，撤除无来源断言。"
+      },
+      {
+        "date": "2026-10-26",
+        "event_id": "E-057",
+        "title": "兖煤澳洲2026年Q3权益商品煤产量940万吨、销量900万吨，平均实现价格170澳元/吨",
+        "doc_id": "1225612269",
+        "note": "R12第二轮：删除旧分析残留的FIRB、矿权、环保触发项和无关原始分类映射；Q3标题补季度、权益份额与三项数据；跟踪点区分Q3基线及10月1日红隼确认产量起点。"
+      },
+      {
+        "date": "2026-10-27",
+        "event_id": "E-028",
+        "title": "兖煤澳洲2026-10-01完成收购红隼集团100%股权从而间接取得红隼煤矿80%权益，首付现金对价18.5亿美元（扣4,000万美元定金并作完成调整），另附最高5.5亿美元煤价挂钩或有付款",
+        "doc_id": "hkex_12354762",
+        "note": "保留源数据与历史旧值；仅修订当前议题，不改变事件数。"
+      },
+      {
+        "date": "2026-10-27",
+        "event_id": "E-028",
+        "title": "兖煤澳洲2026-10-01完成收购红隼集团100%股权从而间接取得红隼煤矿80%权益，首付现金对价18.5亿美元（扣4,000万美元定金并作完成调整），另附最高5.5亿美元煤价挂钩或有付款",
+        "doc_id": "hkex_12105020",
+        "note": "不将完成公告未载明扩大为所有已收录公告均未披露。"
+      },
+      {
+        "date": "2026-10-27",
+        "event_id": "E-060",
+        "title": "贵州轮胎摩洛哥全资二级子公司10月19日完成注册，注册资本99,000迪拉姆（约9,000欧元）",
+        "doc_id": "1225613826",
+        "note": "注册完成不等于开工投产或投资备案完成；历史分析保留在旧值中供审计。"
+      }
+    ],
+    "失效": []
+  },
+  "corrections": [],
+  "export_control": {
+    "collected": false,
+    "scanned": 0,
+    "new": 0
+  },
+  "IR": "未覆盖",
+  "exceptions": "state/exceptions/daily_20261023_27.json",
+  "notes": [
+    "新增数按相对运行前主键差集计算；市场新增数按披露北京时间归属，非索引日，不累加重跑。",
+    "巨潮原命令HTTP检索未完成；已保存独立HTTPS34关键词全分页响应。所有日批未完成，禁止理解为成功零新增。",
+    "新建终止事项2项（蓝色光标、中坚科技），未虚构前序事件，因此列新增而非失效更新。",
+    "本轮实际执行retry与完整原命令次数见runs_*.json/retry_runs.json；5秒重试被明确记为未完成。"
+  ],
+  "channel_reviews": [
+    {
+      "doc_id": "hkex_12382424",
+      "channel": "hkex",
+      "date": "2026-10-26",
+      "status": "ingested",
+      "raw_path": "raw/hkex_12382424.txt",
+      "reason": "核对既有事件主体、标的与原文，未找到同一事项。"
+    },
+    {
+      "doc_id": "hkex_12382915",
+      "channel": "hkex",
+      "date": "2026-10-26",
+      "status": "excluded",
+      "raw_path": "raw/hkex_12382915.txt",
+      "reason": "仅召开季度业绩说明会通知。"
+    },
+    {
+      "doc_id": "hkex_12383182",
+      "channel": "hkex",
+      "date": "2026-10-26",
+      "status": "excluded",
+      "raw_path": "raw/hkex_12383182.txt",
+      "reason": "仅董事名单及委员会分工。"
+    },
+    {
+      "doc_id": "hkex_12383178",
+      "channel": "hkex",
+      "date": "2026-10-26",
+      "status": "excluded",
+      "raw_path": "raw/hkex_12383178.txt",
+      "reason": "董事辞任，未披露出海投资、融资或境外项目变动。"
+    },
+    {
+      "doc_id": "hkex_12381759",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381759.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381116",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381116.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381112",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381112.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381056",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381056.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381032",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381032.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381000",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381000.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12382125",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12382125.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381652",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381652.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381336",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381336.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381667",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381667.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381646",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381646.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381011",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381011.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381861",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381861.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381119",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381119.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381097",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381097.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "hkex_12381072",
+      "channel": "hkex",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/hkex_12381072.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "sec_000110465926118589",
+      "channel": "sec",
+      "date": "2026-10-26",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/sec_000110465926118589.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "sec_000110465926118618",
+      "channel": "sec",
+      "date": "2026-10-26",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/sec_000110465926118618.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "sec_000110465926118304",
+      "channel": "sec",
+      "date": "2026-10-23",
+      "status": "excluded",
+      "raw_path": "raw/sec_000110465926118304.txt",
+      "reason": "更名及业绩发布时间公告，未披露具体新的境外投资、融资或项目动作；美股全市场另按其口径收录。"
+    },
+    {
+      "doc_id": "sec_000162828026066969",
+      "channel": "sec",
+      "date": "2026-10-23",
+      "status": "awaiting_full_review",
+      "raw_path": "raw/sec_000162828026066969.txt",
+      "reason": "完整原文及附件已留存，尚待逐份完成三步审核"
+    },
+    {
+      "doc_id": "sec_000110465926118472",
+      "channel": "sec",
+      "date": "2026-10-24",
+      "status": "excluded",
+      "raw_path": "raw/sec_000110465926118472.txt",
+      "reason": "董事辞任及名单更新，未披露出海实质动作。"
+    }
+  ],
+  "watch_updates": [
+    {
+      "file": "state/daily_20261023_27/2026-10-24_watch_https_candidates.json",
+      "collection_complete": true,
+      "candidates": 35,
+      "status": "awaiting_original_review"
+    },
+    {
+      "file": "state/daily_20261023_27/2026-10-27_watch_https_candidates.json",
+      "collection_complete": true,
+      "candidates": 34,
+      "status": "awaiting_original_review"
+    },
+    {
+      "file": "state/daily_20261023_27/2026-10-23_watch_https_candidates.json",
+      "collection_complete": true,
+      "candidates": 35,
+      "status": "awaiting_original_review"
+    },
+    {
+      "file": "state/daily_20261023_27/2026-10-26_watch_https_candidates.json",
+      "collection_complete": true,
+      "candidates": 34,
+      "status": "awaiting_original_review"
+    },
+    {
+      "file": "state/daily_20261023_27/2026-10-25_watch_https_candidates.json",
+      "collection_complete": false,
+      "candidates": 31,
+      "status": "awaiting_original_review"
+    }
+  ],
+  "validate_status": {
+    "ERROR": 0,
+    "WARN": 1,
+    "SKIP": 0
+  },
+  "validation_log": "state/daily_20261023_27/final_validate_retry.log",
+  "build_returncode": 0,
+  "build_assets_syntax": "node --check assets/data.js: passed",
+  "forbidden_path_changes": [],
+  "pending_daily_documents": 25
+}

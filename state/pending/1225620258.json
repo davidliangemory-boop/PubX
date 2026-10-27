@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "f793c3b20bc840d539b6d668f8c88c6bf01bc72110006fa88a7561bcc269e611"
+  "status": "excluded",
+  "sha256": "f793c3b20bc840d539b6d668f8c88c6bf01bc72110006fa88a7561bcc269e611",
+  "reason": "股东会议事规则草案，不证明上市程序完成。",
+  "reviewed_at": "2026-10-27T16:26:40.079384"
 }

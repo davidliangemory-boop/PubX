@@ -1,0 +1,26 @@
+{
+  "doc_id": "1225626127",
+  "candidate": {
+    "announcementId": "1225626127",
+    "time": 1793030400000,
+    "secCode": "002487",
+    "secName": "大金重工",
+    "title": "关于公司董事长提议回购公司H股的提示性公告",
+    "adjunctUrl": "finalpage/2026-10-27/1225626127.PDF",
+    "keywords": [
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225626127.txt",
+  "batch_id": "D-20261027",
+  "status": "excluded",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "仅董事长提议H股回购，未披露出海实质动作。",
+  "reviewed_at": "2026-10-27T16:26:40.083100",
+  "sha256": "272039c7653aa4dd5c44876206a35f5cfa5c0f98bffd050f4c21e9b81d5938dc"
+}

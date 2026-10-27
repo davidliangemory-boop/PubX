@@ -1,0 +1,26 @@
+{
+  "doc_id": "1225624537",
+  "candidate": {
+    "announcementId": "1225624537",
+    "time": 1793030400000,
+    "secCode": "601598",
+    "secName": "中<em>国外</em>运",
+    "title": "关于为控股子公司提供担保的公告",
+    "adjunctUrl": "finalpage/2026-10-27/1225624537.PDF",
+    "keywords": [
+      "国外"
+    ]
+  },
+  "raw_path": "raw/1225624537.txt",
+  "batch_id": "D-20261027",
+  "status": "excluded",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "reason": "担保对象、仓库及上期所业务均在境内，不构成境外融资担保。",
+  "reviewed_at": "2026-10-27T16:26:40.082383",
+  "sha256": "b8995ab4e6cb4227cccd19018bedfb33577d7c9cc6eec202f003c15f4efbb602"
+}

@@ -1,0 +1,363 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": true,
+    "category": "境外融资退出",
+    "reason": "中交建担保的CCCI Treasure 5亿美元永续证券发出赎回通知，计划12月22日赎回"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "未偿还本金",
+        "value": "500,000,000美元",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619052",
+          "page": 2,
+          "quote": "500,000,000美 元"
+        }
+      },
+      {
+        "field": "票息",
+        "value": "3.650%",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619052",
+          "page": 1,
+          "quote": "3.650%"
+        }
+      },
+      {
+        "field": "计划赎回日期",
+        "value": "2026-12-22",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619052",
+          "page": 2,
+          "quote": "2026 年 12 月 22 日"
+        }
+      },
+      {
+        "field": "ISIN",
+        "value": "XS2102905168",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619052",
+          "page": 1,
+          "quote": "XS2102905168"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I10.3",
+        "issue": "融资与担保（含母公司担保、财务资助）",
+        "question": "融资与担保（含母公司担保、财务资助）的已披露状态与后续核查是什么？",
+        "trigger_fact": "贖 回 全 部 證 券",
+        "disclosed_status": "已发出通知，拟于12月22日按本金加应计未付票息赎回。",
+        "status": "disclosed_pending",
+        "information_gap": "赎回资金落实及实际兑付结果未载。",
+        "judgment": "已发出通知，拟于12月22日按本金加应计未付票息赎回。不能扩展为未载明程序已完成。",
+        "verification_action": "跟踪兑付确认，核对担保解除与债务注销文件。",
+        "text": "已发出通知，拟于12月22日按本金加应计未付票息赎回。",
+        "layer": "analysis",
+        "basis": "1225619052 P2：贖 回 全 部 證 券",
+        "evidence": {
+          "doc_id": "1225619052",
+          "page": 2,
+          "quote": "贖 回 全 部 證 券"
+        }
+      },
+      {
+        "issue_code": "I13.1",
+        "issue": "两地/多地披露同步",
+        "question": "两地/多地披露同步的已披露状态与后续核查是什么？",
+        "trigger_fact": "申 請 撤 回",
+        "disclosed_status": "赎回完成后将申请撤回证券上市。",
+        "status": "disclosed_pending",
+        "information_gap": "撤回上市尚为未来动作。",
+        "judgment": "赎回完成后将申请撤回证券上市。不能扩展为未载明程序已完成。",
+        "verification_action": "核对完成赎回及撤销上市公告。",
+        "text": "赎回完成后将申请撤回证券上市。",
+        "layer": "analysis",
+        "basis": "1225619052 P2：申 請 撤 回",
+        "evidence": {
+          "doc_id": "1225619052",
+          "page": 2,
+          "quote": "申 請 撤 回"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持待履行判断：发出赎回通知不等于已兑付，未偿本金仍为5亿美元。",
+        "layer": "analysis",
+        "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+      },
+      {
+        "text": "信息缺口：实际赎回、资金安排及撤销上市批准未披露。",
+        "layer": "analysis",
+        "basis": "1225619052完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "中国交通建设股份有限公司",
+      "公告类型": "中国交建H股公告",
+      "涉及国家/地区": "英属维尔京群岛/中国香港",
+      "动作类型": "境外融资退出",
+      "动作阶段": "已发赎回通知、待赎回",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "500,000,000美 元",
+      "3.650%",
+      "2026 年 12 月 22 日",
+      "XS2102905168"
+    ],
+    "undisclosed": "实际赎回、资金安排及撤销上市批准未披露。"
+  },
+  "event": {
+    "event_id": "E-D-20261024-1225619052",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "中交建担保的CCCI Treasure 5亿美元永续证券发出赎回通知，计划12月22日赎回",
+      "layer": "disclosed",
+      "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+    },
+    "status": "活跃",
+    "parties": [
+      {
+        "name": "中国交通建设股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225619052完整原文"
+      },
+      {
+        "name": "CCCI Treasure Limited",
+        "role": "交易相关方",
+        "layer": "disclosed",
+        "basis": "1225619052完整原文"
+      }
+    ],
+    "geo": {
+      "text": "英属维尔京群岛/中国香港",
+      "layer": "disclosed",
+      "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+    },
+    "matter_type": {
+      "value": "境外融资退出",
+      "layer": "analysis",
+      "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+    },
+    "stage_current": "已发赎回通知、待赎回",
+    "stage_chain": [
+      {
+        "stage": "已发赎回通知、待赎回",
+        "date": "2026-10-24",
+        "doc_id": "1225619052",
+        "note": "中交建担保的CCCI Treasure 5亿美元永续证券发出赎回通知，计划12月22日赎回",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I10.3",
+        "issue": "融资与担保（含母公司担保、财务资助）",
+        "question": "融资与担保（含母公司担保、财务资助）的已披露状态与后续核查是什么？",
+        "trigger_fact": "贖 回 全 部 證 券",
+        "disclosed_status": "已发出通知，拟于12月22日按本金加应计未付票息赎回。",
+        "status": "disclosed_pending",
+        "information_gap": "赎回资金落实及实际兑付结果未载。",
+        "judgment": "已发出通知，拟于12月22日按本金加应计未付票息赎回。不能扩展为未载明程序已完成。",
+        "verification_action": "跟踪兑付确认，核对担保解除与债务注销文件。",
+        "text": "已发出通知，拟于12月22日按本金加应计未付票息赎回。",
+        "layer": "analysis",
+        "basis": "1225619052 P2：贖 回 全 部 證 券",
+        "evidence": {
+          "doc_id": "1225619052",
+          "page": 2,
+          "quote": "贖 回 全 部 證 券"
+        }
+      },
+      {
+        "issue_code": "I13.1",
+        "issue": "两地/多地披露同步",
+        "question": "两地/多地披露同步的已披露状态与后续核查是什么？",
+        "trigger_fact": "申 請 撤 回",
+        "disclosed_status": "赎回完成后将申请撤回证券上市。",
+        "status": "disclosed_pending",
+        "information_gap": "撤回上市尚为未来动作。",
+        "judgment": "赎回完成后将申请撤回证券上市。不能扩展为未载明程序已完成。",
+        "verification_action": "核对完成赎回及撤销上市公告。",
+        "text": "赎回完成后将申请撤回证券上市。",
+        "layer": "analysis",
+        "basis": "1225619052 P2：申 請 撤 回",
+        "evidence": {
+          "doc_id": "1225619052",
+          "page": 2,
+          "quote": "申 請 撤 回"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619052 完整原文；事项为境外融资退出"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持待履行判断：发出赎回通知不等于已兑付，未偿本金仍为5亿美元。",
+        "layer": "analysis",
+        "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "实际赎回、资金安排及撤销上市批准未披露。",
+        "why": "影响后续监管与履行状态核实",
+        "where": "公司后续公告及对应交易文件",
+        "layer": "analysis",
+        "basis": "1225619052 P2：500,000,000美 元；1225619052 P1：3.650%；1225619052 P2：2026 年 12 月 22 日；1225619052 P1：XS2102905168"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "跟踪兑付确认，核对担保解除与债务注销文件。",
+        "layer": "analysis",
+        "basis": "1225619052 P2：贖 回 全 部 證 券"
+      },
+      {
+        "text": "核对完成赎回及撤销上市公告。",
+        "layer": "analysis",
+        "basis": "1225619052 P2：申 請 撤 回"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225619052",
+        "channel": "A股·巨潮",
+        "file": "中国交建H股公告",
+        "date": "2026-10-24",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619052.PDF",
+        "quotes": [
+          {
+            "page": 2,
+            "text": "500,000,000美 元"
+          },
+          {
+            "page": 1,
+            "text": "3.650%"
+          },
+          {
+            "page": 2,
+            "text": "2026 年 12 月 22 日"
+          },
+          {
+            "page": 1,
+            "text": "XS2102905168"
+          }
+        ],
+        "sha256": "17e07039903cdeac187954ab64e7c23629e6fad56e0f50805f7762ffb7c7e2c5"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "既有事件无CCCI Treasure该ISIN证券赎回事项。",
+  "case_update": {
+    "summary": "中交建担保的CCCI Treasure 5亿美元永续证券发出赎回通知，计划12月22日赎回",
+    "check": "维持待履行判断：发出赎回通知不等于已兑付，未偿本金仍为5亿美元。"
+  }
+}

@@ -1,0 +1,313 @@
+[
+  {
+    "date": "2026-10-23",
+    "doc_id": "1225615213",
+    "outcome": "excluded",
+    "reason": "仅A股激励股份回购注销，未披露出海实质动作。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-23",
+    "doc_id": "1225615862",
+    "outcome": "excluded",
+    "reason": "仅A股回购披露，无境外实质动作。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-23",
+    "doc_id": "1225616059",
+    "outcome": "excluded",
+    "reason": "仅A股回购及激励用途。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-23",
+    "doc_id": "1225616074",
+    "outcome": "excluded",
+    "reason": "仅更换公司秘书及授权代表。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-23",
+    "doc_id": "1225617035",
+    "outcome": "new",
+    "event_id": "E-D-20261023-1225617035",
+    "title": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-23",
+    "doc_id": "1225617077",
+    "outcome": "progress",
+    "event_id": "E-D-20261023-1225617035",
+    "title": "赤峰黄金披露A股过户及新增H股发行完成，募集资金总额约92.72亿港元",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-23",
+    "doc_id": "1225617096",
+    "outcome": "excluded",
+    "reason": "仅A股员工持股计划回购。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-23",
+    "doc_id": "1225621563",
+    "outcome": "excluded",
+    "reason": "仅回购H股注销，无新增出海投资或业务动作。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-23",
+    "doc_id": "sec_000110465926118304",
+    "outcome": "excluded",
+    "reason": "更名及业绩发布时间公告，未披露具体新的境外投资、融资或项目动作；美股全市场另按其口径收录。",
+    "channel": "美股·EDGAR"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225617899",
+    "outcome": "excluded",
+    "reason": "股东会投票及中期股息派付，未披露具体境外投资、融资或项目事项。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225619052",
+    "outcome": "new",
+    "event_id": "E-D-20261024-1225619052",
+    "title": "中交建担保的CCCI Treasure 5亿美元永续证券发出赎回通知，计划12月22日赎回",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225619286",
+    "outcome": "new",
+    "event_id": "E-D-20261024-1225619286",
+    "title": "中坚科技董事会决定终止H股发行及香港主板上市",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225619498",
+    "outcome": "duplicate",
+    "event_id": "E-D-20261023-1225617035",
+    "title": "赤峰黄金翌日披露报表确认同笔310,902,731股H股发行",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225619548",
+    "outcome": "excluded",
+    "reason": "仅季度业绩董事会会议日期调整。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225619631",
+    "outcome": "excluded",
+    "reason": "仅A股回购及激励用途。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225619792",
+    "outcome": "excluded",
+    "reason": "仅董事名单与委员会分工。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225620088",
+    "outcome": "excluded",
+    "reason": "2027年向境内新疆风能及其联系人销售框架，原文未载境外标的或业务。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225620247",
+    "outcome": "excluded",
+    "reason": "仅修订H股上市后生效的章程与会议制度，不证明上市申请阶段前移。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225620254",
+    "outcome": "excluded",
+    "reason": "审计委员会工作制度，未披露新的上市或出海实质动作。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225620256",
+    "outcome": "excluded",
+    "reason": "仅修订上市后适用的内部治理制度。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225620258",
+    "outcome": "excluded",
+    "reason": "股东会议事规则草案，不证明上市程序完成。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225620519",
+    "outcome": "excluded",
+    "reason": "仅董事名单与职务。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225620894",
+    "outcome": "excluded",
+    "reason": "调整H股每手买卖单位，不是新发行或境外业务事项。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "1225620956",
+    "outcome": "new",
+    "event_id": "E-D-20261024-1225620956",
+    "title": "中国银行迪拜分行20亿元人民币1.60%票据申请香港上市，预计10月26日生效",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-24",
+    "doc_id": "sec_000110465926118472",
+    "outcome": "excluded",
+    "reason": "董事辞任及名单更新，未披露出海实质动作。",
+    "channel": "美股·EDGAR"
+  },
+  {
+    "date": "2026-10-26",
+    "doc_id": "1225621910",
+    "outcome": "excluded",
+    "reason": "仅A股限制性股票激励归属与库存股转让。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-26",
+    "doc_id": "1225621945",
+    "outcome": "new",
+    "event_id": "E-D-20261026-1225621945",
+    "title": "东山精密确定H股最终发行价86.80港元，预计10月28日上市",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-26",
+    "doc_id": "1225624714",
+    "outcome": "progress",
+    "event_id": "E-019",
+    "title": "罗博特科H股10月26日起纳入沪港通及深港通标的名单",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-26",
+    "doc_id": "hkex_12382424",
+    "outcome": "new",
+    "event_id": "E-D-20261026-hkex_12382424",
+    "title": "美团拟国际发售人民币优先票据，金额及利率尚未确定",
+    "channel": "港股·披露易"
+  },
+  {
+    "date": "2026-10-26",
+    "doc_id": "hkex_12382915",
+    "outcome": "excluded",
+    "reason": "仅召开季度业绩说明会通知。",
+    "channel": "港股·披露易"
+  },
+  {
+    "date": "2026-10-26",
+    "doc_id": "hkex_12383178",
+    "outcome": "excluded",
+    "reason": "董事辞任，未披露出海投资、融资或境外项目变动。",
+    "channel": "港股·披露易"
+  },
+  {
+    "date": "2026-10-26",
+    "doc_id": "hkex_12383182",
+    "outcome": "excluded",
+    "reason": "仅董事名单及委员会分工。",
+    "channel": "港股·披露易"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225623056",
+    "outcome": "excluded",
+    "reason": "内部审计制度，未披露具体出海实质事项。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225623482",
+    "outcome": "progress",
+    "event_id": "E-D-20261024-1225620956",
+    "title": "中行迪拜分行20亿元人民币票据获准在纳斯达克迪拜交易所交易",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225623903",
+    "outcome": "excluded",
+    "reason": "仅H股回购及待注销报表，不披露新增出海实质动作。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225624416",
+    "outcome": "excluded",
+    "reason": "仅A股回购与待注销报表。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225624537",
+    "outcome": "excluded",
+    "reason": "担保对象、仓库及上期所业务均在境内，不构成境外融资担保。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225624566",
+    "outcome": "excluded",
+    "reason": "ESG通用管理制度，不是实际境外处罚、项目或监管进展。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225624745",
+    "outcome": "excluded",
+    "reason": "境外子公司记账本位币会计政策变更，未披露新投资、融资、退出、诉讼或监管审批动作。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225625549",
+    "outcome": "excluded",
+    "reason": "赎回对象为境内优先股（360025），不是境外融资退出。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225625936",
+    "outcome": "excluded",
+    "reason": "仅董事名单及委员会角色。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225626127",
+    "outcome": "excluded",
+    "reason": "仅董事长提议H股回购，未披露出海实质动作。",
+    "channel": "A股·巨潮"
+  },
+  {
+    "date": "2026-10-27",
+    "doc_id": "1225627378",
+    "outcome": "excluded",
+    "reason": "本报表为合并换股发行A股，H股保持不变；原文未载境外标的或新增境外融资。",
+    "channel": "A股·巨潮"
+  }
+]

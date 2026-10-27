@@ -1,0 +1,343 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": true,
+    "category": "listing_abroad",
+    "reason": "中坚科技董事会决定终止H股发行及香港主板上市"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "董事会决议日",
+        "value": "2026-10-23",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619286",
+          "page": 1,
+          "quote": "第五届董事会第三十一次会议"
+        }
+      },
+      {
+        "field": "H股上市状态",
+        "value": "终止",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619286",
+          "page": 1,
+          "quote": "公司董事会同意终止发行 H 股"
+        }
+      },
+      {
+        "field": "证监会备案",
+        "value": "此前备案材料获接收，不等于完成备案",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225619286",
+          "page": 2,
+          "quote": "并获中国证券监督管理委员会接收"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的已披露状态与后续核查是什么？",
+        "trigger_fact": "公司董事会同意终止发行 H 股",
+        "disclosed_status": "董事会同意终止H股发行及主板上市。",
+        "status": "disclosed_pending",
+        "information_gap": "撤回申请办理时间及费用未载。",
+        "judgment": "董事会同意终止H股发行及主板上市。不能扩展为未载明程序已完成。",
+        "verification_action": "核查香港联交所撤回手续及中介终止安排。",
+        "text": "董事会同意终止H股发行及主板上市。",
+        "layer": "analysis",
+        "basis": "1225619286 P1：公司董事会同意终止发行 H 股",
+        "evidence": {
+          "doc_id": "1225619286",
+          "page": 1,
+          "quote": "公司董事会同意终止发行 H 股"
+        }
+      },
+      {
+        "issue_code": "I1.5",
+        "issue": "境外上市证监会备案（含全流通）",
+        "question": "境外上市证监会备案（含全流通）的已披露状态与后续核查是什么？",
+        "trigger_fact": "并获中国证券监督管理委员会接收",
+        "disclosed_status": "仅载此前备案申请材料获接收，未载备案完成。",
+        "status": "disclosed_pending",
+        "information_gap": "终止上市相关境内备案通知或报告状态未载。",
+        "judgment": "仅载此前备案申请材料获接收，未载备案完成。不能扩展为未载明程序已完成。",
+        "verification_action": "核对终止事项向证监会报告及备案流程处理文件。",
+        "text": "仅载此前备案申请材料获接收，未载备案完成。",
+        "layer": "analysis",
+        "basis": "1225619286 P2：并获中国证券监督管理委员会接收",
+        "evidence": {
+          "doc_id": "1225619286",
+          "page": 2,
+          "quote": "并获中国证券监督管理委员会接收"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "推翻继续推进本次上市的事项判断：董事会已明确终止；未来择机再申报只是可能性。",
+        "layer": "analysis",
+        "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+      },
+      {
+        "text": "信息缺口：撤回手续完成时间、费用及未来再申报时间未披露。",
+        "layer": "analysis",
+        "basis": "1225619286完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "浙江中坚科技股份有限公司",
+      "公告类型": "关于终止发行H股股票并于香港联合交易所有限公司主板上市的公告",
+      "涉及国家/地区": "中国香港",
+      "动作类型": "listing_abroad",
+      "动作阶段": "终止",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "第五届董事会第三十一次会议",
+      "公司董事会同意终止发行 H 股",
+      "并获中国证券监督管理委员会接收"
+    ],
+    "undisclosed": "撤回手续完成时间、费用及未来再申报时间未披露。"
+  },
+  "event": {
+    "event_id": "E-D-20261024-1225619286",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "中坚科技董事会决定终止H股发行及香港主板上市",
+      "layer": "disclosed",
+      "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+    },
+    "status": "终止",
+    "parties": [
+      {
+        "name": "浙江中坚科技股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225619286完整原文"
+      }
+    ],
+    "geo": {
+      "text": "中国香港",
+      "layer": "disclosed",
+      "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+    },
+    "matter_type": {
+      "value": "listing_abroad",
+      "layer": "analysis",
+      "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+    },
+    "stage_current": "终止",
+    "stage_chain": [
+      {
+        "stage": "终止",
+        "date": "2026-10-24",
+        "doc_id": "1225619286",
+        "note": "中坚科技董事会决定终止H股发行及香港主板上市",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的已披露状态与后续核查是什么？",
+        "trigger_fact": "公司董事会同意终止发行 H 股",
+        "disclosed_status": "董事会同意终止H股发行及主板上市。",
+        "status": "disclosed_pending",
+        "information_gap": "撤回申请办理时间及费用未载。",
+        "judgment": "董事会同意终止H股发行及主板上市。不能扩展为未载明程序已完成。",
+        "verification_action": "核查香港联交所撤回手续及中介终止安排。",
+        "text": "董事会同意终止H股发行及主板上市。",
+        "layer": "analysis",
+        "basis": "1225619286 P1：公司董事会同意终止发行 H 股",
+        "evidence": {
+          "doc_id": "1225619286",
+          "page": 1,
+          "quote": "公司董事会同意终止发行 H 股"
+        }
+      },
+      {
+        "issue_code": "I1.5",
+        "issue": "境外上市证监会备案（含全流通）",
+        "question": "境外上市证监会备案（含全流通）的已披露状态与后续核查是什么？",
+        "trigger_fact": "并获中国证券监督管理委员会接收",
+        "disclosed_status": "仅载此前备案申请材料获接收，未载备案完成。",
+        "status": "disclosed_pending",
+        "information_gap": "终止上市相关境内备案通知或报告状态未载。",
+        "judgment": "仅载此前备案申请材料获接收，未载备案完成。不能扩展为未载明程序已完成。",
+        "verification_action": "核对终止事项向证监会报告及备案流程处理文件。",
+        "text": "仅载此前备案申请材料获接收，未载备案完成。",
+        "layer": "analysis",
+        "basis": "1225619286 P2：并获中国证券监督管理委员会接收",
+        "evidence": {
+          "doc_id": "1225619286",
+          "page": 2,
+          "quote": "并获中国证券监督管理委员会接收"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225619286 完整原文；事项为listing_abroad"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "推翻继续推进本次上市的事项判断：董事会已明确终止；未来择机再申报只是可能性。",
+        "layer": "analysis",
+        "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "撤回手续完成时间、费用及未来再申报时间未披露。",
+        "why": "影响后续监管与履行状态核实",
+        "where": "公司后续公告及对应交易文件",
+        "layer": "analysis",
+        "basis": "1225619286 P1：第五届董事会第三十一次会议；1225619286 P1：公司董事会同意终止发行 H 股；1225619286 P2：并获中国证券监督管理委员会接收"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "核查香港联交所撤回手续及中介终止安排。",
+        "layer": "analysis",
+        "basis": "1225619286 P1：公司董事会同意终止发行 H 股"
+      },
+      {
+        "text": "核对终止事项向证监会报告及备案流程处理文件。",
+        "layer": "analysis",
+        "basis": "1225619286 P2：并获中国证券监督管理委员会接收"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225619286",
+        "channel": "A股·巨潮",
+        "file": "关于终止发行H股股票并于香港联合交易所有限公司主板上市的公告",
+        "date": "2026-10-24",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619286.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "第五届董事会第三十一次会议"
+          },
+          {
+            "page": 1,
+            "text": "公司董事会同意终止发行 H 股"
+          },
+          {
+            "page": 2,
+            "text": "并获中国证券监督管理委员会接收"
+          }
+        ],
+        "sha256": "459d1e4de271779643d538844c758ce3658c11c6d29be595e40fa9641edeed44"
+      }
+    ],
+    "source_diff": null,
+    "changelog": [],
+    "status_code": "terminated"
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "无同一事项既有事件，首次建档即为终止状态，不能虚构前序事件以标失效。",
+  "case_update": {
+    "summary": "中坚科技董事会决定终止H股发行及香港主板上市",
+    "check": "推翻继续推进本次上市的事项判断：董事会已明确终止；未来择机再申报只是可能性。"
+  }
+}

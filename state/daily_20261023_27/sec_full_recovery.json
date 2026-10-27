@@ -1,0 +1,177 @@
+[
+  {
+    "doc_id": "sec_000110465926118589",
+    "documents": [
+      {
+        "type": "6-K",
+        "filename": "tm2628263d1_6k.htm",
+        "page": 1
+      },
+      {
+        "type": "EX-99.1",
+        "filename": "tm2628263d1_ex99d1.htm",
+        "page": 2
+      },
+      {
+        "type": "EX-99.2",
+        "filename": "tm2628263d1_ex99d2.htm",
+        "page": 3
+      },
+      {
+        "type": "EX-99.3",
+        "filename": "tm2628263d1_ex99d3.htm",
+        "page": 4
+      }
+    ],
+    "chars": 62294,
+    "status": "recovered"
+  },
+  {
+    "doc_id": "sec_000110465926118618",
+    "documents": [
+      {
+        "type": "6-K",
+        "filename": "tm2628190d1_6k.htm",
+        "page": 1
+      },
+      {
+        "type": "EX-99.1",
+        "filename": "tm2628190d1_ex99-1.htm",
+        "page": 2
+      },
+      {
+        "type": "EX-99.2",
+        "filename": "tm2628190d1_ex99-2.htm",
+        "page": 3
+      },
+      {
+        "type": "EX-99.3",
+        "filename": "tm2628190d1_ex99-3.htm",
+        "page": 4
+      },
+      {
+        "type": "EX-99.4",
+        "filename": "tm2628190d1_ex99-4.htm",
+        "page": 5
+      },
+      {
+        "type": "EX-99.5",
+        "filename": "tm2628190d1_ex99-5.htm",
+        "page": 6
+      },
+      {
+        "type": "EX-99.6",
+        "filename": "tm2628190d1_ex99-6.htm",
+        "page": 7
+      },
+      {
+        "type": "EX-99.7",
+        "filename": "tm2628190d1_ex99-7.htm",
+        "page": 8
+      }
+    ],
+    "chars": 71957,
+    "status": "recovered"
+  },
+  {
+    "doc_id": "sec_000110465926118304",
+    "documents": [
+      {
+        "type": "6-K",
+        "filename": "tm2628191d1_6k.htm",
+        "page": 1
+      },
+      {
+        "type": "EX-99.1",
+        "filename": "tm2628191d1_ex99-1.htm",
+        "page": 2
+      },
+      {
+        "type": "EX-99.2",
+        "filename": "tm2628191d1_ex99-2.htm",
+        "page": 3
+      }
+    ],
+    "chars": 11305,
+    "status": "recovered"
+  },
+  {
+    "doc_id": "sec_000162828026066969",
+    "documents": [
+      {
+        "type": "8-K",
+        "filename": "zlab-20261022.htm",
+        "page": 1
+      },
+      {
+        "type": "EX-10.1",
+        "filename": "projectzenith-spax8xkex.htm",
+        "page": 2
+      },
+      {
+        "type": "EX-10.2",
+        "filename": "projectzenith-rrax8xkex.htm",
+        "page": 3
+      },
+      {
+        "type": "EX-99.1",
+        "filename": "corporatedeck_vfinal4.htm",
+        "page": 4
+      },
+      {
+        "type": "EX-99.2",
+        "filename": "ex991175834151_7xprojectze.htm",
+        "page": 5
+      },
+      {
+        "type": "EX-101.SCH",
+        "filename": "zlab-20261022.xsd",
+        "page": 6
+      },
+      {
+        "type": "EX-101.DEF",
+        "filename": "zlab-20261022_def.xml",
+        "page": 7
+      },
+      {
+        "type": "EX-101.LAB",
+        "filename": "zlab-20261022_lab.xml",
+        "page": 8
+      },
+      {
+        "type": "EX-101.PRE",
+        "filename": "zlab-20261022_pre.xml",
+        "page": 9
+      }
+    ],
+    "chars": 248539,
+    "status": "recovered"
+  },
+  {
+    "doc_id": "sec_000110465926118472",
+    "documents": [
+      {
+        "type": "6-K",
+        "filename": "tm2628183d1_6k.htm",
+        "page": 1
+      },
+      {
+        "type": "EX-99.1",
+        "filename": "tm2628183d1_ex99-1.htm",
+        "page": 2
+      },
+      {
+        "type": "EX-99.2",
+        "filename": "tm2628183d1_ex99-2.htm",
+        "page": 3
+      },
+      {
+        "type": "EX-99.3",
+        "filename": "tm2628183d1_ex99-3.htm",
+        "page": 4
+      }
+    ],
+    "chars": 6965,
+    "status": "recovered"
+  }
+]

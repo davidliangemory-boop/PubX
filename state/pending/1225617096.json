@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "7466dbf2768857e5871c477250788de94f5ec87c4a8b5d3236d2fa2ac817934f"
+  "status": "excluded",
+  "sha256": "7466dbf2768857e5871c477250788de94f5ec87c4a8b5d3236d2fa2ac817934f",
+  "reason": "仅A股员工持股计划回购。",
+  "reviewed_at": "2026-10-27T16:26:40.076823"
 }

@@ -1,0 +1,319 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "batch_id": "D-20261027",
+  "gate": {
+    "include": true,
+    "category": "境外投资",
+    "reason": "华勤通讯香港拟在三个月内增持晶合集成1,500万至2,500万股H股"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "计划股份数",
+        "value": "1,500万至2,500万股H股",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225625852",
+          "page": 2,
+          "quote": "1,500 万股～2,500 万股"
+        }
+      },
+      {
+        "field": "实施期间",
+        "value": "2026-10-27至2027-01-26",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225625852",
+          "page": 2,
+          "quote": "2027 年 1 月 26 日"
+        }
+      },
+      {
+        "field": "资金来源",
+        "value": "自有资金",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225625852",
+          "page": 2,
+          "quote": "自有资金"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "不设价格上限",
+        "disclosed_status": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+        "status": "disclosed_pending",
+        "information_gap": "实际成交金额、股数、完成日期及所需资金安排细节未披露。",
+        "judgment": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+        "verification_action": "跟踪增持成交与权益披露；核对一致行动人持股变化。",
+        "text": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+        "layer": "analysis",
+        "basis": "1225625852 P2：不设价格上限",
+        "evidence": {
+          "doc_id": "1225625852",
+          "page": 2,
+          "quote": "不设价格上限"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持待实施判断；计划股数不能记作已买入，且不将股东投资记成公司收到融资。",
+        "layer": "analysis",
+        "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+      },
+      {
+        "text": "信息缺口：实际成交金额、股数、完成日期及所需资金安排细节未披露。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "合肥晶合集成电路股份有限公司",
+      "公告类型": "晶合集成关于公司股东增持公司H股股份计划公告",
+      "涉及国家/地区": "中国香港",
+      "动作类型": "境外投资",
+      "动作阶段": "增持计划、待实施",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "1,500 万股～2,500 万股",
+      "2027 年 1 月 26 日",
+      "自有资金"
+    ],
+    "undisclosed": "实际成交金额、股数、完成日期及所需资金安排细节未披露。"
+  },
+  "event": {
+    "event_id": "E-D-20261027-1225625852",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "华勤通讯香港拟在三个月内增持晶合集成1,500万至2,500万股H股",
+      "layer": "disclosed",
+      "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+    },
+    "status": "活跃",
+    "parties": [
+      {
+        "name": "合肥晶合集成电路股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "name": "华勤通讯香港有限公司",
+        "role": "交易相关方",
+        "layer": "disclosed",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "name": "华勤技术股份有限公司",
+        "role": "交易相关方",
+        "layer": "disclosed",
+        "basis": "1225625852完整原文"
+      }
+    ],
+    "geo": {
+      "text": "中国香港",
+      "layer": "disclosed",
+      "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+    },
+    "matter_type": {
+      "value": "境外投资",
+      "layer": "analysis",
+      "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+    },
+    "stage_current": "增持计划、待实施",
+    "stage_chain": [
+      {
+        "stage": "增持计划、待实施",
+        "date": "2026-10-27",
+        "doc_id": "1225625852",
+        "note": "华勤通讯香港拟在三个月内增持晶合集成1,500万至2,500万股H股",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的处理状态及后续核查是什么？",
+        "trigger_fact": "不设价格上限",
+        "disclosed_status": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+        "status": "disclosed_pending",
+        "information_gap": "实际成交金额、股数、完成日期及所需资金安排细节未披露。",
+        "judgment": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+        "verification_action": "跟踪增持成交与权益披露；核对一致行动人持股变化。",
+        "text": "这是股东通过港交所实施的增持计划，不是发行人融资，金额取决于实际成交。",
+        "layer": "analysis",
+        "basis": "1225625852 P2：不设价格上限",
+        "evidence": {
+          "doc_id": "1225625852",
+          "page": 2,
+          "quote": "不设价格上限"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I10",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未触发该类具体事项，不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持待实施判断；计划股数不能记作已买入，且不将股东投资记成公司收到融资。",
+        "layer": "analysis",
+        "basis": "1225625852 P2：1,500 万股～2,500 万股；1225625852 P2：2027 年 1 月 26 日；1225625852 P2：自有资金"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "实际成交金额、股数、完成日期及所需资金安排细节未披露。",
+        "why": "关系实际履行及监管状态",
+        "where": "公司后续披露及交易文件",
+        "layer": "analysis",
+        "basis": "1225625852完整原文"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "跟踪增持成交与权益披露；核对一致行动人持股变化。",
+        "layer": "analysis",
+        "basis": "1225625852 P2：不设价格上限"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225625852",
+        "channel": "A股·巨潮",
+        "file": "晶合集成关于公司股东增持公司H股股份计划公告",
+        "date": "2026-10-27",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225625852.PDF",
+        "quotes": [
+          {
+            "page": 2,
+            "text": "1,500 万股～2,500 万股"
+          },
+          {
+            "page": 2,
+            "text": "2027 年 1 月 26 日"
+          },
+          {
+            "page": 2,
+            "text": "自有资金"
+          }
+        ],
+        "sha256": "efd960308d61f738a012d659e3bb8a80516e7aa50406715eef4103f42609f073"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "核对既有事件主体、标的与原文，未找到同一事项。",
+  "case_update": {
+    "summary": "华勤通讯香港拟在三个月内增持晶合集成1,500万至2,500万股H股",
+    "check": "维持待实施判断；计划股数不能记作已买入，且不将股东投资记成公司收到融资。"
+  }
+}

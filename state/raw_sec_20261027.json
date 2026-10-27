@@ -1,0 +1,278 @@
+{
+  "pulled_at": "2026-10-27T15:56:06",
+  "since": "2026-10-25",
+  "count": 5,
+  "new_count": 0,
+  "retained_count": 5,
+  "items": [
+    {
+      "raw_path": "raw/sec_000110465926118589.txt",
+      "sha256": "a08c5325e4c1e6dd184cb7bfd5234b0ce2977c205303f5928d03ea3791983e22",
+      "exhibit_filenames": [
+        "tm2628263d1_ex99d1.htm",
+        "tm2628263d1_ex99d2.htm",
+        "tm2628263d1_ex99d3.htm"
+      ],
+      "ticker": "ZTO",
+      "cik": "1677250",
+      "name": "中通快递",
+      "form": "6-K",
+      "filed": "2026-10-26",
+      "accepted_at_cn": "2026-10-26T18:13:50+08:00",
+      "accession": "0001104659-26-118589",
+      "items": "",
+      "desc": "FORM 6-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1677250/000110465926118589/tm2628263d1_6k.htm",
+      "index": "https://www.sec.gov/Archives/edgar/data/1677250/000110465926118589/",
+      "document_pages": [
+        {
+          "type": "6-K",
+          "filename": "tm2628263d1_6k.htm",
+          "page": 1
+        },
+        {
+          "type": "EX-99.1",
+          "filename": "tm2628263d1_ex99d1.htm",
+          "page": 2
+        },
+        {
+          "type": "EX-99.2",
+          "filename": "tm2628263d1_ex99d2.htm",
+          "page": 3
+        },
+        {
+          "type": "EX-99.3",
+          "filename": "tm2628263d1_ex99d3.htm",
+          "page": 4
+        }
+      ],
+      "full_submission_url": "https://www.sec.gov/Archives/edgar/data/1677250/0001104659-26-118589.txt",
+      "full_submission_sha256": "2f804f70228fd5bdd850c85eff56577a4fdb4bd4835377f93cb2ad2385f32d0d"
+    },
+    {
+      "raw_path": "raw/sec_000110465926118618.txt",
+      "sha256": "1cb0c94a5f995a3f52ae83d87dec7d3a11d4b8285d8a8152f268ba5f005271e7",
+      "exhibit_filenames": [
+        "tm2628190d1_ex99-1.htm",
+        "tm2628190d1_ex99-2.htm",
+        "tm2628190d1_ex99-3.htm",
+        "tm2628190d1_ex99-4.htm",
+        "tm2628190d1_ex99-5.htm",
+        "tm2628190d1_ex99-6.htm",
+        "tm2628190d1_ex99-7.htm"
+      ],
+      "ticker": "MNSO",
+      "cik": "1815846",
+      "name": "名创优品",
+      "form": "6-K",
+      "filed": "2026-10-26",
+      "accepted_at_cn": "2026-10-26T20:01:33+08:00",
+      "accession": "0001104659-26-118618",
+      "items": "",
+      "desc": "FORM 6-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1815846/000110465926118618/tm2628190d1_6k.htm",
+      "index": "https://www.sec.gov/Archives/edgar/data/1815846/000110465926118618/",
+      "document_pages": [
+        {
+          "type": "6-K",
+          "filename": "tm2628190d1_6k.htm",
+          "page": 1
+        },
+        {
+          "type": "EX-99.1",
+          "filename": "tm2628190d1_ex99-1.htm",
+          "page": 2
+        },
+        {
+          "type": "EX-99.2",
+          "filename": "tm2628190d1_ex99-2.htm",
+          "page": 3
+        },
+        {
+          "type": "EX-99.3",
+          "filename": "tm2628190d1_ex99-3.htm",
+          "page": 4
+        },
+        {
+          "type": "EX-99.4",
+          "filename": "tm2628190d1_ex99-4.htm",
+          "page": 5
+        },
+        {
+          "type": "EX-99.5",
+          "filename": "tm2628190d1_ex99-5.htm",
+          "page": 6
+        },
+        {
+          "type": "EX-99.6",
+          "filename": "tm2628190d1_ex99-6.htm",
+          "page": 7
+        },
+        {
+          "type": "EX-99.7",
+          "filename": "tm2628190d1_ex99-7.htm",
+          "page": 8
+        }
+      ],
+      "full_submission_url": "https://www.sec.gov/Archives/edgar/data/1815846/0001104659-26-118618.txt",
+      "full_submission_sha256": "85ca68814db9a65536d509df57bbb3a61ba2acd3f23cd24737736abca0318af0"
+    },
+    {
+      "raw_path": "raw/sec_000110465926118304.txt",
+      "sha256": "38c3e2484c41bc57eb87a0ab4b1a16fe40c3f667161705e7807861fe48dd1b8f",
+      "exhibit_filenames": [
+        "tm2628191d1_ex99-1.htm",
+        "tm2628191d1_ex99-2.htm"
+      ],
+      "ticker": "JKS",
+      "cik": "1481513",
+      "name": "晶科能源",
+      "form": "6-K",
+      "filed": "2026-10-23",
+      "accepted_at_cn": "2026-10-23T20:33:45+08:00",
+      "accession": "0001104659-26-118304",
+      "items": "",
+      "desc": "FORM 6-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1481513/000110465926118304/tm2628191d1_6k.htm",
+      "index": "https://www.sec.gov/Archives/edgar/data/1481513/000110465926118304/",
+      "document_pages": [
+        {
+          "type": "6-K",
+          "filename": "tm2628191d1_6k.htm",
+          "page": 1
+        },
+        {
+          "type": "EX-99.1",
+          "filename": "tm2628191d1_ex99-1.htm",
+          "page": 2
+        },
+        {
+          "type": "EX-99.2",
+          "filename": "tm2628191d1_ex99-2.htm",
+          "page": 3
+        }
+      ],
+      "full_submission_url": "https://www.sec.gov/Archives/edgar/data/1481513/0001104659-26-118304.txt",
+      "full_submission_sha256": "940145b12a0333dcea4cf5fa42f733422ad27250655cd3750c28183cf4082f96"
+    },
+    {
+      "raw_path": "raw/sec_000162828026066969.txt",
+      "sha256": "e14201f5771f946db2e4f7f15ba43da123ad6445349e5c5670e8a41a875742ee",
+      "exhibit_filenames": [
+        "projectzenith-spax8xkex.htm",
+        "projectzenith-rrax8xkex.htm",
+        "corporatedeck_vfinal4.htm",
+        "ex991175834151_7xprojectze.htm",
+        "zlab-20261022.xsd",
+        "zlab-20261022_def.xml",
+        "zlab-20261022_lab.xml",
+        "zlab-20261022_pre.xml"
+      ],
+      "ticker": "ZLAB",
+      "cik": "1704292",
+      "name": "再鼎医药",
+      "form": "8-K",
+      "filed": "2026-10-23",
+      "accepted_at_cn": "2026-10-23T18:06:22+08:00",
+      "accession": "0001628280-26-066969",
+      "items": "1.01,3.02,7.01,8.01,9.01",
+      "desc": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1704292/000162828026066969/zlab-20261022.htm",
+      "index": "https://www.sec.gov/Archives/edgar/data/1704292/000162828026066969/",
+      "document_pages": [
+        {
+          "type": "8-K",
+          "filename": "zlab-20261022.htm",
+          "page": 1
+        },
+        {
+          "type": "EX-10.1",
+          "filename": "projectzenith-spax8xkex.htm",
+          "page": 2
+        },
+        {
+          "type": "EX-10.2",
+          "filename": "projectzenith-rrax8xkex.htm",
+          "page": 3
+        },
+        {
+          "type": "EX-99.1",
+          "filename": "corporatedeck_vfinal4.htm",
+          "page": 4
+        },
+        {
+          "type": "EX-99.2",
+          "filename": "ex991175834151_7xprojectze.htm",
+          "page": 5
+        },
+        {
+          "type": "EX-101.SCH",
+          "filename": "zlab-20261022.xsd",
+          "page": 6
+        },
+        {
+          "type": "EX-101.DEF",
+          "filename": "zlab-20261022_def.xml",
+          "page": 7
+        },
+        {
+          "type": "EX-101.LAB",
+          "filename": "zlab-20261022_lab.xml",
+          "page": 8
+        },
+        {
+          "type": "EX-101.PRE",
+          "filename": "zlab-20261022_pre.xml",
+          "page": 9
+        }
+      ],
+      "full_submission_url": "https://www.sec.gov/Archives/edgar/data/1704292/0001628280-26-066969.txt",
+      "full_submission_sha256": "9ebb99726213ac4e4419636fd67d509d9a9ebb372b6bf99b877e2fe9dde5d9f8"
+    },
+    {
+      "raw_path": "raw/sec_000110465926118472.txt",
+      "sha256": "d2a2f228a86042461e79066fd690d6d11f8611f94d3adc9daf03dc591465dbf5",
+      "exhibit_filenames": [
+        "tm2628183d1_ex99-1.htm",
+        "tm2628183d1_ex99-2.htm",
+        "tm2628183d1_ex99-3.htm"
+      ],
+      "ticker": "BZ",
+      "cik": "1842827",
+      "name": "看准网",
+      "form": "6-K",
+      "filed": "2026-10-23",
+      "accepted_at_cn": "2026-10-24T04:07:23+08:00",
+      "accession": "0001104659-26-118472",
+      "items": "",
+      "desc": "FORM 6-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1842827/000110465926118472/tm2628183d1_6k.htm",
+      "index": "https://www.sec.gov/Archives/edgar/data/1842827/000110465926118472/",
+      "document_pages": [
+        {
+          "type": "6-K",
+          "filename": "tm2628183d1_6k.htm",
+          "page": 1
+        },
+        {
+          "type": "EX-99.1",
+          "filename": "tm2628183d1_ex99-1.htm",
+          "page": 2
+        },
+        {
+          "type": "EX-99.2",
+          "filename": "tm2628183d1_ex99-2.htm",
+          "page": 3
+        },
+        {
+          "type": "EX-99.3",
+          "filename": "tm2628183d1_ex99-3.htm",
+          "page": 4
+        }
+      ],
+      "full_submission_url": "https://www.sec.gov/Archives/edgar/data/1842827/0001104659-26-118472.txt",
+      "full_submission_sha256": "d431a6f12f4280ebc0bd51d3e249dab44bb300a1f396e34b545a19d654e598f3"
+    }
+  ],
+  "errors": []
+}

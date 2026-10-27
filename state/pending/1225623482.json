@@ -1,0 +1,26 @@
+{
+  "doc_id": "1225623482",
+  "candidate": {
+    "announcementId": "1225623482",
+    "time": 1793030400000,
+    "secCode": "601988",
+    "secName": "中国银行",
+    "title": "H股公告-海外监管公告-中国银行股份有限公司400亿美元中期票据计划下通过迪拜分行发行的票据在纳斯达克迪拜交易所上市之通告",
+    "adjunctUrl": "finalpage/2026-10-27/1225623482.PDF",
+    "keywords": [
+      "海外",
+      "H股"
+    ]
+  },
+  "raw_path": "raw/1225623482.txt",
+  "batch_id": "D-20261027",
+  "status": "ingested",
+  "found_by": "daily_https_fallback",
+  "steps": [
+    "extract_facts",
+    "legal_map",
+    "judge"
+  ],
+  "event_id": "E-D-20261024-1225620956",
+  "sha256": "304f9e2ee00d404d80d1099d9d856cb167937f64cfbb3d6d11a221764892c8f5"
+}

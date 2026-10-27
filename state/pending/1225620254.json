@@ -18,6 +18,8 @@
     "legal_map",
     "judge"
   ],
-  "status": "awaiting_analysis",
-  "sha256": "d5540c013a8a79faa0483641e3f90bd273276056c55d937e9f0230b95b010810"
+  "status": "excluded",
+  "sha256": "d5540c013a8a79faa0483641e3f90bd273276056c55d937e9f0230b95b010810",
+  "reason": "审计委员会工作制度，未披露新的上市或出海实质动作。",
+  "reviewed_at": "2026-10-27T16:26:40.079010"
 }

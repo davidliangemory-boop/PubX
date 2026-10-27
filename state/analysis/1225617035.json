@@ -1,0 +1,369 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": true,
+    "category": "并购",
+    "reason": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "A股受让股数",
+        "value": 241925746,
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "241,925,746"
+        }
+      },
+      {
+        "field": "H股认购股数",
+        "value": 310902731,
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "310,902,731"
+        }
+      },
+      {
+        "field": "合计持股比例",
+        "value": "25.85%",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "25.85%"
+        }
+      },
+      {
+        "field": "联交所批准",
+        "value": "已批准本次定向H股发行",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "经香港联合交易所有限公司"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的已披露状态与后续核查是什么？",
+        "trigger_fact": "经香港联合交易所有限公司",
+        "disclosed_status": "H股发行及交割完成，原文明示上市委员会批准。",
+        "status": "disclosed_pending",
+        "information_gap": "批准函具体条件及其他监管程序未载。",
+        "judgment": "H股发行及交割完成，原文明示上市委员会批准。不能扩展为未载明程序已完成。",
+        "verification_action": "索取H股上市批准函，逐项核对适用条件；不由交割倒推ODI或反垄断完成。",
+        "text": "H股发行及交割完成，原文明示上市委员会批准。",
+        "layer": "analysis",
+        "basis": "1225617035 P1：经香港联合交易所有限公司",
+        "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "经香港联合交易所有限公司"
+        }
+      },
+      {
+        "issue_code": "I10.5",
+        "issue": "合资治理/僵局/退出",
+        "question": "合资治理/僵局/退出的已披露状态与后续核查是什么？",
+        "trigger_fact": "公司取得赤峰黄金的控制权",
+        "disclosed_status": "公司取得控制权，拟推动董事会改选。",
+        "status": "disclosed_pending",
+        "information_gap": "董事会改选时间及落地治理安排未载。",
+        "judgment": "公司取得控制权，拟推动董事会改选。不能扩展为未载明程序已完成。",
+        "verification_action": "跟踪董事会改选和投后治理文件。",
+        "text": "公司取得控制权，拟推动董事会改选。",
+        "layer": "analysis",
+        "basis": "1225617035 P1：公司取得赤峰黄金的控制权",
+        "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "公司取得赤峰黄金的控制权"
+        }
+      }
+    ],
+    "judge": [
+      {
+        "text": "维持交割完成的事实判断；整合增效为公司预期，不能当作已实现收益。",
+        "layer": "analysis",
+        "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+      },
+      {
+        "text": "信息缺口：未披露交易价款及具体审批文件清单；A股登记确认收函日与过户日须分开核对。",
+        "layer": "analysis",
+        "basis": "1225617035完整原文"
+      }
+    ]
+  },
+  "result": {
+    "fields": {
+      "公司全称": "紫金矿业集团股份有限公司",
+      "公告类型": "紫金矿业集团股份有限公司关于协议受让赤峰吉隆黄金矿业集团股份有限公司A股及认购其定向增发H股完成交割的公告",
+      "涉及国家/地区": "中国香港",
+      "动作类型": "并购",
+      "动作阶段": "交割完成",
+      "投资金额": null,
+      "合作方": null,
+      "出海模式归类": null,
+      "盈利方式": null,
+      "本地化深度": null,
+      "对主营业务的战略价值": null,
+      "对营收结构与利润的预期影响": null,
+      "是否构成第二增长曲线": null,
+      "主要风险与不确定性": null,
+      "①商务关注（市场进入/渠道客户/竞争/关税贸易政策）": null,
+      "②财务关注（投资规模与资金来源/汇率敞口/海外收入占比/利润率现金流）": null,
+      "③法务关注（ODI/FDI审批备案/目标国合规/制裁出口管制/知识产权）": null
+    },
+    "quotes": [
+      "241,925,746",
+      "310,902,731",
+      "25.85%",
+      "经香港联合交易所有限公司"
+    ],
+    "undisclosed": "未披露交易价款及具体审批文件清单；A股登记确认收函日与过户日须分开核对。"
+  },
+  "event": {
+    "event_id": "E-D-20261023-1225617035",
+    "module": "cn_outbound",
+    "title_fact": {
+      "text": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权",
+      "layer": "disclosed",
+      "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+    },
+    "status": "完成",
+    "parties": [
+      {
+        "name": "紫金矿业集团股份有限公司",
+        "role": "披露主体",
+        "layer": "disclosed",
+        "basis": "1225617035完整原文"
+      },
+      {
+        "name": "紫金黄金（集团）有限公司",
+        "role": "交易相关方",
+        "layer": "disclosed",
+        "basis": "1225617035完整原文"
+      },
+      {
+        "name": "赤峰吉隆黄金矿业集团股份有限公司",
+        "role": "交易相关方",
+        "layer": "disclosed",
+        "basis": "1225617035完整原文"
+      }
+    ],
+    "geo": {
+      "text": "中国香港",
+      "layer": "disclosed",
+      "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+    },
+    "matter_type": {
+      "value": "并购",
+      "layer": "analysis",
+      "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+    },
+    "stage_current": "交割完成",
+    "stage_chain": [
+      {
+        "stage": "交割完成",
+        "date": "2026-10-23",
+        "doc_id": "1225617035",
+        "note": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权",
+        "layer": "disclosed"
+      }
+    ],
+    "scale": null,
+    "terms": null,
+    "legal_triggers": [
+      {
+        "issue_code": "I13.2",
+        "issue": "H 股/D 股/GDR",
+        "question": "H 股/D 股/GDR的已披露状态与后续核查是什么？",
+        "trigger_fact": "经香港联合交易所有限公司",
+        "disclosed_status": "H股发行及交割完成，原文明示上市委员会批准。",
+        "status": "disclosed_pending",
+        "information_gap": "批准函具体条件及其他监管程序未载。",
+        "judgment": "H股发行及交割完成，原文明示上市委员会批准。不能扩展为未载明程序已完成。",
+        "verification_action": "索取H股上市批准函，逐项核对适用条件；不由交割倒推ODI或反垄断完成。",
+        "text": "H股发行及交割完成，原文明示上市委员会批准。",
+        "layer": "analysis",
+        "basis": "1225617035 P1：经香港联合交易所有限公司",
+        "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "经香港联合交易所有限公司"
+        }
+      },
+      {
+        "issue_code": "I10.5",
+        "issue": "合资治理/僵局/退出",
+        "question": "合资治理/僵局/退出的已披露状态与后续核查是什么？",
+        "trigger_fact": "公司取得赤峰黄金的控制权",
+        "disclosed_status": "公司取得控制权，拟推动董事会改选。",
+        "status": "disclosed_pending",
+        "information_gap": "董事会改选时间及落地治理安排未载。",
+        "judgment": "公司取得控制权，拟推动董事会改选。不能扩展为未载明程序已完成。",
+        "verification_action": "跟踪董事会改选和投后治理文件。",
+        "text": "公司取得控制权，拟推动董事会改选。",
+        "layer": "analysis",
+        "basis": "1225617035 P1：公司取得赤峰黄金的控制权",
+        "evidence": {
+          "doc_id": "1225617035",
+          "page": 1,
+          "quote": "公司取得赤峰黄金的控制权"
+        }
+      }
+    ],
+    "issue_not_applicable": [
+      {
+        "issue_code": "I1",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I2",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I3",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I4",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I5",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I6",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I7",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I8",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I9",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I11",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      },
+      {
+        "issue_code": "I12",
+        "status": "not_applicable",
+        "reason": "本次完整原文未披露该类具体事项，本次不作该议题实质判断；不表示已排除风险。",
+        "layer": "analysis",
+        "basis": "1225617035 完整原文；事项为并购"
+      }
+    ],
+    "watch_points": [
+      {
+        "text": "维持交割完成的事实判断；整合增效为公司预期，不能当作已实现收益。",
+        "layer": "analysis",
+        "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+      }
+    ],
+    "gaps": [
+      {
+        "item": "未披露交易价款及具体审批文件清单；A股登记确认收函日与过户日须分开核对。",
+        "why": "影响后续监管与履行状态核实",
+        "where": "公司后续公告及对应交易文件",
+        "layer": "analysis",
+        "basis": "1225617035 P1：241,925,746；1225617035 P1：310,902,731；1225617035 P1：25.85%；1225617035 P1：经香港联合交易所有限公司"
+      }
+    ],
+    "practice_notes": [
+      {
+        "text": "索取H股上市批准函，逐项核对适用条件；不由交割倒推ODI或反垄断完成。",
+        "layer": "analysis",
+        "basis": "1225617035 P1：经香港联合交易所有限公司"
+      },
+      {
+        "text": "跟踪董事会改选和投后治理文件。",
+        "layer": "analysis",
+        "basis": "1225617035 P1：公司取得赤峰黄金的控制权"
+      }
+    ],
+    "sources": [
+      {
+        "doc_id": "1225617035",
+        "channel": "A股·巨潮",
+        "file": "紫金矿业集团股份有限公司关于协议受让赤峰吉隆黄金矿业集团股份有限公司A股及认购其定向增发H股完成交割的公告",
+        "date": "2026-10-23",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-10-23/1225617035.PDF",
+        "quotes": [
+          {
+            "page": 1,
+            "text": "241,925,746"
+          },
+          {
+            "page": 1,
+            "text": "310,902,731"
+          },
+          {
+            "page": 1,
+            "text": "25.85%"
+          },
+          {
+            "page": 1,
+            "text": "经香港联合交易所有限公司"
+          }
+        ],
+        "sha256": "49e4831acbd974636bfaab9b1cc20d53dbb81f5f4b241d6a9e008fb78945ff38"
+      }
+    ],
+    "source_diff": null,
+    "changelog": []
+  },
+  "update_type": "new",
+  "target_id": null,
+  "reason": "核对既有68个事件，未找到赤峰黄金控制权收购同一事项。",
+  "case_update": {
+    "summary": "紫金矿业完成赤峰黄金A股受让及H股认购，合计持股25.85%并取得控制权",
+    "check": "维持交割完成的事实判断；整合增效为公司预期，不能当作已实现收益。"
+  }
+}

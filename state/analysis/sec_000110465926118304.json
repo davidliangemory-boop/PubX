@@ -1,0 +1,40 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": false,
+    "category": "其他无关",
+    "reason": "更名及业绩发布时间公告，未披露具体新的境外投资、融资或项目动作；美股全市场另按其口径收录。"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "门控触发事实",
+        "value": "Completes Name Change to Jinko Holdings Limited",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "sec_000110465926118304",
+          "page": 1,
+          "quote": "Completes Name Change to Jinko Holdings Limited"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "status": "not_applicable",
+        "text": "仅作门控分类；不推断未披露法律办理状态。",
+        "layer": "analysis",
+        "basis": "sec_000110465926118304 P1：Completes Name Change to Jinko Holdings Limited；完整原文核查"
+      }
+    ],
+    "judge": [
+      {
+        "text": "更名及业绩发布时间公告，未披露具体新的境外投资、融资或项目动作；美股全市场另按其口径收录。",
+        "layer": "analysis",
+        "basis": "sec_000110465926118304 P1：Completes Name Change to Jinko Holdings Limited；完整原文核查"
+      }
+    ]
+  },
+  "reason": "更名及业绩发布时间公告，未披露具体新的境外投资、融资或项目动作；美股全市场另按其口径收录。"
+}

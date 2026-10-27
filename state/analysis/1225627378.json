@@ -1,0 +1,40 @@
+{
+  "model": "GPT-6",
+  "prompt_version": "R08-daily-20261023-20261027",
+  "gate": {
+    "include": false,
+    "category": "其他无关",
+    "reason": "本报表为合并换股发行A股，H股保持不变；原文未载境外标的或新增境外融资。"
+  },
+  "steps": {
+    "extract_facts": [
+      {
+        "field": "门控触发事实",
+        "value": "保持不變",
+        "layer": "disclosed",
+        "evidence": {
+          "doc_id": "1225627378",
+          "page": 2,
+          "quote": "保持不變"
+        }
+      }
+    ],
+    "legal_map": [
+      {
+        "issue_code": "I13.1",
+        "status": "not_applicable",
+        "text": "仅作门控分类；不推断未披露法律办理状态。",
+        "layer": "analysis",
+        "basis": "1225627378 P2：保持不變；完整原文核查"
+      }
+    ],
+    "judge": [
+      {
+        "text": "本报表为合并换股发行A股，H股保持不变；原文未载境外标的或新增境外融资。",
+        "layer": "analysis",
+        "basis": "1225627378 P2：保持不變；完整原文核查"
+      }
+    ]
+  },
+  "reason": "本报表为合并换股发行A股，H股保持不变；原文未载境外标的或新增境外融资。"
+}
