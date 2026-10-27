@@ -1,6 +1,6 @@
 """P0.6: conservative full-text extracts from local raw/ (not in git) -> state/research_extracts.json (in git, small).
 Only fills a field when a matching source sentence exists; each value carries quote + source + confidence."""
-import json, re, os
+import json, re, os, subprocess
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CJK = r'[\u3000-\u303f\u4e00-\u9fff\uff00-\uffef「」（）]'
@@ -63,12 +63,26 @@ def sec_extract(t, pats):
         if m: out[k] = dict(value=m.group(0)[:220], quote=q(m, t, 80)[:420], confidence='high' if '$' in m.group(0) or 'means' in m.group(0) else 'medium')
     return out
 
+def read_full_text(path):
+    """Prefer complete local PDFs over potentially page-limited text caches."""
+    path = Path(path)
+    pdf = path if path.suffix.lower() == '.pdf' else path.with_suffix('.pdf')
+    if not pdf.exists() and pdf.with_suffix('.PDF').exists():
+        pdf = pdf.with_suffix('.PDF')
+    if pdf.exists():
+        # No -f/-l page bounds: contractual terms frequently occur after page one.
+        result = subprocess.run(['pdftotext', '-layout', str(pdf), '-'],
+                                capture_output=True, check=True, timeout=180)
+        return result.stdout.decode('utf-8', errors='replace')
+    return path.read_text(errors='ignore')
+
+
 def main():
     res = {'hk': {}, 'us': {}, 'inventory': {}}
     hkdir = ROOT/'raw'/'hkex_market'
-    files = sorted(hkdir.glob('*.txt')) if hkdir.exists() else []
+    files = sorted({p.stem: p for pattern in ('*.txt','*.pdf','*.PDF') for p in hkdir.glob(pattern)}.values()) if hkdir.exists() else []
     for f in files:
-        x = hk_extract(f.read_text(errors='ignore'))
+        x = hk_extract(read_full_text(f))
         if x: x['_source'] = {'raw': 'raw/hkex_market/'+f.name}; res['hk'][f.stem] = x
     sdir = ROOT/'raw'/'sec_exhibits'
     metas = sorted(sdir.glob('*.json')) if sdir.exists() else []
@@ -77,9 +91,9 @@ def main():
         meta = json.loads(mf.read_text()); rec = {}
         for ex in meta['exhibits']:
             p = ROOT/ex['path']
-            if not p.exists(): continue
+            if not p.exists() and not p.with_suffix('.pdf').exists() and not p.with_suffix('.PDF').exists(): continue
             ex_n += 1
-            t = p.read_text(errors='ignore')
+            t = read_full_text(p)
             is_merger = re.search(r'Agreement and Plan of Merger|Merger Agreement|Stock Purchase Agreement|Asset Purchase Agreement|Equity Purchase Agreement|Membership Interest Purchase|Share Purchase Agreement', t[:3000], re.I)
             is_credit = re.search(r'Credit Agreement|Loan Agreement|Indenture|Note Purchase|Securities Purchase Agreement|Convertible', t[:3000], re.I)
             for key, pats, cond in [('merger_agreement_terms', SEC_PATS, is_merger), ('credit_agreement_terms', CREDIT_PATS, is_credit and not is_merger)]:

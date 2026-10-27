@@ -5,7 +5,7 @@ import json
 import re
 from difflib import SequenceMatcher
 from pathlib import Path
-from research_schema import FIELDS, field, make_event, prepare_research
+from research_schema import FIELDS, field, make_event, prepare_research, finalize_research, document_role
 from hk_research import classify_document, curated_docs, enrich_research, template_fields, AUX, CORE
 from acceptance_research import merge_eqt_events, enrich_acceptance
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,7 +143,11 @@ def hk_specialty(docs):
 
 
 def source(d, market):
-    return dict(doc_id=d.get('doc_id', d.get('id')), date=d.get('pub_date', d.get('filing_date', d.get('date', '')))[:10], title=clean(d.get('title', d.get('summary', d.get('form'))))[:220], url=d.get('url', ''), role=role(clean(d.get('title', d.get('summary')))), excerpt=clean(d.get('excerpt', d.get('summary')))[:280], form=d.get('form'), items=d.get('items', []), accession=d.get('accession'), exhibits={k:v for k,v in d.items() if 'exhibit' in k.lower()})
+    record = dict(doc_id=d.get('doc_id', d.get('id')), date=d.get('pub_date', d.get('filing_date', d.get('date', '')))[:10], title=clean(d.get('title', d.get('summary', d.get('form'))))[:220], url=d.get('url', ''), role=role(clean(d.get('title', d.get('summary')))), excerpt=clean(d.get('excerpt', d.get('summary')))[:280], form=d.get('form'), items=d.get('items', []), accession=d.get('accession'), exhibits={k:v for k,v in d.items() if 'exhibit' in k.lower()})
+    if market == 'us':
+        record['role'] = document_role({**record, 'role': ''})
+    return record
+
 
 def derive_market(market, docs):
     groups = []
@@ -198,7 +202,7 @@ def derive_market(market, docs):
             refs = any(re.sub(r'\D', '', x['date']) in re.sub(r'\D', '', t) or (x['date'][:4]+'年'+str(int(x['date'][5:7]))+'月'+str(int(x['date'][8:10]))+'日') in t for x in g['sources'] if len(x['date']) == 10)
             accession_ref = any(x.get('accession') and x['accession'] in t for x in g['sources'])
             shared = counter and counter == g['counter']
-            if market == 'hk' and (refs or g['type'] == typ and similarity >= .72) or market == 'us' and family == g['family'] and (shared or accession_ref or similarity >= .95 and len(norm(s['title'])) > 60 and typ != '其他重大事项'):
+            if market == 'hk' and (refs or g['type'] == typ and similarity >= .72) or market == 'us' and (family == g['family'] or shared or accession_ref) and (shared or accession_ref or similarity >= .95 and len(norm(s['title'])) > 60 and typ != '其他重大事项'):
                 match = g
                 break
         if match is None:
@@ -219,8 +223,6 @@ def derive_market(market, docs):
         ss, dd = g['sources'], g['docs']
         if market == 'hk':
             dd = [d for d in dd if (d.get('document_type') or classify_document(clean(d.get('title')))) != AUX]
-        if ss[0]['role'] == '其他':
-            ss[0]['role'] = '首次公告'
         ss.sort(key=lambda x:x['date'])
         core = [s for s in ss if s.get('document_type') not in (AUX, '企业资料')] if market == 'hk' else ss
         if not core:
@@ -229,6 +231,7 @@ def derive_market(market, docs):
         first = next((s for s in core if s.get('document_type') == CORE), core[0])
         eid = market.upper() + '-' + hashlib.sha1((g['issuer'] + clean(first['doc_id'])).encode()).hexdigest()[:14]
         e = make_event(event_id=eid, market=market, issuer_id=g['issuer'], entity_id=g['issuer'], event_type=g['type'], stage='完成公告（范围待核）' if last['role'] == '完成' else last['role'], status='终止' if last['role'] == '终止' else '跟踪中', disclosure_date=field(first['date'], 'disclosed'), parties=field([dd[0].get('stock_name', dd[0].get('company', ''))], 'external' if g['stream']=='external' else 'disclosed'), sources=field(ss, 'external' if g['stream']=='external' else 'disclosed'), target=field(g['counter'], 'disclosed') if g['counter'] else field(), disclosure_changes=field([dict(date=x['date'], change=x['role']) for x in ss], 'analysis'))
+        e['aliases'] = [market.upper() + '-' + hashlib.sha1((g['issuer'] + clean(s['doc_id'])).encode()).hexdigest()[:14] for s in core if s is not first]
         e.update(title=first['title'], stream=g['stream'], importance=min(100, len(core)*5 + (30 if g['type'] in ['并购','收购守则/私有化','非常重大交易'] else 0)))
         if market == 'hk':
             a = next((x.get('amount') for x in reversed(dd) if known(x.get('amount'))), None)
@@ -272,7 +275,7 @@ def outbound():
         if mt == '融资' or re.search(r'融资|发债|债券|首次公开|境外上市|香港上市|H股上市|发行.{0,12}H股|listing_abroad', fact, re.I):
             mt = '融资>' + ('发债' if re.search(r'发债|债券', fact) else '境外融资' if re.search(r'境外|海外|港股|H股', fact) else '境内融资')
         e = make_event(event_id=old['event_id'], market='outbound', issuer_id=d.get('股票代码') or clean(old.get('parties')), entity_id=d.get('公司全称'), event_type=mt or '其他事项', stage=old.get('stage_current'), status=old.get('status'), parties=field(old.get('parties'), 'disclosed'), geography=field(clean(old.get('geo')), 'disclosed'), consideration=field(clean(old.get('scale')), 'disclosed'), sources=field(old['sources'], 'disclosed'), disclosure_date=field(min((s.get('date','') for s in old['sources']), default=''), 'disclosed'), information_gaps=field([clean(x) for x in old.get('gaps',[])], 'analysis'))
-        e['title'] = ' · '.join(x[:85] for x in [d.get('公司全称',''), clean(old.get('scale')), clean(old.get('geo')), mt] if x) or clean(old.get('title_fact'))
+        e['title'] = ' '.join(x for x in [d.get('公司简称') or d.get('公司全称',''), mt, clean(old.get('geo'))] if x) or clean(old.get('title_fact'))
         e['legacy_id'] = old['event_id']
         for k, key in [('financial_analysis','对营收结构与利润的预期影响'), ('investment_analysis','主要风险与不确定性'), ('strategy_analysis','对主营业务的战略价值')]:
             if known(d.get(key)):
@@ -344,6 +347,7 @@ def build():
             if market == 'hk':
                 enrich_research(event)
             enrich_acceptance(event)
+            event['research'] = finalize_research(event['research'])
     manifest = {'built_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'markets': {}}
     for market in ('outbound','hk','us'):
         parts = [('material', [e for e in data[market] if e['stream']=='material']), ('capital', [e for e in data[market] if e['stream']=='capital_markets'])] if market=='us' else [('all',data[market])]
@@ -353,7 +357,7 @@ def build():
             manifest['markets'][market]['files'].append({'name':name,'part':part,'count':len(rows)})
             (ROOT/'assets'/name).write_text('window.PUBX_EVENT_PARTS=window.PUBX_EVENT_PARTS||{};window.PUBX_EVENT_PARTS['+json.dumps(market+'_'+part)+']='+json.dumps(rows,ensure_ascii=False,separators=(',',':'))+';\n')
     # Direct event links choose a US shard without downloading the other stream.
-    manifest['us_capital_ids'] = [e['event_id']['value'] for e in data['us'] if e['stream']=='capital_markets']
+    manifest['us_capital_ids'] = [route for e in data['us'] if e['stream']=='capital_markets' for route in [e['event_id']['value']] + e.get('aliases', [])]
     (ROOT/'assets/events_index.js').write_text('window.PUBX_EVENTS_INDEX='+json.dumps(manifest,ensure_ascii=False,separators=(',',':'))+';\n')
     (ROOT/'assets/events_data.js').unlink(missing_ok=True)
     print('research events:', {k:len(data[k]) for k in ['hk','us','outbound']})

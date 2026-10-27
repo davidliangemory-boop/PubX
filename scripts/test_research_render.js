@@ -12,7 +12,9 @@ for(const [key,rows] of Object.entries(window.PUBX_EVENT_PARTS)){
     checkValues(row.research);
     const html=window.PubXResearch.render('event',row.event_id.value,new URLSearchParams()).html;
     assert(!bad.test(html.replace(/<[^>]+>/g,'')),row.event_id.value);
-    assert(!/A ·|B ·|C ·|<h[23][^>]*>交易条款|判断与条件方案/.test(html));count++;
+    assert(!/A ·|B ·|C ·|<h[23][^>]*>交易条款|判断与条件方案/.test(html));
+    for(const alias of row.aliases||[]) assert.strictEqual(window.PubXResearch.render('event',alias,new URLSearchParams()).html,html,alias);
+    count++;
   }
   for(const mode of ['events','method','comps','issuers','regions','ongoing','external','capital_markets']){
     const route=key.startsWith('hk_')?'hk-market':key.startsWith('us_')?'us':'research';
@@ -36,7 +38,7 @@ rich.research={title:'示例',kicker:'签约',summary:['摘要'],key_metrics:[1,
 window.PUBX_EVENT_PARTS.hk_all=[rich];
 html=window.PubXResearch.render('event','HK-test',new URLSearchParams()).html;
 let position=-1;
-for(const key of ['status','summary','metrics','meaning','comparables','industry','watch','timeline','sources']){const next=html.indexOf('data-module="'+key+'"');assert(next>position,key);position=next;}
+for(const key of ['status','summary','metrics','comparables','industry','meaning','watch','timeline','sources']){const next=html.indexOf('data-module="'+key+'"');assert(next>position,key);position=next;}
 html=window.PubXResearch.render('hk-market','',new URLSearchParams()).html;
 assert.strictEqual((html.match(/class="research-metric"/g)||[]).length,3);
 window.PUBX_EVENT_PARTS.hk_all=original;
@@ -69,5 +71,22 @@ for(const id of acceptance){
 const outbound=window.PUBX_EVENT_PARTS.outbound_all;
 assert(outbound.find(e=>e.event_id.value==='E-028').title.includes('兖矿'));
 assert(window.PubXResearch.render('event','E-013',new URLSearchParams()).html.includes('项目成熟度'));
-assert(window.PUBX_EVENT_PARTS.us_material.filter(e=>e.research.title==='EQT拟以全股票交易收购Range Resources').length===1);
+assert(window.PUBX_EVENT_PARTS.us_material.filter(e=>e.research.title==='EQT拟换股收购Range').length===1);
 console.log('three acceptance routes, SEC aliases and E-028 identity passed');
+
+// Both depths obey the same six-number cap and hide invalid nested rows.
+for (const depth of ['brief','deep']) {
+  rich.research.depth=depth;
+  rich.research.key_metrics=Array.from({length:10},(_,i)=>({label:'数字'+i,value:String(i)}));
+  rich.research.industry_context=[{}, {title:'空标题'}, {text:'有效行业信息'}];
+  rich.research.timeline=[{}, {date:'2026-01-01'}];
+  rich.research.meaning={financial:[{}]};
+  window.PUBX_EVENT_PARTS.hk_all=[rich];
+  const article=window.PubXResearch.render('event','HK-test',new URLSearchParams()).html;
+  assert.strictEqual((article.match(/class="research-metric"/g)||[]).length,6);
+  assert(!article.includes('data-module="timeline"'));
+  assert(!article.includes('data-module="meaning"'));
+  assert(!article.includes('空标题'));
+  assert(!/<p><\/p>|<h3><\/h3>/.test(article));
+}
+window.PUBX_EVENT_PARTS.hk_all=original;

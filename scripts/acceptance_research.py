@@ -22,11 +22,13 @@ def merge_eqt_events(events):
                for s in e['sources']['value'])]
     if not matches:
         return events
-    canonical = next((e for e in matches if e['event_id']['value'] == PACKS[1]['event_id']), None)
+    canonical = next((e for e in matches if e['event_id']['value'] == PACKS[1]['event_id'] or PACKS[1]['event_id'] in e.get('aliases', [])), None)
     if canonical is None:
         return events
-    canonical['aliases'] = sorted({e['event_id']['value'] for e in matches
-                                  if e is not canonical})
+    canonical_id = PACKS[1]['event_id']
+    canonical['aliases'] = sorted(({e['event_id']['value'] for e in matches} |
+                                   {alias for e in matches for alias in e.get('aliases', [])}) - {canonical_id})
+    canonical['event_id']['value'] = canonical_id
     seen = set()
     sources = []
     for e in matches:

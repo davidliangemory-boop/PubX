@@ -20,7 +20,8 @@ def classify_document(title):
         (r'延遲|延迟|delay|時間表|时间表|timetable|補充|补充|更新|進展|进展|update|approval', PROGRESS),
         (r'通函|circular|scheme document', '通函'),
     ]
-    return next((label for pat,label in patterns if re.search(pat,title,re.I)), CORE)
+    patterns.append((r'首次|初始|联合公告|聯合公告|joint announcement|proposal.*privati|建議.*私有化|建议.*私有化', CORE))
+    return next((label for pat,label in patterns if re.search(pat,title,re.I)), '公告')
 
 def curated_docs(docs):
     """Inject reviewed core documents; an explicit key joins only this transaction."""
