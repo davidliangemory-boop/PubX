@@ -1,7 +1,7 @@
 name: ingest-and-publish
 
-# 混合模式（零 API 费用）：分析由外部定时任务（Kimi 订阅额度）完成并推送 data.js，
-# 本工作流只负责在收到推送后自动部署 Pages。GitHub 侧不需要任何 Secrets。
+# 混合模式（零 API 费用）：分析由外部定时任务（Kimi 订阅额度）完成并推送 state/，
+# 本工作流从 state/ 现场构建 assets/*data.js 并部署 Pages（产物不进仓库，见 docs/DATA_GROWTH.md）。GitHub 侧不需要任何 Secrets。
 
 on:
   repository_dispatch:
@@ -25,6 +25,15 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 由 state/ 构建数据产物
+        env:
+          TZ: Asia/Shanghai
+        run: python3 scripts/build_site.py
 
       - name: 组装发布目录
         run: |

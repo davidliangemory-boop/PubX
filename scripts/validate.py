@@ -440,7 +440,7 @@ def check_frontend():
     """index.html 引用的静态资源存在；data.js 可解析；app.js 语法检查（有 node 时）。"""
     idx = os.path.join(ROOT, "index.html")
     html = open(idx, encoding="utf-8").read()
-    for m in re.findall(r'(?:src|href)="(\./[^"#]+)"', html):
+    for m in re.findall(r'(?:src|href)="(\./[^"#?]+)"', html):
         p = os.path.join(ROOT, m[2:])
         if not os.path.exists(p):
             add("前端资源", "ERROR", f"index.html 引用不存在: {m}")

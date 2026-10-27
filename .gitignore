@@ -9,3 +9,9 @@ site/
 .env
 .env.*
 state/*token*
+
+# 数据滚大治理（docs/DATA_GROWTH.md）：
+# raw/ 原文缓存只留本地，git 里只存 state/raw_manifest.json 指针
+raw/
+# 前端数据产物由 ingest.yml 在 CI 里从 state/ 现场构建，不进 main 历史
+assets/*data.js

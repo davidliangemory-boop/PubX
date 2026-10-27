@@ -47,7 +47,8 @@ run_job() {
   fi
   [[ "$rc" == 0 ]] || return "$rc"
   python3 scripts/validate.py
-  python3 scripts/build_data.py
+  python3 scripts/build_site.py   # 本地构建 4 个 *data.js 仅供 validate；产物已 gitignore，线上由 ingest.yml 构建
+  python3 scripts/raw_manifest.py # raw/ 只留本地，指针写入 state/raw_manifest.json
   python3 scripts/validate.py
   local err
   err=$(python3 -c "import json;print(json.load(open('state/validate_report.json')).get('summary',{}).get('ERROR',1))" 2>/dev/null || echo 1)
@@ -57,7 +58,7 @@ run_job() {
     ch=$(git status --porcelain | awk '{print $2}')
     [[ -z "$ch" ]] && { echo "无变化"; return 0; }
     python3 scripts/sync_guard.py $ch || { echo "ERROR 有白名单外文件，不推送"; return 4; }
-    git add -A state assets/*data.js && git commit -qm "$name $(date +%F) [ops]" && \
+    git add -A state && git commit -qm "$name $(date +%F) [ops]" && \
       (git push -q origin HEAD:main || (git pull --rebase -q origin main && git push -q origin HEAD:main)) && \
       echo "PUSHED $(git rev-parse --short HEAD)"
   command -v gh >/dev/null && gh -R davidliangemory-boop/PubX workflow run ingest.yml >/dev/null 2>&1 && echo "PAGES_DISPATCHED" || echo "WARN Pages 未自动触发，请手动 gh workflow run ingest.yml"
