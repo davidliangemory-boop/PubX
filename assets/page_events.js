@@ -52,11 +52,16 @@
     if(cash.length) return cash;
     return (r.watch_items||[]).filter(function(item){var t=typeof item==='string'?item:item.text||'';return /媒体|报道|新聞|新闻/.test(t)&&/公告/.test(t)&&/金额|金額|对价|估值|现金|億|亿|美元|港元/.test(t)&&/差异|差額|差额|不同|不一致|口径|估算|未计入|没有计入|不能/.test(t);});
   }
+  function tipsHTML(rows) {
+    rows=(rows||[]).filter(function(t){return t.label&&t.value;}); if(!rows.length) return '';
+    var groups={}, order=[]; rows.forEach(function(t){if(!groups[t.kind]){groups[t.kind]=[];order.push(t.kind);}groups[t.kind].push(t);});
+    return '<section class="research-tips" data-module="tips" style="display:flex;flex-direction:column;gap:4px;margin:8px 0 14px">'+order.map(function(k){return '<div><b style="display:inline-block;min-width:4.5em">'+esc(k)+'</b>'+groups[k].map(function(t){var inner=esc(t.label)+'：'+esc(t.value);return '<span class="tag" style="margin:2px 6px 2px 0;display:inline-block">'+(t.href?link(t.href,t.label+'：'+t.value):inner)+'</span>';}).join('')+'</div>';}).join('')+'</section>';
+  }
   // All research uses the same article layout; empty regions disappear.
   function deepDetail(e,r) {
     sourceMap={}; (r.research_sources||[]).forEach(function(s,i){if(s.id)sourceMap[s.id]=Object.assign({},s,{citationIndex:i+1});});
     document.title=(r.title||'事件研究')+' · PubX';
-    var h='<article class="research-article">'+(r.title?'<h1>'+esc(r.title)+'</h1>':'');
+    var h='<article class="research-article">'+(r.title?'<h1>'+esc(r.title)+'</h1>':'')+'<p class="research-depth"><span class="pill">'+(r.depth==='deep'?'公开资料深读':'公告速览')+'</span></p>'+tipsHTML(r.tips);
     h+=moduleHTML('status','当前状态',paragraphs([r.kicker,r.latest_change].filter(function(x,i,a){return x && a.indexOf(x)===i;})));
     ['first_disclosure','latest_document','latest_substantive'].forEach(function(key,i){var d=r[key];if(d&&d.title)h+='<p class="research-disclosure">'+['首次披露','最新文件','最新实质变化'][i]+'：'+esc(d.date||'')+' '+link(d.url,d.title)+'</p>';});
     h+=moduleHTML('summary','事件摘要',paragraphs(r.summary));
@@ -75,7 +80,8 @@
     var body='',meaning=r.meaning||{};
     ['financial','strategy','investment'].forEach(function(k,i){var p=(meaning[k]||[]).map(function(x){var p=paragraphs([x]);return p?'<li>'+p+'</li>':'';}).join('');if(p)body+='<h3>'+['财务意义','战略意义','投资意义'][i]+'</h3><p class="muted research-prompt">'+['花多少钱、钱从哪来、报表影响','解决什么问题、业务/组织怎么变','价格是否合理、完成概率与催化'][i]+'</p><ul>'+p+'</ul>';});
     h+=moduleHTML('meaning','财务、战略与投资意义 · 本站分析',body);
-    h+=moduleHTML('watch','待观察',paragraphs(r.watch_items));
+    h+=moduleHTML('frame','怎么读这类事件 · 本站分析框架',(r.analysis_frame||[]).length?'<ul>'+r.analysis_frame.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul><p class="muted">框架按事件类型给出阅读重点，不代表本案结论；结论以原文为准。</p>':'');
+    h+=moduleHTML('watch','尚待观察',paragraphs(r.watch_items));
     h+=moduleHTML('timeline','时间线',(r.timeline||[]).filter(function(t){return t.text;}).map(function(t){return '<p><time>'+esc(t.date)+'</time> '+esc(t.text)+'</p>';}).join(''));
     var layers=r.source_layers||[{label:'核心文件',sources:r.research_sources||[]}];
     h+=moduleHTML('sources','事件资料包',layers.map(function(layer){var body=(layer.sources||[]).filter(function(s){return s.title&&s.url;}).map(function(s){return '<p>'+(s.label?esc(s.label)+' · ':'')+link(s.url,s.title)+' · '+esc(s.date||'')+'</p>';}).join('');return body?'<div class="research-source-layer"><h3>'+esc(layer.label)+'</h3>'+body+'</div>':'';}).join('')+paragraphs(r.boundaries));
@@ -88,7 +94,7 @@
   }
   function card(e) {
     var r=clean(e.research||{});
-    return '<section class="research-card">'+(r.title?'<h2>'+link('#/event/'+val(e,'event_id'),r.title)+'</h2>':'')+(r.stage?'<span class="pill">'+esc(r.stage)+'</span>':'')+'<span class="pill">'+(r.depth==='deep'?'公开资料深读':'公告速览')+'</span>'+paragraphs(r.card_summary?[r.card_summary]:(r.summary||[]).slice(0,1).map(function(x){return (typeof x==='string'?x:x.text||'').split(/[。！？]/)[0]+'。';}))+'<div class="research-metrics">'+metrics(r.key_metrics,3)+'</div>'+(r.latest_change?'<p class="research-latest">'+esc(r.latest_change)+'</p>':'')+'</section>';
+    return '<section class="research-card">'+(r.title?'<h2>'+link('#/event/'+val(e,'event_id'),r.title)+'</h2>':'')+(r.stage?'<span class="pill">'+esc(r.stage)+'</span>':'')+'<span class="pill">'+(r.depth==='deep'?'公开资料深读':'公告速览')+'</span>'+paragraphs(r.card_summary?[r.card_summary]:(r.summary||[]).slice(0,1).map(function(x){return (typeof x==='string'?x:x.text||'').split(/[。！？]/)[0]+'。';}))+tipsHTML((r.tips||[]).filter(function(t){return t.kind==='国别'||t.label==='阶段';}).slice(0,3))+'<div class="research-metrics">'+metrics(r.key_metrics,3)+'</div>'+(r.latest_change?'<p class="research-latest">'+esc(r.latest_change)+'</p>':'')+'</section>';
   }
   function library(m,qs) {
     var mode=qs.get('v') || 'events', data=window.PUBX_EVENTS[m].slice();
@@ -97,6 +103,7 @@
     if(mode==='takeovers') data=data.filter(function(e){return /收购守则|私有化/.test(val(e,'event_type'));});
     if(mode==='financing') data=data.filter(function(e){return /融资|配售|供股/.test(val(e,'event_type'));});
     if(mode==='ongoing'||mode==='tracking') data=data.filter(function(e){return !/完成|终止/.test(val(e,'stage'));});
+    ['issuer','geo','type'].forEach(function(k){var q=qs.get(k);if(!q)return;data=data.filter(function(e){if(k==='issuer')return val(e,'issuer_id')===q;if(k==='type')return val(e,'event_type')===q;return ((clean(e.research||{}).tips)||[]).some(function(t){return t.kind==='国别'&&String(t.value).indexOf(q)>=0;});});});
     if(mode==='comps') data=data.filter(function(e){return (clean(e.research||{}).comparables||[]).length;});
     var h='<h1>'+esc(m==='hk'?'港股':m==='us'?'SEC':'出海信披')+' · 事件库</h1><p>共 '+data.length+' 个事件</p>';
     if(mode==='overview'){var deep=data.filter(function(e){return e.research&&e.research.depth==='deep';}).length;h+='<p class="muted">公开资料深读 '+deep+' · 公告速览 '+(data.length-deep)+'</p>';}
@@ -104,7 +111,7 @@
     data.sort(function(a,b){return (b.importance||0)-(a.importance||0)||String(val(b,'disclosure_date')).localeCompare(String(val(a,'disclosure_date')));});
     var page=Math.max(1,parseInt(qs.get('page'),10)||1), size=40, start=(page-1)*size;
     h+=data.slice(start,start+size).map(card).join('');
-    var base='#/'+(m==='hk'?'hk-market':m==='us'?'us':'research')+'?v='+encodeURIComponent(mode)+'&page=';
+    var base='#/'+(m==='hk'?'hk-market':m==='us'?'us':'research')+'?v='+encodeURIComponent(mode)+['issuer','geo','type'].map(function(k){return qs.get(k)?'&'+k+'='+encodeURIComponent(qs.get(k)):'';}).join('')+'&page=';
     return h+'<p>'+(page>1?link(base+(page-1),'上一页'):'')+' · '+page+' / '+Math.max(1,Math.ceil(data.length/size))+' · '+(start+size<data.length?link(base+(page+1),'下一页'):'')+'</p>';
   }
   window.PubXResearch={nav:nav, ensure:ensure, render:function(name,id,qs){var pick=selection(name,id,qs); if(!pick) return null; var rows=(window.PUBX_EVENT_PARTS||{})[pick.market+'_'+pick.part]; if(!rows) return null; window.PUBX_EVENTS=window.PUBX_EVENTS||{}; window.PUBX_EVENTS[pick.market]=rows; if(name==='event'){var e=all().find(function(e){return val(e,'event_id')===id || (e.aliases || []).indexOf(id)>=0;}); return e?{html:'<div style="overflow-wrap:anywhere;min-width:0">'+detail(e)+'</div>',market:val(e,'market')}:{html:'<h1>事件研究</h1><p>未找到该事件。</p>',market:pick.market};} var m=name==='hk-market'?'hk':name==='us'?'us':name==='research'?'outbound':null; return m?{html:'<div style="overflow-wrap:anywhere;min-width:0">'+library(m,qs)+'</div>',market:m}:null;}};

@@ -357,6 +357,11 @@ def build():
             from research_structure import project_structure
             project_structure(event)
             event['research'] = finalize_research(event['research'])
+    from research_tips import tips, frame, build_issuer_index
+    allev=[e for market in ('outbound','hk','us') for e in data[market]]
+    idx=build_issuer_index(allev)
+    for e in allev:
+        tips(e, idx); frame(e)
     write_candidates([e for market in ("outbound", "hk", "us") for e in data[market]], ROOT / "state/deep_candidates.json")
     manifest = {'built_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'markets': {}}
     for market in ('outbound','hk','us'):
