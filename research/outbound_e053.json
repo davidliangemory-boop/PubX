@@ -2,7 +2,7 @@
  "event_id": "E-053",
  "title": "联讯仪器筹划H股发行上市",
  "depth": "brief",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-10-28",
  "stage": "董事会通过；待股东会及监管程序",
  "kicker": "10月16日董事会通过H股发行相关议案，拟在股东会决议有效期内择机推进。",
  "latest_change": "10月16日董事会通过H股发行相关议案，拟在股东会决议有效期内择机推进。",
@@ -90,6 +90,20 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-21/1225613124.PDF",
    "date": "2026-10-21",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_ipo_202609",
+   "title": "香港联交所：有关首次公开招股申请、除牌和停牌公司之报告（2026年9月）",
+   "url": "https://www.hkex.com.hk/News/Market-Communications/2026/260930news?sc_lang=zh-HK",
+   "date": "2026-09-30",
+   "label": "外部信息"
+  },
+  {
+   "id": "hkex_mmh_202609",
+   "title": "香港交易所 Monthly Market Highlights（2026年9月）",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "date": "2026-09-30",
+   "label": "外部信息"
   }
  ],
  "key_metrics": [
@@ -115,7 +129,32 @@
   }
  ],
  "comparison_notes": [],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "港股上市申请排队",
+   "sample": "香港联交所2026年处理的全部上市申请（主板、GEM及第二十章投资工具）",
+   "date": "2026-09-30",
+   "basis": "2026年1月1日至9月30日累计；申请宗数口径，非集资额",
+   "url": "https://www.hkex.com.hk/News/Market-Communications/2026/260930news?sc_lang=zh-HK",
+   "sources": [
+    "hkex_ipo_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所9月报告显示，2026年截至9月30日共处理933宗上市申请，其中2026年新受理554宗；9月底仍有590宗处理中，28宗已获上市委员会批准待上市，146宗因处理期限已过、被拒、被发回或自行撤回结束。今年按优化流程处理的874宗中，157宗走合资格A股公司快速审批时间表。港交所并提示，因申请数量显著上升，部分申请每轮意见的实际处理时间会比时间表稍长。联讯仪器目前仍在董事会或筹划阶段，尚未递表；进入这条队列后，窗口选择要同时考虑审核排期与股东会决议有效期，24个月有效期并不等于上市时点。"
+  },
+  {
+   "title": "港股新股集资规模",
+   "sample": "香港联交所主板及GEM全部新上市公司",
+   "date": "2026-09-30",
+   "basis": "2026年首九个月累计对2025年同期；IPO集资额含认购、发售及配售，港元",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "sources": [
+    "hkex_mmh_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所统计，2026年首九个月新上市公司118家（去年同期69家），新股集资3,880.32亿港元，同比增长106%。新股市场活跃说明窗口打开，但联讯仪器最终能募多少取决于定价时市况与发行股数，不能用市场总额推算本案规模。"
+  }
+ ],
  "boundaries": [
   "截至2026-10-27依据列示原始公告复核；程序事实以对应公告为准，后续状态须由新的实质公告确认。",
   "财务、战略和投资意义为基于公告事实的研究判断；程序推进不等于资金到账或经营贡献，类案仅支持列明维度，不用于推算估值或成功概率。"

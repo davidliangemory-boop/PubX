@@ -2,7 +2,7 @@
  "event_id": "E-033",
  "title": "若羽臣H股发行获中国证监会备案",
  "depth": "brief",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-10-28",
  "stage": "已获境内备案；待香港批准",
  "kicker": "获准备案拟发行不超过63,126,700股境外上市普通股，仍须香港监管批准。",
  "latest_change": "获准备案拟发行不超过63,126,700股境外上市普通股，仍须香港监管批准。",
@@ -57,7 +57,32 @@
    ]
   }
  ],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "港股上市申请排队",
+   "sample": "香港联交所2026年处理的全部上市申请（主板、GEM及第二十章投资工具）",
+   "date": "2026-09-30",
+   "basis": "2026年1月1日至9月30日累计；申请宗数口径，非集资额",
+   "url": "https://www.hkex.com.hk/News/Market-Communications/2026/260930news?sc_lang=zh-HK",
+   "sources": [
+    "hkex_ipo_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所9月报告显示，2026年截至9月30日共处理933宗上市申请，其中2026年新受理554宗；9月底仍有590宗处理中，28宗已获上市委员会批准待上市，146宗因处理期限已过、被拒、被发回或自行撤回结束。今年按优化流程处理的874宗中，157宗走合资格A股公司快速审批时间表。港交所并提示，因申请数量显著上升，部分申请每轮意见的实际处理时间会比时间表稍长。若羽臣已拿到证监会备案，境内一环完成；港股侧仍在排队，备案通知12个月内未完成发行需更新材料，两条时钟要一起看。"
+  },
+  {
+   "title": "港股新股集资规模",
+   "sample": "香港联交所主板及GEM全部新上市公司",
+   "date": "2026-09-30",
+   "basis": "2026年首九个月累计对2025年同期；IPO集资额含认购、发售及配售，港元",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "sources": [
+    "hkex_mmh_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所统计，2026年首九个月新上市公司118家（去年同期69家），新股集资3,880.32亿港元，同比增长106%。市场集资活跃，但若羽臣尚未定价，不能用市场总额或同期案例推算本次募资额。"
+  }
+ ],
  "meaning": {
   "financial": [
    {
@@ -130,6 +155,20 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-27/1225627271.PDF",
    "date": "2026-10-27",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_ipo_202609",
+   "title": "香港联交所：有关首次公开招股申请、除牌和停牌公司之报告（2026年9月）",
+   "url": "https://www.hkex.com.hk/News/Market-Communications/2026/260930news?sc_lang=zh-HK",
+   "date": "2026-09-30",
+   "label": "外部信息"
+  },
+  {
+   "id": "hkex_mmh_202609",
+   "title": "香港交易所 Monthly Market Highlights（2026年9月）",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "date": "2026-09-30",
+   "label": "外部信息"
   }
  ],
  "boundaries": [

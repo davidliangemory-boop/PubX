@@ -2,7 +2,7 @@
  "event_id": "E-029",
  "title": "博瑞医药终止H股发行上市",
  "depth": "brief",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-10-28",
  "stage": "终止；不再申报加期",
  "kicker": "9月30日董事会决定终止H股上市，不再继续申报加期。",
  "latest_change": "9月30日董事会决定终止H股上市，不再继续申报加期。",
@@ -103,6 +103,20 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619286.PDF",
    "date": "2026-10-24",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_ipo_202609",
+   "title": "香港联交所：有关首次公开招股申请、除牌和停牌公司之报告（2026年9月）",
+   "url": "https://www.hkex.com.hk/News/Market-Communications/2026/260930news?sc_lang=zh-HK",
+   "date": "2026-09-30",
+   "label": "外部信息"
+  },
+  {
+   "id": "hkex_mmh_202609",
+   "title": "香港交易所 Monthly Market Highlights（2026年9月）",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "date": "2026-09-30",
+   "label": "外部信息"
   }
  ],
  "key_metrics": [],
@@ -124,7 +138,32 @@
   "原文未提供可用于衡量交易或融资规模的金额、比例及经营财务数据；关键指标留空，不以证券代码、公告编号或程序日期填充金额指标。"
  ],
  "comparison_notes": [],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "港股上市申请排队",
+   "sample": "香港联交所2026年处理的全部上市申请（主板、GEM及第二十章投资工具）",
+   "date": "2026-09-30",
+   "basis": "2026年1月1日至9月30日累计；申请宗数口径，非集资额",
+   "url": "https://www.hkex.com.hk/News/Market-Communications/2026/260930news?sc_lang=zh-HK",
+   "sources": [
+    "hkex_ipo_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所9月报告列示，2026年截至9月有146宗申请以处理期限已过、被拒、被发回或自行撤回结束，其中被拒0宗、被发回1宗，其余主要是失效或撤回；港交所8月21日公告，合资格申请的有效期可由六个月短期延长至十二个月。博瑞因前次申报即将到期而不再加期，正对应“处理期限已过”这一类结束方式。公司自述原因包含市场环境，但同期全市场新股集资同比翻倍，终止更可能与个案估值、规模或时机有关，不宜理解为港股融资窗口关闭。"
+  },
+  {
+   "title": "港股新股集资规模",
+   "sample": "香港联交所主板及GEM全部新上市公司",
+   "date": "2026-09-30",
+   "basis": "2026年首九个月累计对2025年同期；IPO集资额含认购、发售及配售，港元",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "sources": [
+    "hkex_mmh_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所统计，2026年首九个月新上市公司118家（去年同期69家），新股集资3,880.32亿港元，同比增长106%。市场整体集资活跃，个案终止不能解读为港股融资渠道收紧。"
+  }
+ ],
  "cash_explanation": [
   {
    "text": "本公告未形成可确认的新增融资或并购现金流；具体收支须依据正式实施文件及后续财务记录核实，不能将筹备或终止节点视为资金到账或资产处置回款。",

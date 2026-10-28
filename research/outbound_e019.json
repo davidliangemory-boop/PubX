@@ -2,7 +2,7 @@
  "event_id": "E-019",
  "title": "罗博特科H股挂牌后纳入港股通",
  "depth": "deep",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-10-28",
  "stage": "H股挂牌完成；纳入港股通",
  "kicker": "H股9月29日挂牌，基础净筹估计约49.61亿港元；10月26日起纳入港股通。",
  "latest_change": "H股9月29日挂牌，基础净筹估计约49.61亿港元；10月26日起纳入港股通。",
@@ -141,6 +141,20 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-09-30/1225586714.PDF",
    "date": "2026-09-30",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_mmh_202609",
+   "title": "香港交易所 Monthly Market Highlights（2026年9月）",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "date": "2026-09-30",
+   "label": "外部信息"
+  },
+  {
+   "id": "kpmg_ipo_2026q3",
+   "title": "毕马威：中国内地及香港IPO市场2026年第三季度回顾（新闻稿）",
+   "url": "https://kpmg.com/cn/zh/media/press-releases/2026/10/chinese-mainland-and-hk-ipo-markets-2026-q3-review-press-release.html",
+   "date": "2026-10-06",
+   "label": "外部信息"
   }
  ],
  "operating_background": [
@@ -187,6 +201,31 @@
    ]
   }
  ],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "港股新股集资规模",
+   "sample": "香港联交所主板及GEM全部新上市公司",
+   "date": "2026-09-30",
+   "basis": "2026年首九个月累计对2025年同期；IPO集资额含认购、发售及配售，港元",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "sources": [
+    "hkex_mmh_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所统计，2026年首九个月新上市公司118家（去年同期69家），新股集资3,880.32亿港元，同比增长106%。按毛额计同期平均每宗约32.9亿港元（3,880.32亿港元÷118家），与净额口径不同，只作量级参照；罗博特科基础净募约49.61亿港元，高于平均量级，且10月26日起已纳入港股通。"
+  },
+  {
+   "title": "A+H上市占比",
+   "sample": "毕马威统计的2026年首三季香港新股（116宗）及其中A+H上市（38宗）",
+   "date": "2026-10-06",
+   "basis": "2026年1—9月；集资额占比为毕马威统计口径，与港交所118家（含GEM转主板）口径不同",
+   "url": "https://kpmg.com/cn/zh/media/press-releases/2026/10/chinese-mainland-and-hk-ipo-markets-2026-q3-review-press-release.html",
+   "sources": [
+    "kpmg_ipo_2026q3"
+   ],
+   "label": "外部信息",
+   "text": "毕马威统计首三季A+H上市38宗，数目为去年同期三倍以上，集资额占香港IPO总额近七成。罗博特科是这一A+H浪潮中的一例：港股融资主力来自已在A股上市的公司，这也意味着H股估值常被拿来与A股价格直接比较。"
+  }
+ ],
  "cash_explanation": []
 }

@@ -2,7 +2,7 @@
  "event_id": "E-D-20261026-1225621945",
  "title": "东山精密H股最终发行价86.80港元",
  "depth": "brief",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-10-28",
  "stage": "已定价；预计10月28日挂牌",
  "kicker": "已定价；预计10月28日挂牌",
  "latest_change": "东山精密确定H股最终发行价为每股86.80港元，预计2026年10月28日在香港联交所主板挂牌交易。公告所列价格不包括经纪佣金及香港相关交易征费、交易费。",
@@ -132,9 +132,49 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-16/1225606076.PDF",
    "date": "2026-10-16",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_mmh_202609",
+   "title": "香港交易所 Monthly Market Highlights（2026年9月）",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "date": "2026-09-30",
+   "label": "外部信息"
+  },
+  {
+   "id": "kpmg_ipo_2026q3",
+   "title": "毕马威：中国内地及香港IPO市场2026年第三季度回顾（新闻稿）",
+   "url": "https://kpmg.com/cn/zh/media/press-releases/2026/10/chinese-mainland-and-hk-ipo-markets-2026-q3-review-press-release.html",
+   "date": "2026-10-06",
+   "label": "外部信息"
   }
  ],
  "boundaries": [
   "10月28日为预计挂牌日；每股定价及认购附加费用不能替代最终发行股数和净募集额。"
+ ],
+ "industry_context": [
+  {
+   "title": "港股新股集资规模",
+   "sample": "香港联交所主板及GEM全部新上市公司",
+   "date": "2026-09-30",
+   "basis": "2026年首九个月累计对2025年同期；IPO集资额含认购、发售及配售，港元",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "sources": [
+    "hkex_mmh_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所统计，2026年首九个月新上市公司118家（去年同期69家），新股集资3,880.32亿港元，同比增长106%。本案已定价，市场同期新股多，集资额仍以挂牌后公告的最终净额为准。"
+  },
+  {
+   "title": "A+H上市占比",
+   "sample": "毕马威统计的2026年首三季香港新股（116宗）及其中A+H上市（38宗）",
+   "date": "2026-10-06",
+   "basis": "2026年1—9月；集资额占比为毕马威统计口径，与港交所118家（含GEM转主板）口径不同",
+   "url": "https://kpmg.com/cn/zh/media/press-releases/2026/10/chinese-mainland-and-hk-ipo-markets-2026-q3-review-press-release.html",
+   "sources": [
+    "kpmg_ipo_2026q3"
+   ],
+   "label": "外部信息",
+   "text": "毕马威统计首三季A+H上市38宗，数目为去年同期三倍以上，集资额占香港IPO总额近七成。东山精密是这一A+H浪潮中的一例：港股融资主力来自已在A股上市的公司，这也意味着H股估值常被拿来与A股价格直接比较。"
+  }
  ]
 }

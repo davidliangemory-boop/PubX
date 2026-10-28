@@ -46,3 +46,9 @@ Remaining gaps (R4): key_metrics still 0 on ~14 (E-002/003/007/029/034/041/042/0
 | R4 | d6 | 36/42 | 4 more real peer comps (E-055, E-044, E-045, E-032); E-035/E-037 verified; confirmed no further raw for single-node timelines |
 
 Hard limits: to go further we need new source material (later filings, counterparty/host-regulator docs, industry reports). Without it, more gold-standard density would mean making things up.
+
+## Round 5 (2026-10-28, ?v=20261028g1) — pubx-5 loop: industry context for H-share cluster
+- Outbound P0 gaps re-checked: all 77 non-gold summaries ≥150字; remaining key_metrics/comparables gaps are filings without numeric terms or true peers (see R4) — unchanged, not padded.
+- P1 industry_context added to 25 H-share issuance/listing/termination/placing events (E-054/059/048/053, E-H-617671, E-002/041, E-D-627271, E-033, E-H-621125, E-042/043/003/034, E-D-621945, E-010/018/019/025/026, E-D-619286, E-D-622034, E-029, E-020/047), from verified external sources added to research_sources (label 外部信息, so depth is not auto-upgraded):
+  HKEX IPO application report Sep 2026 (933 handled / 590 processing / 146 lapsed-rejected-returned-withdrawn, 157 A-share fast track, 6→12 month validity extension), HKEX Monthly Market Highlights Sep 2026 (118 new listings, IPO HK$388.03bn +106%, total funds HK$723.96bn), KPMG 2026 Q3 review (38 A+H, ~70% of IPO funds). Each item states sample/date/basis; stage-specific readings (筹划/递表备案/聆讯/挂牌/终止/配售).
+- Depth unchanged deep 36 / brief 42. E-013 and HK/US gold untouched.

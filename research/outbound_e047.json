@@ -2,7 +2,7 @@
  "event_id": "E-047",
  "title": "剑桥科技完成H股配售及39.6亿元人民币可转债发行",
  "depth": "deep",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-10-28",
  "stage": "两项发行完成；后续备案待落实",
  "kicker": "H股配售净额1,929.84百万港元、可转债净额4,605.52百万港元，证监会备案为后续义务。",
  "latest_change": "H股配售净额1,929.84百万港元、可转债净额4,605.52百万港元，证监会备案为后续义务。",
@@ -125,6 +125,13 @@
    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0914/2026091400872_c.pdf",
    "date": "2026-09-14",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_mmh_202609",
+   "title": "香港交易所 Monthly Market Highlights（2026年9月）",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "date": "2026-09-30",
+   "label": "外部信息"
   }
  ],
  "key_metrics": [
@@ -225,6 +232,19 @@
   "依据所列仓库原始公告于2026-10-27复核；公告事实与本站财务、战略及投资判断区分阅读。交易金额、资金预算及预测收益均保留原公告的币种、期间与条件。",
   "类案仅比较已说明的结构或落地路径，跨产品、跨阶段及不同股本的金额不能直接用于估值排名。"
  ],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "港股上市后再融资规模",
+   "sample": "香港联交所全部上市公司集资（含新股）",
+   "date": "2026-09-30",
+   "basis": "2026年首九个月累计；总集资7,239.56亿港元减新股集资3,880.32亿港元，余额约3,359亿港元为配售、供股等上市后集资合计，未按工具拆分",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "sources": [
+    "hkex_mmh_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所统计2026年首九个月总集资7,239.56亿港元，同比增长60%，其中新股3,880.32亿港元，余下约3,359亿港元来自已上市公司的配售、供股等再融资。剑桥科技配售净额约19.30亿港元，另发39.6亿元人民币可转债，两项合计属同期较大的上市后再融资。口径为全市场合计，未拆分配售与可转债。"
+  }
+ ],
  "cash_explanation": []
 }

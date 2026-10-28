@@ -2,7 +2,7 @@
  "event_id": "E-020",
  "title": "山东墨龙完成新H股配售",
  "depth": "deep",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-10-28",
  "stage": "配售交割完成；后续备案办理",
  "kicker": "9月28日完成配售33,615,600股，每股3.50港元，净额约114.89百万港元。",
  "latest_change": "9月28日完成配售33,615,600股，每股3.50港元，净额约114.89百万港元。",
@@ -147,6 +147,13 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-15/1225605853.PDF",
    "date": "2026-10-15",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_mmh_202609",
+   "title": "香港交易所 Monthly Market Highlights（2026年9月）",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "date": "2026-09-30",
+   "label": "外部信息"
   }
  ],
  "comparables": [
@@ -192,5 +199,19 @@
  ],
  "boundaries": [
   "2026年10月27日复核，仅使用所列仓库原始公告及出海叠加研究中的真实类案；事实与阶段以各自公告时点为准，商业意义和待观察事项为基于公告的分析。"
+ ],
+ "industry_context": [
+  {
+   "title": "港股上市后再融资规模",
+   "sample": "香港联交所全部上市公司集资（含新股）",
+   "date": "2026-09-30",
+   "basis": "2026年首九个月累计；总集资7,239.56亿港元减新股集资3,880.32亿港元，余额约3,359亿港元为配售、供股等上市后集资合计，未按工具拆分",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "sources": [
+    "hkex_mmh_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所统计2026年首九个月总集资7,239.56亿港元，同比增长60%，其中新股3,880.32亿港元，余下约3,359亿港元来自已上市公司的配售、供股等再融资。山东墨龙此次净额约1.15亿港元，属小额一般性授权配售。口径为全市场合计，未拆分配售与可转债。"
+  }
  ]
 }

@@ -2,7 +2,7 @@
  "event_id": "E-H-20261027-1225617671",
  "title": "科大智能重新递交H股上市申请",
  "depth": "brief",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-10-28",
  "stage": "重新递表；草拟资料刊发",
  "kicker": "重新递表；草拟资料刊发",
  "latest_change": "科大智能于10月22日重新向香港联交所递交H股主板上市申请，并在同日刊登申请资料。公司10月23日公告明确，材料为按香港监管要求编制的草拟版本，所载信息可能更新和修订。",
@@ -89,6 +89,20 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-08/1225595407.PDF",
    "date": "2026-10-08",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_ipo_202609",
+   "title": "香港联交所：有关首次公开招股申请、除牌和停牌公司之报告（2026年9月）",
+   "url": "https://www.hkex.com.hk/News/Market-Communications/2026/260930news?sc_lang=zh-HK",
+   "date": "2026-09-30",
+   "label": "外部信息"
+  },
+  {
+   "id": "hkex_mmh_202609",
+   "title": "香港交易所 Monthly Market Highlights（2026年9月）",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "date": "2026-09-30",
+   "label": "外部信息"
   }
  ],
  "key_metrics": [],
@@ -110,7 +124,32 @@
   "原文未提供可用于衡量交易或融资规模的金额、比例及经营财务数据；关键指标留空，不以证券代码、公告编号或程序日期填充金额指标。"
  ],
  "comparison_notes": [],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "港股上市申请排队",
+   "sample": "香港联交所2026年处理的全部上市申请（主板、GEM及第二十章投资工具）",
+   "date": "2026-09-30",
+   "basis": "2026年1月1日至9月30日累计；申请宗数口径，非集资额",
+   "url": "https://www.hkex.com.hk/News/Market-Communications/2026/260930news?sc_lang=zh-HK",
+   "sources": [
+    "hkex_ipo_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所9月报告显示，2026年截至9月30日共处理933宗上市申请，其中2026年新受理554宗；9月底仍有590宗处理中，28宗已获上市委员会批准待上市，146宗因处理期限已过、被拒、被发回或自行撤回结束。今年按优化流程处理的874宗中，157宗走合资格A股公司快速审批时间表。港交所并提示，因申请数量显著上升，部分申请每轮意见的实际处理时间会比时间表稍长。本次属于重新递表：首份申请到期后再交，说明审核周期可能超过单份申请六个月有效期，后续要看是否适用延长安排及何时进入聆讯。"
+  },
+  {
+   "title": "港股新股集资规模",
+   "sample": "香港联交所主板及GEM全部新上市公司",
+   "date": "2026-09-30",
+   "basis": "2026年首九个月累计对2025年同期；IPO集资额含认购、发售及配售，港元",
+   "url": "https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/HKEX-Monthly-Market-Highlights?sc_lang=en",
+   "sources": [
+    "hkex_mmh_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所统计，2026年首九个月新上市公司118家（去年同期69家），新股集资3,880.32亿港元，同比增长106%。市场集资活跃，但科大智能尚未定价，不能用市场总额或同期案例推算本次募资额。"
+  }
+ ],
  "cash_explanation": [
   {
    "text": "本公告未形成可确认的新增融资或并购现金流；具体收支须依据正式实施文件及后续财务记录核实，不能将筹备或终止节点视为资金到账或资产处置回款。",
