@@ -79,7 +79,7 @@
   function deepDetail(e,r) {
     sourceMap={}; (r.research_sources||[]).forEach(function(s,i){if(s.id)sourceMap[s.id]=Object.assign({},s,{citationIndex:i+1});});
     document.title=(r.title||'事件研究')+' · PubX';
-    var h='<article class="research-article">'+(r.title?'<h1>'+esc(r.title)+'</h1>':'')+'<p class="research-depth"><span class="pill">'+(r.depth==='deep'?'公开资料深读':'公告速览')+'</span></p>'+tipsHTML(r.tips);
+    var h='<article class="research-article">'+(r.title?'<h1>'+esc(r.title)+'</h1>':'')+'<p class="research-depth"><span class="pill">'+(r.depth==='deep'?'公开资料深读':'公告速览')+'</span></p>'+tipsHTML(iaTips(e,r.tips));
     h+=moduleHTML('status','当前状态',paragraphs([r.kicker,r.latest_change].filter(function(x,i,a){return x && a.indexOf(x)===i;})));
     ['first_disclosure','latest_document','latest_substantive'].forEach(function(key,i){var d=r[key];if(d&&d.title)h+='<p class="research-disclosure">'+['首次披露','最新文件','最新实质变化'][i]+'：'+esc(d.date||'')+' '+link(d.url,d.title)+'</p>';});
     h+=moduleHTML('summary','事件摘要',paragraphs(r.summary));
@@ -107,6 +107,8 @@
     if(attachments.length) h+='<details class="research-attachments"><summary>Rule 22等辅助附件（'+attachments.length+'）</summary>'+attachments.map(function(s){return '<p>'+esc(s.date||'')+' '+link(s.url,s.title)+'</p>';}).join('')+'</details>';
     return h+'</article>';
   }
+  // 港美：按 page_ia.js 细拆规则补一条「运作类型」提示，深链到运作类型 tab（规则见 docs/HK_SEC_IA.md）。
+  function iaTips(e,tips){var m=val(e,'market'); if(!window.PubXIA||(m!=='hk'&&m!=='us')) return tips; var b=window.PubXIA.actionType(m,e); if(!b) return tips; var base=m==='hk'?'hk-market':'us'; return [{kind:'运作类型',label:'运作类型',value:b,href:'#/'+base+'?v=types&type='+encodeURIComponent(b)}].concat((tips||[]).map(function(t){return t.kind==='运作类型'&&t.label==='事件类型'?Object.assign({},t,{label:'公告分类'}):t;}));}
   function detail(e) {
     return deepDetail(e,clean(e.research||{}));
   }
