@@ -66,3 +66,9 @@ Hard limits: to go further we need new source material (later filings, counterpa
 - Event chains completed from cninfo announcement lists (筹划/递表/重新递表/证监会接收/备案) for 新宙邦, 绿联, 晶晨, 翱捷, 汉威, 科大智能, 博瑞, 蓝色光标.
 - Depth via standard rule (core filing + chain ≥2 + comparable + financial data + ≥2 meaning dims): 13 events brief→deep (all above except E-054, which has a single node and no approved plan yet). Outbound now deep 54 / brief 24. E-013 and HK/US gold untouched.
 - Remaining: E-017 still no peer; 翱捷 Q3 report not yet out (H1 used); H-share final issue sizes await prospectuses; HK/US not touched.
+
+## Round 8 (2026-11-03, ?v=20261103g1) — pubx-5 loop: official outbound-investment context for non-H-share events
+- P1 industry_context added to 18 non-H-share outbound events (overseas plants, subsidiaries, M&A, project funding, contracting) from MOFCOM/SAFE 2026 Jan–Sep statistics (published 2026-10-23): total ODI RMB 881.48bn −4.6%; non-financial ODI RMB 692.01bn −12.8% (9,071 enterprises, 148 economies); BRI non-financial RMB 184.29bn −14.3%; overseas contracting turnover RMB 894.79bn +2.1%, new contracts RMB 1,406.96bn +1.8%. Each item states sample/date/basis; the BRI item is only used for BRI countries (Korea, Italy, UK, HK, Singapore-trading cases use the national item only); share-of-total figures are labelled as site-computed order-of-magnitude references.
+  E-055, E-056, E-060, E-005, E-008, E-011, E-016, E-021, E-023, E-035, E-036, E-037, E-039, E-045, E-H-…617216, E-H-…617420, E-H-…619598, E-H-…620428.
+- E-055 comparables wording cleaned (no 未披露 token on page).
+- Sources added to research_sources as 外部信息, so depth unchanged: deep 54 / brief 24. E-013 and HK/US gold untouched. E-028 (Yancoal-funded offshore) deliberately not mapped to China ODI stats.

@@ -2,7 +2,7 @@
  "event_id": "E-023",
  "title": "品茗科技完成新加坡ZLX首期51%股权交割",
  "depth": "deep",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-11-03",
  "stage": "首次交割完成；49%有条件后续交割",
  "kicker": "ZLX的51%股权已完成登记并纳入合并报表；剩余49%仍受时间和业绩条件约束。",
  "latest_change": "ZLX的51%股权已完成登记并纳入合并报表；剩余49%仍受时间和业绩条件约束。",
@@ -154,6 +154,13 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225620428.PDF",
    "date": "2026-10-24",
    "label": "公告事实"
+  },
+  {
+   "id": "mofcom_odi_202609",
+   "title": "商务部：2026年1-9月我国全行业对外直接投资简明统计",
+   "url": "https://www.mofcom.gov.cn/tjsj/gwjjhztj/art/2026/art_a7a2c5d87fe3489fb8e5a74b9da583b3.html",
+   "date": "2026-10-23",
+   "label": "外部信息"
   }
  ],
  "operating_background": [
@@ -211,6 +218,19 @@
    ]
   }
  ],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "中国对外直接投资总量",
+   "sample": "中国境内投资者对全球148个国家和地区9,071家境外企业的直接投资（商务部、国家外汇局统计）",
+   "date": "2026-09-30",
+   "basis": "2026年1–9月累计对上年同期；人民币口径，括注美元口径；非金融类为全行业中扣除金融类部分",
+   "url": "https://www.mofcom.gov.cn/tjsj/gwjjhztj/art/2026/art_a7a2c5d87fe3489fb8e5a74b9da583b3.html",
+   "sources": [
+    "mofcom_odi_202609"
+   ],
+   "label": "外部信息",
+   "text": "商务部、外汇局统计，2026年1–9月全行业对外直接投资8,814.8亿元，同比下降4.6%（以美元计1,286.2亿美元，降0.2%）；其中非金融类直接投资6,920.1亿元，同比下降12.8%（以美元计1,009.7亿美元，降8.8%）。品茗科技收购新加坡ZLX总对价约3,431万元，首期51%已交割，属并购类对外投资；剩余49%受时间和业绩条件约束，后续付款不会一次计入。"
+  }
+ ],
  "cash_explanation": []
 }
