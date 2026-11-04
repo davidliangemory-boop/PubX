@@ -2,7 +2,7 @@
  "event_id": "E-H-20261027-1225617098",
  "title": "海南橡胶子公司发行6,500万美元次级永续债",
  "depth": "deep",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-11-04",
  "stage": "发行完成；母公司提供次级担保",
  "kicker": "发行完成；母公司提供次级担保；6,500万美元",
  "latest_change": "海南橡胶控股68.10%的合盛农业已发行6,500万美元境外次级永续债券，10月22日起息、10月23日在新加坡上市，初始利率7.95%，期限3+N、前3年不可赎回。此前获批的不超过2亿美元是发行授权上限，本期实际发行额应单独列示。",
@@ -176,6 +176,13 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-24/1225619052.PDF",
    "date": "2026-10-24",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_dimsum_202609",
+   "title": "香港交易所：图解香港交易所点心债市场发展情况",
+   "url": "https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/HKEX-Insight/Hong-Kongs-Growing-Dim-Sum-Bond-Market-in-Charts?sc_lang=zh-HK",
+   "date": "2026-10-02",
+   "label": "外部信息"
   }
  ],
  "operating_background": [
@@ -212,6 +219,19 @@
   }
  ],
  "comparison_notes": [],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "香港上市债券币种结构",
+   "sample": "香港交易所及彭博统计的香港交易所上市债券发行（不含场外未上市发行）",
+   "date": "2026-09-24",
+   "basis": "2026年1月1日至9月24日累计；发行额占比按币种，同比对2025年同期",
+   "url": "https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/HKEX-Insight/Hong-Kongs-Growing-Dim-Sum-Bond-Market-in-Charts?sc_lang=zh-HK",
+   "sources": [
+    "hkex_dimsum_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所与彭博数据显示，2026年截至9月24日香港上市点心债发行2,669亿元人民币，同比增长13.8%，共98宗；离岸人民币债占香港上市债券总发行额38%，美元债占31%，美元债发行规模较去年同期下降超过三分之一。合盛农业本次6,500万美元次级永续债在新加坡上市、初始利率7.95%，不在港交所统计范围；但美元债发行整体收缩、票息高企的环境说明，高负债率主体的美元永续融资成本偏高，母公司次级担保是发行的重要支撑。"
+  }
+ ],
  "cash_explanation": []
 }

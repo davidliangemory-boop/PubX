@@ -2,7 +2,7 @@
  "event_id": "E-D-20261024-1225619052",
  "title": "中交建担保5亿美元永续证券发出赎回通知",
  "depth": "deep",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-11-04",
  "stage": "已发通知；待12月22日赎回",
  "kicker": "已发通知；待12月22日赎回",
  "latest_change": "CCCI Treasure已发出通知，拟于2026年12月22日赎回全部5亿美元3.650%次级担保永续证券，由中国交通建设担保。赎回价为本金加截至赎回日但不包括该日的应计未付票息。",
@@ -133,11 +133,31 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-23/1225617098.PDF",
    "date": "2026-10-23",
    "label": "公告事实"
+  },
+  {
+   "id": "hkex_dimsum_202609",
+   "title": "香港交易所：图解香港交易所点心债市场发展情况",
+   "url": "https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/HKEX-Insight/Hong-Kongs-Growing-Dim-Sum-Bond-Market-in-Charts?sc_lang=zh-HK",
+   "date": "2026-10-02",
+   "label": "外部信息"
   }
  ],
  "boundaries": [
   "10月23日为原文通知及落款日，10月24日为来源链接日期；12月22日为计划赎回日，撤回上市须在完成赎回后办理。"
  ],
  "comparison_notes": [],
- "industry_context": []
+ "industry_context": [
+  {
+   "title": "香港上市债券币种结构",
+   "sample": "香港交易所及彭博统计的香港交易所上市债券发行（不含场外未上市发行）",
+   "date": "2026-09-24",
+   "basis": "2026年1月1日至9月24日累计；发行额占比按币种，同比对2025年同期",
+   "url": "https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/HKEX-Insight/Hong-Kongs-Growing-Dim-Sum-Bond-Market-in-Charts?sc_lang=zh-HK",
+   "sources": [
+    "hkex_dimsum_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所与彭博数据显示，2026年截至9月24日香港上市点心债发行2,669亿元人民币，同比增长13.8%，共98宗；离岸人民币债占香港上市债券总发行额38%，美元债占31%，美元债发行规模较去年同期下降超过三分之一。中交建担保的5亿美元3.650%永续证券选择于12月22日按本金赎回，与美元债发行收缩方向一致；赎回后是否以人民币或其他币种再融资，应以后续公告核对。"
+  }
+ ]
 }

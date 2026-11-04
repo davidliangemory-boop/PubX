@@ -72,3 +72,16 @@ Hard limits: to go further we need new source material (later filings, counterpa
   E-055, E-056, E-060, E-005, E-008, E-011, E-016, E-021, E-023, E-035, E-036, E-037, E-039, E-045, E-H-…617216, E-H-…617420, E-H-…619598, E-H-…620428.
 - E-055 comparables wording cleaned (no 未披露 token on page).
 - Sources added to research_sources as 外部信息, so depth unchanged: deep 54 / brief 24. E-013 and HK/US gold untouched. E-028 (Yancoal-funded offshore) deliberately not mapped to China ODI stats.
+
+## Round 9 (2026-11-04, ?v=20261104g1) — pubx-5 loop: sector context for results/notes/FX/pharma/auto outbound events; E-017 peer
+- P1 industry_context added to 29 of the 32 outbound events still lacking it, each item with sample/date/basis and a labelled external source (外部信息):
+  - Autos (CAAM Jan–Sep 2026: NEV sales 12.472m +11.1%, exports 4.006m ×2.3, domestic 8.466m −10.6%): E-030 蔚来, E-031 小鹏, E-049 理想/马赫心, E-012 吉利, E-050 长城, E-052 天成自控 (+GACC China–ASEAN trade).
+  - Offshore notes (Wind dim-sum issuance to 22 Sep 14,481.5亿元 > 2025 full year; HKEX/Bloomberg HK-listed dim sum 2,669亿元 +13.8%, RMB 38% vs USD 31% share, USD issuance down >1/3): E-D-…620956 中行迪拜, E-D-…hkex_12382424 美团, E-046 腾讯, E-D-…619052 中交建, E-H-…617098 海南橡胶.
+  - Cross-border RMB (PBOC Q1–Q3 current-account 15.23万亿 / direct-investment 6.11万亿): E-H-…586743 鸿特资金池.
+  - Trade (GACC Q1–Q3: ASEAN 6.84万亿 +22.7%; IC +99.1%, ADP equipment +48.1%; 财信 transformer exports 92.20亿美元 +28.0%): E-009 广电运通, E-022 行云, E-014 三星电气.
+  - Retail (NBS Jan–Sep online 151,471亿 +4.4%): E-001 拼多多. Solar (NEA 110.83GW new; SMM module exports 184.66GW −9.6%): E-051 晶科.
+  - Gold (CGA Q1–Q3: domestic-ore output −18.71%, big groups' overseas mines 71.126t +15.77%): E-D-…617035 紫金/赤峰. Insurance (NFRA Q1–Q3 premiums 52,613亿 +0.9%): E-058 中国人寿. Coal (Australia REQ Sep 2026 outlook): E-028, E-057 兖煤.
+  - Pharma/devices (CCCMHPIE H1 2026: exports 599.66亿美元 +9.87%, finished drugs +24.2%, EU +14.03%, Italy +75.6%, devices +12.47%): E-027, E-D-…626427 汇宇, E-044 赛诺.
+  - ODI/BRI (MOFCOM Jan–Sep, reused): E-032 安踏/PUMA, E-007 酷特 (terminated), E-038 川金诺 (Egypt, BRI). KPMG A+H stat: E-D-…625852 华勤/晶合.
+- E-017 中源家居: first real peer — 众望布艺 Z-WOVENS IEEPA refund (US$1.426m incl. interest; 13.36% of audited net profit vs this case 40.49%), plus CBP refund progress (US$166bn collected; ~US$127.7bn certified by 23 Oct). Now passes the standard gate → brief→deep.
+- Site-computed ratios (share of national totals) are labelled as order-of-magnitude references. Depth: deep 55 / brief 23. Still no industry_context: E-004 联想可转债转换, E-024 海尔境内担保, E-040 海尔D股回购 (no fitting sector statistic). E-013 and HK/US gold untouched.

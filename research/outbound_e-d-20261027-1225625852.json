@@ -2,7 +2,7 @@
  "event_id": "E-D-20261027-1225625852",
  "title": "华勤通讯香港拟增持晶合集成H股",
  "depth": "brief",
- "updated_at": "2026-10-29",
+ "updated_at": "2026-11-04",
  "stage": "增持计划；待实施",
  "kicker": "增持计划；待实施",
  "latest_change": "华勤通讯香港计划于2026年10月27日至2027年1月26日，以自有资金通过香港联交所集中竞价增持晶合集成H股1,500万至2,500万股，占当前总股本0.67%至1.12%，不设价格区间。",
@@ -90,6 +90,13 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-10-23/1225617035.PDF",
    "date": "2026-10-23",
    "label": "公告事实"
+  },
+  {
+   "id": "kpmg_ipo_2026q3",
+   "title": "毕马威：中国内地及香港IPO市场2026年第三季度回顾（新闻稿）",
+   "url": "https://kpmg.com/cn/zh/media/press-releases/2026/10/chinese-mainland-and-hk-ipo-markets-2026-q3-review-press-release.html",
+   "date": "2026-10-06",
+   "label": "外部信息"
   }
  ],
  "key_metrics": [
@@ -149,7 +156,20 @@
    ]
   }
  ],
- "industry_context": [],
+ "industry_context": [
+  {
+   "title": "A+H上市占比",
+   "sample": "毕马威统计的2026年首三季香港新股（116宗）及其中A+H上市（38宗）",
+   "date": "2026-10-06",
+   "basis": "2026年1—9月；集资额占比为毕马威统计口径，与港交所118家（含GEM转主板）口径不同",
+   "url": "https://kpmg.com/cn/zh/media/press-releases/2026/10/chinese-mainland-and-hk-ipo-markets-2026-q3-review-press-release.html",
+   "sources": [
+    "kpmg_ipo_2026q3"
+   ],
+   "label": "外部信息",
+   "text": "毕马威统计首三季A+H上市38宗，数目为去年同期三倍以上，集资额占香港IPO总额近七成。晶合集成属A+H公司，华勤通讯香港拟通过联交所竞价增持其H股1,500万至2,500万股；A+H公司两地股价并不相同，产业股东选择在H股增持，成本与A股增持不同，应按实际竞价成交价格核对。"
+  }
+ ],
  "comparables": [
   {
    "title": "E-D-20261023-1225617035 紫金完成赤峰黄金A股受让及H股认购",

@@ -1,8 +1,8 @@
 {
  "event_id": "E-017",
  "title": "中源家居境外子公司收到美国关税退税及利息",
- "depth": "brief",
- "updated_at": "2026-10-27",
+ "depth": "deep",
+ "updated_at": "2026-11-04",
  "stage": "退税陆续到账；计入当期损益",
  "kicker": "EBELLO累计收到退税及利息1,695,153.58美元，约1,144.04万元人民币。",
  "latest_change": "EBELLO累计收到退税及利息1,695,153.58美元，约1,144.04万元人民币。",
@@ -127,6 +127,27 @@
    "url": "https://static.cninfo.com.cn/finalpage/2026-09-25/1225580847.PDF",
    "date": "2026-09-25",
    "label": "公告事实"
+  },
+  {
+   "id": "cbp_ieepa_202610",
+   "title": "The Loadstar：CBP法庭申报显示截至10月23日已认证约1,277亿美元IEEPA关税退款",
+   "url": "https://theloadstar.com/128bn-tariff-refunds-the-money-has-moved-yet-not-everyone-has-been-paid/",
+   "date": "2026-11-03",
+   "label": "外部信息"
+  },
+  {
+   "id": "cbp_ieepa_202603",
+   "title": "CNBC：CBP向国际贸易法院申报IEEPA关税征收规模（约1,660亿美元、逾33万进口商）",
+   "url": "https://www.cnbc.com/2026/03/06/trump-trade-tariffs-refunds-customs-border-protection.html",
+   "date": "2026-03-06",
+   "label": "外部信息"
+  },
+  {
+   "id": "zwby_refund_202608",
+   "title": "众望布艺关于全资子公司收到美国关税退税的公告（2026-013）",
+   "url": "https://paper.cnstock.com/html/2026-08/12/content_2254102.htm",
+   "date": "2026-08-12",
+   "label": "公告事实"
   }
  ],
  "operating_background": [
@@ -146,9 +167,44 @@
   }
  ],
  "boundaries": [
-  "本研究于2026-10-27依据仓库所列原始公告复核；事实限于公告确认范围，财务、战略、投资意义及类案启示为基于这些事实的分析。计划日期、授权额度与实际执行分别记录。"
+  "本研究于2026-11-04依据仓库所列原始公告复核；事实限于公告确认范围，财务、战略、投资意义及类案启示为基于这些事实的分析。计划日期、授权额度与实际执行分别记录。"
  ],
- "comparables": [],
- "comparison_notes": [],
- "industry_context": []
+ "comparables": [
+  {
+   "title": "众望布艺Z-WOVENS美国关税退税",
+   "dimension": "美国子公司IEEPA退税到账与利润影响",
+   "this_case": "1,695,153.58美元（关税1,623,937.00美元、利息71,216.58美元）；约1,144.04万元；最近一期经审计归母净利润绝对值40.49%",
+   "peer": "1,426,103.18美元（关税1,369,903.20美元、利息56,199.98美元）；约968.32万元；最近一期经审计归母净利润13.36%",
+   "why": "均为A股家居/布艺企业的美国全资子公司作为进口商收到CBP退回IEEPA关税及利息，均计入2026年当期损益、不追溯调整",
+   "lesson": "两案到账金额接近，但本案相当于历史归母净利润40.49%，众望为13.36%，说明中源家居利润基数更薄，退税对其年度业绩比较的扭曲更大；评价持续盈利时更需剔除这笔一次性收益。",
+   "sources": [
+    "zwby_refund_202608",
+    "1225580847"
+   ]
+  }
+ ],
+ "comparison_notes": [
+  {
+   "text": "与众望布艺同类退税相比，两者美元到账额接近（约169.5万美元对约142.6万美元），但占历史归母净利润比例分别为40.49%与13.36%，本案利润弹性更大，也更依赖一次性收益。",
+   "sources": [
+    "zwby_refund_202608",
+    "1225580847"
+   ]
+  }
+ ],
+ "industry_context": [
+  {
+   "title": "美国IEEPA关税退款进度",
+   "sample": "美国海关与边境保护局（CBP）向国际贸易法院提交的IEEPA关税退款进度申报（全部进口商）",
+   "date": "2026-10-23",
+   "basis": "累计已认证退款金额（含利息）对征收总额；美元口径；征收总额为2026年3月申报数",
+   "url": "https://theloadstar.com/128bn-tariff-refunds-the-money-has-moved-yet-not-everyone-has-been-paid/",
+   "sources": [
+    "cbp_ieepa_202610",
+    "cbp_ieepa_202603"
+   ],
+   "label": "外部信息",
+   "text": "CBP 3月申报称，依据IEEPA征收的关税约1,660亿美元，涉及逾33万家进口商、5,300万份报关单；截至10月23日，CBP已认证约1,277亿美元退款。按两数相除，已认证约占征收总额的77%（本站计算，仅作量级参照）。中源家居EBELLO到账约169.5万美元，属这一全行业退款潮中的个体收款，退款主要取决于进口报关历史，不代表未来关税成本下降。"
+  }
+ ]
 }

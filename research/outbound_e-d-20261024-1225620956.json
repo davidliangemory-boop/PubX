@@ -2,7 +2,7 @@
  "event_id": "E-D-20261024-1225620956",
  "title": "中行迪拜分行20亿元人民币票据获准迪拜交易",
  "depth": "deep",
- "updated_at": "2026-10-27",
+ "updated_at": "2026-11-04",
  "stage": "迪拜交易获准；香港上市通告另列",
  "kicker": "迪拜交易获准；香港上市通告另列",
  "latest_change": "中国银行迪拜分行发行2028年到期的20亿元人民币1.60%票据，置于400亿美元中期票据计划之下。10月24日通告列明已申请香港上市，预计10月26日批准生效，票据面向专业投资者。",
@@ -139,6 +139,20 @@
    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1022/2026102200034_c.pdf",
    "date": "2026-10-22",
    "label": "公告事实"
+  },
+  {
+   "id": "dimsum_wind_202609",
+   "title": "证券日报/中国金融信息网：今年点心债发行规模创历史新高（Wind数据）",
+   "url": "https://www.cnfin.com/zs-lb/detail/20260923/4473816_1.html",
+   "date": "2026-09-23",
+   "label": "外部信息"
+  },
+  {
+   "id": "hkex_dimsum_202609",
+   "title": "香港交易所：图解香港交易所点心债市场发展情况",
+   "url": "https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/HKEX-Insight/Hong-Kongs-Growing-Dim-Sum-Bond-Market-in-Charts?sc_lang=zh-HK",
+   "date": "2026-10-02",
+   "label": "外部信息"
   }
  ],
  "key_metrics": [
@@ -211,5 +225,30 @@
  "boundaries": [
   "本研究于2026-10-27依据仓库所列原始公告复核；事实限于公告确认范围，财务、战略、投资意义及类案启示为基于这些事实的分析。计划日期、授权额度与实际执行分别记录。"
  ],
- "industry_context": []
+ "industry_context": [
+  {
+   "title": "点心债发行规模",
+   "sample": "Wind统计的境外发行人民币计价债券（点心债）全部发行，含金融机构",
+   "date": "2026-09-22",
+   "basis": "2026年1月1日至9月22日累计只数及发行额，对比2025全年；人民币口径，含存单等短期品种",
+   "url": "https://www.cnfin.com/zs-lb/detail/20260923/4473816_1.html",
+   "sources": [
+    "dimsum_wind_202609"
+   ],
+   "label": "外部信息",
+   "text": "Wind数据显示，2026年截至9月22日点心债共发行1,726只、合计14,481.5亿元，已超过2025年全年14,288.68亿元。中行迪拜分行本次20亿元、1.60%的2028年票据处于点心债扩容期，银行境外分行是点心债传统发行主体；本案在迪拜获准交易并申请香港上市，属分行融资渠道扩展，不改变其银行信用。"
+  },
+  {
+   "title": "香港上市债券币种结构",
+   "sample": "香港交易所及彭博统计的香港交易所上市债券发行（不含场外未上市发行）",
+   "date": "2026-09-24",
+   "basis": "2026年1月1日至9月24日累计；发行额占比按币种，同比对2025年同期",
+   "url": "https://www.hkexgroup.com/Media-Centre/Insight/Insight/2026/HKEX-Insight/Hong-Kongs-Growing-Dim-Sum-Bond-Market-in-Charts?sc_lang=zh-HK",
+   "sources": [
+    "hkex_dimsum_202609"
+   ],
+   "label": "外部信息",
+   "text": "港交所与彭博数据显示，2026年截至9月24日香港上市点心债发行2,669亿元人民币，同比增长13.8%，共98宗；离岸人民币债占香港上市债券总发行额38%，美元债占31%，美元债发行规模较去年同期下降超过三分之一。本票据同时申请香港上市，计入香港上市点心债统计口径。"
+  }
+ ]
 }
