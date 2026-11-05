@@ -85,3 +85,19 @@ Hard limits: to go further we need new source material (later filings, counterpa
   - ODI/BRI (MOFCOM Jan–Sep, reused): E-032 安踏/PUMA, E-007 酷特 (terminated), E-038 川金诺 (Egypt, BRI). KPMG A+H stat: E-D-…625852 华勤/晶合.
 - E-017 中源家居: first real peer — 众望布艺 Z-WOVENS IEEPA refund (US$1.426m incl. interest; 13.36% of audited net profit vs this case 40.49%), plus CBP refund progress (US$166bn collected; ~US$127.7bn certified by 23 Oct). Now passes the standard gate → brief→deep.
 - Site-computed ratios (share of national totals) are labelled as order-of-magnitude references. Depth: deep 55 / brief 23. Still no industry_context: E-004 联想可转债转换, E-024 海尔境内担保, E-040 海尔D股回购 (no fitting sector statistic). E-013 and HK/US gold untouched.
+
+## Round 10 (2026-11-05, ?v=20261105g1) — pubx-5 loop: brief re-audit with new filings; E-004 CB context
+- P1 brief→deep re-audit: 10 outbound events now have a real filing chain (≥2 dated nodes), a valid peer and 2026 Q3 financials (cninfo 财务数据/企业资料), and pass the standard gate:
+  - E-D-…621945 东山精密: retitled 东山精密H股挂牌，净筹约97.17亿港元 (10/28 listing, 113,783,200 H shares @86.80港元 vs 93.80 cap, H 5.85%/6.67% post-greenshoe; Q3 rev 453.79亿 +67.63%, NP 52.89亿, ST debt 116.10亿).
+  - E-048 江丰电子: 10/30 EGM passed H-share plan 99.88%; Q3 NP 8.11亿 vs 扣非 4.33亿 (≈3.78亿 non-recurring); peer E-053 refreshed.
+  - E-053 联讯仪器: 11/02 EGM passed 99.98%; Q3 rev 40.43亿 +401.91%, NP 20.06亿 (Q3 alone ~72%); April STAR IPO; peer E-059.
+  - E-059 奥士康: 11/05 EGM scheduled (result pending → watch item); Q3 NP 4.54亿 +60.87% vs op. cash 0.95亿 −48.68%.
+  - E-033 若羽臣: chain 2025-09-19 first filing / 2026-04-27 refiling / 10-08 CSRC; Q3 NP 2.31亿 +120.92%.
+  - E-D-…627271 龙迅: chain 2025-09-20 / 2025-11-21 board / 2026-10-27 CSRC; Q3 NP 1.17亿 −5.68%, R&D 20.90%.
+  - E-015 玲珑轮胎: retitled 董事会批准埃及600万套半钢胎项目 (9/23 board, 对外投资公告 2026-071); Q3 NP 0.64亿 −94.51%, FX loss ≈4.37亿, raw-material cost +15.17%.
+  - E-045 瀚蓝环境: SSE review chain (6/30 accepted, 7/13 inquiry, 9/2 reply, 9/30 suspended for stale financials), price adj. 24.30元/53,310,340 shares; 粤丰 1–9M NP contribution 4.22亿.
+  - E-040 海尔智家: D-share offer 1.87欧元 → ≈1.48亿欧元 total (site-computed); Q3 NP 149.99亿 −13.67%, op. cash −39.00%.
+  - E-H-…617216 中水渔业: same-board ship purchase (BG AGNES ≈US$12.525m) and 2 longliners (≈6,836万元); Q3 Q3-only loss ≈647万, liabilities/assets ≈70.3% (site-computed).
+- E-004 联想: industry_context added — UBS via 经济参考报/新华网 (2026 YTD to ~10 Jun: HK CB issuance US$14.2bn > placements US$9.6bn; zero-coupon wave); 20 boilerplate timeline rows collapsed to 8 meaningful nodes. E-046 腾讯: 8 dealer-agreement history rows collapsed to 1.
+- Dangling source refs fixed (sources cited in comparables but missing from research_sources): E-032, E-044, E-045, E-055.
+- Depth: outbound deep 65 / brief 13. Still no industry_context: E-024 (intra-group guarantee), E-040 (D-share buyback) — no meaningful sector statistic. E-013 and HK/US gold untouched; pubx-2/3/4 still paused.
