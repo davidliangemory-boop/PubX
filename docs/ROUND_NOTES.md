@@ -101,3 +101,10 @@ Hard limits: to go further we need new source material (later filings, counterpa
 - E-004 联想: industry_context added — UBS via 经济参考报/新华网 (2026 YTD to ~10 Jun: HK CB issuance US$14.2bn > placements US$9.6bn; zero-coupon wave); 20 boilerplate timeline rows collapsed to 8 meaningful nodes. E-046 腾讯: 8 dealer-agreement history rows collapsed to 1.
 - Dangling source refs fixed (sources cited in comparables but missing from research_sources): E-032, E-044, E-045, E-055.
 - Depth: outbound deep 65 / brief 13. Still no industry_context: E-024 (intra-group guarantee), E-040 (D-share buyback) — no meaningful sector statistic. E-013 and HK/US gold untouched; pubx-2/3/4 still paused.
+
+## Round 11 (2026-11-06, ?v=20261106g1) — pubx-5 loop: E-059 AGM result; clear remaining no-industry; source hygiene
+- **E-059 奥士康**: 11月5日第二次临时股东会决议公告（cninfo 1225660210，11月6日披露）确认H股发行上市主议案同意率99.9928%（同意217,524,850股），出席表决权占比69.8399%；主板方案各子项、转为境外募集股份有限公司、24个月有效期、募集资金使用计划等均通过。标题/阶段/摘要/时间线/核心数字/待观察/投资意义同步改为“股东会通过；待境内备案及香港审核”。深度仍为 deep。
+- **industry_context 清零剩余空缺**: E-024 补交通运输部前三季度营业性货运量/港口吞吐量（公路货运327.0亿吨 +2.5%）；E-040 补中国证券报引述上交所沪市前三季度新增回购计划250余家次、上限超720亿元（并标明本案为D股要约注销、与多数A股集中竞价计划不同市场）。此前 outbound 仅此两案缺/空 industry。
+- **来源替换**: 紫金 E-D-…617035 黄金协会统计由新浪转载改为新华社稿；E-044 行业由医保商会综合H1改为商会《医疗器械进出口形势分析》专项（含拉美出口 +17.7%）；E-027 / E-D-…626427 西成药/对欧口径在原H1主键上收紧表述（商会尚未发前三季度西成药分项，不伪造Q3）。
+- Depth unchanged: deep 65 / brief 13. No brief→deep this round（剩余 brief 多为单节点时间线或缺财务数据源，未垫高）。E-013 / hk_01788 / us_eqt_range 及 HK/US 批量、paused pubx-2/3/4 均未动。
+
