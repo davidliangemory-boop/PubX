@@ -2,7 +2,7 @@
  "event_id": "E-D-20261024-1225620956",
  "title": "中行迪拜分行20亿元人民币票据获准迪拜交易",
  "depth": "deep",
- "updated_at": "2026-11-04",
+ "updated_at": "2026-11-09",
  "stage": "迪拜交易获准；香港上市通告另列",
  "kicker": "迪拜交易获准；香港上市通告另列",
  "latest_change": "中国银行迪拜分行发行2028年到期的20亿元人民币1.60%票据，置于400亿美元中期票据计划之下。10月24日通告列明已申请香港上市，预计10月26日批准生效，票据面向专业投资者。",
@@ -142,8 +142,8 @@
   },
   {
    "id": "dimsum_wind_202609",
-   "title": "证券日报/中国金融信息网：今年点心债发行规模创历史新高（Wind数据）",
-   "url": "https://www.cnfin.com/zs-lb/detail/20260923/4473816_1.html",
+   "title": "证券日报：今年点心债发行规模创历史新高（Wind数据）",
+   "url": "http://www.zqrb.cn/finance/hongguanjingji/2026-09-23/A1790078811493.html",
    "date": "2026-09-23",
    "label": "外部信息"
   },
@@ -231,7 +231,7 @@
    "sample": "Wind统计的境外发行人民币计价债券（点心债）全部发行，含金融机构",
    "date": "2026-09-22",
    "basis": "2026年1月1日至9月22日累计只数及发行额，对比2025全年；人民币口径，含存单等短期品种",
-   "url": "https://www.cnfin.com/zs-lb/detail/20260923/4473816_1.html",
+   "url": "http://www.zqrb.cn/finance/hongguanjingji/2026-09-23/A1790078811493.html",
    "sources": [
     "dimsum_wind_202609"
    ],
